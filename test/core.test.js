@@ -86,7 +86,7 @@ test('jgrants: 結果を整形し、対象外地域を除外する', async () =>
 });
 
 test('API: /api/search がオフラインでも結果を返す', async () => {
-  const app = createApp({ fetchImpl: offline, analyze: async () => null });
+  const app = createApp({ fetchImpl: offline, analyze: async () => null, loadGrants: async () => null });
   const server = app.listen(0);
   const base = `http://127.0.0.1:${server.address().port}`;
   try {
@@ -167,7 +167,7 @@ test('matcher: 対象者が限られる制度は、該当しなければ順位�
 
 test('API: セキュリティヘッダー・不正なJSON・レート制限', async () => {
   process.env.RATE_LIMIT_PER_MIN = '2';
-  const app = createApp({ fetchImpl: offline, analyze: async () => null });
+  const app = createApp({ fetchImpl: offline, analyze: async () => null, loadGrants: async () => null });
   delete process.env.RATE_LIMIT_PER_MIN;
   const server = app.listen(0);
   const base = `http://127.0.0.1:${server.address().port}`;

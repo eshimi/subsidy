@@ -4,6 +4,9 @@ on:
   push:
     branches: [main, claude/business-subsidy-finder-2v9gwr]
   workflow_dispatch:
+  # jGrants の募集中の補助金を毎朝取り込み直す（日本時間 5:47）
+  schedule:
+    - cron: '47 20 * * *'
 
 permissions:
   contents: read
@@ -25,6 +28,8 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm test
+      - name: Fetch jGrants data
+        run: npm run fetch:jgrants
       - run: npm run build:static
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3

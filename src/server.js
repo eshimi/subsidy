@@ -1,12 +1,14 @@
 import express from 'express';
 import { fileURLToPath } from 'node:url';
+import { stat } from 'node:fs/promises';
 import { runSearch } from './search.js';
 import { lookupPostalCode } from './postal.js';
 import { aiEnabled } from './ai.js';
 import { TtlCache, securityHeaders, rateLimit } from './middleware.js';
+import { loadGrants } from './grants-store.js';
 
 export function createApp(options = {}) {
-  const deps = { cache: new TtlCache(), ...options };
+  const deps = { cache: new TtlCache(), loadGrants, ...options };
   const app = express();
   app.disable('x-powered-by');
   // Render / Cloud Run などのリバースプロキシ配下で、利用者のIPを正しく取得する
@@ -56,6 +58,19 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const server = createApp().listen(port, () => {
     console.log(`補助金ファインダー: http://localhost:${port}  (AI解析: ${aiEnabled() ? '有効' : '無効'})`);
   });
+  // 取り込んだ jGrants データを1日1回更新する（JGRANTS_REFRESH=off で無効）
+  if (process.env.JGRANTS_REFRESH !== 'off') {
+    const refresh = () =>
+      import('../scripts/fetch-jgrants.mjs')
+        .then((m) => m.fetchAndWrite({ log: () => {} }))
+        .then((r) => console.log(`jGrants データを更新しました（${r.total}件）`))
+        .catch((e) => console.warn('jGrants データの更新に失敗しました:', e.message));
+    setInterval(refresh, 24 * 60 * 60 * 1000).unref();
+    // 起動時にデータが無いか1日以上前のものなら、すぐ取り込む
+    stat(new URL('../public/data/jgrants/index.json', import.meta.url))
+      .then((s) => Date.now() - s.mtimeMs > 24 * 60 * 60 * 1000 && refresh())
+      .catch(() => refresh());
+  }
   const shutdown = () => server.close(() => process.exit(0));
   process.on('SIGTERM', shutdown);
   process.on('SIGINT', shutdown);

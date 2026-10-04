@@ -22,6 +22,8 @@ await build({
 
 await copyFile(new URL('public/style.css', root), new URL('style.css', out));
 await cp(new URL('public/media/', root), new URL('media/', out), { recursive: true });
+// jGrants データ（scripts/fetch-jgrants.mjs で取得済みのとき）
+await cp(new URL('public/data/', root), new URL('data/', out), { recursive: true }).catch(() => console.warn('jGrants データがありません（npm run fetch:jgrants で取得できます）'));
 // 更新がすぐ反映されるよう、CSS と JS の参照に内容のハッシュを付ける（キャッシュ対策）
 const hashOf = async (name) => createHash('sha256').update(await readFile(new URL(name, out))).digest('hex').slice(0, 10);
 const html = (await readFile(new URL('public/index.html', root), 'utf8'))

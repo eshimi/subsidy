@@ -4,6 +4,7 @@ import { lookupPostalCode } from './postal.js';
 import { classifyBusiness } from './classifier.js';
 import { matchPrograms } from './matcher.js';
 import { searchJGrants } from './jgrants.js';
+import { rankGrants } from './jgrants-rank.js';
 import { INDUSTRIES, TAGS, STAGES } from './data/taxonomy.js';
 
 const ATTRIBUTE_TAGS = ['woman', 'young', 'senior', 'hiring', 'relocation', 'store'];
@@ -39,12 +40,7 @@ export async function runSearchCore(input, deps = {}) {
 
   const programs = matchPrograms(profile, address);
 
-  const keywords = [
-    '創業',
-    ...(ai?.searchKeywords ?? []),
-    ...industries.slice(0, 2).map((k) => INDUSTRIES[k].label.split('・')[0]),
-  ];
-  const live = await searchJGrants(keywords, address.prefecture, deps);
+  const live = await findLiveGrants({ industries, tags, address, ai }, deps);
 
   return {
     address,
@@ -59,4 +55,16 @@ export async function runSearchCore(input, deps = {}) {
     live,
     generatedAt: new Date().toISOString(),
   };
+}
+
+// 募集中の補助金: 毎日取り込んだ jGrants データがあれば関連度順に並べ、なければ jGrants API を直接検索する
+async function findLiveGrants({ industries, tags, address, ai }, deps) {
+  const dataset = deps.loadGrants ? await deps.loadGrants(address.prefecture).catch(() => null) : null;
+  if (dataset?.available) {
+    const ranked = rankGrants(dataset.items, { industries, tags, address });
+    return { available: true, source: 'dataset', generatedAt: dataset.generatedAt, total: dataset.items.length, matched: ranked.matched, items: ranked.items };
+  }
+  if (deps.liveApi === false) return { available: false, items: [] };
+  const keywords = ['創業', ...(ai?.searchKeywords ?? []), ...industries.slice(0, 2).map((k) => INDUSTRIES[k].label.split('・')[0])];
+  return { ...(await searchJGrants(keywords, address.prefecture, deps)), source: 'api' };
 }

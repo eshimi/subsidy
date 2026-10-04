@@ -1,13 +1,13 @@
 // 事業内容テキストから業種・属性タグをキーワードで判定する（AIなしでも動く基本ロジック）。
 import { INDUSTRIES, TAGS } from './data/taxonomy.js';
 
-function normalize(text) {
+export function normalize(text) {
   return text
     .normalize('NFKC')
     .toLowerCase();
 }
 
-function matches(text, keyword) {
+export function matches(text, keyword) {
   // 英字だけのキーワード（it, ai, ec など）は単語境界で判定して誤検出を防ぐ
   if (/^[a-z0-9&]+$/.test(keyword)) {
     return new RegExp(`(^|[^a-z0-9])${keyword.replace('&', '\\&')}([^a-z0-9]|$)`).test(text);

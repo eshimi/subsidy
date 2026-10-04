@@ -8,6 +8,8 @@ RUN npm ci --omit=dev && npm cache clean --force
 
 COPY src ./src
 COPY public ./public
+COPY scripts ./scripts
+RUN mkdir -p public/data && chown -R node:node public/data
 
 USER node
 ENV PORT=3000

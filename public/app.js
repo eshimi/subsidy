@@ -310,10 +310,14 @@ function render() {
   const maxScore = Math.max(...programs.map((p) => p.score), 1);
   $('#program-list').innerHTML = visible.map((p, i) => programCard(p, i, maxScore, !!saved[p.id])).join('') || '<p class="empty">該当する制度がありません。</p>';
 
+  const updated = live.generatedAt ? formatDate(live.generatedAt) : null;
+  $('#live-meta').textContent = live.source === 'dataset'
+    ? `${esc(address.prefecture)}・全国向けの募集中 ${live.total.toLocaleString('ja-JP')}件から関連する ${live.matched}件${live.matched > live.items.length ? `（上位${live.items.length}件）` : ''}・${updated}更新`
+    : 'デジタル庁 jGrants より';
   if (!live.available) {
-    $('#live-list').innerHTML = '<p class="empty">現在 jGrants に接続できないため、募集中の補助金を取得できませんでした。<a href="https://www.jgrants-portal.go.jp/" target="_blank" rel="noopener">jGrants で直接探す ↗</a></p>';
+    $('#live-list').innerHTML = '<p class="empty">現在 jGrants のデータを取得できないため、募集中の補助金を表示できませんでした。<a href="https://www.jgrants-portal.go.jp/" target="_blank" rel="noopener">jGrants で直接探す ↗</a></p>';
   } else if (live.items.length === 0) {
-    $('#live-list').innerHTML = '<p class="empty">条件に合う募集中の補助金は見つかりませんでした。</p>';
+    $('#live-list').innerHTML = '<p class="empty">条件に合う募集中の補助金は見つかりませんでした。<a href="https://www.jgrants-portal.go.jp/" target="_blank" rel="noopener">jGrants で直接探す ↗</a></p>';
   } else {
     $('#live-list').innerHTML = live.items.map((item, i) => liveCard(item, i, !!saved[item.id])).join('');
   }
@@ -401,6 +405,21 @@ function liveCard(item, i, isSaved) {
   </article>`;
 }
 
+// ── ヒーローの「募集中の補助金」件数（取り込んだ jGrants データから） ──
+async function showLiveTotal() {
+  try {
+    const res = await fetch('data/jgrants/index.json');
+    if (!res.ok) return;
+    const index = await res.json();
+    if (index.available && index.total) {
+      $('#fact-live').innerHTML = `${index.total.toLocaleString('ja-JP')}<small>件</small>`;
+    }
+  } catch {
+    // データが無い環境では「jGrants 連携」の表示のまま
+  }
+}
+
 // ── 初期化 ──
 renderSaved();
+showLiveTotal();
 if (restoreFromUrl()) form.requestSubmit();

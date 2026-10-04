@@ -1,10 +1,11 @@
 // GitHub Pages 用の静的版。サーバーの代わりにブラウザ内で検索する。
 // - 住所: zipcloud を JSONP で取得（CORS 不要）。失敗時は郵便番号から都道府県を推定
-// - 募集中の補助金: jGrants API をブラウザから直接呼ぶ（取得できなければ「接続できない」表示）
+// - 募集中の補助金: ビルド時（毎日）に取り込んだ jGrants データを関連度順に並べる
 // - Claude による解析は APIキーを公開できないため使わない
 import { runSearchCore } from '../src/search-core.js';
 import { lookupPostalCode } from '../src/postal.js';
 import { TtlCache } from '../src/middleware.js';
+import { prefFile } from '../src/data/prefectures.js';
 
 const nativeFetch = window.fetch.bind(window);
 const cache = new TtlCache();
@@ -44,7 +45,25 @@ async function browserFetch(url, init) {
   return nativeFetch(url, init);
 }
 
-const deps = { fetchImpl: browserFetch, cache };
+// ビルド時に取り込んだ jGrants データ（data/jgrants/）を読み込む。ブラウザから API は直接呼ばない
+let grantsIndex;
+async function getJson(path) {
+  const res = await nativeFetch(path);
+  if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+  return res.json();
+}
+async function loadGrants(prefecture) {
+  grantsIndex ??= getJson('data/jgrants/index.json').catch(() => null);
+  const index = await grantsIndex;
+  if (!index?.available) return { available: false };
+  const [national, local] = await Promise.all([
+    getJson('data/jgrants/national.json').catch(() => []),
+    getJson(`data/jgrants/${prefFile(prefecture)}`).catch(() => []),
+  ]);
+  return { available: true, generatedAt: index.generatedAt, items: [...local, ...national] };
+}
+
+const deps = { fetchImpl: browserFetch, cache, loadGrants, liveApi: false };
 const json = (body, status = 200) => new Response(JSON.stringify(body), { status, headers: { 'content-type': 'application/json' } });
 
 async function handle(fn) {
