@@ -155,17 +155,20 @@ button, input, select, textarea { font: inherit; color: inherit; }
 @media (max-width: 760px) { .hero-foot { grid-template-columns: 1fr; } }
 
 /* ── フォーム ── */
-.form { border-top: 2px solid var(--line); }
+.form { border-top: 2px solid var(--line); background: #ffffff; color: #111111; padding-block: 32px 0; margin-block: 32px 0; }
+.form a { color: #1f3bff; }
+.form a:hover { color: #1f3bff; }
 .form-row {
   display: grid;
   grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
   gap: 16px clamp(16px, 3vw, 48px);
   padding-block: 22px;
   border: 0;
-  border-bottom: 1px solid var(--line-soft);
+  border-bottom: 1px solid #d4d4cf;
   margin: 0;
   min-width: 0;
 }
+.form .form-row { border-bottom-color: #d4d4cf; }
 fieldset.form-row { padding-inline: 0; }
 legend.row-label { float: left; width: 100%; padding: 0; }
 fieldset.form-row > .row-body { clear: none; }
@@ -174,6 +177,9 @@ fieldset.form-row > .row-body { clear: none; }
 .req, .opt { font-weight: 500; padding: 1px 6px; border: 1px solid currentColor; line-height: 1.4; }
 .req { color: var(--accent); }
 .opt { color: var(--mute); }
+.form .num { color: #676763; }
+.form .req { color: #d7341c; }
+.form .opt { color: #676763; }
 .row-body { display: grid; gap: 12px; min-width: 0; }
 @media (max-width: 760px) { .form-row { grid-template-columns: 1fr; } }
 
@@ -189,6 +195,12 @@ textarea, input:not([type="checkbox"]), select {
 textarea { resize: vertical; min-height: 5.5em; line-height: 1.7; }
 textarea::placeholder, input::placeholder { color: var(--mute); opacity: 0.8; }
 textarea:focus, input:focus, select:focus { outline: none; border-bottom: 2px solid var(--accent); padding-bottom: 9px; }
+.form textarea, .form input:not([type="checkbox"]), .form select {
+  color: #111111;
+  border-bottom-color: #d4d4cf;
+}
+.form textarea::placeholder, .form input::placeholder { color: #999999; }
+.form textarea:focus, .form input:focus, .form select:focus { border-bottom-color: #1f3bff; }
 select {
   appearance: none;
   cursor: pointer;
