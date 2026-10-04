@@ -5,41 +5,84 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>補助金ファインダー</title>
   <meta name="description" content="考えている新規事業と郵便番号から、受けられそうな補助金・助成金・支援制度を一覧表示します。">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%F0%9F%92%B4%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 fill=%22%23111%22/%3E%3Ctext x=%2250%22 y=%2272%22 font-family=%22Arial,sans-serif%22 font-weight=%22700%22 font-size=%2264%22 text-anchor=%22middle%22 fill=%22%23fff%22%3ES%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="hero">
-    <div class="wrap">
-      <p class="eyebrow">個人の新規事業・創業向け</p>
-      <h1>補助金ファインダー</h1>
-      <p class="lead">事業のアイデアと郵便番号を入力すると、受けられそうな補助金・助成金・融資・相談窓口を一覧にします。</p>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="wordmark" href="./" aria-label="補助金ファインダー トップ">Subsidy<span>Finder</span></a>
+      <nav class="topnav" aria-label="ページ内">
+        <a href="#search-form">探す</a>
+        <a href="#results">結果</a>
+        <a href="#about">注意事項</a>
+      </nav>
+      <span class="edition">JP — FY2026</span>
     </div>
   </header>
 
+  <section class="hero wrap" aria-labelledby="hero-title">
+    <p class="label">補助金ファインダー／個人の新規事業・創業向け</p>
+    <h1 id="hero-title" class="display">新しい事業に、<br>使える支援を。</h1>
+    <div class="hero-foot">
+      <p class="lead">事業のアイデアと郵便番号を入れるだけで、国・都道府県・市区町村の補助金、助成金、融資、相談窓口を関連度順に並べます。</p>
+      <dl class="facts">
+        <div><dt>制度データ</dt><dd>52<small>件</small></dd></div>
+        <div><dt>独自制度の都市</dt><dd>15<small>市区</small></dd></div>
+        <div><dt>募集中の補助金</dt><dd>jGrants<small>連携</small></dd></div>
+      </dl>
+    </div>
+  </section>
+
   <main class="wrap">
-    <form id="search-form" class="card form" novalidate>
-      <div class="field">
-        <label for="description">考えている新規事業 <span class="req">必須</span></label>
-        <textarea id="description" name="description" rows="4" maxlength="2000" required
-          placeholder="例：地元の野菜を使ったカフェを商店街の空き店舗で開きたい。テイクアウトとネット通販もやりたい。アルバイトを2人雇う予定。"></textarea>
-        <div class="examples" aria-label="入力例">
-          <span>入力例：</span>
-          <button type="button" class="chip" data-example="地元の野菜を使ったカフェを商店街の空き店舗で開きたい。テイクアウトとネット通販も。アルバイトを2人雇う予定。">カフェ開業</button>
-          <button type="button" class="chip" data-example="会社員を辞めて、中小企業向けの予約管理SaaSを開発・提供したい。">ITサービス</button>
-          <button type="button" class="chip" data-example="東京から地方に移住して、古民家を改装したゲストハウスを始めたい。地域の体験ツアーも企画する。">移住×ゲストハウス</button>
-          <button type="button" class="chip" data-example="脱サラして就農し、有機栽培の野菜を育ててネット販売したい。">新規就農</button>
+    <form id="search-form" class="form" novalidate aria-label="支援制度を探す">
+      <div class="form-row">
+        <div class="row-label">
+          <span class="num">01</span>
+          <label for="description">事業の内容</label>
+          <span class="req">必須</span>
+        </div>
+        <div class="row-body">
+          <textarea id="description" name="description" rows="3" maxlength="2000" required
+            placeholder="例：地元の野菜を使ったカフェを商店街の空き店舗で開きたい。テイクアウトとネット通販もやりたい。アルバイトを2人雇う予定。"></textarea>
+          <div class="examples" aria-label="入力例">
+            <span class="examples-label">入力例</span>
+            <button type="button" class="pill" data-example="地元の野菜を使ったカフェを商店街の空き店舗で開きたい。テイクアウトとネット通販も。アルバイトを2人雇う予定。">カフェ開業</button>
+            <button type="button" class="pill" data-example="会社員を辞めて、中小企業向けの予約管理SaaSを開発・提供したい。">ITサービス</button>
+            <button type="button" class="pill" data-example="東京から地方に移住して、古民家を改装したゲストハウスを始めたい。地域の体験ツアーも企画する。">移住×ゲストハウス</button>
+            <button type="button" class="pill" data-example="脱サラして就農し、有機栽培の野菜を育ててネット販売したい。">新規就農</button>
+          </div>
         </div>
       </div>
 
-      <div class="row">
-        <div class="field zip-field">
-          <label for="zip">郵便番号 <span class="req">必須</span></label>
-          <input id="zip" name="zip" inputmode="numeric" autocomplete="postal-code" placeholder="123-4567" maxlength="8" required>
-          <p id="address" class="hint" aria-live="polite">事業を行う場所（予定）の郵便番号</p>
+      <div class="form-row">
+        <div class="row-label">
+          <span class="num">02</span>
+          <label for="zip">事業を行う場所</label>
+          <span class="req">必須</span>
         </div>
-        <div class="field">
+        <div class="row-body place">
+          <div class="zip-field">
+            <input id="zip" name="zip" inputmode="numeric" autocomplete="postal-code" placeholder="〒 123-4567" maxlength="8" required>
+            <p id="address" class="hint" aria-live="polite">郵便番号を入れると住所を表示します</p>
+          </div>
+          <div class="city-field" hidden>
+            <label for="city" class="sub-label">市区町村</label>
+            <input id="city" name="city" placeholder="例：横浜市中区">
+            <p class="hint">住所を自動取得できなかったため、市区町村を入れると地域の制度まで探せます。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="row-label">
+          <span class="num">03</span>
           <label for="stage">事業の状況</label>
+        </div>
+        <div class="row-body">
           <select id="stage" name="stage">
             <option value="">指定しない</option>
             <option value="planning" selected>開業準備中</option>
@@ -49,39 +92,39 @@
         </div>
       </div>
 
-      <div class="field city-field" hidden>
-        <label for="city">市区町村</label>
-        <input id="city" name="city" placeholder="例：横浜市中区">
-        <p class="hint">住所を自動取得できなかったため、市区町村を入力すると地域の制度を探しやすくなります。</p>
-      </div>
-
-      <fieldset class="field">
-        <legend>当てはまるもの（任意）</legend>
-        <div class="checks">
-          <label><input type="checkbox" name="attributes" value="hiring"> 従業員を雇う予定</label>
-          <label><input type="checkbox" name="attributes" value="store"> 店舗を構える</label>
-          <label><input type="checkbox" name="attributes" value="relocation"> 移住して起業</label>
-          <label><input type="checkbox" name="attributes" value="young"> 39歳以下</label>
-          <label><input type="checkbox" name="attributes" value="senior"> 55歳以上</label>
-          <label><input type="checkbox" name="attributes" value="woman"> 女性</label>
+      <fieldset class="form-row">
+        <legend class="row-label">
+          <span class="num">04</span>
+          <span>当てはまるもの</span>
+          <span class="opt">任意</span>
+        </legend>
+        <div class="row-body checks">
+          <label class="toggle"><input type="checkbox" name="attributes" value="hiring"><span>従業員を雇う予定</span></label>
+          <label class="toggle"><input type="checkbox" name="attributes" value="store"><span>店舗を構える</span></label>
+          <label class="toggle"><input type="checkbox" name="attributes" value="relocation"><span>移住して起業</span></label>
+          <label class="toggle"><input type="checkbox" name="attributes" value="young"><span>39歳以下</span></label>
+          <label class="toggle"><input type="checkbox" name="attributes" value="senior"><span>55歳以上</span></label>
+          <label class="toggle"><input type="checkbox" name="attributes" value="woman"><span>女性</span></label>
         </div>
       </fieldset>
 
-      <p id="form-error" class="error" role="alert" hidden></p>
-      <button id="submit" type="submit" class="primary">支援制度を探す</button>
+      <div class="form-submit">
+        <p id="form-error" class="error" role="alert" hidden></p>
+        <button id="submit" type="submit" class="primary"><span>支援制度を探す</span><span class="arrow" aria-hidden="true">→</span></button>
+      </div>
     </form>
 
-    <section id="saved" class="card saved" hidden aria-labelledby="saved-title">
-      <div class="saved-head">
+    <section id="saved" class="saved" hidden aria-labelledby="saved-title">
+      <div class="section-head">
         <h2 id="saved-title">保存した制度</h2>
-        <button type="button" class="chip" id="saved-ics" hidden>締切をまとめてカレンダーに追加（.ics）</button>
+        <button type="button" class="text-button" id="saved-ics" hidden>締切をまとめてカレンダーに追加（.ics）</button>
       </div>
       <ul id="saved-list" class="saved-list"></ul>
       <p class="hint">保存した内容はこのブラウザだけに記録されます。</p>
     </section>
 
     <section id="results" hidden aria-live="polite">
-      <div class="card summary" id="summary"></div>
+      <div class="summary" id="summary"></div>
 
       <div class="toolbar">
         <div class="filters" role="group" aria-label="種類で絞り込み" id="type-filters"></div>
@@ -90,18 +133,27 @@
 
       <div id="program-list" class="list"></div>
 
-      <h2 class="section-title">jGrants で現在募集中の補助金</h2>
+      <div class="section-head live-head">
+        <h2>jGrants で現在募集中の補助金</h2>
+        <span class="count">デジタル庁 jGrants より</span>
+      </div>
       <div id="live-list" class="list"></div>
+    </section>
 
-      <p class="disclaimer">
-        表示内容は公開情報をもとにした参考情報で、受給を保証するものではありません。金額・要件・公募時期は年度や公募回によって変わります。
-        申請前に必ず各制度の公式情報を確認し、商工会・商工会議所やよろず支援拠点などの相談窓口も活用してください。
-      </p>
+    <section id="about" class="about" aria-labelledby="about-title">
+      <h2 id="about-title" class="label">注意事項</h2>
+      <p>表示内容は公開情報をもとにした参考情報で、受給を保証するものではありません。金額・要件・公募時期は年度や公募回によって変わります。申請前に必ず各制度の公式情報を確認し、商工会・商工会議所やよろず支援拠点などの相談窓口も活用してください。</p>
     </section>
   </main>
 
-  <footer class="wrap footer">
-    <p>募集中の補助金データ：<a href="https://www.jgrants-portal.go.jp/" target="_blank" rel="noopener">jGrants（デジタル庁）</a> ／ 住所検索：<a href="https://zipcloud.ibsnet.co.jp/" target="_blank" rel="noopener">zipcloud</a></p>
+  <footer class="footer">
+    <div class="wrap">
+      <p class="footer-mark" aria-hidden="true">Subsidy Finder</p>
+      <div class="footer-meta">
+        <p>募集中の補助金データ：<a href="https://www.jgrants-portal.go.jp/" target="_blank" rel="noopener">jGrants（デジタル庁）</a></p>
+        <p>住所検索：<a href="https://zipcloud.ibsnet.co.jp/" target="_blank" rel="noopener">zipcloud</a></p>
+      </div>
+    </div>
   </footer>
 
   <script src="app.js" type="module"></script>

@@ -7,6 +7,7 @@ const addressHint = $('#address');
 const cityField = $('.city-field');
 const errorBox = $('#form-error');
 const submitBtn = $('#submit');
+const submitLabel = submitBtn.querySelector('span');
 
 const LEVEL_LABELS = { national: '国', prefecture: '都道府県', municipality: '市区町村', live: '募集中' };
 const TYPE_ORDER = ['補助金', '助成金', '給付金', '融資', '税制・優遇', '専門家支援'];
@@ -224,7 +225,7 @@ form.addEventListener('submit', async (ev) => {
   if (payload.zip.length !== 7) return showError('郵便番号を7桁で入力してください。');
 
   submitBtn.disabled = true;
-  submitBtn.textContent = '探しています…';
+  submitLabel.textContent = '探しています…';
   try {
     const res = await fetch('/api/search', {
       method: 'POST',
@@ -243,7 +244,7 @@ form.addEventListener('submit', async (ev) => {
     showError(e.message || '検索に失敗しました。時間をおいて再度お試しください。');
   } finally {
     submitBtn.disabled = false;
-    submitBtn.textContent = '支援制度を探す';
+    submitLabel.textContent = '支援制度を探す';
   }
 });
 
@@ -272,23 +273,28 @@ function render() {
   [...programs, ...live.items].forEach((p) => itemsById.set(p.id, p));
 
   $('#summary').innerHTML = `
-    <h2>${esc(place)}で使えそうな支援制度 ${programs.length}件</h2>
-    ${analysis.summary ? `<p>${esc(analysis.summary)}</p>` : ''}
-    <div class="tags">
-      ${analysis.stage ? `<span class="tag">${esc(analysis.stage.label)}</span>` : ''}
-      ${tags.map((t) => `<span class="tag">${esc(t.label)}</span>`).join('')}
-    </div>
-    ${analysis.industries.length === 0 ? '<p class="notice">業種を特定できなかったため、業種を問わない制度を中心に表示しています。「カフェ」「アプリ開発」など具体的に書くと精度が上がります。</p>' : ''}
-    ${address.source === 'estimated' ? '<p class="notice">住所サービスに接続できなかったため、郵便番号から都道府県を推定しています。</p>' : ''}
-    <div class="share-row">
-      <span class="hint">判定方法：${analysis.mode === 'ai' ? 'AI（Claude）による事業内容の解析＋キーワード判定' : 'キーワード判定'}</span>
-      <button type="button" class="chip" data-action="share">🔗 この検索結果を共有</button>
+    <p class="summary-count"><span class="big-num">${programs.length}</span><span class="big-unit">件</span></p>
+    <div class="summary-body">
+      <p class="label">検索結果</p>
+      <h2>${esc(place)}で使えそうな支援制度</h2>
+      ${analysis.summary ? `<p>${esc(analysis.summary)}</p>` : ''}
+      <div class="tags">
+        ${analysis.stage ? `<span class="tag">${esc(analysis.stage.label)}</span>` : ''}
+        ${tags.map((t) => `<span class="tag">${esc(t.label)}</span>`).join('')}
+      </div>
+      ${analysis.industries.length === 0 ? '<p class="notice">業種を特定できなかったため、業種を問わない制度を中心に表示しています。「カフェ」「アプリ開発」など具体的に書くと精度が上がります。</p>' : ''}
+      ${address.source === 'estimated' ? '<p class="notice">住所サービスに接続できなかったため、郵便番号から都道府県を推定しています。</p>' : ''}
+      <div class="share-row">
+        <span>判定方法：${analysis.mode === 'ai' ? 'AI（Claude）による解析＋キーワード判定' : 'キーワード判定'}</span>
+        <button type="button" class="text-button" data-action="share">この検索結果を共有する</button>
+      </div>
     </div>
   `;
 
   const types = TYPE_ORDER.filter((t) => programs.some((p) => p.type === t));
+  const countOf = (t) => (t === 'すべて' ? programs.length : programs.filter((p) => p.type === t).length);
   $('#type-filters').innerHTML = ['すべて', ...types]
-    .map((t) => `<button type="button" class="chip" aria-pressed="${t === activeType}" data-type="${esc(t)}">${esc(t)}</button>`)
+    .map((t) => `<button type="button" class="filter" aria-pressed="${t === activeType}" data-type="${esc(t)}">${esc(t)}<sup>${countOf(t)}</sup></button>`)
     .join('');
   $('#type-filters').querySelectorAll('button').forEach((b) =>
     b.addEventListener('click', () => {
@@ -299,82 +305,97 @@ function render() {
 
   const saved = loadSaved();
   const visible = activeType === 'すべて' ? programs : programs.filter((p) => p.type === activeType);
-  $('#count').textContent = `${visible.length}件を表示（関連度順）`;
+  $('#count').textContent = `${visible.length}件・関連度順`;
   const maxScore = Math.max(...programs.map((p) => p.score), 1);
-  $('#program-list').innerHTML = visible.map((p) => programCard(p, maxScore, !!saved[p.id])).join('') || '<p class="card empty">該当する制度がありません。</p>';
+  $('#program-list').innerHTML = visible.map((p, i) => programCard(p, i, maxScore, !!saved[p.id])).join('') || '<p class="empty">該当する制度がありません。</p>';
 
   if (!live.available) {
-    $('#live-list').innerHTML = '<p class="card empty">現在 jGrants に接続できないため、募集中の補助金を取得できませんでした。<a href="https://www.jgrants-portal.go.jp/" target="_blank" rel="noopener">jGrants で直接探す</a></p>';
+    $('#live-list').innerHTML = '<p class="empty">現在 jGrants に接続できないため、募集中の補助金を取得できませんでした。<a href="https://www.jgrants-portal.go.jp/" target="_blank" rel="noopener">jGrants で直接探す ↗</a></p>';
   } else if (live.items.length === 0) {
-    $('#live-list').innerHTML = '<p class="card empty">条件に合う募集中の補助金は見つかりませんでした。</p>';
+    $('#live-list').innerHTML = '<p class="empty">条件に合う募集中の補助金は見つかりませんでした。</p>';
   } else {
-    $('#live-list').innerHTML = live.items.map((i) => liveCard(i, !!saved[i.id])).join('');
+    $('#live-list').innerHTML = live.items.map((item, i) => liveCard(item, i, !!saved[item.id])).join('');
   }
 }
 
-function stars(score, max) {
+function indexLabel(i) {
+  return String(i + 1).padStart(2, '0');
+}
+
+function meter(score, max) {
   const n = Math.max(1, Math.min(5, Math.round((score / max) * 5)));
-  return '★'.repeat(n) + '☆'.repeat(5 - n);
+  const bars = Array.from({ length: 5 }, (_, i) => `<i class="${i < n ? 'on' : ''}"></i>`).join('');
+  return `<div class="meter" title="関連度 ${n}/5"><span>関連度</span><span class="meter-bars" aria-hidden="true">${bars}</span><span class="visually-hidden">${n}/5</span></div>`;
 }
 
 function statusBadge(p) {
   if (p.status === 'closed') return '<span class="badge closed">今年度は受付終了</span>';
-  if (p.status === 'closing') return `<span class="badge closing">締切間近・あと${esc(p.daysLeft)}日</span>`;
+  if (p.status === 'closing') return `<span class="badge closing">締切間近 あと${esc(p.daysLeft)}日</span>`;
   if (p.status === 'open') return `<span class="badge open">締切 ${esc(formatDate(p.deadline))}</span>`;
   return '';
 }
 
 function actions(item, isSaved) {
   const reminder = item.deadline && isUpcoming(item.deadline)
-    ? `<a href="${esc(googleCalendarUrl(item))}" target="_blank" rel="noopener">📅 Googleカレンダーに締切を追加</a>
-       <button type="button" class="link-button" data-action="ics" data-id="${esc(item.id)}">📥 .ics をダウンロード</button>`
+    ? `<a href="${esc(googleCalendarUrl(item))}" target="_blank" rel="noopener">Googleカレンダーに締切を追加 ↗</a>
+       <button type="button" class="link-button" data-action="ics" data-id="${esc(item.id)}">.ics をダウンロード</button>`
     : '';
   return `
-    <button type="button" class="chip save-btn" data-action="save" data-id="${esc(item.id)}" aria-pressed="${isSaved}">${isSaved ? '★ 保存済み' : '☆ 保存'}</button>
+    <button type="button" class="save-btn" data-action="save" data-id="${esc(item.id)}" aria-pressed="${isSaved}">${isSaved ? '★ 保存済み' : '☆ 保存'}</button>
     ${reminder}`;
 }
 
-function programCard(p, maxScore, isSaved) {
+function programCard(p, i, maxScore, isSaved) {
   return `
-  <article class="card program">
-    <div class="program-head">
-      <span class="badge ${esc(p.level)}">${esc(LEVEL_LABELS[p.level])}</span>
-      <span class="badge type">${esc(p.type)}</span>
-      ${statusBadge(p)}
-      <span class="match" title="関連度">関連度 <b>${stars(p.score, maxScore)}</b></span>
+  <article class="program">
+    <div class="p-index">${indexLabel(i)}</div>
+    <div class="p-main">
+      <div class="meta-line">
+        <span class="badge level">${esc(LEVEL_LABELS[p.level])}</span>
+        <span class="badge type">${esc(p.type)}</span>
+        ${statusBadge(p)}
+      </div>
+      <h3><a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.name)}</a></h3>
+      <p class="provider">${esc(p.provider)}</p>
+      <p class="summary-text">${esc(p.summary)}</p>
+      <details>
+        <summary>主な要件と、表示された理由</summary>
+        <ul>${p.eligibility.map((e) => `<li>${esc(e)}</li>`).join('')}</ul>
+        <ul class="reasons">${p.reasons.map((r) => `<li>${esc(r)}</li>`).join('')}</ul>
+      </details>
+      <div class="link-row">
+        <a href="${esc(p.url)}" target="_blank" rel="noopener">${p.urlIsSearch ? '最新の公募情報を検索 ↗' : '公式ページを見る ↗'}</a>
+        ${actions(p, isSaved)}
+      </div>
     </div>
-    <h3><a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.name)}</a></h3>
-    <p class="provider">${esc(p.provider)}</p>
-    <p class="amount">${esc(p.amount)}</p>
-    ${p.period ? `<p class="period">🗓 ${esc(p.period)}</p>` : ''}
-    <p class="summary-text">${esc(p.summary)}</p>
-    <details>
-      <summary>主な要件と、表示された理由</summary>
-      <ul>${p.eligibility.map((e) => `<li>${esc(e)}</li>`).join('')}</ul>
-      <ul class="reasons">${p.reasons.map((r) => `<li>${esc(r)}</li>`).join('')}</ul>
-    </details>
-    <div class="link-row">
-      <a href="${esc(p.url)}" target="_blank" rel="noopener">${p.urlIsSearch ? '最新の公募情報を検索 ↗' : '公式ページを見る ↗'}</a>
-      ${actions(p, isSaved)}
+    <div class="p-side">
+      <p class="amount">${esc(p.amount)}</p>
+      ${p.period ? `<p class="period">${esc(p.period)}</p>` : ''}
+      ${meter(p.score, maxScore)}
     </div>
   </article>`;
 }
 
-function liveCard(item, isSaved) {
+function liveCard(item, i, isSaved) {
   const deadline = formatDate(item.deadline);
   return `
-  <article class="card program">
-    <div class="program-head">
-      <span class="badge live">${esc(LEVEL_LABELS.live)}</span>
-      ${deadline ? `<span class="badge open">締切 ${esc(deadline)}</span>` : ''}
+  <article class="program">
+    <div class="p-index">${indexLabel(i)}</div>
+    <div class="p-main">
+      <div class="meta-line">
+        <span class="badge live">${esc(LEVEL_LABELS.live)}</span>
+        ${deadline ? `<span class="badge open">締切 ${esc(deadline)}</span>` : ''}
+      </div>
+      <h3><a href="${esc(item.url)}" target="_blank" rel="noopener">${esc(item.name)}</a></h3>
+      <p class="provider">対象地域：${esc(item.area || '—')}${item.employees ? ` ／ 従業員数：${esc(item.employees)}` : ''}</p>
+      <ul class="reasons">${item.reasons.map((r) => `<li>${esc(r)}</li>`).join('')}</ul>
+      <div class="link-row">
+        <a href="${esc(item.url)}" target="_blank" rel="noopener">jGrants で詳細を見る ↗</a>
+        ${actions(item, isSaved)}
+      </div>
     </div>
-    <h3><a href="${esc(item.url)}" target="_blank" rel="noopener">${esc(item.name)}</a></h3>
-    <p class="provider">対象地域：${esc(item.area || '—')}${item.employees ? ` ／ 従業員数：${esc(item.employees)}` : ''}</p>
-    <p class="amount">${esc(item.amount)}</p>
-    <ul class="reasons">${item.reasons.map((r) => `<li>${esc(r)}</li>`).join('')}</ul>
-    <div class="link-row">
-      <a href="${esc(item.url)}" target="_blank" rel="noopener">jGrants で詳細を見る ↗</a>
-      ${actions(item, isSaved)}
+    <div class="p-side">
+      <p class="amount">${esc(item.amount)}</p>
     </div>
   </article>`;
 }
