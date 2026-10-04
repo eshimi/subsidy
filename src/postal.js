@@ -1,5 +1,6 @@
 // 郵便番号 → 住所の解決。zipcloud API を使い、通信できない場合は
 // 郵便番号の上3桁から都道府県だけを推定する。
+import { cached } from './middleware.js';
 
 const ZIPCLOUD_URL = 'https://zipcloud.ibsnet.co.jp/api/search';
 
@@ -33,7 +34,9 @@ export function guessPrefecture(zip) {
   return hit ? hit[2] : null;
 }
 
-export async function lookupPostalCode(rawZip, { fetchImpl = fetch, timeoutMs = 5000 } = {}) {
+const DAY_MS = 24 * 60 * 60 * 1000;
+
+export async function lookupPostalCode(rawZip, { fetchImpl = fetch, timeoutMs = 5000, cache } = {}) {
   const zip = normalizeZip(rawZip);
   if (!zip) {
     const err = new Error('郵便番号は7桁の数字で入力してください');
@@ -41,6 +44,11 @@ export async function lookupPostalCode(rawZip, { fetchImpl = fetch, timeoutMs = 
     throw err;
   }
 
+  // 実際に取得できた住所のみ1日キャッシュする（推定結果はキャッシュしない）
+  return cached(cache, `zip:${zip}`, DAY_MS, () => fetchAddress(zip, fetchImpl, timeoutMs), (r) => r.source === 'zipcloud');
+}
+
+async function fetchAddress(zip, fetchImpl, timeoutMs) {
   try {
     const res = await fetchImpl(`${ZIPCLOUD_URL}?zipcode=${zip}`, { signal: AbortSignal.timeout(timeoutMs) });
     if (!res.ok) throw new Error(`zipcloud HTTP ${res.status}`);

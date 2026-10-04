@@ -71,6 +71,15 @@
       <button id="submit" type="submit" class="primary">支援制度を探す</button>
     </form>
 
+    <section id="saved" class="card saved" hidden aria-labelledby="saved-title">
+      <div class="saved-head">
+        <h2 id="saved-title">保存した制度</h2>
+        <button type="button" class="chip" id="saved-ics" hidden>締切をまとめてカレンダーに追加（.ics）</button>
+      </div>
+      <ul id="saved-list" class="saved-list"></ul>
+      <p class="hint">保存した内容はこのブラウザだけに記録されます。</p>
+    </section>
+
     <section id="results" hidden aria-live="polite">
       <div class="card summary" id="summary"></div>
 

@@ -162,3 +162,22 @@ details ul { margin: 6px 0 0; padding-left: 1.2em; }
 .empty { padding: 18px 20px; color: var(--muted); margin: 0; }
 .disclaimer { font-size: 0.82rem; color: var(--muted); margin: 32px 0 0; padding: 14px 16px; border-left: 3px solid var(--border); }
 .footer { padding: 32px 16px 48px; font-size: 0.82rem; color: var(--muted); }
+
+/* 保存・共有・締切 */
+.saved { margin-top: 24px; padding: 18px 22px; display: grid; gap: 8px; }
+.saved-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; }
+.saved h2 { margin: 0; font-size: 1.05rem; }
+.saved-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.saved-list li { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline; padding: 8px 0; border-top: 1px solid var(--border); }
+.saved-list li:first-child { border-top: 0; }
+.saved-list a { font-weight: 600; }
+.saved-list .meta { color: var(--muted); font-size: 0.85rem; }
+.saved-list .remove { margin-left: auto; }
+.share-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.link-button { font: inherit; font-size: 0.9rem; background: none; border: 0; padding: 0; color: var(--accent); cursor: pointer; text-decoration: underline; }
+.save-btn[aria-pressed="true"] { background: var(--accent-soft); border-color: var(--accent); color: var(--accent-strong); }
+.period { margin: 0; font-size: 0.88rem; color: var(--muted); }
+.badge.closed { background: var(--border); color: var(--muted); }
+.badge.closing { background: var(--error); color: var(--surface); }
+.badge.open { background: var(--accent-soft); color: var(--accent-strong); }
+.toast { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); background: var(--text); color: var(--bg); padding: 10px 18px; border-radius: 999px; font-size: 0.9rem; z-index: 10; }

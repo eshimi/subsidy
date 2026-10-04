@@ -1,10 +1,18 @@
 // デジタル庁「jGrants」の公開APIから、現在募集中の補助金を検索する。
 // https://developers.digital.go.jp/documents/jgrants/api/
 
+import { cached } from './middleware.js';
+
 const API_URL = 'https://api.jgrants-portal.go.jp/exp/v1/public/subsidies';
 const DETAIL_URL = 'https://www.jgrants-portal.go.jp/subsidy/';
 
-async function searchOnce(keyword, prefecture, { fetchImpl, timeoutMs }) {
+const CACHE_TTL_MS = 10 * 60 * 1000;
+
+function searchOnce(keyword, prefecture, { fetchImpl, timeoutMs, cache }) {
+  return cached(cache, `jgrants:${prefecture}:${keyword}`, CACHE_TTL_MS, () => fetchOnce(keyword, prefecture, { fetchImpl, timeoutMs }));
+}
+
+async function fetchOnce(keyword, prefecture, { fetchImpl, timeoutMs }) {
   const params = new URLSearchParams({
     keyword,
     sort: 'acceptance_end_datetime',
@@ -24,10 +32,10 @@ function coversArea(item, prefecture) {
   return !area || area.includes('全国') || area.includes(prefecture);
 }
 
-export async function searchJGrants(keywords, prefecture, { fetchImpl = fetch, timeoutMs = 6000, limit = 20 } = {}) {
+export async function searchJGrants(keywords, prefecture, { fetchImpl = fetch, timeoutMs = 6000, limit = 20, cache } = {}) {
   const unique = [...new Set(keywords.filter((k) => k && k.length >= 2))].slice(0, 4);
   const settled = await Promise.allSettled(
-    unique.map((k) => searchOnce(k, prefecture, { fetchImpl, timeoutMs })),
+    unique.map((k) => searchOnce(k, prefecture, { fetchImpl, timeoutMs, cache })),
   );
 
   const failed = settled.filter((s) => s.status === 'rejected');

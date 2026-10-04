@@ -1,0 +1,15 @@
+# Render の Blueprint（https://render.com/docs/blueprint-spec）
+services:
+  - type: web
+    name: subsidy-finder
+    runtime: node
+    plan: free
+    region: singapore
+    buildCommand: npm ci --omit=dev
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: ANTHROPIC_API_KEY
+        sync: false

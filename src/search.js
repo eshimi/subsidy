@@ -23,10 +23,11 @@ export async function runSearch(input, deps = {}) {
   const stage = Object.hasOwn(STAGES, input.stage) ? input.stage : undefined;
   const attributes = (Array.isArray(input.attributes) ? input.attributes : []).filter((a) => ATTRIBUTE_TAGS.includes(a));
 
-  const [address, ai] = await Promise.all([
+  const [resolved, ai] = await Promise.all([
     lookupPostalCode(String(input.zip ?? ''), deps),
     (deps.analyze ?? analyzeWithClaude)(description),
   ]);
+  const address = { ...resolved }; // キャッシュされた住所オブジェクトを書き換えない
   if (input.city && typeof input.city === 'string' && !address.city) {
     address.city = input.city.trim().slice(0, 40) || null;
   }

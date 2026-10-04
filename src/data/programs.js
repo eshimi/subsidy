@@ -7,6 +7,7 @@
 //   industries 'all' または INDUSTRIES のキー配列（対象業種を限定する場合）
 //   require    すべて満たす必要がある属性タグ
 //   boost      当てはまると関連度が上がる属性タグ
+//   audience   対象者が限られる制度 { any: [タグ], note }。該当を選んでいなければ順位を下げて注意書きを出す
 //   stages     対象となる事業ステージ
 //   prefectures / excludePrefectures  地域条件（未指定なら全国）
 //   priority   一般的な重要度（0〜20）
@@ -426,7 +427,7 @@ export const PROGRAMS = [
     industries: ['food', 'retail', 'beauty', 'care', 'education', 'creative', 'professional'],
     prefectures: ['東京都'],
     require: ['store'],
-    boost: ['woman', 'young'],
+    audience: { any: ['woman', 'young'], note: '女性、または39歳以下の男性が対象です' },
     stages: ['planning', 'early'],
     priority: 16,
     searchQuery: '若手・女性リーダー応援プログラム助成事業 東京都',

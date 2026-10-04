@@ -120,3 +120,88 @@ test('classifier: 食材や商店街の言及で農業・小売と誤判定し�
   assert.deepEqual(r.industries, ['food']);
   assert.ok(classifyBusiness('脱サラして就農し、有機栽培の野菜を育てたい').industries.includes('agriculture'));
 });
+
+test('matcher: 市区町村の独自制度は該当する市だけに表示する', () => {
+  const now = new Date('2026-10-04T00:00:00+09:00');
+  const store = { industries: ['food'], tags: ['store'], stage: 'planning' };
+  const shibuya = matchPrograms(store, { prefecture: '東京都', city: '渋谷区' }, { now });
+  const meguro = matchPrograms(store, { prefecture: '東京都', city: '目黒区' }, { now });
+  assert.ok(shibuya.some((p) => p.id === 'shibuya-tenpo-kaigyo'));
+  assert.ok(!meguro.some((p) => p.id === 'shibuya-tenpo-kaigyo'));
+
+  // 政令市の区（札幌市中央区）にも一致し、締切前は open
+  const sapporo = matchPrograms({ industries: [], tags: [], stage: 'planning' }, { prefecture: '北海道', city: '札幌市中央区' }, { now });
+  const s = sapporo.find((p) => p.id === 'sapporo-shinki-sogyo');
+  assert.equal(s.status, 'open');
+  assert.match(s.reasons.join(), /札幌市中央区の独自制度/);
+
+  // 市区町村が不明なら市の制度は出さない
+  assert.ok(!matchPrograms(store, { prefecture: '北海道', city: null }, { now }).some((p) => p.id === 'sapporo-shinki-sogyo'));
+});
+
+test('matcher: 締切後は受付終了として順位を下げる', async () => {
+  const { deadlineStatus } = await import('../src/matcher.js');
+  const now = new Date('2026-10-04T12:00:00+09:00');
+  assert.equal(deadlineStatus('2026-10-03', now).status, 'closed');
+  assert.equal(deadlineStatus('2026-10-04', now).status, 'closing');
+  assert.equal(deadlineStatus('2026-10-30', now).daysLeft, 26);
+  assert.equal(deadlineStatus('2027-03-31', now).status, 'open');
+  assert.equal(deadlineStatus(undefined, now), null);
+
+  const rnd = matchPrograms({ industries: ['it'], tags: ['rnd'], stage: 'early' }, { prefecture: '福岡県', city: '福岡市中央区' }, { now });
+  const closed = rnd.find((p) => p.id === 'fukuoka-rnd-startup');
+  assert.equal(closed.status, 'closed');
+  assert.match(closed.reasons.join(), /受付は終了/);
+});
+
+test('matcher: 対象者が限られる制度は、該当しなければ順位を下げる', () => {
+  const tokyo = { prefecture: '東京都', city: '新宿区' };
+  const base = { industries: ['food'], tags: ['store'], stage: 'planning' };
+  const rank = (tags) => matchPrograms({ ...base, tags: [...base.tags, ...tags] }, tokyo).findIndex((p) => p.id === 'tokyo-wakate-josei');
+  const without = rank([]);
+  const withYoung = rank(['young']);
+  assert.ok(without > withYoung, `${without} > ${withYoung}`);
+  const p = matchPrograms(base, tokyo).find((x) => x.id === 'tokyo-wakate-josei');
+  assert.match(p.reasons.join(), /39歳以下/);
+});
+
+test('API: セキュリティヘッダー・不正なJSON・レート制限', async () => {
+  process.env.RATE_LIMIT_PER_MIN = '2';
+  const app = createApp({ fetchImpl: offline, analyze: async () => null });
+  delete process.env.RATE_LIMIT_PER_MIN;
+  const server = app.listen(0);
+  const base = `http://127.0.0.1:${server.address().port}`;
+  try {
+    const health = await fetch(`${base}/api/health`);
+    assert.match(health.headers.get('content-security-policy'), /default-src 'self'/);
+    assert.equal(health.headers.get('x-powered-by'), null);
+
+    const post = (body) => fetch(`${base}/api/search`, { method: 'POST', headers: { 'content-type': 'application/json' }, body });
+    const broken = await post('{not json');
+    assert.equal(broken.status, 400);
+    const ok = await post(JSON.stringify({ description: 'カフェを開きたい', zip: '1500001' }));
+    assert.equal(ok.status, 200);
+    const limited = await post(JSON.stringify({ description: 'カフェを開きたい', zip: '1500001' }));
+    assert.equal(limited.status, 429, "broken + ok で上限2に達する");
+    assert.ok(limited.headers.get('retry-after'));
+  } finally {
+    server.close();
+  }
+});
+
+test('cache: 実際に取得できた住所はキャッシュし、推定結果はキャッシュしない', async () => {
+  const { TtlCache } = await import('../src/middleware.js');
+  const cache = new TtlCache();
+  let calls = 0;
+  const fetchImpl = async () => {
+    calls++;
+    return new Response(JSON.stringify({ status: 200, results: [{ address1: '東京都', address2: '渋谷区', address3: '' }] }));
+  };
+  await lookupPostalCode('1500001', { fetchImpl, cache });
+  await lookupPostalCode('150-0001', { fetchImpl, cache });
+  assert.equal(calls, 1);
+
+  await lookupPostalCode('5300001', { fetchImpl: offline, cache });
+  const again = await lookupPostalCode('5300001', { fetchImpl, cache });
+  assert.equal(again.source, 'zipcloud');
+});
