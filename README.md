@@ -40,6 +40,18 @@ npm start          # http://localhost:3000
 
 本番運用向けに、セキュリティヘッダー（CSPなど）、IPごとのレート制限、外部APIのキャッシュ（住所1日・jGrants 10分）、ヘルスチェック（`/api/health`）、SIGTERM での安全な終了を組み込んでいます。
 
+### GitHub Pages（無料・いちばん手軽）
+
+サーバーなしでブラウザだけで動く静的版を GitHub Pages で公開できます。
+
+1. リポジトリの **Settings → Pages** を開き、「Build and deployment」の **Source** を **GitHub Actions** にする
+2. **Actions** タブで「Deploy to GitHub Pages」を実行する（以降はプッシュのたびに自動で更新）
+3. `https://<ユーザー名>.github.io/subsidy/` で公開される
+
+静的版では、住所は zipcloud から JSONP で取得し、募集中の補助金はブラウザから jGrants API を直接呼びます（ブラウザから取得できない場合は「接続できない」と表示）。APIキーを公開できないため、Claude による解析は使えません。全機能を使う場合は下記のサーバー版で公開してください。
+
+ローカルでの確認: `npm run build:static` で `dist/` に書き出されます。
+
 ### Docker（Cloud Run・Fly.io・自前サーバーなど）
 
 ```bash
@@ -59,7 +71,7 @@ gcloud run deploy subsidy-finder --source . --region asia-northeast1 --allow-una
 
 ### CI
 
-GitHub Actions（`.github/workflows/ci.yml`）で、Node.js 20/22 でのテストと Docker イメージのビルド・起動確認を行います。
+GitHub Actions（`.github/workflows/ci.yml`）で、Node.js 20/22 でのテスト・静的版のビルドと、Docker イメージのビルド・起動確認を行います。GitHub Pages への公開は `.github/workflows/pages.yml` です。
 
 ## 構成
 
@@ -67,7 +79,8 @@ GitHub Actions（`.github/workflows/ci.yml`）で、Node.js 20/22 でのテス�
 src/
   server.js          Express サーバー（/api/search, /api/postal/:zip, /api/health）
   middleware.js      キャッシュ・レート制限・セキュリティヘッダー
-  search.js          検索全体の流れ（住所解決 → 解析 → マッチング → jGrants）
+  search-core.js     検索全体の流れ（住所解決 → 解析 → マッチング → jGrants）。サーバーと静的版で共有
+  search.js          サーバー用（Claude による解析を組み合わせる）
   postal.js          郵便番号 → 住所
   classifier.js      キーワードで業種・属性を判定
   ai.js              （任意）Claude による解析（構造化出力）
@@ -78,6 +91,8 @@ src/
   data/taxonomy.js   業種・属性タグとキーワード辞書
 public/              フロントエンド（HTML/CSS/JS、ビルド不要）
   calendar.js        締切リマインド用の .ics / Googleカレンダーリンク生成
+static/entry.js      GitHub Pages 用の静的版（ブラウザ内で検索）
+scripts/build-static.mjs  静的版を dist/ に書き出すビルド
 test/                node:test によるテスト
 ```
 
