@@ -16,7 +16,13 @@ export function createApp(options = {}) {
   app.use('/api/postal', rateLimit({ max: limit * 4 }));
   app.use('/api/search', rateLimit({ max: limit }));
   app.use(express.json({ limit: '32kb' }));
-  app.use(express.static(fileURLToPath(new URL('../public', import.meta.url)), { maxAge: '1h' }));
+  app.use(express.static(fileURLToPath(new URL('../public', import.meta.url)), {
+    maxAge: '1h',
+    // HTML・CSS・JS は毎回更新を確認する（デザイン変更がすぐ反映されるように）
+    setHeaders: (res, path) => {
+      if (/\.(html|css|js)$/.test(path)) res.setHeader('Cache-Control', 'no-cache');
+    },
+  }));
 
   app.get('/api/health', (_req, res) => res.json({ ok: true, ai: aiEnabled() }));
 

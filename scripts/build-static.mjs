@@ -1,6 +1,7 @@
 // GitHub Pages 用の静的サイトを dist/ に書き出す: node scripts/build-static.mjs
 import { build } from 'esbuild';
 import { mkdir, readFile, rm, writeFile, copyFile, cp } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 
 const root = new URL('../', import.meta.url);
 const out = new URL('dist/', root);
@@ -21,7 +22,11 @@ await build({
 
 await copyFile(new URL('public/style.css', root), new URL('style.css', out));
 await cp(new URL('public/media/', root), new URL('media/', out), { recursive: true });
-const html = await readFile(new URL('public/index.html', root), 'utf8');
+// 更新がすぐ反映されるよう、CSS と JS の参照に内容のハッシュを付ける（キャッシュ対策）
+const hashOf = async (name) => createHash('sha256').update(await readFile(new URL(name, out))).digest('hex').slice(0, 10);
+const html = (await readFile(new URL('public/index.html', root), 'utf8'))
+  .replace('href="style.css"', `href="style.css?v=${await hashOf('style.css')}"`)
+  .replace('src="app.js"', `src="app.js?v=${await hashOf('app.js')}"`);
 await writeFile(new URL('index.html', out), html);
 // GitHub Pages の Jekyll 処理を無効化
 await writeFile(new URL('.nojekyll', out), '');
