@@ -10,6 +10,9 @@
   --accent-ink: #ffffff;
   --alert: #d7341c;
   --ok: #1d7a46;
+  --pattern: rgba(17, 17, 17, 0.13);
+  --geo-line: rgba(31, 59, 255, 0.32);
+  --geo-fill: rgba(31, 59, 255, 0.07);
 
   --font-display: "Instrument Sans", "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
   --font-body: "Noto Sans JP", "Hiragino Sans", "Yu Gothic UI", system-ui, sans-serif;
@@ -31,6 +34,9 @@
     --accent-ink: #0f0f0e;
     --alert: #ff7a63;
     --ok: #6fd39a;
+    --pattern: rgba(237, 237, 234, 0.11);
+    --geo-line: rgba(139, 155, 255, 0.34);
+    --geo-fill: rgba(139, 155, 255, 0.08);
     color-scheme: dark;
   }
 }
@@ -45,6 +51,9 @@
   --accent-ink: #0f0f0e;
   --alert: #ff7a63;
   --ok: #6fd39a;
+  --pattern: rgba(237, 237, 234, 0.11);
+  --geo-line: rgba(139, 155, 255, 0.34);
+  --geo-fill: rgba(139, 155, 255, 0.08);
   color-scheme: dark;
 }
 
@@ -60,6 +69,21 @@ body {
   font-size: 15px;
   line-height: 1.75;
   font-feature-settings: "palt" 1;
+}
+/* 背景: 印刷のトンボのような「+」を等間隔に並べた、ごく薄いグリッド */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-color: var(--pattern);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56'%3E%3Cpath d='M28 23.5v9M23.5 28h9' stroke='%23000' stroke-width='1'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56'%3E%3Cpath d='M28 23.5v9M23.5 28h9' stroke='%23000' stroke-width='1'/%3E%3C/svg%3E");
+  -webkit-mask-size: 56px 56px;
+  mask-size: 56px 56px;
+  -webkit-mask-position: center top;
+  mask-position: center top;
 }
 /* 日本語の見出しを文節で改行する（対応ブラウザのみ） */
 h1, h2, h3, .lead { word-break: auto-phrase; }
@@ -98,14 +122,24 @@ button, input, select, textarea { font: inherit; color: inherit; }
 
 /* ── ヒーロー ── */
 .hero { padding-block: clamp(40px, 8vw, 96px) clamp(32px, 5vw, 56px); }
-.hero-content { display: grid; gap: clamp(20px, 3vw, 32px); }
+.hero-content { display: grid; gap: clamp(20px, 3vw, 32px); position: relative; isolation: isolate; }
+/* ヒーロー右側の幾何学図形: 細い円・4分の1円の面・小さな正方形 */
+.hero-geo-clip { position: absolute; z-index: -1; inset: 0; pointer-events: none; overflow-x: clip; overflow-y: visible; }
+.hero-geo { position: absolute; right: calc(-1 * clamp(60px, 9vw, 160px)); top: clamp(-56px, -3vw, -24px); width: clamp(220px, 38vw, 540px); max-width: none; aspect-ratio: 1; }
+.hero-geo .ring { position: absolute; inset: 0; border: 1px solid var(--geo-line); border-radius: 50%; }
+.hero-geo .ring.inner { inset: 22%; }
+.hero-geo .quarter { position: absolute; inset: 0; border-radius: 50%; background: conic-gradient(from 180deg, var(--geo-fill) 0 90deg, transparent 90deg); }
+.hero-geo .axis { position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: var(--geo-line); opacity: 0.6; }
+.hero-geo .axis.v { left: 50%; right: auto; top: 0; bottom: 0; width: 1px; height: auto; }
+.hero-geo .dot { position: absolute; left: calc(50% - 7px); top: calc(22% - 7px); width: 14px; height: 14px; background: var(--accent); }
+@media (max-width: 760px) { .hero-geo { width: 200px; top: 24px; right: -70px; opacity: 0.6; } }
 .hero-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px 16px; }
 .replay { font-size: 0.8rem; color: var(--mute); }
 
 /* 初回アクセス時の紹介動画 */
 .hero-intro { display: grid; gap: 10px; transition: opacity 0.5s ease; }
 .hero-intro.leaving { opacity: 0; }
-.hero-intro video { display: block; width: 100%; max-width: 100%; aspect-ratio: 16 / 9; background: #f2f2ef; }
+.hero-intro video { display: block; width: 100%; max-width: 100%; aspect-ratio: 16 / 9; background: #f2f2ef; outline: 1px solid var(--line-soft); outline-offset: 0; }
 .intro-controls { display: flex; justify-content: space-between; gap: 16px; font-size: 0.85rem; }
 .intro-controls .text-button { color: var(--mute); }
 .intro-controls .text-button:hover { color: var(--accent); }
