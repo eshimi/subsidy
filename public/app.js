@@ -1,3 +1,4 @@
+import './intro.js';
 import { buildIcs, googleCalendarUrl, toJstDate } from './calendar.js';
 
 const $ = (sel) => document.querySelector(sel);

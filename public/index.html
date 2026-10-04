@@ -24,16 +24,31 @@
     </div>
   </header>
 
-  <section class="hero wrap" aria-labelledby="hero-title">
-    <p class="label">補助金ファインダー／個人の新規事業・創業向け</p>
-    <h1 id="hero-title" class="display">新しい事業に、<br>使える支援を。</h1>
-    <div class="hero-foot">
-      <p class="lead">事業のアイデアと郵便番号を入れるだけで、国・都道府県・市区町村の補助金、助成金、融資、相談窓口を関連度順に並べます。</p>
-      <dl class="facts">
-        <div><dt>制度データ</dt><dd>52<small>件</small></dd></div>
-        <div><dt>独自制度の都市</dt><dd>15<small>市区</small></dd></div>
-        <div><dt>募集中の補助金</dt><dd>jGrants<small>連携</small></dd></div>
-      </dl>
+  <section class="hero wrap" id="hero" aria-labelledby="hero-title">
+    <div class="hero-intro" id="hero-intro" hidden>
+      <video id="intro-video" muted playsinline preload="auto" aria-label="補助金ファインダーの紹介動画">
+        <source src="media/intro.mp4" type="video/mp4">
+        <source src="media/intro.webm" type="video/webm">
+      </video>
+      <div class="intro-controls">
+        <button type="button" class="text-button" id="intro-sound" aria-pressed="false">音を出す</button>
+        <button type="button" class="text-button" id="intro-skip">スキップ →</button>
+      </div>
+    </div>
+    <div class="hero-content" id="hero-content">
+      <div class="hero-top">
+        <p class="label">補助金ファインダー／個人の新規事業・創業向け</p>
+        <button type="button" class="text-button replay" id="intro-replay">紹介動画を見る</button>
+      </div>
+      <h1 id="hero-title" class="display"><span class="line"><span>新しい事業に、</span></span><span class="line"><span>使える支援を。</span></span></h1>
+      <div class="hero-foot">
+        <p class="lead">事業のアイデアと郵便番号を入れるだけで、国・都道府県・市区町村の補助金、助成金、融資、相談窓口を関連度順に並べます。</p>
+        <dl class="facts">
+          <div><dt>制度データ</dt><dd>52<small>件</small></dd></div>
+          <div><dt>独自制度の都市</dt><dd>15<small>市区</small></dd></div>
+          <div><dt>募集中の補助金</dt><dd>jGrants<small>連携</small></dd></div>
+        </dl>
+      </div>
     </div>
   </section>
 

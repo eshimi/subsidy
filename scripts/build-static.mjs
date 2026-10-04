@@ -1,6 +1,6 @@
 // GitHub Pages 用の静的サイトを dist/ に書き出す: node scripts/build-static.mjs
 import { build } from 'esbuild';
-import { mkdir, readFile, rm, writeFile, copyFile } from 'node:fs/promises';
+import { mkdir, readFile, rm, writeFile, copyFile, cp } from 'node:fs/promises';
 
 const root = new URL('../', import.meta.url);
 const out = new URL('dist/', root);
@@ -20,6 +20,7 @@ await build({
 });
 
 await copyFile(new URL('public/style.css', root), new URL('style.css', out));
+await cp(new URL('public/media/', root), new URL('media/', out), { recursive: true });
 const html = await readFile(new URL('public/index.html', root), 'utf8');
 await writeFile(new URL('index.html', out), html);
 // GitHub Pages の Jekyll 処理を無効化
