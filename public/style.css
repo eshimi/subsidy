@@ -437,3 +437,17 @@ details ul { margin: 8px 0; padding-left: 1.5em; }
 .step a { color: var(--accent); text-decoration: underline; }
 .roadmap-note { margin-top: 32px; padding: 16px; background: #f0f0f0; border-radius: 4px; font-size: 0.9rem; line-height: 1.6; }
 @media (max-width: 640px) { .step { grid-template-columns: 2.5rem 1fr; } .step-number { width: 2.5rem; height: 2.5rem; font-size: 1rem; } }
+
+/* ── Google Sign-In Modal ── */
+.modal { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.5); display: flex; align-items: center; justify-content: center; z-index: 1000; }
+.modal[hidden] { display: none; }
+.modal-content { background: var(--paper); border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); max-width: 420px; width: 90%; }
+.modal-header { display: flex; align-items: center; justify-content: space-between; padding: 20px; border-bottom: 1px solid var(--line); }
+.modal-header h2 { margin: 0; font-size: 1.2rem; }
+.modal-close { background: transparent; border: none; font-size: 1.5rem; cursor: pointer; color: var(--mute); }
+.modal-close:hover { color: var(--ink); }
+.modal-body { padding: 24px; }
+.modal-body p { margin: 0 0 16px; font-size: 0.95rem; line-height: 1.6; }
+.modal-body p:last-child { margin-bottom: 0; }
+#google-signin-button { display: flex; justify-content: center; margin: 24px 0; }
+.privacy-note { color: var(--mute); text-align: center; }

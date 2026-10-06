@@ -28,6 +28,12 @@ export function createApp(options = {}) {
 
   app.get('/api/health', (_req, res) => res.json({ ok: true, ai: aiEnabled() }));
 
+  app.get('/api/config', (_req, res) => {
+    res.json({
+      googleClientId: process.env.GOOGLE_CLIENT_ID || null,
+    });
+  });
+
   app.get('/api/postal/:zip', async (req, res, next) => {
     try {
       res.json(await lookupPostalCode(req.params.zip, deps));

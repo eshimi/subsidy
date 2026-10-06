@@ -21,6 +21,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="style.css">
+  <!-- Google Sign-In -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-J5DWZQLCB0"></script>
   <script>
@@ -252,6 +254,21 @@
       <p>表示内容は公開情報をもとにした参考情報で、受給を保証するものではありません。金額・要件・公募時期は年度や公募回によって変わります。申請前に必ず各制度の公式情報を確認し、商工会・商工会議所やよろず支援拠点などの相談窓口も活用してください。</p>
     </section>
   </main>
+
+  <!-- Google Sign-In Login Modal -->
+  <div id="login-modal" class="modal" hidden>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>検索結果を保存</h2>
+        <button type="button" class="modal-close" aria-label="閉じる">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>検索結果の保存にはログインが必要です。Google アカウントでログインしてください。</p>
+        <div id="google-signin-button"></div>
+        <p class="privacy-note"><small>ログイン情報はこのブラウザに保存され、検索結果の保存にのみ使用されます。</small></p>
+      </div>
+    </div>
+  </div>
 
   <footer class="footer">
     <div class="wrap">

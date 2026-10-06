@@ -32,6 +32,111 @@ let activeAmount = 'all';
 let activeDeadline = 'all';
 const itemsById = new Map();
 
+// ── Google Sign-In 認証 ──
+let googleClientId = null;
+let isAuthenticated = false;
+let authenticatedUser = null;
+const AUTH_KEY = 'subsidy-finder:auth';
+
+async function initializeGoogleSignIn() {
+  try {
+    const res = await fetch('/api/config');
+    const config = await res.json();
+    googleClientId = config.googleClientId;
+
+    if (!googleClientId) return;
+
+    // Check if user is already authenticated in this session
+    const stored = sessionStorage.getItem(AUTH_KEY);
+    if (stored) {
+      const auth = JSON.parse(stored);
+      if (Date.now() - auth.timestamp < 24 * 60 * 60 * 1000) { // 24 hours
+        isAuthenticated = true;
+        authenticatedUser = auth.user;
+        updateAuthUI();
+        return;
+      } else {
+        sessionStorage.removeItem(AUTH_KEY);
+      }
+    }
+
+    // Initialize Google Sign-In library
+    if (window.google) {
+      google.accounts.id.initialize({
+        client_id: googleClientId,
+        callback: handleGoogleSignIn,
+      });
+    }
+  } catch (e) {
+    console.warn('Google Sign-In initialization failed:', e.message);
+  }
+}
+
+function handleGoogleSignIn(response) {
+  try {
+    const jwt = response.credential;
+    // Decode JWT (basic decode, not verifying signature on client)
+    const parts = jwt.split('.');
+    const decoded = JSON.parse(atob(parts[1]));
+
+    isAuthenticated = true;
+    authenticatedUser = {
+      email: decoded.email,
+      name: decoded.name,
+      picture: decoded.picture,
+    };
+
+    // Store auth state for session
+    sessionStorage.setItem(AUTH_KEY, JSON.stringify({
+      user: authenticatedUser,
+      timestamp: Date.now(),
+    }));
+
+    closeLoginModal();
+    renderSaved();
+    toast('ログインしました');
+  } catch (e) {
+    console.error('Google Sign-In error:', e);
+    toast('ログインに失敗しました');
+  }
+}
+
+function showLoginModal() {
+  const modal = $('#login-modal');
+  modal.hidden = false;
+
+  if (window.google && googleClientId && !isAuthenticated) {
+    google.accounts.id.renderButton(
+      document.getElementById('google-signin-button'),
+      {
+        theme: 'outline',
+        size: 'large',
+        text: 'signin_with',
+        locale: 'ja',
+      }
+    );
+  }
+}
+
+function closeLoginModal() {
+  $('#login-modal').hidden = true;
+}
+
+function logout() {
+  isAuthenticated = false;
+  authenticatedUser = null;
+  sessionStorage.removeItem(AUTH_KEY);
+  if (window.google) {
+    google.accounts.id.disableAutoSelect();
+  }
+  updateAuthUI();
+  toast('ログアウトしました');
+}
+
+function updateAuthUI() {
+  // Can be extended to show user avatar/name in header
+}
+
 function esc(value) {
   return String(value ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 }
@@ -76,6 +181,12 @@ function writeSaved(saved) {
   }
 }
 function toggleSaved(item) {
+  // Check if Google Sign-In is configured and user is not authenticated
+  if (googleClientId && !isAuthenticated) {
+    showLoginModal();
+    return;
+  }
+
   const saved = loadSaved();
   if (saved[item.id]) delete saved[item.id];
   else {
@@ -148,6 +259,19 @@ $('#saved-ics').addEventListener('click', () => {
   const items = Object.values(loadSaved()).filter((s) => isUpcoming(s.deadline));
   downloadIcs(items, 'subsidy-deadlines.ics');
 });
+
+// ── Google Sign-In ログインモーダル ──
+const loginModal = $('#login-modal');
+if (loginModal) {
+  const closeBtn = loginModal.querySelector('.modal-close');
+  closeBtn.addEventListener('click', closeLoginModal);
+  loginModal.addEventListener('click', (e) => {
+    if (e.target === loginModal) closeLoginModal();
+  });
+}
+
+// ── 初期化 ──
+initializeGoogleSignIn();
 
 // ── 入力例 ──
 document.querySelectorAll('[data-example]').forEach((btn) => {
