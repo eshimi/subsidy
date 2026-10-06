@@ -353,7 +353,7 @@ select {
 .badge { padding: 1px 7px; border: 1px solid currentColor; line-height: 1.5; white-space: nowrap; }
 .badge.level { color: var(--ink); }
 .badge.live { color: var(--accent); }
-.badge.type { border-color: transparent; padding-inline: 0; }
+.badge.type { border-color: transparent; padding-inline: 0; color: var(--ink); }
 .badge.open { color: var(--ok); }
 .badge.closing { background: var(--alert); border-color: var(--alert); color: var(--paper); }
 .badge.closed { color: var(--mute); text-decoration: line-through; }
