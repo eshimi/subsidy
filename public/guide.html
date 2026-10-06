@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>使い方 - 補助金ファインダー</title>
+  <meta name="description" content="補助金ファインダーの使い方ガイド。検索方法、フィルター機能、保存機能などの説明。">
+  <meta name="robots" content="index, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .guide-section {
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--color-border, #e0e0e0);
+    }
+    .guide-section:last-child {
+      border-bottom: none;
+    }
+    .guide-section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--color-text-primary, #111);
+    }
+    .guide-section h3 {
+      font-size: 1.125rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      color: var(--color-text-primary, #111);
+    }
+    .guide-section p, .guide-section li {
+      line-height: 1.8;
+      margin-bottom: 0.75rem;
+    }
+    .guide-section ul {
+      margin-left: 2rem;
+      margin-bottom: 1rem;
+    }
+    .guide-example {
+      background: #f5f5f5;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      margin: 1rem 0;
+      font-size: 0.95rem;
+    }
+    .guide-tip {
+      background: #e3f2fd;
+      border-left: 4px solid #2196f3;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 0.25rem;
+    }
+    .guide-warning {
+      background: #fff3e0;
+      border-left: 4px solid #ff9800;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 0.25rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="wordmark" href="./" aria-label="補助金ファインダー トップ">Subsidy<span>Finder</span></a>
+      <nav class="topnav" aria-label="ページ内">
+        <a href="./">検索</a>
+        <a href="guide.html">使い方</a>
+        <a href="resources.html">参考リンク</a>
+      </nav>
+      <span class="edition">JP — FY2026</span>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div style="margin-bottom: 3rem;">
+      <h1 class="display" style="margin-bottom: 0.5rem;">使い方ガイド</h1>
+      <p class="lead" style="margin-bottom: 0;">補助金ファインダーの利用方法をご説明します。</p>
+    </div>
+
+    <section class="guide-section">
+      <h2>基本的な使い方</h2>
+
+      <h3>1. 事業内容を入力する</h3>
+      <p>あなたが行おうとしている事業について、できるだけ具体的に入力してください。業種、事業内容、特徴などを含めることで、より正確な検索結果が得られます。</p>
+      <div class="guide-example">
+        <strong>良い例：</strong> 地元の野菜を使ったカフェを商店街の空き店舗で開きたい。テイクアウトとネット通販もやりたい。アルバイトを2人雇う予定。
+      </div>
+      <div class="guide-example">
+        <strong>例が不足している場合：</strong> 「カフェを開く」だけより「〇〇駅近くで、オーガニック野菜を使った健康的なカフェを開く。店舗面積は30㎡程度」など、詳しく書くと精度が上がります。
+      </div>
+
+      <h3>2. 事業を行う場所を入力する</h3>
+      <p>郵便番号を入力すると、自動的に住所が表示されます。市区町村まで特定されない場合は、手動で市区町村を選択できます。この情報は、地域の補助金や支援制度を探すために重要です。</p>
+
+      <h3>3. 事業の状況を選択する（オプション）</h3>
+      <p>開業前なのか、開業後なのかで利用できる制度が異なります。</p>
+      <ul>
+        <li><strong>開業準備中：</strong> 事業開始前の補助金が中心に表示されます</li>
+        <li><strong>開業後1年未満：</strong> 初期段階の事業に向いた制度を優先表示</li>
+        <li><strong>開業後1年以上：</strong> 成長段階の事業向け制度を優先表示</li>
+      </ul>
+
+      <h3>4. 当てはまる条件を選択する（オプション）</h3>
+      <p>より関連度の高い制度を見つけるため、以下の条件が当てはまれば選択してください。</p>
+      <ul>
+        <li>従業員を雇う予定がある</li>
+        <li>店舗を構える</li>
+        <li>移住して起業する</li>
+        <li>年齢条件（39歳以下、55歳以上）</li>
+        <li>女性起業家</li>
+      </ul>
+    </section>
+
+    <section class="guide-section">
+      <h2>検索結果の見方</h2>
+
+      <h3>結果の表示順序</h3>
+      <p>検索結果は「関連度」の高い順に表示されます。あなたの事業内容と条件にどれだけ合致しているかを、AI解析とキーワード判定で評価しています。</p>
+
+      <h3>フィルター機能</h3>
+      <p>検索結果をさらに絞り込むことができます。</p>
+      <ul>
+        <li><strong>種類で絞り込み：</strong> 補助金、助成金、給付金、融資など、制度の種類で絞り込み</li>
+        <li><strong>金額で絞り込み：</strong> 50万円以上、100万円以上など、補助額の下限で絞り込み</li>
+        <li><strong>締切で絞り込み：</strong> 1ヶ月以内、3ヶ月以内など、申請締切の急迫度で絞り込み</li>
+      </ul>
+
+      <h3>各制度のカード</h3>
+      <p>各制度について、以下の情報が表示されます。</p>
+      <ul>
+        <li><strong>制度の種類と区分：</strong> 国／都道府県／市区町村の別、補助金か融資かなど</li>
+        <li><strong>補助額：</strong> 最大でいくら受け取れるか</li>
+        <li><strong>締切状況：</strong> 締切日と残り日数</li>
+        <li><strong>概要：</strong> 制度の説明</li>
+        <li><strong>要件と選考理由：</strong> 詳細な条件と、なぜこの制度が表示されたか</li>
+      </ul>
+
+      <h3>jGrants でいま募集中の補助金</h3>
+      <p>下部には、<a href="https://www.jgrants-portal.go.jp/" target="_blank" rel="noopener">デジタル庁の jGrants ポータル</a>に登録されている、現在募集中の補助金が表示されます。毎日更新されています。</p>
+    </section>
+
+    <section class="guide-section">
+      <h2>便利な機能</h2>
+
+      <h3>制度を保存する</h3>
+      <p>気になった制度は「☆ 保存」ボタンをクリックして保存できます。保存した制度は、ページ上部の「保存した制度」セクションに表示されます。このデータはブラウザのローカルストレージに保存されるため、別のデバイスからは見えません。</p>
+
+      <div class="guide-tip">
+        <strong>💡 ヒント：</strong> 複数の制度を比較する際に便利です。保存した制度は、後で訪れたときも残っています。
+      </div>
+
+      <h3>締切をカレンダーに追加する</h3>
+      <p>保存した制度の中で、締切が迫っているものについて「Googleカレンダーに締切を追加」でカレンダーに登録できます。また、「.ics をダウンロード」で、Outlook や Apple Calendar などの他のカレンダーアプリにも対応できます。</p>
+
+      <h3>検索結果を共有する</h3>
+      <p>検索結果の上部にある「この検索結果を共有する」ボタンをクリックすると、現在の検索条件がURLに含まれて、クリップボードにコピーされます。このリンクを他の人と共有すれば、同じ条件で検索した結果を見せることができます。</p>
+
+      <div class="guide-tip">
+        <strong>💡 ヒント：</strong> 相談者や支援機関と検索結果を共有する際に活用できます。
+      </div>
+
+      <h3>複数の条件で検索する</h3>
+      <p>同じキーワードで複数回検索して、結果を比較することもできます。例えば、「従業員を雇う」という条件の有無で検索結果がどう変わるかを確認できます。</p>
+    </section>
+
+    <section class="guide-section">
+      <h2>注意事項</h2>
+
+      <div class="guide-warning">
+        <strong>⚠️ 重要：</strong> このサイトで表示される情報は、公開情報をもとにした参考情報です。受給を保証するものではありません。
+      </div>
+
+      <h3>申請前の確認事項</h3>
+      <ul>
+        <li>金額・要件・公募時期は年度や公募回によって変わります</li>
+        <li>制度によっては予算の都合で急に終了することもあります</li>
+        <li>申請前に必ず各制度の公式情報を最新確認してください</li>
+        <li>要件を満たしていることを確実に確認してから申請してください</li>
+      </ul>
+
+      <h3>相談窓口の活用</h3>
+      <p>このサイトだけでなく、公式な相談窓口にも相談することをお勧めします。</p>
+      <ul>
+        <li><strong>商工会・商工会議所：</strong> 地域の中小企業支援</li>
+        <li><strong>よろず支援拠点：</strong> 中小企業・小規模事業者向けの経営相談</li>
+        <li><strong>各都道府県の産業振興部門：</strong> 地方創生や地域振興に関する相談</li>
+      </ul>
+
+      <h3>住所検索について</h3>
+      <p>郵便番号から住所を検索できない場合があります。その場合は、手動で市区町村を入力して、地域の制度も含めて検索できます。</p>
+    </section>
+
+    <section class="guide-section">
+      <h2>よくある質問</h2>
+
+      <h3>Q. 結果が少ないのですが？</h3>
+      <p>A. 以下をお試しください：</p>
+      <ul>
+        <li>事業内容をもっと詳しく入力する（業種や特徴を明記）</li>
+        <li>条件の制限を緩める（年齢条件や「従業員を雇う」など）</li>
+        <li>事業の状況を「指定しない」に変更する</li>
+      </ul>
+
+      <h3>Q. 検索結果の順序は？</h3>
+      <p>A. 「関連度」の高い順です。あなたの事業内容に合致している度合いを、AI解析とキーワード判定で評価しています。</p>
+
+      <h3>Q. 募集終了した制度も表示されますか？</h3>
+      <p>A. はい。今年度は募集終了だが、来年度に公募される可能性のある制度も表示されます。公開情報をもとにしているため、ご確認ください。</p>
+
+      <h3>Q. 保存データはどこに保存されますか？</h3>
+      <p>A. ブラウザのローカルストレージに保存されます。このブラウザ・このデバイスだけに記録されます。別のデバイスやブラウザからは見えません。</p>
+
+      <h3>Q. 営利企業も利用できますか？</h3>
+      <p>A. このサイトは個人の新規事業・創業向けに設計されています。すでに営利企業として登記された事業については、別途企業向けの支援制度を探すことをお勧めします。</p>
+    </section>
+
+    <section class="guide-section">
+      <h2>フィードバック・バグ報告</h2>
+      <p>このサイトの改善に向けて、ご意見や問題報告をお待ちしています。</p>
+      <p>問題や改善案がある場合は、<a href="https://github.com/eshimi/subsidy" target="_blank" rel="noopener">GitHub リポジトリ</a>で Issue を作成してください。</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p class="footer-mark" aria-hidden="true">Subsidy Finder</p>
+      <div class="footer-meta">
+        <p><a href="./">検索</a> / <a href="guide.html">使い方</a> / <a href="resources.html">参考リンク</a></p>
+        <p>募集中の補助金データ：<a href="https://www.jgrants-portal.go.jp/" target="_blank" rel="noopener">jGrants（デジタル庁）</a></p>
+        <p>住所検索：<a href="https://zipcloud.ibsnet.co.jp/" target="_blank" rel="noopener">zipcloud</a></p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
