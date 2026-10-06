@@ -409,3 +409,31 @@ details ul { margin: 8px 0 0; padding-left: 1.2em; }
 .testimonial-meta { margin: 0; font-size: 0.8rem; color: var(--mute); font-weight: 500; }
 @media (max-width: 760px) { .testimonials-grid { grid-template-columns: 1fr; } }
 @media (max-width: 420px) { .testimonial-card { padding: 18px; } .testimonial-text { font-size: 0.9rem; } }
+
+.data-freshness { margin: 12px 0 0; padding: 8px 0; font-size: 0.8rem; color: var(--mute); border-top: 1px solid var(--line-soft); }
+.checked-at { margin: 8px 0 0; font-size: 0.75rem; color: var(--mute); }
+details { display: block; }
+details > summary { cursor: pointer; color: var(--mute); font-size: 0.9rem; margin-bottom: 8px; user-select: none; }
+details > summary:hover { color: var(--ink); }
+details ul { margin: 8px 0; padding-left: 1.5em; }
+
+.weak-match-warning { background: #fef3c7; border: 1px solid #fcd34d; border-radius: 4px; padding: 16px; margin: 12px 0 0; }
+.weak-match-warning p { margin: 0 0 8px; font-size: 0.95rem; }
+.weak-match-warning p:first-child { margin-bottom: 12px; }
+.weak-match-warning strong { color: var(--ink); }
+.weak-match-warning ul { margin: 8px 0 0; padding-left: 1.5em; }
+.weak-match-warning li { margin-bottom: 6px; font-size: 0.9rem; }
+.weak-match-warning a { color: var(--accent); text-decoration: underline; }
+
+.roadmap { margin-top: 64px; padding-top: 32px; border-top: 2px solid var(--line-soft); }
+.roadmap h2 { font-size: 1.5rem; margin-bottom: 12px; }
+.roadmap-intro { font-size: 0.95rem; color: var(--mute); margin-bottom: 32px; line-height: 1.6; }
+.roadmap-steps { display: grid; gap: 32px; }
+.step { display: grid; grid-template-columns: 3rem 1fr; gap: 16px; }
+.step-number { display: flex; align-items: center; justify-content: center; width: 3rem; height: 3rem; background: var(--accent); color: var(--paper); border-radius: 50%; font-weight: 700; font-size: 1.2rem; flex-shrink: 0; }
+.step h3 { margin: 0 0 8px; font-size: 1.05rem; }
+.step p { margin: 0 0 8px; line-height: 1.6; }
+.step p:last-child { margin-bottom: 0; }
+.step a { color: var(--accent); text-decoration: underline; }
+.roadmap-note { margin-top: 32px; padding: 16px; background: #f0f0f0; border-radius: 4px; font-size: 0.9rem; line-height: 1.6; }
+@media (max-width: 640px) { .step { grid-template-columns: 2.5rem 1fr; } .step-number { width: 2.5rem; height: 2.5rem; font-size: 1rem; } }

@@ -292,11 +292,25 @@ $('#results').addEventListener('click', (ev) => {
 
 // ── 描画 ──
 function render() {
-  const { address, analysis, programs, live } = lastResult;
+  const { address, analysis, programs, live, weakMatch } = lastResult;
   const place = `${address.prefecture}${address.city ?? ''}`;
   const tags = [...analysis.industries, ...analysis.tags];
   itemsById.clear();
   [...programs, ...live.items].forEach((p) => itemsById.set(p.id, p));
+
+  const liveUpdated = live.generatedAt ? formatDate(live.generatedAt) : null;
+  const dataFreshnessHtml = liveUpdated ? `<p class="data-freshness">募集中の補助金データ：${liveUpdated}更新（出典: jGrants）</p>` : '';
+  const weakMatchHtml = weakMatch ? `
+    <div class="weak-match-warning">
+      <p><strong>⚠️ 条件に合う募集中の補助金は多くありません</strong></p>
+      <p>このサイトで見つけられない支援方法も検討してください：</p>
+      <ul>
+        <li><strong>融資</strong>：日本政策金融公庫の<a href="https://www.jfc.go.jp/n/finance/search/01_sinkikaigyou_m.html" target="_blank" rel="noopener">創業融資</a>など</li>
+        <li><strong>相談</strong>：お近くの<a href="https://www.jcci.or.jp/" target="_blank" rel="noopener">商工会議所</a>や<a href="https://www.shokoren.or.jp/" target="_blank" rel="noopener">商工会</a></li>
+        <li><strong>経営相談</strong>：<a href="https://www.yorozu.smrj.go.jp/" target="_blank" rel="noopener">よろず支援拠点</a>（無料の経営相談サービス）</li>
+      </ul>
+    </div>
+  ` : '';
 
   $('#summary').innerHTML = `
     <p class="summary-count"><span class="big-num">${programs.length}</span><span class="big-unit">件</span></p>
@@ -310,6 +324,8 @@ function render() {
       </div>
       ${analysis.industries.length === 0 ? '<p class="notice">業種を特定できなかったため、業種を問わない制度を中心に表示しています。「カフェ」「アプリ開発」など具体的に書くと精度が上がります。</p>' : ''}
       ${address.source === 'estimated' ? '<p class="notice">住所サービスに接続できなかったため、郵便番号から都道府県を推定しています。</p>' : ''}
+      ${weakMatchHtml}
+      ${dataFreshnessHtml}
       <div class="share-row">
         <span>判定方法：${analysis.mode === 'ai' ? 'AI（Claude）による解析＋キーワード判定' : 'キーワード判定'}</span>
         <button type="button" class="text-button" data-action="share">この検索結果を共有する</button>
@@ -471,6 +487,7 @@ function programCard(p, i, maxScore, isSaved) {
       <p class="summary-text">${esc(p.summary)}</p>
       <details>
         <summary>主な要件と、表示された理由</summary>
+        ${p.checkedAt ? `<p class="checked-at"><small>最終確認日: ${esc(formatDate(p.checkedAt))}</small></p>` : '<p class="checked-at"><small>⚠️ 確認日が不明です。申請前に必ず公式ページで最新情報を確認してください。</small></p>'}
         <ul>${p.eligibility.map((e) => `<li>${esc(e)}</li>`).join('')}</ul>
         <ul class="reasons">${p.reasons.map((r) => `<li>${esc(r)}</li>`).join('')}</ul>
       </details>

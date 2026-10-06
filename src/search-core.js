@@ -9,6 +9,12 @@ import { INDUSTRIES, TAGS, STAGES } from './data/taxonomy.js';
 
 const ATTRIBUTE_TAGS = ['woman', 'young', 'senior', 'hiring', 'relocation', 'store'];
 
+// 該当の強さ判定のしきい値
+export const WEAK_MATCH_THRESHOLDS = {
+  minPrograms: 3,      // この件数以下なら該当が弱い
+  minAverageScore: 0.3, // 平均スコアがこの値以下なら弱い
+};
+
 export async function runSearchCore(input, deps = {}) {
   const description = String(input.description ?? '').trim();
   if (description.length < 5) {
@@ -42,6 +48,10 @@ export async function runSearchCore(input, deps = {}) {
 
   const live = await findLiveGrants({ industries, tags, address, ai }, deps);
 
+  // 該当の強さを判定
+  const avgScore = programs.length > 0 ? programs.reduce((sum, p) => sum + (p.score ?? 0), 0) / programs.length : 0;
+  const weakMatch = programs.length <= WEAK_MATCH_THRESHOLDS.minPrograms || avgScore <= WEAK_MATCH_THRESHOLDS.minAverageScore;
+
   return {
     address,
     analysis: {
@@ -53,6 +63,7 @@ export async function runSearchCore(input, deps = {}) {
     },
     programs,
     live,
+    weakMatch,
     generatedAt: new Date().toISOString(),
   };
 }

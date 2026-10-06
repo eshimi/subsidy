@@ -12,6 +12,7 @@
 //   prefectures / excludePrefectures  地域条件（未指定なら全国）
 //   priority   一般的な重要度（0〜20）
 //   url        公式ページ。不明確なものは searchQuery から検索リンクを作る
+//   checkedAt  最終確認日（ISO 8601 形式: YYYY-MM-DD）。記載がないものは未確認。実装者が今の日付を勝手に埋めないこと。
 //   {pref} {city} はユーザーの住所で置換される
 
 export const PROGRAMS = [
@@ -30,6 +31,7 @@ export const PROGRAMS = [
     stages: ['planning', 'early', 'established'],
     priority: 18,
     url: 'https://www.jfc.go.jp/n/finance/search/01_sinkikaigyou_m.html',
+    checkedAt: '2026-09-15',
   },
   {
     id: 'tokutei-sogyo',
@@ -45,6 +47,7 @@ export const PROGRAMS = [
     stages: ['planning', 'early'],
     priority: 17,
     searchQuery: '{city} 特定創業支援等事業',
+    checkedAt: '2026-08-20',
   },
   {
     id: 'jizokuka-sogyo',
@@ -60,6 +63,7 @@ export const PROGRAMS = [
     stages: ['early', 'established'],
     priority: 16,
     searchQuery: '小規模事業者持続化補助金 創業型 公募',
+    checkedAt: '2026-09-01',
   },
   {
     id: 'jizokuka-general',
@@ -75,6 +79,7 @@ export const PROGRAMS = [
     stages: ['early', 'established'],
     priority: 12,
     searchQuery: '小規模事業者持続化補助金 一般型 公募',
+    checkedAt: '2026-09-01',
   },
   {
     id: 'it-donyu',
