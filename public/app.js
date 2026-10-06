@@ -13,13 +13,36 @@ const submitLabel = submitBtn.querySelector('span');
 const LEVEL_LABELS = { national: '国', prefecture: '都道府県', municipality: '市区町村', live: '募集中' };
 const TYPE_ORDER = ['補助金', '助成金', '給付金', '融資', '税制・優遇', '専門家支援'];
 const SAVED_KEY = 'subsidy-finder:saved';
+const AMOUNT_FILTERS = [
+  { key: 'all', label: 'すべて', test: () => true },
+  { key: '500k', label: '50万円以上', test: (amount) => extractMinAmount(amount) >= 500000 },
+  { key: '1m', label: '100万円以上', test: (amount) => extractMinAmount(amount) >= 1000000 },
+  { key: '2m', label: '200万円以上', test: (amount) => extractMinAmount(amount) >= 2000000 },
+];
+const DEADLINE_FILTERS = [
+  { key: 'all', label: 'すべて', test: () => true },
+  { key: '1month', label: '1ヶ月以内に締切', test: (p) => p.daysLeft !== undefined && p.daysLeft >= 0 && p.daysLeft <= 30 },
+  { key: '3month', label: '3ヶ月以内', test: (p) => p.daysLeft !== undefined && p.daysLeft >= 0 && p.daysLeft <= 90 },
+  { key: '6month', label: '6ヶ月以内', test: (p) => p.daysLeft !== undefined && p.daysLeft >= 0 && p.daysLeft <= 180 },
+];
 
 let lastResult = null;
 let activeType = 'すべて';
+let activeAmount = 'all';
+let activeDeadline = 'all';
 const itemsById = new Map();
 
 function esc(value) {
   return String(value ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+}
+
+function extractMinAmount(amountStr) {
+  if (!amountStr) return 0;
+  const match = String(amountStr).match(/(\d+(?:,\d{3})*|\d+)\s*万円/);
+  if (match) {
+    return parseInt(match[1].replace(/,/g, ''), 10) * 10000;
+  }
+  return 0;
 }
 
 function normalizeZip(v) {
@@ -237,6 +260,8 @@ form.addEventListener('submit', async (ev) => {
     if (!res.ok) throw new Error(data.error);
     lastResult = data;
     activeType = 'すべて';
+    activeAmount = 'all';
+    activeDeadline = 'all';
     history.replaceState(null, '', `?${payloadToParams(payload)}`);
     render();
     $('#results').hidden = false;
@@ -300,12 +325,93 @@ function render() {
   $('#type-filters').querySelectorAll('button').forEach((b) =>
     b.addEventListener('click', () => {
       activeType = b.dataset.type;
+      activeAmount = 'all';
+      activeDeadline = 'all';
       render();
     }),
   );
 
   const saved = loadSaved();
-  const visible = activeType === 'すべて' ? programs : programs.filter((p) => p.type === activeType);
+  let visible = activeType === 'すべて' ? programs : programs.filter((p) => p.type === activeType);
+
+  // Apply amount filter
+  if (activeAmount !== 'all') {
+    const amountFilter = AMOUNT_FILTERS.find((f) => f.key === activeAmount);
+    if (amountFilter) {
+      visible = visible.filter((p) => amountFilter.test(p.amount));
+    }
+  }
+
+  // Apply deadline filter
+  if (activeDeadline !== 'all') {
+    const deadlineFilter = DEADLINE_FILTERS.find((f) => f.key === activeDeadline);
+    if (deadlineFilter) {
+      visible = visible.filter((p) => deadlineFilter.test(p));
+    }
+  }
+
+  // Calculate counts for amount filters based on programs filtered by type and current deadline filter
+  let baseForAmountCount = activeType === 'すべて' ? programs : programs.filter((p) => p.type === activeType);
+  if (activeDeadline !== 'all') {
+    const deadlineFilter = DEADLINE_FILTERS.find((f) => f.key === activeDeadline);
+    if (deadlineFilter) {
+      baseForAmountCount = baseForAmountCount.filter((p) => deadlineFilter.test(p));
+    }
+  }
+
+  // Update amount filter buttons
+  const hasAmounts = programs.length > 0 && programs.some((p) => p.amount);
+  const amountFiltersEl = $('#amount-filters');
+  if (hasAmounts) {
+    amountFiltersEl.hidden = false;
+    amountFiltersEl.innerHTML = AMOUNT_FILTERS
+      .map((f) => {
+        const count = (f.key === 'all' ? baseForAmountCount.length : baseForAmountCount.filter((p) => f.test(p.amount)).length);
+        return `<button type="button" class="filter" aria-pressed="${f.key === activeAmount}" data-amount="${esc(f.key)}">${esc(f.label)}<sup>${count}</sup></button>`;
+      })
+      .join('');
+    amountFiltersEl.querySelectorAll('button').forEach((b) =>
+      b.addEventListener('click', () => {
+        activeAmount = b.dataset.amount;
+        activeDeadline = 'all';
+        render();
+      }),
+    );
+  } else {
+    amountFiltersEl.hidden = true;
+  }
+
+  // Calculate counts for deadline filters based on programs filtered by type and current amount filter
+  let baseForDeadlineCount = activeType === 'すべて' ? programs : programs.filter((p) => p.type === activeType);
+  if (activeAmount !== 'all') {
+    const amountFilter = AMOUNT_FILTERS.find((f) => f.key === activeAmount);
+    if (amountFilter) {
+      baseForDeadlineCount = baseForDeadlineCount.filter((p) => amountFilter.test(p.amount));
+    }
+  }
+
+  // Update deadline filter buttons
+  const hasDeadlines = programs.length > 0 && programs.some((p) => p.daysLeft !== undefined);
+  const deadlineFiltersEl = $('#deadline-filters');
+  if (hasDeadlines) {
+    deadlineFiltersEl.hidden = false;
+    deadlineFiltersEl.innerHTML = DEADLINE_FILTERS
+      .map((f) => {
+        const count = (f.key === 'all' ? baseForDeadlineCount.length : baseForDeadlineCount.filter((p) => f.test(p)).length);
+        return `<button type="button" class="filter" aria-pressed="${f.key === activeDeadline}" data-deadline="${esc(f.key)}">${esc(f.label)}<sup>${count}</sup></button>`;
+      })
+      .join('');
+    deadlineFiltersEl.querySelectorAll('button').forEach((b) =>
+      b.addEventListener('click', () => {
+        activeDeadline = b.dataset.deadline;
+        activeAmount = 'all';
+        render();
+      }),
+    );
+  } else {
+    deadlineFiltersEl.hidden = true;
+  }
+
   $('#count').textContent = `${visible.length}件・関連度順`;
   const maxScore = Math.max(...programs.map((p) => p.score), 1);
   $('#program-list').innerHTML = visible.map((p, i) => programCard(p, i, maxScore, !!saved[p.id])).join('') || '<p class="empty">該当する制度がありません。</p>';
