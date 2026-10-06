@@ -430,6 +430,14 @@ details ul { margin: 8px 0; padding-left: 1.5em; }
 .roadmap h2 { font-size: clamp(1.4rem, 3vw, 1.8rem); margin: 0 0 24px; letter-spacing: -0.02em; }
 .roadmap-intro { font-size: 0.95rem; color: var(--mute); margin-bottom: 40px; line-height: 1.7; max-width: 50em; }
 .roadmap-steps { display: grid; gap: 40px; }
+.roadmap-preview-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
+.roadmap-preview-item { background: var(--surface); padding: 20px 24px; border-radius: 8px; border: 1px solid var(--line-soft); display: flex; flex-direction: column; gap: 12px; transition: box-shadow 0.2s; }
+.roadmap-preview-item:hover { box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); }
+.roadmap-preview-num { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: linear-gradient(135deg, var(--accent), #5463ff); color: white; border-radius: 50%; font-weight: 700; font-size: 1.1rem; flex-shrink: 0; }
+.roadmap-preview-item h3 { margin: 0; font-size: 1.05rem; letter-spacing: -0.01em; }
+.roadmap-preview-item p { margin: 0; font-size: 0.9rem; line-height: 1.6; color: var(--mute); }
+.roadmap-preview-item a { color: var(--accent); text-decoration: none; border-bottom: 1px solid currentColor; }
+.roadmap-preview-item a:hover { color: var(--ink); }
 .step { display: grid; grid-template-columns: 4rem 1fr; gap: 24px; align-items: start; }
 .step-number {
   display: flex;
