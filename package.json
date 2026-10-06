@@ -1,7 +1,7 @@
 {
   "name": "subsidy-finder",
   "version": "0.1.0",
-  "description": "新規事業の内容と郵便番号から、受けられそうな補助金・助成金・支援制度を一覧表示するサービス",
+  "description": "新規事業の内容と郵便番号から、受けられそうな補助金・助成金・支援制度を一覧表示するサービス「補助金ネット」",
   "type": "module",
   "main": "src/server.js",
   "scripts": {

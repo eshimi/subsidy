@@ -223,7 +223,7 @@ async function copyShareUrl() {
   const url = location.href;
   try {
     if (navigator.share && matchMedia('(pointer: coarse)').matches) {
-      await navigator.share({ title: '補助金ファインダーの検索結果', url });
+      await navigator.share({ title: '補助金ネットの検索結果', url });
       return;
     }
     await navigator.clipboard.writeText(url);

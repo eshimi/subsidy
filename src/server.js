@@ -56,7 +56,7 @@ export function createApp(options = {}) {
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const port = Number(process.env.PORT) || 3000;
   const server = createApp().listen(port, () => {
-    console.log(`補助金ファインダー: http://localhost:${port}  (AI解析: ${aiEnabled() ? '有効' : '無効'})`);
+    console.log(`補助金ネット: http://localhost:${port}  (AI解析: ${aiEnabled() ? '有効' : '無効'})`);
   });
   // 取り込んだ jGrants データを1日1回更新する（JGRANTS_REFRESH=off で無効）
   if (process.env.JGRANTS_REFRESH !== 'off') {
