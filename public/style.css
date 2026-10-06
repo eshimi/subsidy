@@ -426,18 +426,63 @@ details ul { margin: 8px 0; padding-left: 1.5em; }
 .weak-match-warning li { margin-bottom: 6px; font-size: 0.9rem; }
 .weak-match-warning a { color: var(--accent); text-decoration: underline; }
 
-.roadmap { margin-top: 64px; padding-top: 32px; border-top: 2px solid var(--line-soft); }
-.roadmap h2 { font-size: 1.5rem; margin-bottom: 12px; }
-.roadmap-intro { font-size: 0.95rem; color: var(--mute); margin-bottom: 32px; line-height: 1.6; }
-.roadmap-steps { display: grid; gap: 32px; }
-.step { display: grid; grid-template-columns: 3rem 1fr; gap: 16px; }
-.step-number { display: flex; align-items: center; justify-content: center; width: 3rem; height: 3rem; background: var(--accent); color: var(--paper); border-radius: 50%; font-weight: 700; font-size: 1.2rem; flex-shrink: 0; }
-.step h3 { margin: 0 0 8px; font-size: 1.05rem; }
-.step p { margin: 0 0 8px; line-height: 1.6; }
+.roadmap { margin-top: 80px; padding-top: 40px; padding-bottom: 32px; border-top: 2px solid var(--line-soft); }
+.roadmap h2 { font-size: clamp(1.4rem, 3vw, 1.8rem); margin: 0 0 24px; letter-spacing: -0.02em; }
+.roadmap-intro { font-size: 0.95rem; color: var(--mute); margin-bottom: 40px; line-height: 1.7; max-width: 50em; }
+.roadmap-steps { display: grid; gap: 40px; }
+.step { display: grid; grid-template-columns: 4rem 1fr; gap: 24px; align-items: start; }
+.step-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  background: linear-gradient(135deg, var(--accent), #5463ff);
+  color: white;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+  grid-row: 1 / -1;
+  box-shadow: 0 2px 8px rgba(31, 59, 255, 0.2);
+}
+.step h3 {
+  margin: 0 0 12px;
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+  grid-column: 2;
+}
+.step p {
+  margin: 0 0 12px;
+  line-height: 1.7;
+  color: var(--ink);
+  grid-column: 2;
+}
 .step p:last-child { margin-bottom: 0; }
-.step a { color: var(--accent); text-decoration: underline; }
-.roadmap-note { margin-top: 32px; padding: 16px; background: #f0f0f0; border-radius: 4px; font-size: 0.9rem; line-height: 1.6; }
-@media (max-width: 640px) { .step { grid-template-columns: 2.5rem 1fr; } .step-number { width: 2.5rem; height: 2.5rem; font-size: 1rem; } }
+.step strong { font-weight: 700; color: var(--ink); }
+.step a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  transition: color 0.2s;
+}
+.step a:hover { color: var(--ink); }
+.roadmap-note {
+  margin-top: 40px;
+  padding: 20px 24px;
+  background: rgba(31, 59, 255, 0.06);
+  border-left: 4px solid var(--accent);
+  border-radius: 4px;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+.roadmap-note strong { color: var(--ink); font-weight: 700; }
+@media (max-width: 640px) {
+  .step { grid-template-columns: 3rem 1fr; gap: 16px; }
+  .step-number { width: 3rem; height: 3rem; font-size: 1.1rem; }
+  .roadmap h2 { font-size: 1.3rem; }
+}
 
 /* ── Google Sign-In Modal ── */
 .modal { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.5); display: flex; align-items: center; justify-content: center; z-index: 1000; }
