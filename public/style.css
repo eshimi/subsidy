@@ -355,7 +355,7 @@ select {
 .badge.live { color: var(--accent); }
 .badge.type { border-color: transparent; padding-inline: 0; color: var(--ink); }
 .badge.open { color: var(--ok); }
-.badge.closing { background: var(--alert); border-color: var(--alert); color: var(--paper); }
+.badge.closing { background: var(--alert); border-color: var(--alert); color: var(--ink); }
 .badge.closed { color: var(--mute); text-decoration: line-through; }
 
 .meter { display: flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 0.72rem; color: var(--mute); }
