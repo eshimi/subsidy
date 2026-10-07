@@ -44,7 +44,20 @@
     .book-cover img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
+    }
+    .book-cover-fallback {
+      padding: 16px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      text-align: center;
+      color: #333;
+    }
+    .book-meta {
+      font-size: 0.75rem;
+      color: #888;
+      margin-bottom: 8px;
     }
     .book-info {
       padding: 16px;
@@ -70,20 +83,6 @@
       color: #999;
       margin-bottom: 12px;
       flex-grow: 1;
-    }
-    .book-rating {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 12px;
-      font-size: 0.85rem;
-    }
-    .book-stars {
-      color: #ffc107;
-      font-weight: 600;
-    }
-    .book-reviews {
-      color: #666;
     }
     .book-link {
       display: inline-block;
@@ -146,9 +145,9 @@
       <h2 style="font-size: 1.5rem; margin-bottom: 24px; letter-spacing: -0.02em;">このページについて</h2>
       <p>補助金ネットでは、補助金制度の理解と活用に役立つ参考図書をご紹介しています。掲載されている書籍はAmazonで購入できます。</p>
       <ul style="margin: 16px 0 0; padding-left: 1.5em; line-height: 1.8;">
-        <li>各書籍はAmazonの評点とレビュー件数に基づいて掲載しています</li>
-        <li>定期的に人気度の高い図書に更新しています</li>
-        <li>書籍の購入による利益は受けていません（Amazon アソシエイト非参加）</li>
+        <li>補助金の活用、創業、資金調達、事業計画づくりに役立つ書籍を選んでいます</li>
+        <li>定期的に新しい版や新刊に入れ替えています</li>
+        <li>Amazonのアソシエイトとして、補助金ネットは適格販売により収入を得ています</li>
       </ul>
       <p style="margin-top: 16px;">補助金制度について、より詳しく学びたい方は、これらの参考図書と併せて、<a href="resources.html">参考リンク</a>に掲載している公式サイトや相談窓口もご活用ください。</p>
     </section>
