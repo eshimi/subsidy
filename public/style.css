@@ -106,7 +106,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 @media (max-width: 640px) { .edition { display: none; } .topnav { gap: 14px; } }
 
 /* ── ヒーロー ── */
-.hero { background: url('images/121.webp') center top / cover no-repeat; min-height: 60vh; }
+.hero { background: url('images/121.webp') center top / 100% auto no-repeat; background-color: #ffffff; }
 .hero > .wrap { padding-block: clamp(40px, 8vw, 96px) clamp(32px, 5vw, 56px); }
 .hero-main { display: flex; gap: clamp(24px, 4vw, 64px); align-items: flex-start; position: relative; }
 .hero-content { display: grid; gap: clamp(20px, 3vw, 32px); flex: 1; }
