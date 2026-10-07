@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>今日からできること診断 - 補助金ネット</title>
+  <meta name="description" content="あなたの時間・興味・予算に合わせて、最適な副業を診断します。5つの質問に答えるだけで、あなたにピッタリの副業が見つかります。">
+  <meta name="robots" content="index, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .diagnosis-container { max-width: 700px; margin: 0 auto; }
+    .diagnosis-section { margin-bottom: 40px; }
+    .diagnosis-question { margin-bottom: 24px; }
+    .diagnosis-question h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 12px; color: var(--ink); }
+    .diagnosis-options { display: flex; flex-direction: column; gap: 12px; }
+    .diagnosis-option { display: flex; align-items: center; }
+    .diagnosis-option input[type="radio"] { margin-right: 12px; width: 18px; height: 18px; cursor: pointer; }
+    .diagnosis-option label { flex: 1; cursor: pointer; display: flex; align-items: center; }
+    .diagnosis-option label:hover { color: var(--accent); }
+    .diagnosis-button { background: var(--accent); color: var(--accent-ink); padding: 12px 32px; border: none; border-radius: 6px; font-size: 1rem; font-weight: 600; cursor: pointer; margin-top: 24px; transition: opacity 0.2s; }
+    .diagnosis-button:hover { opacity: 0.9; }
+    .diagnosis-results { margin-top: 40px; }
+    .diagnosis-result-item { background: white; border: 1px solid var(--line-soft); border-radius: 8px; padding: 20px; margin-bottom: 20px; }
+    .diagnosis-result-rank { display: inline-block; background: var(--accent); color: var(--accent-ink); padding: 4px 12px; border-radius: 4px; font-weight: 600; margin-bottom: 8px; font-size: 0.9rem; }
+    .diagnosis-result-title { font-size: 1.2rem; font-weight: 600; margin-bottom: 8px; color: var(--ink); }
+    .diagnosis-result-score { color: var(--mute); font-size: 0.9rem; margin-bottom: 12px; }
+    .diagnosis-result-description { color: var(--ink); line-height: 1.6; margin-bottom: 12px; }
+    .diagnosis-result-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+    .diagnosis-tag { display: inline-block; background: #f0f0f0; padding: 4px 10px; border-radius: 4px; font-size: 0.85rem; color: var(--mute); }
+    .diagnosis-result-link { color: var(--accent); text-decoration: none; font-weight: 500; }
+    .diagnosis-result-link:hover { text-decoration: underline; }
+    .diagnosis-hidden { display: none; }
+    .diagnosis-reset { background: var(--mute); color: white; padding: 8px 16px; border: none; border-radius: 4px; font-size: 0.9rem; cursor: pointer; margin-left: 12px; }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="wordmark" href="./" aria-label="補助金ネット トップ">補助金<span>ネット</span></a>
+      <nav class="topnav" aria-label="ページ内">
+        <a href="./">探す</a>
+        <a href="guide.html">使い方</a>
+        <a href="roadmap.html">創業のステップ</a>
+        <a href="columns.html">コラム</a>
+        <a href="books.html">参考図書</a>
+        <a href="resources.html">参考リンク</a>
+      </nav>
+      <span class="edition">JP — FY2026</span>
+    </div>
+  </header>
+
+  <main class="wrap diagnosis-container">
+    <div style="margin-bottom: 3rem; text-align: center;">
+      <h1 class="display" style="margin-bottom: 0.5rem;">今日からできること診断</h1>
+      <p class="lead" style="margin-bottom: 0;">あなたの時間・興味・予算に合わせて、最適な副業を診断します。<br>5つの質問に答えるだけで、あなたにピッタリの副業が見つかります。</p>
+    </div>
+
+    <section class="diagnosis-section" id="diagnosis-form">
+      <div class="diagnosis-question">
+        <h3>1. 週に使える時間は？</h3>
+        <div class="diagnosis-options">
+          <div class="diagnosis-option">
+            <input type="radio" id="time-1" name="time" value="少ない" required>
+            <label for="time-1">1～5時間（毎日30分程度）</label>
+          </div>
+          <div class="diagnosis-option">
+            <input type="radio" id="time-2" name="time" value="中程度" required>
+            <label for="time-2">5～10時間（毎日1時間程度）</label>
+          </div>
+          <div class="diagnosis-option">
+            <input type="radio" id="time-3" name="time" value="多い" required>
+            <label for="time-3">10時間以上（毎日2時間以上）</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="diagnosis-question">
+        <h3>2. 最も興味のあるジャンルは？</h3>
+        <div class="diagnosis-options">
+          <div class="diagnosis-option">
+            <input type="radio" id="genre-1" name="genre" value="クリエイティブ" required>
+            <label for="genre-1">クリエイティブ（デザイン、ライティング、動画など）</label>
+          </div>
+          <div class="diagnosis-option">
+            <input type="radio" id="genre-2" name="genre" value="技術" required>
+            <label for="genre-2">技術（プログラミング、システム開発など）</label>
+          </div>
+          <div class="diagnosis-option">
+            <input type="radio" id="genre-3" name="genre" value="教育" required>
+            <label for="genre-3">教育（講師、コーチング、アドバイスなど）</label>
+          </div>
+          <div class="diagnosis-option">
+            <input type="radio" id="genre-4" name="genre" value="ビジネス" required>
+            <label for="genre-4">ビジネス（販売、マーケティング、運営など）</label>
+          </div>
+          <div class="diagnosis-option">
+            <input type="radio" id="genre-5" name="genre" value="シンプル" required>
+            <label for="genre-5">シンプル（単純作業、アンケートなど）</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="diagnosis-question">
+        <h3>3. 初期に用意できる予算は？</h3>
+        <div class="diagnosis-options">
+          <div class="diagnosis-option">
+            <input type="radio" id="budget-1" name="budget" value="少ない" required>
+            <label for="budget-1">ほぼ0円（できるだけ無料で始めたい）</label>
+          </div>
+          <div class="diagnosis-option">
+            <input type="radio" id="budget-2" name="budget" value="中程度" required>
+            <label for="budget-2">1～5万円（ツールやスキル習得に投資）</label>
+          </div>
+          <div class="diagnosis-option">
+            <input type="radio" id="budget-3" name="budget" value="多い" required>
+            <label for="budget-3">5万円以上（本格的に始めたい）</label>
+          </div>
+        </div>
+      </div>
+
+      <button class="diagnosis-button" onclick="diagnose()">診断する</button>
+    </section>
+
+    <section class="diagnosis-section diagnosis-hidden" id="diagnosis-results">
+      <div style="margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center;">
+        <h2 style="margin: 0; font-size: 1.3rem;">あなたにおすすめの副業</h2>
+        <button class="diagnosis-reset" onclick="resetDiagnosis()">診断をやり直す</button>
+      </div>
+      <div id="results-list"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p class="footer-mark" aria-hidden="true">Startup Guide</p>
+      <div class="footer-meta">
+        <p><a href="./">検索</a> / <a href="guide.html">使い方</a> / <a href="resources.html">参考リンク</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const sidebusinesses = [
+      {
+        title: "ライティング・記事作成",
+        description: "ブログ記事、SEO記事、プレスリリースなどの執筆。文章スキルを活かして稼げます。",
+        time: ["少ない", "中程度"],
+        genre: ["クリエイティブ"],
+        budget: ["少ない", "中程度"],
+        tags: ["オンライン", "未経験OK", "柔軟な時間"],
+        tips: "まずはランサーズやクラウドワークスで案件を探してみましょう。"
+      },
+      {
+        title: "デザイン・イラスト",
+        description: "ロゴ、バナー、イラストなどのデザイン業務。スキルがあれば高単価案件も。",
+        time: ["少ない", "中程度", "多い"],
+        genre: ["クリエイティブ"],
+        budget: ["少ない", "中程度"],
+        tags: ["オンライン", "スキル必須", "高単価"],
+        tips: "ポートフォリオを充実させることが成功のカギです。"
+      },
+      {
+        title: "プログラミング・開発",
+        description: "ウェブサイト開発、アプリ開発、システム構築などの受託業務。技術スキルで高収入。",
+        time: ["中程度", "多い"],
+        genre: ["技術"],
+        budget: ["少ない", "中程度", "多い"],
+        tags: ["オンライン", "スキル必須", "高単価"],
+        tips: "GitHubでポートフォリオを作成し、実績を示すことが重要です。"
+      },
+      {
+        title: "オンライン講師・チューター",
+        description: "英会話、プログラミング、学習指導など。知識や経験を活かして教える。",
+        time: ["中程度", "多い"],
+        genre: ["教育"],
+        budget: ["少ない", "中程度"],
+        tags: ["オンライン", "スキル必須", "安定収入"],
+        tips: "Udemyやココナラで講座やレッスンを販売できます。"
+      },
+      {
+        title: "アンケート・モニター",
+        description: "企業のアンケートに答える、商品をモニターする。気軽に始められる。",
+        time: ["少ない"],
+        genre: ["シンプル"],
+        budget: ["少ない"],
+        tags: ["オンライン", "未経験OK", "すぐ始める"],
+        tips: "複数のサイトに登録することで、案件が増えます。"
+      },
+      {
+        title: "データ入力・事務作業",
+        description: "名刺入力、リサーチ、メール対応など、事務的な作業。単価は低めですが簡単。",
+        time: ["少ない", "中程度"],
+        genre: ["シンプル"],
+        budget: ["少ない"],
+        tags: ["オンライン", "未経験OK", "即開始"],
+        tips: "ランサーズなどの初心者向け案件から始めましょう。"
+      },
+      {
+        title: "ブログ・アフィリエイト",
+        description: "ブログやSNSで商品・サービスを紹介して報酬を得る。長期的な収入になります。",
+        time: ["少ない", "中程度", "多い"],
+        genre: ["ビジネス", "クリエイティブ"],
+        budget: ["少ない", "中程度"],
+        tags: ["オンライン", "長期投資", "未経験OK"],
+        tips: "3～6ヶ月は無収入と考え、コンテンツ作成に集中しましょう。"
+      },
+      {
+        title: "フリマアプリ販売",
+        description: "不用品の販売、ハンドメイド作品の販売。初期投資なしで始められます。",
+        time: ["少ない", "中程度"],
+        genre: ["ビジネス"],
+        budget: ["少ない"],
+        tags: ["オンライン", "未経験OK", "すぐ始める"],
+        tips: "メルカリやラクマで写真と説明をしっかり作成しましょう。"
+      },
+      {
+        title: "動画編集",
+        description: "YouTubeやTikTokなどの動画編集。クリエイターのサポートで報酬獲得。",
+        time: ["中程度", "多い"],
+        genre: ["クリエイティブ"],
+        budget: ["中程度", "多い"],
+        tags: ["オンライン", "スキル習得必須", "高単価"],
+        tips: "動画編集スキルを学んだ後、クリエイターとの実績を作ることが重要。"
+      },
+      {
+        title: "コンサルティング・コーチング",
+        description: "ビジネス、キャリア、マインドセットなどのコンサルティング。経験・知識を活かす。",
+        time: ["少ない", "中程度"],
+        genre: ["教育", "ビジネス"],
+        budget: ["少ない", "中程度"],
+        tags: ["オンライン", "高単価", "経験必須"],
+        tips: "実績を作った後、ココナラやリモートワークで提供しましょう。"
+      }
+    ];
+
+    function diagnose() {
+      const time = document.querySelector('input[name="time"]:checked')?.value;
+      const genre = document.querySelector('input[name="genre"]:checked')?.value;
+      const budget = document.querySelector('input[name="budget"]:checked')?.value;
+
+      if (!time || !genre || !budget) {
+        alert("すべての質問にお答えください");
+        return;
+      }
+
+      // スコア計算
+      const results = sidebusinesses.map(biz => {
+        let score = 0;
+        if (biz.time.includes(time)) score += 2;
+        if (biz.genre.includes(genre)) score += 3;
+        if (biz.budget.includes(budget)) score += 2;
+        return { ...biz, score };
+      }).sort((a, b) => b.score - a.score);
+
+      // 結果表示
+      displayResults(results);
+      document.getElementById("diagnosis-form").classList.add("diagnosis-hidden");
+      document.getElementById("diagnosis-results").classList.remove("diagnosis-hidden");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function displayResults(results) {
+      const resultsList = document.getElementById("results-list");
+      resultsList.innerHTML = "";
+
+      results.forEach((result, index) => {
+        const item = document.createElement("div");
+        item.className = "diagnosis-result-item";
+        item.innerHTML = `
+          <div class="diagnosis-result-rank">第${index + 1}位</div>
+          <div class="diagnosis-result-title">${result.title}</div>
+          <div class="diagnosis-result-description">${result.description}</div>
+          <div class="diagnosis-result-tags">
+            ${result.tags.map(tag => `<span class="diagnosis-tag">${tag}</span>`).join("")}
+          </div>
+          <div style="color: var(--mute); font-size: 0.9rem; margin-bottom: 8px;">💡 ${result.tips}</div>
+          <a href="./#search-form" class="diagnosis-result-link">→ この副業に関連する補助金を探す</a>
+        `;
+        resultsList.appendChild(item);
+      });
+    }
+
+    function resetDiagnosis() {
+      document.querySelectorAll('input[type="radio"]').forEach(radio => radio.checked = false);
+      document.getElementById("diagnosis-form").classList.remove("diagnosis-hidden");
+      document.getElementById("diagnosis-results").classList.add("diagnosis-hidden");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  </script>
+</body>
+</html>
