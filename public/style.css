@@ -79,7 +79,15 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .label { margin: 0; color: var(--mute); text-transform: uppercase; }
 
 /* ── ヘッダー ── */
-.topbar { border-bottom: 1px solid var(--line); position: fixed; top: env(safe-area-inset-top, 0px); left: 0; right: 0; z-index: 999; background: var(--paper); }
+.topbar { border-bottom: 1px solid var(--line); position: fixed; top: env(safe-area-inset-top, 0px); left: 0; right: 0; z-index: 999; background: #ffffff; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .topbar {
+    background: #0f0f0e;
+  }
+}
+:root[data-theme="dark"] .topbar {
+  background: #0f0f0e;
+}
 .topbar-inner { display: flex; align-items: center; gap: 24px; min-height: 56px; }
 .wordmark {
   font-family: var(--font-display);
