@@ -107,7 +107,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 
 /* ── ヒーロー ── */
 .hero { background: url('images/121.webp') center top / 100% auto no-repeat; background-color: #ffffff; }
-.hero > .wrap { padding-block: clamp(40px, 8vw, 96px) clamp(32px, 5vw, 56px); }
+.hero > .wrap { padding-block: 0 clamp(32px, 5vw, 56px); }
 .hero-main { display: flex; gap: clamp(24px, 4vw, 64px); align-items: flex-start; position: relative; }
 .hero-content { display: grid; gap: clamp(20px, 3vw, 32px); flex: 1; }
 .hero-image { display: none; }
