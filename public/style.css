@@ -107,15 +107,15 @@ button, input, select, textarea { font: inherit; color: inherit; }
 
 /* ── ヒーロー ── */
 .hero { padding-block: clamp(40px, 8vw, 96px) clamp(32px, 5vw, 56px); }
-.hero-main { display: flex; gap: clamp(24px, 4vw, 64px); align-items: stretch; position: relative; }
+.hero-main { display: flex; gap: clamp(24px, 4vw, 64px); align-items: flex-start; position: relative; }
 .hero-content { display: grid; gap: clamp(20px, 3vw, 32px); flex: 1; }
-.hero-image { flex: 0 1 45%; display: flex; align-items: center; justify-content: flex-end; position: relative; }
-.hero-image img { width: 100%; height: auto; max-width: 100%; object-fit: contain; filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.08)); }
-.hero-image::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0) 20%, transparent 100%); pointer-events: none; }
+.hero-image { flex: 0 1 auto; display: flex; align-items: center; justify-content: flex-end; position: relative; height: clamp(200px, 25vw, 400px); width: auto; }
+.hero-image img { height: 100%; width: auto; max-width: 100%; object-fit: contain; }
+.hero-image::after { content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; background: linear-gradient(to right, transparent 0%, transparent 40%, rgba(255, 255, 255, 0.3) 80%, rgba(255, 255, 255, 0.6) 100%); pointer-events: none; }
 @media (max-width: 1024px) {
-  .hero-main { flex-direction: column; gap: clamp(20px, 3vw, 32px); }
-  .hero-image { flex: 1; justify-content: center; max-height: 300px; }
-  .hero-image::before { background: linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, 0) 30%, transparent 100%); }
+  .hero-main { flex-direction: column; gap: clamp(20px, 3vw, 32px); align-items: center; }
+  .hero-image { height: clamp(150px, 30vw, 280px); }
+  .hero-image::after { background: linear-gradient(to bottom, transparent 0%, transparent 50%, rgba(255, 255, 255, 0.4) 85%, rgba(255, 255, 255, 0.7) 100%); }
 }
 .hero-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px 16px; }
 .replay { font-size: 0.8rem; color: var(--mute); }
