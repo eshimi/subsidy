@@ -50,7 +50,7 @@ function bookCard(book) {
 
 async function loadBooks() {
   try {
-    const response = await fetch('books.json');
+    const response = await fetch('books.json', { cache: 'no-cache' });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const books = await response.json();
     document.getElementById('books-grid').replaceChildren(...books.map(bookCard));
