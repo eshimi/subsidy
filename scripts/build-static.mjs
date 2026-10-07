@@ -27,6 +27,7 @@ await cp(new URL('public/data/', root), new URL('data/', out), { recursive: true
 // その他の HTML ページと JS ファイルをコピー
 await copyFile(new URL('public/books.html', root), new URL('books.html', out));
 await copyFile(new URL('public/books.js', root), new URL('books.js', out));
+await copyFile(new URL('public/books.json', root), new URL('books.json', out));
 await copyFile(new URL('public/guide.html', root), new URL('guide.html', out));
 await copyFile(new URL('public/resources.html', root), new URL('resources.html', out));
 await copyFile(new URL('public/roadmap.html', root), new URL('roadmap.html', out));

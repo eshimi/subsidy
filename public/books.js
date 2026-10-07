@@ -1,6 +1,6 @@
 async function loadBooks() {
   try {
-    const response = await fetch('/data/books.json');
+    const response = await fetch('books.json');
     const books = await response.json();
     const grid = document.getElementById('books-grid');
 
