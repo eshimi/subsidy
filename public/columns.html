@@ -143,49 +143,6 @@
       text-decoration: underline;
     }
 
-    .columns-nav {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 16px;
-      margin: 48px 0;
-      padding: 24px;
-      background: #f9f9f7;
-      border-radius: 8px;
-    }
-    .column-nav-item {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      text-decoration: none;
-      color: inherit;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .column-nav-item:hover {
-      transform: translateY(-2px);
-    }
-    .column-nav-thumbnail {
-      width: 100%;
-      height: 100px;
-      background: white;
-      border: 1px solid #e0e0e0;
-      border-radius: 4px;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .column-nav-thumbnail img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .column-nav-label {
-      font-size: 0.75rem;
-      color: #999;
-      text-align: center;
-      font-weight: 500;
-    }
-
     .column-card {
       cursor: pointer;
     }
@@ -195,17 +152,6 @@
     }
 
     @media (max-width: 760px) {
-      .columns-nav {
-        grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
-        gap: 8px;
-        padding: 16px;
-      }
-      .column-nav-thumbnail {
-        height: 70px;
-      }
-      .column-nav-label {
-        font-size: 0.65rem;
-      }
       .columns-grid {
         grid-template-columns: 1fr;
         gap: 20px;
@@ -244,40 +190,6 @@
       <h1 class="display" style="margin-bottom: 0.5rem;">コラム</h1>
       <p class="lead" style="margin-bottom: 0;">補助金の制度選びから申請まで。創業者が知っておきたい実践的な情報をお届けします。</p>
     </div>
-
-    <!-- Navigation with thumbnails -->
-    <nav class="columns-nav" aria-label="記事一覧">
-      <a href="#column1" class="column-nav-item">
-        <div class="column-nav-thumbnail">
-          <img src="images/112.webp" alt="">
-        </div>
-        <span class="column-nav-label">記事 1</span>
-      </a>
-      <a href="#column2" class="column-nav-item">
-        <div class="column-nav-thumbnail">
-          <img src="images/110.webp" alt="">
-        </div>
-        <span class="column-nav-label">記事 2</span>
-      </a>
-      <a href="#column3" class="column-nav-item">
-        <div class="column-nav-thumbnail">
-          <img src="images/113.webp" alt="">
-        </div>
-        <span class="column-nav-label">記事 3</span>
-      </a>
-      <a href="#column4" class="column-nav-item">
-        <div class="column-nav-thumbnail">
-          <img src="images/109.webp" alt="">
-        </div>
-        <span class="column-nav-label">記事 4</span>
-      </a>
-      <a href="#column5" class="column-nav-item">
-        <div class="column-nav-thumbnail">
-          <img src="images/111.webp" alt="">
-        </div>
-        <span class="column-nav-label">記事 5</span>
-      </a>
-    </nav>
 
     <section id="columns-section">
       <div class="columns-grid" id="columns-grid">
