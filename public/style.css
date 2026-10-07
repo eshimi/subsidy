@@ -79,7 +79,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .label { margin: 0; color: var(--mute); text-transform: uppercase; }
 
 /* ── ヘッダー ── */
-.topbar { border-bottom: 1px solid var(--line); position: fixed; top: env(safe-area-inset-top, 0px); left: 0; right: 0; z-index: 999; background: #ffffff; }
+.topbar { border-bottom: 1px solid var(--line); position: fixed; top: env(safe-area-inset-top, 0px); left: 0; right: 0; z-index: 999; background: #a8c0ce; }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) .topbar {
     background: #0f0f0e;
