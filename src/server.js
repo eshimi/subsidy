@@ -22,7 +22,7 @@ export function createApp(options = {}) {
     maxAge: '1h',
     // HTML・CSS・JS は毎回更新を確認する（デザイン変更がすぐ反映されるように）
     setHeaders: (res, path) => {
-      if (/\.(html|css|js)$/.test(path)) res.setHeader('Cache-Control', 'no-cache');
+      if (/\.(html|css|js)$|books\.json$/.test(path)) res.setHeader('Cache-Control', 'no-cache');
     },
   }));
 
