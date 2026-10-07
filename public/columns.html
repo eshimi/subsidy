@@ -143,7 +143,69 @@
       text-decoration: underline;
     }
 
+    .columns-nav {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      margin: 48px 0;
+      padding: 24px;
+      background: #f9f9f7;
+      border-radius: 8px;
+    }
+    .column-nav-item {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .column-nav-item:hover {
+      transform: translateY(-2px);
+    }
+    .column-nav-thumbnail {
+      width: 100%;
+      height: 100px;
+      background: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .column-nav-thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .column-nav-label {
+      font-size: 0.75rem;
+      color: #999;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    .column-card {
+      cursor: pointer;
+    }
+    .column-card .column-icon,
+    .column-card .column-title {
+      cursor: pointer;
+    }
+
     @media (max-width: 760px) {
+      .columns-nav {
+        grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+        gap: 8px;
+        padding: 16px;
+      }
+      .column-nav-thumbnail {
+        height: 70px;
+      }
+      .column-nav-label {
+        font-size: 0.65rem;
+      }
       .columns-grid {
         grid-template-columns: 1fr;
         gap: 20px;
@@ -183,69 +245,123 @@
       <p class="lead" style="margin-bottom: 0;">補助金の制度選びから申請まで。創業者が知っておきたい実践的な情報をお届けします。</p>
     </div>
 
+    <!-- Navigation with thumbnails -->
+    <nav class="columns-nav" aria-label="記事一覧">
+      <a href="#column1" class="column-nav-item">
+        <div class="column-nav-thumbnail">
+          <img src="images/112.webp" alt="">
+        </div>
+        <span class="column-nav-label">記事 1</span>
+      </a>
+      <a href="#column2" class="column-nav-item">
+        <div class="column-nav-thumbnail">
+          <img src="images/110.webp" alt="">
+        </div>
+        <span class="column-nav-label">記事 2</span>
+      </a>
+      <a href="#column3" class="column-nav-item">
+        <div class="column-nav-thumbnail">
+          <img src="images/113.webp" alt="">
+        </div>
+        <span class="column-nav-label">記事 3</span>
+      </a>
+      <a href="#column4" class="column-nav-item">
+        <div class="column-nav-thumbnail">
+          <img src="images/109.webp" alt="">
+        </div>
+        <span class="column-nav-label">記事 4</span>
+      </a>
+      <a href="#column5" class="column-nav-item">
+        <div class="column-nav-thumbnail">
+          <img src="images/111.webp" alt="">
+        </div>
+        <span class="column-nav-label">記事 5</span>
+      </a>
+    </nav>
+
     <section id="columns-section">
       <div class="columns-grid" id="columns-grid">
         <!-- Column 1 -->
         <article class="column-card">
-          <div class="column-icon">
-            <img src="images/112.webp" alt="補助金・助成金・融資の比較">
-          </div>
-          <div class="column-info">
-            <span class="column-number">コラム 1</span>
-            <h2 class="column-title">補助金・助成金・融資の違いとは？</h2>
-            <p class="column-summary">「補助金は返さなくていい」だけでは不十分。3つの資金調達手段の違いと、創業期の上手な組み合わせ方を整理します。</p>
+          <a href="#column1" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; height: 100%;">
+            <div class="column-icon">
+              <img src="images/112.webp" alt="補助金・助成金・融資の比較">
+            </div>
+            <div class="column-info">
+              <span class="column-number">コラム 1</span>
+              <h2 class="column-title">補助金・助成金・融資の違いとは？</h2>
+              <p class="column-summary">「補助金は返さなくていい」だけでは不十分。3つの資金調達手段の違いと、創業期の上手な組み合わせ方を整理します。</p>
+            </div>
+          </a>
+          <div style="padding: 0 24px 24px 24px;">
             <a href="#column1" class="column-read-more">記事を読む →</a>
           </div>
         </article>
 
         <!-- Column 2 -->
         <article class="column-card">
-          <div class="column-icon">
-            <img src="images/110.webp" alt="補助金の支払いタイムライン">
-          </div>
-          <div class="column-info">
-            <span class="column-number">コラム 2</span>
-            <h2 class="column-title">補助金は「後払い」と心得よう</h2>
-            <p class="column-summary">採択されてもすぐに入金されない。実際の資金の流れと、資金繰りの対策を知ることが成功の鍵です。</p>
+          <a href="#column2" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; height: 100%;">
+            <div class="column-icon">
+              <img src="images/110.webp" alt="補助金の支払いタイムライン">
+            </div>
+            <div class="column-info">
+              <span class="column-number">コラム 2</span>
+              <h2 class="column-title">補助金は「後払い」と心得よう</h2>
+              <p class="column-summary">採択されてもすぐに入金されない。実際の資金の流れと、資金繰りの対策を知ることが成功の鍵です。</p>
+            </div>
+          </a>
+          <div style="padding: 0 24px 24px 24px;">
             <a href="#column2" class="column-read-more">記事を読む →</a>
           </div>
         </article>
 
         <!-- Column 3 -->
         <article class="column-card">
-          <div class="column-icon">
-            <img src="images/113.webp" alt="補助金の探し方">
-          </div>
-          <div class="column-info">
-            <span class="column-number">コラム 3</span>
-            <h2 class="column-title">補助金の探し方</h2>
-            <p class="column-summary">古い情報に振り回されないために。公式の情報源と、信頼できる探し先を知ることが重要です。</p>
+          <a href="#column3" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; height: 100%;">
+            <div class="column-icon">
+              <img src="images/113.webp" alt="補助金の探し方">
+            </div>
+            <div class="column-info">
+              <span class="column-number">コラム 3</span>
+              <h2 class="column-title">補助金の探し方</h2>
+              <p class="column-summary">古い情報に振り回されないために。公式の情報源と、信頼できる探し先を知ることが重要です。</p>
+            </div>
+          </a>
+          <div style="padding: 0 24px 24px 24px;">
             <a href="#column3" class="column-read-more">記事を読む →</a>
           </div>
         </article>
 
         <!-- Column 4 -->
         <article class="column-card">
-          <div class="column-icon">
-            <img src="images/109.webp" alt="gBizIDの取得">
-          </div>
-          <div class="column-info">
-            <span class="column-number">コラム 4</span>
-            <h2 class="column-title">gBizIDは早めの取得が鉄則</h2>
-            <p class="column-summary">最近の補助金は電子申請が主流。gBizIDプライムの取得には時間がかかるため、事前準備が重要です。</p>
+          <a href="#column4" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; height: 100%;">
+            <div class="column-icon">
+              <img src="images/109.webp" alt="gBizIDの取得">
+            </div>
+            <div class="column-info">
+              <span class="column-number">コラム 4</span>
+              <h2 class="column-title">gBizIDは早めの取得が鉄則</h2>
+              <p class="column-summary">最近の補助金は電子申請が主流。gBizIDプライムの取得には時間がかかるため、事前準備が重要です。</p>
+            </div>
+          </a>
+          <div style="padding: 0 24px 24px 24px;">
             <a href="#column4" class="column-read-more">記事を読む →</a>
           </div>
         </article>
 
         <!-- Column 5 -->
         <article class="column-card">
-          <div class="column-icon">
-            <img src="images/111.webp" alt="相談窓口の活用">
-          </div>
-          <div class="column-info">
-            <span class="column-number">コラム 5</span>
-            <h2 class="column-title">無料の相談窓口を活用しよう</h2>
-            <p class="column-summary">補助金の申請は一人で完結する必要はありません。よろず支援拠点など頼れる相談窓口の使い方を紹介します。</p>
+          <a href="#column5" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; height: 100%;">
+            <div class="column-icon">
+              <img src="images/111.webp" alt="相談窓口の活用">
+            </div>
+            <div class="column-info">
+              <span class="column-number">コラム 5</span>
+              <h2 class="column-title">無料の相談窓口を活用しよう</h2>
+              <p class="column-summary">補助金の申請は一人で完結する必要はありません。よろず支援拠点など頼れる相談窓口の使い方を紹介します。</p>
+            </div>
+          </a>
+          <div style="padding: 0 24px 24px 24px;">
             <a href="#column5" class="column-read-more">記事を読む →</a>
           </div>
         </article>
