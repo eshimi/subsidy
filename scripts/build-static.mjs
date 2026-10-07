@@ -24,6 +24,14 @@ await copyFile(new URL('public/style.css', root), new URL('style.css', out));
 await cp(new URL('public/media/', root), new URL('media/', out), { recursive: true });
 // jGrants データ（scripts/fetch-jgrants.mjs で取得済みのとき）
 await cp(new URL('public/data/', root), new URL('data/', out), { recursive: true }).catch(() => console.warn('jGrants データがありません（npm run fetch:jgrants で取得できます）'));
+// その他の HTML ページと JS ファイルをコピー
+await copyFile(new URL('public/books.html', root), new URL('books.html', out));
+await copyFile(new URL('public/books.js', root), new URL('books.js', out));
+await copyFile(new URL('public/guide.html', root), new URL('guide.html', out));
+await copyFile(new URL('public/resources.html', root), new URL('resources.html', out));
+await copyFile(new URL('public/roadmap.html', root), new URL('roadmap.html', out));
+await copyFile(new URL('public/calendar.js', root), new URL('calendar.js', out));
+await copyFile(new URL('public/intro.js', root), new URL('intro.js', out));
 // 更新がすぐ反映されるよう、CSS と JS の参照に内容のハッシュを付ける（キャッシュ対策）
 const hashOf = async (name) => createHash('sha256').update(await readFile(new URL(name, out))).digest('hex').slice(0, 10);
 const html = (await readFile(new URL('public/index.html', root), 'utf8'))
