@@ -11,11 +11,28 @@
   let history = [];
   let busy = false;
 
+  // AI側の返信に添えるキャラクター（冒頭の挨拶は bot3 から始まる）
+  const AVATARS = ['bot3', 'bot2', 'bot1', 'bot4', 'bot5'];
+  let botIndex = 1;
+
   function addMessage(kind, text) {
     const el = document.createElement('div');
     el.className = `chat-msg ${kind}`;
     el.textContent = text;
-    log.appendChild(el);
+    if (kind === 'bot') {
+      const row = document.createElement('div');
+      row.className = 'chat-row';
+      const img = document.createElement('img');
+      img.className = 'chat-avatar';
+      img.src = `images/chat/${AVATARS[botIndex++ % AVATARS.length]}.webp`;
+      img.alt = '';
+      img.width = 56;
+      img.height = 70;
+      row.append(img, el);
+      log.appendChild(row);
+    } else {
+      log.appendChild(el);
+    }
     log.scrollTop = log.scrollHeight;
     return el;
   }
@@ -80,6 +97,7 @@
   reset.addEventListener('click', () => {
     if (busy) return;
     history = [];
+    botIndex = 1;
     log.replaceChildren(greeting.cloneNode(true));
     input.value = '';
     updateCount();
