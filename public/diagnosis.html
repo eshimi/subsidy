@@ -4,175 +4,22 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>今日からできること診断 - 補助金ネット</title>
-  <meta name="description" content="あなたの時間・興味・予算に合わせて、最適な副業を診断します。5つの質問に答えるだけで、あなたにピッタリの副業が見つかります。">
+  <meta name="description" content="あなたの時間・興味・予算に合わせて、最適な副業を診断します。3つの質問に答えるだけで、あなたに合った副業が見つかります。">
   <meta name="robots" content="index, follow">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="style.css">
   <style>
-    .diagnosis-container { max-width: 900px; margin: 0 auto; }
-    .diagnosis-intro { text-align: center; margin-bottom: 3rem; }
-    .diagnosis-intro h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; margin-bottom: 1rem; letter-spacing: -0.02em; color: var(--ink); }
-    .diagnosis-intro p { font-size: 1rem; line-height: 1.8; color: var(--mute); margin: 0; }
-
-    .diagnosis-section { margin-bottom: 40px; }
-    .diagnosis-question {
-      margin-bottom: 28px;
-      display: flex;
-      gap: 32px;
-      align-items: flex-start;
-    }
-    .diagnosis-question-content { flex: 1; }
-    .diagnosis-question-number {
-      font-family: var(--font-mono);
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--accent);
-      line-height: 1;
-      margin-bottom: 12px;
-    }
-    .diagnosis-question h3 {
-      font-size: 1.3rem;
-      font-weight: 600;
-      margin: 0 0 16px 0;
-      color: var(--ink);
-    }
-    .diagnosis-question-desc {
-      font-size: 0.9rem;
-      color: var(--mute);
-      margin-bottom: 16px;
-    }
-    .diagnosis-options {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .diagnosis-option {
-      display: flex;
-      align-items: center;
-      padding: 12px 16px;
-      background: #f9f9f7;
-      border-radius: 6px;
-      border: 1px solid #e8e8e8;
-      transition: all 0.2s;
-    }
-    .diagnosis-option:hover {
-      background: #f0f0f0;
-      border-color: var(--accent);
-    }
-    .diagnosis-option input[type="radio"] {
-      margin-right: 12px;
-      width: 18px;
-      height: 18px;
-      cursor: pointer;
-      flex-shrink: 0;
-    }
-    .diagnosis-option label {
-      flex: 1;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      font-size: 0.95rem;
-    }
-    .diagnosis-option label:hover { color: var(--accent); }
-
-    .diagnosis-question-icon {
-      width: 120px;
-      height: 120px;
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
-    }
-
-    .diagnosis-form-section { background: white; padding: 40px; border-radius: 12px; }
-
-    .diagnosis-button-wrapper {
-      display: flex;
-      justify-content: center;
-      margin-top: 40px;
-    }
-    .diagnosis-button {
-      background: var(--accent);
-      color: white;
-      padding: 14px 48px;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: opacity 0.2s;
-    }
-    .diagnosis-button:hover { opacity: 0.9; }
-
-    .diagnosis-results { margin-top: 40px; }
-    .diagnosis-result-item {
-      background: white;
-      border: 1px solid var(--line-soft);
-      border-radius: 8px;
-      padding: 24px;
-      margin-bottom: 20px;
-    }
-    .diagnosis-result-rank {
-      display: inline-block;
-      background: var(--accent);
-      color: white;
-      padding: 6px 14px;
-      border-radius: 4px;
-      font-weight: 600;
-      margin-bottom: 12px;
-      font-size: 0.85rem;
-    }
-    .diagnosis-result-title {
-      font-size: 1.3rem;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: var(--ink);
-    }
-    .diagnosis-result-description {
-      color: var(--ink);
-      line-height: 1.6;
-      margin-bottom: 16px;
-      font-size: 0.95rem;
-    }
-    .diagnosis-result-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 12px;
-    }
-    .diagnosis-tag {
-      display: inline-block;
-      background: #f0f0f0;
-      padding: 6px 12px;
-      border-radius: 4px;
-      font-size: 0.8rem;
-      color: var(--mute);
-    }
-    .diagnosis-result-tip {
-      color: var(--mute);
-      font-size: 0.9rem;
-      margin-bottom: 12px;
-    }
-    .diagnosis-result-link {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 500;
-    }
-    .diagnosis-result-link:hover { text-decoration: underline; }
-    .diagnosis-hidden { display: none; }
-    .diagnosis-reset {
-      background: var(--mute);
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 4px;
-      font-size: 0.9rem;
-      cursor: pointer;
-      margin-left: 12px;
-    }
+    .diagnosis-question { margin-top: 56px; display: grid; gap: 14px; }
+    .diagnosis-question .section-head .label { color: var(--accent); }
+    .diagnosis-question-desc { margin: 0; color: var(--mute); font-size: 0.95rem; }
+    .diagnosis-question .checks { flex-direction: column; align-items: flex-start; }
+    .diagnosis-submit { margin-top: 56px; display: grid; gap: 12px; }
+    .diagnosis-results { margin-top: 0; }
+    .diagnosis-results .lead { margin-top: 12px; color: var(--mute); }
+    .diagnosis-tip { margin: 0; font-size: 0.9rem; color: var(--mute); }
+    .diagnosis-link { font-size: 0.9rem; color: var(--accent); }
   </style>
 </head>
 <body>
@@ -193,104 +40,67 @@
     </div>
   </header>
 
-  <main class="wrap diagnosis-container">
-    <div class="diagnosis-intro">
-      <h1>今日からできること診断</h1>
-      <p>あなたの時間・興味・予算に合わせて、最適な副業を診断します。<br>3つの質問に答えるだけで、あなたにピッタリの副業が見つかります。</p>
+  <main class="wrap">
+    <div style="margin-bottom: 3rem;">
+      <h1 class="display" style="margin-bottom: 0.5rem;">今日からできること診断</h1>
+      <p class="lead" style="margin-bottom: 0;">あなたの時間・興味・予算に合わせて、始めやすい副業を診断します。3つの質問に答えるだけで、あなたに合った副業が見つかります。</p>
     </div>
 
-    <section class="diagnosis-section diagnosis-form-section" id="diagnosis-form">
-      <div class="diagnosis-question">
-        <div class="diagnosis-question-content">
-          <div class="diagnosis-question-number">01</div>
-          <h3>週に使える時間は？</h3>
-          <p class="diagnosis-question-desc">副業に使える時間の目安を選んでください。</p>
-          <div class="diagnosis-options">
-            <div class="diagnosis-option">
-              <input type="radio" id="time-1" name="time" value="少ない" required>
-              <label for="time-1">1～5時間（毎日30分程度）</label>
-            </div>
-            <div class="diagnosis-option">
-              <input type="radio" id="time-2" name="time" value="中程度" required>
-              <label for="time-2">5～10時間（毎日1時間程度）</label>
-            </div>
-            <div class="diagnosis-option">
-              <input type="radio" id="time-3" name="time" value="多い" required>
-              <label for="time-3">10時間以上（毎日2時間以上）</label>
-            </div>
-          </div>
+    <section id="diagnosis-form" aria-label="診断の質問">
+      <section class="diagnosis-question" role="radiogroup" aria-labelledby="q01">
+        <div class="section-head">
+          <h2 id="q01">週に使える時間は？</h2>
+          <span class="label">Q01 / 03</span>
         </div>
-        <div class="diagnosis-question-icon">⏰</div>
-      </div>
-
-      <div class="diagnosis-question">
-        <div class="diagnosis-question-content">
-          <div class="diagnosis-question-number">02</div>
-          <h3>最も興味のあるジャンルは？</h3>
-          <p class="diagnosis-question-desc">興味のある分野を1つ選んでください。</p>
-          <div class="diagnosis-options">
-            <div class="diagnosis-option">
-              <input type="radio" id="genre-1" name="genre" value="クリエイティブ" required>
-              <label for="genre-1">クリエイティブ（デザイン、ライティング、動画など）</label>
-            </div>
-            <div class="diagnosis-option">
-              <input type="radio" id="genre-2" name="genre" value="技術" required>
-              <label for="genre-2">技術（プログラミング、システム開発など）</label>
-            </div>
-            <div class="diagnosis-option">
-              <input type="radio" id="genre-3" name="genre" value="教育" required>
-              <label for="genre-3">教育（講師、コーチング、アドバイスなど）</label>
-            </div>
-            <div class="diagnosis-option">
-              <input type="radio" id="genre-4" name="genre" value="ビジネス" required>
-              <label for="genre-4">ビジネス（販売、マーケティング、運営など）</label>
-            </div>
-            <div class="diagnosis-option">
-              <input type="radio" id="genre-5" name="genre" value="シンプル" required>
-              <label for="genre-5">シンプル（単純作業、アンケートなど）</label>
-            </div>
-          </div>
+        <p class="diagnosis-question-desc">副業に使える時間の目安を選んでください。</p>
+        <div class="checks">
+          <label class="toggle"><input type="radio" name="time" value="少ない" required><span>1～5時間（毎日30分程度）</span></label>
+          <label class="toggle"><input type="radio" name="time" value="中程度" required><span>5～10時間（毎日1時間程度）</span></label>
+          <label class="toggle"><input type="radio" name="time" value="多い" required><span>10時間以上（毎日2時間以上）</span></label>
         </div>
-        <div class="diagnosis-question-icon">🎨</div>
-      </div>
+      </section>
 
-      <div class="diagnosis-question">
-        <div class="diagnosis-question-content">
-          <div class="diagnosis-question-number">03</div>
-          <h3>初期に用意できる予算は？</h3>
-          <p class="diagnosis-question-desc">副業を始めるために使える予算の目安を選んでください。</p>
-          <div class="diagnosis-options">
-            <div class="diagnosis-option">
-              <input type="radio" id="budget-1" name="budget" value="少ない" required>
-              <label for="budget-1">ほぼ0円（できるだけ無料で始めたい）</label>
-            </div>
-            <div class="diagnosis-option">
-              <input type="radio" id="budget-2" name="budget" value="中程度" required>
-              <label for="budget-2">1～5万円（ツールやスキル習得に投資）</label>
-            </div>
-            <div class="diagnosis-option">
-              <input type="radio" id="budget-3" name="budget" value="多い" required>
-              <label for="budget-3">5万円以上（本格的に始めたい）</label>
-            </div>
-          </div>
+      <section class="diagnosis-question" role="radiogroup" aria-labelledby="q02">
+        <div class="section-head">
+          <h2 id="q02">最も興味のあるジャンルは？</h2>
+          <span class="label">Q02 / 03</span>
         </div>
-        <div class="diagnosis-question-icon">💰</div>
-      </div>
+        <p class="diagnosis-question-desc">興味のある分野を1つ選んでください。</p>
+        <div class="checks">
+          <label class="toggle"><input type="radio" name="genre" value="クリエイティブ" required><span>クリエイティブ（デザイン、ライティング、動画など）</span></label>
+          <label class="toggle"><input type="radio" name="genre" value="技術" required><span>技術（プログラミング、システム開発など）</span></label>
+          <label class="toggle"><input type="radio" name="genre" value="教育" required><span>教育（講師、コーチング、アドバイスなど）</span></label>
+          <label class="toggle"><input type="radio" name="genre" value="ビジネス" required><span>ビジネス（販売、マーケティング、運営など）</span></label>
+          <label class="toggle"><input type="radio" name="genre" value="シンプル" required><span>シンプル（単純作業、アンケートなど）</span></label>
+        </div>
+      </section>
 
-      <div class="diagnosis-button-wrapper">
-        <button class="diagnosis-button" onclick="diagnose()">診断する →</button>
+      <section class="diagnosis-question" role="radiogroup" aria-labelledby="q03">
+        <div class="section-head">
+          <h2 id="q03">初期に用意できる予算は？</h2>
+          <span class="label">Q03 / 03</span>
+        </div>
+        <p class="diagnosis-question-desc">副業を始めるために使える予算の目安を選んでください。</p>
+        <div class="checks">
+          <label class="toggle"><input type="radio" name="budget" value="少ない" required><span>ほぼ0円（できるだけ無料で始めたい）</span></label>
+          <label class="toggle"><input type="radio" name="budget" value="中程度" required><span>1～5万円（ツールやスキル習得に投資）</span></label>
+          <label class="toggle"><input type="radio" name="budget" value="多い" required><span>5万円以上（本格的に始めたい）</span></label>
+        </div>
+      </section>
+
+      <div class="diagnosis-submit">
+        <p class="error" id="diagnosis-error" role="alert" hidden>すべての質問にお答えください。</p>
+        <button type="button" class="primary" onclick="diagnose()"><span>診断する</span><span class="arrow" aria-hidden="true">→</span></button>
       </div>
     </section>
 
-    <section class="diagnosis-section diagnosis-hidden" id="diagnosis-results">
-      <div style="margin-bottom: 40px;">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-          <h2 style="margin: 0; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em;">あなたにおすすめの副業</h2>
-          <button class="diagnosis-reset" onclick="resetDiagnosis()">診断をやり直す</button>
-        </div>
-        <p style="margin: 0; color: var(--mute); font-size: 0.95rem;">あなたの条件に合った副業を関連度の高い順に表示しています。</p>
+    <section class="diagnosis-results" id="diagnosis-results" hidden>
+      <div class="section-head">
+        <h2>あなたにおすすめの副業</h2>
+        <button type="button" class="text-button" onclick="resetDiagnosis()">診断をやり直す</button>
       </div>
-      <div id="results-list"></div>
+      <p class="lead">あなたの条件に合った副業を、合致度の高い順に表示しています。</p>
+      <div class="list" id="results-list"></div>
     </section>
   </main>
 
@@ -401,13 +211,14 @@
       const time = document.querySelector('input[name="time"]:checked')?.value;
       const genre = document.querySelector('input[name="genre"]:checked')?.value;
       const budget = document.querySelector('input[name="budget"]:checked')?.value;
+      const error = document.getElementById("diagnosis-error");
 
       if (!time || !genre || !budget) {
-        alert("すべての質問にお答えください");
+        error.hidden = false;
         return;
       }
+      error.hidden = true;
 
-      // スコア計算
       const results = sidebusinesses.map(biz => {
         let score = 0;
         if (biz.time.includes(time)) score += 2;
@@ -416,40 +227,33 @@
         return { ...biz, score };
       }).sort((a, b) => b.score - a.score);
 
-      // 結果表示
       displayResults(results);
-      document.getElementById("diagnosis-form").classList.add("diagnosis-hidden");
-      document.getElementById("diagnosis-results").classList.remove("diagnosis-hidden");
+      document.getElementById("diagnosis-form").hidden = true;
+      document.getElementById("diagnosis-results").hidden = false;
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
     function displayResults(results) {
-      const resultsList = document.getElementById("results-list");
-      resultsList.innerHTML = "";
-
-      results.forEach((result, index) => {
-        const item = document.createElement("div");
-        item.className = "diagnosis-result-item";
-        const scores = ["よく合致", "合致", "やや合致"];
-        const scoreText = index < 3 ? scores[index] : "参考";
-        item.innerHTML = `
-          <div class="diagnosis-result-rank">第${index + 1}位</div>
-          <div class="diagnosis-result-title">${result.title}</div>
-          <div class="diagnosis-result-description">${result.description}</div>
-          <div class="diagnosis-result-tags">
-            ${result.tags.map(tag => `<span class="diagnosis-tag">${tag}</span>`).join("")}
+      const labels = ["よく合致", "合致", "やや合致"];
+      document.getElementById("results-list").innerHTML = results.map((result, index) => `
+        <article class="program">
+          <div class="p-index">${String(index + 1).padStart(2, "0")}</div>
+          <div class="p-main">
+            <div class="meta-line"><span class="badge level">${labels[index] ?? "参考"}</span></div>
+            <h3>${result.title}</h3>
+            <p class="summary-text">${result.description}</p>
+            <div class="tags">${result.tags.map(tag => `<span class="tag">${tag}</span>`).join("")}</div>
+            <p class="diagnosis-tip">ヒント：${result.tips}</p>
+            <a href="./#search-form" class="diagnosis-link">この副業に関連する補助金を探す →</a>
           </div>
-          <div class="diagnosis-result-tip">💡 ${result.tips}</div>
-          <a href="./#search-form" class="diagnosis-result-link">→ この副業に関連する補助金を探す</a>
-        `;
-        resultsList.appendChild(item);
-      });
+        </article>
+      `).join("");
     }
 
     function resetDiagnosis() {
       document.querySelectorAll('input[type="radio"]').forEach(radio => radio.checked = false);
-      document.getElementById("diagnosis-form").classList.remove("diagnosis-hidden");
-      document.getElementById("diagnosis-results").classList.add("diagnosis-hidden");
+      document.getElementById("diagnosis-form").hidden = false;
+      document.getElementById("diagnosis-results").hidden = true;
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   </script>

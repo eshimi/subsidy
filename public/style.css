@@ -156,6 +156,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
   letter-spacing: -0.045em;
   text-wrap: balance;
 }
+.hero .display { color: #ffffff; text-shadow: 0 2px 18px rgba(0, 40, 90, 0.35); }
 .hero-foot {
   display: grid;
   grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
