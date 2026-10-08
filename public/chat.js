@@ -1,0 +1,88 @@
+(function () {
+  const MAX_TURNS = 12;
+  const log = document.getElementById('chat-log');
+  const form = document.getElementById('chat-form');
+  const input = document.getElementById('chat-input');
+  const send = document.getElementById('chat-send');
+  const count = document.getElementById('chat-count');
+  const starters = document.getElementById('chat-starters');
+  const reset = document.getElementById('chat-reset');
+  const greeting = log.firstElementChild.cloneNode(true);
+  let history = [];
+  let busy = false;
+
+  function addMessage(kind, text) {
+    const el = document.createElement('div');
+    el.className = `chat-msg ${kind}`;
+    el.textContent = text;
+    log.appendChild(el);
+    log.scrollTop = log.scrollHeight;
+    return el;
+  }
+
+  function setBusy(on) {
+    busy = on;
+    send.disabled = on;
+    send.querySelector('span').textContent = on ? '考えています…' : '送る';
+  }
+
+  async function submit(text) {
+    if (busy) return;
+    const content = text.trim();
+    if (!content) return;
+    history.push({ role: 'user', content });
+    history = history.slice(-MAX_TURNS);
+    addMessage('user', content);
+    input.value = '';
+    updateCount();
+    setBusy(true);
+    try {
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: history }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.error || '応答を取得できませんでした');
+      history.push({ role: 'assistant', content: data.reply });
+      addMessage('bot', data.reply);
+    } catch (e) {
+      history.pop();
+      addMessage('error', `エラー：${e.message}。少し時間をおいて、もう一度お試しください。`);
+    } finally {
+      setBusy(false);
+      input.focus();
+    }
+  }
+
+  function updateCount() {
+    count.textContent = `${input.value.length} / 1000`;
+  }
+
+  form.addEventListener('submit', (ev) => {
+    ev.preventDefault();
+    submit(input.value);
+  });
+  input.addEventListener('input', updateCount);
+  input.addEventListener('keydown', (ev) => {
+    if (ev.key === 'Enter' && (ev.metaKey || ev.ctrlKey)) {
+      ev.preventDefault();
+      submit(input.value);
+    }
+  });
+  starters.addEventListener('click', (ev) => {
+    const btn = ev.target.closest('[data-starter]');
+    if (!btn) return;
+    input.value = btn.dataset.starter;
+    updateCount();
+    input.focus();
+  });
+  reset.addEventListener('click', () => {
+    if (busy) return;
+    history = [];
+    log.replaceChildren(greeting.cloneNode(true));
+    input.value = '';
+    updateCount();
+    input.focus();
+  });
+})();

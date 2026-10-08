@@ -3,9 +3,29 @@ import { fileURLToPath } from 'node:url';
 import { stat } from 'node:fs/promises';
 import { runSearch } from './search.js';
 import { lookupPostalCode } from './postal.js';
-import { aiEnabled } from './ai.js';
+import { aiEnabled, chatWithClaude } from './ai.js';
 import { TtlCache, securityHeaders, rateLimit } from './middleware.js';
 import { loadGrants } from './grants-store.js';
+
+const CHAT_MAX_TURNS = 12;
+const CHAT_MAX_CHARS = 1000;
+
+function parseChatMessages(input) {
+  const bad = (message) => Object.assign(new Error(message), { status: 400, expose: true });
+  if (!Array.isArray(input) || input.length === 0) throw bad('メッセージを入力してください');
+  const recent = input.slice(-CHAT_MAX_TURNS);
+  const messages = recent.map((m) => {
+    if (!m || (m.role !== 'user' && m.role !== 'assistant') || typeof m.content !== 'string') {
+      throw bad('メッセージの形式が正しくありません');
+    }
+    const content = m.content.trim();
+    if (!content) throw bad('空のメッセージは送れません');
+    if (content.length > CHAT_MAX_CHARS) throw bad(`メッセージは${CHAT_MAX_CHARS}字以内で入力してください`);
+    return { role: m.role, content };
+  });
+  if (messages[messages.length - 1].role !== 'user') throw bad('最後のメッセージは利用者の発言である必要があります');
+  return messages;
+}
 
 export function createApp(options = {}) {
   const deps = { cache: new TtlCache(), loadGrants, ...options };
@@ -17,6 +37,7 @@ export function createApp(options = {}) {
   const limit = Number(process.env.RATE_LIMIT_PER_MIN ?? 30);
   app.use('/api/postal', rateLimit({ max: limit * 4 }));
   app.use('/api/search', rateLimit({ max: limit }));
+  app.use('/api/chat', rateLimit({ max: Math.max(1, Math.floor(limit / 3)) }));
   app.use(express.json({ limit: '32kb' }));
   app.use(express.static(fileURLToPath(new URL('../public', import.meta.url)), {
     maxAge: '1h',
@@ -37,6 +58,21 @@ export function createApp(options = {}) {
   app.get('/api/postal/:zip', async (req, res, next) => {
     try {
       res.json(await lookupPostalCode(req.params.zip, deps));
+    } catch (e) {
+      next(e);
+    }
+  });
+
+  app.post('/api/chat', async (req, res, next) => {
+    try {
+      const messages = parseChatMessages(req.body?.messages);
+      const reply = await chatWithClaude(messages);
+      if (reply === null) {
+        const err = new Error('AI機能は現在利用できません');
+        Object.assign(err, { status: 503, expose: true });
+        throw err;
+      }
+      res.json({ reply });
     } catch (e) {
       next(e);
     }
