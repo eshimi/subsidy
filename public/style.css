@@ -96,14 +96,13 @@ button, input, select, textarea { font: inherit; color: inherit; }
   letter-spacing: -0.02em;
   text-decoration: none;
   display: inline-flex;
-  gap: 0.28em;
   align-items: center;
-  height: 40px;
+  height: 44px;
 }
 .wordmark img {
-  height: 100%;
+  height: 44px;
   width: auto;
-  max-width: 200px;
+  max-width: none;
   display: block;
 }
 .wordmark span { font-weight: 400; }
