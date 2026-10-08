@@ -37,6 +37,29 @@
     return el;
   }
 
+  // AI の返答の下に出す候補ボタン。新しい発言が始まったら消す
+  function clearChoices() {
+    log.querySelectorAll('.chat-choices').forEach((el) => el.remove());
+  }
+
+  function addChoices(choices) {
+    if (!choices || !choices.length) return;
+    const group = document.createElement('div');
+    group.className = 'chat-choices';
+    group.setAttribute('role', 'group');
+    group.setAttribute('aria-label', '返信の候補');
+    for (const text of choices) {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'pill';
+      btn.textContent = text;
+      btn.addEventListener('click', () => submit(text));
+      group.appendChild(btn);
+    }
+    log.appendChild(group);
+    log.scrollTop = log.scrollHeight;
+  }
+
   function setBusy(on) {
     busy = on;
     send.disabled = on;
@@ -47,6 +70,7 @@
     if (busy) return;
     const content = text.trim();
     if (!content) return;
+    clearChoices();
     history.push({ role: 'user', content });
     history = history.slice(-MAX_TURNS);
     addMessage('user', content);
@@ -63,6 +87,7 @@
       if (!res.ok) throw new Error(data.error || '応答を取得できませんでした');
       history.push({ role: 'assistant', content: data.reply });
       addMessage('bot', data.reply);
+      addChoices(data.choices);
     } catch (e) {
       history.pop();
       addMessage('error', `エラー：${e.message}。少し時間をおいて、もう一度お試しください。`);
@@ -98,6 +123,7 @@
     if (busy) return;
     history = [];
     botIndex = 1;
+    clearChoices();
     log.replaceChildren(greeting.cloneNode(true));
     input.value = '';
     updateCount();

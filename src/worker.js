@@ -81,9 +81,9 @@ async function route(request, env, url) {
   if (pathname === '/api/chat') {
     allow(request, 'POST');
     const body = await readJsonBody(request);
-    const reply = await chatWithClaude(parseChatMessages(body?.messages));
-    if (reply === null) throw aiUnavailable();
-    return { reply };
+    const result = await chatWithClaude(parseChatMessages(body?.messages));
+    if (result === null) throw aiUnavailable();
+    return result;
   }
 
   throw httpError(404, '見つかりません');

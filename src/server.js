@@ -48,9 +48,9 @@ export function createApp(options = {}) {
   app.post('/api/chat', async (req, res, next) => {
     try {
       const messages = parseChatMessages(req.body?.messages);
-      const reply = await chatWithClaude(messages);
-      if (reply === null) throw aiUnavailable();
-      res.json({ reply });
+      const result = await chatWithClaude(messages);
+      if (result === null) throw aiUnavailable();
+      res.json(result);
     } catch (e) {
       next(e);
     }
