@@ -34,14 +34,17 @@ export async function cached(cache, key, ttlMs, compute, shouldCache = () => tru
   return value;
 }
 
-export function securityHeaders(_req, res, next) {
-  res.setHeader(
-    'Content-Security-Policy',
+// Express・Cloudflare Workers・静的配信用の public/_headers で同じ値を使う（test/worker.test.js で一致を確認）
+export const SECURITY_HEADERS = {
+  'Content-Security-Policy':
     "default-src 'self'; img-src 'self' data: https://images-na.ssl-images-amazon.com https://m.media-amazon.com https://ndlsearch.ndl.go.jp; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
-  );
-  res.setHeader('X-Content-Type-Options', 'nosniff');
-  res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
-  res.setHeader('X-Frame-Options', 'DENY');
+  'X-Content-Type-Options': 'nosniff',
+  'Referrer-Policy': 'strict-origin-when-cross-origin',
+  'X-Frame-Options': 'DENY',
+};
+
+export function securityHeaders(_req, res, next) {
+  for (const [name, value] of Object.entries(SECURITY_HEADERS)) res.setHeader(name, value);
   next();
 }
 

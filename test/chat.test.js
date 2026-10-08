@@ -47,5 +47,6 @@ test('chat: AI が無効なら 503 を返す', async () => {
   await withServer(async (base) => {
     const res = await post(base, { messages: [{ role: 'user', content: '副業を考えたいです' }] });
     assert.equal(res.status, 503);
+    assert.equal((await res.json()).error, 'AI機能は現在利用できません');
   });
 });

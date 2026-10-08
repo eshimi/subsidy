@@ -6,26 +6,8 @@ import { lookupPostalCode } from './postal.js';
 import { aiEnabled, chatWithClaude } from './ai.js';
 import { TtlCache, securityHeaders, rateLimit } from './middleware.js';
 import { loadGrants } from './grants-store.js';
-
-const CHAT_MAX_TURNS = 12;
-const CHAT_MAX_CHARS = 1000;
-
-function parseChatMessages(input) {
-  const bad = (message) => Object.assign(new Error(message), { status: 400, expose: true });
-  if (!Array.isArray(input) || input.length === 0) throw bad('メッセージを入力してください');
-  const recent = input.slice(-CHAT_MAX_TURNS);
-  const messages = recent.map((m) => {
-    if (!m || (m.role !== 'user' && m.role !== 'assistant') || typeof m.content !== 'string') {
-      throw bad('メッセージの形式が正しくありません');
-    }
-    const content = m.content.trim();
-    if (!content) throw bad('空のメッセージは送れません');
-    if (content.length > CHAT_MAX_CHARS) throw bad(`メッセージは${CHAT_MAX_CHARS}字以内で入力してください`);
-    return { role: m.role, content };
-  });
-  if (messages[messages.length - 1].role !== 'user') throw bad('最後のメッセージは利用者の発言である必要があります');
-  return messages;
-}
+import { parseChatMessages, aiUnavailable } from './chat-input.js';
+import { errorPayload } from './http-error.js';
 
 export function createApp(options = {}) {
   const deps = { cache: new TtlCache(), loadGrants, ...options };
@@ -67,11 +49,7 @@ export function createApp(options = {}) {
     try {
       const messages = parseChatMessages(req.body?.messages);
       const reply = await chatWithClaude(messages);
-      if (reply === null) {
-        const err = new Error('AI機能は現在利用できません');
-        Object.assign(err, { status: 503, expose: true });
-        throw err;
-      }
+      if (reply === null) throw aiUnavailable();
       res.json({ reply });
     } catch (e) {
       next(e);
@@ -87,9 +65,9 @@ export function createApp(options = {}) {
   });
 
   app.use((err, _req, res, _next) => {
-    const status = err.status ?? err.statusCode ?? 500;
+    const { status, error } = errorPayload(err);
     if (status >= 500) console.error(err);
-    res.status(status).json({ error: status >= 500 ? 'サーバーでエラーが発生しました' : err.expose === false ? 'リクエストが不正です' : err.message });
+    res.status(status).json({ error });
   });
 
   return app;

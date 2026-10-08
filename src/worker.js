@@ -1,0 +1,107 @@
+// Cloudflare Workers のエントリーポイント。Express（server.js）と同じ API を fetch ハンドラで提供する。
+// 静的ファイル（public/）は Workers Assets が配信し、/api/* だけがこの Worker に届く（wrangler.jsonc の run_worker_first）。
+// レート制限は Cloudflare ダッシュボード側のルールで行う（README を参照）。
+import { runSearch } from './search.js';
+import { lookupPostalCode } from './postal.js';
+import { aiEnabled, chatWithClaude } from './ai.js';
+import { TtlCache, SECURITY_HEADERS } from './middleware.js';
+import { createAssetsGrantsLoader } from './grants-assets.js';
+import { parseChatMessages, aiUnavailable } from './chat-input.js';
+import { errorPayload } from './http-error.js';
+
+const MAX_BODY_BYTES = 32 * 1024;
+const cache = new TtlCache();
+let grantsLoader;
+
+// Secret / 環境変数を process.env に写す（ai.js が process.env を参照するため）
+function applyEnv(env) {
+  for (const [key, value] of Object.entries(env)) {
+    if (typeof value === 'string') process.env[key] = value;
+  }
+}
+
+function json(body, status = 200, extraHeaders = {}) {
+  return new Response(JSON.stringify(body), {
+    status,
+    headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store', ...SECURITY_HEADERS, ...extraHeaders },
+  });
+}
+
+function httpError(status, message) {
+  return Object.assign(new Error(message), { status, expose: true });
+}
+
+async function readJsonBody(request) {
+  const text = await request.text();
+  if (new TextEncoder().encode(text).length > MAX_BODY_BYTES) throw httpError(413, 'リクエストが大きすぎます');
+  try {
+    return text ? JSON.parse(text) : {};
+  } catch {
+    throw httpError(400, 'リクエストが不正です');
+  }
+}
+
+function allow(request, method) {
+  if (request.method !== method) {
+    throw Object.assign(httpError(405, '許可されていないメソッドです'), { allow: method });
+  }
+}
+
+async function route(request, env, url) {
+  const { pathname } = url;
+
+  if (pathname === '/api/health') {
+    allow(request, 'GET');
+    return { ok: true, ai: aiEnabled() };
+  }
+
+  if (pathname === '/api/config') {
+    allow(request, 'GET');
+    return { googleClientId: env.GOOGLE_CLIENT_ID || null };
+  }
+
+  if (pathname.startsWith('/api/postal/')) {
+    allow(request, 'GET');
+    let zip;
+    try {
+      zip = decodeURIComponent(pathname.slice('/api/postal/'.length));
+    } catch {
+      throw httpError(400, '郵便番号は7桁の数字で入力してください');
+    }
+    return lookupPostalCode(zip, { cache });
+  }
+
+  if (pathname === '/api/search') {
+    allow(request, 'POST');
+    const body = await readJsonBody(request);
+    grantsLoader ??= createAssetsGrantsLoader(env.ASSETS);
+    return runSearch(body ?? {}, { cache, loadGrants: grantsLoader });
+  }
+
+  if (pathname === '/api/chat') {
+    allow(request, 'POST');
+    const body = await readJsonBody(request);
+    const reply = await chatWithClaude(parseChatMessages(body?.messages));
+    if (reply === null) throw aiUnavailable();
+    return { reply };
+  }
+
+  throw httpError(404, '見つかりません');
+}
+
+export default {
+  async fetch(request, env) {
+    applyEnv(env);
+    const url = new URL(request.url);
+    // html_handling が "none" のため、トップページ（/）だけ index.html を返す。他のファイルは URL のまま配信される
+    if (url.pathname === '/') return env.ASSETS.fetch(new Request(new URL('/index.html', url), request));
+    if (!url.pathname.startsWith('/api/')) return env.ASSETS.fetch(request);
+    try {
+      return json(await route(request, env, url));
+    } catch (e) {
+      const { status, error } = errorPayload(e);
+      if (status >= 500) console.error(e);
+      return json({ error }, status, e.allow ? { allow: e.allow } : {});
+    }
+  },
+};

@@ -85,9 +85,44 @@ gcloud run deploy subsidy-finder --source . --region asia-northeast1 --allow-una
 
 リポジトリの `render.yaml` を使って Blueprint としてデプロイできます（Render のダッシュボードで「New → Blueprint」からこのリポジトリを選択）。`ANTHROPIC_API_KEY` は任意で、ダッシュボードから設定します。
 
+### Cloudflare Workers
+
+`src/worker.js` と `wrangler.jsonc` で Cloudflare Workers にデプロイできます（Render と同じ機能。Render の設定は移行完了まで残しています）。
+
+- **静的ファイル**（`public/`）は Workers Assets が配信し、`/api/*` と `/`（トップページ）だけが Worker に届きます。URL は従来のまま（`/guide.html` など）です。
+- **API**: `/api/health`、`/api/config`、`/api/postal/:zip`、`/api/search`、`/api/chat`。検索・住所・分類・マッチングは Express 版と同じモジュールを使います。
+- **jGrants データ**: `npm run fetch:jgrants` で `public/data/jgrants/` に取得し、デプロイ時にアセットとして同梱します。データが無い場合は jGrants API の直接検索に切り替わります。
+- **定期更新**: `.github/workflows/cloudflare.yml` が毎朝（日本時間 6:12）データを取り直して再デプロイします。
+- **レート制限**: Worker では行いません。Cloudflare ダッシュボードの **Security → WAF → Rate limiting rules** で設定してください（下記）。
+
+```bash
+npm ci
+npm run fetch:jgrants          # 任意（jGrants データを同梱する場合）
+npx wrangler secret put ANTHROPIC_API_KEY
+npx wrangler deploy
+```
+
+ローカル確認は `.dev.vars.example` を `.dev.vars` にコピーして値を入れ、`npx wrangler dev` を実行します。
+
+必要な設定:
+
+| 種類 | 名前 | 内容 |
+| --- | --- | --- |
+| Secret | `ANTHROPIC_API_KEY` | 副業壁打ちAI・事業内容の解析に使う Anthropic API キー（未設定ならこれらの AI 機能は無効） |
+| Secret | `GOOGLE_CLIENT_ID` | Google Sign-In を使う場合のみ（任意） |
+| 変数（`wrangler.jsonc`） | `CLAUDE_MODEL` | 使用するモデル（既定: `claude-opus-5-5`） |
+| GitHub Secrets | `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID` | 毎朝の再デプロイ用（未設定ならスキップ） |
+
+推奨のレート制限ルール（AI の利用料と悪用を防ぐため）:
+
+- `/api/chat`: URI Path が `/api/chat` に一致 → 1 IP あたり 10 リクエスト / 1 分、超過したらブロック
+- `/api/search`・`/api/postal/*`: 1 IP あたり 30〜60 リクエスト / 1 分
+
+> `wrangler.jsonc` に `vars` を書いているため、ダッシュボードで追加した「変数（Variable）」はデプロイで上書きされます。値を足す場合は Secret として登録してください。
+
 ### CI
 
-GitHub Actions（`.github/workflows/ci.yml`）で、Node.js 20/22 でのテスト・静的版のビルドと、Docker イメージのビルド・起動確認を行います。GitHub Pages への公開は `.github/workflows/pages.yml` です。
+GitHub Actions（`.github/workflows/ci.yml`）で、Node.js 20/22 でのテスト・静的版のビルドと、Docker イメージのビルド・起動確認、Cloudflare Workers のバンドル確認（Node 22 のみ）を行います。GitHub Pages への公開は `.github/workflows/pages.yml` です。
 
 ## 構成
 
@@ -95,6 +130,10 @@ GitHub Actions（`.github/workflows/ci.yml`）で、Node.js 20/22 でのテス�
 src/
   server.js          Express サーバー（/api/search, /api/postal/:zip, /api/health）
   middleware.js      キャッシュ・レート制限・セキュリティヘッダー
+  worker.js          Cloudflare Workers のエントリーポイント（server.js と同じ API）
+  grants-assets.js   Workers 版で取り込みデータを Assets 経由で読み込む
+  chat-input.js      /api/chat の入力検証（Express・Workers 共通）
+  http-error.js      エラー応答の整形（Express・Workers 共通）
   search-core.js     検索全体の流れ（住所解決 → 解析 → マッチング → jGrants）。サーバーと静的版で共有
   search.js          サーバー用（Claude による解析を組み合わせる）
   postal.js          郵便番号 → 住所

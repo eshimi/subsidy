@@ -1,0 +1,22 @@
+{
+  // Cloudflare Workers 設定。Worker 名はダッシュボードで作成済みの「subsidy」と一致させること。
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "subsidy",
+  "main": "src/worker.js",
+  "compatibility_date": "2025-09-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    // 静的ファイル（HTML/CSS/JS/画像/jGrants データ）。/api/* と / だけを Worker に回す
+    "directory": "./public",
+    "binding": "ASSETS",
+    // 既存の URL（/guide.html など）をそのまま保つ（/guide への転送をしない）
+    "html_handling": "none",
+    "run_worker_first": ["/api/*", "/"]
+  },
+  "observability": { "enabled": true },
+  "vars": {
+    // 使用するモデル。ダッシュボードで変数を足す場合は、デプロイで消えないよう Secret として登録する
+    "CLAUDE_MODEL": "claude-opus-5-5"
+  }
+  // Secret（wrangler secret put / ダッシュボード）: ANTHROPIC_API_KEY, GOOGLE_CLIENT_ID（任意）
+}
