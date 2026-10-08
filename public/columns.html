@@ -45,6 +45,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center;
     }
     .column-info {
       padding: 24px;
@@ -94,13 +95,12 @@
     }
     .column-article-header {
       display: flex;
-      gap: 32px;
+      flex-direction: column;
+      gap: 24px;
       margin-bottom: 32px;
-      align-items: flex-start;
     }
     .column-article-image {
-      flex-shrink: 0;
-      width: 200px;
+      width: 100%;
     }
     .column-article-image img {
       width: 100%;
@@ -207,12 +207,13 @@
     </div>
 
     <section id="columns-section">
+      <!-- 画像の在庫（未使用・次のコラム用）: images/columns/art-02.webp, art-06, art-07, art-08, art-10 -->
       <div class="columns-grid" id="columns-grid">
         <!-- Column 1 -->
         <article class="column-card">
           <a href="#column1" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; height: 100%;">
             <div class="column-icon">
-              <img src="images/112.webp" alt="補助金・助成金・融資の比較">
+              <img src="images/columns/art-01.webp" alt="補助金・助成金・融資の比較">
             </div>
             <div class="column-info">
               <span class="column-number">コラム 1</span>
@@ -229,7 +230,7 @@
         <article class="column-card">
           <a href="#column2" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; height: 100%;">
             <div class="column-icon">
-              <img src="images/110.webp" alt="補助金の支払いタイムライン">
+              <img src="images/columns/art-03.webp" alt="補助金の支払いタイムライン">
             </div>
             <div class="column-info">
               <span class="column-number">コラム 2</span>
@@ -246,7 +247,7 @@
         <article class="column-card">
           <a href="#column3" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; height: 100%;">
             <div class="column-icon">
-              <img src="images/113.webp" alt="補助金の探し方">
+              <img src="images/columns/art-05.webp" alt="補助金の探し方">
             </div>
             <div class="column-info">
               <span class="column-number">コラム 3</span>
@@ -263,7 +264,7 @@
         <article class="column-card">
           <a href="#column4" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; height: 100%;">
             <div class="column-icon">
-              <img src="images/109.webp" alt="gBizIDの取得">
+              <img src="images/columns/art-04.webp" alt="gBizIDの取得">
             </div>
             <div class="column-info">
               <span class="column-number">コラム 4</span>
@@ -280,7 +281,7 @@
         <article class="column-card">
           <a href="#column5" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; height: 100%;">
             <div class="column-icon">
-              <img src="images/111.webp" alt="相談窓口の活用">
+              <img src="images/columns/art-09.webp" alt="相談窓口の活用">
             </div>
             <div class="column-info">
               <span class="column-number">コラム 5</span>
@@ -299,7 +300,7 @@
     <section id="column1" class="column-article">
       <div class="column-article-header">
         <div class="column-article-image">
-          <img src="images/112.webp" alt="補助金・助成金・融資">
+          <img src="images/columns/art-01.webp" alt="補助金・助成金・融資">
         </div>
         <div class="column-article-title">
           <h2>補助金・助成金・融資の違いとは？</h2>
@@ -339,7 +340,7 @@
     <section id="column2" class="column-article">
       <div class="column-article-header">
         <div class="column-article-image">
-          <img src="images/110.webp" alt="補助金の支払いフロー">
+          <img src="images/columns/art-03.webp" alt="補助金の支払いフロー">
         </div>
         <div class="column-article-title">
           <h2>採択されても、お金はまだ入らない？</h2>
@@ -378,7 +379,7 @@
     <section id="column3" class="column-article">
       <div class="column-article-header">
         <div class="column-article-image">
-          <img src="images/113.webp" alt="補助金の探し方">
+          <img src="images/columns/art-05.webp" alt="補助金の探し方">
         </div>
         <div class="column-article-title">
           <h2>補助金の探し方</h2>
@@ -409,7 +410,7 @@
     <section id="column4" class="column-article">
       <div class="column-article-header">
         <div class="column-article-image">
-          <img src="images/109.webp" alt="gBizID">
+          <img src="images/columns/art-04.webp" alt="gBizID">
         </div>
         <div class="column-article-title">
           <h2>補助金の申請は「電子」が主流</h2>
@@ -450,7 +451,7 @@
     <section id="column5" class="column-article">
       <div class="column-article-header">
         <div class="column-article-image">
-          <img src="images/111.webp" alt="相談窓口">
+          <img src="images/columns/art-09.webp" alt="相談窓口">
         </div>
         <div class="column-article-title">
           <h2>一人で悩まない。無料の相談窓口と、持続化補助金の申請までの流れ</h2>
