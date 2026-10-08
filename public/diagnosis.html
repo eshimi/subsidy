@@ -26,16 +26,19 @@
   <header class="topbar">
     <div class="wrap topbar-inner">
       <a class="wordmark" href="./" aria-label="補助金ネット トップ"><img src="images/logo-header-v5.webp" alt="補助金ネット"></a>
-      <nav class="topnav" aria-label="ページ内">
-        <a href="./">探す</a>
-        <a href="diagnosis.html">診断</a>
-        <a href="guide.html">使い方</a>
+      <nav class="topnav" id="topnav" aria-label="サイト内">
+        <a href="./">補助金を探す</a>
         <a href="roadmap.html">創業のステップ</a>
         <a href="columns.html">コラム</a>
-        <a href="beginner-guide.html">初心者向けガイド</a>
-        <a href="books.html">参考図書</a>
-        <a href="resources.html">参考リンク</a>
+        <details class="navdrop">
+          <summary>お役立ち情報</summary>
+          <div class="navdrop-panel">
+            <a href="books.html">参考図書</a>
+            <a href="resources.html">参考リンク</a>
+          </div>
+        </details>
       </nav>
+      <button type="button" class="nav-toggle" aria-controls="topnav" aria-expanded="false">メニュー</button>
       <span class="edition">JP — FY2026</span>
     </div>
   </header>
@@ -106,9 +109,23 @@
 
   <footer class="footer">
     <div class="wrap">
-      <p class="footer-mark" aria-hidden="true">Startup Guide</p>
+      <p class="footer-mark" aria-hidden="true">Subsidy Finder</p>
+      <nav class="footer-nav" aria-label="フッター">
+        <ul>
+          <li><a href="./">補助金を探す</a></li>
+          <li><a href="diagnosis.html">今日からできること診断</a></li>
+          <li><a href="beginner-guide.html">初心者向けガイド</a></li>
+          <li><a href="roadmap.html">創業のステップ</a></li>
+          <li><a href="columns.html">コラム</a></li>
+          <li><a href="books.html">参考図書</a></li>
+          <li><a href="resources.html">参考リンク</a></li>
+          <li><a href="guide.html">使い方</a></li>
+          <li><a href="guide.html#feedback">フィードバック・バグ報告</a></li>
+        </ul>
+      </nav>
       <div class="footer-meta">
-        <p><a href="./">検索</a> / <a href="guide.html">使い方</a> / <a href="resources.html">参考リンク</a></p>
+        <p>募集中の補助金データ：<a href="https://www.jgrants-portal.go.jp/" target="_blank" rel="noopener">jGrants（デジタル庁）</a></p>
+        <p>住所検索：<a href="https://zipcloud.ibsnet.co.jp/" target="_blank" rel="noopener">zipcloud</a></p>
       </div>
     </div>
   </footer>
@@ -257,5 +274,6 @@
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   </script>
+  <script src="site.js"></script>
 </body>
 </html>
