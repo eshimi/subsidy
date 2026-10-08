@@ -274,12 +274,19 @@ if (loginModal) {
 initializeGoogleSignIn();
 
 // ── 入力例 ──
-document.querySelectorAll('[data-example]').forEach((btn) => {
+const exampleButtons = document.querySelectorAll('[data-example]');
+function markExample() {
+  const text = $('#description').value;
+  exampleButtons.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.example === text)));
+}
+exampleButtons.forEach((btn) => {
   btn.addEventListener('click', () => {
     $('#description').value = btn.dataset.example;
+    markExample();
     $('#description').focus();
   });
 });
+$('#description').addEventListener('input', markExample);
 
 // ── 郵便番号から住所を自動表示 ──
 let zipTimer;
