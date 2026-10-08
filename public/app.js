@@ -395,6 +395,7 @@ form.addEventListener('submit', async (ev) => {
     activeDeadline = 'all';
     history.replaceState(null, '', `?${payloadToParams(payload)}`);
     render();
+    $('#testimonials').hidden = true;
     $('#results').hidden = false;
     $('#results').scrollIntoView({ behavior: 'smooth', block: 'start' });
   } catch (e) {
