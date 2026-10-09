@@ -1,6 +1,6 @@
 // 地域別ページ（public/area/）を生成する。src/data/area-cities.js と local-programs.js から作るので、
 // 都市を追加したら `node scripts/build-area-pages.mjs` を実行し、生成されたファイルをコミットする。
-import { writeFileSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { AREA_CITIES } from '../src/data/area-cities.js';
@@ -269,4 +269,22 @@ mkdirSync(OUT, { recursive: true });
 for (const city of AREA_CITIES) writeFileSync(join(OUT, `${city.slug}.html`), cityPage(city));
 writeFileSync(join(OUT, 'index.html'), indexPage());
 writeFileSync(join(ROOT, 'public', 'sitemap.xml'), sitemap());
+// サイトマップ（人間向け）の地域別セクションを、都市リストから書き換える
+const SITEMAP_HTML = join(ROOT, 'public', 'sitemap.html');
+const html = readFileSync(SITEMAP_HTML, 'utf-8');
+const groups = PREFECTURES
+  .map((pref) => ({ pref, cities: AREA_CITIES.filter((c) => c.pref === pref) }))
+  .filter((g) => g.cities.length);
+const areaList = groups.map((g) => `        <li>
+          <span class="area-pref">${esc(g.pref)}</span>
+          <ul>
+${g.cities.map((c) => `            <li><a href="area/${c.slug}.html">${esc(c.name)}</a></li>`).join('\n')}
+          </ul>
+        </li>`).join('\n');
+const replaced = html.replace(/<!-- area-sitemap:start -->[\s\S]*?<!-- area-sitemap:end -->/, `<!-- area-sitemap:start -->
+      <ul class="sitemap-list">
+${areaList}
+      </ul>
+      <!-- area-sitemap:end -->`);
+writeFileSync(SITEMAP_HTML, replaced);
 console.log(`生成: ${AREA_CITIES.length} 都市ページ + 一覧 1 + sitemap.xml`);
