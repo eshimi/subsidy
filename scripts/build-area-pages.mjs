@@ -62,7 +62,9 @@ function shell({ title, description, canonicalPath, body, jsonLd = '' }) {
   <link rel="stylesheet" href="../style.css">
   <style>${STYLE}
   </style>
-${jsonLd}</head>
+${jsonLd}  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7811993263471350"
+     crossorigin="anonymous"></script>
+</head>
 <body>
   <header class="topbar">
     <div class="wrap topbar-inner">
