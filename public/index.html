@@ -56,6 +56,7 @@
           <div class="navdrop-panel">
             <a href="search.html">AI・キーワードで探す</a>
             <a href="hantei.html">AI補助金判定（質問に答えて探す）</a>
+            <a href="kaimono.html">買いたいものから探す</a>
             <a href="grants/purposes.html">目的別の補助金</a>
             <a href="grants/industries.html">業種別の補助金</a>
             <a href="grants/deadlines.html">締切が近い補助金</a>
@@ -132,7 +133,7 @@
       <div class="r-ways">
         <a class="r-way" href="search.html"><i aria-hidden="true">🔎</i><b>AI・キーワードで探す</b><span>やりたい事業を文章で入れるか、キーワード・地域で絞り込み</span></a>
         <a class="r-way" href="grants/purposes.html"><i aria-hidden="true">🎯</i><b>目的から探す</b><span>設備投資、IT導入、販路開拓などの目的から</span></a>
-        <button type="button" class="r-way r-rand" id="rand-grant" data-fallback="grants/index.html"><i aria-hidden="true">🎲</i><b>ランダムに1件見る</b><span>募集中の補助金から、ランダムに1件を選んで開きます</span></button>
+        <a class="r-way" href="kaimono.html"><i aria-hidden="true">🛒</i><b>買いたいものから探す</b><span>「POSレジ」「店舗の改装」など、買い物の内容から補助金を逆引き</span></a>
         <a class="r-way ai" href="hantei.html"><i aria-hidden="true">💬</i><b>AIに相談して探す</b><span>質問に答えるだけで、使えそうな補助金をAIが判定</span></a>
       </div>
     </section>
@@ -239,6 +240,7 @@
             <li><a href="./">トップ</a></li>
             <li><a href="search.html">AI・キーワードで探す</a></li>
             <li><a href="hantei.html">AI補助金判定</a></li>
+            <li><a href="kaimono.html">買いたいものから探す</a></li>
             <li><a href="grants/purposes.html">目的別の補助金</a></li>
             <li><a href="grants/industries.html">業種別の補助金</a></li>
             <li><a href="grants/deadlines.html">締切が近い補助金</a></li>
@@ -294,7 +296,7 @@
         </nav>
     </div>
     <div class="footer-bottom">
-                                                                                                                                    <nav aria-label="補助リンク">
+                                                                                                                                                            <nav aria-label="補助リンク">
         <ul>
           <li><a href="policy/privacy.html">プライバシーポリシー</a></li>
           <li><a href="policy/contact.html">フィードバック・バグ報告</a></li>
@@ -306,26 +308,6 @@
   </footer>
   <script src="site.js"></script>
   <script src="home.js"></script>
-  <script>
-    // 「ランダムに1件見る」：募集中（締切が未来）の補助金から1件を選んで、その詳細ページを開く
-    (function () {
-      var btn = document.getElementById('rand-grant');
-      if (!btn) return;
-      btn.addEventListener('click', function () {
-        var fallback = btn.getAttribute('data-fallback');
-        fetch('grants/search.json')
-          .then(function (r) { return r.ok ? r.json() : Promise.reject(new Error(String(r.status))); })
-          .then(function (data) {
-            var now = Date.now();
-            var open = (data.items || []).filter(function (g) { return g.e && Date.parse(g.e) >= now; });
-            if (!open.length) { location.href = fallback; return; }
-            var g = open[Math.floor(Math.random() * open.length)];
-            location.href = 'grants/' + encodeURIComponent(g.id) + '.html';
-          })
-          .catch(function () { location.href = fallback; });
-      });
-    })();
-  </script>
   <script>
     // ヒーローの紹介動画：初回の訪問だけ1回流す。「紹介動画を見る」からは、ヒーロー全面に出して、いつでも見られる
     (function () {
