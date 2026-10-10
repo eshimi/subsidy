@@ -27,6 +27,12 @@
   <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-180.png">
   <style>
+    .art-box { background: #fff; border: 1px solid #e3e8ec; border-radius: 16px; padding: 30px 36px 26px; box-shadow: 0 4px 18px rgba(29, 42, 58, 0.05); margin: 0 0 24px; }
+    .art-sec { margin: 0 0 1.8rem; scroll-margin-top: 72px; }
+    .art-sec + .art-sec { border-top: 1px dashed #d6dde3; padding-top: 1.6rem; }
+    .art-sec h2 { display: flex; align-items: center; gap: 10px; font-size: 1.25rem; line-height: 1.5; letter-spacing: -0.02em; margin: 0 0 0.8rem; color: #111; }
+    .art-sec h2::before { content: ""; width: 5px; height: 1.2em; border-radius: 3px; background: #1565d8; flex-shrink: 0; }
+    @media (max-width: 760px) { .art-box { padding: 20px 16px; } .art-sec h2 { font-size: 1.12rem; } }
     .area-section { background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 32px; margin-bottom: 24px; scroll-margin-top: 72px; }
     .area-num { display: block; font-family: var(--font-mono); font-size: 0.75rem; color: var(--mute); text-transform: uppercase; margin-bottom: 8px; }
     .area-section h2 { font-size: 1.4rem; line-height: 1.5; letter-spacing: -0.02em; margin: 0 0 16px; color: #111; }
@@ -139,9 +145,8 @@
     </div>
 
     <div class="page-split"><div class="page-main">
-<section class="area-section" aria-labelledby="s0">
-      <span class="area-num">01</span>
-      <h2 id="s0">情報の出典</h2>
+<div class="art-box">
+<section class="art-sec" aria-labelledby="s0"><h2 id="s0">情報の出典</h2>
       <div class="area-body">
         <ul>
           <li><strong>募集中の補助金</strong>：<a href="https://www.jgrants-portal.go.jp/" target="_blank" rel="noopener">jGrants（デジタル庁）</a>の公開データ。</li>
@@ -153,9 +158,7 @@
       </div>
     </section>
 
-    <section class="area-section" aria-labelledby="s1">
-      <span class="area-num">02</span>
-      <h2 id="s1">更新の方法と頻度</h2>
+    <section class="art-sec" aria-labelledby="s1"><h2 id="s1">更新の方法と頻度</h2>
       <div class="area-body">
         <ul>
           <li>jGrants の募集中データは、毎日、自動で取り込み直しています。</li>
@@ -165,21 +168,18 @@
       </div>
     </section>
 
-    <section class="area-section" aria-labelledby="s2">
-      <span class="area-num">03</span>
-      <h2 id="s2">正確性について</h2>
+    <section class="art-sec" aria-labelledby="s2"><h2 id="s2">正確性について</h2>
       <div class="area-body">
         <p>制度の内容は、年度や公募回によって変わります。当サイトの情報は、最新であることや、正確であることを保証するものではありません。申請の際は、必ず各制度の公式サイトと公募要領を確認してください。</p>
       </div>
     </section>
 
-    <section class="area-section" aria-labelledby="s3">
-      <span class="area-num">04</span>
-      <h2 id="s3">誤りのご連絡</h2>
+    <section class="art-sec" aria-labelledby="s3"><h2 id="s3">誤りのご連絡</h2>
       <div class="area-body">
         <p>情報の誤りや、古くなっている箇所にお気づきの場合は、<a href="contact.html">お問い合わせフォーム</a>、または<a href="contact.html">お問い合わせのページ</a>からお知らせください。確認のうえ、修正します。</p>
       </div>
     </section>
+</div>
 
     <p class="area-note">最終更新日：2026年10月10日</p>
 </div><aside class="page-side" aria-label="関連ページ">
@@ -275,7 +275,7 @@
         </nav>
     </div>
     <div class="footer-bottom">
-                                                            <nav aria-label="補助リンク">
+            <nav aria-label="補助リンク">
         <ul>
           <li><a href="../policy/privacy.html">プライバシーポリシー</a></li>
           <li><a href="../policy/contact.html">フィードバック・バグ報告</a></li>

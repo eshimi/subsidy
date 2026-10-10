@@ -27,6 +27,12 @@
   <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-180.png">
   <style>
+    .art-box { background: #fff; border: 1px solid #e3e8ec; border-radius: 16px; padding: 30px 36px 26px; box-shadow: 0 4px 18px rgba(29, 42, 58, 0.05); margin: 0 0 24px; }
+    .art-sec { margin: 0 0 1.8rem; scroll-margin-top: 72px; }
+    .art-sec + .art-sec { border-top: 1px dashed #d6dde3; padding-top: 1.6rem; }
+    .art-sec h2 { display: flex; align-items: center; gap: 10px; font-size: 1.25rem; line-height: 1.5; letter-spacing: -0.02em; margin: 0 0 0.8rem; color: #111; }
+    .art-sec h2::before { content: ""; width: 5px; height: 1.2em; border-radius: 3px; background: #1565d8; flex-shrink: 0; }
+    @media (max-width: 760px) { .art-box { padding: 20px 16px; } .art-sec h2 { font-size: 1.12rem; } }
     .area-section { background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 32px; margin-bottom: 24px; scroll-margin-top: 72px; }
     .area-num { display: block; font-family: var(--font-mono); font-size: 0.75rem; color: var(--mute); text-transform: uppercase; margin-bottom: 8px; }
     .area-section h2 { font-size: 1.4rem; line-height: 1.5; letter-spacing: -0.02em; margin: 0 0 16px; color: #111; }
@@ -153,9 +159,8 @@
     </div>
 
     <div class="page-split"><div class="page-main">
-<article class="area-section" aria-labelledby="s0">
-      <span class="area-num">00</span>
-      <h2 id="s0">発表の内容</h2>
+<div class="art-box">
+<section class="art-sec" aria-labelledby="s0"><h2 id="s0">発表の内容</h2>
       <div class="area-body">
         <ul>
           <li>申請受付：2026年10月2日（金）〜11月6日（金）17時</li>
@@ -164,11 +169,9 @@
           <li>申請はjGrantsによる電子申請だけで、GビズIDプライムが必要です</li>
         </ul>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s1">
-      <span class="area-num">01</span>
-      <h2 id="s1">枠ごとのポイント</h2>
+    <section class="art-sec" aria-labelledby="s1"><h2 id="s1">枠ごとのポイント</h2>
       <div class="area-body">
         <ul>
           <li><strong>事業承継促進枠</strong>：5年以内に親族内や従業員への承継を予定している事業者が対象。補助率1/2（小規模事業者などは2/3）、上限800万円（賃上げをする場合は1,000万円）、下限100万円。設備費、産業財産権関連経費、謝金、旅費、外注費、委託費などが対象で、事業承継計画について認定経営革新等支援機関などの確認が必要です</li>
@@ -178,11 +181,9 @@
         </ul>
         <p>金額や補助率の細かな条件は枠・類型ごとに違います。申請の前に、必ず枠ごとの公募要領で確認してください。</p>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s2">
-      <span class="area-num">02</span>
-      <h2 id="s2">今後の日程（事務局の予定）</h2>
+    <section class="art-sec" aria-labelledby="s2"><h2 id="s2">今後の日程（事務局の予定）</h2>
       <div class="area-body">
         <ul>
           <li>採択：2026年12月下旬以降に順次</li>
@@ -190,27 +191,21 @@
         </ul>
         <p>日程は変わることがあります。M&Aの仲介業者・FAとの契約や発注も、交付決定の後に行う必要があります。交付決定の前に契約した費用は対象になりません。</p>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s3">
-      <span class="area-num">03</span>
-      <h2 id="s3">事業者がやること</h2>
+    <section class="art-sec" aria-labelledby="s3"><h2 id="s3">事業者がやること</h2>
       <div class="area-body">
         <p>事業承継促進枠では、認定経営革新等支援機関などの確認が必要です。締切に間に合うよう、早めに相談してください。制度の全体像は<a href="../feature/succession.html">事業承継・M&A補助金とは？</a>で解説しています。</p>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s4">
-      <span class="area-num">04</span>
-      <h2 id="s4">この記事について</h2>
+    <section class="art-sec" aria-labelledby="s4"><h2 id="s4">この記事について</h2>
       <div class="area-body">
         <p>この記事は、2026年10月10日に、過去1か月の発表を整理して作成し、同日、公式の発表を基に内容を詳しくしました。</p>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="sources">
-      <span class="area-num">確認</span>
-      <h2 id="sources">情報の取得元</h2>
+    <section class="art-sec" aria-labelledby="sources"><h2 id="sources">情報の取得元</h2>
       <div class="area-body">
         <p>この記事は、次の情報を基に作成しました。内容は変わることがあるため、申請の前に必ずリンク先の最新情報を確認してください。<a href="sources.html">情報の取得元の一覧</a></p>
         <ul>
@@ -221,7 +216,8 @@
         </ul>
         <p class="area-note" style="margin-top: 16px;">最終更新日：2026年10月2日</p>
       </div>
-    </article>
+    </section>
+</div>
 </div><aside class="page-side" aria-label="関連ページ">
     <nav class="related-links" aria-label="関連ページ">
       <h2>関連ページ</h2>
@@ -311,7 +307,7 @@
         </nav>
     </div>
     <div class="footer-bottom">
-                                          <nav aria-label="補助リンク">
+            <nav aria-label="補助リンク">
         <ul>
           <li><a href="../policy/privacy.html">プライバシーポリシー</a></li>
           <li><a href="../policy/contact.html">フィードバック・バグ報告</a></li>

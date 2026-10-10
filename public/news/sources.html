@@ -27,6 +27,12 @@
   <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-180.png">
   <style>
+    .art-box { background: #fff; border: 1px solid #e3e8ec; border-radius: 16px; padding: 30px 36px 26px; box-shadow: 0 4px 18px rgba(29, 42, 58, 0.05); margin: 0 0 24px; }
+    .art-sec { margin: 0 0 1.8rem; scroll-margin-top: 72px; }
+    .art-sec + .art-sec { border-top: 1px dashed #d6dde3; padding-top: 1.6rem; }
+    .art-sec h2 { display: flex; align-items: center; gap: 10px; font-size: 1.25rem; line-height: 1.5; letter-spacing: -0.02em; margin: 0 0 0.8rem; color: #111; }
+    .art-sec h2::before { content: ""; width: 5px; height: 1.2em; border-radius: 3px; background: #1565d8; flex-shrink: 0; }
+    @media (max-width: 760px) { .art-box { padding: 20px 16px; } .art-sec h2 { font-size: 1.12rem; } }
     .area-section { background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 32px; margin-bottom: 24px; scroll-margin-top: 72px; }
     .area-num { display: block; font-family: var(--font-mono); font-size: 0.75rem; color: var(--mute); text-transform: uppercase; margin-bottom: 8px; }
     .area-section h2 { font-size: 1.4rem; line-height: 1.5; letter-spacing: -0.02em; margin: 0 0 16px; color: #111; }
@@ -152,17 +158,14 @@
     </div>
 
     <div class="page-split"><div class="page-main">
-<article class="area-section" aria-labelledby="s0">
-      <span class="area-num">00</span>
-      <h2 id="s0">取得元の考え方</h2>
+<div class="art-box">
+<section class="art-sec" aria-labelledby="s0"><h2 id="s0">取得元の考え方</h2>
       <div class="area-body">
         <p>ニュースは、省庁・独立行政法人・各補助金の事務局などの公式の発表（一次情報）を基に作成しています。民間の解説記事だけが根拠の内容は「〜と報じられています」などと書き分け、確認できる公式のページへのリンクを付けています。サイト全体の出典は<a href="../policy/sources.html">出典・更新方針</a>をご覧ください。</p>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s1">
-      <span class="area-num">01</span>
-      <h2 id="s1">毎日確認している公式サイト</h2>
+    <section class="art-sec" aria-labelledby="s1"><h2 id="s1">毎日確認している公式サイト</h2>
       <div class="area-body">
         <p>毎日のニュースの作成では、主に次の公式サイトの発表を確認しています。</p>
         <ul>
@@ -178,11 +181,9 @@
           <li><a href="https://www.jetro.go.jp/" target="_blank" rel="noopener">JETRO（日本貿易振興機構）</a>（日本貿易振興機構（JETRO））：海外展開・輸出の支援</li>
         </ul>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s2">
-      <span class="area-num">02</span>
-      <h2 id="s2">中小企業庁</h2>
+    <section class="art-sec" aria-labelledby="s2"><h2 id="s2">中小企業庁</h2>
       <div class="area-body">
         <ul>
           <li><a href="https://www.chusho.meti.go.jp/koukai/hojyokin/kobo/2026/260527002.html" target="_blank" rel="noopener">「小規模事業者持続化補助金＜一般型・通常枠＞（第20回）」の公募要領を公開しました</a><br><span style="font-size: 0.85rem; color: var(--mute); word-break: break-all;">https://www.chusho.meti.go.jp/koukai/hojyokin/kobo/2026/260527002.html</span><br><span style="font-size: 0.85rem;">この取得元を使った記事：<a href="2026-10-10-jizokuka-20.html">小規模事業者持続化補助金、第20回（一般型 通常枠）は11月5日から受付予定</a>（2026年10月10日）</span></li>
@@ -200,11 +201,9 @@
           <li><a href="https://www.chusho.meti.go.jp/koukai/hojyokin/saitaku/2026/260911001.html" target="_blank" rel="noopener">中小企業生産性革命推進事業「事業承継・M&amp;A補助金」（十五次公募）の補助事業者を採択しました</a><br><span style="font-size: 0.85rem; color: var(--mute); word-break: break-all;">https://www.chusho.meti.go.jp/koukai/hojyokin/saitaku/2026/260911001.html</span><br><span style="font-size: 0.85rem;">この取得元を使った記事：<a href="2026-09-11-shokei-15-saitaku.html">事業承継・M&amp;A補助金（15次公募）の採択結果が発表される　551件中338件を採択</a>（2026年9月11日）</span></li>
         </ul>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s3">
-      <span class="area-num">03</span>
-      <h2 id="s3">中小企業基盤整備機構（J-Net21）</h2>
+    <section class="art-sec" aria-labelledby="s3"><h2 id="s3">中小企業基盤整備機構（J-Net21）</h2>
       <div class="area-body">
         <ul>
           <li><a href="https://j-net21.smrj.go.jp/news/bt5puv000000umju.html" target="_blank" rel="noopener">「事業承継・M&amp;A補助金」（16次公募）10月2日受付開始（J-Net21）</a><br><span style="font-size: 0.85rem; color: var(--mute); word-break: break-all;">https://j-net21.smrj.go.jp/news/bt5puv000000umju.html</span><br><span style="font-size: 0.85rem;">この取得元を使った記事：<a href="2026-10-02-shokei-16.html">事業承継・M&amp;A補助金（16次公募）、申請受付が始まる　締切は11月6日</a>（2026年10月2日）</span></li>
@@ -213,11 +212,9 @@
           <li><a href="https://j-net21.smrj.go.jp/news/bt5puv000000uz45.html" target="_blank" rel="noopener">熊本地震被災事業者を支援「小規模事業者持続化補助金＜一般型 災害支援枠＞」第1次公募要領を公開（J-Net21）</a><br><span style="font-size: 0.85rem; color: var(--mute); word-break: break-all;">https://j-net21.smrj.go.jp/news/bt5puv000000uz45.html</span><br><span style="font-size: 0.85rem;">この取得元を使った記事：<a href="2026-09-16-jizokuka-saigai.html">持続化補助金〈災害支援枠（令和8年熊本地震）〉第1次の申請受付が始まる　締切は10月16日</a>（2026年9月16日）</span></li>
         </ul>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s4">
-      <span class="area-num">04</span>
-      <h2 id="s4">中小企業庁（ミラサポplus）</h2>
+    <section class="art-sec" aria-labelledby="s4"><h2 id="s4">中小企業庁（ミラサポplus）</h2>
       <div class="area-body">
         <ul>
           <li><a href="https://mirasapo-plus.go.jp/infomation/32381/" target="_blank" rel="noopener">【補助金】持続化補助金＜一般型・通常枠＞（第20回）の公募要領を公開（ミラサポplus）</a><br><span style="font-size: 0.85rem; color: var(--mute); word-break: break-all;">https://mirasapo-plus.go.jp/infomation/32381/</span><br><span style="font-size: 0.85rem;">この取得元を使った記事：<a href="2026-10-10-jizokuka-20.html">小規模事業者持続化補助金、第20回（一般型 通常枠）は11月5日から受付予定</a>（2026年10月10日）</span></li>
@@ -226,11 +223,9 @@
           <li><a href="https://mirasapo-plus.go.jp/infomation/33776/" target="_blank" rel="noopener">【補助金採択結果】事業承継・M＆A補助金（十五次公募）の補助事業者を採択（ミラサポplus）</a><br><span style="font-size: 0.85rem; color: var(--mute); word-break: break-all;">https://mirasapo-plus.go.jp/infomation/33776/</span><br><span style="font-size: 0.85rem;">この取得元を使った記事：<a href="2026-09-11-shokei-15-saitaku.html">事業承継・M&amp;A補助金（15次公募）の採択結果が発表される　551件中338件を採択</a>（2026年9月11日）</span></li>
         </ul>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s5">
-      <span class="area-num">05</span>
-      <h2 id="s5">厚生労働省</h2>
+    <section class="art-sec" aria-labelledby="s5"><h2 id="s5">厚生労働省</h2>
       <div class="area-body">
         <ul>
           <li><a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/zigyonushi/shienjigyou/03.html" target="_blank" rel="noopener">業務改善助成金（厚生労働省）</a><br><span style="font-size: 0.85rem; color: var(--mute); word-break: break-all;">https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/zigyonushi/shienjigyou/03.html</span><br><span style="font-size: 0.85rem;">この取得元を使った記事：<a href="2026-10-07-gyomu-kaizen.html">業務改善助成金（令和8年度）、東京・埼玉などは受付終了　締切は地域で異なる</a>（2026年10月7日）</span></li>
@@ -238,11 +233,9 @@
           <li><a href="https://www.mhlw.go.jp/content/11200000/001746753.pdf" target="_blank" rel="noopener">業務改善助成金Q&amp;A（令和8年9月〜）（PDF）</a><br><span style="font-size: 0.85rem; color: var(--mute); word-break: break-all;">https://www.mhlw.go.jp/content/11200000/001746753.pdf</span><br><span style="font-size: 0.85rem;">この取得元を使った記事：<a href="2026-10-07-gyomu-kaizen.html">業務改善助成金（令和8年度）、東京・埼玉などは受付終了　締切は地域で異なる</a>（2026年10月7日）</span></li>
         </ul>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s6">
-      <span class="area-num">06</span>
-      <h2 id="s6">中小企業基盤整備機構（100億企業成長ポータル）</h2>
+    <section class="art-sec" aria-labelledby="s6"><h2 id="s6">中小企業基盤整備機構（100億企業成長ポータル）</h2>
       <div class="area-body">
         <ul>
           <li><a href="https://growth-100-oku.smrj.go.jp/" target="_blank" rel="noopener">100億企業成長ポータル</a><br><span style="font-size: 0.85rem; color: var(--mute); word-break: break-all;">https://growth-100-oku.smrj.go.jp/</span><br><span style="font-size: 0.85rem;">この取得元を使った記事：<a href="2026-10-09-deadlines-october.html">10月〜11月に締切が来る主な補助金まとめ（2026年10月9日時点）</a>（2026年10月9日）、<a href="2026-09-29-seicho-3.html">中小企業成長加速化補助金（3次）、受付が始まり締切は11月12日に延長</a>（2026年9月29日）</span></li>
@@ -250,11 +243,9 @@
           <li><a href="https://growth-100-oku.smrj.go.jp/documents/subsidy/3rd_gaiyo.pdf" target="_blank" rel="noopener">3次公募 概要資料（PDF）</a><br><span style="font-size: 0.85rem; color: var(--mute); word-break: break-all;">https://growth-100-oku.smrj.go.jp/documents/subsidy/3rd_gaiyo.pdf</span><br><span style="font-size: 0.85rem;">この取得元を使った記事：<a href="2026-09-29-seicho-3.html">中小企業成長加速化補助金（3次）、受付が始まり締切は11月12日に延長</a>（2026年9月29日）</span></li>
         </ul>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s7">
-      <span class="area-num">07</span>
-      <h2 id="s7">中小企業基盤整備機構（デジタル化・AI導入補助金 事務局）</h2>
+    <section class="art-sec" aria-labelledby="s7"><h2 id="s7">中小企業基盤整備機構（デジタル化・AI導入補助金 事務局）</h2>
       <div class="area-body">
         <ul>
           <li><a href="https://it-shien.smrj.go.jp/schedule/" target="_blank" rel="noopener">事業スケジュール｜デジタル化・AI導入補助金2026</a><br><span style="font-size: 0.85rem; color: var(--mute); word-break: break-all;">https://it-shien.smrj.go.jp/schedule/</span><br><span style="font-size: 0.85rem;">この取得元を使った記事：<a href="2026-10-09-deadlines-october.html">10月〜11月に締切が来る主な補助金まとめ（2026年10月9日時点）</a>（2026年10月9日）、<a href="2026-10-01-digital-ai-6.html">デジタル化・AI導入補助金、6次締切は10月30日　5次は9月29日に締切</a>（2026年10月1日）</span></li>
@@ -262,11 +253,9 @@
           <li><a href="https://it-shien.smrj.go.jp/applicant/subsidy/digitalbase/" target="_blank" rel="noopener">インボイス枠（インボイス対応類型）｜デジタル化・AI導入補助金2026</a><br><span style="font-size: 0.85rem; color: var(--mute); word-break: break-all;">https://it-shien.smrj.go.jp/applicant/subsidy/digitalbase/</span><br><span style="font-size: 0.85rem;">この取得元を使った記事：<a href="2026-10-01-digital-ai-6.html">デジタル化・AI導入補助金、6次締切は10月30日　5次は9月29日に締切</a>（2026年10月1日）</span></li>
         </ul>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s8">
-      <span class="area-num">08</span>
-      <h2 id="s8">中小企業基盤整備機構（省力化投資補助金 事務局）</h2>
+    <section class="art-sec" aria-labelledby="s8"><h2 id="s8">中小企業基盤整備機構（省力化投資補助金 事務局）</h2>
       <div class="area-body">
         <ul>
           <li><a href="https://shoryokuka.smrj.go.jp/ippan/schedule/" target="_blank" rel="noopener">スケジュール（一般型）｜中小企業省力化投資補助金</a><br><span style="font-size: 0.85rem; color: var(--mute); word-break: break-all;">https://shoryokuka.smrj.go.jp/ippan/schedule/</span><br><span style="font-size: 0.85rem;">この取得元を使った記事：<a href="2026-10-09-deadlines-october.html">10月〜11月に締切が来る主な補助金まとめ（2026年10月9日時点）</a>（2026年10月9日）、<a href="2026-09-18-shoryokuka-8.html">中小企業省力化投資補助金（一般型 第8回）、申請受付が始まる　締切は10月16日</a>（2026年9月18日）</span></li>
@@ -274,83 +263,70 @@
           <li><a href="https://shoryokuka.smrj.go.jp/catalog/" target="_blank" rel="noopener">トップページ（カタログ注文型）｜中小企業省力化投資補助金</a><br><span style="font-size: 0.85rem; color: var(--mute); word-break: break-all;">https://shoryokuka.smrj.go.jp/catalog/</span><br><span style="font-size: 0.85rem;">この取得元を使った記事：<a href="2026-09-18-shoryokuka-8.html">中小企業省力化投資補助金（一般型 第8回）、申請受付が始まる　締切は10月16日</a>（2026年9月18日）</span></li>
         </ul>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s9">
-      <span class="area-num">09</span>
-      <h2 id="s9">経済産業省</h2>
+    <section class="art-sec" aria-labelledby="s9"><h2 id="s9">経済産業省</h2>
       <div class="area-body">
         <ul>
           <li><a href="https://www.meti.go.jp/press/20260729003.html" target="_blank" rel="noopener">令和8年熊本地震に伴う災害に関して被災中小企業・小規模事業者支援措置を行います</a><br><span style="font-size: 0.85rem; color: var(--mute); word-break: break-all;">https://www.meti.go.jp/press/20260729003.html</span><br><span style="font-size: 0.85rem;">この取得元を使った記事：<a href="2026-09-16-jizokuka-saigai.html">持続化補助金〈災害支援枠（令和8年熊本地震）〉第1次の申請受付が始まる　締切は10月16日</a>（2026年9月16日）</span></li>
           <li><a href="https://www.meti.go.jp/main/yosangaisan/fy2027/index.html" target="_blank" rel="noopener">令和9年度概算要求・税制改正要望について</a><br><span style="font-size: 0.85rem; color: var(--mute); word-break: break-all;">https://www.meti.go.jp/main/yosangaisan/fy2027/index.html</span><br><span style="font-size: 0.85rem;">この取得元を使った記事：<a href="2026-09-14-r9-gaisan.html">令和9年度の概算要求、中小企業支援は「賃上げ」「省力化・AI」「成長投資」が柱に</a>（2026年9月14日）</span></li>
         </ul>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s10">
-      <span class="area-num">10</span>
-      <h2 id="s10">事業承継・M&amp;A補助金 事務局</h2>
+    <section class="art-sec" aria-labelledby="s10"><h2 id="s10">事業承継・M&amp;A補助金 事務局</h2>
       <div class="area-body">
         <ul>
           <li><a href="https://shoukei-mahojokin.go.jp/r7h/" target="_blank" rel="noopener">事業承継・M&amp;A補助金（令和7年度補正予算）</a><br><span style="font-size: 0.85rem; color: var(--mute); word-break: break-all;">https://shoukei-mahojokin.go.jp/r7h/</span><br><span style="font-size: 0.85rem;">この取得元を使った記事：<a href="2026-10-02-shokei-16.html">事業承継・M&amp;A補助金（16次公募）、申請受付が始まる　締切は11月6日</a>（2026年10月2日）</span></li>
           <li><a href="https://shoukei-mahojokin.go.jp/" target="_blank" rel="noopener">事業承継・M＆A補助金 事務局</a><br><span style="font-size: 0.85rem; color: var(--mute); word-break: break-all;">https://shoukei-mahojokin.go.jp/</span><br><span style="font-size: 0.85rem;">この取得元を使った記事：<a href="2026-09-11-shokei-15-saitaku.html">事業承継・M&amp;A補助金（15次公募）の採択結果が発表される　551件中338件を採択</a>（2026年9月11日）</span></li>
         </ul>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s11">
-      <span class="area-num">11</span>
-      <h2 id="s11">中小企業基盤整備機構（新事業進出・ものづくり補助金 事務局）</h2>
+    <section class="art-sec" aria-labelledby="s11"><h2 id="s11">中小企業基盤整備機構（新事業進出・ものづくり補助金 事務局）</h2>
       <div class="area-body">
         <ul>
           <li><a href="https://shinjigyou-monodukuri.smrj.go.jp/schedule" target="_blank" rel="noopener">新事業進出・ものづくり商業サービス補助金 公募スケジュール</a><br><span style="font-size: 0.85rem; color: var(--mute); word-break: break-all;">https://shinjigyou-monodukuri.smrj.go.jp/schedule</span><br><span style="font-size: 0.85rem;">この取得元を使った記事：<a href="2026-10-09-deadlines-october.html">10月〜11月に締切が来る主な補助金まとめ（2026年10月9日時点）</a>（2026年10月9日）、<a href="2026-10-05-overseas-support.html">海外展開・輸出（外貨獲得）を目指す中小企業の支援策まとめ</a>（2026年10月5日）、<a href="2026-09-30-shinjigyo-mono-1.html">新事業進出・ものづくり商業サービス補助金、第1回の申請受付が始まる</a>（2026年9月30日）</span></li>
           <li><a href="https://shinjigyou-monodukuri.smrj.go.jp/assets/documents/shinmono_application_guidelines_01.pdf" target="_blank" rel="noopener">新事業進出・ものづくり商業サービス補助金 第1回公募要領（PDF）</a><br><span style="font-size: 0.85rem; color: var(--mute); word-break: break-all;">https://shinjigyou-monodukuri.smrj.go.jp/assets/documents/shinmono_application_guidelines_01.pdf</span><br><span style="font-size: 0.85rem;">この取得元を使った記事：<a href="2026-10-05-overseas-support.html">海外展開・輸出（外貨獲得）を目指す中小企業の支援策まとめ</a>（2026年10月5日）、<a href="2026-09-30-shinjigyo-mono-1.html">新事業進出・ものづくり商業サービス補助金、第1回の申請受付が始まる</a>（2026年9月30日）</span></li>
         </ul>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s12">
-      <span class="area-num">12</span>
-      <h2 id="s12">中小企業基盤整備機構（補助金活用ナビ）</h2>
+    <section class="art-sec" aria-labelledby="s12"><h2 id="s12">中小企業基盤整備機構（補助金活用ナビ）</h2>
       <div class="area-body">
         <ul>
           <li><a href="https://seisansei.smrj.go.jp/subsidy_info/schedule.html" target="_blank" rel="noopener">2026年度 小規模事業者・中小企業向け補助金スケジュール（補助金活用ナビ）</a><br><span style="font-size: 0.85rem; color: var(--mute); word-break: break-all;">https://seisansei.smrj.go.jp/subsidy_info/schedule.html</span><br><span style="font-size: 0.85rem;">この取得元を使った記事：<a href="2026-10-09-deadlines-october.html">10月〜11月に締切が来る主な補助金まとめ（2026年10月9日時点）</a>（2026年10月9日）</span></li>
           <li><a href="https://seisansei.smrj.go.jp/news/20260904.html" target="_blank" rel="noopener">事業承継・M&amp;A補助金（第16次公募）の公募要領公開について（補助金活用ナビ）</a><br><span style="font-size: 0.85rem; color: var(--mute); word-break: break-all;">https://seisansei.smrj.go.jp/news/20260904.html</span><br><span style="font-size: 0.85rem;">この取得元を使った記事：<a href="2026-10-02-shokei-16.html">事業承継・M&amp;A補助金（16次公募）、申請受付が始まる　締切は11月6日</a>（2026年10月2日）</span></li>
         </ul>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s13">
-      <span class="area-num">13</span>
-      <h2 id="s13">都道府県労働局（厚生労働省）</h2>
+    <section class="art-sec" aria-labelledby="s13"><h2 id="s13">都道府県労働局（厚生労働省）</h2>
       <div class="area-body">
         <ul>
           <li><a href="https://jsite.mhlw.go.jp/tokyo-roudoukyoku/news_topics/kyoku_oshirase/_120743/_122391.html" target="_blank" rel="noopener">業務改善助成金（東京労働局）</a><br><span style="font-size: 0.85rem; color: var(--mute); word-break: break-all;">https://jsite.mhlw.go.jp/tokyo-roudoukyoku/news_topics/kyoku_oshirase/_120743/_122391.html</span><br><span style="font-size: 0.85rem;">この取得元を使った記事：<a href="2026-10-07-gyomu-kaizen.html">業務改善助成金（令和8年度）、東京・埼玉などは受付終了　締切は地域で異なる</a>（2026年10月7日）</span></li>
           <li><a href="https://jsite.mhlw.go.jp/kagoshima-roudoukyoku/hourei_seido_tetsuzuki/kane/kaizenzyoseikin.html" target="_blank" rel="noopener">業務改善助成金（鹿児島労働局）</a><br><span style="font-size: 0.85rem; color: var(--mute); word-break: break-all;">https://jsite.mhlw.go.jp/kagoshima-roudoukyoku/hourei_seido_tetsuzuki/kane/kaizenzyoseikin.html</span><br><span style="font-size: 0.85rem;">この取得元を使った記事：<a href="2026-10-07-gyomu-kaizen.html">業務改善助成金（令和8年度）、東京・埼玉などは受付終了　締切は地域で異なる</a>（2026年10月7日）</span></li>
         </ul>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s14">
-      <span class="area-num">14</span>
-      <h2 id="s14">日本貿易振興機構（JETRO）</h2>
+    <section class="art-sec" aria-labelledby="s14"><h2 id="s14">日本貿易振興機構（JETRO）</h2>
       <div class="area-body">
         <ul>
           <li><a href="https://www.jetro.go.jp/ichiman-export.html" target="_blank" rel="noopener">新規輸出1万者支援プログラム</a><br><span style="font-size: 0.85rem; color: var(--mute); word-break: break-all;">https://www.jetro.go.jp/ichiman-export.html</span><br><span style="font-size: 0.85rem;">この取得元を使った記事：<a href="2026-10-05-overseas-support.html">海外展開・輸出（外貨獲得）を目指す中小企業の支援策まとめ</a>（2026年10月5日）</span></li>
           <li><a href="https://www.jetro.go.jp/news/announcement/2026/bbfdd425d0707fc5.html" target="_blank" rel="noopener">令和8年度「中堅・中小企業輸出支援エコシステム形成事業費補助金」の公募について</a><br><span style="font-size: 0.85rem; color: var(--mute); word-break: break-all;">https://www.jetro.go.jp/news/announcement/2026/bbfdd425d0707fc5.html</span><br><span style="font-size: 0.85rem;">この取得元を使った記事：<a href="2026-10-05-overseas-support.html">海外展開・輸出（外貨獲得）を目指す中小企業の支援策まとめ</a>（2026年10月5日）</span></li>
         </ul>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s15">
-      <span class="area-num">15</span>
-      <h2 id="s15">小規模事業者持続化補助金 事務局</h2>
+    <section class="art-sec" aria-labelledby="s15"><h2 id="s15">小規模事業者持続化補助金 事務局</h2>
       <div class="area-body">
         <ul>
           <li><a href="https://official.jizokukanb.com/" target="_blank" rel="noopener">小規模事業者持続化補助金【一般型・通常枠】公式サイト</a><br><span style="font-size: 0.85rem; color: var(--mute); word-break: break-all;">https://official.jizokukanb.com/</span><br><span style="font-size: 0.85rem;">この取得元を使った記事：<a href="2026-10-10-jizokuka-20.html">小規模事業者持続化補助金、第20回（一般型 通常枠）は11月5日から受付予定</a>（2026年10月10日）</span></li>
         </ul>
       </div>
-    </article>
+    </section>
+</div>
 
     <p class="area-note">最終更新日：2026年10月10日</p>
 </div><aside class="page-side" aria-label="関連ページ">
@@ -440,7 +416,7 @@
         </nav>
     </div>
     <div class="footer-bottom">
-                                          <nav aria-label="補助リンク">
+            <nav aria-label="補助リンク">
         <ul>
           <li><a href="../policy/privacy.html">プライバシーポリシー</a></li>
           <li><a href="../policy/contact.html">フィードバック・バグ報告</a></li>

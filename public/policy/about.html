@@ -27,6 +27,12 @@
   <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-180.png">
   <style>
+    .art-box { background: #fff; border: 1px solid #e3e8ec; border-radius: 16px; padding: 30px 36px 26px; box-shadow: 0 4px 18px rgba(29, 42, 58, 0.05); margin: 0 0 24px; }
+    .art-sec { margin: 0 0 1.8rem; scroll-margin-top: 72px; }
+    .art-sec + .art-sec { border-top: 1px dashed #d6dde3; padding-top: 1.6rem; }
+    .art-sec h2 { display: flex; align-items: center; gap: 10px; font-size: 1.25rem; line-height: 1.5; letter-spacing: -0.02em; margin: 0 0 0.8rem; color: #111; }
+    .art-sec h2::before { content: ""; width: 5px; height: 1.2em; border-radius: 3px; background: #1565d8; flex-shrink: 0; }
+    @media (max-width: 760px) { .art-box { padding: 20px 16px; } .art-sec h2 { font-size: 1.12rem; } }
     .area-section { background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 32px; margin-bottom: 24px; scroll-margin-top: 72px; }
     .area-num { display: block; font-family: var(--font-mono); font-size: 0.75rem; color: var(--mute); text-transform: uppercase; margin-bottom: 8px; }
     .area-section h2 { font-size: 1.4rem; line-height: 1.5; letter-spacing: -0.02em; margin: 0 0 16px; color: #111; }
@@ -139,9 +145,8 @@
     </div>
 
     <div class="page-split"><div class="page-main">
-<section class="area-section" aria-labelledby="s0">
-      <span class="area-num">01</span>
-      <h2 id="s0">サイトの概要</h2>
+<div class="art-box">
+<section class="art-sec" aria-labelledby="s0"><h2 id="s0">サイトの概要</h2>
       <div class="area-body">
         <ul>
           <li><strong>サイト名</strong>：補助金ネット</li>
@@ -153,37 +158,30 @@
       </div>
     </section>
 
-    <section class="area-section" aria-labelledby="s1">
-      <span class="area-num">02</span>
-      <h2 id="s1">運営の目的</h2>
+    <section class="art-sec" aria-labelledby="s1"><h2 id="s1">運営の目的</h2>
       <div class="area-body">
         <p>個人の新規事業や創業を考える方が、使えそうな補助金・助成金・支援制度を、見つけやすくすることを目的としています。事業の内容と郵便番号から、国・都道府県・市区町村の制度を一覧できる検索機能と、制度を理解するためのコラム・ガイドを提供しています。</p>
       </div>
     </section>
 
-    <section class="area-section" aria-labelledby="s2">
-      <span class="area-num">03</span>
-      <h2 id="s2">情報の取り扱いについて</h2>
+    <section class="art-sec" aria-labelledby="s2"><h2 id="s2">情報の取り扱いについて</h2>
       <div class="area-body">
         <p>掲載している情報は、公開されている情報をもとにした参考情報です。制度の対象・金額・公募時期は、年度や公募回によって変わります。申請の前には、必ず各制度の公式サイトで、最新の内容を確認してください。情報の出典と更新の方針は、<a href="sources.html">出典・更新方針</a>をご覧ください。</p>
       </div>
     </section>
 
-    <section class="area-section" aria-labelledby="s3">
-      <span class="area-num">04</span>
-      <h2 id="s3">広告・アフィリエイトについて</h2>
+    <section class="art-sec" aria-labelledby="s3"><h2 id="s3">広告・アフィリエイトについて</h2>
       <div class="area-body">
         <p>当サイトには、広告（Google AdSense など）が表示される場合があります。また、アフィリエイトプログラム（A8.net）を利用して、サービスを紹介する場合があります。広告やアフィリエイトを含むページには、広告であることが分かる表示を付けます。広告の掲載が、制度の検索結果や、情報の内容に影響することはありません。</p>
       </div>
     </section>
 
-    <section class="area-section" aria-labelledby="s4">
-      <span class="area-num">05</span>
-      <h2 id="s4">お問い合わせ</h2>
+    <section class="art-sec" aria-labelledby="s4"><h2 id="s4">お問い合わせ</h2>
       <div class="area-body">
         <p>ご意見、情報の誤りのご指摘、不具合のご報告は、<a href="contact.html">お問い合わせフォーム</a>、または<a href="contact.html">お問い合わせのページ</a>からお寄せください。内容を確認し、必要に応じて、修正します。</p>
       </div>
     </section>
+</div>
 
     <p class="area-note">最終更新日：2026年10月10日</p>
 </div><aside class="page-side" aria-label="関連ページ">
@@ -279,7 +277,7 @@
         </nav>
     </div>
     <div class="footer-bottom">
-                                                            <nav aria-label="補助リンク">
+            <nav aria-label="補助リンク">
         <ul>
           <li><a href="../policy/privacy.html">プライバシーポリシー</a></li>
           <li><a href="../policy/contact.html">フィードバック・バグ報告</a></li>

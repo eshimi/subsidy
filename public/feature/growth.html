@@ -27,6 +27,12 @@
   <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-180.png">
   <style>
+    .art-box { background: #fff; border: 1px solid #e3e8ec; border-radius: 16px; padding: 30px 36px 26px; box-shadow: 0 4px 18px rgba(29, 42, 58, 0.05); margin: 0 0 24px; }
+    .art-sec { margin: 0 0 1.8rem; scroll-margin-top: 72px; }
+    .art-sec + .art-sec { border-top: 1px dashed #d6dde3; padding-top: 1.6rem; }
+    .art-sec h2 { display: flex; align-items: center; gap: 10px; font-size: 1.25rem; line-height: 1.5; letter-spacing: -0.02em; margin: 0 0 0.8rem; color: #111; }
+    .art-sec h2::before { content: ""; width: 5px; height: 1.2em; border-radius: 3px; background: #1565d8; flex-shrink: 0; }
+    @media (max-width: 760px) { .art-box { padding: 20px 16px; } .art-sec h2 { font-size: 1.12rem; } }
     .area-section { background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 32px; margin-bottom: 24px; scroll-margin-top: 72px; }
     .area-num { display: block; font-family: var(--font-mono); font-size: 0.75rem; color: var(--mute); text-transform: uppercase; margin-bottom: 8px; }
     .area-section h2 { font-size: 1.4rem; line-height: 1.5; letter-spacing: -0.02em; margin: 0 0 16px; color: #111; }
@@ -151,9 +157,8 @@
     </div>
 
     <div class="page-split"><div class="page-main">
-<article class="area-section" aria-labelledby="s0">
-      <span class="area-num">00</span>
-      <h2 id="s0">この記事の結論</h2>
+<div class="art-box">
+<section class="art-sec" aria-labelledby="s0"><h2 id="s0">この記事の結論</h2>
       <div class="area-body">
         <ul>
           <li>中小企業成長加速化補助金は、売上の大きな成長を目指す中小企業の、大規模な設備投資を支える補助金です。</li>
@@ -162,19 +167,15 @@
         </ul>
         <p>制度の金額・補助率・対象経費は、公募回ごとに決まります。ここでは制度の全体像を説明し、数字は書いていません。最新の数字は公式の公募要領で確認してください。</p>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s1">
-      <span class="area-num">01</span>
-      <h2 id="s1">どんな企業向けか</h2>
+    <section class="art-sec" aria-labelledby="s1"><h2 id="s1">どんな企業向けか</h2>
       <div class="area-body">
         <p>すでに一定の規模があり、さらに大きく成長する計画を持つ中小企業向けです。創業間もない事業者や、小さな設備の導入には、ほかの制度（持続化補助金、デジタル化・AI導入補助金、省力化投資補助金など）の方が合う場合が多いです。</p>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s2">
-      <span class="area-num">02</span>
-      <h2 id="s2">対象になりやすい投資（例）</h2>
+    <section class="art-sec" aria-labelledby="s2"><h2 id="s2">対象になりやすい投資（例）</h2>
       <div class="area-body">
         <ul>
           <li>工場や物流拠点などの建物の新設・増築</li>
@@ -182,11 +183,9 @@
           <li>成長のためのソフトウェア・システムの導入</li>
         </ul>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s3">
-      <span class="area-num">03</span>
-      <h2 id="s3">申請の前に確認すること</h2>
+    <section class="art-sec" aria-labelledby="s3"><h2 id="s3">申請の前に確認すること</h2>
       <div class="area-body">
         <ul>
           <li>投資の額の下限や、賃上げの要件</li>
@@ -195,22 +194,18 @@
           <li>交付決定の前に発注していないか</li>
         </ul>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s4">
-      <span class="area-num">04</span>
-      <h2 id="s4">よくある質問</h2>
+    <section class="art-sec" aria-labelledby="s4"><h2 id="s4">よくある質問</h2>
       <div class="area-body">
         <h3>Q. 小規模な事業者でも申請できますか？</h3>
         <p>A. 制度の目的が大きな成長投資のため、要件を満たすのは難しい場合が多いです。ほかの制度も検討してください。</p>
         <h3>Q. 補助上限はいくらですか？</h3>
         <p>A. 公募回ごとに決まります。必ず公式の公募要領で確認してください。</p>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="sources">
-      <span class="area-num">確認</span>
-      <h2 id="sources">最新情報の確認先</h2>
+    <section class="art-sec" aria-labelledby="sources"><h2 id="sources">最新情報の確認先</h2>
       <div class="area-body">
         <p>制度の内容は、年度や公募回ごとに変わります。申請の前に、次の公式情報で確認してください。</p>
         <ul>
@@ -220,7 +215,8 @@
         </ul>
         <p class="area-note" style="margin-top: 16px;">最終更新日：2026年10月10日</p>
       </div>
-    </article>
+    </section>
+</div>
 </div><aside class="page-side" aria-label="関連ページ">
     <nav class="related-links" aria-label="関連ページ">
       <h2>関連ページ</h2>
@@ -315,7 +311,7 @@
         </nav>
     </div>
     <div class="footer-bottom">
-                                          <nav aria-label="補助リンク">
+            <nav aria-label="補助リンク">
         <ul>
           <li><a href="../policy/privacy.html">プライバシーポリシー</a></li>
           <li><a href="../policy/contact.html">フィードバック・バグ報告</a></li>

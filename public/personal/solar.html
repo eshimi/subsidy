@@ -27,6 +27,12 @@
   <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-180.png">
   <style>
+    .art-box { background: #fff; border: 1px solid #e3e8ec; border-radius: 16px; padding: 30px 36px 26px; box-shadow: 0 4px 18px rgba(29, 42, 58, 0.05); margin: 0 0 24px; }
+    .art-sec { margin: 0 0 1.8rem; scroll-margin-top: 72px; }
+    .art-sec + .art-sec { border-top: 1px dashed #d6dde3; padding-top: 1.6rem; }
+    .art-sec h2 { display: flex; align-items: center; gap: 10px; font-size: 1.25rem; line-height: 1.5; letter-spacing: -0.02em; margin: 0 0 0.8rem; color: #111; }
+    .art-sec h2::before { content: ""; width: 5px; height: 1.2em; border-radius: 3px; background: #1565d8; flex-shrink: 0; }
+    @media (max-width: 760px) { .art-box { padding: 20px 16px; } .art-sec h2 { font-size: 1.12rem; } }
     .area-section { background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 32px; margin-bottom: 24px; scroll-margin-top: 72px; }
     .area-num { display: block; font-family: var(--font-mono); font-size: 0.75rem; color: var(--mute); text-transform: uppercase; margin-bottom: 8px; }
     .area-section h2 { font-size: 1.4rem; line-height: 1.5; letter-spacing: -0.02em; margin: 0 0 16px; color: #111; }
@@ -152,18 +158,15 @@
     </div>
 
     <div class="page-split"><div class="page-main">
-<article class="area-section" aria-labelledby="s0">
-      <span class="area-num">00</span>
-      <h2 id="s0">どこが補助しているか</h2>
+<div class="art-box">
+<section class="art-sec" aria-labelledby="s0"><h2 id="s0">どこが補助しているか</h2>
       <div class="area-body">
         <p>家庭の太陽光発電や蓄電池の補助金は、都道府県や市区町村が独自に行っているものが中心です。国の事業として、省エネ住宅の支援や、電力の需給の調整に役立つ蓄電池の導入支援などが行われることもあります。</p>
         <p>制度の金額・補助率・対象経費は、年度や公募回ごとに決まります。ここでは全体像を説明し、数字は原則として書いていません。最新の内容は公式の情報で確認してください。</p>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s1">
-      <span class="area-num">01</span>
-      <h2 id="s1">対象になりやすいもの</h2>
+    <section class="art-sec" aria-labelledby="s1"><h2 id="s1">対象になりやすいもの</h2>
       <div class="area-body">
         <ul>
           <li>家庭用の太陽光発電設備</li>
@@ -172,11 +175,9 @@
           <li>省エネ住宅（ZEHなど）の新築・改修とあわせた導入</li>
         </ul>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s2">
-      <span class="area-num">02</span>
-      <h2 id="s2">申請の注意点</h2>
+    <section class="art-sec" aria-labelledby="s2"><h2 id="s2">申請の注意点</h2>
       <div class="area-body">
         <ul>
           <li><strong>契約・工事の前に申請が必要なことが多い</strong>：工事の後では申請できない制度があります。</li>
@@ -185,19 +186,15 @@
           <li><strong>訪問販売に注意</strong>：「補助金で実質無料」などの勧誘には、制度の内容を自分で確認してから判断してください。</li>
         </ul>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s3">
-      <span class="area-num">03</span>
-      <h2 id="s3">探し方</h2>
+    <section class="art-sec" aria-labelledby="s3"><h2 id="s3">探し方</h2>
       <div class="area-body">
         <p>お住まいの都道府県・市区町村のウェブサイトで、「太陽光」「蓄電池」「再生可能エネルギー」などの言葉で探すのが確実です（<a href="../area/index.html">市区町村別の補助金</a>）。</p>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="sources">
-      <span class="area-num">確認</span>
-      <h2 id="sources">最新情報の確認先</h2>
+    <section class="art-sec" aria-labelledby="sources"><h2 id="sources">最新情報の確認先</h2>
       <div class="area-body">
         <p>制度の内容は変わります。次の公式情報で、最新の内容を確認してください。</p>
         <ul>
@@ -206,7 +203,8 @@
         </ul>
         <p class="area-note" style="margin-top: 16px;">最終更新日：2026年10月10日</p>
       </div>
-    </article>
+    </section>
+</div>
 </div><aside class="page-side" aria-label="関連ページ">
     <nav class="related-links" aria-label="関連ページ">
       <h2>関連ページ</h2>
@@ -294,7 +292,7 @@
         </nav>
     </div>
     <div class="footer-bottom">
-                                          <nav aria-label="補助リンク">
+            <nav aria-label="補助リンク">
         <ul>
           <li><a href="../policy/privacy.html">プライバシーポリシー</a></li>
           <li><a href="../policy/contact.html">フィードバック・バグ報告</a></li>

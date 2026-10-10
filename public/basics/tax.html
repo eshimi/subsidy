@@ -27,6 +27,12 @@
   <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-180.png">
   <style>
+    .art-box { background: #fff; border: 1px solid #e3e8ec; border-radius: 16px; padding: 30px 36px 26px; box-shadow: 0 4px 18px rgba(29, 42, 58, 0.05); margin: 0 0 24px; }
+    .art-sec { margin: 0 0 1.8rem; scroll-margin-top: 72px; }
+    .art-sec + .art-sec { border-top: 1px dashed #d6dde3; padding-top: 1.6rem; }
+    .art-sec h2 { display: flex; align-items: center; gap: 10px; font-size: 1.25rem; line-height: 1.5; letter-spacing: -0.02em; margin: 0 0 0.8rem; color: #111; }
+    .art-sec h2::before { content: ""; width: 5px; height: 1.2em; border-radius: 3px; background: #1565d8; flex-shrink: 0; }
+    @media (max-width: 760px) { .art-box { padding: 20px 16px; } .art-sec h2 { font-size: 1.12rem; } }
     .area-section { background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 32px; margin-bottom: 24px; scroll-margin-top: 72px; }
     .area-num { display: block; font-family: var(--font-mono); font-size: 0.75rem; color: var(--mute); text-transform: uppercase; margin-bottom: 8px; }
     .area-section h2 { font-size: 1.4rem; line-height: 1.5; letter-spacing: -0.02em; margin: 0 0 16px; color: #111; }
@@ -152,9 +158,8 @@
     </div>
 
     <div class="page-split"><div class="page-main">
-<article class="area-section" aria-labelledby="s0">
-      <span class="area-num">00</span>
-      <h2 id="s0">一般的な扱い</h2>
+<div class="art-box">
+<section class="art-sec" aria-labelledby="s0"><h2 id="s0">一般的な扱い</h2>
       <div class="area-body">
         <ul>
           <li><strong>収入（益金）になる</strong>：補助金は、原則として法人の益金、個人事業主の事業の収入として扱われ、所得税・法人税の対象になります。</li>
@@ -162,19 +167,15 @@
           <li><strong>計上の時期</strong>：一般に、交付の額が確定した時点で収入に計上するとされます。入金の時期と年度がずれることがあるため注意してください。</li>
         </ul>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s1">
-      <span class="area-num">01</span>
-      <h2 id="s1">設備を買った場合の特例</h2>
+    <section class="art-sec" aria-labelledby="s1"><h2 id="s1">設備を買った場合の特例</h2>
       <div class="area-body">
         <p>補助金で機械などの固定資産を取得した場合、一定の要件のもとで、法人は「圧縮記帳」、個人事業主は「総収入金額に算入しない」特例を使える場合があります。補助金を受け取った年に税金が大きくなるのを避け、減価償却を通じて税負担をならす仕組みです。適用の要件や手続きは、税理士に確認してください。</p>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s2">
-      <span class="area-num">02</span>
-      <h2 id="s2">注意したいこと</h2>
+    <section class="art-sec" aria-labelledby="s2"><h2 id="s2">注意したいこと</h2>
       <div class="area-body">
         <ul>
           <li>補助金で支払った経費も、経費として計上します（補助金を差し引くのではありません）。</li>
@@ -183,11 +184,9 @@
         </ul>
         <p>この記事は一般的な説明です。実際の処理は、事業の状況によって変わります。</p>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="sources">
-      <span class="area-num">確認</span>
-      <h2 id="sources">最新情報の確認先</h2>
+    <section class="art-sec" aria-labelledby="sources"><h2 id="sources">最新情報の確認先</h2>
       <div class="area-body">
         <p>制度の内容は変わります。次の公式情報で、最新の内容を確認してください。</p>
         <ul>
@@ -195,7 +194,8 @@
         </ul>
         <p class="area-note" style="margin-top: 16px;">最終更新日：2026年10月10日</p>
       </div>
-    </article>
+    </section>
+</div>
 </div><aside class="page-side" aria-label="関連ページ">
     <nav class="related-links" aria-label="関連ページ">
       <h2>関連ページ</h2>
@@ -283,7 +283,7 @@
         </nav>
     </div>
     <div class="footer-bottom">
-                                          <nav aria-label="補助リンク">
+            <nav aria-label="補助リンク">
         <ul>
           <li><a href="../policy/privacy.html">プライバシーポリシー</a></li>
           <li><a href="../policy/contact.html">フィードバック・バグ報告</a></li>

@@ -27,6 +27,12 @@
   <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-180.png">
   <style>
+    .art-box { background: #fff; border: 1px solid #e3e8ec; border-radius: 16px; padding: 30px 36px 26px; box-shadow: 0 4px 18px rgba(29, 42, 58, 0.05); margin: 0 0 24px; }
+    .art-sec { margin: 0 0 1.8rem; scroll-margin-top: 72px; }
+    .art-sec + .art-sec { border-top: 1px dashed #d6dde3; padding-top: 1.6rem; }
+    .art-sec h2 { display: flex; align-items: center; gap: 10px; font-size: 1.25rem; line-height: 1.5; letter-spacing: -0.02em; margin: 0 0 0.8rem; color: #111; }
+    .art-sec h2::before { content: ""; width: 5px; height: 1.2em; border-radius: 3px; background: #1565d8; flex-shrink: 0; }
+    @media (max-width: 760px) { .art-box { padding: 20px 16px; } .art-sec h2 { font-size: 1.12rem; } }
     .area-section { background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 32px; margin-bottom: 24px; scroll-margin-top: 72px; }
     .area-num { display: block; font-family: var(--font-mono); font-size: 0.75rem; color: var(--mute); text-transform: uppercase; margin-bottom: 8px; }
     .area-section h2 { font-size: 1.4rem; line-height: 1.5; letter-spacing: -0.02em; margin: 0 0 16px; color: #111; }
@@ -176,9 +182,8 @@
     </div>
 
     <div class="page-split"><div class="page-main">
-<article class="area-section" aria-labelledby="g0">
-      <span class="area-num">01</span>
-      <h2 id="g0">小規模事業者持続化補助金の事例</h2>
+<div class="art-box">
+<section class="art-sec" aria-labelledby="g0"><h2 id="g0">小規模事業者持続化補助金の事例</h2>
       <div class="area-body">
         <a class="feature-card cs-card" href="ichimaru-photo-pharmacy.html">
           <img src="../images/cases/illust-06.webp" alt="" width="300" height="411" loading="lazy">
@@ -198,11 +203,9 @@
         </a>
         <p style="margin-top: 12px;"><a href="../feature/jizokuka.html">小規模事業者持続化補助金とは？ →</a></p>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="g1">
-      <span class="area-num">02</span>
-      <h2 id="g1">IT導入補助金（現：デジタル化・AI導入補助金）の事例</h2>
+    <section class="art-sec" aria-labelledby="g1"><h2 id="g1">IT導入補助金（現：デジタル化・AI導入補助金）の事例</h2>
       <div class="area-body">
         <a class="feature-card cs-card" href="kimise-rpa.html">
           <img src="../images/cases/illust-08.webp" alt="" width="300" height="411" loading="lazy">
@@ -222,11 +225,9 @@
         </a>
         <p style="margin-top: 12px;"><a href="../feature/digital-subsidy.html">デジタル補助金とは？ →</a></p>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="g2">
-      <span class="area-num">03</span>
-      <h2 id="g2">ものづくり補助金（現：新事業進出・ものづくり商業サービス補助金）の事例</h2>
+    <section class="art-sec" aria-labelledby="g2"><h2 id="g2">ものづくり補助金（現：新事業進出・ものづくり商業サービス補助金）の事例</h2>
       <div class="area-body">
         <a class="feature-card cs-card" href="fukuda-bakery-oven.html">
           <img src="../images/cases/illust-09.webp" alt="" width="300" height="411" loading="lazy">
@@ -246,11 +247,9 @@
         </a>
         <p style="margin-top: 12px;"><a href="../feature/monodukuri.html">新事業進出・ものづくり商業サービス補助金とは？ →</a></p>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="g3">
-      <span class="area-num">04</span>
-      <h2 id="g3">事業再構築補助金（後継：新事業進出・ものづくり商業サービス補助金）の事例</h2>
+    <section class="art-sec" aria-labelledby="g3"><h2 id="g3">事業再構築補助金（後継：新事業進出・ものづくり商業サービス補助金）の事例</h2>
       <div class="area-body">
         <a class="feature-card cs-card" href="matsumotoro-bakery.html">
           <img src="../images/cases/illust-01.webp" alt="" width="300" height="411" loading="lazy">
@@ -262,11 +261,9 @@
         </a>
         <p style="margin-top: 12px;"><a href="../feature/monodukuri.html">新事業進出・ものづくり商業サービス補助金とは？ →</a></p>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="g4">
-      <span class="area-num">05</span>
-      <h2 id="g4">中小企業省力化投資補助金の事例</h2>
+    <section class="art-sec" aria-labelledby="g4"><h2 id="g4">中小企業省力化投資補助金の事例</h2>
       <div class="area-body">
         <a class="feature-card cs-card" href="shoryokuka-restaurant-ticket.html">
           <img src="../images/cases/illust-07.webp" alt="" width="300" height="411" loading="lazy">
@@ -278,11 +275,9 @@
         </a>
         <p style="margin-top: 12px;"><a href="../feature/shoryokuka.html">中小企業省力化投資補助金とは？ →</a></p>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="g5">
-      <span class="area-num">06</span>
-      <h2 id="g5">事業承継・引継ぎ補助金（現：事業承継・M&amp;A補助金）の事例</h2>
+    <section class="art-sec" aria-labelledby="g5"><h2 id="g5">事業承継・引継ぎ補助金（現：事業承継・M&amp;A補助金）の事例</h2>
       <div class="area-body">
         <a class="feature-card cs-card" href="tagami-rice.html">
           <img src="../images/cases/illust-02.webp" alt="" width="300" height="411" loading="lazy">
@@ -294,11 +289,9 @@
         </a>
         <p style="margin-top: 12px;"><a href="../feature/succession.html">事業承継・M&amp;A補助金とは？ →</a></p>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="g6">
-      <span class="area-num">07</span>
-      <h2 id="g6">業務改善助成金の事例</h2>
+    <section class="art-sec" aria-labelledby="g6"><h2 id="g6">業務改善助成金の事例</h2>
       <div class="area-body">
         <a class="feature-card cs-card" href="gyomu-kaizen-seikotsuin.html">
           <img src="../images/cases/illust-03.webp" alt="" width="300" height="411" loading="lazy">
@@ -310,11 +303,9 @@
         </a>
         <p style="margin-top: 12px;"><a href="../feature/employment.html">雇用関係の助成金 →</a></p>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="about">
-      <span class="area-num">注記</span>
-      <h2 id="about">この事例集について</h2>
+    <section class="art-sec" aria-labelledby="about"><h2 id="about">この事例集について</h2>
       <div class="area-body">
         <ul>
           <li>各事例は、ミラサポplus（中小企業庁）や、中小企業庁・経済産業省が公開している資料をもとに、当サイトで要約・再構成したものです。それぞれのページの末尾に出典を載せています。</li>
@@ -323,7 +314,8 @@
           <li>補助金の採択や効果を保証するものではありません。</li>
         </ul>
       </div>
-    </article>
+    </section>
+</div>
 </div><aside class="page-side" aria-label="関連ページ">
     <nav class="related-links" aria-label="関連ページ">
       <h2>関連ページ</h2>

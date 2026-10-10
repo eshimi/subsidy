@@ -8,6 +8,12 @@ export const SITE = 'https://hojyokin.net';
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 
 const STYLE = `
+    .art-box { background: #fff; border: 1px solid #e3e8ec; border-radius: 16px; padding: 30px 36px 26px; box-shadow: 0 4px 18px rgba(29, 42, 58, 0.05); margin: 0 0 24px; }
+    .art-sec { margin: 0 0 1.8rem; scroll-margin-top: 72px; }
+    .art-sec + .art-sec { border-top: 1px dashed #d6dde3; padding-top: 1.6rem; }
+    .art-sec h2 { display: flex; align-items: center; gap: 10px; font-size: 1.25rem; line-height: 1.5; letter-spacing: -0.02em; margin: 0 0 0.8rem; color: #111; }
+    .art-sec h2::before { content: ""; width: 5px; height: 1.2em; border-radius: 3px; background: #1565d8; flex-shrink: 0; }
+    @media (max-width: 760px) { .art-box { padding: 20px 16px; } .art-sec h2 { font-size: 1.12rem; } }
     .area-section { background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 32px; margin-bottom: 24px; scroll-margin-top: 72px; }
     .area-num { display: block; font-family: var(--font-mono); font-size: 0.75rem; color: var(--mute); text-transform: uppercase; margin-bottom: 8px; }
     .area-section h2 { font-size: 1.4rem; line-height: 1.5; letter-spacing: -0.02em; margin: 0 0 16px; color: #111; }
@@ -45,6 +51,14 @@ const STYLE = `
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }`;
 
 // 共通ヘッダー・フッター（columns.html と同じ構成）。「地域別」は お役立ち情報 の中の項目
+// 記事の各見出しの枠（area-section）を、1つの記事の枠にまとめる。
+// 連続する見出しのまとまりを <div class="art-box"> で包み、見出しごとの枠と番号は外す。
+export function boxSections(html) {
+  const sec = html.replace(/<(?:article|section) class="area-section"([^>]*)>\s*(?:<span class="area-num">[^<]*<\/span>\s*)?/g, '<section class="art-sec"$1>');
+  const withEnds = sec.replace(/(<section class="art-sec"[\s\S]*?)<\/article>/g, '$1</section>');
+  return withEnds.replace(/(?:<section class="art-sec"[\s\S]*?<\/section>)(?:\s*<section class="art-sec"[\s\S]*?<\/section>)*/g, (run) => `<div class="art-box">\n${run}\n</div>`);
+}
+
 function shell({ title, description, canonicalPath, body, jsonLd = '', robots = 'index, follow' }) {
   // 現在のページ（public/ からのパス）。メニューの現在地の表示に使う
   const current = canonicalPath.replace(/^\//, '') || 'index.html';
@@ -102,7 +116,7 @@ ${topnavHtml('../', current)}
   </header>
 
   <main class="wrap">
-${splitLayout(applyBanner(body, current), current) ?? applyBanner(body, current)}
+${boxSections(splitLayout(applyBanner(body, current), current) ?? applyBanner(body, current))}
   </main>
 
   <footer class="footer">

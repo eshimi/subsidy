@@ -27,6 +27,12 @@
   <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-180.png">
   <style>
+    .art-box { background: #fff; border: 1px solid #e3e8ec; border-radius: 16px; padding: 30px 36px 26px; box-shadow: 0 4px 18px rgba(29, 42, 58, 0.05); margin: 0 0 24px; }
+    .art-sec { margin: 0 0 1.8rem; scroll-margin-top: 72px; }
+    .art-sec + .art-sec { border-top: 1px dashed #d6dde3; padding-top: 1.6rem; }
+    .art-sec h2 { display: flex; align-items: center; gap: 10px; font-size: 1.25rem; line-height: 1.5; letter-spacing: -0.02em; margin: 0 0 0.8rem; color: #111; }
+    .art-sec h2::before { content: ""; width: 5px; height: 1.2em; border-radius: 3px; background: #1565d8; flex-shrink: 0; }
+    @media (max-width: 760px) { .art-box { padding: 20px 16px; } .art-sec h2 { font-size: 1.12rem; } }
     .area-section { background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 32px; margin-bottom: 24px; scroll-margin-top: 72px; }
     .area-num { display: block; font-family: var(--font-mono); font-size: 0.75rem; color: var(--mute); text-transform: uppercase; margin-bottom: 8px; }
     .area-section h2 { font-size: 1.4rem; line-height: 1.5; letter-spacing: -0.02em; margin: 0 0 16px; color: #111; }
@@ -153,9 +159,8 @@
     </div>
 
     <div class="page-split"><div class="page-main">
-<article class="area-section" aria-labelledby="s0">
-      <span class="area-num">00</span>
-      <h2 id="s0">日程</h2>
+<div class="art-box">
+<section class="art-sec" aria-labelledby="s0"><h2 id="s0">日程</h2>
       <div class="area-body">
         <ul>
           <li>5次締切：2026年9月29日（火）17時（交付決定は11月9日（月）の予定）</li>
@@ -165,11 +170,9 @@
         </ul>
         <p>交付決定日は「予定」で、変わることがあります。</p>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s1">
-      <span class="area-num">01</span>
-      <h2 id="s1">主な枠の補助額と補助率</h2>
+    <section class="art-sec" aria-labelledby="s1"><h2 id="s1">主な枠の補助額と補助率</h2>
       <div class="area-body">
         <ul>
           <li><strong>通常枠</strong>：業務プロセスが1〜3つで5万円〜150万円未満、4つ以上で150万円〜450万円。補助率は原則1/2以内（最低賃金近くで雇う従業員が多い事業者は2/3以内）</li>
@@ -178,11 +181,9 @@
         </ul>
         <p>通常枠で補助額が150万円以上の申請は、1人当たり給与支給総額を年平均3.5%以上増やす計画を作り、従業員に表明する必要があります。目標に届かない場合は、補助金の返還を求められることがあります。</p>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s2">
-      <span class="area-num">02</span>
-      <h2 id="s2">事業者がやること</h2>
+    <section class="art-sec" aria-labelledby="s2"><h2 id="s2">事業者がやること</h2>
       <div class="area-body">
         <ul>
           <li>申請は、IT導入支援事業者と一緒に進めます。導入したいツールが補助の対象として登録されているか、まず確認します</li>
@@ -191,19 +192,15 @@
         </ul>
         <p>制度の全体像は<a href="../feature/digital-subsidy.html">デジタル補助金とは？</a>で解説しています。</p>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s3">
-      <span class="area-num">03</span>
-      <h2 id="s3">この記事について</h2>
+    <section class="art-sec" aria-labelledby="s3"><h2 id="s3">この記事について</h2>
       <div class="area-body">
         <p>この記事は、2026年10月10日に、過去1か月の発表を整理して作成し、同日、公式の発表を基に内容を詳しくしました。</p>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="sources">
-      <span class="area-num">確認</span>
-      <h2 id="sources">情報の取得元</h2>
+    <section class="art-sec" aria-labelledby="sources"><h2 id="sources">情報の取得元</h2>
       <div class="area-body">
         <p>この記事は、次の情報を基に作成しました。内容は変わることがあるため、申請の前に必ずリンク先の最新情報を確認してください。<a href="sources.html">情報の取得元の一覧</a></p>
         <ul>
@@ -214,7 +211,8 @@
         </ul>
         <p class="area-note" style="margin-top: 16px;">最終更新日：2026年10月1日</p>
       </div>
-    </article>
+    </section>
+</div>
 </div><aside class="page-side" aria-label="関連ページ">
 <!-- cases:start -->
     <nav class="related-links" aria-label="この補助金の活用事例">
@@ -313,7 +311,7 @@
         </nav>
     </div>
     <div class="footer-bottom">
-                                          <nav aria-label="補助リンク">
+            <nav aria-label="補助リンク">
         <ul>
           <li><a href="../policy/privacy.html">プライバシーポリシー</a></li>
           <li><a href="../policy/contact.html">フィードバック・バグ報告</a></li>

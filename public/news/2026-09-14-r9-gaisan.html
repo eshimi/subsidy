@@ -27,6 +27,12 @@
   <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-180.png">
   <style>
+    .art-box { background: #fff; border: 1px solid #e3e8ec; border-radius: 16px; padding: 30px 36px 26px; box-shadow: 0 4px 18px rgba(29, 42, 58, 0.05); margin: 0 0 24px; }
+    .art-sec { margin: 0 0 1.8rem; scroll-margin-top: 72px; }
+    .art-sec + .art-sec { border-top: 1px dashed #d6dde3; padding-top: 1.6rem; }
+    .art-sec h2 { display: flex; align-items: center; gap: 10px; font-size: 1.25rem; line-height: 1.5; letter-spacing: -0.02em; margin: 0 0 0.8rem; color: #111; }
+    .art-sec h2::before { content: ""; width: 5px; height: 1.2em; border-radius: 3px; background: #1565d8; flex-shrink: 0; }
+    @media (max-width: 760px) { .art-box { padding: 20px 16px; } .art-sec h2 { font-size: 1.12rem; } }
     .area-section { background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 32px; margin-bottom: 24px; scroll-margin-top: 72px; }
     .area-num { display: block; font-family: var(--font-mono); font-size: 0.75rem; color: var(--mute); text-transform: uppercase; margin-bottom: 8px; }
     .area-section h2 { font-size: 1.4rem; line-height: 1.5; letter-spacing: -0.02em; margin: 0 0 16px; color: #111; }
@@ -153,9 +159,8 @@
     </div>
 
     <div class="page-split"><div class="page-main">
-<article class="area-section" aria-labelledby="s0">
-      <span class="area-num">00</span>
-      <h2 id="s0">主なポイント</h2>
+<div class="art-box">
+<section class="art-sec" aria-labelledby="s0"><h2 id="s0">主なポイント</h2>
       <div class="area-body">
         <ul>
           <li>中小企業庁の「概算要求等ポイント」（2026年8月31日）では、賃上げの後押し、価格転嫁・取引の適正化、成長投資・生産性の向上が柱になっています</li>
@@ -165,35 +170,27 @@
           <li>税制では、中小企業向けの賃上げ促進税制の拡充・見直しや、中小企業の軽減税率の延長が要望されています</li>
         </ul>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s1">
-      <span class="area-num">01</span>
-      <h2 id="s1">補助金の審査にも賃上げの視点</h2>
+    <section class="art-sec" aria-labelledby="s1"><h2 id="s1">補助金の審査にも賃上げの視点</h2>
       <div class="area-body">
         <p>「早期の賃上げに向けた補助金の見直し」として、中小企業の生産性向上の補助金で、足元の賃上げの状況も審査・評価する仕組みに見直す方針が示されています（日本成長戦略（2026年7月21日閣議決定）にもとづく）。</p>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s2">
-      <span class="area-num">02</span>
-      <h2 id="s2">これからの流れ</h2>
+    <section class="art-sec" aria-labelledby="s2"><h2 id="s2">これからの流れ</h2>
       <div class="area-body">
         <p>概算要求は「要求」の段階です。年末の政府予算案、国会での成立を経て、来年度の補助金の内容が決まります。金額や制度の名前が変わることもあります。</p>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s3">
-      <span class="area-num">03</span>
-      <h2 id="s3">この記事について</h2>
+    <section class="art-sec" aria-labelledby="s3"><h2 id="s3">この記事について</h2>
       <div class="area-body">
         <p>この記事は、2026年10月10日に、過去1か月の発表を整理して作成し、同日、公式の発表を基に内容を詳しくしました。</p>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="sources">
-      <span class="area-num">確認</span>
-      <h2 id="sources">情報の取得元</h2>
+    <section class="art-sec" aria-labelledby="sources"><h2 id="sources">情報の取得元</h2>
       <div class="area-body">
         <p>この記事は、次の情報を基に作成しました。内容は変わることがあるため、申請の前に必ずリンク先の最新情報を確認してください。<a href="sources.html">情報の取得元の一覧</a></p>
         <ul>
@@ -203,7 +200,8 @@
         </ul>
         <p class="area-note" style="margin-top: 16px;">最終更新日：2026年9月14日</p>
       </div>
-    </article>
+    </section>
+</div>
 </div><aside class="page-side" aria-label="関連ページ">
     <nav class="related-links" aria-label="関連ページ">
       <h2>関連ページ</h2>
@@ -293,7 +291,7 @@
         </nav>
     </div>
     <div class="footer-bottom">
-                                          <nav aria-label="補助リンク">
+            <nav aria-label="補助リンク">
         <ul>
           <li><a href="../policy/privacy.html">プライバシーポリシー</a></li>
           <li><a href="../policy/contact.html">フィードバック・バグ報告</a></li>

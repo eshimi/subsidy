@@ -27,6 +27,12 @@
   <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-180.png">
   <style>
+    .art-box { background: #fff; border: 1px solid #e3e8ec; border-radius: 16px; padding: 30px 36px 26px; box-shadow: 0 4px 18px rgba(29, 42, 58, 0.05); margin: 0 0 24px; }
+    .art-sec { margin: 0 0 1.8rem; scroll-margin-top: 72px; }
+    .art-sec + .art-sec { border-top: 1px dashed #d6dde3; padding-top: 1.6rem; }
+    .art-sec h2 { display: flex; align-items: center; gap: 10px; font-size: 1.25rem; line-height: 1.5; letter-spacing: -0.02em; margin: 0 0 0.8rem; color: #111; }
+    .art-sec h2::before { content: ""; width: 5px; height: 1.2em; border-radius: 3px; background: #1565d8; flex-shrink: 0; }
+    @media (max-width: 760px) { .art-box { padding: 20px 16px; } .art-sec h2 { font-size: 1.12rem; } }
     .area-section { background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 32px; margin-bottom: 24px; scroll-margin-top: 72px; }
     .area-num { display: block; font-family: var(--font-mono); font-size: 0.75rem; color: var(--mute); text-transform: uppercase; margin-bottom: 8px; }
     .area-section h2 { font-size: 1.4rem; line-height: 1.5; letter-spacing: -0.02em; margin: 0 0 16px; color: #111; }
@@ -151,9 +157,8 @@
     </div>
 
     <div class="page-split"><div class="page-main">
-<article class="area-section" aria-labelledby="s0">
-      <span class="area-num">00</span>
-      <h2 id="s0">この記事の結論</h2>
+<div class="art-box">
+<section class="art-sec" aria-labelledby="s0"><h2 id="s0">この記事の結論</h2>
       <div class="area-body">
         <ul>
           <li>小規模事業者持続化補助金は、販路開拓や業務の効率化に取り組む小規模な事業者の経費の一部を支援する補助金です。</li>
@@ -162,29 +167,23 @@
         </ul>
         <p>制度の金額・補助率・対象経費は、公募回ごとに決まります。ここでは制度の全体像を説明し、数字は書いていません。最新の数字は公式の公募要領で確認してください。</p>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s1">
-      <span class="area-num">01</span>
-      <h2 id="s1">制度の概要</h2>
+    <section class="art-sec" aria-labelledby="s1"><h2 id="s1">制度の概要</h2>
       <div class="area-body">
         <p>目的は、小規模な事業者が、地域の顧客を増やしたり、売上を伸ばしたりする取り組みを支えることです。経費を先に払い、後から補助金を受け取る仕組みが一般的です。</p>
         <p>申請の類型には、一般型（通常枠）のほか、創業型、共同・協業型などがあります。どの枠を使うかは、事業の状況と公募要領で決まります。</p>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s2">
-      <span class="area-num">02</span>
-      <h2 id="s2">対象になる人</h2>
+    <section class="art-sec" aria-labelledby="s2"><h2 id="s2">対象になる人</h2>
       <div class="area-body">
         <p>対象は、商業・サービス業などの小規模な事業者です。小規模事業者の基準は、業種によって従業員数で決まります（商業・サービス業は5人以下、製造業などは20人以下が目安）。個人事業主も対象になります。</p>
         <p>基準の詳しい考え方は、<a href="digital-subsidy.html">デジタル補助金とは？</a>の対象者の項目も参考にしてください。</p>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s3">
-      <span class="area-num">03</span>
-      <h2 id="s3">補助の対象になりやすい経費（例）</h2>
+    <section class="art-sec" aria-labelledby="s3"><h2 id="s3">補助の対象になりやすい経費（例）</h2>
       <div class="area-body">
         <ul>
           <li>チラシ・パンフレットの作成、ホームページの作成や改修</li>
@@ -194,11 +193,9 @@
         </ul>
         <p>対象になるかは、経費の内容と事業計画の結びつきで判断されます。購入前に、必ず商工会などに相談してください。</p>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s4">
-      <span class="area-num">04</span>
-      <h2 id="s4">申請の流れ（一般的な例）</h2>
+    <section class="art-sec" aria-labelledby="s4"><h2 id="s4">申請の流れ（一般的な例）</h2>
       <div class="area-body">
         <ol>
           <li>地元の商工会・商工会議所に相談する</li>
@@ -210,11 +207,9 @@
         </ol>
         <p>公募の時期や受付方法は、回ごとに変わります。期間を過ぎると申請できないため、公式の案内を確認してください。</p>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s5">
-      <span class="area-num">05</span>
-      <h2 id="s5">よくある失敗</h2>
+    <section class="art-sec" aria-labelledby="s5"><h2 id="s5">よくある失敗</h2>
       <div class="area-body">
         <ul>
           <li>交付決定より前に、発注や契約をしてしまう</li>
@@ -223,11 +218,9 @@
           <li>領収書や見積書などの証拠書類を保存していない</li>
         </ul>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s6">
-      <span class="area-num">06</span>
-      <h2 id="s6">よくある質問</h2>
+    <section class="art-sec" aria-labelledby="s6"><h2 id="s6">よくある質問</h2>
       <div class="area-body">
         <h3>Q. 個人事業主でも申請できますか？</h3>
         <p>A. 対象の要件を満たせば、申請できます。詳しくは、窓口で確認してください。</p>
@@ -236,11 +229,9 @@
         <h3>Q. 必ず採択されますか？</h3>
         <p>A. いいえ。審査があり、採択されなかった場合は補助金を受け取れません。</p>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="sources">
-      <span class="area-num">確認</span>
-      <h2 id="sources">最新情報の確認先</h2>
+    <section class="art-sec" aria-labelledby="sources"><h2 id="sources">最新情報の確認先</h2>
       <div class="area-body">
         <p>制度の内容は、年度や公募回ごとに変わります。申請の前に、次の公式情報で確認してください。</p>
         <ul>
@@ -250,7 +241,8 @@
         </ul>
         <p class="area-note" style="margin-top: 16px;">最終更新日：2026年10月10日</p>
       </div>
-    </article>
+    </section>
+</div>
 </div><aside class="page-side" aria-label="関連ページ">
 <!-- cases:start -->
     <nav class="related-links" aria-label="この補助金の活用事例">
@@ -356,7 +348,7 @@
         </nav>
     </div>
     <div class="footer-bottom">
-                                          <nav aria-label="補助リンク">
+            <nav aria-label="補助リンク">
         <ul>
           <li><a href="../policy/privacy.html">プライバシーポリシー</a></li>
           <li><a href="../policy/contact.html">フィードバック・バグ報告</a></li>

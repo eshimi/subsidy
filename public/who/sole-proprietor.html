@@ -27,6 +27,12 @@
   <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-180.png">
   <style>
+    .art-box { background: #fff; border: 1px solid #e3e8ec; border-radius: 16px; padding: 30px 36px 26px; box-shadow: 0 4px 18px rgba(29, 42, 58, 0.05); margin: 0 0 24px; }
+    .art-sec { margin: 0 0 1.8rem; scroll-margin-top: 72px; }
+    .art-sec + .art-sec { border-top: 1px dashed #d6dde3; padding-top: 1.6rem; }
+    .art-sec h2 { display: flex; align-items: center; gap: 10px; font-size: 1.25rem; line-height: 1.5; letter-spacing: -0.02em; margin: 0 0 0.8rem; color: #111; }
+    .art-sec h2::before { content: ""; width: 5px; height: 1.2em; border-radius: 3px; background: #1565d8; flex-shrink: 0; }
+    @media (max-width: 760px) { .art-box { padding: 20px 16px; } .art-sec h2 { font-size: 1.12rem; } }
     .area-section { background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 32px; margin-bottom: 24px; scroll-margin-top: 72px; }
     .area-num { display: block; font-family: var(--font-mono); font-size: 0.75rem; color: var(--mute); text-transform: uppercase; margin-bottom: 8px; }
     .area-section h2 { font-size: 1.4rem; line-height: 1.5; letter-spacing: -0.02em; margin: 0 0 16px; color: #111; }
@@ -152,9 +158,8 @@
     </div>
 
     <div class="page-split"><div class="page-main">
-<article class="area-section" aria-labelledby="s0">
-      <span class="area-num">00</span>
-      <h2 id="s0">結論</h2>
+<div class="art-box">
+<section class="art-sec" aria-labelledby="s0"><h2 id="s0">結論</h2>
       <div class="area-body">
         <ul>
           <li>個人事業主も、多くの補助金の対象です。法人でないと申請できない、ということはありません。</li>
@@ -162,11 +167,9 @@
           <li>補助金は事業のための経費が対象です。私用の費用や、私用と兼用の費用は、そのままでは対象になりません。</li>
         </ul>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s1">
-      <span class="area-num">01</span>
-      <h2 id="s1">どんな場合に、どの補助金か</h2>
+    <section class="art-sec" aria-labelledby="s1"><h2 id="s1">どんな場合に、どの補助金か</h2>
       <div class="area-body">
         <div class="table-wrap"><table class="feature-table">
           <thead><tr><th scope="col">やりたいこと</th><th scope="col">検討できる主な補助金</th><th scope="col">解説</th></tr></thead>
@@ -181,11 +184,9 @@
           </tbody>
         </table></div>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s2">
-      <span class="area-num">02</span>
-      <h2 id="s2">申請の前に用意しておくもの</h2>
+    <section class="art-sec" aria-labelledby="s2"><h2 id="s2">申請の前に用意しておくもの</h2>
       <div class="area-body">
         <ul>
           <li>開業届の控え、直近の確定申告書の控え（事業を行っていることの確認）</li>
@@ -194,11 +195,9 @@
           <li>事業計画のメモ（課題、取り組み、効果）</li>
         </ul>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s3">
-      <span class="area-num">03</span>
-      <h2 id="s3">よくある勘違い</h2>
+    <section class="art-sec" aria-labelledby="s3"><h2 id="s3">よくある勘違い</h2>
       <div class="area-body">
         <ul>
           <li><strong>私用のパソコンやスマホ、個人契約のサブスク</strong>：事業専用でなければ、そのままでは対象になりません。生成AIの利用料も、登録されたツールを事業のために使う場合に限られます。</li>
@@ -206,11 +205,9 @@
           <li><strong>副業の場合</strong>：事業として行っていることが前提です。会社の就業規則も確認してください。</li>
         </ul>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="sources">
-      <span class="area-num">確認</span>
-      <h2 id="sources">最新情報の確認先</h2>
+    <section class="art-sec" aria-labelledby="sources"><h2 id="sources">最新情報の確認先</h2>
       <div class="area-body">
         <p>制度の内容は変わります。次の公式情報で、最新の内容を確認してください。</p>
         <ul>
@@ -219,7 +216,8 @@
         </ul>
         <p class="area-note" style="margin-top: 16px;">最終更新日：2026年10月10日</p>
       </div>
-    </article>
+    </section>
+</div>
 </div><aside class="page-side" aria-label="関連ページ">
 <!-- cases:start -->
     <nav class="related-links" aria-label="この補助金の活用事例">
@@ -320,7 +318,7 @@
         </nav>
     </div>
     <div class="footer-bottom">
-                                          <nav aria-label="補助リンク">
+            <nav aria-label="補助リンク">
         <ul>
           <li><a href="../policy/privacy.html">プライバシーポリシー</a></li>
           <li><a href="../policy/contact.html">フィードバック・バグ報告</a></li>

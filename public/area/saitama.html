@@ -27,6 +27,12 @@
   <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-180.png">
   <style>
+    .art-box { background: #fff; border: 1px solid #e3e8ec; border-radius: 16px; padding: 30px 36px 26px; box-shadow: 0 4px 18px rgba(29, 42, 58, 0.05); margin: 0 0 24px; }
+    .art-sec { margin: 0 0 1.8rem; scroll-margin-top: 72px; }
+    .art-sec + .art-sec { border-top: 1px dashed #d6dde3; padding-top: 1.6rem; }
+    .art-sec h2 { display: flex; align-items: center; gap: 10px; font-size: 1.25rem; line-height: 1.5; letter-spacing: -0.02em; margin: 0 0 0.8rem; color: #111; }
+    .art-sec h2::before { content: ""; width: 5px; height: 1.2em; border-radius: 3px; background: #1565d8; flex-shrink: 0; }
+    @media (max-width: 760px) { .art-box { padding: 20px 16px; } .art-sec h2 { font-size: 1.12rem; } }
     .area-section { background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 32px; margin-bottom: 24px; scroll-margin-top: 72px; }
     .area-num { display: block; font-family: var(--font-mono); font-size: 0.75rem; color: var(--mute); text-transform: uppercase; margin-bottom: 8px; }
     .area-section h2 { font-size: 1.4rem; line-height: 1.5; letter-spacing: -0.02em; margin: 0 0 16px; color: #111; }
@@ -140,9 +146,8 @@
     </div>
 
     <div class="page-split"><div class="page-main">
-<section class="area-section" aria-labelledby="city-programs">
-      <span class="area-num">01</span>
-      <h2 id="city-programs">さいたま市の制度</h2>
+<div class="art-box">
+<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs">さいたま市の制度</h2>
       <div class="area-body">
           <div class="area-program">
             <h3>さいたま市中小企業融資制度</h3>
@@ -156,17 +161,13 @@
       </div>
     </section>
 
-    <section class="area-section" aria-labelledby="pref-programs">
-      <span class="area-num">02</span>
-      <h2 id="pref-programs">埼玉県の制度</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs">埼玉県の制度</h2>
       <div class="area-body">
           <p>埼玉県全体の制度は、県の公式サイトで確認できます。</p>
       </div>
     </section>
 
-    <section class="area-section" aria-labelledby="national">
-      <span class="area-num">03</span>
-      <h2 id="national">国の制度・全国から探す</h2>
+    <section class="art-sec" aria-labelledby="national"><h2 id="national">国の制度・全国から探す</h2>
       <div class="area-body">
         <p>国の制度は、市や県の制度と並行して使えるものがあります。まずは、サイトのトップで事業の内容と郵便番号を入れると、対象になりそうな制度をまとめて確認できます。</p>
       </div>
@@ -176,9 +177,7 @@
       </div>
     </section>
 
-    <section class="area-section" aria-labelledby="checklist">
-      <span class="area-num">04</span>
-      <h2 id="checklist">申請前に確認したいこと</h2>
+    <section class="art-sec" aria-labelledby="checklist"><h2 id="checklist">申請前に確認したいこと</h2>
       <div class="area-body">
         <ul>
           <li>対象になる事業者か（個人事業主か法人か、創業後の年数、従業員数など）</li>
@@ -193,6 +192,7 @@
         <a href="../columns/free-consultation.html">無料の相談窓口を読む →</a>
       </div>
     </section>
+</div>
 
     <p class="area-note">この記事は公開情報をもとにした参考情報です。制度の対象・金額・公募時期は年度や公募回によって変わるため、申請前に必ず各制度の公式情報を確認してください。</p>
 </div><aside class="page-side" aria-label="関連ページ">
@@ -283,7 +283,7 @@
         </nav>
     </div>
     <div class="footer-bottom">
-      <nav aria-label="補助リンク">
+            <nav aria-label="補助リンク">
         <ul>
           <li><a href="../policy/privacy.html">プライバシーポリシー</a></li>
           <li><a href="../policy/contact.html">フィードバック・バグ報告</a></li>

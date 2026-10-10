@@ -27,6 +27,12 @@
   <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-180.png">
   <style>
+    .art-box { background: #fff; border: 1px solid #e3e8ec; border-radius: 16px; padding: 30px 36px 26px; box-shadow: 0 4px 18px rgba(29, 42, 58, 0.05); margin: 0 0 24px; }
+    .art-sec { margin: 0 0 1.8rem; scroll-margin-top: 72px; }
+    .art-sec + .art-sec { border-top: 1px dashed #d6dde3; padding-top: 1.6rem; }
+    .art-sec h2 { display: flex; align-items: center; gap: 10px; font-size: 1.25rem; line-height: 1.5; letter-spacing: -0.02em; margin: 0 0 0.8rem; color: #111; }
+    .art-sec h2::before { content: ""; width: 5px; height: 1.2em; border-radius: 3px; background: #1565d8; flex-shrink: 0; }
+    @media (max-width: 760px) { .art-box { padding: 20px 16px; } .art-sec h2 { font-size: 1.12rem; } }
     .area-section { background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 32px; margin-bottom: 24px; scroll-margin-top: 72px; }
     .area-num { display: block; font-family: var(--font-mono); font-size: 0.75rem; color: var(--mute); text-transform: uppercase; margin-bottom: 8px; }
     .area-section h2 { font-size: 1.4rem; line-height: 1.5; letter-spacing: -0.02em; margin: 0 0 16px; color: #111; }
@@ -153,9 +159,8 @@
     </div>
 
     <div class="page-split"><div class="page-main">
-<article class="area-section" aria-labelledby="s0">
-      <span class="area-num">00</span>
-      <h2 id="s0">発表の内容</h2>
+<div class="art-box">
+<section class="art-sec" aria-labelledby="s0"><h2 id="s0">発表の内容</h2>
       <div class="area-body">
         <ul>
           <li>公募の開始（公募要領の公開）：2026年8月18日</li>
@@ -165,11 +170,9 @@
           <li>応募申請の手引きは9月18日に公開され、9月25日に改訂されています</li>
         </ul>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s1">
-      <span class="area-num">01</span>
-      <h2 id="s1">補助上限（従業員数別）</h2>
+    <section class="art-sec" aria-labelledby="s1"><h2 id="s1">補助上限（従業員数別）</h2>
       <div class="area-body">
         <ul>
           <li>5人以下：750万円（大幅な賃上げの特例で1,000万円）</li>
@@ -181,36 +184,28 @@
         <p>6人以上の区分も、大幅な賃上げの特例で上限が上がります。補助率は中小企業が1/2、小規模事業者・再生事業者が2/3が基本です。補助率が上がる条件や、補助額が大きい部分の補助率は、公募要領で確認してください。</p>
         <p>大幅な賃上げの特例は、給与支給総額を年平均6.0%以上増やし、事業場内の最低賃金を地域別最低賃金より50円以上高くすることが条件です。達成できない場合は、上乗せ分の返還が求められます。</p>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s2">
-      <span class="area-num">02</span>
-      <h2 id="s2">採択の後</h2>
+    <section class="art-sec" aria-labelledby="s2"><h2 id="s2">採択の後</h2>
       <div class="area-body">
         <p>採択されたら、原則として採択の発表から2か月後の日までに交付申請をする必要があります。期限を過ぎると、採択が取り消されます。</p>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s3">
-      <span class="area-num">03</span>
-      <h2 id="s3">カタログ注文型</h2>
+    <section class="art-sec" aria-labelledby="s3"><h2 id="s3">カタログ注文型</h2>
       <div class="area-body">
         <p>登録された省力化製品を選んで導入する「カタログ注文型」は、別に随時受け付けています（2027年3月末ごろまで延長）。補助上限は5人以下200万円、6〜20人500万円、21人以上1,000万円（賃上げを達成するとそれぞれ300万円・750万円・1,500万円）、補助率は1/2以下です。</p>
         <p>制度の全体像は<a href="../feature/shoryokuka.html">中小企業省力化投資補助金とは？</a>で解説しています。</p>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s4">
-      <span class="area-num">04</span>
-      <h2 id="s4">この記事について</h2>
+    <section class="art-sec" aria-labelledby="s4"><h2 id="s4">この記事について</h2>
       <div class="area-body">
         <p>この記事は、2026年10月10日に、過去1か月の発表を整理して作成し、同日、公式の発表を基に内容を詳しくしました。</p>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="sources">
-      <span class="area-num">確認</span>
-      <h2 id="sources">情報の取得元</h2>
+    <section class="art-sec" aria-labelledby="sources"><h2 id="sources">情報の取得元</h2>
       <div class="area-body">
         <p>この記事は、次の情報を基に作成しました。内容は変わることがあるため、申請の前に必ずリンク先の最新情報を確認してください。<a href="sources.html">情報の取得元の一覧</a></p>
         <ul>
@@ -221,7 +216,8 @@
         </ul>
         <p class="area-note" style="margin-top: 16px;">最終更新日：2026年9月18日</p>
       </div>
-    </article>
+    </section>
+</div>
 </div><aside class="page-side" aria-label="関連ページ">
 <!-- cases:start -->
     <nav class="related-links" aria-label="この補助金の活用事例">
@@ -320,7 +316,7 @@
         </nav>
     </div>
     <div class="footer-bottom">
-                                          <nav aria-label="補助リンク">
+            <nav aria-label="補助リンク">
         <ul>
           <li><a href="../policy/privacy.html">プライバシーポリシー</a></li>
           <li><a href="../policy/contact.html">フィードバック・バグ報告</a></li>

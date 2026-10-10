@@ -27,6 +27,12 @@
   <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-180.png">
   <style>
+    .art-box { background: #fff; border: 1px solid #e3e8ec; border-radius: 16px; padding: 30px 36px 26px; box-shadow: 0 4px 18px rgba(29, 42, 58, 0.05); margin: 0 0 24px; }
+    .art-sec { margin: 0 0 1.8rem; scroll-margin-top: 72px; }
+    .art-sec + .art-sec { border-top: 1px dashed #d6dde3; padding-top: 1.6rem; }
+    .art-sec h2 { display: flex; align-items: center; gap: 10px; font-size: 1.25rem; line-height: 1.5; letter-spacing: -0.02em; margin: 0 0 0.8rem; color: #111; }
+    .art-sec h2::before { content: ""; width: 5px; height: 1.2em; border-radius: 3px; background: #1565d8; flex-shrink: 0; }
+    @media (max-width: 760px) { .art-box { padding: 20px 16px; } .art-sec h2 { font-size: 1.12rem; } }
     .area-section { background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 32px; margin-bottom: 24px; scroll-margin-top: 72px; }
     .area-num { display: block; font-family: var(--font-mono); font-size: 0.75rem; color: var(--mute); text-transform: uppercase; margin-bottom: 8px; }
     .area-section h2 { font-size: 1.4rem; line-height: 1.5; letter-spacing: -0.02em; margin: 0 0 16px; color: #111; }
@@ -151,9 +157,8 @@
     </div>
 
     <div class="page-split"><div class="page-main">
-<article class="area-section" aria-labelledby="s0">
-      <span class="area-num">00</span>
-      <h2 id="s0">この記事の結論</h2>
+<div class="art-box">
+<section class="art-sec" aria-labelledby="s0"><h2 id="s0">この記事の結論</h2>
       <div class="area-body">
         <ul>
           <li>「デジタル補助金」は、このサイトで使う呼び名です。ITツールやAIの導入を支援する補助金の総称として使っています。代表例は、IT導入補助金です。</li>
@@ -162,11 +167,9 @@
         </ul>
         <p>2026年度から、IT導入補助金は「デジタル化・AI導入補助金」の名称で案内されていると報じられています。名称・補助率・上限額・対象期間は年度や公募ごとに変わるため、最後は必ず公式の公募要領で確認してください。</p>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s1">
-      <span class="area-num">01</span>
-      <h2 id="s1">デジタル補助金の主な種類</h2>
+    <section class="art-sec" aria-labelledby="s1"><h2 id="s1">デジタル補助金の主な種類</h2>
       <div class="area-body">
         <p>ITやデジタル化に関わる補助金は、いくつかの制度に分かれています。主な例は次のとおりです。</p>
         <div class="table-wrap"><table class="feature-table">
@@ -179,11 +182,9 @@
         </table></div>
         <p>制度の名称や「枠」の内容は、公募ごとに変わります。上の表は、制度を選ぶときの入口として使ってください。</p>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s2">
-      <span class="area-num">02</span>
-      <h2 id="s2">対象になるもの・ならないもの</h2>
+    <section class="art-sec" aria-labelledby="s2"><h2 id="s2">対象になるもの・ならないもの</h2>
       <div class="area-body">
         <h3>対象になりやすいもの</h3>
         <ul>
@@ -200,11 +201,9 @@
         </ul>
         <p>生成AIの利用料も、同じ考え方です。個人で契約したプランは対象になりません。「個人事業主でも補助金の対象になるって、ほんと？」の記事も、あわせてご覧ください。</p>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s3">
-      <span class="area-num">03</span>
-      <h2 id="s3">対象者：個人事業主と法人</h2>
+    <section class="art-sec" aria-labelledby="s3"><h2 id="s3">対象者：個人事業主と法人</h2>
       <div class="area-body">
         <p>個人事業主も、対象になり得ます。ただし、制度ごとに「中小企業」「小規模事業者」の要件が決まっています。目安は次のとおりです（中小企業基本法の定義をもとにした一般的な基準）。</p>
         <div class="table-wrap"><table class="feature-table">
@@ -218,11 +217,9 @@
         </table></div>
         <p>個人事業主は、資本金がないため、従業員数で判断されます。小規模事業者の基準（商業・サービス業は5人以下、製造業などは20人以下など）も、制度によって使われます。判断に迷うときは、商工会議所や商工会に相談してください。</p>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s4">
-      <span class="area-num">04</span>
-      <h2 id="s4">申請の流れ</h2>
+    <section class="art-sec" aria-labelledby="s4"><h2 id="s4">申請の流れ</h2>
       <div class="area-body">
         <p>IT導入補助金の場合の、一般的な流れです。細かな手続きは、公募ごとに異なります。</p>
         <ol>
@@ -236,11 +233,9 @@
           <li><strong>補助金の受け取り</strong>：報告の確認の後に、補助金が支払われます。</li>
         </ol>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s5">
-      <span class="area-num">05</span>
-      <h2 id="s5">よくある失敗</h2>
+    <section class="art-sec" aria-labelledby="s5"><h2 id="s5">よくある失敗</h2>
       <div class="area-body">
         <ul>
           <li><strong>交付決定の前に発注した</strong>：決定の前の契約・支払いは、補助の対象になりません。</li>
@@ -250,11 +245,9 @@
           <li><strong>実績報告の準備が遅れた</strong>：導入の証拠（契約書、請求書、支払いの記録、利用の画面など）は、導入の時点で保存しておきます。</li>
         </ul>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s6">
-      <span class="area-num">06</span>
-      <h2 id="s6">よくある質問</h2>
+    <section class="art-sec" aria-labelledby="s6"><h2 id="s6">よくある質問</h2>
       <div class="area-body">
         <h3>Q. 生成AIの利用料も対象になりますか？</h3>
         <p>A. 登録されたツールで、事業のために使う場合に限り、対象になり得ます。個人で契約した一般の有料プランは、対象になりません。</p>
@@ -267,11 +260,9 @@
         <h3>Q. 個人事業主でも申請できますか？</h3>
         <p>A. 対象の要件を満たせば、申請できます。事業を行っていることを示す書類（確定申告の控えなど）を用意しておくと安心です。</p>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s7">
-      <span class="area-num">07</span>
-      <h2 id="s7">用語集</h2>
+    <section class="art-sec" aria-labelledby="s7"><h2 id="s7">用語集</h2>
       <div class="area-body">
         <dl class="glossary">
           <dt>IT導入支援事業者</dt><dd>補助金の申請を支援し、登録されたITツールを販売・導入する事業者です。</dd>
@@ -282,11 +273,9 @@
           <dt>補助率</dt><dd>補助対象の経費のうち、補助金で支払われる割合です。</dd>
         </dl>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s8">
-      <span class="area-num">08</span>
-      <h2 id="s8">最新情報の確認先</h2>
+    <section class="art-sec" aria-labelledby="s8"><h2 id="s8">最新情報の確認先</h2>
       <div class="area-body">
         <p>制度の内容は変わります。申請の前に、次の公式情報で確認してください。</p>
         <ul>
@@ -298,7 +287,8 @@
         </ul>
         <p class="area-note" style="margin-top: 16px;">最終更新日：2026年10月10日</p>
       </div>
-    </article>
+    </section>
+</div>
 </div><aside class="page-side" aria-label="関連ページ">
 <!-- cases:start -->
     <nav class="related-links" aria-label="この補助金の活用事例">
@@ -404,7 +394,7 @@
         </nav>
     </div>
     <div class="footer-bottom">
-                                          <nav aria-label="補助リンク">
+            <nav aria-label="補助リンク">
         <ul>
           <li><a href="../policy/privacy.html">プライバシーポリシー</a></li>
           <li><a href="../policy/contact.html">フィードバック・バグ報告</a></li>

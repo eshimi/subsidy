@@ -27,6 +27,12 @@
   <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-180.png">
   <style>
+    .art-box { background: #fff; border: 1px solid #e3e8ec; border-radius: 16px; padding: 30px 36px 26px; box-shadow: 0 4px 18px rgba(29, 42, 58, 0.05); margin: 0 0 24px; }
+    .art-sec { margin: 0 0 1.8rem; scroll-margin-top: 72px; }
+    .art-sec + .art-sec { border-top: 1px dashed #d6dde3; padding-top: 1.6rem; }
+    .art-sec h2 { display: flex; align-items: center; gap: 10px; font-size: 1.25rem; line-height: 1.5; letter-spacing: -0.02em; margin: 0 0 0.8rem; color: #111; }
+    .art-sec h2::before { content: ""; width: 5px; height: 1.2em; border-radius: 3px; background: #1565d8; flex-shrink: 0; }
+    @media (max-width: 760px) { .art-box { padding: 20px 16px; } .art-sec h2 { font-size: 1.12rem; } }
     .area-section { background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 32px; margin-bottom: 24px; scroll-margin-top: 72px; }
     .area-num { display: block; font-family: var(--font-mono); font-size: 0.75rem; color: var(--mute); text-transform: uppercase; margin-bottom: 8px; }
     .area-section h2 { font-size: 1.4rem; line-height: 1.5; letter-spacing: -0.02em; margin: 0 0 16px; color: #111; }
@@ -153,9 +159,8 @@
     </div>
 
     <div class="page-split"><div class="page-main">
-<article class="area-section" aria-labelledby="s0">
-      <span class="area-num">00</span>
-      <h2 id="s0">申請の期間</h2>
+<div class="art-box">
+<section class="art-sec" aria-labelledby="s0"><h2 id="s0">申請の期間</h2>
       <div class="area-body">
         <ul>
           <li>受付開始：2026年9月1日（交付要綱・要領は4月22日に公開）</li>
@@ -164,11 +169,9 @@
           <li>予算の範囲で助成するため、期間の途中で受付が終わることがあります</li>
         </ul>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s1">
-      <span class="area-num">01</span>
-      <h2 id="s1">令和8年度の主な内容</h2>
+    <section class="art-sec" aria-labelledby="s1"><h2 id="s1">令和8年度の主な内容</h2>
       <div class="area-body">
         <ul>
           <li>事業場内の最低賃金を50円以上引き上げることが条件で、コースは50円・70円・90円の3つ（30円コースはなくなりました）</li>
@@ -178,11 +181,9 @@
         </ul>
         <p>引き上げる人数が多い場合の上限は、人数の区分ごとに決まっています。一覧は厚生労働省の案内（PDF）で確認してください。</p>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s2">
-      <span class="area-num">02</span>
-      <h2 id="s2">前年度からの変更点</h2>
+    <section class="art-sec" aria-labelledby="s2"><h2 id="s2">前年度からの変更点</h2>
       <div class="area-body">
         <ul>
           <li>自動車（特殊用途の自動車を除く）が、助成対象経費の特例から外れました</li>
@@ -190,11 +191,9 @@
           <li>物価高騰などの要件の利益率は、直近6か月の平均で判断します</li>
         </ul>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s3">
-      <span class="area-num">03</span>
-      <h2 id="s3">賃金を引き上げるタイミングに注意</h2>
+    <section class="art-sec" aria-labelledby="s3"><h2 id="s3">賃金を引き上げるタイミングに注意</h2>
       <div class="area-body">
         <ul>
           <li>賃金の引き上げは、交付申請の<strong>後</strong>、地域別最低賃金の改定日の前日までに行います</li>
@@ -202,27 +201,21 @@
           <li>最低賃金の発効日当日の引き上げも対象外です。2回に分けて引き上げた額を合わせることもできません</li>
         </ul>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s4">
-      <span class="area-num">04</span>
-      <h2 id="s4">事業者がやること</h2>
+    <section class="art-sec" aria-labelledby="s4"><h2 id="s4">事業者がやること</h2>
       <div class="area-body">
         <p>まず、自社の都道府県の最低賃金の発効日と、労働局の受付状況を確認してください。発効が早い地域では、申請できる期間が短くなります。制度の概要は<a href="../feature/employment.html">雇用関係の助成金</a>で解説しています。</p>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="s5">
-      <span class="area-num">05</span>
-      <h2 id="s5">この記事について</h2>
+    <section class="art-sec" aria-labelledby="s5"><h2 id="s5">この記事について</h2>
       <div class="area-body">
         <p>この記事は、2026年10月10日に、過去1か月の発表を整理して作成し、同日、公式の発表を基に内容を詳しくしました。</p>
       </div>
-    </article>
+    </section>
 
-    <article class="area-section" aria-labelledby="sources">
-      <span class="area-num">確認</span>
-      <h2 id="sources">情報の取得元</h2>
+    <section class="art-sec" aria-labelledby="sources"><h2 id="sources">情報の取得元</h2>
       <div class="area-body">
         <p>この記事は、次の情報を基に作成しました。内容は変わることがあるため、申請の前に必ずリンク先の最新情報を確認してください。<a href="sources.html">情報の取得元の一覧</a></p>
         <ul>
@@ -234,7 +227,8 @@
         </ul>
         <p class="area-note" style="margin-top: 16px;">最終更新日：2026年10月7日</p>
       </div>
-    </article>
+    </section>
+</div>
 </div><aside class="page-side" aria-label="関連ページ">
 <!-- cases:start -->
     <nav class="related-links" aria-label="この補助金の活用事例">
@@ -333,7 +327,7 @@
         </nav>
     </div>
     <div class="footer-bottom">
-                                          <nav aria-label="補助リンク">
+            <nav aria-label="補助リンク">
         <ul>
           <li><a href="../policy/privacy.html">プライバシーポリシー</a></li>
           <li><a href="../policy/contact.html">フィードバック・バグ報告</a></li>
