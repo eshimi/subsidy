@@ -25,7 +25,7 @@ ${html}
   const src = `        <ul>\n${sources.map(([label, href]) => `          <li><a href="${href}" target="_blank" rel="noopener">${esc(label)}</a></li>`).join('\n')}\n        </ul>`;
   return `${crumb([['index.html', '特集'], [null, kicker]])}
 
-    ${image ? `<div class="pb-banner" style="background-image: url('../images/feature/banner-${image.file}.webp')"><h1 class="pb-title">${esc(title)}</h1></div>` : `<h1 class="display" style="margin-bottom: 0.5rem;">${esc(title)}</h1>`}
+    ${image ? `<div class="pb-banner" style="background-image: url('../images/banner/${image.file}.webp')"><h1 class="pb-title">${esc(title)}</h1></div>` : `<h1 class="display" style="margin-bottom: 0.5rem;">${esc(title)}</h1>`}
     <div style="margin-bottom: 2rem;">
       <p class="label" style="margin-bottom: 0.5rem;">特集</p>
       <p class="lead" style="margin-bottom: 0;">${esc(lead)}</p>
@@ -67,7 +67,7 @@ const NOTE_ALL = '制度の金額・補助率・対象経費は、公募回ご�
 const ARTICLES = [
   {
     file: 'jizokuka.html',
-    image: { file: 'jizokuka', h: 132, alt: '小規模事業者持続化補助金のタイトル画像' },
+    image: { file: 'b02', h: 160, alt: '小規模事業者持続化補助金のタイトル画像' },
     kicker: '小規模事業者持続化補助金',
     title: '小規模事業者持続化補助金とは？販路開拓に使える補助金の全体像',
     summary: '小規模な事業者の販路開拓（チラシ、ホームページ、展示会など）を支援する、利用の多い補助金を解説します。',
@@ -134,7 +134,7 @@ const ARTICLES = [
   },
   {
     file: 'monodukuri.html',
-    image: { file: 'monodukuri', h: 132, alt: 'ものづくり補助金のタイトル画像' },
+    image: { file: 'b03', h: 160, alt: 'ものづくり補助金のタイトル画像' },
     kicker: 'ものづくり補助金',
     title: 'ものづくり補助金とは？新製品・新サービスの開発を支える補助金',
     summary: '新しい製品・サービスの開発や、生産プロセスの改善に使える補助金を、対象・申請の流れ・注意点とともに解説します。',
@@ -202,7 +202,7 @@ const ARTICLES = [
   },
   {
     file: 'shoryokuka.html',
-    image: { file: 'shoryokuka', h: 126, alt: '中小企業省力化投資補助金のタイトル画像' },
+    image: { file: 'b04', h: 160, alt: '中小企業省力化投資補助金のタイトル画像' },
     kicker: '中小企業省力化投資補助金',
     title: '中小企業省力化投資補助金とは？人手不足を機械で補う補助金',
     summary: '人手不足の解消に役立つ省力化製品を、カタログから選んで導入する補助金の仕組みを解説します。',
@@ -264,7 +264,7 @@ const ARTICLES = [
   },
   {
     file: 'succession.html',
-    image: { file: 'succession', h: 131, alt: '事業承継・M&A補助金のタイトル画像' },
+    image: { file: 'b05', h: 160, alt: '事業承継・M&A補助金のタイトル画像' },
     kicker: '事業承継・M&A補助金',
     title: '事業承継・M&A補助金とは？引き継ぎや統合に使える補助金',
     summary: '事業の引き継ぎ（事業承継）やM&Aに伴う費用を支援する補助金の、枠の考え方と注意点を解説します。',
@@ -337,7 +337,7 @@ const SOURCES = [
 
 const article = `${crumb([['index.html', '特集'], [null, 'デジタル補助金とは？']])}
 
-    <div class="pb-banner" style="background-image: url('../images/feature/banner-digital.webp')"><h1 class="pb-title">デジタル補助金とは？対象ツール・申請の流れ・失敗しない準備まで</h1></div>
+    <div class="pb-banner" style="background-image: url('../images/banner/b08.webp')"><h1 class="pb-title">デジタル補助金とは？対象ツール・申請の流れ・失敗しない準備まで</h1></div>
     <div style="margin-bottom: 2rem;">
       <p class="label" style="margin-bottom: 0.5rem;">特集</p>
       <p class="lead" style="margin-bottom: 0;">ITツールやAIの導入に使える補助金の全体像を、対象・申請の流れ・よくある失敗の順に整理しました。</p>
@@ -512,7 +512,7 @@ const featureStyle = `
     .table-wrap { overflow-x: auto; }
     .glossary dt { font-weight: 700; margin-top: 12px; }
     .glossary dd { margin: 4px 0 0; }
-    .pb-banner { position: relative; width: 100%; aspect-ratio: 6 / 1; min-height: 150px; border-radius: 6px; overflow: hidden; margin: 0 0 24px; background: #f6f0e4 center / cover no-repeat; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 24px rgba(20, 40, 60, 0.12); }
+    .pb-banner { position: relative; width: 100%; aspect-ratio: 1200 / 160; min-height: 130px; border-radius: 6px; overflow: hidden; margin: 0 0 24px; background: #f6f0e4 center / cover no-repeat; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 24px rgba(20, 40, 60, 0.12); }
     .pb-title { margin: 0; width: fit-content; max-width: 70%; background: rgba(252, 249, 243, 0.72); padding: 0.45em 0.9em; border-radius: 6px; box-shadow: 0 2px 12px rgba(20, 40, 60, 0.08); text-align: center; font-weight: 900; font-size: clamp(1.25rem, 2.8vw, 2.1rem); line-height: 1.35; letter-spacing: -0.02em; color: #14213d; text-wrap: balance; }
     @media (max-width: 760px) { .pb-title { max-width: 86%; } }
     .feature-card { display: block; padding: 20px 0; border-top: 1px solid #e0e0e0; text-decoration: none; }
