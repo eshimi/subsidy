@@ -512,9 +512,6 @@ const featureStyle = `
     .table-wrap { overflow-x: auto; }
     .glossary dt { font-weight: 700; margin-top: 12px; }
     .glossary dd { margin: 4px 0 0; }
-    .pb-banner { position: relative; width: 100%; aspect-ratio: 1200 / 160; min-height: 130px; border-radius: 6px; overflow: hidden; margin: 0 0 24px; background: #f6f0e4 center / cover no-repeat; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 24px rgba(20, 40, 60, 0.12); }
-    .pb-title { margin: 0; width: fit-content; max-width: 70%; background: rgba(252, 249, 243, 0.72); padding: 0.45em 0.9em; border-radius: 6px; box-shadow: 0 2px 12px rgba(20, 40, 60, 0.08); text-align: center; font-weight: 900; font-size: clamp(1.25rem, 2.8vw, 2.1rem); line-height: 1.35; letter-spacing: -0.02em; color: #14213d; text-wrap: balance; }
-    @media (max-width: 760px) { .pb-title { max-width: 86%; } }
     .feature-card { display: block; padding: 20px 0; border-top: 1px solid #e0e0e0; text-decoration: none; }
     .feature-card h2 { font-size: 1.2rem; margin: 0 0 6px; }
     .feature-card p { margin: 0; color: var(--mute); }
