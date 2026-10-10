@@ -131,12 +131,11 @@
       <div class="r-ways">
         <a class="r-way" href="search.html"><i aria-hidden="true">🔎</i><b>AI・キーワードで探す</b><span>やりたい事業を文章で入れるか、キーワード・地域で絞り込み</span></a>
         <a class="r-way" href="grants/purposes.html"><i aria-hidden="true">🎯</i><b>目的から探す</b><span>設備投資、IT導入、販路開拓などの目的から</span></a>
-        <a class="r-way" href="grants/deadlines.html"><i aria-hidden="true">⏰</i><b>締切が近い順に見る</b><span>受付中の制度を締切の早い順に</span></a>
+        <button type="button" class="r-way r-rand" id="rand-grant" data-fallback="grants/index.html"><i aria-hidden="true">🎲</i><b>ランダムに1件見る</b><span>募集中の補助金から、ランダムに1件を選んで開きます</span></button>
         <a class="r-way ai" href="hantei.html"><i aria-hidden="true">💬</i><b>AIに相談して探す</b><span>質問に答えるだけで、使えそうな補助金をAIが判定</span></a>
       </div>
     </section>
 
-    <p class="r-more" style="margin-top:14px;"><a href="hantei.html">質問に答えるだけ。<strong>AI補助金判定</strong>で使えそうな補助金を判定し、専門家に無料で相談する →</a></p>
 
     <section class="r-sec" aria-labelledby="pop-title">
       <h2 id="pop-title">特に人気の5つの補助金 <a href="feature/popular.html">すべて見る →</a></h2>
@@ -306,5 +305,25 @@
   </footer>
   <script src="site.js"></script>
   <script src="home.js"></script>
+  <script>
+    // 「ランダムに1件見る」：募集中（締切が未来）の補助金から1件を選んで、その詳細ページを開く
+    (function () {
+      var btn = document.getElementById('rand-grant');
+      if (!btn) return;
+      btn.addEventListener('click', function () {
+        var fallback = btn.getAttribute('data-fallback');
+        fetch('grants/search.json')
+          .then(function (r) { return r.ok ? r.json() : Promise.reject(new Error(String(r.status))); })
+          .then(function (data) {
+            var now = Date.now();
+            var open = (data.items || []).filter(function (g) { return g.e && Date.parse(g.e) >= now; });
+            if (!open.length) { location.href = fallback; return; }
+            var g = open[Math.floor(Math.random() * open.length)];
+            location.href = 'grants/' + encodeURIComponent(g.id) + '.html';
+          })
+          .catch(function () { location.href = fallback; });
+      });
+    })();
+  </script>
 </body>
 </html>

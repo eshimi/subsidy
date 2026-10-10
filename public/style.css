@@ -812,3 +812,6 @@ details ul { margin: 8px 0; padding-left: 1.5em; }
 @keyframes r-ai-twinkle { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.45; transform: scale(0.82); } }
 @media (prefers-reduced-motion: reduce) { .r-hero h1 .r-ai i { animation: none; } }
 @media (max-width: 640px) { .r-hero h1 .r-ai { display: inline-flex; margin: 0.5em 0 0; vertical-align: middle; font-size: 0.42em; } }
+/* 4つの探し方の「ランダムに1件見る」（ボタンでも、カードと同じ見た目にする） */
+button.r-way { font: inherit; text-align: left; width: 100%; cursor: pointer; }
+button.r-way:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
