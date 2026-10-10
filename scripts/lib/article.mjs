@@ -3,6 +3,7 @@
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { esc, shell } from './site-shell.mjs';
+import { withCases } from './cases.mjs';
 
 export const P = (t) => `        <p>${t}</p>`;
 export const UL = (items) => `        <ul>\n${items.map((i) => `          <li>${i}</li>`).join('\n')}\n        </ul>`;
@@ -95,5 +96,5 @@ ${note ? `\n    <p class="area-note">${note}</p>` : ''}`;
 
 export function writeArticle(outDir, folder, file, { title, description, body }) {
   mkdirSync(outDir, { recursive: true });
-  writeFileSync(join(outDir, file), shell({ title: `${title}｜補助金ネット`, description, canonicalPath: `/${folder}/${file}`, body }).replace('</style>', `${STYLE}\n  </style>`));
+  writeFileSync(join(outDir, file), withCases(shell({ title: `${title}｜補助金ネット`, description, canonicalPath: `/${folder}/${file}`, body }).replace('</style>', `${STYLE}\n  </style>`), `${folder}/${file}`));
 }

@@ -5,6 +5,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { esc, shell } from './lib/site-shell.mjs';
 import { TABLE } from './lib/article.mjs';
+import { withCases } from './lib/cases.mjs';
 
 const OUT = join(dirname(fileURLToPath(import.meta.url)), '..', 'public', 'feature');
 const UPDATED = '2026年10月10日';
@@ -682,7 +683,7 @@ const featureStyle = `
 `;
 
 function page({ file, title, description, canonicalPath, body }) {
-  writeFileSync(join(OUT, file), shell({ title, description, canonicalPath, body }).replace('</style>', `${featureStyle}\n  </style>`));
+  writeFileSync(join(OUT, file), withCases(shell({ title, description, canonicalPath, body }).replace('</style>', `${featureStyle}\n  </style>`), `feature/${file}`));
 }
 
 mkdirSync(OUT, { recursive: true });
