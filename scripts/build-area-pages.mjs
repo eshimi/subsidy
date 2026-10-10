@@ -1,6 +1,6 @@
 // 地域別ページ（public/area/）を生成する。src/data/area-cities.js と local-programs.js から作るので、
 // 都市を追加したら `node scripts/build-area-pages.mjs` を実行し、生成されたファイルをコミットする。
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, readdirSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { AREA_CITIES } from '../src/data/area-cities.js';
@@ -173,7 +173,9 @@ ${list}
 
 function sitemap() {
   const core = ['', 'search.html', 'shindan.html', 'ai.html', 'basics/index.html', 'basics/flow.html', 'basics/business-plan.html', 'basics/after-adoption.html', 'basics/tax.html', 'basics/not-adopted.html', 'basics/glossary.html', 'who/index.html', 'who/sole-proprietor.html', 'who/sme.html', 'who/startup.html', 'personal/index.html', 'personal/housing.html', 'personal/ev.html', 'personal/solar.html', 'personal/seismic.html', 'personal/kids.html', 'personal/learning.html', 'personal/relocation.html', 'feature/popular.html', 'feature/growth.html', 'feature/employment.html', 'guide.html', 'diagnosis.html', 'chat.html', 'beginner-guide.html', 'roadmap.html', 'columns.html', 'real-life.html', 'feature/index.html', 'feature/digital-subsidy.html', 'feature/jizokuka.html', 'feature/monodukuri.html', 'feature/shoryokuka.html', 'feature/succession.html', 'compare/index.html', 'compare/virtual-office.html', 'columns/subsidy-vs-grant-vs-loan.html', 'columns/subsidy-paid-after.html', 'columns/how-to-find-subsidy.html', 'columns/gbizid-early.html', 'columns/free-consultation.html', 'guides/secret-side-job.html', 'guides/tax-filing-basics.html', 'guides/first-day-checklist.html', 'guides/work-life-balance.html', 'guides/time-to-first-income.html', 'books.html', 'resources.html', 'policy/about.html', 'policy/sources.html', 'policy/privacy.html', 'policy/contact.html', 'sitemap.html', 'area/index.html'];
-  const urls = [...core, ...AREA_CITIES.filter((c) => programsFor(c).municipal.length).map((c) => `area/${c.slug}.html`)];
+  const newsDir = join(ROOT, 'public', 'news');
+  const news = existsSync(newsDir) ? readdirSync(newsDir).filter((f) => f.endsWith('.html')).sort().reverse().map((f) => `news/${f}`) : [];
+  const urls = [...core, ...news, ...AREA_CITIES.filter((c) => programsFor(c).municipal.length).map((c) => `area/${c.slug}.html`)];
   const entries = urls.map((u) => `  <url>
     <loc>${SITE}/${u}</loc>
     <lastmod>${LASTMOD}</lastmod>

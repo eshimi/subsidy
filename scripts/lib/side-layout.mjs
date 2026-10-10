@@ -12,6 +12,7 @@ const FOLDER_HINT = {
   grants: 'grants/index.html',
   policy: 'policy/about.html',
   basics: 'basics/index.html',
+  news: 'news/index.html',
   who: 'who/sme.html',
   personal: 'personal/index.html',
 };
