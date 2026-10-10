@@ -163,6 +163,20 @@ function programCard(p) {
           </div>`;
 }
 
+// 関連ページ：同じ都道府県の他の市区と、一覧・コラムへの導線
+function sameArea(city) {
+  const others = AREA_CITIES.filter((c) => c.pref === city.pref && c.slug !== city.slug);
+  const items = [['index.html', '地域別の補助金 一覧'], ['../columns.html', 'コラム'], ['../real-life.html', '補助金のリアル']]
+    .concat(others.map((c) => [`${c.slug}.html`, `${c.name}`]));
+  const lis = items.map(([h, t]) => `          <li><a href="${h}">${esc(t)}</a></li>`).join('\n');
+  return `    <nav class="related-links" aria-label="関連ページ">
+      <h2>関連ページ</h2>
+      <ul>
+${lis}
+      </ul>
+    </nav>`;
+}
+
 function cityPage(city) {
   const { municipal, prefectural } = programsFor(city);
   const municipalHtml = municipal.length
@@ -237,6 +251,7 @@ ${prefHtml}
       </div>
     </section>
 
+${sameArea(city)}
     <p class="area-note">この記事は公開情報をもとにした参考情報です。制度の対象・金額・公募時期は年度や公募回によって変わるため、申請前に必ず各制度の公式情報を確認してください。</p>`;
   return shell({ title, description, canonicalPath: path, body, jsonLd });
 }
@@ -265,7 +280,15 @@ ${g.cities.map((c) => `            <li><a href="${c.slug}.html">${esc(c.name)}</
       <div class="area-groups">
 ${list}
       </div>
-    </section>`;
+    </section>
+    <nav class="related-links" aria-label="関連ページ">
+      <h2>関連ページ</h2>
+      <ul>
+        <li><a href="../columns.html">コラム</a></li>
+        <li><a href="../real-life.html">補助金のリアル</a></li>
+        <li><a href="../beginner-guide.html">初心者向けガイド</a></li>
+      </ul>
+    </nav>`;
   return shell({
     title: '地域別の補助金・創業支援一覧｜補助金ネット',
     description: '市区町村ごとに、市・県・国の補助金や創業支援の探し方をまとめた一覧です。お住まいの地域から制度を確認できます。',
