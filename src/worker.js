@@ -3,12 +3,13 @@
 // レート制限は Cloudflare ダッシュボード側のルールで行う（README を参照）。
 import { runSearch } from './search.js';
 import { lookupPostalCode } from './postal.js';
-import { aiEnabled, chatWithClaude } from './ai.js';
+import { aiEnabled, chatWithClaude, judgeWithClaude } from './ai.js';
 import { TtlCache, SECURITY_HEADERS } from './middleware.js';
 import { createAssetsGrantsLoader } from './grants-assets.js';
 import { parseChatMessages, aiUnavailable } from './chat-input.js';
 import { errorPayload } from './http-error.js';
-import { parseContact, buildRawMessage } from './contact.js';
+import { parseContact, buildRawMessage, buildMail } from './contact.js';
+import { parseAnswers, parseConsult, consultText } from './consult.js';
 
 const MAX_BODY_BYTES = 32 * 1024;
 const cache = new TtlCache();
@@ -85,6 +86,32 @@ async function route(request, env, url) {
     const result = await chatWithClaude(parseChatMessages(body?.messages));
     if (result === null) throw aiUnavailable();
     return result;
+  }
+
+  if (pathname === '/api/judge') {
+    allow(request, 'POST');
+    const body = await readJsonBody(request);
+    const answers = parseAnswers(body);
+    const candidates = Array.isArray(body?.candidates) ? body.candidates.filter((c) => typeof c === 'string').map((c) => c.slice(0, 60)).slice(0, 8) : [];
+    const comment = await judgeWithClaude(answers, candidates);
+    return { ai: comment !== null, comment };
+  }
+
+  if (pathname === '/api/consult') {
+    allow(request, 'POST');
+    const input = parseConsult(await readJsonBody(request));
+    if (input.spam) return { ok: true };
+    if (!env.CONTACT_EMAIL || !env.CONTACT_TO) throw httpError(503, '現在、お申し込みを受け付けられません。お手数ですが、お問い合わせフォームからご連絡ください。');
+    const { EmailMessage } = await import('cloudflare:email');
+    const from = env.CONTACT_FROM || 'noreply@hojyokin.net';
+    const raw = buildMail({ from, to: env.CONTACT_TO, replyTo: input.email || undefined, subject: `【補助金ネット】無料相談のお申し込み（${input.topic}）`, text: consultText(input) });
+    try {
+      await env.CONTACT_EMAIL.send(new EmailMessage(from, env.CONTACT_TO, raw));
+    } catch (e) {
+      console.error(e);
+      throw httpError(503, '送信できませんでした。お手数ですが、時間をおいてもう一度お試しください。');
+    }
+    return { ok: true };
   }
 
   if (pathname === '/api/contact') {

@@ -51,4 +51,22 @@ export function buildRawMessage({ from, to, name, email, category, message }) {
   ].join('\r\n');
 }
 
+// 任意の件名・本文でメールを組み立てる（無料相談などで使う）
+export function buildMail({ from, to, replyTo, subject, text }) {
+  return [
+    `From: =?UTF-8?B?${b64('補助金ネット')}?= <${from}>`,
+    `To: ${to}`,
+    ...(replyTo ? [`Reply-To: ${replyTo}`] : []),
+    `Subject: =?UTF-8?B?${b64(subject)}?=`,
+    `Message-ID: <${crypto.randomUUID()}@hojyokin.net>`,
+    `Date: ${new Date().toUTCString()}`,
+    'MIME-Version: 1.0',
+    'Content-Type: text/plain; charset=UTF-8',
+    'Content-Transfer-Encoding: base64',
+    '',
+    wrap(b64(`${text}\r\n`)),
+    '',
+  ].join('\r\n');
+}
+
 export { CATEGORIES };

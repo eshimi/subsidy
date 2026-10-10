@@ -16,7 +16,7 @@ const FOLDER_HINT = {
   who: 'who/sme.html',
   personal: 'personal/index.html',
 };
-const EXCLUDE = ['index.html', 'sitemap.html', 'search.html', 'shindan.html', 'ai.html'];
+const EXCLUDE = ['index.html', 'sitemap.html', 'search.html', 'shindan.html', 'ai.html', 'hantei.html'];
 
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 
