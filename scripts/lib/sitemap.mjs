@@ -18,7 +18,7 @@ function titleOf(html) {
 }
 
 // public/ 直下と、記事のフォルダのページ（grants/ はデプロイ時に作られるため別扱い）
-const FOLDERS = ['', 'basics', 'who', 'personal', 'feature', 'compare', 'columns', 'guides', 'news', 'policy', 'area'];
+const FOLDERS = ['', 'basics', 'who', 'personal', 'feature', 'cases', 'compare', 'columns', 'guides', 'news', 'policy', 'area'];
 
 export function listPages(publicDir) {
   const pages = [];
@@ -45,6 +45,7 @@ export function sitemapPaths(publicDir) {
 const GROUPS = [
   { title: '補助金を探す', pages: [['', 'トップ'], ['search.html', 'AI・キーワードで探す'], ['hantei.html', 'AI補助金判定（質問に答えて探す）'], ['consult.html', '無料相談のお申し込み'], ['grants/purposes.html', '目的別の補助金'], ['grants/industries.html', '業種別の補助金'], ['grants/deadlines.html', '締切が近い補助金'], ['grants/prefectures.html', '都道府県別の補助金'], ['area/index.html', '市区町村別の補助金'], ['grants/index.html', '募集中の制度一覧']] },
   { title: '補助金ニュース', pages: [['news/index.html', 'ニュースの一覧'], ['news/sources.html', '情報の取得元一覧']], folder: 'news', newestFirst: true },
+  { title: '補助金の活用事例', pages: [['cases/index.html', '活用事例の一覧']], folder: 'cases' },
   { title: '特集・比較', pages: [['feature/index.html', '主な補助金の特集'], ['feature/popular.html', '特に人気の5つの補助金']], folder: 'feature', more: [['compare/index.html', '比較記事の一覧']], folder2: 'compare' },
   { title: '基礎知識・コラム', pages: [['basics/index.html', '基礎知識のトップ']], folder: 'basics', more: [['columns.html', 'コラムの一覧']], folder2: 'columns', tail: [['real-life.html', '補助金のリアル']] },
   { title: '対象者別', pages: [['who/index.html', '対象者別のトップ']], folder: 'who', more: [['personal/index.html', '個人が使える補助金・支援']], folder2: 'personal' },

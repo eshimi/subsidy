@@ -5,7 +5,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', 'public');
-const FOLDERS = ['feature', 'basics', 'who', 'personal', 'columns', 'guides', 'compare'];
+const FOLDERS = ['feature', 'basics', 'who', 'personal', 'cases', 'columns', 'guides', 'compare'];
 const SINGLES = ['roadmap.html', 'beginner-guide.html', 'real-life.html'];
 
 export function countArticles(root = ROOT) {

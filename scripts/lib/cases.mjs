@@ -28,8 +28,8 @@ export function withCases(html, path, prefix = '../') {
   const cleaned = html.replace(/\n?<!-- cases:start -->[\s\S]*?<!-- cases:end -->\n?/, '\n');
   const block = casesBlock(path, prefix);
   if (!block) return cleaned;
-  const anchor = '    <nav class="related-links" aria-label="関連ページ">';
-  const i = cleaned.indexOf(anchor);
-  if (i < 0) return cleaned;
+  const at = cleaned.indexOf('<nav class="related-links" aria-label="関連ページ">');
+  if (at < 0) return cleaned;
+  const i = cleaned.lastIndexOf('\n', at) + 1;
   return `${cleaned.slice(0, i)}<!-- cases:start -->${block}<!-- cases:end -->\n${cleaned.slice(i)}`;
 }

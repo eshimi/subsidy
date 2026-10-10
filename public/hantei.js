@@ -192,6 +192,7 @@
       ${notes.length ? `<ul class="hj-notes">${notes.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}
       <div class="hj-ai" id="hj-ai"><img src="images/hantei/robot-ask.webp" alt="" width="56" height="49"><div><b>AIのひと言</b><p style="margin:0;">回答をもとに、ひと言アドバイスを準備しています…</p></div></div>
       ${ind ? `<p><a href="search.html?${new URLSearchParams({ industry: ind })}">${esc(answers.industry)}に関係しそうな、募集中の補助金を見る →</a></p>` : ''}
+      <p><a href="cases/index.html">補助金を使って課題を乗り越えた事業者の活用事例を読む →</a></p>
       <div class="hj-cta-wrap">
         <img src="images/hantei/robot-done.webp" alt="" width="195" height="183">
         <div class="hj-bubble">診断おつかれさまでした！<br>より詳しいご提案や、申請のご相談をご希望の方は、無料相談をご利用ください。</div>
