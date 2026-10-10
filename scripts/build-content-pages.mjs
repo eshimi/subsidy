@@ -597,11 +597,103 @@ writeArticle(join(ROOT, 'who'), 'who', 'index.html', {
 });
 
 writeSet('personal', ['index.html', '個人向け'], PERSONAL);
+// 個人向けの入口：AI補助金判定と同じ、キャラクターと大きなアイコンのカードのやさしい画面
+const PERSONAL_MENU = [
+  ['housing.html', '🏠', '家の省エネ・リフォーム', '断熱窓・給湯器・省エネ住宅の新築など'],
+  ['ev.html', '🚗', '電気自動車（EV）', 'EV・PHVの購入、充電設備・V2Hの導入'],
+  ['solar.html', '☀️', '太陽光発電・蓄電池', '家庭用の太陽光発電・蓄電池の導入'],
+  ['seismic.html', '🛠️', '耐震・バリアフリー', '耐震診断・耐震改修、手すり・段差の解消'],
+  ['kids.html', '👶', '子育て', '児童手当、妊娠・出産・子育ての支援'],
+  ['learning.html', '📚', '学び直し', '教育訓練給付で、講座の費用の一部を支給'],
+  ['relocation.html', '🏡', '地方への移住', '移住支援金、移住して起業するときの支援'],
+];
+const PERSONAL_STYLE = `
+  <style>
+    .pv { --pv-blue: #1565d8; --pv-line: #dbe6f2; --pv-mute: #5b6878; color: #1d2a3a; }
+    .pv-card { background: #fff; border: 1px solid var(--pv-line); border-radius: 18px; box-shadow: 0 6px 24px rgba(21, 101, 216, 0.08); padding: 28px; margin-bottom: 24px; }
+    .pv-hero { display: grid; grid-template-columns: 220px 1fr; gap: 24px; align-items: center; background: linear-gradient(160deg, #e8f3ff 0%, #f5fbff 55%, #eef8f0 100%); }
+    .pv img.pv-robot { width: 100%; height: auto; -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, #000 60%, transparent 100%); mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, #000 60%, transparent 100%); }
+    .pv-bubble { background: #fff; border-radius: 18px; padding: 16px 20px; line-height: 1.8; box-shadow: 0 4px 16px rgba(29, 42, 58, 0.08); }
+    .pv-hero h1 { margin: 0; font-size: 1.35rem; line-height: 1.6; }
+    .pv-checks { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 8px; }
+    .pv-checks li { display: flex; align-items: center; gap: 10px; background: rgba(255, 255, 255, 0.85); border-radius: 10px; padding: 9px 14px; font-weight: 600; }
+    .pv-checks li::before { content: "✓"; display: inline-grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: #22a06b; color: #fff; font-size: 0.8rem; flex-shrink: 0; }
+    .pv-ask { display: grid; grid-template-columns: 120px 1fr; gap: 16px; align-items: center; margin-bottom: 20px; }
+    .pv-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; }
+    .pv-item { display: grid; grid-template-rows: auto auto 1fr auto; justify-items: center; gap: 6px; padding: 22px 16px 16px; border: 1.5px solid var(--pv-line); border-radius: 14px; background: #fff; text-align: center; text-decoration: none; color: inherit; transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s; }
+    .pv-item:hover { border-color: var(--pv-blue); box-shadow: 0 6px 18px rgba(21, 101, 216, 0.12); transform: translateY(-2px); color: inherit; }
+    .pv-item i { display: grid; place-items: center; width: 68px; height: 68px; border-radius: 50%; background: #eaf3fd; font-style: normal; font-size: 2rem; }
+    .pv-item b { font-size: 1.05rem; }
+    .pv-item span { font-size: 0.85rem; color: var(--pv-mute); line-height: 1.6; }
+    .pv-item em { font-style: normal; margin-top: 6px; padding: 5px 14px; border: 1px solid #9cc0ee; border-radius: 999px; font-size: 0.82rem; font-weight: 600; color: var(--pv-blue); }
+    .pv-h { display: flex; align-items: center; gap: 10px; margin: 0 0 16px; font-size: 1.25rem; }
+    .pv-h::before { content: ""; width: 5px; height: 1.3em; border-radius: 3px; background: var(--pv-blue); }
+    .pv-steps { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 0; padding: 0; counter-reset: pv; }
+    .pv-steps li { counter-increment: pv; padding: 16px; border-radius: 12px; background: #f5f9fe; line-height: 1.7; font-size: 0.92rem; }
+    .pv-steps li::before { content: counter(pv); display: grid; place-items: center; width: 30px; height: 30px; margin-bottom: 8px; border-radius: 50%; background: var(--pv-blue); color: #fff; font-weight: 700; }
+    .pv-steps b { display: block; font-size: 1rem; margin-bottom: 4px; }
+    .pv-end { display: grid; grid-template-columns: 1fr 170px; gap: 18px; align-items: center; background: linear-gradient(160deg, #e8f3ff 0%, #f5fbff 60%, #eef8f0 100%); }
+    .pv-btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+    .pv-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; border-radius: 999px; background: var(--pv-blue); color: #fff; font-weight: 700; text-decoration: none; }
+    .pv-btn:hover { background: #0f4fae; color: #fff; }
+    .pv-btn.ghost { background: #fff; color: var(--pv-blue); border: 1px solid #9cc0ee; }
+    @media (max-width: 720px) {
+      .pv-card { padding: 20px 16px; }
+      .pv-hero { grid-template-columns: 1fr; text-align: center; }
+      .pv-hero img.pv-robot { width: 170px; margin: 0 auto; }
+      .pv-checks { text-align: left; }
+      .pv-ask { grid-template-columns: 80px 1fr; gap: 10px; }
+      .pv-grid { grid-template-columns: 1fr; }
+      .pv-item { grid-template-columns: 56px 1fr; grid-template-rows: auto auto; justify-items: start; text-align: left; column-gap: 14px; row-gap: 2px; padding: 14px; }
+      .pv-item i { grid-row: 1 / 3; width: 56px; height: 56px; font-size: 1.6rem; }
+      .pv-item em { display: none; }
+      .pv-steps { grid-template-columns: 1fr; }
+      .pv-end { grid-template-columns: 1fr 100px; }
+    }
+  </style>`;
 writeArticle(join(ROOT, 'personal'), 'personal', 'index.html', {
   title: '個人が使える補助金・支援（住まい・車・子育て・学び・移住）', description: '住まいの省エネ・リフォーム、電気自動車、子育て、学び直し、移住など、個人の方が使える主な補助金・支援の入口です。',
-  body: indexBody({ section: '個人向け', title: '個人が使える補助金・支援', banner: 'b17', lead: '住まい・車・子育て・学び・移住など、個人の方が使える主な補助金と支援を紹介します。',
-    cards: PERSONAL.map((a) => [a.file, a.title, a.summary]),
-    note: '個人向けの制度は、国のほか、都道府県・市区町村が独自に行っているものが多くあります。お住まいの自治体のウェブサイトもあわせて確認してください。このページの制度は、jGrants の自動の一覧には多く含まれていないため、主なものを解説記事で紹介しています。' }),
+  body: `${PERSONAL_STYLE}
+    <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ 個人向け</nav>
+    <div class="pv">
+      <section class="pv-card pv-hero">
+        <img class="pv-robot" src="../images/hantei/robot-wave.webp" alt="" width="250" height="300">
+        <div>
+          <div class="pv-bubble"><h1>個人が使える補助金・支援</h1>暮らしに使える補助金や支援を、いっしょに探しましょう！</div>
+          <ul class="pv-checks">
+            <li>住まい・車・子育て・学び・移住の支援をまとめて紹介</li>
+            <li>国の制度と、自治体の制度の探し方がわかります</li>
+            <li>登録不要・無料で読めます</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="pv-card" aria-labelledby="pv-ask">
+        <div class="pv-ask"><img class="pv-robot" src="../images/hantei/robot-ask.webp" alt="" width="163" height="142"><div class="pv-bubble" id="pv-ask">どんなことに使いたいですか？<br>当てはまるものを選んでください。</div></div>
+        <div class="pv-grid">
+${PERSONAL_MENU.map(([href, icon, label, text]) => `          <a class="pv-item" href="${href}"><i aria-hidden="true">${icon}</i><b>${label}</b><span>${text}</span><em>詳しく見る ›</em></a>`).join('\n')}
+        </div>
+      </section>
+
+      <section class="pv-card" aria-labelledby="pv-how">
+        <h2 class="pv-h" id="pv-how">支援を受けるまでの3ステップ</h2>
+        <ol class="pv-steps">
+          <li><b>どんな支援があるか知る</b>上のカードから、気になる支援の解説を読みます。</li>
+          <li><b>お住まいの自治体を確認</b>個人向けの制度は、都道府県・市区町村の独自のものが多くあります。<a href="../area/index.html">市区町村別の補助金</a>も見てください。</li>
+          <li><b>申請の前に公式サイトで確認</b>多くの制度は、契約・工事・購入の前に申請が必要です。対象や期限は、必ず公式の情報で確認してください。</li>
+        </ol>
+      </section>
+
+      <section class="pv-card pv-end">
+        <div>
+          <div class="pv-bubble">お住まいの地域だけの補助金もあります。市区町村の制度もチェックしてみてくださいね。</div>
+          <div class="pv-btns"><a class="pv-btn" href="../area/index.html">市区町村別の補助金を見る →</a><a class="pv-btn ghost" href="../grants/prefectures.html">都道府県別の補助金</a></div>
+        </div>
+        <img class="pv-robot" src="../images/hantei/robot-done.webp" alt="" width="195" height="183">
+      </section>
+
+      <p class="area-note">このページの制度は、jGrants の自動の一覧には多く含まれていないため、主なものを解説記事で紹介しています。金額や期間は年度ごとに変わります。事業をしている方は、<a href="../search.html">事業者向けの補助金を探す</a>もご利用ください。</p>
+    </div>`,
 });
 
 console.log('基礎知識・対象者別・個人向けのページを生成しました');
