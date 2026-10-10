@@ -93,21 +93,46 @@ export function prefectureCounts(dir = DATA) {
   }));
 }
 
+// 並べ替え・絞り込みができる制度の一覧（操作は public/grant-list.js）
+const yenJa = (max) => (max ? (max >= 100000000 ? `${(max / 100000000).toLocaleString('ja-JP', { maximumFractionDigits: 1 })}億円` : max >= 10000 ? `${Math.round(max / 10000).toLocaleString('ja-JP')}万円` : `${max.toLocaleString('ja-JP')}円`) : '');
+export function grantListHtml(items, now, { showArea = true, empty = '現在、募集中の制度はありません。' } = {}) {
+  if (!items.length) return `      <ul class="grant-list">\n        <li>${esc(empty)}</li>\n      </ul>`;
+  const opt = (list) => list.map((x) => `<option value="${x.slug}">${esc(x.label)}</option>`).join('');
+  const used = (list, key) => list.filter((x) => items.some((g) => tagsOf(g)[key].includes(x.slug)));
+  const lis = items.map((g) => {
+    const st = statusOf(g.end, now);
+    const t = tagsOf(g);
+    const labels = PURPOSES.filter((x) => t.p.includes(x.slug)).map((x) => `<span class="gl-tag">${esc(x.label)}</span>`).join('');
+    const meta = [`<span class="gl-st gl-${st.key}">${esc(st.label)}</span>`, `締切 ${esc(dateJa(g.end))}`, g.max ? `上限 ${esc(yenJa(g.max))}` : '上限は公募要領で確認', g.start ? `受付開始 ${esc(dateJa(g.start))}` : '', showArea ? esc(g.area || '記載なし') : ''].filter(Boolean).join('｜');
+    return `        <li data-end="${esc(g.end || '')}" data-start="${esc(g.start || '')}" data-max="${g.max || 0}" data-p="${t.p.join(' ')}" data-i="${t.i.join(' ')}" data-t="${esc(g.title)}"><a href="${g.id}.html">${esc(g.title)}</a><p class="grant-meta">${meta}</p>${labels ? `<p class="gl-tags">${labels}</p>` : ''}</li>`;
+  }).join('\n');
+  return `      <form class="gl-tools" data-grant-list aria-label="一覧の並べ替えと絞り込み" onsubmit="return false">
+        <label class="gl-q">キーワード<input type="search" name="q" placeholder="制度名で絞り込み"></label>
+        <label>種類（目的）<select name="p"><option value="">すべて</option>${opt(used(PURPOSES, 'p'))}</select></label>
+        <label>業種<select name="i"><option value="">すべて</option>${opt(used(INDUSTRIES, 'i'))}</select></label>
+        <label>上限額<select name="m"><option value="">指定しない</option><option value="1000000">100万円以上</option><option value="5000000">500万円以上</option><option value="10000000">1,000万円以上</option></select></label>
+        <label>締切<select name="d"><option value="">指定しない</option><option value="30">30日以内</option><option value="90">90日以内</option></select></label>
+        <label>並び順<select name="s"><option value="end">締切が近い順</option><option value="end-desc">締切が遠い順</option><option value="new">受付開始が新しい順</option><option value="max">上限額の大きい順</option><option value="name">名前順</option></select></label>
+      </form>
+      <p class="gl-count" aria-live="polite">${items.length} 件</p>
+      <ul class="grant-list" data-grant-items>
+${lis}
+      </ul>
+      <script src="../grant-list.js" defer></script>`;
+}
+
 function prefPage(pref, list, now) {
   const slug = PREF_SLUGS[pref];
   const open = list.filter((g) => statusOf(g.end, now).key !== 'closed');
-  const lis = open.map((g) => `        <li><a href="${g.id}.html">${esc(g.title)}</a><p class="grant-meta">${esc(statusOf(g.end, now).label)}｜締切 ${esc(dateJa(g.end))}</p></li>`).join('\n');
   const body = `${crumb([['prefectures.html', '都道府県別'], [null, pref]])}
 
     <div style="margin-bottom: 2rem;">
       <h1 class="display" style="margin-bottom: 0.5rem;">${esc(pref)}の補助金<img class="area-title-img" src="../images/prefectures/pref-${slug}.webp" alt="" height="72"></h1>
-      <p class="lead" style="margin-bottom: 0;">${esc(pref)}を対象にした、募集中の補助金 ${open.length} 件です。締切の早い順に並べています。</p>
+      <p class="lead" style="margin-bottom: 0;">${esc(pref)}を対象にした、募集中の補助金 ${open.length} 件です。種類・業種・上限額・締切で絞り込み、並び順を変えられます。</p>
     </div>
 
-    <section class="area-section" aria-labelledby="list">
-      <ul class="grant-list">
-${lis || '        <li>現在、募集中の制度はありません。</li>'}
-      </ul>
+    <section class="area-section" aria-label="${esc(pref)}の補助金の一覧">
+${grantListHtml(open, now, { showArea: false })}
     </section>
 
     <nav class="related-links" aria-label="関連ページ">
@@ -156,6 +181,16 @@ const STYLE_EXTRA = `
     .grant-list a { color: #1f3bff; font-weight: 500; text-decoration: none; }
     .grant-list a:hover { text-decoration: underline; }
     .grant-meta { font-size: 0.85rem; color: var(--mute); margin: 4px 0 0; }
+    .gl-tools { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; margin: 0 0 12px; padding: 14px; background: #fff; border: 1px solid #dbe6f2; border-radius: 12px; }
+    .gl-tools label { display: grid; gap: 4px; font-size: 0.78rem; color: var(--mute); font-weight: 600; }
+    .gl-tools input, .gl-tools select { width: 100%; padding: 8px 10px; border: 1px solid #cfdcea; border-radius: 8px; background: #fff; font: inherit; font-size: 0.9rem; color: #1d2a3a; }
+    .gl-count { margin: 0 0 10px; font-weight: 700; }
+    .gl-tags { margin: 6px 0 0; display: flex; flex-wrap: wrap; gap: 4px; }
+    .gl-tag { padding: 1px 8px; border-radius: 999px; background: #eaf3fd; color: #1565d8; font-size: 0.75rem; font-weight: 600; }
+    .gl-st { font-weight: 700; }
+    .gl-soon, .gl-today { color: #c2410c; }
+    .gl-tools .gl-q { grid-column: 1 / -1; }
+    @media (max-width: 640px) { .gl-tools { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
     .pref-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
     .pref-grid a { display: flex; align-items: center; gap: 14px; border: 1px solid #e0e0e0; border-radius: 10px; padding: 14px 18px; text-decoration: none; color: var(--ink); background: #fff; transition: border-color 0.2s, box-shadow 0.2s; }
     .pref-grid a:hover { border-color: var(--accent); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); }
@@ -262,10 +297,6 @@ ${faqFor(g, now).map(([q, a]) => `        <dt><strong>${esc(q)}</strong></dt><dd
 }
 
 function listPage({ title, heading, lead, items, now, canonicalPath, extra = '' }) {
-  const lis = items.map((g) => {
-    const st = statusOf(g.end, now);
-    return `        <li><a href="${g.id}.html">${esc(g.title)}</a><p class="grant-meta">${esc(st.label)}｜締切 ${esc(dateJa(g.end))}｜${esc(g.area || '記載なし')}</p></li>`;
-  }).join('\n');
   const body = `${crumb([[null, heading]])}
 
     <div style="margin-bottom: 2rem;">
@@ -273,10 +304,8 @@ function listPage({ title, heading, lead, items, now, canonicalPath, extra = '' 
       <p class="lead" style="margin-bottom: 0;">${esc(lead)}</p>
     </div>
 
-    <section class="area-section" aria-labelledby="list">
-      <ul class="grant-list">
-${lis || '        <li>現在、表示できる制度がありません。</li>'}
-      </ul>
+    <section class="area-section" aria-label="制度の一覧">
+${grantListHtml(items, now, { empty: '現在、表示できる制度がありません。' })}
     </section>
 
 ${extra}
