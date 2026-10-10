@@ -97,7 +97,7 @@ function prefPage(pref, list, now) {
   const slug = PREF_SLUGS[pref];
   const open = list.filter((g) => statusOf(g.end, now).key !== 'closed');
   const lis = open.map((g) => `        <li><a href="${g.id}.html">${esc(g.title)}</a><p class="grant-meta">${esc(statusOf(g.end, now).label)}｜締切 ${esc(dateJa(g.end))}</p></li>`).join('\n');
-  const body = `${crumb([['../', '補助金ネット'], ['prefectures.html', '都道府県別'], [null, pref]])}
+  const body = `${crumb([['prefectures.html', '都道府県別'], [null, pref]])}
 
     <div style="margin-bottom: 2rem;">
       <h1 class="display" style="margin-bottom: 0.5rem;">${esc(pref)}の補助金<img class="area-title-img" src="../images/prefectures/pref-${slug}.webp" alt="" height="72"></h1>
@@ -128,7 +128,7 @@ function prefectureIndex(counts, now) {
     const n = counts[pref].filter((g) => statusOf(g.end, now).key !== 'closed').length;
     return tile(`pref-${PREF_SLUGS[pref]}.html`, pref, n, PREF_SLUGS[pref]);
   }).join('\n');
-  const body = `${crumb([['../', '補助金ネット'], [null, '都道府県別の補助金']])}
+  const body = `${crumb([[null, '都道府県別の補助金']])}
 
     <div style="margin-bottom: 2rem;">
       <h1 class="display" style="margin-bottom: 0.5rem;">都道府県別の補助金</h1>
@@ -251,7 +251,7 @@ function listPage({ title, heading, lead, items, now, canonicalPath, extra = '' 
     const st = statusOf(g.end, now);
     return `        <li><a href="${g.id}.html">${esc(g.title)}</a><p class="grant-meta">${esc(st.label)}｜締切 ${esc(dateJa(g.end))}｜${esc(g.area || '記載なし')}</p></li>`;
   }).join('\n');
-  const body = `${crumb([['../', '補助金ネット'], [null, heading]])}
+  const body = `${crumb([[null, heading]])}
 
     <div style="margin-bottom: 2rem;">
       <h1 class="display" style="margin-bottom: 0.5rem;">${esc(heading)}</h1>
@@ -328,7 +328,7 @@ export function purposeHubsFor(grants, now) {
 
 function purposeIndex(hubs, now) {
   const lis = hubs.map((h) => `        <li><a href="${h.file}">${esc(h.heading)}</a><p class="grant-meta">募集中 ${h.count} 件｜${esc(h.lead)}</p></li>`).join('\n');
-  const body = `${crumb([['../', '補助金ネット'], [null, '目的別の補助金']])}
+  const body = `${crumb([[null, '目的別の補助金']])}
 
     <div style="margin-bottom: 2rem;">
       <h1 class="display" style="margin-bottom: 0.5rem;">目的別の補助金</h1>
