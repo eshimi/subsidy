@@ -29,6 +29,8 @@ jobs:
       - run: npm test
       - name: Fetch jGrants data
         run: npm run fetch:jgrants
+      - name: Build grant pages
+        run: node scripts/build-grant-pages.mjs
       - name: Deploy
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
