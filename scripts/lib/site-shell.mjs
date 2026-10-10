@@ -26,6 +26,12 @@ const STYLE = `
     .area-pref-head { display: flex; align-items: center; gap: 16px; margin-bottom: 12px; }
     .area-pref-head img { width: 96px; height: auto; flex-shrink: 0; }
     h1.display { font-size: clamp(1.8rem, 7vw, 4.5rem); overflow-wrap: anywhere; }
+    .article-hero { margin: 0 0 24px; }
+    .article-hero img { display: block; width: 100%; height: auto; border-radius: 8px; border: 1px solid #e0e0e0; }
+    .article-body h3 { font-size: 1.2rem; margin: 1.6em 0 0.7em; }
+    .article-body ol { margin: 0 0 1rem 1.5rem; padding: 0; }
+    .article-body a { color: #1f3bff; text-decoration: underline; }
+    .article-highlight { background: #f0f5ff; border-left: 3px solid #1f3bff; padding: 14px 18px; margin: 1.2rem 0; border-radius: 4px; }
     .area-pref-link { margin: 0 0 12px; font-size: 0.9rem; }
     .area-pref-link a { color: #1f3bff; text-decoration: none; }
     .area-pref-link a:hover { text-decoration: underline; }
@@ -35,7 +41,7 @@ const STYLE = `
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }`;
 
 // 共通ヘッダー・フッター（columns.html と同じ構成）。「地域別」は お役立ち情報 の中の項目
-function shell({ title, description, canonicalPath, body, jsonLd = '' }) {
+function shell({ title, description, canonicalPath, body, jsonLd = '', robots = 'index, follow' }) {
   return `<!doctype html>
 <html lang="ja">
 <head>
@@ -43,7 +49,7 @@ function shell({ title, description, canonicalPath, body, jsonLd = '' }) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${esc(title)}</title>
   <meta name="description" content="${esc(description)}">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="${robots}">
   <link rel="canonical" href="${SITE}${canonicalPath}">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="補助金ネット">
@@ -68,6 +74,14 @@ function shell({ title, description, canonicalPath, body, jsonLd = '' }) {
   </style>
 ${jsonLd}  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7811993263471350"
      crossorigin="anonymous"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-J5DWZQLCB0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-J5DWZQLCB0');
+  </script>
 </head>
 <body>
   <header class="topbar">
@@ -146,6 +160,7 @@ ${body}
             <li><a href="../compare/index.html">比較記事</a></li>
             <li><a href="../books.html">参考図書</a></li>
             <li><a href="../resources.html">参考リンク</a></li>
+          <li><a href="../policy/privacy.html">プライバシーポリシー</a></li>
             </ul>
           </details>
           <details class="footer-group">
@@ -153,6 +168,9 @@ ${body}
             <ul>
             <li><a href="../guide.html">使い方</a></li>
             <li><a href="../sitemap.html">サイトマップ</a></li>
+            <li><a href="../policy/about.html">運営者情報</a></li>
+            <li><a href="../policy/sources.html">出典・更新方針</a></li>
+            <li><a href="../policy/privacy.html">プライバシーポリシー</a></li>
             </ul>
           </details>
         </nav>

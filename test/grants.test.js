@@ -94,3 +94,21 @@ test('prefectureCounts: 都道府県ごとの制度を読み込む', () => {
   assert.equal(counts['東京都'].length, 2);
   assert.equal(counts['大阪府'].length, 0);
 });
+
+import { hubsFor, faqFor } from '../scripts/build-grant-pages.mjs';
+
+test('hubsFor: 該当が3件以上の月・上限額だけ一覧を作る', () => {
+  const mk = (i, days, max) => ({ id: `g${i}`, title: `制度${i}`, area: '全国', max, start: null, end: new Date(NOW + days * DAY).toISOString(), employees: '' });
+  const grants = [mk(1, 5, 2000000), mk(2, 6, 2000000), mk(3, 7, 2000000), mk(4, 200, null)];
+  const hubs = hubsFor(grants, NOW);
+  assert.ok(hubs.some((h) => h.file.startsWith('deadline-')));
+  assert.ok(hubs.some((h) => h.file === 'amount-100.html'));
+  assert.ok(!hubs.some((h) => h.file === 'amount-500.html'));
+});
+
+test('faqFor: データがある項目はその値で、無い項目は公式確認を案内する', () => {
+  const faq = faqFor({ id: 'x', title: 'テスト制度', area: '東京都', max: null, start: null, end: new Date(NOW + 3 * DAY).toISOString(), employees: '' }, NOW);
+  assert.equal(faq.length, 4);
+  assert.match(faq[0][1], /受付締切は/);
+  assert.match(faq[2][1], /公募要領で確認/);
+});

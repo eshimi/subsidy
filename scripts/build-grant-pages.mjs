@@ -165,6 +165,17 @@ const STYLE_EXTRA = `
 
 const crumb = (items) => `    <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ ${items.map(([h, t]) => (h ? `<a href="${h}">${esc(t)}</a>` : esc(t))).join(' ＞ ')}</nav>`;
 
+// 制度ごとのよくある質問。データにある項目だけで答える（ページの表示と構造化データを同じ内容にする）
+export function faqFor(g, now) {
+  const st = statusOf(g.end, now);
+  return [
+    [`${g.title}の締切はいつですか？`, g.end ? `受付締切は${dateJa(g.end)}です（${st.label}）。` : '締切の情報が公開データにありません。公式サイトで確認してください。'],
+    [`${g.title}の対象地域はどこですか？`, g.area ? `対象地域は「${g.area}」です。` : '対象地域の記載がありません。公式サイトで確認してください。'],
+    [`${g.title}の上限額はいくらですか？`, g.max ? `公開データでは、上限額は${amountJa(g.max)}です。` : '上限額は公開データにありません。公募要領で確認してください。'],
+    [`${g.title}の対象になる従業員数の条件はありますか？`, g.employees ? `公開データでは「${g.employees}」と記載されています。` : '従業員数の条件は公開データにありません。公募要領で確認してください。'],
+  ];
+}
+
 function grantPage(g, now) {
   const st = statusOf(g.end, now);
   const title = `${g.title}｜補助金ネット`;
@@ -192,8 +203,16 @@ function grantPage(g, now) {
       </div>
     </section>
 
-    <section class="area-section" aria-labelledby="check">
+    <section class="area-section" aria-labelledby="faq">
       <span class="area-num">02</span>
+      <h2 id="faq">よくある質問</h2>
+      <dl class="grant-facts" style="grid-template-columns: 1fr;">
+${faqFor(g, now).map(([q, a]) => `        <dt><strong>${esc(q)}</strong></dt><dd>${esc(a)}</dd>`).join('\n')}
+      </dl>
+    </section>
+
+    <section class="area-section" aria-labelledby="check">
+      <span class="area-num">03</span>
       <h2 id="check">申請前に確認したいこと</h2>
       <div class="area-body">
         <ul>
@@ -203,8 +222,8 @@ function grantPage(g, now) {
         </ul>
       </div>
       <div class="area-links">
-        <a href="../columns.html#column2">後払いの仕組みを読む →</a>
-        <a href="../columns.html#column3">補助金の探し方を読む →</a>
+        <a href="../columns/subsidy-paid-after.html">後払いの仕組みを読む →</a>
+        <a href="../columns/how-to-find-subsidy.html">補助金の探し方を読む →</a>
       </div>
     </section>
 
@@ -220,7 +239,11 @@ function grantPage(g, now) {
     </nav>
 
     <p class="area-note">この情報は jGrants（デジタル庁）の公開データをもとに自動で作成しています。対象・金額・締切は変わることがあるため、申請前に必ず公式サイトで確認してください。</p>`;
-  return shell({ title, description, canonicalPath: `/grants/${g.id}.html`, body }).replace('</style>', `${STYLE_EXTRA}\n  </style>`);
+  const jsonLd = `  <script type="application/ld+json">${JSON.stringify({
+    '@context': 'https://schema.org', '@type': 'FAQPage',
+    mainEntity: faqFor(g, now).map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+  })}</script>\n`;
+  return shell({ title, description, canonicalPath: `/grants/${g.id}.html`, body, jsonLd }).replace('</style>', `${STYLE_EXTRA}\n  </style>`);
 }
 
 function listPage({ title, heading, lead, items, now, canonicalPath, extra = '' }) {
@@ -246,6 +269,32 @@ ${extra}
   return shell({ title, description: lead, canonicalPath, body }).replace('</style>', `${STYLE_EXTRA}\n  </style>`);
 }
 
+const MIN_HUB = 3; // 該当が少ない一覧は作らない（内容が薄いページを増やさない）
+const monthKey = (iso) => new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Tokyo', year: 'numeric', month: '2-digit' }).format(new Date(iso)).slice(0, 7);
+const AMOUNT_TIERS = [[100, 1000000], [500, 5000000], [1000, 10000000]];
+
+// 締切の月ごと・上限額ごとの一覧の定義（制度が MIN_HUB 件以上あるものだけ）
+export function hubsFor(grants, now) {
+  const open = grants.filter((g) => g.end && statusOf(g.end, now).key !== 'closed');
+  const hubs = [];
+  const byMonth = new Map();
+  for (const g of open) {
+    const k = monthKey(g.end);
+    byMonth.set(k, [...(byMonth.get(k) || []), g]);
+  }
+  for (const [k, list] of [...byMonth].sort()) {
+    if (list.length < MIN_HUB) continue;
+    const [y, m] = k.split('-').map(Number);
+    hubs.push({ file: `deadline-${k}.html`, title: `${y}年${m}月が締切の補助金一覧`, heading: `${y}年${m}月が締切の補助金`, lead: `${y}年${m}月に受付が締め切られる補助金 ${list.length} 件を、締切の早い順に並べています。`, items: list });
+  }
+  for (const [man, yen] of AMOUNT_TIERS) {
+    const list = open.filter((g) => g.max && g.max >= yen);
+    if (list.length < MIN_HUB) continue;
+    hubs.push({ file: `amount-${man}.html`, title: `上限額が${man}万円以上の補助金一覧`, heading: `上限額が${man}万円以上の補助金`, lead: `募集中の補助金のうち、上限額が${man}万円以上の ${list.length} 件を、締切の早い順に並べています。`, items: list });
+  }
+  return hubs;
+}
+
 // sitemap.xml に制度ページを追加する（前回の追加分は取り除いてから入れ直す）
 export function sitemapWith(xml, urls, lastmod) {
   const cleaned = xml.replace(/\s*<!-- grants:start -->[\s\S]*?<!-- grants:end -->/, '');
@@ -268,6 +317,7 @@ export function buildAll({ dir = DATA, out = OUT, sitemap = SITEMAP, now = Date.
     return { pages: 0 };
   }
   const soon = grants.filter((g) => statusOf(g.end, now).key !== 'closed');
+  const hubs = hubsFor(grants, now);
   for (const g of grants) writeFileSync(join(out, `${g.id}.html`), grantPage(g, now));
   writeFileSync(join(out, 'index.html'), listPage({ title: '制度一覧｜補助金ネット', heading: '制度一覧', lead: `jGrants で募集中の補助金 ${grants.length} 件を、締切の早い順に並べています。`, items: grants, now, canonicalPath: '/grants/index.html' }));
   writeFileSync(join(out, 'deadlines.html'), listPage({ title: '締切が近い補助金｜補助金ネット', heading: '締切が近い補助金', lead: `受付中の補助金 ${soon.length} 件を、締切の早い順に並べています。`, items: soon, now, canonicalPath: '/grants/deadlines.html', extra: `
@@ -277,15 +327,19 @@ export function buildAll({ dir = DATA, out = OUT, sitemap = SITEMAP, now = Date.
         <li><a href="deadlines.ics">締切をカレンダーに追加（ICS）</a></li>
         <li><a href="feed.xml">新着の補助金を RSS で受け取る</a></li>
         <li><a href="prefectures.html">都道府県別に見る</a></li>
+${hubs.map((h) => `        <li><a href="${h.file}">${h.heading}</a></li>`).join('\n')}
       </ul>
     </nav>` }));
+  for (const h of hubs) {
+    writeFileSync(join(out, h.file), listPage({ title: `${h.title}｜補助金ネット`, heading: h.heading, lead: h.lead, items: h.items, now, canonicalPath: `/grants/${h.file}` }));
+  }
   writeFileSync(join(out, 'deadlines.ics'), icsFor(grants, now));
   writeFileSync(join(out, 'feed.xml'), rssFor(grants, now));
   const counts = prefectureCounts(dir);
   writeFileSync(join(out, 'prefectures.html'), prefectureIndex(counts, now));
   for (const pref of PREFECTURES) writeFileSync(join(out, `pref-${PREF_SLUGS[pref]}.html`), prefPage(pref, counts[pref], now));
   if (existsSync(sitemap)) {
-    const urls = ['grants/index.html', 'grants/deadlines.html', 'grants/prefectures.html', ...PREFECTURES.map((p) => `grants/pref-${PREF_SLUGS[p]}.html`), ...grants.map((g) => `grants/${g.id}.html`)];
+    const urls = ['grants/index.html', 'grants/deadlines.html', 'grants/prefectures.html', ...hubs.map((h) => `grants/${h.file}`), ...PREFECTURES.map((p) => `grants/pref-${PREF_SLUGS[p]}.html`), ...grants.map((g) => `grants/${g.id}.html`)];
     writeFileSync(sitemap, sitemapWith(readFileSync(sitemap, 'utf-8'), urls, lastmod));
   }
   return { pages: grants.length };

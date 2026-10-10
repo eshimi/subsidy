@@ -115,15 +115,17 @@ ${prefHtml}
         </ul>
       </div>
       <div class="area-links">
-        <a href="../columns.html#column2">後払いの仕組みを読む →</a>
-        <a href="../columns.html#column4">gBizID の取得を読む →</a>
-        <a href="../columns.html#column5">無料の相談窓口を読む →</a>
+        <a href="../columns/subsidy-paid-after.html">後払いの仕組みを読む →</a>
+        <a href="../columns/gbizid-early.html">gBizID の取得を読む →</a>
+        <a href="../columns/free-consultation.html">無料の相談窓口を読む →</a>
       </div>
     </section>
 
 ${sameArea(city)}
     <p class="area-note">この記事は公開情報をもとにした参考情報です。制度の対象・金額・公募時期は年度や公募回によって変わるため、申請前に必ず各制度の公式情報を確認してください。</p>`;
-  return shell({ title, description, canonicalPath: path, body, jsonLd });
+  // 市の制度が載っていないページは、内容が薄いため、検索の対象から外す（制度を足したら自動で対象になる）
+  const robots = municipal.length ? 'index, follow' : 'noindex, follow';
+  return shell({ title, description, canonicalPath: path, body, jsonLd, robots });
 }
 
 function indexPage() {
@@ -170,8 +172,8 @@ ${list}
 }
 
 function sitemap() {
-  const core = ['', 'guide.html', 'diagnosis.html', 'chat.html', 'beginner-guide.html', 'roadmap.html', 'columns.html', 'real-life.html', 'compare/index.html', 'books.html', 'resources.html', 'sitemap.html', 'area/index.html'];
-  const urls = [...core, ...AREA_CITIES.map((c) => `area/${c.slug}.html`)];
+  const core = ['', 'guide.html', 'diagnosis.html', 'chat.html', 'beginner-guide.html', 'roadmap.html', 'columns.html', 'real-life.html', 'compare/index.html', 'columns/subsidy-vs-grant-vs-loan.html', 'columns/subsidy-paid-after.html', 'columns/how-to-find-subsidy.html', 'columns/gbizid-early.html', 'columns/free-consultation.html', 'guides/secret-side-job.html', 'guides/tax-filing-basics.html', 'guides/first-day-checklist.html', 'guides/work-life-balance.html', 'guides/time-to-first-income.html', 'books.html', 'resources.html', 'policy/about.html', 'policy/sources.html', 'policy/privacy.html', 'sitemap.html', 'area/index.html'];
+  const urls = [...core, ...AREA_CITIES.filter((c) => programsFor(c).municipal.length).map((c) => `area/${c.slug}.html`)];
   const entries = urls.map((u) => `  <url>
     <loc>${SITE}/${u}</loc>
     <lastmod>${LASTMOD}</lastmod>
