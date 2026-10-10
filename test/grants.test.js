@@ -50,6 +50,8 @@ test('buildAll: 制度ページ・一覧・締切一覧を作り、sitemapに追
   const page = readFileSync(join(out, 'b2.html'), 'utf-8');
   assert.match(page, /東京都の制度B/);
   assert.match(page, /rel="canonical" href="https:\/\/hojyokin\.net\/grants\/b2\.html"/);
+  // jGrants のトップではなく、この補助金の詳細ページにリンクする
+  assert.match(page, /href="https:\/\/www\.jgrants-portal\.go\.jp\/subsidy\/b2"/);
   const deadlines = readFileSync(join(out, 'deadlines.html'), 'utf-8');
   assert.ok(deadlines.indexOf('b2.html') < deadlines.indexOf('a1.html'));
   assert.match(readFileSync(sitemap, 'utf-8'), /grants\/b2\.html/);

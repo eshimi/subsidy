@@ -214,7 +214,7 @@ function grantPage(g, now) {
 ${tagHtml(g)}
       </dl>
       <div class="area-links">
-        <a href="${JGRANTS}" target="_blank" rel="noopener">jGrants で公式の情報を見る →</a>
+        <a href="${JGRANTS}subsidy/${encodeURIComponent(g.id)}" target="_blank" rel="noopener">jGrants でこの補助金の詳細を見る →</a>
       </div>
     </section>
 
