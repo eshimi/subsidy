@@ -25,13 +25,13 @@ ${html}
   const src = `        <ul>\n${sources.map(([label, href]) => `          <li><a href="${href}" target="_blank" rel="noopener">${esc(label)}</a></li>`).join('\n')}\n        </ul>`;
   return `${crumb([['index.html', '特集'], [null, kicker]])}
 
+    ${image ? `<div class="pb-banner" style="background-image: url('../images/feature/banner-${image.file}.webp')"><h1 class="pb-title">${esc(title)}</h1></div>` : `<h1 class="display" style="margin-bottom: 0.5rem;">${esc(title)}</h1>`}
     <div style="margin-bottom: 2rem;">
       <p class="label" style="margin-bottom: 0.5rem;">特集</p>
-      <h1 class="display" style="margin-bottom: 0.5rem;">${esc(title)}</h1>
       <p class="lead" style="margin-bottom: 0;">${esc(lead)}</p>
     </div>
 
-${image ? `    <figure class="feature-hero"><img src="../images/feature/${image.file}.webp" alt="${esc(image.alt)}" width="1200" height="${image.h}"></figure>\n` : ''}${body}
+${body}
 
     <article class="area-section" aria-labelledby="sources">
       <span class="area-num">確認</span>
@@ -337,13 +337,11 @@ const SOURCES = [
 
 const article = `${crumb([['index.html', '特集'], [null, 'デジタル補助金とは？']])}
 
+    <div class="pb-banner" style="background-image: url('../images/feature/banner-digital.webp')"><h1 class="pb-title">デジタル補助金とは？対象ツール・申請の流れ・失敗しない準備まで</h1></div>
     <div style="margin-bottom: 2rem;">
       <p class="label" style="margin-bottom: 0.5rem;">特集</p>
-      <h1 class="display" style="margin-bottom: 0.5rem;">デジタル補助金とは？対象ツール・申請の流れ・失敗しない準備まで</h1>
       <p class="lead" style="margin-bottom: 0;">ITツールやAIの導入に使える補助金の全体像を、対象・申請の流れ・よくある失敗の順に整理しました。</p>
     </div>
-
-    <figure class="feature-hero"><img src="../images/feature/digital.webp" alt="デジタル補助金のタイトル画像" width="1200" height="132"></figure>
 
     <article class="area-section" aria-labelledby="s0">
       <span class="area-num">00</span>
@@ -514,8 +512,9 @@ const featureStyle = `
     .table-wrap { overflow-x: auto; }
     .glossary dt { font-weight: 700; margin-top: 12px; }
     .glossary dd { margin: 4px 0 0; }
-    .feature-hero { margin: 0 0 32px; }
-    .feature-hero img { display: block; width: 100%; height: auto; }
+    .pb-banner { position: relative; width: 100%; aspect-ratio: 6 / 1; min-height: 150px; border-radius: 6px; overflow: hidden; margin: 0 0 24px; background: #f6f0e4 center / cover no-repeat; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 24px rgba(20, 40, 60, 0.12); }
+    .pb-title { margin: 0; width: fit-content; max-width: 70%; background: rgba(252, 249, 243, 0.72); padding: 0.45em 0.9em; border-radius: 6px; box-shadow: 0 2px 12px rgba(20, 40, 60, 0.08); text-align: center; font-weight: 900; font-size: clamp(1.25rem, 2.8vw, 2.1rem); line-height: 1.35; letter-spacing: -0.02em; color: #14213d; text-wrap: balance; }
+    @media (max-width: 760px) { .pb-title { max-width: 86%; } }
     .feature-card { display: block; padding: 20px 0; border-top: 1px solid #e0e0e0; text-decoration: none; }
     .feature-card h2 { font-size: 1.2rem; margin: 0 0 6px; }
     .feature-card p { margin: 0; color: var(--mute); }
