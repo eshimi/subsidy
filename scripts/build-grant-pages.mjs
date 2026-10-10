@@ -82,7 +82,7 @@ ${items}
 `;
 }
 
-const tile = (href, title, count) => `        <li><a href="${href}"><span class="pref-name">${esc(title)}</span><span class="pref-count">${count}件</span></a></li>`;
+const tile = (href, title, count, icon) => `        <li><a href="${href}"><img src="../images/prefectures/pref-${icon}.webp" alt="" width="44" height="36" loading="lazy"><span class="pref-name">${esc(title)}</span><span class="pref-count">${count}件</span></a></li>`;
 
 // 都道府県別の一覧（タイル）と、都道府県ごとの制度ページ
 export function prefectureCounts(dir = DATA) {
@@ -100,7 +100,7 @@ function prefPage(pref, list, now) {
   const body = `${crumb([['../', '補助金ネット'], ['prefectures.html', '都道府県別'], [null, pref]])}
 
     <div style="margin-bottom: 2rem;">
-      <h1 class="display" style="margin-bottom: 0.5rem;">${esc(pref)}の補助金</h1>
+      <h1 class="display" style="margin-bottom: 0.5rem;">${esc(pref)}の補助金<img class="area-title-img" src="../images/prefectures/pref-${slug}.webp" alt="" height="72"></h1>
       <p class="lead" style="margin-bottom: 0;">${esc(pref)}を対象にした、募集中の補助金 ${open.length} 件です。締切の早い順に並べています。</p>
     </div>
 
@@ -126,7 +126,7 @@ ${lis || '        <li>現在、募集中の制度はありません。</li>'}
 function prefectureIndex(counts, now) {
   const tiles = PREFECTURES.map((pref) => {
     const n = counts[pref].filter((g) => statusOf(g.end, now).key !== 'closed').length;
-    return tile(`pref-${PREF_SLUGS[pref]}.html`, pref, n);
+    return tile(`pref-${PREF_SLUGS[pref]}.html`, pref, n, PREF_SLUGS[pref]);
   }).join('\n');
   const body = `${crumb([['../', '補助金ネット'], [null, '都道府県別の補助金']])}
 
@@ -155,7 +155,9 @@ const STYLE_EXTRA = `
     .grant-list a:hover { text-decoration: underline; }
     .grant-meta { font-size: 0.85rem; color: var(--mute); margin: 4px 0 0; }
     .pref-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
-    .pref-grid a { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; border: 1px solid #e0e0e0; border-radius: 8px; padding: 12px 14px; text-decoration: none; color: var(--ink); background: #fff; }
+    .pref-grid img { width: 44px; height: auto; flex-shrink: 0; }
+    .pref-grid .pref-name { flex: 1; }
+    .pref-grid a { display: flex; justify-content: space-between; align-items: center; gap: 8px; border: 1px solid #e0e0e0; border-radius: 8px; padding: 12px 14px; text-decoration: none; color: var(--ink); background: #fff; }
     .pref-grid a:hover { border-color: var(--accent); }
     .pref-count { font-family: var(--font-mono); font-size: 0.8rem; color: var(--mute); }`;
 
