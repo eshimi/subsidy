@@ -60,7 +60,7 @@ html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
 body {
   margin: 0;
-  padding-top: 68px;
+  padding-top: 60px;
   background: linear-gradient(180deg, #a8c0ce 0%, #f9f9f7 50%);
   color: var(--ink);
   font-family: var(--font-body);
@@ -86,7 +86,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 
 /* ── ヘッダー ── */
 .topbar { border-bottom: 1px solid var(--line); position: fixed; top: env(safe-area-inset-top, 0px); left: 0; right: 0; z-index: 999; background: var(--topbar); }
-.topbar-inner { display: flex; align-items: center; gap: 24px; min-height: 68px; }
+.topbar-inner { display: flex; align-items: center; gap: 24px; min-height: 60px; }
 .wordmark {
   font-family: var(--font-display);
   font-weight: 700;
@@ -98,6 +98,8 @@ button, input, select, textarea { font: inherit; color: inherit; }
   height: 57px;
 }
 .wordmark img {
+  /* 画像の下側の透明な余白が少ないため、見た目の中心が下にずれる分を上に戻す */
+  transform: translateY(-2.4px);
   height: 57px;
   width: auto;
   max-width: none;
@@ -121,7 +123,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .nav-toggle { display: none; margin-left: auto; border: 1px solid var(--line); background: transparent; color: inherit; padding: 6px 12px; font-size: 0.85rem; cursor: pointer; }
 @media (max-width: 760px) {
   .nav-toggle { display: inline-block; }
-  .topnav { display: none; position: absolute; top: 68px; left: 0; right: 0; flex-direction: column; gap: 0; margin: 0; padding: 4px var(--gutter) 16px; background: var(--topbar); border-bottom: 1px solid var(--line); }
+  .topnav { display: none; position: absolute; top: 60px; left: 0; right: 0; flex-direction: column; gap: 0; margin: 0; padding: 4px var(--gutter) 16px; background: var(--topbar); border-bottom: 1px solid var(--line); }
   .topnav.is-open { display: flex; }
   .topnav > a, .topnav .navdrop > summary { padding: 12px 0; border-bottom: 1px solid var(--line-soft); }
   .navdrop-panel { position: static; border: 0; background: none; padding: 0 0 0 16px; min-width: 0; }
