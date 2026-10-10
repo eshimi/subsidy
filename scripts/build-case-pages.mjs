@@ -31,6 +31,17 @@ const CASE_STYLE = `
       .cs-illust { margin: 0; }
       .cs-illust img { display: block; width: 100%; height: auto; max-height: 174px; object-fit: cover; border-radius: 10px; box-shadow: 0 4px 12px rgba(29, 42, 58, 0.1); }
       .cs-illust p { margin: 3px 0 0; font-size: 0.68rem; color: var(--mute); text-align: right; }
+      .cs-article { background: #fff; border: 1px solid #e3e8ec; border-radius: 16px; padding: 30px 36px 26px; box-shadow: 0 4px 18px rgba(29, 42, 58, 0.05); line-height: 1.9; }
+      .cs-article .cs-lead { font-size: 1.05rem; margin: 0 0 4px; }
+      .cs-article h2 { display: flex; align-items: center; gap: 10px; margin: 2.2rem 0 0.8rem; font-size: 1.25rem; }
+      .cs-article h2::before { content: ""; width: 5px; height: 1.2em; border-radius: 3px; background: #1565d8; flex-shrink: 0; }
+      .cs-article ul { margin: 0 0 1rem; padding-left: 1.3em; }
+      .cs-article li { margin-bottom: 0.4rem; }
+      .cs-article p { margin: 0 0 1rem; }
+      .cs-article .cs-source { margin-top: 2.4rem; padding-top: 1.2rem; border-top: 1px dashed #d6dde3; font-size: 0.9rem; }
+      .cs-article .cs-source h2 { margin-top: 0; font-size: 1.05rem; }
+      .cs-article .cs-updated { font-size: 0.82rem; color: var(--mute); margin: 0; }
+      @media (max-width: 640px) { .cs-article { padding: 20px 16px; } .cs-article h2 { font-size: 1.12rem; } }
       .cs-card { display: grid; grid-template-columns: 96px 1fr; gap: 16px; align-items: center; }
       .cs-card img { width: 96px; height: 120px; object-fit: cover; border-radius: 10px; }
       @media (max-width: 640px) { .cs-top { grid-template-columns: 1fr 96px; gap: 12px; padding: 12px 14px; } .cs-facts { grid-template-columns: 1fr; gap: 2px; } .cs-facts dd { margin-bottom: 6px; } .cs-illust img { max-height: 130px; } .cs-card { grid-template-columns: 72px 1fr; } .cs-card img { width: 72px; height: 90px; } }
@@ -59,6 +70,36 @@ function sectionsOf(c) {
   return out;
 }
 
+const crumbOf = (c) => `    <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">補助金の活用事例</a> ＞ ${esc(SUBSIDIES[c.subsidy].short)}</nav>`;
+
+// 1本の記事として、見出しごとに区切らず1つの枠にまとめる
+function caseBody(c, i, related) {
+  const sections = sectionsOf(c).map(([h, html]) => `      <h2>${esc(h)}</h2>\n${html}`).join('\n');
+  return `${crumbOf(c)}
+
+    <div class="pb-banner" style="background-image: url('../images/banner/${bannerFor(`cases/${c.slug}.html`)}.webp')"><h1 class="pb-title">${esc(c.title)}</h1></div>
+    <p class="label" style="margin-bottom: 1rem;">補助金の活用事例</p>
+
+    <article class="cs-article">
+      <p class="cs-lead">${esc(c.summary)}</p>
+${factBox(c, i)}
+${sections}
+      <div class="cs-source">
+        <h2>出典</h2>
+        <p>このページは、次の公開情報を加工して作成しました（${esc(LICENSES[c.source.license])}に基づく利用）。要約・再構成は当サイトによるもので、国や出典の発行元が作成したものではありません。数字や内容は出典の記載にもとづく当時の情報です。くわしくは出典をご覧ください。</p>
+        <ul><li><a href="${c.source.url}" target="_blank" rel="noopener">${esc(c.source.title)}</a>（${esc(c.source.publisher)}）</li></ul>
+        <p class="cs-updated">最終更新日：${UPDATED}</p>
+      </div>
+    </article>
+
+    <nav class="related-links" aria-label="関連ページ">
+      <h2>関連ページ</h2>
+      <ul>
+${related.map(([href, label]) => `        <li><a href="${href}">${esc(label)}</a></li>`).join('\n')}
+      </ul>
+    </nav>`;
+}
+
 function build() {
   mkdirSync(OUT, { recursive: true });
   for (const f of readdirSync(OUT)) if (f.endsWith('.html')) rmSync(join(OUT, f));
@@ -78,14 +119,7 @@ function build() {
     writeArticle(OUT, 'cases', `${c.slug}.html`, {
       title: c.title,
       description: c.summary,
-      body: articleBody({
-        section: ['index.html', '補助金の活用事例'], kicker: s.short, title: c.title, lead: c.summary,
-        sections: sectionsOf(c), related, banner: bannerFor(`cases/${c.slug}.html`), updated: UPDATED,
-        afterLead: factBox(c, i),
-        sources: [[c.source.title, c.source.url, c.source.publisher]],
-        sourcesHeading: '出典',
-        sourcesIntro: `このページは、次の公開情報を加工して作成しました（${esc(LICENSES[c.source.license])}に基づく利用）。要約・再構成は当サイトによるもので、国や出典の発行元が作成したものではありません。数字や内容は出典の記載にもとづく当時の情報です。くわしくは出典をご覧ください。`,
-      }),
+      body: caseBody(c, i, related),
     });
   });
 
