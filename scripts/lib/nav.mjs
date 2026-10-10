@@ -27,6 +27,7 @@ export const TOP_GROUPS = [
   {
     label: 'お役立ち情報',
     items: [
+      { label: '特集', href: 'feature/index.html' },
       { label: 'コラム', href: 'columns.html' },
       { label: '比較記事', href: 'compare/index.html' },
       { label: '補助金のリアル', href: 'real-life.html' },
@@ -67,6 +68,7 @@ export const FOOTER_GROUPS = [
   {
     label: 'お役立ち情報',
     items: [
+      { label: '特集', href: 'feature/index.html' },
       { label: 'コラム', href: 'columns.html' },
       { label: '比較記事', href: 'compare/index.html' },
       { label: '補助金のリアル', href: 'real-life.html' },
