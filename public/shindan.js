@@ -48,7 +48,7 @@
       if (industry) q.set('industry', industry);
       html += `<p><strong>1. 募集中の補助金を見る</strong></p><p><a class="d-go" href="search.html?${q}">条件に合う募集中の補助金を探す →</a></p>`;
       html += `<p><strong>2. 読んでおきたい解説</strong></p><ul>${(GUIDES[purpose] || []).map(link).join('')}${link(WHO[who])}${link(['basics/flow.html', '補助金の申請の流れ'])}</ul>`;
-      html += `<p><strong>3. 文章で相談しながら探す</strong></p><p><a href="ai.html">AIに相談して探す</a>（やりたい事業と郵便番号から、国・都道府県・市区町村の制度を提案）</p>`;
+      html += `<p><strong>3. 文章で相談しながら探す</strong></p><p><a href="search.html#ai-search">AI・キーワードで探す</a>（やりたい事業と郵便番号から、国・都道府県・市区町村の制度を提案）</p>`;
     }
     out.innerHTML = html;
     out.hidden = false;

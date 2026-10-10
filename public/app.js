@@ -1,4 +1,3 @@
-import './intro.js';
 import { buildIcs, googleCalendarUrl, toJstDate } from './calendar.js';
 
 const $ = (sel) => document.querySelector(sel);
@@ -326,7 +325,7 @@ async function lookupZip(zip) {
 // ── 共有用URL（検索条件をクエリパラメータに入れる） ──
 function payloadToParams(p) {
   const params = new URLSearchParams();
-  params.set('q', p.description);
+  params.set('desc', p.description);
   params.set('zip', p.zip);
   if (p.stage) params.set('stage', p.stage);
   if (p.city) params.set('city', p.city);
@@ -336,8 +335,9 @@ function payloadToParams(p) {
 
 function restoreFromUrl() {
   const params = new URLSearchParams(location.search);
-  if (!params.get('q') || !params.get('zip')) return false;
-  $('#description').value = params.get('q');
+  const desc = params.get('desc') || params.get('q');
+  if (!desc || !params.get('zip')) return false;
+  $('#description').value = desc;
   zipInput.value = params.get('zip');
   if (normalizeZip(zipInput.value).length === 7) lookupZip(normalizeZip(zipInput.value));
   $('#stage').value = params.get('stage') ?? '';
@@ -395,7 +395,8 @@ form.addEventListener('submit', async (ev) => {
     activeDeadline = 'all';
     history.replaceState(null, '', `?${payloadToParams(payload)}`);
     render();
-    $('#testimonials').hidden = true;
+    const testimonials = $('#testimonials');
+    if (testimonials) testimonials.hidden = true;
     $('#results').hidden = false;
     $('#results').scrollIntoView({ behavior: 'smooth', block: 'start' });
   } catch (e) {
@@ -667,7 +668,8 @@ async function showLiveTotal() {
     if (!res.ok) return;
     const index = await res.json();
     if (index.available && index.total) {
-      $('#fact-live').innerHTML = `${index.total.toLocaleString('ja-JP')}<small>件</small>`;
+      const factLive = $('#fact-live');
+      if (factLive) factLive.innerHTML = `${index.total.toLocaleString('ja-JP')}<small>件</small>`;
     }
   } catch {
     // データが無い環境では「jGrants 連携」の表示のまま

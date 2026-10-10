@@ -318,7 +318,7 @@ const WHO = [
     title: '創業・副業を始める方の補助金と支援',
     lead: 'これから事業を始める人が使える支援を、補助金・融資・相談窓口・手続きの面から整理しました。副業のガイドや、AIへの相談もここから使えます。',
     summary: '創業者向けの補助金、創業融資、相談窓口、副業のガイドなど、事業を始める人のための入口です。',
-    related: [['../roadmap.html', '創業のステップ'], ['../beginner-guide.html', '初心者向けガイド（副業）'], ['../ai.html', 'AIに相談して探す'], ['../chat.html', '副業壁打ちAI']],
+    related: [['../roadmap.html', '創業のステップ'], ['../beginner-guide.html', '初心者向けガイド（副業）'], ['../search.html', 'AI・キーワードで探す'], ['../chat.html', '副業壁打ちAI']],
     sources: [OFFICIAL.jfc, OFFICIAL.mirasapo, OFFICIAL.chusho],
     sections: [
       ['創業者が検討できる主な支援', [
@@ -335,7 +335,7 @@ const WHO = [
           '<a href="../beginner-guide.html">初心者向けガイド</a>：副業を始めるときの基礎知識（5本）',
           '<a href="../diagnosis.html">今日からできること診断</a>：始めやすい副業の提案',
           '<a href="../chat.html">副業壁打ちAI</a>：アイデアを一緒に考える',
-          '<a href="../ai.html">AIに相談して探す</a>：やりたい事業から補助金を探す',
+          '<a href="../search.html">AI・キーワードで探す</a>：やりたい事業を文章で入れて補助金を探す',
           '<a href="../compare/virtual-office.html">バーチャルオフィスの選び方</a>：自宅の住所を出さずに始める',
         ]),
       ].join('\n')],
