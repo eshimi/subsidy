@@ -1,12 +1,9 @@
-// AI補助金判定：選択式の質問 → 候補の判定（ルール）＋AIのひと言 → 無料相談フォーム
+// AI補助金判定：選択式の質問 → 候補の判定（ルール）＋AIのひと言 → 無料相談ページ（consult.html）へ
 (function () {
   const log = document.getElementById('hj-log');
   const choicesEl = document.getElementById('hj-choices');
   const result = document.getElementById('hj-result');
-  const form = document.getElementById('hj-form');
-  const summary = document.getElementById('hj-summary');
-  const status = document.getElementById('hj-status');
-  if (!log || !form) return;
+  if (!log) return;
 
   const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
   // 質問の順番（選択肢はサーバーの検証 src/consult.js と同じ）
@@ -102,8 +99,7 @@
       ${notes.length ? `<ul class="hj-notes">${notes.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}
       <div class="hj-ai" id="hj-ai">AIのひと言を準備しています…</div>
       <p><a href="${industryLink}">${esc(answers.industry)}に関係しそうな、募集中の補助金を見る →</a></p>
-      <p><button type="button" class="hj-cta" id="hj-open">専門家に無料で相談する →</button></p>`;
-    document.getElementById('hj-open').addEventListener('click', openForm);
+      <p><a class="hj-cta" href="consult.html?${new URLSearchParams({ ...answers, c: names.join('|') })}">専門家に無料で相談する →</a></p>`;
     say('判定が終わりました。下に結果を表示しています。詳しく知りたい場合は、専門家への無料相談もご利用ください。');
     try {
       const res = await fetch('/api/judge', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ ...answers, candidates: names }) });
@@ -114,38 +110,7 @@
     } catch {
       document.getElementById('hj-ai')?.remove();
     }
-    form.dataset.candidates = JSON.stringify(names);
   }
-
-  function openForm() {
-    summary.innerHTML = QUESTIONS.map((q) => `${esc(q.label)}：${esc(answers[q.key])}`).join('<br>');
-    form.hidden = false;
-    form.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const f = new FormData(form);
-    const body = { ...answers, company: f.get('company'), name: f.get('name'), phone: f.get('phone'), email: f.get('email'), note: f.get('note'), website: f.get('website'), consent: f.get('consent') === 'on', candidates: JSON.parse(form.dataset.candidates || '[]') };
-    if (!body.consent) { status.className = 'hj-status err'; status.textContent = '個人情報の取り扱いへの同意が必要です。'; return; }
-    const btn = form.querySelector('button[type="submit"]');
-    btn.disabled = true;
-    status.className = 'hj-status';
-    status.textContent = '送信しています…';
-    try {
-      const res = await fetch('/api/consult', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) });
-      const json = await res.json().catch(() => ({}));
-      if (!res.ok) throw new Error(json.error || '送信できませんでした。');
-      form.reset();
-      status.className = 'hj-status ok';
-      status.textContent = 'お申し込みを受け付けました。担当者からご連絡します。ありがとうございました。';
-    } catch (err) {
-      status.className = 'hj-status err';
-      status.textContent = err.message;
-    } finally {
-      btn.disabled = false;
-    }
-  });
 
   ask();
 })();

@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>補助金診断｜補助金ネット</title>
-  <meta name="description" content="4つの質問に答えるだけで、使えそうな補助金の探し方と、読んでおきたい解説を案内します。">
+  <title>無料相談のお申し込み｜補助金ネット</title>
+  <meta name="description" content="補助金・助成金に詳しい専門家（提携先）への無料相談のお申し込みフォームです。">
   <meta name="robots" content="index, follow">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -66,17 +66,17 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-180.png">
-  <link rel="canonical" href="https://hojyokin.net/shindan.html">
+  <link rel="canonical" href="https://hojyokin.net/consult.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="補助金ネット">
-  <meta property="og:title" content="補助金診断｜補助金ネット">
-  <meta property="og:description" content="4つの質問に答えるだけで、使えそうな補助金の探し方と、読んでおきたい解説を案内します。">
-  <meta property="og:url" content="https://hojyokin.net/shindan.html">
+  <meta property="og:title" content="無料相談のお申し込み｜補助金ネット">
+  <meta property="og:description" content="補助金・助成金に詳しい専門家（提携先）への無料相談のお申し込みフォームです。">
+  <meta property="og:url" content="https://hojyokin.net/consult.html">
   <meta property="og:image" content="https://hojyokin.net/images/og-image.png">
   <meta property="og:locale" content="ja_JP">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="補助金診断｜補助金ネット">
-  <meta name="twitter:description" content="4つの質問に答えるだけで、使えそうな補助金の探し方と、読んでおきたい解説を案内します。">
+  <meta name="twitter:title" content="無料相談のお申し込み｜補助金ネット">
+  <meta name="twitter:description" content="補助金・助成金に詳しい専門家（提携先）への無料相談のお申し込みフォームです。">
   <meta name="twitter:image" content="https://hojyokin.net/images/og-image.png">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-J5DWZQLCB0"></script>
@@ -86,13 +86,32 @@
     gtag('js', new Date());
     gtag('config', 'G-J5DWZQLCB0');
   </script>
+  <style>
+    .cs-form { background: #fff; border: 1px solid #e3e8ec; border-radius: 10px; padding: 22px 24px; display: grid; gap: 14px; max-width: 46em; }
+    .cs-form h2 { margin: 8px 0 0; font-size: 1.1rem; }
+    .cs-form label.f { display: block; font-weight: 600; font-size: 0.95rem; }
+    .cs-form label.f > select, .cs-form label.f > input, .cs-form label.f > textarea { display: block; margin-top: 6px; }
+    .cs-form .cs-badge { display: inline-block; width: auto; border: 0; margin: 0 0 0 8px; padding: 1px 7px; border-radius: 4px; font-size: 0.72rem; font-weight: 600; line-height: 1.5; vertical-align: 1px; background: #c2410c; color: #fff; }
+    .cs-form .cs-badge.cs-opt { background: #e5e7eb; color: #4b5563; }
+    .cs-form input[type="text"], .cs-form input[type="tel"], .cs-form input[type="email"], .cs-form textarea, .cs-form select { width: 100%; padding: 12px 14px; border: 1px solid #d6dde3; border-radius: 6px; background: #fff; font: inherit; }
+    .cs-form textarea { min-height: 120px; resize: vertical; }
+    .cs-cands { background: #f6f9fc; border-radius: 8px; padding: 12px 14px; font-size: 0.92rem; line-height: 1.8; }
+    .cs-consent { display: flex; gap: 8px; align-items: flex-start; font-size: 0.92rem; }
+    .cs-consent input { width: auto; margin-top: 6px; }
+    .cs-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+    .cs-submit { justify-self: start; background: #c2410c; color: #fff; padding: 14px 28px; border-radius: 6px; font-weight: 700; border: 0; cursor: pointer; font-size: 1rem; }
+    .cs-status { margin: 0; min-height: 1.5em; }
+    .cs-status.ok { color: #1a7f4b; font-weight: 700; }
+    .cs-status.err { color: var(--alert); }
+    .cs-done { background: #fff; border: 1px solid #e3e8ec; border-radius: 10px; padding: 22px 24px; max-width: 46em; }
+  </style>
 </head>
 <body>
   <header class="topbar">
     <div class="wrap topbar-inner">
       <a class="wordmark" href="./" aria-label="補助金ネット トップ"><img src="images/logo-header-v5.webp" alt="補助金ネット"></a>
       <nav class="topnav" id="topnav" aria-label="サイト内">
-        <details class="navdrop" data-current>
+        <details class="navdrop">
           <summary>補助金を探す</summary>
           <div class="navdrop-panel">
             <a href="search.html">キーワード・地域で探す</a>
@@ -103,7 +122,7 @@
             <a href="area/index.html">市区町村別の補助金</a>
             <a href="ai.html">AIに相談して探す</a>
             <a href="hantei.html">AI補助金判定・無料相談</a>
-            <a href="shindan.html" aria-current="page">補助金診断</a>
+            <a href="shindan.html">補助金診断</a>
           </div>
         </details>
         <details class="navdrop">
@@ -142,47 +161,40 @@
   </header>
 
   <main class="wrap">
-    <nav class="area-crumb" aria-label="パンくず"><a href="./">補助金ネット</a> ＞ 補助金診断</nav>
-    <div class="pb-banner" style="background-image: url('images/banner/b03.webp')"><h1 class="pb-title">補助金診断</h1></div>
+    <nav class="area-crumb" aria-label="パンくず"><a href="./">補助金ネット</a> ＞ <a href="hantei.html">AI補助金判定</a> ＞ 無料相談のお申し込み</nav>
+    <div class="pb-banner" style="background-image: url('images/banner/b02.webp')"><h1 class="pb-title">無料相談のお申し込み</h1></div>
     <div style="margin-bottom: 1.5rem;">
-      <p class="lead" style="margin-bottom: 0;">4つの質問に答えると、使えそうな補助金の探し方と、読んでおきたい解説を案内します。</p>
+      <p class="lead" style="margin-bottom: 0;">補助金・助成金に詳しい専門家（提携先）から、ご連絡します。相談は無料です。</p>
     </div>
 
-    <form id="d-form" class="d-form">
-      <fieldset class="d-q"><legend>1. あなたは？</legend>
-        <label><input type="radio" name="who" value="sme" checked> 会社（中小企業）</label>
-        <label><input type="radio" name="who" value="sole"> 個人事業主</label>
-        <label><input type="radio" name="who" value="startup"> これから創業・副業</label>
-        <label><input type="radio" name="who" value="personal"> 個人（住まい・車・子育てなど）</label>
-      </fieldset>
-      <fieldset class="d-q" id="d-purpose-biz"><legend>2. やりたいことは？</legend>
-        <label><input type="radio" name="purpose" value="sales" checked> お客さんを増やしたい（チラシ・ホームページ・店舗）</label>
-        <label><input type="radio" name="purpose" value="digital"> 業務をデジタル化したい（会計・予約・POS）</label>
-        <label><input type="radio" name="purpose" value="equipment"> 新しい製品・事業のために設備を入れたい</label>
-        <label><input type="radio" name="purpose" value="hiring"> 人手不足を減らしたい・人を雇いたい・育てたい</label>
-        <label><input type="radio" name="purpose" value="green"> 省エネ設備を入れたい</label>
-        <label><input type="radio" name="purpose" value="succession"> 事業を引き継ぎたい・引き継いでほしい</label>
-        <label><input type="radio" name="purpose" value="startup"> 事業を始めたい</label>
-      </fieldset>
-      <fieldset class="d-q" id="d-purpose-personal" hidden><legend>2. 何に使いたい？</legend>
-        <label><input type="radio" name="ppurpose" value="housing" checked> 住まいの省エネ・リフォーム</label>
-        <label><input type="radio" name="ppurpose" value="ev"> 電気自動車・充電設備</label>
-        <label><input type="radio" name="ppurpose" value="kids"> 子育て</label>
-        <label><input type="radio" name="ppurpose" value="learning"> 学び直し・資格</label>
-        <label><input type="radio" name="ppurpose" value="relocation"> 地方への移住</label>
-      </fieldset>
-      <fieldset class="d-q"><legend>3. 地域は？</legend>
-        <select name="pref"><option value="">決めていない・全国</option><option value="北海道">北海道</option><option value="青森県">青森県</option><option value="岩手県">岩手県</option><option value="宮城県">宮城県</option><option value="秋田県">秋田県</option><option value="山形県">山形県</option><option value="福島県">福島県</option><option value="茨城県">茨城県</option><option value="栃木県">栃木県</option><option value="群馬県">群馬県</option><option value="埼玉県">埼玉県</option><option value="千葉県">千葉県</option><option value="東京都">東京都</option><option value="神奈川県">神奈川県</option><option value="新潟県">新潟県</option><option value="富山県">富山県</option><option value="石川県">石川県</option><option value="福井県">福井県</option><option value="山梨県">山梨県</option><option value="長野県">長野県</option><option value="岐阜県">岐阜県</option><option value="静岡県">静岡県</option><option value="愛知県">愛知県</option><option value="三重県">三重県</option><option value="滋賀県">滋賀県</option><option value="京都府">京都府</option><option value="大阪府">大阪府</option><option value="兵庫県">兵庫県</option><option value="奈良県">奈良県</option><option value="和歌山県">和歌山県</option><option value="鳥取県">鳥取県</option><option value="島根県">島根県</option><option value="岡山県">岡山県</option><option value="広島県">広島県</option><option value="山口県">山口県</option><option value="徳島県">徳島県</option><option value="香川県">香川県</option><option value="愛媛県">愛媛県</option><option value="高知県">高知県</option><option value="福岡県">福岡県</option><option value="佐賀県">佐賀県</option><option value="長崎県">長崎県</option><option value="熊本県">熊本県</option><option value="大分県">大分県</option><option value="宮崎県">宮崎県</option><option value="鹿児島県">鹿児島県</option><option value="沖縄県">沖縄県</option></select>
-      </fieldset>
-      <fieldset class="d-q" id="d-industry"><legend>4. 業種は？（任意）</legend>
-        <select name="industry"><option value="">指定しない</option><option value="food">飲食業</option><option value="retail">小売業・商店街</option><option value="beauty">美容・理容・サロン</option><option value="construction">建設業・住宅</option><option value="manufacturing">製造業</option><option value="it">IT・情報通信</option><option value="tourism">宿泊・観光</option><option value="agriculture">農林水産業</option><option value="care">医療・介護・保育</option></select>
-      </fieldset>
-      <button type="submit" class="d-submit">結果を見る</button>
+    <form class="cs-form" id="cs-form" novalidate>
+      <div class="cs-cands" id="cs-cands" hidden></div>
+      <h2>ご相談の内容</h2>
+      <label class="f">業種<small class="cs-badge">必須</small><select name="industry" required><option value="">選択してください</option><option value="飲食業">飲食業</option><option value="小売業">小売業</option><option value="美容・サロン">美容・サロン</option><option value="建設業">建設業</option><option value="製造業">製造業</option><option value="IT・情報通信">IT・情報通信</option><option value="宿泊・観光">宿泊・観光</option><option value="農林水産業">農林水産業</option><option value="医療・介護・保育">医療・介護・保育</option><option value="その他">その他</option></select></label>
+      <label class="f">従業員数<small class="cs-badge">必須</small><select name="employees" required><option value="">選択してください</option><option value="0人（自分だけ）">0人（自分だけ）</option><option value="1〜5人">1〜5人</option><option value="6〜20人">6〜20人</option><option value="21〜50人">21〜50人</option><option value="51〜100人">51〜100人</option><option value="101〜300人">101〜300人</option><option value="301人以上">301人以上</option></select></label>
+      <label class="f">雇用保険の加入<small class="cs-badge">必須</small><select name="koyou" required><option value="">選択してください</option><option value="加入している">加入している</option><option value="加入していない">加入していない</option><option value="わからない">わからない</option></select></label>
+      <label class="f">社会保険の加入<small class="cs-badge">必須</small><select name="shakai" required><option value="">選択してください</option><option value="加入している">加入している</option><option value="加入していない">加入していない</option><option value="わからない">わからない</option></select></label>
+      <label class="f">ご相談内容<small class="cs-badge">必須</small><select name="topic" required><option value="">選択してください</option><option value="設備投資・機械の導入">設備投資・機械の導入</option><option value="IT・デジタル化">IT・デジタル化</option><option value="販路開拓・集客">販路開拓・集客</option><option value="人材の採用・育成・賃上げ">人材の採用・育成・賃上げ</option><option value="正社員化・待遇の改善">正社員化・待遇の改善</option><option value="省力化・人手不足">省力化・人手不足</option><option value="事業承継・M&A">事業承継・M&A</option><option value="創業・新規事業">創業・新規事業</option><option value="海外展開・輸出">海外展開・輸出</option><option value="その他">その他</option></select></label>
+      <label class="f">時期<small class="cs-badge">必須</small><select name="timing" required><option value="">選択してください</option><option value="すぐに">すぐに</option><option value="3か月以内">3か月以内</option><option value="半年以内">半年以内</option><option value="まだ決めていない">まだ決めていない</option></select></label>
+      <h2>ご連絡先</h2>
+      <label class="f">会社名・屋号<small class="cs-badge">必須</small><input type="text" name="company" maxlength="100" placeholder="株式会社〇〇" autocomplete="organization" required></label>
+      <label class="f">お名前<small class="cs-badge">必須</small><input type="text" name="name" maxlength="60" placeholder="山田 太郎" autocomplete="name" required></label>
+      <label class="f">電話番号<small class="cs-badge">必須</small><input type="tel" name="phone" maxlength="20" placeholder="0312345678" autocomplete="tel" required></label>
+      <label class="f">メールアドレス<small class="cs-badge cs-opt">任意</small><input type="email" name="email" maxlength="200" placeholder="info@example.co.jp" autocomplete="email"></label>
+      <label class="f">その他ご記入事項<small class="cs-badge cs-opt">任意</small><textarea name="note" maxlength="2000" placeholder="相談したいこと、導入したい設備など"></textarea></label>
+      <div class="cs-hp" aria-hidden="true"><label>この欄は空のままにしてください<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+      <label class="cs-consent"><input type="checkbox" name="consent" required> <span><a href="policy/privacy.html" target="_blank">個人情報の取り扱い</a>に同意します（ご入力内容は、無料相談のため業務提携先へ提供する場合があります）</span></label>
+      <button type="submit" class="cs-submit">無料で相談する</button>
+      <p class="cs-status" id="cs-status" role="status" aria-live="polite"></p>
     </form>
 
-    <section id="d-result" class="d-result" hidden aria-live="polite"></section>
+    <div class="cs-done" id="cs-done" hidden>
+      <h2 style="margin-top:0;">お申し込みを受け付けました</h2>
+      <p>担当者から、ご入力の電話番号（またはメールアドレス）にご連絡します。お時間をいただく場合があります。</p>
+      <p><a href="./">トップページへ戻る</a>　<a href="search.html">募集中の補助金を探す</a></p>
+    </div>
 
-    <p class="area-note">この診断は、探し始めるための目安です。実際に使えるかどうかは、各制度の公募要領で確認してください。</p>
+    <p class="area-note">ご相談の内容によっては、ご希望に添えない場合があります。補助金・助成金の採択や受給を保証するものではありません。</p>
   </main>
 
   <footer class="footer">
@@ -211,7 +223,7 @@
             <li><a href="area/index.html">市区町村別の補助金</a></li>
             <li><a href="ai.html">AIに相談して探す</a></li>
             <li><a href="hantei.html">AI補助金判定・無料相談</a></li>
-            <li><a href="shindan.html" aria-current="page">補助金診断</a></li>
+            <li><a href="shindan.html">補助金診断</a></li>
             </ul>
           </details>
           <details class="footer-group">
@@ -268,6 +280,6 @@
     </div>
   </footer>
   <script src="site.js"></script>
-  <script src="shindan.js"></script>
+  <script src="consult.js"></script>
 </body>
 </html>
