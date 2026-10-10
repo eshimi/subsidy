@@ -11,10 +11,10 @@ export function bannerFor(path) {
   return BANNER_FILES[h % BANNER_COUNT];
 }
 
-// 対象外のページ：ツール画面・一覧の表・生成された制度の一覧（データの表示が主のため）
-const SKIP = ['index.html', 'diagnosis.html', 'chat.html', 'sitemap.html', 'ai.html', 'search.html', 'shindan.html'];
+// 対象外のページ：トップ・AI検索（独自のヒーローがある）、ツール画面、サイトマップ。特集は記事ごとに番号を指定済み
+const SKIP = ['index.html', 'diagnosis.html', 'chat.html', 'sitemap.html', 'ai.html'];
 export function bannerEligible(path) {
-  return !SKIP.includes(path) && !path.startsWith('grants/') && !path.startsWith('feature/');
+  return !SKIP.includes(path) && !path.startsWith('feature/');
 }
 
 // 見出し（h1）を、バナーの中の見出しに置き換える。prefix は public/ までの相対パス（'' or '../'）
@@ -22,5 +22,5 @@ export function applyBanner(html, path) {
   if (!bannerEligible(path) || html.includes('pb-banner')) return html;
   const prefix = '../'.repeat(path.split('/').length - 1);
   const banner = (title) => `<div class="pb-banner" style="background-image: url('${prefix}images/banner/${bannerFor(path)}.webp')"><h1 class="pb-title">${title}</h1></div>`;
-  return html.replace(/(<div style="margin-bottom: 2rem;">)\s*<h1 class="display"[^>]*>([\s\S]*?)<\/h1>/, (_, open, title) => `${banner(title)}\n    ${open}`);
+  return html.replace(/(<div style="margin-bottom: [\d.]+rem;">)\s*<h1 class="display"[^>]*>([\s\S]*?)<\/h1>/, (_, open, title) => `${banner(title)}\n    ${open}`);
 }
