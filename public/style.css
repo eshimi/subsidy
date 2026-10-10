@@ -570,7 +570,6 @@ details ul { margin: 8px 0; padding-left: 1.5em; }
 .footer-info .footer-source { font-size: 0.8rem; }
 .footer-brand img { display: block; height: 56px; width: auto; }
 .footer-top .footer-nav { margin-top: 0; border-left: 1px solid var(--line); padding-left: 32px; }
-.footer-top .footer-nav ul { flex-direction: column; gap: 10px; font-size: 0.92rem; }
 .footer-bottom { border-top: 1px solid var(--line-soft); padding-block: 20px 28px; text-align: center; }
 .footer-bottom ul { list-style: none; margin: 0 0 12px; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 20px; font-size: 0.85rem; }
 .footer-bottom a { color: var(--ink); text-decoration: none; }
@@ -585,3 +584,19 @@ details ul { margin: 8px 0; padding-left: 1.5em; }
 .footer-qr { margin: 20px 0 0; display: inline-block; text-align: center; }
 .footer-qr img { display: block; width: 120px; height: 120px; border-radius: 8px; }
 .footer-qr figcaption { margin-top: 6px; font-size: 0.75rem; color: var(--mute); }
+
+/* フッターのリンク：カテゴリ見出しだけ表示し、クリックで開く */
+.footer-top .footer-nav { border-left: 1px solid var(--line); padding-left: 32px; }
+.footer-group { border-bottom: 1px solid var(--line-soft); }
+.footer-group:first-child { border-top: 1px solid var(--line-soft); }
+.footer-group summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; padding: 12px 0; font-size: 0.95rem; font-weight: 500; user-select: none; }
+.footer-group summary::-webkit-details-marker { display: none; }
+.footer-group summary::after { content: "+"; color: var(--mute); font-size: 1.1rem; line-height: 1; }
+.footer-group[open] summary::after { content: "−"; }
+.footer-group summary:hover { color: var(--accent); }
+.footer-group ul { list-style: none; margin: 0; padding: 0 0 12px; display: grid; gap: 8px; font-size: 0.9rem; }
+.footer-group ul a { color: var(--ink); text-decoration: none; }
+.footer-group ul a:hover { text-decoration: underline; }
+@media (max-width: 760px) {
+  .footer-top .footer-nav { border-left: 0; padding-left: 0; border-top: 0; padding-top: 0; }
+}
