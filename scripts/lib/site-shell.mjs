@@ -127,7 +127,7 @@ ${body}
         <a class="footer-brand" href="../" aria-label="補助金ネット トップ"><img src="../images/logo-header-v5.webp" alt="補助金ネット" width="200" height="60"></a>
         <p>個人の新規事業・創業向けに、受けられそうな補助金・支援制度を探せるサイトです。</p>
         <p class="footer-source">募集中の補助金データ：<a href="https://www.jgrants-portal.go.jp/" target="_blank" rel="noopener">jGrants（デジタル庁）</a><br>住所検索：<a href="https://zipcloud.ibsnet.co.jp/" target="_blank" rel="noopener">zipcloud</a></p>
-        <p class="footer-contact">運営者：<a href="../policy/about.html">運営者情報</a><br>お問い合わせ：<a href="../policy/contact.html">フォーム</a> ／ <a href="mailto:info@hojyokin.net">info@hojyokin.net</a></p>
+        <p class="footer-contact">運営者：<a href="../policy/about.html">運営者情報</a><br>お問い合わせ：<a href="../policy/contact.html">フォーム</a></p>
         <figure class="footer-qr">
           <img src="../images/qr-hojyokin.png" alt="補助金ネット（hojyokin.net）へのQRコード" width="120" height="120" loading="lazy">
           <figcaption>スマホで開く</figcaption>

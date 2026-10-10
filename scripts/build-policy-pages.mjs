@@ -8,9 +8,9 @@ import { esc, shell } from './lib/site-shell.mjs';
 const OUT = join(dirname(fileURLToPath(import.meta.url)), '..', 'public', 'policy');
 const UPDATED = '2026年10月10日';
 const GITHUB = 'https://github.com/eshimi/subsidy';
-const EMAIL = 'info@hojyokin.net';
 const OPERATOR = '補助金ネット運営事務局';
-const MAIL = `<a href="mailto:${EMAIL}">${EMAIL}</a>`;
+// 運営者のメールアドレスは載せず、お問い合わせはすべてフォームに案内する
+const MAIL = '<a href="contact.html">お問い合わせフォーム</a>';
 
 const page = ({ file, title, heading, lead, sections }) => {
   const body = `    <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ ${esc(heading)}</nav>
@@ -71,12 +71,12 @@ page({
           <p id="contact-status" class="contact-status" role="status" aria-live="polite"></p>
         </form>
         <script src="../contact-form.js" defer></script>`],
-    ['メールでのお問い合わせ', `        <p>${MAIL}</p>
+    ['フォームでのお問い合わせ', `        <p>${MAIL}からお送りください。</p>
         <p>お返事には、お時間をいただく場合があります。内容によっては、お返事できないことがあります。あらかじめ、ご了承ください。</p>`],
     ['GitHub での不具合のご報告', `        <p>不具合や、改善のご提案は、<a href="${GITHUB}" target="_blank" rel="noopener">GitHub リポジトリ</a>の Issue からも、お寄せいただけます。</p>`],
     ['ご注意', `        <ul>
           <li>補助金の申請の代行や、個別の申請の相談は、行っていません。お近くの商工会議所、商工会、よろず支援拠点などの、公的な相談窓口をご利用ください。</li>
-          <li>個人を特定できる情報（氏名、住所、電話番号など）や、機密にあたる情報は、メールに書かないでください。</li>
+          <li>個人を特定できる情報（氏名、住所、電話番号など）や、機密にあたる情報は、フォームに書かないでください。</li>
           <li>広告や営業のご提案には、お返事できない場合があります。</li>
         </ul>`],
   ],
