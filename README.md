@@ -93,6 +93,7 @@ gcloud run deploy subsidy-finder --source . --region asia-northeast1 --allow-una
 - **API**: `/api/health`、`/api/config`、`/api/postal/:zip`、`/api/search`、`/api/chat`。検索・住所・分類・マッチングは Express 版と同じモジュールを使います。
 - **jGrants データ**: `npm run fetch:jgrants` で `public/data/jgrants/` に取得し、デプロイ時にアセットとして同梱します。データが無い場合は jGrants API の直接検索に切り替わります。
 - **定期更新**: `.github/workflows/cloudflare.yml` が毎朝（日本時間 6:12）データを取り直して再デプロイします。
+- **制度ページ（`/grants/`）**: `npm run build:grants`（jGrants データの取得 → 制度ページ・都道府県別・締切カレンダー・RSS の生成）で作ります。生成物はコミットしないため、**Cloudflare の Git 連携でデプロイする場合は、ビルドコマンドを `npm ci && npm run build:grants` にしてください**（未設定だと、push のたびに制度ページの無い版で本番が上書きされます）。
 - **レート制限**: Worker では行いません。Cloudflare ダッシュボードの **Security → WAF → Rate limiting rules** で設定してください（下記）。
 
 ```bash
