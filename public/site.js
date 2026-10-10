@@ -30,6 +30,21 @@
       img: 'https://www28.a8.net/svt/bgt?aid=261010837385&wid=001&eno=01&mid=s00000022683007003000&mc=1',
       w: 120, h: 60,
       pixel: 'https://www19.a8.net/0.gif?a8mat=4BED91+6D7WOI+4V0U+15OZHT'
+    },
+    // 広告主名・説明が未確認の広告。バナーの画像が広告主を示す。分かり次第 name / text を書き足す
+    {
+      name: '提携先の広告',
+      href: 'https://px.a8.net/svt/ejp?a8mat=4BED92+9N3QGI+4JGQ+C4TB5',
+      img: 'https://www21.a8.net/svt/bgt?aid=261010838583&wid=001&eno=01&mid=s00000021185002038000&mc=1',
+      w: 728, h: 90,
+      pixel: 'https://www15.a8.net/0.gif?a8mat=4BED92+9N3QGI+4JGQ+C4TB5'
+    },
+    {
+      name: '提携先の広告',
+      href: 'https://px.a8.net/svt/ejp?a8mat=4BED92+9UUDBM+35XE+65EOH',
+      img: 'https://www23.a8.net/svt/bgt?aid=261010838596&wid=001&eno=01&mid=s00000014765001033000&mc=1',
+      w: 728, h: 90,
+      pixel: 'https://www19.a8.net/0.gif?a8mat=4BED92+9UUDBM+35XE+65EOH'
     }
   ];
   const ad = ads[Math.floor(Math.random() * ads.length)];
@@ -44,7 +59,7 @@
   label.append(tag, ' ' + ad.name);
   const text = document.createElement('p');
   text.className = 'pr-text';
-  text.textContent = ad.text;
+  text.textContent = ad.text || '';
   const a = document.createElement('a');
   a.href = ad.href;
   a.rel = 'sponsored nofollow noopener';
@@ -65,6 +80,7 @@
   const note = document.createElement('p');
   note.className = 'pr-note';
   note.textContent = '※本ページにはアフィリエイト広告が含まれます。広告の掲載は、制度情報の内容には影響しません。';
-  box.append(label, text, a, pixel, note);
+  if (ad.text) box.append(label, text, a, pixel, note);
+  else box.append(label, a, pixel, note);
   main.appendChild(box);
 })();
