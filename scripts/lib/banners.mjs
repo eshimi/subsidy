@@ -11,8 +11,8 @@ export function bannerFor(path) {
   return BANNER_FILES[h % BANNER_COUNT];
 }
 
-// 対象外のページ：トップ・AI検索（独自のヒーローがある）、ツール画面、サイトマップ。特集は記事ごとに番号を指定済み
-const SKIP = ['index.html', 'diagnosis.html', 'chat.html', 'sitemap.html', 'ai.html'];
+// 対象外のページ：トップ・AI検索（独自のヒーローがある）、サイトマップ。特集は記事ごとに番号を指定済み
+const SKIP = ['index.html', 'sitemap.html', 'ai.html'];
 export function bannerEligible(path) {
   return !SKIP.includes(path) && !path.startsWith('feature/');
 }

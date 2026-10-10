@@ -3,7 +3,7 @@
 import { readdirSync, readFileSync, writeFileSync, statSync } from 'node:fs';
 import { join, relative, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { splitLayout } from './lib/side-layout.mjs';
+import { splitLayout, groupNav } from './lib/side-layout.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', 'public');
 
@@ -23,6 +23,19 @@ for (const file of walk(ROOT)) {
   const s = readFileSync(file, 'utf-8');
   const m = s.match(/(<main class="wrap">)([\s\S]*?)(<\/main>)/);
   if (!m) continue;
+  // すでに右側の列があり、カテゴリのリンク（関連ページでないもの）なら、今のメニューの内容に入れ替える
+  if (m[2].includes('page-split')) {
+    const aside = m[2].match(/<aside class="page-side"[^>]*>([\s\S]*?)<\/aside>/);
+    const OLD = /aria-label="(はじめの一歩|お役立ち情報|補助金を探す|制度を見る|サイトについて|制度ガイド・基礎知識|対象者別・ツール)"/;
+    if (aside && OLD.test(aside[1]) && !/関連ページ|他の記事/.test(aside[1])) {
+      const nav = groupNav(rel);
+      if (nav) {
+        const replaced = s.replace(aside[1], `\n${nav}\n`);
+        if (replaced !== s) { writeFileSync(file, replaced); changed++; }
+      }
+    }
+    continue;
+  }
   const next = splitLayout(m[2], rel);
   if (next === null) continue;
   writeFileSync(file, s.replace(m[0], `${m[1]}${next}${m[3]}`));

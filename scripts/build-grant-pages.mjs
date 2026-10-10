@@ -324,6 +324,42 @@ export const PURPOSES = [
 ];
 
 // 業種別の一覧。目的別と同じく、制度名のキーワードで分ける参考の分類
+// 業種ごとに、よく検討される制度（解説記事へのリンク）
+const INDUSTRY_GUIDES = {
+  food: [['jizokuka', 'チラシ・ホームページ・店舗の改装など、集客の取り組み'], ['shoryokuka', '配膳・券売・調理などの省力化の機械'], ['digital', '予約・POSレジ・会計のデジタル化'], ['employment', 'パート・アルバイトの正社員化や賃上げ']],
+  retail: [['jizokuka', 'チラシ・ホームページ・店舗の改装など、集客の取り組み'], ['digital', 'POSレジ・ECサイト・在庫管理のデジタル化'], ['shoryokuka', 'セルフレジ・自動精算などの省力化'], ['succession', 'お店の引き継ぎ']],
+  beauty: [['jizokuka', 'ホームページ・予約サイトの掲載・店舗の改装'], ['digital', '予約・顧客管理・会計のデジタル化'], ['employment', 'スタッフの育成や賃上げ']],
+  construction: [['monodukuri', '新しい工法・サービスのための設備投資'], ['shoryokuka', '人手不足を補う機械の導入'], ['digital', '施工管理・見積もり・会計のデジタル化'], ['employment', '職人の育成や正社員化']],
+  manufacturing: [['monodukuri', '新製品の開発や生産性を上げる設備投資'], ['shoryokuka', '検品・搬送・梱包などの自動化'], ['growth', '工場の新設など大きな成長投資'], ['digital', '生産管理・受発注のデジタル化']],
+  it: [['digital', '自社の業務のデジタル化'], ['monodukuri', '新しいサービス・製品の開発'], ['employment', 'エンジニアの育成（人材開発支援助成金など）']],
+  tourism: [['jizokuka', '集客・多言語対応・ホームページ'], ['shoryokuka', '清掃・受付などの省力化'], ['monodukuri', '新しい観光サービスの開発'], ['succession', '旅館・宿の引き継ぎ']],
+  agriculture: [['monodukuri', '加工品の開発や販路の拡大のための設備'], ['shoryokuka', '人手不足を補う機械の導入'], ['jizokuka', '直売・ネット販売などの販路開拓']],
+  care: [['shoryokuka', '見守り・記録などの省力化'], ['digital', '記録・請求・シフト管理のデジタル化'], ['employment', '職員の育成・処遇の改善']],
+};
+const GUIDE_PAGES = {
+  jizokuka: ['../feature/jizokuka.html', '小規模事業者持続化補助金'],
+  digital: ['../feature/digital-subsidy.html', 'デジタル化・AI導入補助金'],
+  monodukuri: ['../feature/monodukuri.html', '新事業進出・ものづくり商業サービス補助金'],
+  shoryokuka: ['../feature/shoryokuka.html', '中小企業省力化投資補助金'],
+  succession: ['../feature/succession.html', '事業承継・M&A補助金'],
+  growth: ['../feature/growth.html', '中小企業成長加速化補助金'],
+  employment: ['../feature/employment.html', '雇用関係の助成金'],
+};
+function industryGuideHtml(slug) {
+  const list = INDUSTRY_GUIDES[slug] || [];
+  if (!list.length) return '';
+  return `    <section class="area-section" aria-labelledby="guides">
+      <h2 id="guides">この業種でよく検討される制度</h2>
+      <div class="area-body">
+        <ul>
+${list.map(([k, why]) => `          <li><a href="${GUIDE_PAGES[k][0]}">${esc(GUIDE_PAGES[k][1])}</a>：${esc(why)}</li>`).join('\n')}
+        </ul>
+        <p>このほか、都道府県・市区町村の制度もあります（<a href="prefectures.html">都道府県別の補助金</a>、<a href="../area/index.html">市区町村別の補助金</a>）。</p>
+      </div>
+    </section>
+`;
+}
+
 export const INDUSTRIES = [
   { slug: 'food', label: '飲食業', match: /飲食|食堂|レストラン|カフェ|居酒屋|食品/, lead: '飲食店や食品を扱う事業者に関係しそうな補助金です。' },
   { slug: 'retail', label: '小売業・商店街', match: /小売|商店|商店街|販売店|店舗/, lead: 'お店や商店街の事業者に関係しそうな補助金です。' },
@@ -350,7 +386,7 @@ export function industryHubsFor(grants, now) {
   for (const ind of INDUSTRIES) {
     const items = open.filter((g) => ind.match.test(g.title)).sort((a, b) => String(a.end).localeCompare(String(b.end)));
     if (items.length < MIN_HUB) continue;
-    hubs.push({ file: `industry-${ind.slug}.html`, title: `${ind.label}の補助金一覧｜補助金ネット`, heading: `${ind.label}の補助金`, lead: `${ind.lead}募集中の補助金 ${items.length} 件を、締切の早い順に並べています。`, items, count: items.length });
+    hubs.push({ file: `industry-${ind.slug}.html`, title: `${ind.label}の補助金一覧｜補助金ネット`, heading: `${ind.label}の補助金`, lead: `${ind.lead}募集中の補助金 ${items.length} 件を、締切の早い順に並べています。`, items, count: items.length, extra: industryGuideHtml(ind.slug) });
   }
   return hubs;
 }
@@ -455,7 +491,7 @@ ${hubs.map((h) => `        <li><a href="${h.file}">${h.heading}</a></li>`).join(
   const purposes = purposeHubsFor(grants, now);
   const industries = industryHubsFor(grants, now);
   writeFileSync(join(out, 'industries.html'), topicIndex({ hubs: industries, heading: '業種別の補助金', lead: '業種に関係しそうな、募集中の補助金を一覧にしました。', description: '飲食、小売、美容、建設、製造、IT、観光、農業、医療・介護など、業種から募集中の補助金を探せます。', canonicalPath: '/grants/industries.html' }));
-  for (const h of industries) writeFileSync(join(out, h.file), listPage({ title: h.title, heading: h.heading, lead: h.lead, items: h.items, now, canonicalPath: `/grants/${h.file}` }));
+  for (const h of industries) writeFileSync(join(out, h.file), listPage({ title: h.title, heading: h.heading, lead: h.lead, items: h.items, now, canonicalPath: `/grants/${h.file}`, extra: h.extra }));
   // 検索画面・トップページ用の軽いデータ（ブラウザで絞り込む）
   writeFileSync(join(out, 'search.json'), JSON.stringify({ generatedAt: new Date(now).toISOString(), items: grants.map((g) => ({ id: g.id, t: g.title, a: g.area, m: g.max, s: g.start, e: g.end, ...tagsOf(g) })) }));
   writeFileSync(join(out, 'purposes.html'), purposeIndex(purposes, now));
