@@ -8,6 +8,7 @@ import { TtlCache, SECURITY_HEADERS } from './middleware.js';
 import { createAssetsGrantsLoader } from './grants-assets.js';
 import { parseChatMessages, aiUnavailable } from './chat-input.js';
 import { errorPayload } from './http-error.js';
+import { parseContact, buildRawMessage } from './contact.js';
 
 const MAX_BODY_BYTES = 32 * 1024;
 const cache = new TtlCache();
@@ -84,6 +85,24 @@ async function route(request, env, url) {
     const result = await chatWithClaude(parseChatMessages(body?.messages));
     if (result === null) throw aiUnavailable();
     return result;
+  }
+
+  if (pathname === '/api/contact') {
+    allow(request, 'POST');
+    const input = parseContact(await readJsonBody(request));
+    if (input.spam) return { ok: true };
+    // 送信には、wrangler.jsonc の send_email バインディング（CONTACT_EMAIL）と、送信先の Secret（CONTACT_TO）が必要
+    if (!env.CONTACT_EMAIL || !env.CONTACT_TO) throw httpError(503, 'フォームは現在ご利用いただけません。メールでご連絡ください。');
+    const { EmailMessage } = await import('cloudflare:email');
+    const from = env.CONTACT_FROM || 'noreply@hojyokin.net';
+    const raw = buildRawMessage({ from, to: env.CONTACT_TO, ...input });
+    try {
+      await env.CONTACT_EMAIL.send(new EmailMessage(from, env.CONTACT_TO, raw));
+    } catch (e) {
+      console.error(e);
+      throw httpError(503, '送信できませんでした。お手数ですが、メールでご連絡ください。');
+    }
+    return { ok: true };
   }
 
   throw httpError(404, '見つかりません');

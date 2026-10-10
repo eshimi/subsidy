@@ -54,6 +54,23 @@ page({
 page({
   file: 'contact.html', title: 'お問い合わせ', heading: 'お問い合わせ', lead: 'ご意見、情報の誤りのご指摘、不具合のご報告は、こちらからお寄せください。',
   sections: [
+    ['お問い合わせフォーム', `        <form id="contact-form" class="contact-form" novalidate>
+          <label>お名前（任意）<input type="text" name="name" maxlength="100" autocomplete="name"></label>
+          <label>返信先のメールアドレス<input type="email" name="email" maxlength="200" autocomplete="email" required></label>
+          <label>お問い合わせの種類<select name="category" required>
+            <option value="ご意見・ご要望">ご意見・ご要望</option>
+            <option value="情報の誤りのご指摘">情報の誤りのご指摘</option>
+            <option value="不具合のご報告">不具合のご報告</option>
+            <option value="広告・提携について">広告・提携について</option>
+            <option value="その他">その他</option>
+          </select></label>
+          <label>お問い合わせの内容<textarea name="message" maxlength="2000" required></textarea></label>
+          <div class="hp" aria-hidden="true"><label>この欄は空のままにしてください<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+          <p class="hint">送信いただいた内容は、お返事のためにのみ使います。個人を特定できる情報や、機密にあたる情報は書かないでください。</p>
+          <button type="submit" class="primary"><span>送信する</span><span class="arrow" aria-hidden="true">→</span></button>
+          <p id="contact-status" class="contact-status" role="status" aria-live="polite"></p>
+        </form>
+        <script src="../contact-form.js" defer></script>`],
     ['メールでのお問い合わせ', `        <p>${MAIL}</p>
         <p>お返事には、お時間をいただく場合があります。内容によっては、お返事できないことがあります。あらかじめ、ご了承ください。</p>`],
     ['GitHub での不具合のご報告', `        <p>不具合や、改善のご提案は、<a href="${GITHUB}" target="_blank" rel="noopener">GitHub リポジトリ</a>の Issue からも、お寄せいただけます。</p>`],
@@ -92,6 +109,7 @@ page({
           <li>当サイトの運営者が、検索や会話の内容を、蓄積したり、他の目的で利用したりすることはありません。ただし、ホスティングの機能により、アクセスの記録（日時など）が残る場合があります。</li>
           <li>氏名、住所、電話番号、勤務先など、個人を特定できる情報は、入力しないでください。</li>
         </ul>`],
+    ['お問い合わせフォームの内容', `        <p>お問い合わせフォームに入力された、お名前（任意）、メールアドレス、お問い合わせの内容は、お返事と、サイトの改善のためにのみ使います。法令に基づく場合を除き、第三者には提供しません。メールは、メールの送信サービス（Cloudflare）を通じて、運営者に届きます。</p>`],
     ['ブラウザに保存される情報', `        <p>「保存した制度」は、お使いのブラウザの中（localStorage）に保存されます。当サイトのサーバーには、送信されません。ブラウザのデータを消すと、保存した内容も消えます。</p>`],
     ['アクセス解析', `        <p>当サイトでは、利用状況を把握するために、Google アナリティクスを使用しています。Google アナリティクスは、Cookie などを使って、アクセスの情報を収集します。この情報は、匿名で収集されていて、個人を特定するものではありません。収集を望まない場合は、<a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google アナリティクス オプトアウト アドオン</a>を利用できます。</p>`],
     ['広告の配信', `        <p>当サイトでは、第三者配信の広告サービス（Google AdSense）を利用する場合があります。Google などの第三者配信事業者は、Cookie を使って、ユーザーの過去のアクセス情報に基づいた広告を表示することがあります。広告に使われる Cookie は、<a href="https://adssettings.google.com/" target="_blank" rel="noopener">Google の広告設定</a>で、無効にできます。詳しくは、<a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">Google のポリシー</a>をご覧ください。</p>`],

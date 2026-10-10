@@ -48,7 +48,7 @@
     .area-groups h2 { font-size: 1.2rem; margin: 0; }
     .area-pref-head { display: flex; align-items: center; gap: 16px; margin-bottom: 12px; }
     .area-pref-head img { width: 96px; height: auto; flex-shrink: 0; }
-    h1.display { font-size: clamp(1.8rem, 7vw, 4.5rem); overflow-wrap: anywhere; }
+    h1.display { font-size: clamp(1.4rem, 4.7vw, 3rem); overflow-wrap: anywhere; }
     .article-hero { margin: 0 0 24px; }
     .article-hero img { display: block; width: 100%; height: auto; border-radius: 8px; border: 1px solid #e0e0e0; }
     .article-body h3 { font-size: 1.2rem; margin: 1.6em 0 0.7em; }
@@ -118,24 +118,48 @@
 
     <section class="area-section" aria-labelledby="s0">
       <span class="area-num">01</span>
-      <h2 id="s0">メールでのお問い合わせ</h2>
+      <h2 id="s0">お問い合わせフォーム</h2>
+      <div class="area-body">
+        <form id="contact-form" class="contact-form" novalidate>
+          <label>お名前（任意）<input type="text" name="name" maxlength="100" autocomplete="name"></label>
+          <label>返信先のメールアドレス<input type="email" name="email" maxlength="200" autocomplete="email" required></label>
+          <label>お問い合わせの種類<select name="category" required>
+            <option value="ご意見・ご要望">ご意見・ご要望</option>
+            <option value="情報の誤りのご指摘">情報の誤りのご指摘</option>
+            <option value="不具合のご報告">不具合のご報告</option>
+            <option value="広告・提携について">広告・提携について</option>
+            <option value="その他">その他</option>
+          </select></label>
+          <label>お問い合わせの内容<textarea name="message" maxlength="2000" required></textarea></label>
+          <div class="hp" aria-hidden="true"><label>この欄は空のままにしてください<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+          <p class="hint">送信いただいた内容は、お返事のためにのみ使います。個人を特定できる情報や、機密にあたる情報は書かないでください。</p>
+          <button type="submit" class="primary"><span>送信する</span><span class="arrow" aria-hidden="true">→</span></button>
+          <p id="contact-status" class="contact-status" role="status" aria-live="polite"></p>
+        </form>
+        <script src="../contact-form.js" defer></script>
+      </div>
+    </section>
+
+    <section class="area-section" aria-labelledby="s1">
+      <span class="area-num">02</span>
+      <h2 id="s1">メールでのお問い合わせ</h2>
       <div class="area-body">
         <p><a href="mailto:info@hojyokin.net">info@hojyokin.net</a></p>
         <p>お返事には、お時間をいただく場合があります。内容によっては、お返事できないことがあります。あらかじめ、ご了承ください。</p>
       </div>
     </section>
 
-    <section class="area-section" aria-labelledby="s1">
-      <span class="area-num">02</span>
-      <h2 id="s1">GitHub での不具合のご報告</h2>
+    <section class="area-section" aria-labelledby="s2">
+      <span class="area-num">03</span>
+      <h2 id="s2">GitHub での不具合のご報告</h2>
       <div class="area-body">
         <p>不具合や、改善のご提案は、<a href="https://github.com/eshimi/subsidy" target="_blank" rel="noopener">GitHub リポジトリ</a>の Issue からも、お寄せいただけます。</p>
       </div>
     </section>
 
-    <section class="area-section" aria-labelledby="s2">
-      <span class="area-num">03</span>
-      <h2 id="s2">ご注意</h2>
+    <section class="area-section" aria-labelledby="s3">
+      <span class="area-num">04</span>
+      <h2 id="s3">ご注意</h2>
       <div class="area-body">
         <ul>
           <li>補助金の申請の代行や、個別の申請の相談は、行っていません。お近くの商工会議所、商工会、よろず支援拠点などの、公的な相談窓口をご利用ください。</li>
@@ -154,6 +178,7 @@
         <a class="footer-brand" href="../" aria-label="補助金ネット トップ"><img src="../images/logo-header-v5.webp" alt="補助金ネット" width="200" height="60"></a>
         <p>個人の新規事業・創業向けに、受けられそうな補助金・支援制度を探せるサイトです。</p>
         <p class="footer-source">募集中の補助金データ：<a href="https://www.jgrants-portal.go.jp/" target="_blank" rel="noopener">jGrants（デジタル庁）</a><br>住所検索：<a href="https://zipcloud.ibsnet.co.jp/" target="_blank" rel="noopener">zipcloud</a></p>
+        <p class="footer-contact">運営者：<a href="../policy/about.html">運営者情報</a><br>お問い合わせ：<a href="../policy/contact.html">フォーム</a> ／ <a href="mailto:info@hojyokin.net">info@hojyokin.net</a></p>
         <figure class="footer-qr">
           <img src="../images/qr-hojyokin.png" alt="補助金ネット（hojyokin.net）へのQRコード" width="120" height="120" loading="lazy">
           <figcaption>スマホで開く</figcaption>

@@ -132,3 +132,16 @@ test('public/_headers は SECURITY_HEADERS と一致する', async () => {
   );
   assert.deepEqual(parsed, SECURITY_HEADERS);
 });
+
+test('worker: /api/contact は入力を検証し、送信設定が無ければ 503、バインディングがあれば送信する', async () => {
+  const { env } = makeEnv();
+  const ok = { name: '', email: 'a@example.com', category: 'ご意見・ご要望', message: 'こんにちは' };
+  assert.equal((await post(env, '/api/contact', { ...ok, email: 'bad' })).status, 400);
+  assert.equal((await post(env, '/api/contact', { ...ok, category: 'x' })).status, 400);
+  assert.equal((await post(env, '/api/contact', { ...ok, message: '' })).status, 400);
+  assert.equal((await post(env, '/api/contact', ok)).status, 503);
+  assert.equal((await call(env, '/api/contact')).status, 405);
+  // おとり欄が入っていれば、送らずに成功を返す
+  const spam = await post(env, '/api/contact', { ...ok, website: 'http://spam' });
+  assert.equal(spam.status, 200);
+});
