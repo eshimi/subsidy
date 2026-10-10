@@ -33,7 +33,7 @@ const STYLE = `
 const crumb = (items) => `    <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ ${items.map(([h, t]) => (h ? `<a href="${h}">${esc(t)}</a>` : esc(t))).join(' ＞ ')}</nav>`;
 
 // 記事の本文（main の中身）
-export function articleBody({ section, kicker, title, lead, sections, related = [], sources = [], banner, updated }) {
+export function articleBody({ section, kicker, title, lead, sections, related = [], sources = [], banner, updated, afterLead = '', sourcesHeading = '最新情報の確認先', sourcesIntro = '制度の内容は変わります。次の公式情報で、最新の内容を確認してください。' }) {
   const body = sections.map(([h, html], i) => `    <article class="area-section" aria-labelledby="s${i}">
       <span class="area-num">${String(i).padStart(2, '0')}</span>
       <h2 id="s${i}">${esc(h)}</h2>
@@ -44,11 +44,11 @@ ${html}
   const src = sources.length ? `
     <article class="area-section" aria-labelledby="sources">
       <span class="area-num">確認</span>
-      <h2 id="sources">最新情報の確認先</h2>
+      <h2 id="sources">${esc(sourcesHeading)}</h2>
       <div class="area-body">
-        <p>制度の内容は変わります。次の公式情報で、最新の内容を確認してください。</p>
+        <p>${sourcesIntro}</p>
         <ul>
-${sources.map(([label, href]) => `          <li><a href="${href}" target="_blank" rel="noopener">${esc(label)}</a></li>`).join('\n')}
+${sources.map(([label, href, org]) => `          <li><a href="${href}" target="_blank" rel="noopener">${esc(label)}</a>${org ? `（${esc(org)}）` : ''}</li>`).join('\n')}
         </ul>
         <p class="area-note" style="margin-top: 16px;">最終更新日：${esc(updated)}</p>
       </div>
@@ -59,7 +59,7 @@ ${sources.map(([label, href]) => `          <li><a href="${href}" target="_blank
     <div style="margin-bottom: 2rem;">
       <p class="label" style="margin-bottom: 0.5rem;">${esc(section[1])}</p>
       <p class="lead" style="margin-bottom: 0;">${esc(lead)}</p>
-    </div>
+${afterLead}    </div>
 
 ${body}
 ${src}
