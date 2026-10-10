@@ -622,3 +622,4 @@ details ul { margin: 8px 0; padding-left: 1.5em; }
 .pr-box .pr-tag { display: inline-block; padding: 1px 6px; margin-right: 6px; border: 1px solid var(--mute); font-size: 0.7rem; font-weight: 700; }
 .pr-box .pr-note { margin: 10px 0 0; font-size: 0.75rem; color: var(--mute); text-align: left; }
 .pr-pixel { position: absolute; width: 1px; height: 1px; }
+.pr-box .pr-text { margin: 0 0 12px; font-size: 0.85rem; line-height: 1.7; text-align: left; }
