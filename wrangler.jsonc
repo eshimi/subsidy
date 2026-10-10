@@ -3,6 +3,9 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "subsidy",
   "main": "src/worker.js",
+  // デプロイの前に、jGrants データの取得と制度ページ（/grants/）の生成を行う。
+  // Cloudflare の Git 連携のビルドと、GitHub Actions のデプロイの、どちらでも同じ内容になるようにする
+  "build": { "command": "npm run build:grants" },
   "compatibility_date": "2025-09-01",
   "compatibility_flags": ["nodejs_compat"],
   "assets": {
