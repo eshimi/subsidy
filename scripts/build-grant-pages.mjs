@@ -154,12 +154,14 @@ const STYLE_EXTRA = `
     .grant-list a { color: #1f3bff; font-weight: 500; text-decoration: none; }
     .grant-list a:hover { text-decoration: underline; }
     .grant-meta { font-size: 0.85rem; color: var(--mute); margin: 4px 0 0; }
-    .pref-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
-    .pref-grid img { width: 44px; height: auto; flex-shrink: 0; }
-    .pref-grid .pref-name { flex: 1; }
-    .pref-grid a { display: flex; justify-content: space-between; align-items: center; gap: 8px; border: 1px solid #e0e0e0; border-radius: 8px; padding: 12px 14px; text-decoration: none; color: var(--ink); background: #fff; }
-    .pref-grid a:hover { border-color: var(--accent); }
-    .pref-count { font-family: var(--font-mono); font-size: 0.8rem; color: var(--mute); }`;
+    .pref-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+    .pref-grid a { display: flex; align-items: center; gap: 14px; border: 1px solid #e0e0e0; border-radius: 10px; padding: 14px 18px; text-decoration: none; color: var(--ink); background: #fff; transition: border-color 0.2s, box-shadow 0.2s; }
+    .pref-grid a:hover { border-color: var(--accent); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); }
+    .pref-grid img { width: 60px; height: auto; flex-shrink: 0; }
+    .pref-grid .pref-name { flex: 1; font-weight: 500; white-space: nowrap; }
+    .pref-count { font-family: var(--font-mono); font-size: 0.8rem; color: var(--mute); white-space: nowrap; }
+    @media (max-width: 960px) { .pref-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+    @media (max-width: 640px) { .pref-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; } .pref-grid a { flex-direction: column; align-items: flex-start; gap: 6px; padding: 12px; } .pref-grid img { width: 52px; } .pref-grid .pref-name { flex: none; } }`;
 
 const crumb = (items) => `    <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ ${items.map(([h, t]) => (h ? `<a href="${h}">${esc(t)}</a>` : esc(t))).join(' ＞ ')}</nav>`;
 
