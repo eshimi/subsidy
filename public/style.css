@@ -815,3 +815,10 @@ details ul { margin: 8px 0; padding-left: 1.5em; }
 /* 4つの探し方の「ランダムに1件見る」（ボタンでも、カードと同じ見た目にする） */
 button.r-way { font: inherit; text-align: left; width: 100%; cursor: pointer; }
 button.r-way:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* トップのヒーロー：背景に紹介動画（無音・自動再生・繰り返し）。動きを減らす設定のときは静止画のまま */
+.r-hero { position: relative; isolation: isolate; overflow: hidden; }
+.r-hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: right center; z-index: -2; pointer-events: none; }
+.r-hero::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(90deg, rgba(31, 58, 82, 0.96) 0%, rgba(31, 58, 82, 0.86) 40%, rgba(43, 88, 118, 0.45) 75%, rgba(43, 88, 118, 0.2) 100%); }
+.r-hero > .wrap { position: relative; z-index: 1; }
+@media (prefers-reduced-motion: reduce) { .r-hero-video { display: none; } }
