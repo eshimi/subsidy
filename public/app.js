@@ -403,7 +403,7 @@ form.addEventListener('submit', async (ev) => {
     showError(e.message || '検索に失敗しました。時間をおいて再度お試しください。');
   } finally {
     submitBtn.disabled = false;
-    submitLabel.textContent = '支援制度を探す';
+    submitLabel.textContent = '補助金を探す';
   }
 });
 

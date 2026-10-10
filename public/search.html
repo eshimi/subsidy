@@ -12,11 +12,44 @@
   <link rel="stylesheet" href="style.css">
   <script src="https://accounts.google.com/gsi/client" async defer></script>
   <style>
-    .s-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1rem; }
-    .s-tabs a { padding: 8px 14px; border: 1px solid var(--line, #d0d7de); border-radius: 999px; background: #fff; text-decoration: none; font-weight: 600; font-size: 0.92rem; }
-    .s-sec { margin: 2rem 0 2.5rem; }
-    .s-sec > h2 { font-size: 1.3rem; margin: 0 0 0.4rem; padding-left: 10px; border-left: 4px solid #1f6feb; }
-    .s-sec-lead { margin: 0 0 1rem; color: var(--mute, #55606b); }
+    .u-form { display: grid; gap: 18px; margin: 0 0 28px; padding: 24px; background: #fff; border: 1px solid #dbe6f2; border-radius: 18px; box-shadow: 0 6px 24px rgba(21, 101, 216, 0.08); }
+    .u-label { display: block; font-weight: 700; font-size: 1rem; margin-bottom: 8px; }
+    .u-form textarea { width: 100%; min-height: 76px; padding: 14px 16px; border: 1.5px solid #cfdcea; border-radius: 12px; font: inherit; font-size: 1.05rem; resize: vertical; background: #fff; }
+    .u-form textarea:focus, .u-form input:focus, .u-form select:focus { border-color: #1565d8; outline: none; box-shadow: 0 0 0 3px rgba(21, 101, 216, 0.12); }
+    .u-form .examples { margin-top: 10px; }
+    .u-sub { display: grid; gap: 4px; font-size: 0.85rem; color: #55606b; font-weight: 600; }
+    .u-form input, .u-form select { width: 100%; padding: 11px 12px; border: 1.5px solid #cfdcea; border-radius: 10px; font: inherit; background: #fff; color: #1d2a3a; }
+    .u-place-row { display: grid; grid-template-columns: 1fr auto 1fr; gap: 12px; align-items: end; max-width: 560px; }
+    .u-or { padding-bottom: 12px; color: #55606b; font-size: 0.85rem; }
+    .u-place .hint { margin: 8px 0 0; }
+    .u-place .city-field { margin-top: 10px; max-width: 280px; }
+    .u-more { border-top: 1px dashed #dbe6f2; padding-top: 14px; }
+    .u-more summary { cursor: pointer; font-weight: 700; color: #1565d8; }
+    .u-more-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 14px; }
+    .u-attrs { border: 0; margin: 14px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+    .u-attrs legend { margin-bottom: 8px; }
+    .u-attrs .toggle { width: auto; }
+    .u-submit { display: flex; align-items: center; justify-content: center; gap: 12px; width: 100%; padding: 16px; border: 0; border-radius: 999px; background: #1565d8; color: #fff; font: inherit; font-size: 1.15rem; font-weight: 800; cursor: pointer; box-shadow: 0 6px 16px rgba(21, 101, 216, 0.25); }
+    .u-submit:hover { background: #0f4fae; }
+    .u-submit:disabled { background: #9fb3c8; }
+    .u-how { margin: 0; font-size: 0.85rem; color: #55606b; }
+    .u-h { font-size: 1.3rem; margin: 0; padding-left: 10px; border-left: 4px solid #1565d8; }
+    #results { margin-bottom: 28px; }
+    #results .u-h { margin-bottom: 12px; }
+    .u-rhead { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 12px; }
+    .u-tools { display: flex; flex-wrap: wrap; gap: 10px; }
+    .u-tools label { display: grid; gap: 2px; font-size: 0.78rem; color: #55606b; }
+    .u-tools select { padding: 8px 10px; border: 1px solid #cfdcea; border-radius: 8px; background: #fff; font: inherit; font-size: 0.9rem; }
+    #results, #kw-results { scroll-margin-top: 84px; }
+    @media (max-width: 720px) {
+      .u-form { padding: 18px 14px; }
+      .u-place-row { grid-template-columns: 1fr; gap: 8px; }
+      .u-or { padding: 0; }
+      .u-more-grid { grid-template-columns: 1fr; }
+      .u-tools { width: 100%; }
+      .u-tools label { flex: 1; }
+      .u-tools select { width: 100%; }
+    }
     .guide-section {
       margin-bottom: 3rem;
       padding-bottom: 2rem;
@@ -149,100 +182,58 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="./">補助金ネット</a> ＞ AI・キーワードで探す</nav>
     <div class="pb-banner" style="background-image: url('images/banner/b10.webp')"><h1 class="pb-title">補助金を探す</h1></div>
-    <div style="margin-bottom: 1.5rem;">
-      <p class="lead" style="margin-bottom: 0;">やりたい事業を文章で入れると、AIが内容を読み取り、国・都道府県・市区町村の補助金や支援制度をまとめて探します。キーワードや条件で絞り込むこともできます。</p>
-      <nav class="s-tabs" aria-label="探し方"><a href="#ai-search">💬 文章で探す（AI）</a><a href="#kw-search">🔎 キーワード・条件で絞り込む</a></nav>
-    </div>
 
-    <section id="ai-search" class="s-sec" aria-labelledby="ai-search-title">
-      <h2 id="ai-search-title">やりたい事業を文章で探す（AI）</h2>
-      <p class="s-sec-lead">事業の内容と、事業を行う場所の郵便番号を入れてください。国・都道府県・市区町村の制度と、jGrantsで募集中の補助金から、合いそうなものを一覧にします。</p>
-    <form id="search-form" class="form" novalidate aria-label="支援制度を探す">
-      <div class="form-row">
-        <div class="row-label">
-          <span class="num">01</span>
-          <label for="description">事業の内容</label>
-          <span class="req">必須</span>
-        </div>
-        <div class="row-body">
-          <textarea id="description" name="description" rows="3" maxlength="2000" required
-            placeholder="例：地元の野菜を使ったカフェを商店街の空き店舗で開きたい。テイクアウトとネット通販もやりたい。アルバイトを2人雇う予定。"></textarea>
-          <div class="examples" aria-label="入力例">
-            <span class="examples-label">入力例</span>
-            <button type="button" class="pill" data-example="地元の野菜を使ったカフェを商店街の空き店舗で開きたい。テイクアウトとネット通販も。アルバイトを2人雇う予定。">カフェ開業</button>
-            <button type="button" class="pill" data-example="会社員を辞めて、中小企業向けの予約管理SaaSを開発・提供したい。">ITサービス</button>
-            <button type="button" class="pill" data-example="東京から地方に移住して、古民家を改装したゲストハウスを始めたい。地域の体験ツアーも企画する。">移住×ゲストハウス</button>
-            <button type="button" class="pill" data-example="脱サラして就農し、有機栽培の野菜を育ててネット販売したい。">新規就農</button>
-          </div>
+    <form id="search-form" class="u-form" novalidate role="search" aria-label="補助金を探す">
+      <div class="u-field">
+        <label for="description" class="u-label">やりたいこと・キーワード</label>
+        <textarea id="description" name="description" rows="2" maxlength="2000" placeholder="例：商店街の空き店舗でカフェを開きたい　／　ホームページ　設備　省エネ"></textarea>
+        <div class="examples" aria-label="入力例">
+          <span class="examples-label">入力例</span>
+          <button type="button" class="pill" data-example="地元の野菜を使ったカフェを商店街の空き店舗で開きたい。テイクアウトとネット通販も。アルバイトを2人雇う予定。">カフェを開きたい</button>
+          <button type="button" class="pill" data-example="会社員を辞めて、中小企業向けの予約管理SaaSを開発・提供したい。">ITサービスを始めたい</button>
+          <button type="button" class="pill" data-example="ホームページ">ホームページ</button>
+          <button type="button" class="pill" data-example="省エネ 設備">省エネ 設備</button>
         </div>
       </div>
 
-      <div class="form-row">
-        <div class="row-label">
-          <span class="num">02</span>
-          <label for="zip">事業を行う場所</label>
-          <span class="req">必須</span>
+      <div class="u-field u-place">
+        <span class="u-label">場所</span>
+        <div class="u-place-row">
+          <label class="u-sub">郵便番号<input id="zip" name="zip" inputmode="numeric" autocomplete="postal-code" placeholder="123-4567" maxlength="8"></label>
+          <span class="u-or">または</span>
+          <label class="u-sub">都道府県<select name="pref" id="pref"><option value="">指定しない</option><option value="北海道">北海道</option><option value="青森県">青森県</option><option value="岩手県">岩手県</option><option value="宮城県">宮城県</option><option value="秋田県">秋田県</option><option value="山形県">山形県</option><option value="福島県">福島県</option><option value="茨城県">茨城県</option><option value="栃木県">栃木県</option><option value="群馬県">群馬県</option><option value="埼玉県">埼玉県</option><option value="千葉県">千葉県</option><option value="東京都">東京都</option><option value="神奈川県">神奈川県</option><option value="新潟県">新潟県</option><option value="富山県">富山県</option><option value="石川県">石川県</option><option value="福井県">福井県</option><option value="山梨県">山梨県</option><option value="長野県">長野県</option><option value="岐阜県">岐阜県</option><option value="静岡県">静岡県</option><option value="愛知県">愛知県</option><option value="三重県">三重県</option><option value="滋賀県">滋賀県</option><option value="京都府">京都府</option><option value="大阪府">大阪府</option><option value="兵庫県">兵庫県</option><option value="奈良県">奈良県</option><option value="和歌山県">和歌山県</option><option value="鳥取県">鳥取県</option><option value="島根県">島根県</option><option value="岡山県">岡山県</option><option value="広島県">広島県</option><option value="山口県">山口県</option><option value="徳島県">徳島県</option><option value="香川県">香川県</option><option value="愛媛県">愛媛県</option><option value="高知県">高知県</option><option value="福岡県">福岡県</option><option value="佐賀県">佐賀県</option><option value="長崎県">長崎県</option><option value="熊本県">熊本県</option><option value="大分県">大分県</option><option value="宮崎県">宮崎県</option><option value="鹿児島県">鹿児島県</option><option value="沖縄県">沖縄県</option></select></label>
         </div>
-        <div class="row-body place">
-          <div class="zip-field">
-            <input id="zip" name="zip" inputmode="numeric" autocomplete="postal-code" placeholder="〒 123-4567" maxlength="8" required>
-            <p id="address" class="hint" aria-live="polite">郵便番号を入れると住所を表示します</p>
-          </div>
-          <div class="city-field" hidden>
-            <label for="city" class="sub-label">市区町村</label>
-            <input id="city" name="city" placeholder="例：横浜市中区">
-            <p class="hint">住所を自動取得できなかったため、市区町村を入れると地域の制度まで探せます。</p>
-          </div>
+        <p id="address" class="hint" aria-live="polite">郵便番号を入れると、AIが市区町村の制度まで探します。</p>
+        <div class="city-field" hidden>
+          <label for="city" class="u-sub">市区町村</label>
+          <input id="city" name="city" placeholder="例：横浜市中区">
         </div>
       </div>
 
-      <div class="form-row">
-        <div class="row-label">
-          <span class="num">03</span>
-          <label for="stage">事業の状況</label>
+      <details class="u-more">
+        <summary>条件を追加する（任意）</summary>
+        <div class="u-more-grid">
+          <label class="u-sub">目的<select name="purpose" id="purpose"><option value="">指定しない</option><option value="equipment">設備投資</option><option value="digital">IT・デジタル導入</option><option value="sales">販路開拓・販売促進</option><option value="hiring">人材・雇用</option><option value="green">省エネ・脱炭素</option><option value="research">研究開発・技術</option><option value="succession">事業承継・事業再構築</option><option value="startup">創業・起業</option><option value="region">地域・観光・農林水産</option></select></label>
+          <label class="u-sub">業種<select name="industry" id="industry"><option value="">指定しない</option><option value="food">飲食業</option><option value="retail">小売業・商店街</option><option value="beauty">美容・理容・サロン</option><option value="construction">建設業・住宅</option><option value="manufacturing">製造業</option><option value="it">IT・情報通信</option><option value="tourism">宿泊・観光</option><option value="agriculture">農林水産業</option><option value="care">医療・介護・保育</option></select></label>
+          <label class="u-sub">事業の状況<select id="stage" name="stage"><option value="">指定しない</option><option value="planning">開業準備中</option><option value="early">開業後1年未満</option><option value="established">開業後1年以上</option></select></label>
         </div>
-        <div class="row-body">
-          <select id="stage" name="stage">
-            <option value="">指定しない</option>
-            <option value="planning" selected>開業準備中</option>
-            <option value="early">開業後1年未満</option>
-            <option value="established">開業後1年以上</option>
-          </select>
-        </div>
-      </div>
-
-      <fieldset class="form-row">
-        <legend class="row-label">
-          <span class="num">04</span>
-          <span>当てはまるもの</span>
-          <span class="opt">任意</span>
-        </legend>
-        <div class="row-body checks">
+        <fieldset class="u-attrs"><legend class="u-sub">当てはまるもの</legend>
           <label class="toggle"><input type="checkbox" name="attributes" value="hiring"><span>従業員を雇う予定</span></label>
           <label class="toggle"><input type="checkbox" name="attributes" value="store"><span>店舗を構える</span></label>
           <label class="toggle"><input type="checkbox" name="attributes" value="relocation"><span>移住して起業</span></label>
           <label class="toggle"><input type="checkbox" name="attributes" value="young"><span>39歳以下</span></label>
           <label class="toggle"><input type="checkbox" name="attributes" value="senior"><span>55歳以上</span></label>
           <label class="toggle"><input type="checkbox" name="attributes" value="woman"><span>女性</span></label>
-        </div>
-      </fieldset>
+        </fieldset>
+      </details>
 
-      <div class="form-submit">
-        <p id="form-error" class="error" role="alert" hidden></p>
-        <button id="submit" type="submit" class="primary"><span>支援制度を探す</span><span class="arrow" aria-hidden="true">→</span></button>
-      </div>
+      <p id="form-error" class="error" role="alert" hidden></p>
+      <button id="submit" type="submit" class="u-submit"><span>補助金を探す</span><span aria-hidden="true">→</span></button>
+      <p class="u-how"><b>文章と郵便番号</b>を入れると、AIが内容を読み取り、国・都道府県・市区町村の制度を探します。それ以外は、<b>募集中の補助金</b>からキーワード・条件で絞り込みます。</p>
     </form>
 
-    <section id="saved" class="saved" hidden aria-labelledby="saved-title">
-      <div class="section-head">
-        <h2 id="saved-title">保存した制度</h2>
-        <button type="button" class="text-button" id="saved-ics" hidden>締切をまとめてカレンダーに追加（.ics）</button>
-      </div>
-      <ul id="saved-list" class="saved-list"></ul>
-      <p class="hint">保存した内容はこのブラウザだけに記録されます。</p>
-    </section>
-
     <section id="results" hidden aria-live="polite">
+      <h2 class="u-h">AIが探した支援制度</h2>
       <div class="summary" id="summary"></div>
 
       <div class="toolbar">
@@ -262,33 +253,31 @@
     </section>
     </section>
 
-    <section id="kw-search" class="s-sec" aria-labelledby="kw-search-title">
-      <h2 id="kw-search-title">キーワード・条件で絞り込む</h2>
-      <p class="s-sec-lead">募集中の補助金を、キーワード・地域・目的・業種・金額・締切で絞り込めます。</p>
-    <form id="s-form" class="s-form" role="search" aria-label="補助金を絞り込む">
-      <div class="s-row s-row-main">
-        <label for="s-q" class="visually-hidden">キーワード</label>
-        <input id="s-q" name="q" type="search" placeholder="キーワード（例：ホームページ、設備、省エネ、創業）" autocomplete="off">
-        <button type="submit">探す</button>
+    <section id="kw-results" class="u-results" aria-live="polite">
+      <div class="u-rhead">
+        <h2 class="u-h">募集中の補助金</h2>
+        <div class="u-tools">
+          <label>上限額<select id="amount" name="amount"><option value="">指定しない</option><option value="100">100万円以上</option><option value="500">500万円以上</option><option value="1000">1,000万円以上</option></select></label>
+          <label>締切<select id="within" name="within"><option value="">指定しない</option><option value="30">30日以内</option><option value="90">90日以内</option></select></label>
+          <label>並び順<select id="sort" name="sort"><option value="end">締切が近い順</option><option value="new">新着順</option><option value="amount">上限額の大きい順</option></select></label>
+        </div>
       </div>
-      <div class="s-row">
-        <label>都道府県<select name="pref"><option value="">指定しない</option><option value="北海道">北海道</option><option value="青森県">青森県</option><option value="岩手県">岩手県</option><option value="宮城県">宮城県</option><option value="秋田県">秋田県</option><option value="山形県">山形県</option><option value="福島県">福島県</option><option value="茨城県">茨城県</option><option value="栃木県">栃木県</option><option value="群馬県">群馬県</option><option value="埼玉県">埼玉県</option><option value="千葉県">千葉県</option><option value="東京都">東京都</option><option value="神奈川県">神奈川県</option><option value="新潟県">新潟県</option><option value="富山県">富山県</option><option value="石川県">石川県</option><option value="福井県">福井県</option><option value="山梨県">山梨県</option><option value="長野県">長野県</option><option value="岐阜県">岐阜県</option><option value="静岡県">静岡県</option><option value="愛知県">愛知県</option><option value="三重県">三重県</option><option value="滋賀県">滋賀県</option><option value="京都府">京都府</option><option value="大阪府">大阪府</option><option value="兵庫県">兵庫県</option><option value="奈良県">奈良県</option><option value="和歌山県">和歌山県</option><option value="鳥取県">鳥取県</option><option value="島根県">島根県</option><option value="岡山県">岡山県</option><option value="広島県">広島県</option><option value="山口県">山口県</option><option value="徳島県">徳島県</option><option value="香川県">香川県</option><option value="愛媛県">愛媛県</option><option value="高知県">高知県</option><option value="福岡県">福岡県</option><option value="佐賀県">佐賀県</option><option value="長崎県">長崎県</option><option value="熊本県">熊本県</option><option value="大分県">大分県</option><option value="宮崎県">宮崎県</option><option value="鹿児島県">鹿児島県</option><option value="沖縄県">沖縄県</option></select></label>
-        <label>目的<select name="purpose"><option value="">指定しない</option><option value="equipment">設備投資</option><option value="digital">IT・デジタル導入</option><option value="sales">販路開拓・販売促進</option><option value="hiring">人材・雇用</option><option value="green">省エネ・脱炭素</option><option value="research">研究開発・技術</option><option value="succession">事業承継・事業再構築</option><option value="startup">創業・起業</option><option value="region">地域・観光・農林水産</option></select></label>
-        <label>業種<select name="industry"><option value="">指定しない</option><option value="food">飲食業</option><option value="retail">小売業・商店街</option><option value="beauty">美容・理容・サロン</option><option value="construction">建設業・住宅</option><option value="manufacturing">製造業</option><option value="it">IT・情報通信</option><option value="tourism">宿泊・観光</option><option value="agriculture">農林水産業</option><option value="care">医療・介護・保育</option></select></label>
-        <label>上限額<select name="amount"><option value="">指定しない</option><option value="100">100万円以上</option><option value="500">500万円以上</option><option value="1000">1,000万円以上</option></select></label>
-        <label>締切<select name="within"><option value="">指定しない</option><option value="30">30日以内</option><option value="90">90日以内</option></select></label>
-        <label>並び順<select name="sort"><option value="end">締切が近い順</option><option value="new">新着順</option><option value="amount">上限額の大きい順</option></select></label>
-      </div>
-      <label class="s-check"><input type="checkbox" name="national" value="1" checked> 全国向けの制度も含める（都道府県を選んだとき）</label>
-    </form>
-
-    <p id="s-count" class="s-count" aria-live="polite">読み込み中…</p>
-    <ul id="s-results" class="s-results"></ul>
-    <p class="s-more-wrap"><button type="button" id="s-more" class="s-more" hidden>さらに表示する</button></p>
-
+      <p id="s-count" class="s-count">読み込み中…</p>
+      <ul id="s-results" class="s-results"></ul>
+      <p class="s-more-wrap"><button type="button" id="s-more" class="s-more" hidden>さらに表示する</button></p>
     </section>
 
-    <p class="area-note">情報は jGrants（デジタル庁）の公開データをもとに、毎日自動で更新しています。目的・業種は制度名のキーワードで分けた参考の分類です。対象や要件は、必ず各制度の公式情報で確認してください。市区町村の制度は <a href="area/index.html">市区町村別の補助金</a>、質問に答えて使えそうな補助金を知りたいときは <a href="hantei.html">AI補助金判定</a> をご利用ください。</p>
+    <section id="saved" class="saved" hidden aria-labelledby="saved-title">
+      <div class="section-head">
+        <h2 id="saved-title">保存した制度</h2>
+        <button type="button" class="text-button" id="saved-ics" hidden>締切をまとめてカレンダーに追加（.ics）</button>
+      </div>
+      <ul id="saved-list" class="saved-list"></ul>
+      <p class="hint">保存した内容はこのブラウザだけに記録されます。</p>
+    </section>
+
+
+    <p class="area-note">募集中の補助金は jGrants（デジタル庁）の公開データをもとに、毎日自動で更新しています。目的・業種は制度名のキーワードで分けた参考の分類です。対象や要件は、必ず各制度の公式情報で確認してください。質問に答えて使えそうな補助金を知りたいときは <a href="hantei.html">AI補助金判定</a> をご利用ください。</p>
   </main>
   <!-- Google Sign-In Login Modal -->
   <div id="login-modal" class="modal" hidden>
