@@ -662,3 +662,16 @@ details ul { margin: 8px 0; padding-left: 1.5em; }
 .pb-banner { position: relative; width: 100%; aspect-ratio: 1200 / 160; min-height: 130px; border-radius: 6px; overflow: hidden; margin: 0 0 24px; background: #f6f0e4 center / cover no-repeat; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 24px rgba(20, 40, 60, 0.12); }
 .pb-title { margin: 0; width: fit-content; max-width: 70%; background: rgba(252, 249, 243, 0.72); padding: 0.45em 0.9em; border-radius: 6px; box-shadow: 0 2px 12px rgba(20, 40, 60, 0.08); text-align: center; font-weight: 900; font-size: clamp(1.25rem, 2.8vw, 2.1rem); line-height: 1.35; letter-spacing: -0.02em; color: #14213d; text-wrap: balance; }
 @media (max-width: 760px) { .pb-title { max-width: 86%; } }
+
+/* トップの「特に人気の5つの補助金」 */
+.popular { margin-top: 64px; }
+.pop-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.pop-card { position: relative; display: grid; grid-template-columns: 1fr; gap: 4px; min-height: 96px; padding: 18px 22px 18px 96px; border-radius: 6px; overflow: hidden; color: #14213d; text-decoration: none; background: #f6f0e4 right center / cover no-repeat; box-shadow: 0 4px 16px rgba(20, 40, 60, 0.08); }
+.pop-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(252, 249, 243, 0.94) 0%, rgba(252, 249, 243, 0.78) 45%, rgba(252, 249, 243, 0.2) 100%); pointer-events: none; }
+.pop-card > span { position: relative; }
+.pop-no { position: absolute !important; left: 22px; top: 18px; font-family: var(--font-mono); font-size: 1.4rem; font-weight: 700; color: #c2410c; }
+.pop-name { font-weight: 900; font-size: 1.05rem; line-height: 1.4; }
+.pop-desc { font-size: 0.88rem; color: #334155; }
+.pop-card:hover .pop-name { text-decoration: underline; text-underline-offset: 4px; }
+.pop-more { margin: 14px 0 0; font-size: 0.92rem; }
+.pop-more a { color: var(--accent); }

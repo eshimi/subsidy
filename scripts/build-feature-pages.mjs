@@ -12,6 +12,7 @@ const crumb = (items) => `    <nav class="area-crumb" aria-label="パンくず">
 
 
 
+
 // 記事の共通の組み立て。sections は [見出し, HTML] の並び
 const SECTION_ICON = (i) => String(i).padStart(2, '0');
 function articleOf({ kicker, title, lead, sections, related, sources, updated = UPDATED, image }) {
@@ -63,6 +64,52 @@ const UL = (items) => `        <ul>\n${items.map((i) => `          <li>${i}</li>
 const OL = (items) => `        <ol>\n${items.map((i) => `          <li>${i}</li>`).join('\n')}\n        </ol>`;
 const QA = (pairs) => pairs.map(([q, a]) => `        <h3>Q. ${q}</h3>\n        <p>A. ${a}</p>`).join('\n');
 const NOTE_ALL = '制度の金額・補助率・対象経費は、公募回ごとに決まります。ここでは制度の全体像を説明し、数字は書いていません。最新の数字は公式の公募要領で確認してください。';
+
+// 「特に人気の5つの補助金」：特集の1本目。各制度の詳しい記事への入口を兼ねる
+const POPULAR = {
+  file: 'popular.html',
+  kicker: '特に人気の5つの補助金',
+  title: '特に人気の5つの補助金｜どんな事業に、どの補助金が合うか',
+  summary: '利用の多い5つの補助金について、人気の理由、主な使い道、注意点を整理しました。',
+  lead: '事業の目的に合わせて、どの補助金から調べればよいかを一覧で確認できます。',
+  image: { file: 'b01', alt: '' },
+  related: [['../columns/how-to-find-subsidy.html', '補助金の探し方'], ['../columns/free-consultation.html', '補助金の無料相談窓口'], ['../grants/deadlines.html', '締切が近い補助金']],
+  sources: [
+    ['ミラサポplus（補助金の情報と公募要領）', 'https://mirasapo-plus.go.jp/'],
+    ['jGrants（デジタル庁の電子申請・公募情報）', 'https://www.jgrants-portal.go.jp/'],
+  ],
+  sections: [
+    ['1. 小規模事業者持続化補助金', [
+      P('<strong>人気の理由</strong>：小規模な事業者や個人事業主を主な対象にした制度で、利用の多い補助金の一つです。経費の使い道の自由度が高いのが特徴です。'),
+      P('<strong>主な使い道</strong>：ホームページの作成や改修、チラシ・パンフレットの作成、店舗の改装、新メニューの開発、SNS広告などの販路開拓の費用。'),
+      P('<strong>注意点</strong>：商工会・商工会議所が作る事業支援計画書が必要です。公募回ごとに締切があるため、早めに窓口に相談してください。'),
+      P('<a href="jizokuka.html">小規模事業者持続化補助金とは？</a>（詳しい解説）'),
+    ].join('\n')],
+    ['2. IT導入補助金（デジタル化・AI導入補助金）', [
+      P('<strong>人気の理由</strong>：会計ソフトや予約システム、POSレジなど、日々の業務のデジタル化に直結するため、取り組みやすい制度です。'),
+      P('<strong>主な使い道</strong>：クラウド会計ソフト、ECサイトの構築、POSレジや決済端末、業務システムの導入。'),
+      P('<strong>注意点</strong>：対象は、事務局に登録されたITツールだけです。交付決定の前に契約・支払いをした分は、対象外になります。'),
+      P('<a href="digital-subsidy.html">デジタル補助金とは？</a>（詳しい解説）'),
+    ].join('\n')],
+    ['3. ものづくり補助金', [
+      P('<strong>人気の理由</strong>：新しい製品・サービスの開発や、生産性を大きく上げる設備投資を支える、設備投資系の補助金の代表格です。'),
+      P('<strong>主な使い道</strong>：高性能な機械の導入、特殊な加工設備、製造工程の自動化など。'),
+      P('<strong>注意点</strong>：事業計画の審査があり、計画の中身が問われます。電子申請にはgBizIDプライムが必要です。'),
+      P('<a href="monodukuri.html">ものづくり補助金とは？</a>（詳しい解説）'),
+    ].join('\n')],
+    ['4. 事業再構築補助金（新事業進出補助金など）', [
+      P('<strong>人気の理由</strong>：既存の事業とは違う分野への進出や、事業の転換を支える大型の補助金です。'),
+      P('<strong>主な使い道</strong>：飲食店が通販事業を始める、製造業が新分野のサービスを始めるための店舗・工場の建設、システムの構築など。'),
+      P('<strong>注意点</strong>：制度の名称や枠は、年度によって変わってきました。現在の公募の有無と要件は、必ず公式サイトで確認してください。'),
+    ].join('\n')],
+    ['5. 事業承継・M&A補助金', [
+      P('<strong>人気の理由</strong>：後継者がいない店舗や事業を、別の人へ引き継ぐ際の費用を支える制度です。近年、相談が増えています。'),
+      P('<strong>主な使い道</strong>：引き継ぎや譲渡の際の専門家（税理士、弁護士など）への費用、引き継いだ後の設備導入や店舗のリニューアル（枠による）。'),
+      P('<strong>注意点</strong>：現在の名称は「事業承継・M&A補助金」です。古い「引継ぎ補助金」の資料も残っているため、確認してください。'),
+      P('<a href="succession.html">事業承継・M&A補助金とは？</a>（詳しい解説）'),
+    ].join('\n')],
+  ].map(([h, html]) => [h, html]),
+};
 
 const ARTICLES = [
   {
@@ -524,6 +571,7 @@ function page({ file, title, description, canonicalPath, body }) {
 mkdirSync(OUT, { recursive: true });
 
 const FEATURES = [
+  { file: POPULAR.file, title: POPULAR.title, summary: POPULAR.summary },
   { file: 'digital-subsidy.html', title: 'デジタル補助金とは？対象ツール・申請の流れ・失敗しない準備まで', summary: 'ITツールやAIの導入に使える補助金の種類、対象になるもの・ならないもの、申請の流れ、よくある失敗を解説します。' },
   ...ARTICLES.map((a) => ({ file: a.file, title: a.title, summary: a.summary })),
 ];
@@ -561,6 +609,8 @@ page({
   canonicalPath: '/feature/digital-subsidy.html',
   body: article,
 });
+
+page({ file: POPULAR.file, title: `${POPULAR.title}`, description: POPULAR.summary, canonicalPath: `/feature/${POPULAR.file}`, body: articleOf({ ...POPULAR, kicker: POPULAR.kicker }) });
 
 for (const a of ARTICLES) {
   page({ file: a.file, title: `${a.title}｜補助金ネット`, description: a.summary, canonicalPath: `/feature/${a.file}`, body: articleOf(a) });
