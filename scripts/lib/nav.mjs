@@ -9,6 +9,7 @@ export const TOP_GROUPS = [
     label: '制度を見る',
     items: [
       { label: '締切が近い補助金', href: 'grants/deadlines.html' },
+      { label: '目的別の補助金', href: 'grants/purposes.html' },
       { label: '制度一覧', href: 'grants/index.html' },
       { label: '都道府県別の補助金', href: 'grants/prefectures.html' },
       { label: '地域別の補助金', href: 'area/index.html' },
@@ -43,6 +44,7 @@ export const FOOTER_GROUPS = [
     items: [
       { label: '補助金を探す（トップ）', href: '' },
       { label: '締切が近い補助金', href: 'grants/deadlines.html' },
+      { label: '目的別の補助金', href: 'grants/purposes.html' },
       { label: '制度一覧', href: 'grants/index.html' },
       { label: '都道府県別の補助金', href: 'grants/prefectures.html' },
       { label: '地域別の補助金', href: 'area/index.html' },

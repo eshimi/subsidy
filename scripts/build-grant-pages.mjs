@@ -295,6 +295,56 @@ export function hubsFor(grants, now) {
   return hubs;
 }
 
+// 目的別の一覧。jGrants の制度名のキーワードで分ける（参考の分類であり、対象や要件を判定するものではない）
+export const PURPOSES = [
+  { slug: 'equipment', label: '設備投資', match: /設備|機械|機器|ものづくり|工場|車両|施設整備|店舗改装/, lead: '機械・設備・店舗などの導入や改修に使える補助金です。' },
+  { slug: 'digital', label: 'IT・デジタル導入', match: /(^|[^A-Za-z])(IT|DX)([^A-Za-z]|$)|デジタル|ＩＴ|ＤＸ|システム|ソフトウェア/, lead: '会計・受発注・業務システムなど、IT ツールの導入や DX に使える補助金です。' },
+  { slug: 'sales', label: '販路開拓・販売促進', match: /販路|販売|販促|展示会|(^|[^A-Za-z])EC([^A-Za-z]|$)|ＥＣ|ホームページ|広告|海外展開|輸出/, lead: '新しい顧客や取引先を探す、販売を広げるための取り組みに使える補助金です。' },
+  { slug: 'hiring', label: '人材・雇用', match: /雇用|人材|人手|従業員|採用|育成|働き方|賃上げ|リスキリング|研修/, lead: '人を雇う、育てる、待遇を改善するための取り組みに使える制度です。' },
+  { slug: 'green', label: '省エネ・脱炭素', match: /省エネ|脱炭素|(^|[^A-Za-z])GX([^A-Za-z]|$)|ＧＸ|再エネ|再生可能|カーボン|温室効果/, lead: '省エネ設備の導入や、脱炭素に向けた取り組みに使える補助金です。' },
+  { slug: 'research', label: '研究開発・技術', match: /研究|開発|技術|イノベーション|新製品|新サービス/, lead: '新しい製品・サービスや技術の開発に使える補助金です。' },
+  { slug: 'succession', label: '事業承継・事業再構築', match: /承継|事業再構築|再生|転換|引継/, lead: '事業の引き継ぎや、事業の作り直し・転換に使える制度です。' },
+  { slug: 'startup', label: '創業・起業', match: /創業|起業|開業|新規事業|スタートアップ/, lead: '創業者や、これから事業を始める人に向けた制度です。' },
+  { slug: 'region', label: '地域・観光・農林水産', match: /観光|農林|農業|漁業|林業|地域|商店街|まちづくり|特産/, lead: '地域の産業や観光、農林水産業の取り組みに使える補助金です。' },
+];
+
+export function purposeHubsFor(grants, now) {
+  const open = grants.filter((g) => g.end && statusOf(g.end, now).key !== 'closed');
+  const hubs = [];
+  for (const purpose of PURPOSES) {
+    const items = open.filter((g) => purpose.match.test(g.title)).sort((a, b) => String(a.end).localeCompare(String(b.end)));
+    if (items.length < MIN_HUB) continue; // 該当が少ない目的は一覧を作らない
+    hubs.push({
+      file: `purpose-${purpose.slug}.html`,
+      title: `${purpose.label}の補助金一覧｜補助金ネット`,
+      heading: `${purpose.label}の補助金`,
+      lead: `${purpose.lead}募集中の補助金 ${items.length} 件を、締切の早い順に並べています。`,
+      items,
+      count: items.length,
+    });
+  }
+  return hubs;
+}
+
+function purposeIndex(hubs, now) {
+  const lis = hubs.map((h) => `        <li><a href="${h.file}">${esc(h.heading)}</a><p class="grant-meta">募集中 ${h.count} 件｜${esc(h.lead)}</p></li>`).join('\n');
+  const body = `${crumb([['../', '補助金ネット'], [null, '目的別の補助金']])}
+
+    <div style="margin-bottom: 2rem;">
+      <h1 class="display" style="margin-bottom: 0.5rem;">目的別の補助金</h1>
+      <p class="lead" style="margin-bottom: 0;">やりたいことから補助金を探せます。制度名のキーワードで分けた一覧なので、対象や要件は、各制度の公式情報で確認してください。</p>
+    </div>
+
+    <section class="area-section" aria-labelledby="purposes">
+      <ul class="grant-list">
+${lis || '        <li>現在、表示できる目的別の一覧がありません。</li>'}
+      </ul>
+    </section>
+
+    <p class="area-note">情報は jGrants（デジタル庁）の公開データをもとに、毎日自動で更新しています。</p>`;
+  return shell({ title: '目的別の補助金｜補助金ネット', description: '設備投資、IT導入、販路開拓、人材、省エネなど、目的から募集中の補助金を探せます。', canonicalPath: '/grants/purposes.html', body }).replace('</style>', `${STYLE_EXTRA}\n  </style>`);
+}
+
 // sitemap.xml に制度ページを追加する（前回の追加分は取り除いてから入れ直す）
 export function sitemapWith(xml, urls, lastmod) {
   const cleaned = xml.replace(/\s*<!-- grants:start -->[\s\S]*?<!-- grants:end -->/, '');
@@ -333,13 +383,16 @@ ${hubs.map((h) => `        <li><a href="${h.file}">${h.heading}</a></li>`).join(
   for (const h of hubs) {
     writeFileSync(join(out, h.file), listPage({ title: `${h.title}｜補助金ネット`, heading: h.heading, lead: h.lead, items: h.items, now, canonicalPath: `/grants/${h.file}` }));
   }
+  const purposes = purposeHubsFor(grants, now);
+  writeFileSync(join(out, 'purposes.html'), purposeIndex(purposes, now));
+  for (const h of purposes) writeFileSync(join(out, h.file), listPage({ title: h.title, heading: h.heading, lead: h.lead, items: h.items, now, canonicalPath: `/grants/${h.file}` }));
   writeFileSync(join(out, 'deadlines.ics'), icsFor(grants, now));
   writeFileSync(join(out, 'feed.xml'), rssFor(grants, now));
   const counts = prefectureCounts(dir);
   writeFileSync(join(out, 'prefectures.html'), prefectureIndex(counts, now));
   for (const pref of PREFECTURES) writeFileSync(join(out, `pref-${PREF_SLUGS[pref]}.html`), prefPage(pref, counts[pref], now));
   if (existsSync(sitemap)) {
-    const urls = ['grants/index.html', 'grants/deadlines.html', 'grants/prefectures.html', ...hubs.map((h) => `grants/${h.file}`), ...PREFECTURES.map((p) => `grants/pref-${PREF_SLUGS[p]}.html`), ...grants.map((g) => `grants/${g.id}.html`)];
+    const urls = ['grants/index.html', 'grants/deadlines.html', 'grants/prefectures.html', 'grants/purposes.html', ...purposes.map((h) => `grants/${h.file}`), ...hubs.map((h) => `grants/${h.file}`), ...PREFECTURES.map((p) => `grants/pref-${PREF_SLUGS[p]}.html`), ...grants.map((g) => `grants/${g.id}.html`)];
     writeFileSync(sitemap, sitemapWith(readFileSync(sitemap, 'utf-8'), urls, lastmod));
   }
   return { pages: grants.length };
