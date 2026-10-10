@@ -5,7 +5,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { AREA_CITIES } from '../src/data/area-cities.js';
 import { LOCAL_PROGRAMS } from '../src/data/local-programs.js';
-import { PREFECTURES } from '../src/data/prefectures.js';
+import { PREFECTURES, PREF_SLUGS } from '../src/data/prefectures.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = join(ROOT, 'public', 'area');
@@ -39,7 +39,9 @@ const STYLE = `
     .area-crumb a { color: var(--mute); }
     .area-note { font-size: 0.9rem; color: var(--mute); line-height: 1.8; border-left: 3px solid #e0e0e0; padding-left: 16px; margin: 2rem 0 0; max-width: 48em; }
     .area-groups { display: grid; gap: 28px; }
-    .area-groups h2 { font-size: 1.2rem; margin: 0 0 12px; }
+    .area-groups h2 { font-size: 1.2rem; margin: 0; }
+    .area-pref-head { display: flex; align-items: center; gap: 16px; margin-bottom: 12px; }
+    .area-pref-head img { width: 96px; height: auto; flex-shrink: 0; }
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #1f3bff; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
@@ -228,7 +230,10 @@ function indexPage() {
     .map((pref) => ({ pref, cities: AREA_CITIES.filter((c) => c.pref === pref) }))
     .filter((g) => g.cities.length);
   const list = groups.map((g) => `        <section>
-          <h2>${esc(g.pref)}</h2>
+          <div class="area-pref-head">
+            <img src="../images/prefectures/pref-${PREF_SLUGS[g.pref]}.webp" alt="" width="96" height="auto" loading="lazy">
+            <h2>${esc(g.pref)}</h2>
+          </div>
           <ul>
 ${g.cities.map((c) => `            <li><a href="${c.slug}.html">${esc(c.name)}</a></li>`).join('\n')}
           </ul>
