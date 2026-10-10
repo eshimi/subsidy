@@ -1,5 +1,6 @@
 // 地域別ページ・制度ページで共有する、サイト共通の見た目（ヘッダー・フッター・スタイル）
 import { topnavHtml, footerNavHtml, footerBottomHtml } from './nav.mjs';
+import { splitLayout } from './side-layout.mjs';
 
 export const SITE = 'https://hojyokin.net';
 
@@ -100,7 +101,7 @@ ${topnavHtml('../', current)}
   </header>
 
   <main class="wrap">
-${body}
+${splitLayout(body, current) ?? body}
   </main>
 
   <footer class="footer">
