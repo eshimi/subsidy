@@ -80,7 +80,15 @@
       <a class="wordmark" href="../" aria-label="補助金ネット トップ"><img src="../images/logo-header-v5.webp" alt="補助金ネット"></a>
       <nav class="topnav" id="topnav" aria-label="サイト内">
         <a href="../">補助金を探す</a>
-        <a href="../guide.html">使い方</a>
+        <details class="navdrop">
+          <summary>制度を見る</summary>
+          <div class="navdrop-panel">
+            <a href="../grants/deadlines.html">締切が近い補助金</a>
+            <a href="../grants/index.html">制度一覧</a>
+            <a href="../grants/prefectures.html">都道府県別の補助金</a>
+            <a href="../area/index.html">地域別の補助金</a>
+          </div>
+        </details>
         <details class="navdrop">
           <summary>はじめの一歩</summary>
           <div class="navdrop-panel">
@@ -90,18 +98,17 @@
             <a href="../roadmap.html">創業のステップ</a>
           </div>
         </details>
-        <details class="navdrop" data-current>
+        <details class="navdrop">
           <summary>お役立ち情報</summary>
           <div class="navdrop-panel">
             <a href="../columns.html">コラム</a>
-            <a href="../real-life.html">補助金のリアル</a>
             <a href="../compare/index.html">比較記事</a>
-            <a href="../grants/deadlines.html">締切が近い補助金</a>
-            <a href="index.html" aria-current="page">地域別の補助金</a>
+            <a href="../real-life.html">補助金のリアル</a>
             <a href="../books.html">参考図書</a>
             <a href="../resources.html">参考リンク</a>
           </div>
         </details>
+        <a href="../guide.html">使い方</a>
       </nav>
       <button type="button" class="nav-toggle" aria-controls="topnav" aria-expanded="false">メニュー</button>
       <span class="edition">JP — FY2026</span>
@@ -186,18 +193,9 @@
       </div>
       <nav class="footer-nav" aria-label="フッター">
           <details class="footer-group">
-            <summary>はじめの一歩</summary>
-            <ul>
-            <li><a href="../diagnosis.html">今日からできること診断</a></li>
-            <li><a href="../chat.html">副業壁打ちAI</a></li>
-            <li><a href="../beginner-guide.html">初心者向けガイド</a></li>
-            <li><a href="../roadmap.html">創業のステップ</a></li>
-            </ul>
-          </details>
-          <details class="footer-group">
             <summary>補助金を探す</summary>
             <ul>
-            <li><a href="../">補助金を探す</a></li>
+            <li><a href="../">補助金を探す（トップ）</a></li>
             <li><a href="../grants/deadlines.html">締切が近い補助金</a></li>
             <li><a href="../grants/index.html">制度一覧</a></li>
             <li><a href="../grants/prefectures.html">都道府県別の補助金</a></li>
@@ -205,25 +203,38 @@
             </ul>
           </details>
           <details class="footer-group">
+            <summary>はじめの一歩</summary>
+            <ul>
+            <li><a href="../diagnosis.html">今日からできること診断</a></li>
+            <li><a href="../chat.html">副業壁打ちAI</a></li>
+            <li><a href="../beginner-guide.html">初心者向けガイド</a></li>
+            <li><a href="../roadmap.html">創業のステップ</a></li>
+            <li><a href="../guides/secret-side-job.html">会社にバレない副業の始め方</a></li>
+            <li><a href="../guides/tax-filing-basics.html">副業の確定申告の基礎知識</a></li>
+            <li><a href="../guides/first-day-checklist.html">副業初日にやること</a></li>
+            <li><a href="../guides/work-life-balance.html">副業と本業のバランス</a></li>
+            <li><a href="../guides/time-to-first-income.html">最初の収入まで、どのくらい？</a></li>
+            </ul>
+          </details>
+          <details class="footer-group">
             <summary>お役立ち情報</summary>
             <ul>
             <li><a href="../columns.html">コラム</a></li>
-            <li><a href="../real-life.html">補助金のリアル</a></li>
             <li><a href="../compare/index.html">比較記事</a></li>
+            <li><a href="../real-life.html">補助金のリアル</a></li>
             <li><a href="../books.html">参考図書</a></li>
             <li><a href="../resources.html">参考リンク</a></li>
-          <li><a href="../policy/privacy.html">プライバシーポリシー</a></li>
             </ul>
           </details>
           <details class="footer-group">
             <summary>サイトについて</summary>
             <ul>
             <li><a href="../guide.html">使い方</a></li>
-            <li><a href="../sitemap.html">サイトマップ</a></li>
             <li><a href="../policy/about.html">運営者情報</a></li>
             <li><a href="../policy/sources.html">出典・更新方針</a></li>
             <li><a href="../policy/privacy.html">プライバシーポリシー</a></li>
-            <li><a href="../policy/contact.html">お問い合わせ</a></li>
+            <li><a href="../policy/contact.html" aria-current="page">お問い合わせ</a></li>
+            <li><a href="../sitemap.html">サイトマップ</a></li>
             </ul>
           </details>
         </nav>
@@ -231,9 +242,9 @@
     <div class="footer-bottom">
       <nav aria-label="補助リンク">
         <ul>
-          <li><a href="../sitemap.html">サイトマップ</a></li>
+          <li><a href="../policy/privacy.html">プライバシーポリシー</a></li>
           <li><a href="../policy/contact.html">フィードバック・バグ報告</a></li>
-          <li><a href="../resources.html">参考リンク</a></li>
+          <li><a href="../sitemap.html">サイトマップ</a></li>
         </ul>
       </nav>
       <p class="footer-copy">Copyright © 2026 補助金ネット. All rights reserved.</p>

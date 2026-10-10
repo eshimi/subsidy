@@ -113,10 +113,12 @@ button, input, select, textarea { font: inherit; color: inherit; }
 @media (max-width: 640px) { .edition { display: none; } .topnav { gap: 14px; } }
 .topnav a[aria-current="page"], .navdrop[data-current] > summary { font-weight: 700; text-decoration: underline; text-underline-offset: 6px; }
 .navdrop { position: relative; font-size: inherit; }
+.topnav > a, .navdrop > summary { display: block; height: 36px; line-height: 36px; }
+@media (min-width: 761px) { .topnav > a, .edition { position: relative; top: -3px; } }
 .navdrop > summary { cursor: pointer; list-style: none; font-weight: 400; width: auto; color: inherit; }
 .navdrop > summary::-webkit-details-marker { display: none; }
 .topnav .navdrop > summary::before { content: none; }
-.navdrop > summary::after { content: " ▾"; font-size: 0.75em; }
+.navdrop > summary::after { content: "▾"; font-size: 0.75em; margin-left: 0.3em; line-height: 0; vertical-align: middle; }
 .navdrop-panel { position: absolute; top: calc(100% + 14px); right: 0; min-width: 12em; display: grid; padding: 6px 0; background: var(--topbar); border: 1px solid var(--line); z-index: 1000; }
 .navdrop-panel a { padding: 8px 16px; white-space: nowrap; text-decoration: none; }
 .navdrop-panel a:hover, .navdrop-panel a[aria-current="page"] { text-decoration: underline; text-underline-offset: 4px; }

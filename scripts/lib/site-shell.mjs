@@ -1,4 +1,6 @@
 // 地域別ページ・制度ページで共有する、サイト共通の見た目（ヘッダー・フッター・スタイル）
+import { topnavHtml, footerNavHtml, footerBottomHtml } from './nav.mjs';
+
 export const SITE = 'https://hojyokin.net';
 
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
@@ -42,6 +44,8 @@ const STYLE = `
 
 // 共通ヘッダー・フッター（columns.html と同じ構成）。「地域別」は お役立ち情報 の中の項目
 function shell({ title, description, canonicalPath, body, jsonLd = '', robots = 'index, follow' }) {
+  // 現在のページ（public/ からのパス）。メニューの現在地の表示に使う
+  const current = canonicalPath.replace(/^\//, '') || 'index.html';
   return `<!doctype html>
 <html lang="ja">
 <head>
@@ -88,29 +92,7 @@ ${jsonLd}  <script async src="https://pagead2.googlesyndication.com/pagead/js/ad
     <div class="wrap topbar-inner">
       <a class="wordmark" href="../" aria-label="補助金ネット トップ"><img src="../images/logo-header-v5.webp" alt="補助金ネット"></a>
       <nav class="topnav" id="topnav" aria-label="サイト内">
-        <a href="../">補助金を探す</a>
-        <a href="../guide.html">使い方</a>
-        <details class="navdrop">
-          <summary>はじめの一歩</summary>
-          <div class="navdrop-panel">
-            <a href="../diagnosis.html">今日からできること診断</a>
-            <a href="../chat.html">副業壁打ちAI</a>
-            <a href="../beginner-guide.html">初心者向けガイド</a>
-            <a href="../roadmap.html">創業のステップ</a>
-          </div>
-        </details>
-        <details class="navdrop" data-current>
-          <summary>お役立ち情報</summary>
-          <div class="navdrop-panel">
-            <a href="../columns.html">コラム</a>
-            <a href="../real-life.html">補助金のリアル</a>
-            <a href="../compare/index.html">比較記事</a>
-            <a href="../grants/deadlines.html">締切が近い補助金</a>
-            <a href="index.html" aria-current="page">地域別の補助金</a>
-            <a href="../books.html">参考図書</a>
-            <a href="../resources.html">参考リンク</a>
-          </div>
-        </details>
+${topnavHtml('../', current)}
       </nav>
       <button type="button" class="nav-toggle" aria-controls="topnav" aria-expanded="false">メニュー</button>
       <span class="edition">JP — FY2026</span>
@@ -134,57 +116,11 @@ ${body}
         </figure>
       </div>
       <nav class="footer-nav" aria-label="フッター">
-          <details class="footer-group">
-            <summary>はじめの一歩</summary>
-            <ul>
-            <li><a href="../diagnosis.html">今日からできること診断</a></li>
-            <li><a href="../chat.html">副業壁打ちAI</a></li>
-            <li><a href="../beginner-guide.html">初心者向けガイド</a></li>
-            <li><a href="../roadmap.html">創業のステップ</a></li>
-            </ul>
-          </details>
-          <details class="footer-group">
-            <summary>補助金を探す</summary>
-            <ul>
-            <li><a href="../">補助金を探す</a></li>
-            <li><a href="../grants/deadlines.html">締切が近い補助金</a></li>
-            <li><a href="../grants/index.html">制度一覧</a></li>
-            <li><a href="../grants/prefectures.html">都道府県別の補助金</a></li>
-            <li><a href="../area/index.html">地域別の補助金</a></li>
-            </ul>
-          </details>
-          <details class="footer-group">
-            <summary>お役立ち情報</summary>
-            <ul>
-            <li><a href="../columns.html">コラム</a></li>
-            <li><a href="../real-life.html">補助金のリアル</a></li>
-            <li><a href="../compare/index.html">比較記事</a></li>
-            <li><a href="../books.html">参考図書</a></li>
-            <li><a href="../resources.html">参考リンク</a></li>
-          <li><a href="../policy/privacy.html">プライバシーポリシー</a></li>
-            </ul>
-          </details>
-          <details class="footer-group">
-            <summary>サイトについて</summary>
-            <ul>
-            <li><a href="../guide.html">使い方</a></li>
-            <li><a href="../sitemap.html">サイトマップ</a></li>
-            <li><a href="../policy/about.html">運営者情報</a></li>
-            <li><a href="../policy/sources.html">出典・更新方針</a></li>
-            <li><a href="../policy/privacy.html">プライバシーポリシー</a></li>
-            <li><a href="../policy/contact.html">お問い合わせ</a></li>
-            </ul>
-          </details>
+${footerNavHtml('../', current)}
         </nav>
     </div>
     <div class="footer-bottom">
-      <nav aria-label="補助リンク">
-        <ul>
-          <li><a href="../sitemap.html">サイトマップ</a></li>
-          <li><a href="../policy/contact.html">フィードバック・バグ報告</a></li>
-          <li><a href="../resources.html">参考リンク</a></li>
-        </ul>
-      </nav>
+${footerBottomHtml('../')}
       <p class="footer-copy">Copyright © 2026 補助金ネット. All rights reserved.</p>
     </div>
   </footer>
