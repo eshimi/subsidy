@@ -1,5 +1,5 @@
-// 「買いたいものから探す」（public/kaimono.html）を生成する: node scripts/build-purchase-page.mjs
-// データは scripts/data/purchases.mjs。募集中の補助金は、実行時に grants/search.json から目的（purposes）で絞り込む（public/kaimono.js）。
+// 「必要なものから探す」（public/hitsuyo.html）を生成する: node scripts/build-hitsuyo-page.mjs
+// データは scripts/data/purchases.mjs。募集中の補助金は、実行時に grants/search.json から目的（purposes）で絞り込む（public/hitsuyo.js）。
 import { writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -19,7 +19,7 @@ const panels = PURCHASES.map((p) => `      <div class="kp-panel" id="kp-${esc(p.
 ${p.national.map((n) => `          <li><a href="${esc(n.href)}"><b>${esc(n.name)}</b><span class="kp-max">上限の目安：${esc(n.max)}</span><span class="kp-note">${esc(n.note)}</span></a></li>`).join('\n')}
         </ul>
         <div class="kp-open" data-open>
-          <h3 class="kp-h3">募集中の補助金（この買い物に関係しそうなもの）</h3>
+          <h3 class="kp-h3">募集中の補助金（この必要なものに関係しそうなもの）</h3>
           <p class="kp-loading">読み込み中…</p>
         </div>
         <h3 class="kp-h3">購入の前に確認すること</h3>
@@ -60,15 +60,15 @@ const style = `
     .kp-hint { margin: 0 0 18px; color: var(--mute); font-size: 0.92rem; }
 `;
 
-const body = `    <nav class="area-crumb" aria-label="パンくず"><a href="./">補助金ネット</a> ＞ 買いたいものから探す</nav>
-    <div class="pb-banner" style="background-image: url('images/banner/${bannerFor('kaimono.html')}.webp')"><h1 class="pb-title">その買い物、補助金で変わるかも。</h1></div>
+const body = `    <nav class="area-crumb" aria-label="パンくず"><a href="./">補助金ネット</a> ＞ 必要なものから探す</nav>
+    <div class="pb-banner" style="background-image: url('images/banner/${bannerFor('hitsuyo.html')}.webp')"><h1 class="pb-title">必要なもの、補助金で変わるかも。</h1></div>
     <div style="margin-bottom: 1.5rem;">
-      <p class="lead" style="margin-bottom: 0;">「POSレジを買いたい」「店舗を改装したい」など、買い物や投資の内容から、関係しそうな補助金を探せます。制度名がわからなくても使えます。</p>
+      <p class="lead" style="margin-bottom: 0;">「POSレジが必要」「店舗を改装したい」など、必要な買い物や投資の内容から、関係しそうな補助金を探せます。制度名がわからなくても使えます。</p>
     </div>
 
     <section aria-labelledby="kp-pick">
-      <h2 id="kp-pick" class="kp-h3" style="margin-top: 0;">買いたいものを選んでください</h2>
-      <div class="kp-chips" role="group" aria-label="買いたいもの">
+      <h2 id="kp-pick" class="kp-h3" style="margin-top: 0;">必要なものを選んでください</h2>
+      <div class="kp-chips" role="group" aria-label="必要なもの">
 ${chips}
       </div>
       <div class="kp-amount">
@@ -89,14 +89,14 @@ ${panels}
     </section>
 
     <p class="area-note">掲載の金額・補助率・対象は目安です。制度は年度や公募回で変わるため、申請や契約の前に必ず公式の公募要領で確認してください。募集中の補助金は jGrants（デジタル庁）の公開データをもとに毎日更新しています。</p>
-    <script src="kaimono.js" defer></script>`;
+    <script src="hitsuyo.js" defer></script>`;
 
 const html = shell({
-  title: '買いたいものから補助金を探す｜補助金ネット',
+  title: '必要なものから補助金を探す｜補助金ネット',
   description: 'POSレジ、店舗の改装、業務用PC、AIツールなど、買い物や投資の内容から関係しそうな補助金を探せます。購入前の確認事項や、契約・発注の注意も表示します。',
-  canonicalPath: '/kaimono.html',
+  canonicalPath: '/hitsuyo.html',
   body: body,
 }).replace('</style>', `${style}\n  </style>`);
 
-writeFileSync(join(ROOT, 'kaimono.html'), html);
-console.log(`買いたいものから探すページを生成：${PURCHASES.length} 件`);
+writeFileSync(join(ROOT, 'hitsuyo.html'), html);
+console.log(`必要なものから探すページを生成：${PURCHASES.length} 件`);
