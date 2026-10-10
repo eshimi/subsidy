@@ -11,6 +11,10 @@
   const dateJa = (iso) => (iso ? new Intl.DateTimeFormat('ja-JP', { timeZone: 'Asia/Tokyo', month: 'long', day: 'numeric' }).format(new Date(iso)) : '記載なし');
   const yen = (m) => (m ? `上限 ${Number(m).toLocaleString('ja-JP')}円` : '上限は公募要領で確認');
   let items = [];
+  const area = (a) => {
+    const parts = String(a || '全国').split(/\s*[\/／、,]\s*/).filter(Boolean);
+    return parts.length > 2 ? `${parts.slice(0, 2).join('・')} ほか${parts.length - 2}地域` : parts.join('・');
+  };
   let shown = PAGE;
 
   // URL の条件をフォームに反映する
@@ -60,7 +64,7 @@
     list.innerHTML = out.slice(0, shown).map((g) => {
       const days = Math.ceil((Date.parse(g.e) - now) / DAY);
       const soon = days <= 30 ? `<span class="s-soon">締切まで${days}日</span>` : `締切 ${esc(dateJa(g.e))}`;
-      return `<li><a href="grants/${encodeURIComponent(g.id)}.html">${esc(g.t)}</a><p>${soon}｜${esc(g.a || '記載なし')}｜${esc(yen(g.m))}</p></li>`;
+      return `<li><a href="grants/${encodeURIComponent(g.id)}.html">${esc(g.t)}</a><p>${soon}｜${esc(area(g.a))}｜${esc(yen(g.m))}</p></li>`;
     }).join('');
     more.hidden = out.length <= shown;
   }

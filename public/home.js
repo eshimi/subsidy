@@ -6,8 +6,12 @@
   if (!soon || !fresh) return;
   const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
   const DAY = 24 * 60 * 60 * 1000;
+  const area = (a) => {
+    const parts = String(a || '全国').split(/\s*[\/／、,]\s*/).filter(Boolean);
+    return parts.length > 2 ? `${parts.slice(0, 2).join('・')} ほか${parts.length - 2}地域` : parts.join('・');
+  };
   const empty = (el, msg) => { el.innerHTML = `<li class="r-empty">${esc(msg)}</li>`; };
-  const item = (g, meta) => `<li><a href="grants/${encodeURIComponent(g.id)}.html">${esc(g.t)}</a><span class="m">${meta}｜${esc(g.a || '全国')}</span></li>`;
+  const item = (g, meta) => `<li><a href="grants/${encodeURIComponent(g.id)}.html">${esc(g.t)}</a><span class="m">${meta}｜${esc(area(g.a))}</span></li>`;
   fetch('grants/search.json')
     .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
     .then((data) => {
