@@ -106,10 +106,10 @@ button, input, select, textarea { font: inherit; color: inherit; }
   display: block;
 }
 .wordmark span { font-weight: 400; }
-.topnav { display: flex; gap: 20px; margin-left: auto; font-size: 0.88rem; }
+.topnav { display: flex; align-items: center; gap: 20px; margin-left: auto; font-size: 0.88rem; line-height: 1.4; }
 .topnav a { text-decoration: none; }
 .topnav a:hover { text-decoration: underline; }
-.edition { color: var(--mute); }
+.edition { color: var(--mute); line-height: 1.4; }
 @media (max-width: 640px) { .edition { display: none; } .topnav { gap: 14px; } }
 .topnav a[aria-current="page"], .navdrop[data-current] > summary { font-weight: 700; text-decoration: underline; text-underline-offset: 6px; }
 .navdrop { position: relative; font-size: inherit; }
