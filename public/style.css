@@ -824,3 +824,14 @@ button.r-way:focus-visible { outline: 2px solid var(--accent); outline-offset: 2
 .r-hero-video { transition: opacity 0.9s ease; }
 .r-hero-video.is-done { opacity: 0; }
 @media (prefers-reduced-motion: reduce) { .r-hero-video { display: none; } }
+
+/* 紹介動画を見る（ヒーロー）と、全面表示のときの閉じるボタン */
+.r-video-link { margin: 4px 0 0; }
+.r-video-btn { display: inline-flex; align-items: center; gap: 0.5em; padding: 8px 16px; border: 1px solid rgba(255, 255, 255, 0.55); border-radius: 999px; background: rgba(255, 255, 255, 0.12); color: #fff; font: inherit; font-size: 0.92rem; font-weight: 600; cursor: pointer; }
+.r-video-btn:hover { background: rgba(255, 255, 255, 0.22); }
+.r-video-btn:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+.r-hero.is-playing::before { opacity: 0; transition: opacity 0.4s ease; }
+.r-hero-video.is-full { z-index: 3; }
+.r-hero-video.is-full.is-done { opacity: 0; }
+.r-video-close { position: absolute; top: 16px; right: 16px; z-index: 4; padding: 8px 14px; border: 1px solid rgba(255, 255, 255, 0.6); border-radius: 999px; background: rgba(15, 30, 45, 0.55); color: #fff; font: inherit; font-size: 0.85rem; font-weight: 600; cursor: pointer; }
+.r-video-close:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
