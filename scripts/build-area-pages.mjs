@@ -172,7 +172,7 @@ function cityPage(city) {
   const body = `    <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ ${esc(city.name)}</nav>
 
     <div style="margin-bottom: 2rem;">
-      <h1 class="display" style="margin-bottom: 0.5rem;">${esc(city.name)}の補助金・創業支援<img class="area-title-img" src="../images/prefectures/pref-${PREF_SLUGS[city.pref]}.webp" alt="" width="auto" height="72"></h1>
+      <h1 class="display" style="margin-bottom: 0.5rem;">${esc(city.name)}の補助金・創業支援<img class="area-title-img" src="../images/prefectures/pref-${PREF_SLUGS[city.pref]}.webp" alt="" height="72"></h1>
       <p class="lead" style="margin-bottom: 0;">${esc(city.pref)}・${esc(city.level)}。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
