@@ -59,6 +59,17 @@ function shell({ title, description, canonicalPath, body, jsonLd = '' }) {
   <meta name="description" content="${esc(description)}">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="${SITE}${canonicalPath}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="補助金ネット">
+  <meta property="og:title" content="${esc(title)}">
+  <meta property="og:description" content="${esc(description)}">
+  <meta property="og:url" content="${SITE}${canonicalPath}">
+  <meta property="og:image" content="${SITE}/images/og-image.png">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${esc(title)}">
+  <meta name="twitter:description" content="${esc(description)}">
+  <meta name="twitter:image" content="${SITE}/images/og-image.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500&display=swap">
