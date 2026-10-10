@@ -25,7 +25,7 @@ const STYLE = `
     .area-groups h2 { font-size: 1.2rem; margin: 0; }
     .area-pref-head { display: flex; align-items: center; gap: 16px; margin-bottom: 12px; }
     .area-pref-head img { width: 96px; height: auto; flex-shrink: 0; }
-    h1.display { font-size: clamp(1.8rem, 7vw, 4.5rem); overflow-wrap: anywhere; }
+    h1.display { font-size: clamp(1.4rem, 4.7vw, 3rem); overflow-wrap: anywhere; }
     .article-hero { margin: 0 0 24px; }
     .article-hero img { display: block; width: 100%; height: auto; border-radius: 8px; border: 1px solid #e0e0e0; }
     .article-body h3 { font-size: 1.2rem; margin: 1.6em 0 0.7em; }

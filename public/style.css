@@ -171,12 +171,12 @@ button, input, select, textarea { font: inherit; color: inherit; }
   margin: 0;
   font-family: var(--font-body);
   font-weight: 900;
-  font-size: clamp(2.6rem, 9vw, 7.5rem);
+  font-size: clamp(1.75rem, 6vw, 5rem);
   line-height: 1.04;
   letter-spacing: -0.045em;
   text-wrap: balance;
 }
-.hero .display { color: #ffffff; text-shadow: 0 2px 18px rgba(0, 40, 90, 0.35); }
+.hero .display { font-size: clamp(2.6rem, 9vw, 7.5rem); color: #ffffff; text-shadow: 0 2px 18px rgba(0, 40, 90, 0.35); }
 .hero-foot {
   display: grid;
   grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
