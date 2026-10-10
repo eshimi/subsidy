@@ -70,3 +70,27 @@ test('sitemapWith: 追加分を入れ直しても重複しない', () => {
   const twice = sitemapWith(once, ['grants/a.html'], '2026-10-10');
   assert.equal(twice.match(/grants\/a\.html/g).length, 1);
 });
+
+import { icsFor, rssFor, prefectureCounts } from '../scripts/build-grant-pages.mjs';
+
+test('icsFor: 締切が残っている制度だけを終日予定にする', () => {
+  const grants = loadGrants(fixture());
+  const ics = icsFor(grants, NOW);
+  assert.match(ics, /BEGIN:VCALENDAR/);
+  assert.match(ics, /SUMMARY:締切：東京都の制度B/);
+  assert.match(ics, /DTSTART;VALUE=DATE:\d{8}/);
+  assert.equal((ics.match(/BEGIN:VEVENT/g) || []).length, 2);
+});
+
+test('rssFor: 新しい順の項目を持つ妥当な RSS を作る', () => {
+  const rss = rssFor(loadGrants(fixture()), NOW);
+  assert.match(rss, /<rss version="2\.0">/);
+  assert.equal((rss.match(/<item>/g) || []).length, 2);
+  assert.match(rss, /<link>https:\/\/hojyokin\.net\/grants\/b2\.html<\/link>/);
+});
+
+test('prefectureCounts: 都道府県ごとの制度を読み込む', () => {
+  const counts = prefectureCounts(fixture());
+  assert.equal(counts['東京都'].length, 2);
+  assert.equal(counts['大阪府'].length, 0);
+});

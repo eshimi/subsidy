@@ -4,6 +4,7 @@ import { mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync, existsSync
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { SITE, esc, shell } from './lib/site-shell.mjs';
+import { PREFECTURES, PREF_SLUGS } from '../src/data/prefectures.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = join(ROOT, 'public', 'data', 'jgrants');
@@ -38,6 +39,112 @@ export function loadGrants(dir = DATA) {
   return [...byId.values()].sort((a, b) => String(a.end).localeCompare(String(b.end)));
 }
 
+
+// カレンダー（ICS）用の日付。締切日（日本時間）の終日予定にする
+const icsDate = (iso) => new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Tokyo', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date(iso)).replace(/-/g, '');
+const xmlEsc = (t) => String(t ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&apos;' })[c]);
+
+// 締切が残っている制度を、締切日の終日予定として並べたカレンダー（ICS）
+export function icsFor(grants, now) {
+  const lines = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//補助金ネット//JA', 'CALSCALE:GREGORIAN', 'METHOD:PUBLISH', 'X-WR-CALNAME:補助金の締切（補助金ネット）'];
+  const stamp = new Date(now).toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+  for (const g of grants) {
+    if (!g.end || statusOf(g.end, now).key === 'closed') continue;
+    lines.push('BEGIN:VEVENT', `UID:${g.id}@hojyokin.net`, `DTSTAMP:${stamp}`,
+      `DTSTART;VALUE=DATE:${icsDate(g.end)}`, `SUMMARY:締切：${g.title.replace(/[,;\\\n]/g, ' ')}`,
+      `URL:${SITE}/grants/${g.id}.html`, 'END:VEVENT');
+  }
+  lines.push('END:VCALENDAR');
+  return lines.join('\r\n') + '\r\n';
+}
+
+// 新しく募集が始まった制度の RSS（開始日の新しい順）
+export function rssFor(grants, now) {
+  const open = grants.filter((g) => statusOf(g.end, now).key !== 'closed')
+    .sort((a, b) => String(b.start).localeCompare(String(a.start))).slice(0, 50);
+  const items = open.map((g) => `    <item>
+      <title>${xmlEsc(g.title)}</title>
+      <link>${SITE}/grants/${g.id}.html</link>
+      <guid isPermaLink="true">${SITE}/grants/${g.id}.html</guid>
+      <description>${xmlEsc(`${g.area || '地域の記載なし'}｜締切 ${dateJa(g.end)}`)}</description>
+      ${g.start ? `<pubDate>${new Date(g.start).toUTCString()}</pubDate>` : ''}
+    </item>`).join('\n');
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>補助金ネット｜募集中の補助金</title>
+    <link>${SITE}/grants/index.html</link>
+    <description>jGrants で募集中の補助金を、新しい順にお知らせします。</description>
+    <language>ja</language>
+${items}
+  </channel>
+</rss>
+`;
+}
+
+const tile = (href, title, count) => `        <li><a href="${href}"><span class="pref-name">${esc(title)}</span><span class="pref-count">${count}件</span></a></li>`;
+
+// 都道府県別の一覧（タイル）と、都道府県ごとの制度ページ
+export function prefectureCounts(dir = DATA) {
+  return Object.fromEntries(PREFECTURES.map((pref) => {
+    const file = join(dir, `pref-${String(PREFECTURES.indexOf(pref) + 1).padStart(2, '0')}.json`);
+    const list = existsSync(file) ? JSON.parse(readFileSync(file, 'utf-8')) : [];
+    return [pref, list];
+  }));
+}
+
+function prefPage(pref, list, now) {
+  const slug = PREF_SLUGS[pref];
+  const open = list.filter((g) => statusOf(g.end, now).key !== 'closed');
+  const lis = open.map((g) => `        <li><a href="${g.id}.html">${esc(g.title)}</a><p class="grant-meta">${esc(statusOf(g.end, now).label)}｜締切 ${esc(dateJa(g.end))}</p></li>`).join('\n');
+  const body = `${crumb([['../', '補助金ネット'], ['prefectures.html', '都道府県別'], [null, pref]])}
+
+    <div style="margin-bottom: 2rem;">
+      <h1 class="display" style="margin-bottom: 0.5rem;">${esc(pref)}の補助金</h1>
+      <p class="lead" style="margin-bottom: 0;">${esc(pref)}を対象にした、募集中の補助金 ${open.length} 件です。締切の早い順に並べています。</p>
+    </div>
+
+    <section class="area-section" aria-labelledby="list">
+      <ul class="grant-list">
+${lis || '        <li>現在、募集中の制度はありません。</li>'}
+      </ul>
+    </section>
+
+    <nav class="related-links" aria-label="関連ページ">
+      <h2>関連ページ</h2>
+      <ul>
+        <li><a href="prefectures.html">都道府県別の補助金</a></li>
+        <li><a href="deadlines.html">締切が近い補助金</a></li>
+        <li><a href="../area/index.html">地域別の補助金（市区町村）</a></li>
+      </ul>
+    </nav>
+
+    <p class="area-note">情報は jGrants（デジタル庁）の公開データをもとに、毎日自動で更新しています。全国向けの制度は含まれていない場合があります。最新の要件は公式サイトで確認してください。</p>`;
+  return shell({ title: `${pref}の補助金・募集中の制度｜補助金ネット`, description: `${pref}で募集中の補助金 ${open.length} 件を、締切の早い順に一覧できます。`, canonicalPath: `/grants/pref-${slug}.html`, body }).replace('</style>', `${STYLE_EXTRA}\n  </style>`);
+}
+
+function prefectureIndex(counts, now) {
+  const tiles = PREFECTURES.map((pref) => {
+    const n = counts[pref].filter((g) => statusOf(g.end, now).key !== 'closed').length;
+    return tile(`pref-${PREF_SLUGS[pref]}.html`, pref, n);
+  }).join('\n');
+  const body = `${crumb([['../', '補助金ネット'], [null, '都道府県別の補助金']])}
+
+    <div style="margin-bottom: 2rem;">
+      <h1 class="display" style="margin-bottom: 0.5rem;">都道府県別の補助金</h1>
+      <p class="lead" style="margin-bottom: 0;">都道府県を選ぶと、その地域で募集中の補助金を締切の早い順に確認できます。</p>
+    </div>
+
+    <section class="area-section" aria-labelledby="prefs">
+      <ul class="pref-grid">
+${tiles}
+      </ul>
+    </section>
+
+    <p class="area-note">件数は、都道府県を対象にした募集中の制度の数です。全国向けの制度は各都道府県の一覧には含まれません。</p>`;
+  return shell({ title: '都道府県別の補助金一覧｜補助金ネット', description: '47都道府県ごとに、募集中の補助金の件数と一覧を確認できます。', canonicalPath: '/grants/prefectures.html', body }).replace('</style>', `${STYLE_EXTRA}\n  </style>`);
+}
+
 const STYLE_EXTRA = `
     .grant-facts { display: grid; grid-template-columns: max-content 1fr; gap: 10px 20px; margin: 0; }
     .grant-facts dt { color: var(--mute); }
@@ -46,7 +153,11 @@ const STYLE_EXTRA = `
     .grant-list li { border-top: 1px solid #e0e0e0; padding-top: 12px; }
     .grant-list a { color: #1f3bff; font-weight: 500; text-decoration: none; }
     .grant-list a:hover { text-decoration: underline; }
-    .grant-meta { font-size: 0.85rem; color: var(--mute); margin: 4px 0 0; }`;
+    .grant-meta { font-size: 0.85rem; color: var(--mute); margin: 4px 0 0; }
+    .pref-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+    .pref-grid a { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; border: 1px solid #e0e0e0; border-radius: 8px; padding: 12px 14px; text-decoration: none; color: var(--ink); background: #fff; }
+    .pref-grid a:hover { border-color: var(--accent); }
+    .pref-count { font-family: var(--font-mono); font-size: 0.8rem; color: var(--mute); }`;
 
 const crumb = (items) => `    <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ ${items.map(([h, t]) => (h ? `<a href="${h}">${esc(t)}</a>` : esc(t))).join(' ＞ ')}</nav>`;
 
@@ -108,7 +219,7 @@ function grantPage(g, now) {
   return shell({ title, description, canonicalPath: `/grants/${g.id}.html`, body }).replace('</style>', `${STYLE_EXTRA}\n  </style>`);
 }
 
-function listPage({ title, heading, lead, items, now, canonicalPath }) {
+function listPage({ title, heading, lead, items, now, canonicalPath, extra = '' }) {
   const lis = items.map((g) => {
     const st = statusOf(g.end, now);
     return `        <li><a href="${g.id}.html">${esc(g.title)}</a><p class="grant-meta">${esc(st.label)}｜締切 ${esc(dateJa(g.end))}｜${esc(g.area || '記載なし')}</p></li>`;
@@ -126,6 +237,7 @@ ${lis || '        <li>現在、表示できる制度がありません。</li>'}
       </ul>
     </section>
 
+${extra}
     <p class="area-note">情報は jGrants（デジタル庁）の公開データをもとに、毎日自動で更新しています。最新の要件は公式サイトで確認してください。</p>`;
   return shell({ title, description: lead, canonicalPath, body }).replace('</style>', `${STYLE_EXTRA}\n  </style>`);
 }
@@ -146,14 +258,30 @@ export function buildAll({ dir = DATA, out = OUT, sitemap = SITEMAP, now = Date.
     const msg = '制度データを取得できなかったため、一覧は準備中です。';
     writeFileSync(join(out, 'index.html'), listPage({ title: '制度一覧', heading: '制度一覧', lead: msg, items: [], now, canonicalPath: '/grants/index.html' }));
     writeFileSync(join(out, 'deadlines.html'), listPage({ title: '締切が近い補助金', heading: '締切が近い補助金', lead: msg, items: [], now, canonicalPath: '/grants/deadlines.html' }));
+    writeFileSync(join(out, 'prefectures.html'), prefectureIndex(Object.fromEntries(PREFECTURES.map((p) => [p, []])), now));
+    writeFileSync(join(out, 'deadlines.ics'), icsFor([], now));
+    writeFileSync(join(out, 'feed.xml'), rssFor([], now));
     return { pages: 0 };
   }
   const soon = grants.filter((g) => statusOf(g.end, now).key !== 'closed');
   for (const g of grants) writeFileSync(join(out, `${g.id}.html`), grantPage(g, now));
   writeFileSync(join(out, 'index.html'), listPage({ title: '制度一覧｜補助金ネット', heading: '制度一覧', lead: `jGrants で募集中の補助金 ${grants.length} 件を、締切の早い順に並べています。`, items: grants, now, canonicalPath: '/grants/index.html' }));
-  writeFileSync(join(out, 'deadlines.html'), listPage({ title: '締切が近い補助金｜補助金ネット', heading: '締切が近い補助金', lead: `受付中の補助金 ${soon.length} 件を、締切の早い順に並べています。`, items: soon, now, canonicalPath: '/grants/deadlines.html' }));
+  writeFileSync(join(out, 'deadlines.html'), listPage({ title: '締切が近い補助金｜補助金ネット', heading: '締切が近い補助金', lead: `受付中の補助金 ${soon.length} 件を、締切の早い順に並べています。`, items: soon, now, canonicalPath: '/grants/deadlines.html', extra: `
+    <nav class="related-links" aria-label="カレンダーと RSS">
+      <h2>登録・購読</h2>
+      <ul>
+        <li><a href="deadlines.ics">締切をカレンダーに追加（ICS）</a></li>
+        <li><a href="feed.xml">新着の補助金を RSS で受け取る</a></li>
+        <li><a href="prefectures.html">都道府県別に見る</a></li>
+      </ul>
+    </nav>` }));
+  writeFileSync(join(out, 'deadlines.ics'), icsFor(grants, now));
+  writeFileSync(join(out, 'feed.xml'), rssFor(grants, now));
+  const counts = prefectureCounts(dir);
+  writeFileSync(join(out, 'prefectures.html'), prefectureIndex(counts, now));
+  for (const pref of PREFECTURES) writeFileSync(join(out, `pref-${PREF_SLUGS[pref]}.html`), prefPage(pref, counts[pref], now));
   if (existsSync(sitemap)) {
-    const urls = ['grants/index.html', 'grants/deadlines.html', ...grants.map((g) => `grants/${g.id}.html`)];
+    const urls = ['grants/index.html', 'grants/deadlines.html', 'grants/prefectures.html', ...PREFECTURES.map((p) => `grants/pref-${PREF_SLUGS[p]}.html`), ...grants.map((g) => `grants/${g.id}.html`)];
     writeFileSync(sitemap, sitemapWith(readFileSync(sitemap, 'utf-8'), urls, lastmod));
   }
   return { pages: grants.length };
