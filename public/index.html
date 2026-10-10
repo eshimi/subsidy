@@ -103,10 +103,6 @@
   </header>
 
   <section class="r-hero" aria-labelledby="hero-title">
-    <video class="r-hero-video" autoplay muted loop playsinline preload="auto" poster="images/121.webp" aria-hidden="true" tabindex="-1">
-      <source src="media/hero.webm" type="video/webm">
-      <source src="media/hero.mp4" type="video/mp4">
-    </video>
     <div class="wrap">
       <p class="r-eyebrow">補助金ネット｜国・都道府県・市区町村の補助金を探せるポータル</p>
       <h1 id="hero-title">補助金を、探しやすく。<span class="r-ai" aria-label="with AI"><i aria-hidden="true">✦</i>with AI</span></h1>
@@ -327,6 +323,29 @@
           })
           .catch(function () { location.href = fallback; });
       });
+    })();
+  </script>
+  <script>
+    // 初回の訪問だけ、ヒーローで紹介動画を1回流す。2回目以降は流さず、背景画像のまま（動画は読み込まない）
+    (function () {
+      var KEY = 'subsidy-finder:hero-intro-seen';
+      var hero = document.querySelector('.r-hero');
+      if (!hero || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var seen = false;
+      try { seen = localStorage.getItem(KEY) === '1'; } catch (e) { return; }
+      if (seen) return;
+      try { localStorage.setItem(KEY, '1'); } catch (e) { /* 保存できない環境では、毎回流れても構わない */ }
+      var v = document.createElement('video');
+      v.className = 'r-hero-video';
+      v.muted = true; v.autoplay = true; v.playsInline = true; v.setAttribute('playsinline', '');
+      v.setAttribute('aria-hidden', 'true'); v.tabIndex = -1;
+      v.setAttribute('poster', 'images/121.webp');
+      v.innerHTML = '<source src="media/hero.webm" type="video/webm"><source src="media/hero.mp4" type="video/mp4">';
+      hero.insertBefore(v, hero.firstChild);
+      var done = function () { v.classList.add('is-done'); setTimeout(function () { v.remove(); }, 900); };
+      v.addEventListener('ended', done);
+      v.addEventListener('error', done);
+      v.play().catch(done);
     })();
   </script>
 </body>
