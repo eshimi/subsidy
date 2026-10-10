@@ -122,6 +122,9 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .navdrop-panel { position: absolute; top: calc(100% + 14px); right: 0; min-width: 12em; display: grid; padding: 6px 0; background: var(--topbar); border: 1px solid var(--line); z-index: 1000; }
 .navdrop-panel a { padding: 8px 16px; white-space: nowrap; text-decoration: none; }
 .navdrop-panel a:hover, .navdrop-panel a[aria-current="page"] { text-decoration: underline; text-underline-offset: 4px; }
+.topnav > a.nav-cta { height: auto; line-height: 1.4; padding: 8px 18px; border-radius: 999px; background: #1565d8; color: #fff; font-weight: 700; }
+.topnav > a.nav-cta:hover, .topnav > a.nav-cta[aria-current="page"] { background: #0f4fae; color: #fff; text-decoration: none; }
+@media (min-width: 761px) { .topnav > a.nav-cta { top: -3px; } }
 .nav-toggle { display: none; margin-left: auto; border: 1px solid var(--line); background: transparent; color: inherit; padding: 6px 12px; font-size: 0.85rem; cursor: pointer; }
 @media (max-width: 760px) {
   .nav-toggle { display: inline-block; }
@@ -130,6 +133,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
   .topnav > a, .topnav .navdrop > summary { padding: 12px 0; border-bottom: 1px solid var(--line-soft); }
   .navdrop-panel { position: static; border: 0; background: none; padding: 0 0 0 16px; min-width: 0; }
   .navdrop-panel a { padding: 10px 0; }
+  .topnav > a.nav-cta { margin-top: 12px; padding: 12px; text-align: center; border-bottom: 0; }
 }
 .footer-nav { margin-top: 40px; }
 .footer-nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 0.9rem; }

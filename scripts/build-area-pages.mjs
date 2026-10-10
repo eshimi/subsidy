@@ -7,6 +7,7 @@ import { AREA_CITIES } from '../src/data/area-cities.js';
 import { LOCAL_PROGRAMS } from '../src/data/local-programs.js';
 import { PREFECTURES, PREF_SLUGS } from '../src/data/prefectures.js';
 import { SITE, esc, shell } from './lib/site-shell.mjs';
+import { sitemapPaths, writeSitemapHtml } from './lib/sitemap.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = join(ROOT, 'public', 'area');
@@ -172,10 +173,9 @@ ${list}
 }
 
 function sitemap() {
-  const core = ['', 'search.html', 'hantei.html', 'consult.html', 'shindan.html', 'basics/index.html', 'basics/flow.html', 'basics/business-plan.html', 'basics/after-adoption.html', 'basics/tax.html', 'basics/not-adopted.html', 'basics/glossary.html', 'who/index.html', 'who/sole-proprietor.html', 'who/sme.html', 'who/startup.html', 'personal/index.html', 'personal/housing.html', 'personal/ev.html', 'personal/solar.html', 'personal/seismic.html', 'personal/kids.html', 'personal/learning.html', 'personal/relocation.html', 'feature/popular.html', 'feature/growth.html', 'feature/employment.html', 'guide.html', 'diagnosis.html', 'chat.html', 'beginner-guide.html', 'roadmap.html', 'columns.html', 'real-life.html', 'feature/index.html', 'feature/digital-subsidy.html', 'feature/jizokuka.html', 'feature/monodukuri.html', 'feature/shoryokuka.html', 'feature/succession.html', 'compare/index.html', 'compare/virtual-office.html', 'columns/subsidy-vs-grant-vs-loan.html', 'columns/subsidy-paid-after.html', 'columns/how-to-find-subsidy.html', 'columns/gbizid-early.html', 'columns/free-consultation.html', 'guides/secret-side-job.html', 'guides/tax-filing-basics.html', 'guides/first-day-checklist.html', 'guides/work-life-balance.html', 'guides/time-to-first-income.html', 'books.html', 'resources.html', 'policy/about.html', 'policy/sources.html', 'policy/privacy.html', 'policy/contact.html', 'sitemap.html', 'area/index.html'];
-  const newsDir = join(ROOT, 'public', 'news');
-  const news = existsSync(newsDir) ? readdirSync(newsDir).filter((f) => f.endsWith('.html')).sort().reverse().map((f) => `news/${f}`) : [];
-  const urls = [...core, ...news, ...AREA_CITIES.filter((c) => programsFor(c).municipal.length).map((c) => `area/${c.slug}.html`)];
+  // ページの一覧は public/ の実際のファイルから作る（転送用・noindex のページは除く）。市区町村は制度があるページだけ
+  const thinArea = new Set(AREA_CITIES.filter((c) => !programsFor(c).municipal.length).map((c) => `area/${c.slug}.html`));
+  const urls = sitemapPaths(join(ROOT, 'public')).filter((u) => !thinArea.has(u));
   const entries = urls.map((u) => `  <url>
     <loc>${SITE}/${u}</loc>
     <lastmod>${LASTMOD}</lastmod>
@@ -191,22 +191,9 @@ mkdirSync(OUT, { recursive: true });
 for (const city of AREA_CITIES) writeFileSync(join(OUT, `${city.slug}.html`), cityPage(city));
 writeFileSync(join(OUT, 'index.html'), indexPage());
 writeFileSync(join(ROOT, 'public', 'sitemap.xml'), sitemap());
-// サイトマップ（人間向け）の地域別セクションを、都市リストから書き換える
-const SITEMAP_HTML = join(ROOT, 'public', 'sitemap.html');
-const html = readFileSync(SITEMAP_HTML, 'utf-8');
-const groups = PREFECTURES
+// サイトマップ（人間向け）を、実際のページと都市リストから作り直す
+const areaGroups = PREFECTURES
   .map((pref) => ({ pref, cities: AREA_CITIES.filter((c) => c.pref === pref) }))
   .filter((g) => g.cities.length);
-const areaList = groups.map((g) => `        <li>
-          <span class="area-pref">${esc(g.pref)}</span>
-          <ul>
-${g.cities.map((c) => `            <li><a href="area/${c.slug}.html">${esc(c.name)}</a></li>`).join('\n')}
-          </ul>
-        </li>`).join('\n');
-const replaced = html.replace(/<!-- area-sitemap:start -->[\s\S]*?<!-- area-sitemap:end -->/, `<!-- area-sitemap:start -->
-      <ul class="sitemap-list">
-${areaList}
-      </ul>
-      <!-- area-sitemap:end -->`);
-writeFileSync(SITEMAP_HTML, replaced);
+writeSitemapHtml(join(ROOT, 'public'), { areaGroups });
 console.log(`生成: ${AREA_CITIES.length} 都市ページ + 一覧 1 + sitemap.xml`);

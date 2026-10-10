@@ -9,21 +9,21 @@ export const TOP_GROUPS = [
     label: '補助金を探す',
     items: [
       { label: 'AI・キーワードで探す', href: 'search.html' },
+      { label: 'AI補助金判定（質問に答えて探す）', href: 'hantei.html' },
       { label: '目的別の補助金', href: 'grants/purposes.html' },
       { label: '業種別の補助金', href: 'grants/industries.html' },
       { label: '締切が近い補助金', href: 'grants/deadlines.html' },
       { label: '都道府県別の補助金', href: 'grants/prefectures.html' },
       { label: '市区町村別の補助金', href: 'area/index.html' },
-      { label: 'AIに相談して探す（AI補助金判定）', href: 'hantei.html' },
-      { label: '補助金診断', href: 'shindan.html' },
+      { label: '募集中の制度一覧', href: 'grants/index.html' },
     ],
   },
   {
-    label: '制度ガイド',
+    label: 'ニュース・特集',
     items: [
       { label: '補助金ニュース', href: 'news/index.html' },
       { label: '特に人気の5つの補助金', href: 'feature/popular.html' },
-      { label: '特集の一覧', href: 'feature/index.html' },
+      { label: '主な補助金の特集', href: 'feature/index.html' },
       { label: '比較記事', href: 'compare/index.html' },
     ],
   },
@@ -32,6 +32,7 @@ export const TOP_GROUPS = [
     items: [
       { label: '基礎知識のトップ', href: 'basics/index.html' },
       { label: '申請の流れ', href: 'basics/flow.html' },
+      { label: '事業計画書の書き方', href: 'basics/business-plan.html' },
       { label: '用語集', href: 'basics/glossary.html' },
       { label: 'コラム', href: 'columns.html' },
       { label: '補助金のリアル', href: 'real-life.html' },
@@ -47,51 +48,50 @@ export const TOP_GROUPS = [
     ],
   },
 ];
-export const TOP_END_LINKS = [{ label: '使い方', href: 'guide.html' }];
+export const TOP_END_LINKS = [{ label: '使い方', href: 'guide.html' }, { label: '無料相談', href: 'consult.html', cls: 'nav-cta' }];
 
-// フッターの4グループ。同じページを二重に載せない
+// フッターの4グループ。同じページを二重に載せない（右側の列の「関連ページ」もここから作る）
 export const FOOTER_GROUPS = [
   {
     label: '補助金を探す',
     items: [
       { label: 'トップ', href: '' },
       { label: 'AI・キーワードで探す', href: 'search.html' },
+      { label: 'AI補助金判定', href: 'hantei.html' },
       { label: '目的別の補助金', href: 'grants/purposes.html' },
       { label: '業種別の補助金', href: 'grants/industries.html' },
       { label: '締切が近い補助金', href: 'grants/deadlines.html' },
-      { label: '制度一覧', href: 'grants/index.html' },
       { label: '都道府県別の補助金', href: 'grants/prefectures.html' },
       { label: '市区町村別の補助金', href: 'area/index.html' },
-      { label: 'AIに相談して探す（AI補助金判定）', href: 'hantei.html' },
-      { label: '補助金診断', href: 'shindan.html' },
+      { label: '募集中の制度一覧', href: 'grants/index.html' },
     ],
   },
   {
-    label: '制度ガイド・基礎知識',
+    label: 'ニュース・特集・基礎知識',
     items: [
       { label: '補助金ニュース', href: 'news/index.html' },
       { label: '特に人気の5つの補助金', href: 'feature/popular.html' },
-      { label: '特集の一覧', href: 'feature/index.html' },
+      { label: '主な補助金の特集', href: 'feature/index.html' },
+      { label: '比較記事', href: 'compare/index.html' },
       { label: '基礎知識', href: 'basics/index.html' },
       { label: '申請の流れ', href: 'basics/flow.html' },
+      { label: '事業計画書の書き方', href: 'basics/business-plan.html' },
       { label: '用語集', href: 'basics/glossary.html' },
       { label: 'コラム', href: 'columns.html' },
-      { label: '比較記事', href: 'compare/index.html' },
       { label: '補助金のリアル', href: 'real-life.html' },
-      { label: '参考図書', href: 'books.html' },
-      { label: '参考リンク', href: 'resources.html' },
     ],
   },
   {
-    label: '対象者別・ツール',
+    label: '対象者別・創業',
     items: [
+      { label: '対象者別のトップ', href: 'who/index.html' },
       { label: '個人事業主の方', href: 'who/sole-proprietor.html' },
       { label: '中小企業の方', href: 'who/sme.html' },
       { label: '創業・副業を始める方', href: 'who/startup.html' },
       { label: '個人の方（住まい・車・子育て）', href: 'personal/index.html' },
-      { label: '初心者向けガイド（副業）', href: 'beginner-guide.html' },
       { label: '創業のステップ', href: 'roadmap.html' },
-      { label: '今日からできること診断', href: 'diagnosis.html' },
+      { label: '副業の始め方ガイド', href: 'beginner-guide.html' },
+      { label: '副業おすすめ診断', href: 'diagnosis.html' },
       { label: '副業壁打ちAI', href: 'chat.html' },
     ],
   },
@@ -99,9 +99,12 @@ export const FOOTER_GROUPS = [
     label: 'サイトについて',
     items: [
       { label: '使い方', href: 'guide.html' },
+      { label: '無料相談のお申し込み', href: 'consult.html' },
       { label: '運営者情報', href: 'policy/about.html' },
       { label: '出典・更新方針', href: 'policy/sources.html' },
-      { label: 'プライバシーポリシー', href: 'policy/privacy.html' },
+      { label: 'ニュースの情報の取得元', href: 'news/sources.html' },
+      { label: '参考リンク', href: 'resources.html' },
+      { label: '参考図書', href: 'books.html' },
       { label: 'お問い合わせ', href: 'policy/contact.html' },
       { label: 'サイトマップ', href: 'sitemap.html' },
     ],
@@ -121,7 +124,7 @@ const isCurrent = (current, href) => current !== undefined && href !== '' && cur
 
 // current は、public/ からの現在のページのパス（例：'guides/secret-side-job.html'）
 export function topnavHtml(prefix, current) {
-  const direct = (l) => `        <a href="${url(prefix, l.href)}"${isCurrent(current, l.href) ? ' aria-current="page"' : ''}>${esc(l.label)}</a>`;
+  const direct = (l) => `        <a href="${url(prefix, l.href)}"${l.cls ? ` class="${l.cls}"` : ''}${isCurrent(current, l.href) ? ' aria-current="page"' : ''}>${esc(l.label)}</a>`;
   const groups = TOP_GROUPS.map((g) => {
     const hasCurrent = g.items.some((i) => isCurrent(current, i.href));
     const links = g.items.map((i) => `            <a href="${url(prefix, i.href)}"${isCurrent(current, i.href) ? ' aria-current="page"' : ''}>${esc(i.label)}</a>`).join('\n');
