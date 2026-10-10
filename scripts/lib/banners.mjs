@@ -12,7 +12,7 @@ export function bannerFor(path) {
 }
 
 // 対象外のページ：トップ・AI検索（独自のヒーローがある）、サイトマップ。特集は記事ごとに番号を指定済み
-const SKIP = ['index.html', 'sitemap.html', 'ai.html'];
+const SKIP = ['index.html', 'sitemap.html', 'ai.html', 'hantei.html'];
 export function bannerEligible(path) {
   return !SKIP.includes(path) && !path.startsWith('feature/');
 }

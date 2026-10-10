@@ -7,7 +7,7 @@
   const done = document.getElementById('cs-done');
   const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
   const params = new URLSearchParams(location.search);
-  for (const key of ['industry', 'employees', 'koyou', 'shakai', 'topic', 'timing']) {
+  for (const key of ['kind', 'industry', 'employees', 'koyou', 'shakai', 'topic', 'timing']) {
     const el = form.elements[key];
     const v = params.get(key);
     if (el && v && [...el.options].some((o) => o.value === v)) el.value = v;
@@ -24,7 +24,7 @@
     const body = Object.fromEntries(f.entries());
     body.consent = f.get('consent') === 'on';
     body.candidates = candidates;
-    const missing = ['industry', 'employees', 'koyou', 'shakai', 'topic', 'timing', 'company', 'name', 'phone'].filter((k) => !String(body[k] || '').trim());
+    const missing = ['kind', 'industry', 'employees', 'koyou', 'shakai', 'topic', 'timing', 'company', 'name', 'phone'].filter((k) => !String(body[k] || '').trim());
     if (missing.length) { status.className = 'cs-status err'; status.textContent = '必須の項目をすべて入力・選択してください。'; return; }
     if (!body.consent) { status.className = 'cs-status err'; status.textContent = '個人情報の取り扱いへの同意が必要です。'; return; }
     const btn = form.querySelector('button[type="submit"]');
