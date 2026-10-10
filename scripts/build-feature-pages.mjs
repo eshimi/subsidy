@@ -14,7 +14,7 @@ const crumb = (items) => `    <nav class="area-crumb" aria-label="パンくず">
 
 // 記事の共通の組み立て。sections は [見出し, HTML] の並び
 const SECTION_ICON = (i) => String(i).padStart(2, '0');
-function articleOf({ kicker, title, lead, sections, related, sources, updated = UPDATED }) {
+function articleOf({ kicker, title, lead, sections, related, sources, updated = UPDATED, image }) {
   const body = sections.map(([h, html], i) => `    <article class="area-section" aria-labelledby="s${i}">
       <span class="area-num">${SECTION_ICON(i)}</span>
       <h2 id="s${i}">${esc(h)}</h2>
@@ -31,7 +31,7 @@ ${html}
       <p class="lead" style="margin-bottom: 0;">${esc(lead)}</p>
     </div>
 
-${body}
+${image ? `    <figure class="feature-hero"><img src="../images/feature/${image.file}.webp" alt="${esc(image.alt)}" width="1200" height="${image.h}"></figure>\n` : ''}${body}
 
     <article class="area-section" aria-labelledby="sources">
       <span class="area-num">確認</span>
@@ -67,6 +67,7 @@ const NOTE_ALL = '制度の金額・補助率・対象経費は、公募回ご�
 const ARTICLES = [
   {
     file: 'jizokuka.html',
+    image: { file: 'jizokuka', h: 132, alt: '小規模事業者持続化補助金のタイトル画像' },
     kicker: '小規模事業者持続化補助金',
     title: '小規模事業者持続化補助金とは？販路開拓に使える補助金の全体像',
     summary: '小規模な事業者の販路開拓（チラシ、ホームページ、展示会など）を支援する、利用の多い補助金を解説します。',
@@ -133,6 +134,7 @@ const ARTICLES = [
   },
   {
     file: 'monodukuri.html',
+    image: { file: 'monodukuri', h: 132, alt: 'ものづくり補助金のタイトル画像' },
     kicker: 'ものづくり補助金',
     title: 'ものづくり補助金とは？新製品・新サービスの開発を支える補助金',
     summary: '新しい製品・サービスの開発や、生産プロセスの改善に使える補助金を、対象・申請の流れ・注意点とともに解説します。',
@@ -200,6 +202,7 @@ const ARTICLES = [
   },
   {
     file: 'shoryokuka.html',
+    image: { file: 'shoryokuka', h: 126, alt: '中小企業省力化投資補助金のタイトル画像' },
     kicker: '中小企業省力化投資補助金',
     title: '中小企業省力化投資補助金とは？人手不足を機械で補う補助金',
     summary: '人手不足の解消に役立つ省力化製品を、カタログから選んで導入する補助金の仕組みを解説します。',
@@ -261,6 +264,7 @@ const ARTICLES = [
   },
   {
     file: 'succession.html',
+    image: { file: 'succession', h: 131, alt: '事業承継・M&A補助金のタイトル画像' },
     kicker: '事業承継・M&A補助金',
     title: '事業承継・M&A補助金とは？引き継ぎや統合に使える補助金',
     summary: '事業の引き継ぎ（事業承継）やM&Aに伴う費用を支援する補助金の、枠の考え方と注意点を解説します。',
@@ -338,6 +342,8 @@ const article = `${crumb([['index.html', '特集'], [null, 'デジタル補助�
       <h1 class="display" style="margin-bottom: 0.5rem;">デジタル補助金とは？対象ツール・申請の流れ・失敗しない準備まで</h1>
       <p class="lead" style="margin-bottom: 0;">ITツールやAIの導入に使える補助金の全体像を、対象・申請の流れ・よくある失敗の順に整理しました。</p>
     </div>
+
+    <figure class="feature-hero"><img src="../images/feature/digital.webp" alt="デジタル補助金のタイトル画像" width="1200" height="132"></figure>
 
     <article class="area-section" aria-labelledby="s0">
       <span class="area-num">00</span>
@@ -508,6 +514,8 @@ const featureStyle = `
     .table-wrap { overflow-x: auto; }
     .glossary dt { font-weight: 700; margin-top: 12px; }
     .glossary dd { margin: 4px 0 0; }
+    .feature-hero { margin: 0 0 32px; }
+    .feature-hero img { display: block; width: 100%; height: auto; }
     .feature-card { display: block; padding: 20px 0; border-top: 1px solid #e0e0e0; text-decoration: none; }
     .feature-card h2 { font-size: 1.2rem; margin: 0 0 6px; }
     .feature-card p { margin: 0; color: var(--mute); }
