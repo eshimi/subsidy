@@ -26,10 +26,14 @@ function programCard(p) {
   const link = p.url
     ? `<p><a href="${esc(p.url)}" target="_blank" rel="noopener">公式の案内を見る →</a></p>`
     : '';
+  const period = p.period ? `<p class="area-meta">期間：${esc(p.period)}</p>` : '';
+  const eligibility = p.eligibility?.length ? `<p><strong>主な条件</strong></p>\n            <ul>${p.eligibility.map((e) => `<li>${esc(e)}</li>`).join('')}</ul>` : '';
   return `          <div class="area-program">
             <h3>${esc(p.name)}</h3>
             <p class="area-meta">${esc(p.provider)}｜${esc(p.type)}｜${esc(p.amount)}｜${deadline}</p>
+            ${period}
             <p>${esc(p.summary)}</p>
+            ${eligibility}
             ${link}
           </div>`;
 }
