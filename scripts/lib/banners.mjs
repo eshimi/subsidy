@@ -12,7 +12,7 @@ export function bannerFor(path) {
 }
 
 // 対象外のページ：ツール画面・一覧の表・生成された制度の一覧（データの表示が主のため）
-const SKIP = ['index.html', 'diagnosis.html', 'chat.html', 'sitemap.html'];
+const SKIP = ['index.html', 'diagnosis.html', 'chat.html', 'sitemap.html', 'ai.html', 'search.html', 'shindan.html'];
 export function bannerEligible(path) {
   return !SKIP.includes(path) && !path.startsWith('grants/') && !path.startsWith('feature/');
 }

@@ -11,8 +11,11 @@ const FOLDER_HINT = {
   area: 'area/index.html',
   grants: 'grants/index.html',
   policy: 'policy/about.html',
+  basics: 'basics/index.html',
+  who: 'who/sme.html',
+  personal: 'personal/index.html',
 };
-const EXCLUDE = ['index.html', 'sitemap.html'];
+const EXCLUDE = ['index.html', 'sitemap.html', 'search.html', 'shindan.html', 'ai.html'];
 
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 

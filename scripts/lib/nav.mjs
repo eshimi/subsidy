@@ -3,36 +3,46 @@
 // パスは public/ からの相対パス。prefix は、そのページから public/ までの相対パス（'' または '../'）。
 
 // 上部ナビ：ボタン（直接リンク）と、開閉するメニュー
-export const TOP_LINKS = [{ label: '補助金を探す', href: '' }];
+export const TOP_LINKS = [];
 export const TOP_GROUPS = [
   {
-    label: '制度を見る',
+    label: '補助金を探す',
     items: [
-      { label: '締切が近い補助金', href: 'grants/deadlines.html' },
+      { label: 'キーワード・地域で探す', href: 'search.html' },
       { label: '目的別の補助金', href: 'grants/purposes.html' },
-      { label: '制度一覧', href: 'grants/index.html' },
+      { label: '業種別の補助金', href: 'grants/industries.html' },
+      { label: '締切が近い補助金', href: 'grants/deadlines.html' },
       { label: '都道府県別の補助金', href: 'grants/prefectures.html' },
-      { label: '地域別の補助金', href: 'area/index.html' },
+      { label: '市区町村別の補助金', href: 'area/index.html' },
+      { label: 'AIに相談して探す', href: 'ai.html' },
+      { label: '補助金診断', href: 'shindan.html' },
     ],
   },
   {
-    label: 'はじめの一歩',
+    label: '制度ガイド',
     items: [
-      { label: '今日からできること診断', href: 'diagnosis.html' },
-      { label: '副業壁打ちAI', href: 'chat.html' },
-      { label: '初心者向けガイド', href: 'beginner-guide.html' },
-      { label: '創業のステップ', href: 'roadmap.html' },
-    ],
-  },
-  {
-    label: 'お役立ち情報',
-    items: [
-      { label: '特集', href: 'feature/index.html' },
-      { label: 'コラム', href: 'columns.html' },
+      { label: '特に人気の5つの補助金', href: 'feature/popular.html' },
+      { label: '特集の一覧', href: 'feature/index.html' },
       { label: '比較記事', href: 'compare/index.html' },
+    ],
+  },
+  {
+    label: '基礎知識',
+    items: [
+      { label: '基礎知識のトップ', href: 'basics/index.html' },
+      { label: '申請の流れ', href: 'basics/flow.html' },
+      { label: '用語集', href: 'basics/glossary.html' },
+      { label: 'コラム', href: 'columns.html' },
       { label: '補助金のリアル', href: 'real-life.html' },
-      { label: '参考図書', href: 'books.html' },
-      { label: '参考リンク', href: 'resources.html' },
+    ],
+  },
+  {
+    label: '対象者別',
+    items: [
+      { label: '個人事業主の方', href: 'who/sole-proprietor.html' },
+      { label: '中小企業の方', href: 'who/sme.html' },
+      { label: '創業・副業を始める方', href: 'who/startup.html' },
+      { label: '個人の方（住まい・車・子育て）', href: 'personal/index.html' },
     ],
   },
 ];
@@ -43,37 +53,44 @@ export const FOOTER_GROUPS = [
   {
     label: '補助金を探す',
     items: [
-      { label: '補助金を探す（トップ）', href: '' },
-      { label: '締切が近い補助金', href: 'grants/deadlines.html' },
+      { label: 'トップ', href: '' },
+      { label: 'キーワード・地域で探す', href: 'search.html' },
       { label: '目的別の補助金', href: 'grants/purposes.html' },
+      { label: '業種別の補助金', href: 'grants/industries.html' },
+      { label: '締切が近い補助金', href: 'grants/deadlines.html' },
       { label: '制度一覧', href: 'grants/index.html' },
       { label: '都道府県別の補助金', href: 'grants/prefectures.html' },
-      { label: '地域別の補助金', href: 'area/index.html' },
+      { label: '市区町村別の補助金', href: 'area/index.html' },
+      { label: 'AIに相談して探す', href: 'ai.html' },
+      { label: '補助金診断', href: 'shindan.html' },
     ],
   },
   {
-    label: 'はじめの一歩',
+    label: '制度ガイド・基礎知識',
     items: [
-      { label: '今日からできること診断', href: 'diagnosis.html' },
-      { label: '副業壁打ちAI', href: 'chat.html' },
-      { label: '初心者向けガイド', href: 'beginner-guide.html' },
-      { label: '創業のステップ', href: 'roadmap.html' },
-      { label: '会社にバレない副業の始め方', href: 'guides/secret-side-job.html' },
-      { label: '副業の確定申告の基礎知識', href: 'guides/tax-filing-basics.html' },
-      { label: '副業初日にやること', href: 'guides/first-day-checklist.html' },
-      { label: '副業と本業のバランス', href: 'guides/work-life-balance.html' },
-      { label: '最初の収入まで、どのくらい？', href: 'guides/time-to-first-income.html' },
-    ],
-  },
-  {
-    label: 'お役立ち情報',
-    items: [
-      { label: '特集', href: 'feature/index.html' },
+      { label: '特に人気の5つの補助金', href: 'feature/popular.html' },
+      { label: '特集の一覧', href: 'feature/index.html' },
+      { label: '基礎知識', href: 'basics/index.html' },
+      { label: '申請の流れ', href: 'basics/flow.html' },
+      { label: '用語集', href: 'basics/glossary.html' },
       { label: 'コラム', href: 'columns.html' },
       { label: '比較記事', href: 'compare/index.html' },
       { label: '補助金のリアル', href: 'real-life.html' },
       { label: '参考図書', href: 'books.html' },
       { label: '参考リンク', href: 'resources.html' },
+    ],
+  },
+  {
+    label: '対象者別・ツール',
+    items: [
+      { label: '個人事業主の方', href: 'who/sole-proprietor.html' },
+      { label: '中小企業の方', href: 'who/sme.html' },
+      { label: '創業・副業を始める方', href: 'who/startup.html' },
+      { label: '個人の方（住まい・車・子育て）', href: 'personal/index.html' },
+      { label: '初心者向けガイド（副業）', href: 'beginner-guide.html' },
+      { label: '創業のステップ', href: 'roadmap.html' },
+      { label: '今日からできること診断', href: 'diagnosis.html' },
+      { label: '副業壁打ちAI', href: 'chat.html' },
     ],
   },
   {

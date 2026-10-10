@@ -146,6 +146,8 @@ ${tiles}
 }
 
 const STYLE_EXTRA = `
+    .grant-tag { display: inline-block; margin: 0 6px 6px 0; padding: 2px 10px; border: 1px solid #c9d4dd; border-radius: 999px; font-size: 0.82rem; text-decoration: none; color: #1f3a52; background: #fff; }
+    .grant-guide { font-size: 0.85rem; }
     .grant-facts { display: grid; grid-template-columns: max-content 1fr; gap: 10px 20px; margin: 0; }
     .grant-facts dt { color: var(--mute); }
     .grant-facts dd { margin: 0; }
@@ -176,6 +178,18 @@ export function faqFor(g, now) {
   ];
 }
 
+
+// 制度ページの「分類」：目的・業種のタグと、関連する解説記事
+const GUIDE_FOR = { digital: ['../feature/digital-subsidy.html', 'デジタル補助金とは？'], sales: ['../feature/jizokuka.html', '持続化補助金とは？'], equipment: ['../feature/monodukuri.html', '新事業進出・ものづくり補助金とは？'], research: ['../feature/monodukuri.html', '新事業進出・ものづくり補助金とは？'], succession: ['../feature/succession.html', '事業承継・M&A補助金とは？'], startup: ['../who/startup.html', '創業・副業を始める方へ'] };
+function tagHtml(g) {
+  const t = tagsOf(g);
+  const p = PURPOSES.filter((x) => t.p.includes(x.slug)).map((x) => `<a class="grant-tag" href="../search.html?purpose=${x.slug}">${esc(x.label)}</a>`);
+  const i = INDUSTRIES.filter((x) => t.i.includes(x.slug)).map((x) => `<a class="grant-tag" href="../search.html?industry=${x.slug}">${esc(x.label)}</a>`);
+  const guides = [...new Set(t.p.filter((k) => GUIDE_FOR[k]).map((k) => GUIDE_FOR[k].join('|')))].map((v) => { const [h, l] = v.split('|'); return `<a href="${h}">${esc(l)}</a>`; });
+  if (!p.length && !i.length) return '';
+  return `        <dt>分類（参考）</dt><dd>${[...p, ...i].join(' ')}${guides.length ? `<br><span class="grant-guide">関連する解説：${guides.join('、')}</span>` : ''}</dd>`;
+}
+
 function grantPage(g, now) {
   const st = statusOf(g.end, now);
   const title = `${g.title}｜補助金ネット`;
@@ -197,6 +211,7 @@ function grantPage(g, now) {
         <dt>対象の従業員数</dt><dd>${esc(g.employees || '記載なし')}</dd>
         <dt>受付開始</dt><dd>${esc(dateJa(g.start))}</dd>
         <dt>受付締切</dt><dd>${esc(dateJa(g.end))}</dd>
+${tagHtml(g)}
       </dl>
       <div class="area-links">
         <a href="${JGRANTS}" target="_blank" rel="noopener">jGrants で公式の情報を見る →</a>
@@ -308,6 +323,57 @@ export const PURPOSES = [
   { slug: 'region', label: '地域・観光・農林水産', match: /観光|農林|農業|漁業|林業|地域|商店街|まちづくり|特産/, lead: '地域の産業や観光、農林水産業の取り組みに使える補助金です。' },
 ];
 
+// 業種別の一覧。目的別と同じく、制度名のキーワードで分ける参考の分類
+export const INDUSTRIES = [
+  { slug: 'food', label: '飲食業', match: /飲食|食堂|レストラン|カフェ|居酒屋|食品/, lead: '飲食店や食品を扱う事業者に関係しそうな補助金です。' },
+  { slug: 'retail', label: '小売業・商店街', match: /小売|商店|商店街|販売店|店舗/, lead: 'お店や商店街の事業者に関係しそうな補助金です。' },
+  { slug: 'beauty', label: '美容・理容・サロン', match: /美容|理容|サロン|エステ/, lead: '美容室やサロンなどに関係しそうな補助金です。' },
+  { slug: 'construction', label: '建設業・住宅', match: /建設|建築|工事|住宅|リフォーム|改修/, lead: '建設業や住宅の工事に関係しそうな補助金です。' },
+  { slug: 'manufacturing', label: '製造業', match: /製造|ものづくり|工場|加工/, lead: 'ものづくりや製造業に関係しそうな補助金です。' },
+  { slug: 'it', label: 'IT・情報通信', match: /(^|[^A-Za-z])(IT|DX)([^A-Za-z]|$)|ＩＴ|ＤＸ|情報|ソフトウェア|デジタル/, lead: 'IT・情報通信やデジタル化に関係しそうな補助金です。' },
+  { slug: 'tourism', label: '宿泊・観光', match: /観光|宿泊|旅館|ホテル|インバウンド/, lead: '宿泊業や観光の事業者に関係しそうな補助金です。' },
+  { slug: 'agriculture', label: '農林水産業', match: /農業|農林|漁業|林業|畜産|水産/, lead: '農業・林業・漁業に関係しそうな補助金です。' },
+  { slug: 'care', label: '医療・介護・保育', match: /医療|介護|福祉|保育/, lead: '医療・介護・保育などに関係しそうな補助金です。' },
+];
+
+// 制度ごとの目的・業種のタグ
+export function tagsOf(g) {
+  return {
+    p: PURPOSES.filter((x) => x.match.test(g.title)).map((x) => x.slug),
+    i: INDUSTRIES.filter((x) => x.match.test(g.title)).map((x) => x.slug),
+  };
+}
+
+export function industryHubsFor(grants, now) {
+  const open = grants.filter((g) => g.end && statusOf(g.end, now).key !== 'closed');
+  const hubs = [];
+  for (const ind of INDUSTRIES) {
+    const items = open.filter((g) => ind.match.test(g.title)).sort((a, b) => String(a.end).localeCompare(String(b.end)));
+    if (items.length < MIN_HUB) continue;
+    hubs.push({ file: `industry-${ind.slug}.html`, title: `${ind.label}の補助金一覧｜補助金ネット`, heading: `${ind.label}の補助金`, lead: `${ind.lead}募集中の補助金 ${items.length} 件を、締切の早い順に並べています。`, items, count: items.length });
+  }
+  return hubs;
+}
+
+function topicIndex({ hubs, heading, lead, canonicalPath, description, file }) {
+  const lis = hubs.map((h) => `        <li><a href="${h.file}">${esc(h.heading)}</a><p class="grant-meta">募集中 ${h.count} 件｜${esc(h.lead)}</p></li>`).join('\n');
+  const body = `${crumb([[null, heading]])}
+
+    <div style="margin-bottom: 2rem;">
+      <h1 class="display" style="margin-bottom: 0.5rem;">${esc(heading)}</h1>
+      <p class="lead" style="margin-bottom: 0;">${esc(lead)}</p>
+    </div>
+
+    <section class="area-section" aria-labelledby="topics">
+      <ul class="grant-list">
+${lis || '        <li>現在、表示できる一覧がありません。<a href="../search.html">キーワード検索</a>もお試しください。</li>'}
+      </ul>
+    </section>
+
+    <p class="area-note">制度名のキーワードで分けた参考の一覧です。対象や要件は、各制度の公式情報で確認してください。情報は jGrants（デジタル庁）の公開データをもとに、毎日自動で更新しています。</p>`;
+  return shell({ title: `${heading}｜補助金ネット`, description, canonicalPath, body }).replace('</style>', `${STYLE_EXTRA}\n  </style>`);
+}
+
 export function purposeHubsFor(grants, now) {
   const open = grants.filter((g) => g.end && statusOf(g.end, now).key !== 'closed');
   const hubs = [];
@@ -363,6 +429,9 @@ export function buildAll({ dir = DATA, out = OUT, sitemap = SITEMAP, now = Date.
     writeFileSync(join(out, 'deadlines.html'), listPage({ title: '締切が近い補助金', heading: '締切が近い補助金', lead: msg, items: [], now, canonicalPath: '/grants/deadlines.html' }));
     writeFileSync(join(out, 'prefectures.html'), prefectureIndex(Object.fromEntries(PREFECTURES.map((p) => [p, []])), now));
     writeFileSync(join(out, 'deadlines.ics'), icsFor([], now));
+    writeFileSync(join(out, 'search.json'), JSON.stringify({ generatedAt: new Date(now).toISOString(), items: [] }));
+    writeFileSync(join(out, 'purposes.html'), purposeIndex([], now));
+    writeFileSync(join(out, 'industries.html'), topicIndex({ hubs: [], heading: '業種別の補助金', lead: msg, description: msg, canonicalPath: '/grants/industries.html' }));
     writeFileSync(join(out, 'feed.xml'), rssFor([], now));
     return { pages: 0 };
   }
@@ -384,6 +453,11 @@ ${hubs.map((h) => `        <li><a href="${h.file}">${h.heading}</a></li>`).join(
     writeFileSync(join(out, h.file), listPage({ title: `${h.title}｜補助金ネット`, heading: h.heading, lead: h.lead, items: h.items, now, canonicalPath: `/grants/${h.file}` }));
   }
   const purposes = purposeHubsFor(grants, now);
+  const industries = industryHubsFor(grants, now);
+  writeFileSync(join(out, 'industries.html'), topicIndex({ hubs: industries, heading: '業種別の補助金', lead: '業種に関係しそうな、募集中の補助金を一覧にしました。', description: '飲食、小売、美容、建設、製造、IT、観光、農業、医療・介護など、業種から募集中の補助金を探せます。', canonicalPath: '/grants/industries.html' }));
+  for (const h of industries) writeFileSync(join(out, h.file), listPage({ title: h.title, heading: h.heading, lead: h.lead, items: h.items, now, canonicalPath: `/grants/${h.file}` }));
+  // 検索画面・トップページ用の軽いデータ（ブラウザで絞り込む）
+  writeFileSync(join(out, 'search.json'), JSON.stringify({ generatedAt: new Date(now).toISOString(), items: grants.map((g) => ({ id: g.id, t: g.title, a: g.area, m: g.max, s: g.start, e: g.end, ...tagsOf(g) })) }));
   writeFileSync(join(out, 'purposes.html'), purposeIndex(purposes, now));
   for (const h of purposes) writeFileSync(join(out, h.file), listPage({ title: h.title, heading: h.heading, lead: h.lead, items: h.items, now, canonicalPath: `/grants/${h.file}` }));
   writeFileSync(join(out, 'deadlines.ics'), icsFor(grants, now));
@@ -392,7 +466,7 @@ ${hubs.map((h) => `        <li><a href="${h.file}">${h.heading}</a></li>`).join(
   writeFileSync(join(out, 'prefectures.html'), prefectureIndex(counts, now));
   for (const pref of PREFECTURES) writeFileSync(join(out, `pref-${PREF_SLUGS[pref]}.html`), prefPage(pref, counts[pref], now));
   if (existsSync(sitemap)) {
-    const urls = ['grants/index.html', 'grants/deadlines.html', 'grants/prefectures.html', 'grants/purposes.html', ...purposes.map((h) => `grants/${h.file}`), ...hubs.map((h) => `grants/${h.file}`), ...PREFECTURES.map((p) => `grants/pref-${PREF_SLUGS[p]}.html`), ...grants.map((g) => `grants/${g.id}.html`)];
+    const urls = ['grants/index.html', 'grants/deadlines.html', 'grants/prefectures.html', 'grants/purposes.html', 'grants/industries.html', ...purposes.map((h) => `grants/${h.file}`), ...industries.map((h) => `grants/${h.file}`), ...hubs.map((h) => `grants/${h.file}`), ...PREFECTURES.map((p) => `grants/pref-${PREF_SLUGS[p]}.html`), ...grants.map((g) => `grants/${g.id}.html`)];
     writeFileSync(sitemap, sitemapWith(readFileSync(sitemap, 'utf-8'), urls, lastmod));
   }
   return { pages: grants.length };
