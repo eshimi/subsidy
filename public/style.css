@@ -581,3 +581,7 @@ details ul { margin: 8px 0; padding-left: 1.5em; }
   .footer-top .footer-nav { border-left: 0; padding-left: 0; border-top: 1px solid var(--line-soft); padding-top: 20px; }
   .footer-top .footer-nav ul { flex-direction: row; flex-wrap: wrap; gap: 8px 20px; font-size: 0.9rem; }
 }
+
+.footer-qr { margin: 20px 0 0; display: inline-block; text-align: center; }
+.footer-qr img { display: block; width: 120px; height: 120px; border-radius: 8px; }
+.footer-qr figcaption { margin-top: 6px; font-size: 0.75rem; color: var(--mute); }
