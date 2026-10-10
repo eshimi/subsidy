@@ -13,9 +13,36 @@ import { withCases } from './lib/cases.mjs';
 const OUT = join(dirname(fileURLToPath(import.meta.url)), '..', 'public', 'cases');
 const UPDATED = '2026年10月10日';
 
-const factBox = (c) => `      <dl style="display: grid; grid-template-columns: max-content 1fr; gap: 6px 16px; margin: 1rem 0 0; padding: 14px 18px; background: #f4f7fa; border-left: 3px solid #1565d8; font-size: 0.92rem;">
-${[['使った制度', SUBSIDIES[c.subsidy].name], ['業種', c.industry], ['地域', c.region], ['事業者', c.business], ['規模', c.size]].filter(([, v]) => v).map(([k, v]) => `        <dt style="font-weight: 700;">${esc(k)}</dt><dd style="margin: 0;">${esc(v)}</dd>`).join('\n')}
-      </dl>
+// 記事ごとのイラスト（public/images/cases/illust-01〜10.webp）。事例の並びをもとに固定の順で混ぜ、毎回の生成で変わらないようにする
+const ILLUSTS = Array.from({ length: 10 }, (_, i) => `illust-${String(i + 1).padStart(2, '0')}.webp`);
+function illustFor(i) {
+  const order = [...ILLUSTS];
+  let seed = 20261010;
+  for (let k = order.length - 1; k > 0; k--) { seed = (seed * 1103515245 + 12345) % 2147483648; const j = seed % (k + 1); [order[k], order[j]] = [order[j], order[k]]; }
+  return order[i % order.length];
+}
+
+const CASE_STYLE = `
+    <style>
+      .cs-top { display: grid; grid-template-columns: 1fr 200px; gap: 18px; align-items: stretch; margin-top: 1rem; }
+      .cs-facts { display: grid; grid-template-columns: max-content 1fr; align-content: center; gap: 6px 16px; margin: 0; padding: 14px 18px; background: #f4f7fa; border-left: 3px solid #1565d8; border-radius: 0 12px 12px 0; font-size: 0.92rem; }
+      .cs-facts dt { font-weight: 700; }
+      .cs-facts dd { margin: 0; }
+      .cs-illust { margin: 0; }
+      .cs-illust img { display: block; width: 100%; height: 100%; max-height: 260px; object-fit: cover; border-radius: 14px; box-shadow: 0 6px 18px rgba(29, 42, 58, 0.1); }
+      .cs-illust p { margin-top: 4px; font-size: 0.72rem; color: var(--mute); text-align: right; }
+      .cs-card { display: grid; grid-template-columns: 96px 1fr; gap: 16px; align-items: center; }
+      .cs-card img { width: 96px; height: 120px; object-fit: cover; border-radius: 10px; }
+      @media (max-width: 640px) { .cs-top { grid-template-columns: 1fr; } .cs-illust img { max-height: 220px; } .cs-card { grid-template-columns: 72px 1fr; } .cs-card img { width: 72px; height: 90px; } }
+    </style>
+`;
+
+const factBox = (c, i) => `${CASE_STYLE}      <div class="cs-top">
+        <dl class="cs-facts">
+${[['使った制度', SUBSIDIES[c.subsidy].name], ['業種', c.industry], ['地域', c.region], ['事業者', c.business], ['規模', c.size]].filter(([, v]) => v).map(([k, v]) => `          <dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('\n')}
+        </dl>
+        <div class="cs-illust"><img src="../images/cases/${illustFor(i)}" alt="" width="300" height="411" loading="lazy"><p>※イラストはイメージです</p></div>
+      </div>
 `;
 
 function sectionsOf(c) {
@@ -54,7 +81,7 @@ function build() {
       body: articleBody({
         section: ['index.html', '補助金の活用事例'], kicker: s.short, title: c.title, lead: c.summary,
         sections: sectionsOf(c), related, banner: bannerFor(`cases/${c.slug}.html`), updated: UPDATED,
-        afterLead: factBox(c),
+        afterLead: factBox(c, i),
         sources: [[c.source.title, c.source.url, c.source.publisher]],
         sourcesHeading: '出典',
         sourcesIntro: `このページは、次の公開情報を加工して作成しました（${esc(LICENSES[c.source.license])}に基づく利用）。要約・再構成は当サイトによるもので、国や出典の発行元が作成したものではありません。数字や内容は出典の記載にもとづく当時の情報です。くわしくは出典をご覧ください。`,
@@ -64,12 +91,15 @@ function build() {
 
   // 一覧ページ：制度ごとにまとめる
   const groups = Object.entries(SUBSIDIES).map(([key, s]) => [s, CASES.filter((c) => c.subsidy === key)]).filter(([, list]) => list.length);
-  const card = (c) => `        <a class="feature-card" href="${c.slug}.html">
-          <h3 style="font-size: 1.1rem; margin: 0 0 6px;">${esc(c.title)}</h3>
-          <p style="margin: 0 0 4px; font-size: 0.85rem; font-weight: 700; color: #1565d8;">${esc([c.industry, c.region].filter(Boolean).join('｜'))}</p>
-          <p>${esc(c.summary)}</p>
+  const card = (c) => `        <a class="feature-card cs-card" href="${c.slug}.html">
+          <img src="../images/cases/${illustFor(CASES.indexOf(c))}" alt="" width="300" height="411" loading="lazy">
+          <span>
+            <h3 style="font-size: 1.1rem; margin: 0 0 6px;">${esc(c.title)}</h3>
+            <p style="margin: 0 0 4px; font-size: 0.85rem; font-weight: 700; color: #1565d8;">${esc([c.industry, c.region].filter(Boolean).join('｜'))}</p>
+            <p>${esc(c.summary)}</p>
+          </span>
         </a>`;
-  const body = `    <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ 補助金の活用事例</nav>
+  const body = `${CASE_STYLE}    <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ 補助金の活用事例</nav>
 
     <div class="pb-banner" style="background-image: url('../images/banner/b14.webp')"><h1 class="pb-title">補助金の活用事例</h1></div>
     <div style="margin-bottom: 2rem;">

@@ -143,6 +143,19 @@
   </header>
 
   <main class="wrap">
+
+    <style>
+      .cs-top { display: grid; grid-template-columns: 1fr 200px; gap: 18px; align-items: stretch; margin-top: 1rem; }
+      .cs-facts { display: grid; grid-template-columns: max-content 1fr; align-content: center; gap: 6px 16px; margin: 0; padding: 14px 18px; background: #f4f7fa; border-left: 3px solid #1565d8; border-radius: 0 12px 12px 0; font-size: 0.92rem; }
+      .cs-facts dt { font-weight: 700; }
+      .cs-facts dd { margin: 0; }
+      .cs-illust { margin: 0; }
+      .cs-illust img { display: block; width: 100%; height: 100%; max-height: 260px; object-fit: cover; border-radius: 14px; box-shadow: 0 6px 18px rgba(29, 42, 58, 0.1); }
+      .cs-illust p { margin-top: 4px; font-size: 0.72rem; color: var(--mute); text-align: right; }
+      .cs-card { display: grid; grid-template-columns: 96px 1fr; gap: 16px; align-items: center; }
+      .cs-card img { width: 96px; height: 120px; object-fit: cover; border-radius: 10px; }
+      @media (max-width: 640px) { .cs-top { grid-template-columns: 1fr; } .cs-illust img { max-height: 220px; } .cs-card { grid-template-columns: 72px 1fr; } .cs-card img { width: 72px; height: 90px; } }
+    </style>
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ 補助金の活用事例</nav>
 
     <div class="pb-banner" style="background-image: url('../images/banner/b14.webp')"><h1 class="pb-title">補助金の活用事例</h1></div>
@@ -156,15 +169,21 @@
       <span class="area-num">01</span>
       <h2 id="g0">小規模事業者持続化補助金の事例</h2>
       <div class="area-body">
-        <a class="feature-card" href="ichimaru-photo-pharmacy.html">
-          <h3 style="font-size: 1.1rem; margin: 0 0 6px;">人口約1,200人の町の写真店が、持続化補助金をきっかけに事業を立て直した事例</h3>
-          <p style="margin: 0 0 4px; font-size: 0.85rem; font-weight: 700; color: #1565d8;">写真サービス・調剤薬局｜北海道遠軽町</p>
-          <p>北海道遠軽町（旧丸瀬布町）の株式会社イチマルは、商工会の支援で持続化補助金を使い、証明写真の設備を更新。空いたスペースで調剤薬局も始め、地域に必要とされる事業へと立て直しました。</p>
+        <a class="feature-card cs-card" href="ichimaru-photo-pharmacy.html">
+          <img src="../images/cases/illust-06.webp" alt="" width="300" height="411" loading="lazy">
+          <span>
+            <h3 style="font-size: 1.1rem; margin: 0 0 6px;">人口約1,200人の町の写真店が、持続化補助金をきっかけに事業を立て直した事例</h3>
+            <p style="margin: 0 0 4px; font-size: 0.85rem; font-weight: 700; color: #1565d8;">写真サービス・調剤薬局｜北海道遠軽町</p>
+            <p>北海道遠軽町（旧丸瀬布町）の株式会社イチマルは、商工会の支援で持続化補助金を使い、証明写真の設備を更新。空いたスペースで調剤薬局も始め、地域に必要とされる事業へと立て直しました。</p>
+          </span>
         </a>
-        <a class="feature-card" href="barber-visiting-service.html">
-          <h3 style="font-size: 1.1rem; margin: 0 0 6px;">理髪店が、持続化補助金で出張理容のサービスを始めた事例</h3>
-          <p style="margin: 0 0 4px; font-size: 0.85rem; font-weight: 700; color: #1565d8;">理容業｜島根県吉賀町</p>
-          <p>島根県吉賀町の理髪店は、店に来るのが難しい在宅介護の方のために、移動式の椅子とシャンプー台を導入して出張理容を始めました。</p>
+        <a class="feature-card cs-card" href="barber-visiting-service.html">
+          <img src="../images/cases/illust-05.webp" alt="" width="300" height="411" loading="lazy">
+          <span>
+            <h3 style="font-size: 1.1rem; margin: 0 0 6px;">理髪店が、持続化補助金で出張理容のサービスを始めた事例</h3>
+            <p style="margin: 0 0 4px; font-size: 0.85rem; font-weight: 700; color: #1565d8;">理容業｜島根県吉賀町</p>
+            <p>島根県吉賀町の理髪店は、店に来るのが難しい在宅介護の方のために、移動式の椅子とシャンプー台を導入して出張理容を始めました。</p>
+          </span>
         </a>
         <p style="margin-top: 12px;"><a href="../feature/jizokuka.html">小規模事業者持続化補助金とは？ →</a></p>
       </div>
@@ -174,15 +193,21 @@
       <span class="area-num">02</span>
       <h2 id="g1">IT導入補助金（現：デジタル化・AI導入補助金）の事例</h2>
       <div class="area-body">
-        <a class="feature-card" href="kimise-rpa.html">
-          <h3 style="font-size: 1.1rem; margin: 0 0 6px;">醤油メーカーが、IT導入補助金でRPAを導入し、残業時間を減らした事例</h3>
-          <p style="margin: 0 0 4px; font-size: 0.85rem; font-weight: 700; color: #1565d8;">調味料の製造・販売｜岡山県岡山市</p>
-          <p>岡山市のキミセ醤油株式会社は、IT導入補助金を使ってRPAを導入。日報の集計や電話営業の準備を自動化し、従業員1人あたりの残業時間を月3時間6分減らしました。</p>
+        <a class="feature-card cs-card" href="kimise-rpa.html">
+          <img src="../images/cases/illust-08.webp" alt="" width="300" height="411" loading="lazy">
+          <span>
+            <h3 style="font-size: 1.1rem; margin: 0 0 6px;">醤油メーカーが、IT導入補助金でRPAを導入し、残業時間を減らした事例</h3>
+            <p style="margin: 0 0 4px; font-size: 0.85rem; font-weight: 700; color: #1565d8;">調味料の製造・販売｜岡山県岡山市</p>
+            <p>岡山市のキミセ醤油株式会社は、IT導入補助金を使ってRPAを導入。日報の集計や電話営業の準備を自動化し、従業員1人あたりの残業時間を月3時間6分減らしました。</p>
+          </span>
         </a>
-        <a class="feature-card" href="aigran-cloud-payroll.html">
-          <h3 style="font-size: 1.1rem; margin: 0 0 6px;">パン屋が、IT導入補助金でクラウドの給与・勤怠管理を入れ、事務を半分以下にした事例</h3>
-          <p style="margin: 0 0 4px; font-size: 0.85rem; font-weight: 700; color: #1565d8;">パンの製造・小売｜東京都八王子市</p>
-          <p>東京都八王子市のパン製造小売、有限会社アイグランは、IT導入補助金でクラウドの給与・就業管理ソフトを導入。毎月の給与・勤怠の事務を7人日から3人日に減らしました。</p>
+        <a class="feature-card cs-card" href="aigran-cloud-payroll.html">
+          <img src="../images/cases/illust-04.webp" alt="" width="300" height="411" loading="lazy">
+          <span>
+            <h3 style="font-size: 1.1rem; margin: 0 0 6px;">パン屋が、IT導入補助金でクラウドの給与・勤怠管理を入れ、事務を半分以下にした事例</h3>
+            <p style="margin: 0 0 4px; font-size: 0.85rem; font-weight: 700; color: #1565d8;">パンの製造・小売｜東京都八王子市</p>
+            <p>東京都八王子市のパン製造小売、有限会社アイグランは、IT導入補助金でクラウドの給与・就業管理ソフトを導入。毎月の給与・勤怠の事務を7人日から3人日に減らしました。</p>
+          </span>
         </a>
         <p style="margin-top: 12px;"><a href="../feature/digital-subsidy.html">デジタル補助金とは？ →</a></p>
       </div>
@@ -192,15 +217,21 @@
       <span class="area-num">03</span>
       <h2 id="g2">ものづくり補助金（現：新事業進出・ものづくり商業サービス補助金）の事例</h2>
       <div class="area-body">
-        <a class="feature-card" href="fukuda-bakery-oven.html">
-          <h3 style="font-size: 1.1rem; margin: 0 0 6px;">給食パンの製造所が、ものづくり補助金でオーブンを導入し、アレルギー対応パンを増やした事例</h3>
-          <p style="margin: 0 0 4px; font-size: 0.85rem; font-weight: 700; color: #1565d8;">パンの製造・販売（学校給食など）｜静岡県磐田市</p>
-          <p>静岡県磐田市の福田製パン合資会社は、ものづくり補助金で新しいオーブンを導入。1回に焼ける量が1.5倍になり、焼成時間も20分から15分に短くなりました。</p>
+        <a class="feature-card cs-card" href="fukuda-bakery-oven.html">
+          <img src="../images/cases/illust-09.webp" alt="" width="300" height="411" loading="lazy">
+          <span>
+            <h3 style="font-size: 1.1rem; margin: 0 0 6px;">給食パンの製造所が、ものづくり補助金でオーブンを導入し、アレルギー対応パンを増やした事例</h3>
+            <p style="margin: 0 0 4px; font-size: 0.85rem; font-weight: 700; color: #1565d8;">パンの製造・販売（学校給食など）｜静岡県磐田市</p>
+            <p>静岡県磐田市の福田製パン合資会社は、ものづくり補助金で新しいオーブンを導入。1回に焼ける量が1.5倍になり、焼成時間も20分から15分に短くなりました。</p>
+          </span>
         </a>
-        <a class="feature-card" href="saiko-cnf-machine.html">
-          <h3 style="font-size: 1.1rem; margin: 0 0 6px;">従業員9名の技術ベンチャーが、ものづくり補助金で量産用の装置を開発し、海外企業と契約した事例</h3>
-          <p style="margin: 0 0 4px; font-size: 0.85rem; font-weight: 700; color: #1565d8;">産業用装置の開発｜静岡県藤枝市</p>
-          <p>静岡県藤枝市の西光エンジニアリングは、ものづくり補助金でセルロースナノファイバー（CNF）の量産用濃縮装置を開発。台湾の化学メーカーとの正式な契約につながりました。</p>
+        <a class="feature-card cs-card" href="saiko-cnf-machine.html">
+          <img src="../images/cases/illust-10.webp" alt="" width="300" height="411" loading="lazy">
+          <span>
+            <h3 style="font-size: 1.1rem; margin: 0 0 6px;">従業員9名の技術ベンチャーが、ものづくり補助金で量産用の装置を開発し、海外企業と契約した事例</h3>
+            <p style="margin: 0 0 4px; font-size: 0.85rem; font-weight: 700; color: #1565d8;">産業用装置の開発｜静岡県藤枝市</p>
+            <p>静岡県藤枝市の西光エンジニアリングは、ものづくり補助金でセルロースナノファイバー（CNF）の量産用濃縮装置を開発。台湾の化学メーカーとの正式な契約につながりました。</p>
+          </span>
         </a>
         <p style="margin-top: 12px;"><a href="../feature/monodukuri.html">新事業進出・ものづくり商業サービス補助金とは？ →</a></p>
       </div>
@@ -210,10 +241,13 @@
       <span class="area-num">04</span>
       <h2 id="g3">事業再構築補助金（後継：新事業進出・ものづくり商業サービス補助金）の事例</h2>
       <div class="area-body">
-        <a class="feature-card" href="matsumotoro-bakery.html">
-          <h3 style="font-size: 1.1rem; margin: 0 0 6px;">温泉旅館が、事業再構築補助金でベーカリーを開き、黒字に転換した事例</h3>
-          <p style="margin: 0 0 4px; font-size: 0.85rem; font-weight: 700; color: #1565d8;">宿泊業（温泉旅館）｜群馬県渋川市</p>
-          <p>群馬県渋川市（伊香保温泉）の株式会社ホテル松本楼は、感染症の拡大で休業を経験したあと、事業再構築補助金で地域初のベーカリーを開業。事業の多角化で、総売上高を感染拡大前の水準に戻しました。</p>
+        <a class="feature-card cs-card" href="matsumotoro-bakery.html">
+          <img src="../images/cases/illust-01.webp" alt="" width="300" height="411" loading="lazy">
+          <span>
+            <h3 style="font-size: 1.1rem; margin: 0 0 6px;">温泉旅館が、事業再構築補助金でベーカリーを開き、黒字に転換した事例</h3>
+            <p style="margin: 0 0 4px; font-size: 0.85rem; font-weight: 700; color: #1565d8;">宿泊業（温泉旅館）｜群馬県渋川市</p>
+            <p>群馬県渋川市（伊香保温泉）の株式会社ホテル松本楼は、感染症の拡大で休業を経験したあと、事業再構築補助金で地域初のベーカリーを開業。事業の多角化で、総売上高を感染拡大前の水準に戻しました。</p>
+          </span>
         </a>
         <p style="margin-top: 12px;"><a href="../feature/monodukuri.html">新事業進出・ものづくり商業サービス補助金とは？ →</a></p>
       </div>
@@ -223,10 +257,13 @@
       <span class="area-num">05</span>
       <h2 id="g4">中小企業省力化投資補助金の事例</h2>
       <div class="area-body">
-        <a class="feature-card" href="shoryokuka-restaurant-ticket.html">
-          <h3 style="font-size: 1.1rem; margin: 0 0 6px;">飲食店が、省力化投資補助金で券売機を入れ、ホールを1人でも回せるようにした例</h3>
-          <p style="margin: 0 0 4px; font-size: 0.85rem; font-weight: 700; color: #1565d8;">飲食業（ほか宿泊業・製造業・小売業の例も）</p>
-          <p>中小企業省力化投資補助金（カタログ注文型）の活用例として、飲食店が注文・会計を券売機に置き換え、最低2名が必要だったホールを1名でも営業できるようにした例が紹介されています。</p>
+        <a class="feature-card cs-card" href="shoryokuka-restaurant-ticket.html">
+          <img src="../images/cases/illust-07.webp" alt="" width="300" height="411" loading="lazy">
+          <span>
+            <h3 style="font-size: 1.1rem; margin: 0 0 6px;">飲食店が、省力化投資補助金で券売機を入れ、ホールを1人でも回せるようにした例</h3>
+            <p style="margin: 0 0 4px; font-size: 0.85rem; font-weight: 700; color: #1565d8;">飲食業（ほか宿泊業・製造業・小売業の例も）</p>
+            <p>中小企業省力化投資補助金（カタログ注文型）の活用例として、飲食店が注文・会計を券売機に置き換え、最低2名が必要だったホールを1名でも営業できるようにした例が紹介されています。</p>
+          </span>
         </a>
         <p style="margin-top: 12px;"><a href="../feature/shoryokuka.html">中小企業省力化投資補助金とは？ →</a></p>
       </div>
@@ -236,10 +273,13 @@
       <span class="area-num">06</span>
       <h2 id="g5">事業承継・引継ぎ補助金（現：事業承継・M&amp;A補助金）の事例</h2>
       <div class="area-body">
-        <a class="feature-card" href="tagami-rice.html">
-          <h3 style="font-size: 1.1rem; margin: 0 0 6px;">事業を引き継いだ精米店が、補助金で設備を新しくし、売上を伸ばした事例</h3>
-          <p style="margin: 0 0 4px; font-size: 0.85rem; font-weight: 700; color: #1565d8;">精米・米穀販売｜鹿児島県出水市</p>
-          <p>鹿児島県出水市の精米店「田上商店」は、30代の夫婦が事業を引き継いだあと、事業承継・引継ぎ補助金と持続化補助金で籾摺機・精米機・色彩選別機を導入。生産性を上げ、販路を広げました。</p>
+        <a class="feature-card cs-card" href="tagami-rice.html">
+          <img src="../images/cases/illust-02.webp" alt="" width="300" height="411" loading="lazy">
+          <span>
+            <h3 style="font-size: 1.1rem; margin: 0 0 6px;">事業を引き継いだ精米店が、補助金で設備を新しくし、売上を伸ばした事例</h3>
+            <p style="margin: 0 0 4px; font-size: 0.85rem; font-weight: 700; color: #1565d8;">精米・米穀販売｜鹿児島県出水市</p>
+            <p>鹿児島県出水市の精米店「田上商店」は、30代の夫婦が事業を引き継いだあと、事業承継・引継ぎ補助金と持続化補助金で籾摺機・精米機・色彩選別機を導入。生産性を上げ、販路を広げました。</p>
+          </span>
         </a>
         <p style="margin-top: 12px;"><a href="../feature/succession.html">事業承継・M&amp;A補助金とは？ →</a></p>
       </div>
@@ -249,10 +289,13 @@
       <span class="area-num">07</span>
       <h2 id="g6">業務改善助成金の事例</h2>
       <div class="area-body">
-        <a class="feature-card" href="gyomu-kaizen-seikotsuin.html">
-          <h3 style="font-size: 1.1rem; margin: 0 0 6px;">従業員3人の接骨院が、業務改善助成金でPOSシステムを入れ、賃金を60円上げた事例</h3>
-          <p style="margin: 0 0 4px; font-size: 0.85rem; font-weight: 700; color: #1565d8;">接骨院｜静岡県</p>
-          <p>厚生労働省の事例集では、静岡県の接骨院が業務改善助成金を使って業務の流れを見直し、POSシステムを導入。受付・精算の時間が約半分になり、事業場内の最低賃金を60円引き上げた例が紹介されています。</p>
+        <a class="feature-card cs-card" href="gyomu-kaizen-seikotsuin.html">
+          <img src="../images/cases/illust-03.webp" alt="" width="300" height="411" loading="lazy">
+          <span>
+            <h3 style="font-size: 1.1rem; margin: 0 0 6px;">従業員3人の接骨院が、業務改善助成金でPOSシステムを入れ、賃金を60円上げた事例</h3>
+            <p style="margin: 0 0 4px; font-size: 0.85rem; font-weight: 700; color: #1565d8;">接骨院｜静岡県</p>
+            <p>厚生労働省の事例集では、静岡県の接骨院が業務改善助成金を使って業務の流れを見直し、POSシステムを導入。受付・精算の時間が約半分になり、事業場内の最低賃金を60円引き上げた例が紹介されています。</p>
+          </span>
         </a>
         <p style="margin-top: 12px;"><a href="../feature/employment.html">雇用関係の助成金 →</a></p>
       </div>
@@ -359,7 +402,7 @@
         </nav>
     </div>
     <div class="footer-bottom">
-                  <nav aria-label="補助リンク">
+            <nav aria-label="補助リンク">
         <ul>
           <li><a href="../policy/privacy.html">プライバシーポリシー</a></li>
           <li><a href="../policy/contact.html">フィードバック・バグ報告</a></li>
