@@ -615,3 +615,10 @@ details ul { margin: 8px 0; padding-left: 1.5em; }
 .home-faq summary { cursor: pointer; font-weight: 500; }
 .home-faq p { margin: 8px 0 0; color: var(--mute); }
 @media (max-width: 760px) { .home-info-grid { grid-template-columns: 1fr; } }
+
+.pr-box { margin: 40px 0; padding: 16px; border: 1px solid var(--line-soft); background: #fafbfc; text-align: center; }
+.pr-box img:not(.pr-pixel) { max-width: 100%; height: auto; }
+.pr-box .pr-label { margin: 0 0 10px; font-size: 0.85rem; color: var(--mute); text-align: left; }
+.pr-box .pr-tag { display: inline-block; padding: 1px 6px; margin-right: 6px; border: 1px solid var(--mute); font-size: 0.7rem; font-weight: 700; }
+.pr-box .pr-note { margin: 10px 0 0; font-size: 0.75rem; color: var(--mute); text-align: left; }
+.pr-pixel { position: absolute; width: 1px; height: 1px; }
