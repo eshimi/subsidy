@@ -107,4 +107,6 @@ export const AREA_CITIES = [
   { batch: 6, name: '奈良市', slug: 'nara', pref: '奈良県', level: '市' },
   { batch: 6, name: '和歌山市', slug: 'wakayama', pref: '和歌山県', level: '市' },
   { batch: 6, name: '那覇市', slug: 'naha', pref: '沖縄県', level: '市' },
+  { batch: 6, name: '尼崎市', slug: 'amagasaki', pref: '兵庫県', level: '市' },
+  { batch: 6, name: '松本市', slug: 'matsumoto', pref: '長野県', level: '市' },
 ];
