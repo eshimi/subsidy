@@ -43,12 +43,29 @@
     if (m && [...field('pref').options].some((o) => o.value === m[1])) field('pref').value = m[1];
   }).observe(address, { childList: true, characterData: true, subtree: true });
 
+  // 入力から、都道府県名と、探す言葉を取り出す（「東京で耐震」→ 東京都 ／ 耐震）
+  const prefOptions = [...field('pref').options].map((o) => o.value).filter(Boolean);
+  const splitQuery = (t) => {
+    let rest = t;
+    let pref = '';
+    for (const v of prefOptions) {
+      const short = v === '北海道' ? v : v.replace(/[都府県]$/, '');
+      if (short.length >= 2 && rest.includes(short)) {
+        pref = pref || v;
+        rest = rest.replace(short, ' ');
+      }
+    }
+    const words = rest.split(/[\s　]+|では|で|の|に|を|が|は|や|と|も|から|など/).filter((w) => w.length >= 1);
+    return { pref, words };
+  };
+
   function conditions() {
     const t = text();
+    const q = isSentence(t) ? { pref: '', words: [] } : splitQuery(t);
     return {
       text: t,
-      words: isSentence(t) ? [] : t.split(/[\s　]+/).filter(Boolean),
-      pref: field('pref').value,
+      words: q.words,
+      pref: field('pref').value || q.pref,
       purpose: field('purpose').value,
       industry: field('industry').value,
       amount: Number(tools[0].value || 0) * 10000,
@@ -121,7 +138,8 @@
   function filtered(c) {
     const now = Date.now();
     let out = items.filter((g) => g.guide || (g.e && Date.parse(g.e) >= now));
-    const hasQuery = Boolean(c.text);
+    // 探す言葉があるとき（文章を含む）は、関連度で絞る。地域だけのときは絞らない
+    const hasQuery = c.words.length > 0 || isSentence(c.text);
     const scores = new Map();
     if (hasQuery) {
       out = out.filter((g) => {
@@ -156,6 +174,7 @@
     const note = isSentence(c.text) ? '文章から言葉を拾って、近い制度を探しています。郵便番号も入れると、AIが内容を読み取って探します。' : '';
     count.innerHTML = `${out.length ? `<b>${out.length.toLocaleString('ja-JP')}</b> 件の募集中の補助金が見つかりました。${c.text && !isSentence(c.text) ? '関連の高い順に表示しています。' : ''}` : '条件に合う募集中の補助金は見つかりませんでした。キーワードや条件を減らすか、郵便番号を入れてAIで探してみてください。'}${note ? `<br><small>${esc(note)}</small>` : ''}`;
     list.innerHTML = out.slice(0, shown).map((g) => {
+      if (g.local) return `<li><a href="${esc(g.url)}">${esc(g.t)}</a><p><span class="s-soon">市区町村の制度</span>｜${esc(g.a)}</p></li>`;
       if (g.guide) return `<li><a href="${esc(g.url)}">${esc(g.t)}</a><p><span class="s-soon">解説ページ</span>｜個人の方向けの仕組みと、申請の流れ</p></li>`;
       const days = Math.ceil((Date.parse(g.e) - now) / DAY);
       const soon = days <= 30 ? `<span class="s-soon">締切まで${days}日</span>` : `締切 ${esc(dateJa(g.e))}${g.est ? '（見込み）' : ''}`;

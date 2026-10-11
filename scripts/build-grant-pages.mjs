@@ -6,6 +6,8 @@ import { fileURLToPath } from 'node:url';
 import { SITE, esc, shell } from './lib/site-shell.mjs';
 import { PREFECTURES, PREF_SLUGS } from '../src/data/prefectures.js';
 import { NATIONAL_EXTRA, PERSONAL_GUIDES } from './data/national-extra.mjs';
+import { LOCAL_PROGRAMS } from '../src/data/local-programs.js';
+import { AREA_CITIES } from '../src/data/area-cities.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = join(ROOT, 'public', 'data', 'jgrants');
@@ -402,6 +404,12 @@ export const INDUSTRIES = [
   { slug: 'care', label: '医療・介護・保育', match: /医療|介護|福祉|保育/, lead: '医療・介護・保育などに関係しそうな補助金です。' },
 ];
 
+// 市区町村の制度（地域別のページに載せているもの）を、検索データの形にする。リンクは地域のページへ
+const localItems = () => LOCAL_PROGRAMS.map((p) => {
+  const area = [...(p.prefectures || []), ...(p.cities || [])].join('・') || '全国';
+  const city = AREA_CITIES.find((c) => (p.cities || []).includes(c.name));
+  return { id: 'local-' + p.id, t: p.name, a: area, m: null, s: null, e: null, url: city ? `area/${city.slug}.html` : 'area/index.html', local: true, guide: true, p: [], i: [], k: [...new Set([...(p.industries || []), p.type].filter(Boolean))] };
+});
 // jGrants 以外の国の制度を、検索データの形にする（url は公式の申し込み先）
 const extraItem = (x) => ({ id: x.id, t: x.title, a: x.area, m: x.max, s: x.start, e: x.end, url: x.url, est: Boolean(x.est), guide: Boolean(x.guide), p: x.p, i: x.i, k: x.k });
 
@@ -543,7 +551,7 @@ export function buildAll({ dir = DATA, out = OUT, sitemap = SITEMAP, now = Date.
     writeFileSync(join(out, 'deadlines.html'), listPage({ title: '締切が近い補助金', heading: '締切が近い補助金', lead: msg, items: [], now, canonicalPath: '/grants/deadlines.html' }));
     writeFileSync(join(out, 'prefectures.html'), prefectureIndex(Object.fromEntries(PREFECTURES.map((p) => [p, []])), now));
     writeFileSync(join(out, 'deadlines.ics'), icsFor([], now));
-    writeFileSync(join(out, 'search.json'), JSON.stringify({ generatedAt: new Date(now).toISOString(), items: [...NATIONAL_EXTRA, ...PERSONAL_GUIDES].map(extraItem) }));
+    writeFileSync(join(out, 'search.json'), JSON.stringify({ generatedAt: new Date(now).toISOString(), items: [...NATIONAL_EXTRA, ...PERSONAL_GUIDES].map(extraItem).concat(localItems()) }));
     writeFileSync(join(out, 'purposes.html'), purposeIndex([], now));
     writeFileSync(join(out, 'industries.html'), topicIndex({ hubs: [], heading: '業種別の補助金', lead: msg, description: msg, canonicalPath: '/grants/industries.html' }));
     writeFileSync(join(out, 'feed.xml'), rssFor([], now));
@@ -571,7 +579,7 @@ ${hubs.map((h) => `        <li><a href="${h.file}">${h.heading}</a></li>`).join(
   writeFileSync(join(out, 'industries.html'), topicIndex({ hubs: industries, heading: '業種別の補助金', lead: '業種に関係しそうな、募集中の補助金を一覧にしました。', description: '飲食、小売、美容、建設、製造、IT、観光、農業、医療・介護など、業種から募集中の補助金を探せます。', canonicalPath: '/grants/industries.html' }));
   for (const h of industries) writeFileSync(join(out, h.file), listPage({ title: h.title, heading: h.heading, lead: h.lead, items: h.items, now, canonicalPath: `/grants/${h.file}`, extra: h.extra }));
   // 検索画面・トップページ用の軽いデータ（ブラウザで絞り込む）
-  writeFileSync(join(out, 'search.json'), JSON.stringify({ generatedAt: new Date(now).toISOString(), items: [...grants.map((g) => ({ id: g.id, t: g.title, a: g.area, m: g.max, s: g.start, e: g.end, ...tagsOf(g), k: everydayOf(g) })), ...NATIONAL_EXTRA.map(extraItem), ...PERSONAL_GUIDES.map(extraItem)] }));
+  writeFileSync(join(out, 'search.json'), JSON.stringify({ generatedAt: new Date(now).toISOString(), items: [...grants.map((g) => ({ id: g.id, t: g.title, a: g.area, m: g.max, s: g.start, e: g.end, ...tagsOf(g), k: everydayOf(g) })), ...NATIONAL_EXTRA.map(extraItem), ...PERSONAL_GUIDES.map(extraItem), ...localItems()] }));
   writeFileSync(join(out, 'purposes.html'), purposeIndex(purposes, now));
   for (const h of purposes) writeFileSync(join(out, h.file), listPage({ title: h.title, heading: h.heading, lead: h.lead, items: h.items, now, canonicalPath: `/grants/${h.file}` }));
   writeFileSync(join(out, 'deadlines.ics'), icsFor(grants, now));
