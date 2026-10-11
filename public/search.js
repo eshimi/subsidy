@@ -24,6 +24,8 @@
   let items = [];
   let shown = PAGE;
   let loaded = false;
+  let zipRest = '';
+  let cityNames = [];
 
   const field = (name) => form.elements.namedItem(name);
   const text = () => String(field('description').value || '').trim();
@@ -40,7 +42,13 @@
   const address = document.getElementById('address');
   new MutationObserver(() => {
     const m = address.textContent.replace(/^📍\s*/u, '').match(/^(北海道|東京都|京都府|大阪府|.{2,3}?県)/);
-    if (m && [...field('pref').options].some((o) => o.value === m[1])) field('pref').value = m[1];
+    if (m && [...field('pref').options].some((o) => o.value === m[1])) {
+      field('pref').value = m[1];
+      // 都道府県のあとの住所（市区町村の判定に使う）。「（推定）」のときは市区町村が分からない
+      zipRest = /（推定）/.test(address.textContent) ? '' : address.textContent.replace(/^📍\s*/u, '').slice(m[1].length);
+    } else zipRest = '';
+    if (loaded) render();
+    renderAiLocal();
   }).observe(address, { childList: true, characterData: true, subtree: true });
 
   // 入力から、都道府県名と、探す言葉を取り出す（「東京で耐震」→ 東京都 ／ 耐震）
@@ -55,17 +63,36 @@
         rest = rest.replace(short, ' ');
       }
     }
+    // 市区町村名（制度のある市区町村の名前を、長いものから探す。「四日市市」が「四日市」にならないように）
+    let city = '';
+    for (const n of cityNames) {
+      if (rest.includes(n)) { city = n; rest = rest.replace(n, ' '); break; }
+    }
     const words = rest.split(/[\s　]+|では|で|の|に|を|が|は|や|と|も|から|など/).filter((w) => w.length >= 1);
-    return { pref, words };
+    return { pref, city, words };
   };
+
+  // 制度の地域（「東京都・足立区」）から、市区町村の名前を取り出す。市区町村の制度だけに付く
+  const cityOf = (g) => (g.local ? String(g.a || '').split('・')[1] || '' : '');
+  const prefOfCity = (city) => {
+    if (!city) return '';
+    const hit = items.find((g) => g.local && cityOf(g) === city);
+    return hit ? String(hit.a).split('・')[0] : '';
+  };
+  // 郵便番号の住所から、制度のある市区町村を探す（長い名前から）
+  const zipCityOf = () => cityNames.find((n) => zipRest.startsWith(n)) || '';
 
   function conditions() {
     const t = text();
-    const q = isSentence(t) ? { pref: '', words: [] } : splitQuery(t);
+    const q = isSentence(t) ? { pref: '', city: '', words: [] } : splitQuery(t);
+    // 市区町村：入力した名前を優先し、なければ郵便番号の住所から
+    const city = q.city || zipCityOf(field('pref').value || q.pref);
+    const pref = field('pref').value || q.pref || prefOfCity(city);
     return {
       text: t,
       words: q.words,
-      pref: field('pref').value || q.pref,
+      city,
+      pref,
       purpose: field('purpose').value,
       industry: field('industry').value,
       amount: Number(tools[0].value || 0) * 10000,
@@ -149,6 +176,8 @@
       });
     }
     if (c.pref) out = out.filter((g) => (g.a || '').includes(c.pref) || !g.a || g.a.includes('全国'));
+    // 市区町村が分かっているときは、ほかの市区町村の制度は出さない（県の制度・全国の制度は残す）
+    if (c.city) out = out.filter((g) => !cityOf(g) || cityOf(g) === c.city);
     if (c.purpose) out = out.filter((g) => (g.p || []).includes(c.purpose));
     if (c.industry) out = out.filter((g) => (g.i || []).includes(c.industry));
     if (c.amount) out = out.filter((g) => g.m && g.m >= c.amount);
@@ -162,7 +191,10 @@
       amount: (a, b) => (b.m || 0) - (a.m || 0),
     }[c.sort] || byEnd;
     // キーワードで探したときは、関連度の高い順（同じなら締切の早い順）。並べ替えを選んだときはそれに従う
-    if (hasQuery && c.sort === 'end') return out.sort((a, b) => (scores.get(b) || 0) - (scores.get(a) || 0) || byEnd(a, b));
+    // 市区町村が分かっているときは、その市区町村の制度を先に並べる
+    const near = (g) => (c.city && cityOf(g) === c.city ? 0 : 1);
+    if (hasQuery && c.sort === 'end') return out.sort((a, b) => near(a) - near(b) || (scores.get(b) || 0) - (scores.get(a) || 0) || byEnd(a, b));
+    if (c.city && c.sort === 'end') return out.sort((a, b) => near(a) - near(b) || byEnd(a, b));
     return out.sort(by);
   }
 
@@ -218,8 +250,32 @@
   // AI の検索条件つきで開いたときは、募集中の一覧を隠しておく
   if (params.has('desc') && params.has('zip')) kwSection.hidden = true;
 
+  // AIで探した結果の下に、お住まいの市区町村の個人向け制度（自治体）を出す
+  const aiLocal = document.createElement('section');
+  aiLocal.id = 'ai-local';
+  aiLocal.className = 'u-results';
+  aiLocal.hidden = true;
+  aiSection.after(aiLocal);
+  function renderAiLocal() {
+    const city = zipCityOf();
+    if (!loaded || !city || aiSection.hidden) { aiLocal.hidden = true; return; }
+    const mine = items.filter((g) => cityOf(g) === city);
+    if (!mine.length) { aiLocal.hidden = true; return; }
+    const slug = mine[0].url.split('#')[0];
+    aiLocal.innerHTML = `<div class="u-rhead"><h2 class="u-h">${esc(city)}の個人向けの制度（自治体）</h2></div><ul class="s-results">${mine.slice(0, 20).map((g) => `<li><a href="${esc(g.url)}">${esc(g.t)}</a><p><span class="s-soon">${esc(g.cat || '市区町村の制度')}</span>｜${esc(g.a)}</p></li>`).join('')}</ul><p><a href="${esc(slug)}">${esc(city)}の補助金ページで、すべて見る</a></p>`;
+    aiLocal.hidden = false;
+  }
+  new MutationObserver(renderAiLocal).observe(aiSection, { attributes: true, attributeFilter: ['hidden'] });
+
   fetch('grants/search.json')
     .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
-    .then((data) => { items = data.items || []; loaded = true; render(); })
+    .then((data) => {
+      items = data.items || [];
+      // 制度のある市区町村の名前（長いものから）
+      cityNames = [...new Set(items.map(cityOf).filter(Boolean))].sort((a, b) => b.length - a.length);
+      loaded = true;
+      render();
+      renderAiLocal();
+    })
     .catch(() => { count.textContent = '補助金の一覧を読み込めませんでした。時間をおいて、もう一度お試しください。'; });
 })();
