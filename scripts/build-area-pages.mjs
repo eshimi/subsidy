@@ -5,6 +5,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { AREA_CITIES } from '../src/data/area-cities.js';
 import { LOCAL_PROGRAMS } from '../src/data/local-programs.js';
+import { RESIDENT_PROGRAMS, RESIDENT_CATEGORIES } from '../src/data/resident-programs.js';
 import { PREFECTURES, PREF_SLUGS } from '../src/data/prefectures.js';
 import { SITE, esc, shell } from './lib/site-shell.mjs';
 import { sitemapPaths, writeSitemapHtml } from './lib/sitemap.mjs';
@@ -19,6 +20,21 @@ function programsFor(city) {
   const municipal = LOCAL_PROGRAMS.filter((p) => p.cities?.includes(city.name));
   const prefectural = LOCAL_PROGRAMS.filter((p) => p.level === 'prefecture' && p.prefectures?.includes(city.pref));
   return { municipal, prefectural };
+}
+
+// 個人（住民）向けの制度：市区町村のものと、都道府県のもの
+function residentFor(city) {
+  const municipal = RESIDENT_PROGRAMS.filter((p) => p.cities?.includes(city.name));
+  const prefectural = RESIDENT_PROGRAMS.filter((p) => p.level === 'prefecture' && p.prefectures?.includes(city.pref));
+  return { municipal, prefectural };
+}
+
+// 分野ごとに見出しをつけて、制度のカードを並べる
+function residentGroups(list, residentCard) {
+  return RESIDENT_CATEGORIES.map((cat) => {
+    const items = list.filter((p) => p.category === cat);
+    return items.length ? `          <h3 class="area-cat">${esc(cat)}</h3>\n${items.map(residentCard).join('\n')}` : '';
+  }).filter(Boolean).join('\n');
 }
 
 function programCard(p) {
@@ -60,6 +76,23 @@ function cityPage(city) {
   const prefHtml = prefectural.length
     ? prefectural.map(programCard).join('\n')
     : `          <p>${esc(city.pref)}全体の制度は、県の公式サイトで確認できます。</p>`;
+  const resident = residentFor(city);
+  const residentCard = (p) => programCard({ ...p, provider: `${p.provider}` });
+  const residentHtml = [
+    resident.municipal.length ? `          <p><strong>${esc(city.name)}の制度</strong></p>\n${residentGroups(resident.municipal, residentCard)}` : '',
+    resident.prefectural.length ? `          <p><strong>${esc(city.pref)}の制度</strong></p>\n${residentGroups(resident.prefectural, residentCard)}` : '',
+  ].filter(Boolean).join('\n') || `          <p>${esc(city.name)}・${esc(city.pref)}の、個人の方向けの制度（耐震・太陽光・EV・子育てなど）は、まだ掲載していません。市の公式サイトの「くらし・住まい」のページで確認してください。</p>`;
+  // 個人向けのデータが1件もないあいだは、欄を出さない（空の案内だけが並ばないように）
+  const residentSection = RESIDENT_PROGRAMS.length ? `    <section class="area-section" aria-labelledby="resident-programs">
+      <span class="area-num">02</span>
+      <h2 id="resident-programs">住まい・暮らしの制度（個人の方向け）</h2>
+      <div class="area-body">
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../personal/index.html">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+${residentHtml}
+      </div>
+    </section>
+
+` : '';
   const title = `${city.name}の補助金・創業支援｜補助金ネット`;
   const description = `${city.name}（${city.pref}）で創業・副業を考える方向けの補助金の探し方と、掲載中の市・県の制度をまとめたページです。申請前の確認ポイントも載せています。`;
   const path = `/area/${city.slug}.html`;
@@ -96,7 +129,7 @@ ${prefHtml}
       </div>
     </section>
 
-    <section class="area-section" aria-labelledby="national">
+${residentSection}    <section class="area-section" aria-labelledby="national">
       <span class="area-num">03</span>
       <h2 id="national">国の制度・全国から探す</h2>
       <div class="area-body">
