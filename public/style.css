@@ -837,3 +837,5 @@ button.r-way:focus-visible { outline: 2px solid var(--accent); outline-offset: 2
 .r-hero-video.is-full.is-done { opacity: 0; }
 .r-video-close { position: absolute; top: 16px; right: 16px; z-index: 4; padding: 8px 14px; border: 1px solid rgba(255, 255, 255, 0.6); border-radius: 999px; background: rgba(15, 30, 45, 0.55); color: #fff; font: inherit; font-size: 0.85rem; font-weight: 600; cursor: pointer; }
 .r-video-close:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+/* 記事の見出しの横の小さなアイコン（scripts/lib/section-icons.mjs） */
+.sec-icon { width: 30px; height: 30px; flex-shrink: 0; object-fit: contain; }

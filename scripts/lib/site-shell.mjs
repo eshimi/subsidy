@@ -2,6 +2,7 @@
 import { topnavHtml, footerNavHtml, footerBottomHtml } from './nav.mjs';
 import { splitLayout } from './side-layout.mjs';
 import { applyBanner } from './banners.mjs';
+import { addSectionIcons } from './section-icons.mjs';
 
 export const SITE = 'https://hojyokin.net';
 
@@ -53,10 +54,11 @@ const STYLE = `
 // 共通ヘッダー・フッター（columns.html と同じ構成）。「地域別」は お役立ち情報 の中の項目
 // 記事の各見出しの枠（area-section）を、1つの記事の枠にまとめる。
 // 連続する見出しのまとまりを <div class="art-box"> で包み、見出しごとの枠と番号は外す。
-export function boxSections(html) {
+export function boxSections(html, prefix = '') {
   const sec = html.replace(/<(?:article|section) class="area-section"([^>]*)>\s*(?:<span class="area-num">[^<]*<\/span>\s*)?/g, '<section class="art-sec"$1>');
   const withEnds = sec.replace(/(<section class="art-sec"[\s\S]*?)<\/article>/g, '$1</section>');
-  return withEnds.replace(/(?:<section class="art-sec"[\s\S]*?<\/section>)(?:\s*<section class="art-sec"[\s\S]*?<\/section>)*/g, (run) => `<div class="art-box">\n${run}\n</div>`);
+  const boxed = withEnds.replace(/(?:<section class="art-sec"[\s\S]*?<\/section>)(?:\s*<section class="art-sec"[\s\S]*?<\/section>)*/g, (run) => `<div class="art-box">\n${run}\n</div>`);
+  return addSectionIcons(boxed, prefix);
 }
 
 function shell({ title, description, canonicalPath, body, jsonLd = '', robots = 'index, follow' }) {
@@ -116,7 +118,7 @@ ${topnavHtml('../', current)}
   </header>
 
   <main class="wrap">
-${boxSections(splitLayout(applyBanner(body, current), current) ?? applyBanner(body, current))}
+${boxSections(splitLayout(applyBanner(body, current), current) ?? applyBanner(body, current), '../'.repeat(current.split('/').length - 1))}
   </main>
 
   <footer class="footer">
