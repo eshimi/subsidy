@@ -403,7 +403,7 @@ export const INDUSTRIES = [
 ];
 
 // jGrants 以外の国の制度を、検索データの形にする（url は公式の申し込み先）
-const extraItem = (x) => ({ id: x.id, t: x.title, a: x.area, m: x.max, s: x.start, e: x.end, url: x.url, p: x.p, i: x.i, k: x.k });
+const extraItem = (x) => ({ id: x.id, t: x.title, a: x.area, m: x.max, s: x.start, e: x.end, url: x.url, est: Boolean(x.est), p: x.p, i: x.i, k: x.k });
 
 // 検索用の、ふだん使う言葉（制度名が硬くても、暮らしや仕事の言葉で見つけられるように）
 // 目的・業種のタグごとの言葉。タイトルに入っている言葉（省力化・持続化など）からも、言葉を足す

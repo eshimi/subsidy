@@ -155,9 +155,9 @@
     count.innerHTML = `${out.length ? `<b>${out.length.toLocaleString('ja-JP')}</b> 件の募集中の補助金が見つかりました。${c.text && !isSentence(c.text) ? '関連の高い順に表示しています。' : ''}` : '条件に合う募集中の補助金は見つかりませんでした。キーワードや条件を減らすか、郵便番号を入れてAIで探してみてください。'}${note ? `<br><small>${esc(note)}</small>` : ''}`;
     list.innerHTML = out.slice(0, shown).map((g) => {
       const days = Math.ceil((Date.parse(g.e) - now) / DAY);
-      const soon = days <= 30 ? `<span class="s-soon">締切まで${days}日</span>` : `締切 ${esc(dateJa(g.e))}`;
+      const soon = days <= 30 ? `<span class="s-soon">締切まで${days}日</span>` : `締切 ${esc(dateJa(g.e))}${g.est ? '（見込み）' : ''}`;
       const href = g.url ? esc(g.url) : `grants/${encodeURIComponent(g.id)}.html`;
-      const ext = g.url ? ' target="_blank" rel="noopener"' : '';
+      const ext = '';
       return `<li><a href="${href}"${ext}>${esc(g.t)}</a><p>${soon}｜${esc(area(g.a))}｜${esc(yen(g.m))}</p></li>`;
     }).join('');
     more.hidden = out.length <= shown;
