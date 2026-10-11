@@ -1,9 +1,9 @@
-// 静的な記事ページ（public/*.html など）の見出しに、アイコンを入れる。使い方：node scripts/apply-section-icons.mjs
+// 静的な記事ページ（public/*.html など）の見出しにアイコンを入れ、節の間に区切りのイラストを入れる。使い方：node scripts/apply-section-icons.mjs
 // 生成ページは build-*.mjs（shell）が同じ処理をするので、ここは手で作られたページの分。何度実行しても同じ結果になる。
 import { readdirSync, readFileSync, writeFileSync, statSync } from 'node:fs';
 import { join, relative, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { addSectionIcons } from './lib/section-icons.mjs';
+import { addSectionIcons, addSectionDividers } from './lib/section-icons.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', 'public');
 
@@ -22,7 +22,7 @@ for (const file of walk(ROOT)) {
   const rel = relative(ROOT, file);
   const prefix = '../'.repeat(rel.split('/').length - 1);
   const src = readFileSync(file, 'utf-8');
-  const next = addSectionIcons(src, prefix);
+  const next = addSectionDividers(addSectionIcons(src, prefix), prefix);
   if (next !== src) { writeFileSync(file, next); changed++; }
 }
 console.log(`見出しにアイコンを入れたページ：${changed} 件`);

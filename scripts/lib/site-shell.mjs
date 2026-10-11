@@ -2,7 +2,7 @@
 import { topnavHtml, footerNavHtml, footerBottomHtml } from './nav.mjs';
 import { splitLayout } from './side-layout.mjs';
 import { applyBanner } from './banners.mjs';
-import { addSectionIcons } from './section-icons.mjs';
+import { addSectionIcons, addSectionDividers } from './section-icons.mjs';
 
 export const SITE = 'https://hojyokin.net';
 
@@ -11,7 +11,7 @@ const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '
 const STYLE = `
     .art-box { background: #fff; border: 1px solid #e6e8ec; border-radius: 12px; padding: 30px 36px 26px; box-shadow: 0 2px 12px rgba(10, 35, 82, 0.06); margin: 0 0 24px; }
     .art-sec { margin: 0 0 1.8rem; scroll-margin-top: 72px; }
-    .art-sec + .art-sec { border-top: 1px dashed #e6e8ec; padding-top: 1.6rem; }
+    .art-sec + .art-sec { padding-top: 0; }
     .art-sec h2 { display: flex; align-items: center; gap: 10px; font-size: 1.25rem; line-height: 1.5; letter-spacing: -0.02em; margin: 0 0 0.8rem; color: #0a2352; }
     .art-sec h2::before { content: ""; width: 5px; height: 1.2em; border-radius: 3px; background: #073461; flex-shrink: 0; }
     @media (max-width: 760px) { .art-box { padding: 20px 16px; } .art-sec h2 { font-size: 1.12rem; } }
@@ -58,7 +58,7 @@ export function boxSections(html, prefix = '') {
   const sec = html.replace(/<(?:article|section) class="area-section"([^>]*)>\s*(?:<span class="area-num">[^<]*<\/span>\s*)?/g, '<section class="art-sec"$1>');
   const withEnds = sec.replace(/(<section class="art-sec"[\s\S]*?)<\/article>/g, '$1</section>');
   const boxed = withEnds.replace(/(?:<section class="art-sec"[\s\S]*?<\/section>)(?:\s*<section class="art-sec"[\s\S]*?<\/section>)*/g, (run) => `<div class="art-box">\n${run}\n</div>`);
-  return addSectionIcons(boxed, prefix);
+  return addSectionDividers(addSectionIcons(boxed, prefix), prefix);
 }
 
 function shell({ title, description, canonicalPath, body, jsonLd = '', robots = 'index, follow' }) {

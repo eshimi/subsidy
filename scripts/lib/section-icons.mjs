@@ -45,3 +45,14 @@ export function addSectionIcons(html, prefix = '') {
     return `${open}<h2${attrs}><img class="sec-icon" src="${src}" alt="" width="30" height="30" loading="lazy">${inner}</h2>`;
   });
 }
+
+// 記事の節と節の間に、イラストの区切り（public/images/dividers/div-NN.webp）を入れる。
+// 同じ記事の中では、9種類を順番に使う（同じ絵が続かないように）。すでに入っている場合は何もしない。
+export function addSectionDividers(html, prefix = '') {
+  let k = 0;
+  return html.replace(/<\/section>(\s*)<section class="art-sec"/g, () => {
+    k += 1;
+    const n = String(((k - 1) % 9) + 1).padStart(2, '0');
+    return `</section>\n\n    <div class="sec-divider" aria-hidden="true"><img src="${prefix}images/dividers/div-${n}.webp" alt="" loading="lazy"></div>\n\n    <section class="art-sec"`;
+  });
+}
