@@ -312,19 +312,22 @@
   <script src="site.js"></script>
   <script src="home.js"></script>
   <script>
-    // ヒーローの背景：ページを開くたびに2枚を交互に切り替える（前回の表示を覚えて、次は反対の画像にする）
+    // ヒーローの背景：ページを開くたびに画像を順番に切り替える（前回の番号を覚えて、次の画像を出す）
+    // 画像ごとの帯の色は、画像の中の深い色に合わせてある（白い文字が読める暗さ）
     (function () {
       var KEY = 'subsidy-finder:hero-bg';
-      // 画像ごとに、帯の色（画像の中の深い色）を合わせる。白い文字が読める暗さにしてある
       var IMAGES = [
         { img: "url('images/121.webp')", rgb: '28, 79, 114' },
-        { img: "url('images/hero-alt.webp')", rgb: '31, 81, 80' }
+        { img: "url('images/hero-alt.webp')", rgb: '31, 81, 80' },
+        { img: "url('images/hero-03.webp')", rgb: '38, 62, 58' },
+        { img: "url('images/hero-04.webp')", rgb: '46, 70, 56' },
+        { img: "url('images/hero-05.webp')", rgb: '31, 54, 84' }
       ];
       var hero = document.querySelector('.r-hero');
       if (!hero) return;
-      var last = null;
-      try { last = localStorage.getItem(KEY); } catch (e) { /* 保存できないときは、いつも1枚目 */ }
-      var next = last === '0' ? 1 : 0;
+      var last = NaN;
+      try { last = parseInt(localStorage.getItem(KEY), 10); } catch (e) { /* 保存できないときは、いつも1枚目 */ }
+      var next = isNaN(last) ? 0 : (last + 1) % IMAGES.length;
       hero.style.setProperty('--hero-img', IMAGES[next].img);
       hero.style.setProperty('--hero-rgb', IMAGES[next].rgb);
       try { localStorage.setItem(KEY, String(next)); } catch (e) { /* 保存できなくても表示は変わる */ }
