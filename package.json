@@ -10,7 +10,8 @@
     "test": "node --test test/*.test.js",
     "build:static": "node scripts/build-static.mjs",
     "fetch:jgrants": "node scripts/fetch-jgrants.mjs",
-    "build:news": "node scripts/build-news-pages.mjs && node scripts/build-area-pages.mjs && node scripts/update-stats.mjs",
+    "build:blog": "node scripts/build-blog.mjs",
+    "build:news": "node scripts/build-news-pages.mjs && node scripts/build-blog.mjs && node scripts/build-area-pages.mjs && node scripts/update-stats.mjs",
     "build:grants": "node scripts/fetch-jgrants.mjs && node scripts/build-grant-pages.mjs && node scripts/update-stats.mjs"
   },
   "engines": {

@@ -23,6 +23,7 @@ export const TOP_GROUPS = [
     label: 'ニュース・特集',
     items: [
       { label: '補助金ニュース', href: 'news/index.html' },
+      { label: 'ブログ', href: 'blog/index.html' },
       { label: '特に人気の5つの補助金', href: 'feature/popular.html' },
       { label: '主な補助金の特集', href: 'feature/index.html' },
       { label: '補助金の活用事例', href: 'cases/index.html' },
@@ -73,6 +74,7 @@ export const FOOTER_GROUPS = [
     label: 'ニュース・特集・基礎知識',
     items: [
       { label: '補助金ニュース', href: 'news/index.html' },
+      { label: 'ブログ', href: 'blog/index.html' },
       { label: '特に人気の5つの補助金', href: 'feature/popular.html' },
       { label: '主な補助金の特集', href: 'feature/index.html' },
       { label: '補助金の活用事例', href: 'cases/index.html' },
