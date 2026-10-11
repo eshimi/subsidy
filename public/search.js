@@ -183,7 +183,7 @@
     if (c.amount) out = out.filter((g) => g.m && g.m >= c.amount);
     if (c.within) out = out.filter((g) => Date.parse(g.e) - now <= c.within * DAY);
     // 締切のない解説ページは、締切の順の最後に並べる
-    const endOf = (g) => (g.e ? Date.parse(g.e) : Infinity);
+    const endOf = (g) => { const d = g.e || g.dl; return d && Date.parse(d) >= now ? Date.parse(d) : Infinity; };
     const byEnd = (a, b) => (endOf(a) === endOf(b) ? 0 : endOf(a) < endOf(b) ? -1 : 1);
     const by = {
       end: byEnd,
@@ -198,24 +198,86 @@
     return out.sort(by);
   }
 
+  // ── カード（AIで探した結果と同じ見た目） ──
+  const LEVEL = { national: '国', prefecture: '都道府県', municipality: '市区町村' };
+  const kindOf = (g) => (g.resident ? g.cat : g.local ? '事業者向けの制度' : g.guide ? '解説ページ' : g.url ? '国の制度' : '募集中の補助金');
+  const deadlineOf = (g) => g.e || g.dl || '';
+  function statusBadge(g, now) {
+    const d = deadlineOf(g);
+    if (!d) return '';
+    const days = Math.ceil((Date.parse(d) - now) / DAY);
+    if (days < 0) return '<span class="badge closed">今年度は受付終了</span>';
+    if (days <= 30) return `<span class="badge closing">締切間近 あと${days}日</span>`;
+    return `<span class="badge open">締切 ${esc(dateJa(d))}${g.est ? '（見込み）' : ''}</span>`;
+  }
+  function card(g, i, now) {
+    const idx = String(i + 1).padStart(2, '0');
+    const status = statusBadge(g, now);
+    if (g.local) {
+      const city = cityOf(g);
+      const more = g.url ? `<a href="${esc(g.url)}">${city ? `${esc(city)}の` : ''}ページで、ほかの制度も見る</a>` : '';
+      return `<article class="program"><div class="p-index">${idx}</div><div class="p-main">
+        <div class="meta-line"><span class="badge level">${esc(LEVEL[g.lv] || '自治体')}</span>${g.ty ? `<span class="badge type">${esc(g.ty)}</span>` : ''}<span class="badge live">${esc(g.cat || '事業者向け')}</span>${status}</div>
+        <h3><a href="${esc(g.url)}">${esc(g.t)}</a></h3>
+        <p class="provider">${esc(g.pv || g.a)}</p>
+        ${g.sm ? `<p class="summary-text">${esc(g.sm)}</p>` : ''}
+        ${g.el && g.el.length ? `<details><summary>主な要件</summary><ul>${g.el.map((e) => `<li>${esc(e)}</li>`).join('')}</ul><p class="checked-at"><small>⚠️ 申請の前に、必ず公式ページで最新の内容を確認してください。</small></p></details>` : ''}
+        <div class="link-row">${g.o ? `<a href="${esc(g.o)}" target="_blank" rel="noopener">公式ページを見る ↗</a>` : ''}${more}</div>
+      </div><div class="p-side">${g.am ? `<p class="amount">${esc(g.am)}</p>` : ''}${g.pd ? `<p class="period">${esc(g.pd)}</p>` : ''}</div></article>`;
+    }
+    if (g.guide) {
+      return `<article class="program"><div class="p-index">${idx}</div><div class="p-main">
+        <div class="meta-line"><span class="badge level">解説</span></div>
+        <h3><a href="${esc(g.url)}">${esc(g.t)}</a></h3>
+        <p class="summary-text">個人の方向けの、仕組みと申請の流れをまとめたページです。</p>
+        <div class="link-row"><a href="${esc(g.url)}">解説ページを見る</a></div>
+      </div><div class="p-side"></div></article>`;
+    }
+    const href = g.url ? esc(g.url) : `grants/${encodeURIComponent(g.id)}.html`;
+    const ext = g.url ? ' target="_blank" rel="noopener"' : '';
+    return `<article class="program"><div class="p-index">${idx}</div><div class="p-main">
+      <div class="meta-line"><span class="badge live">${g.url ? '国' : '募集中'}</span>${status}</div>
+      <h3><a href="${href}"${ext}>${esc(g.t)}</a></h3>
+      <p class="provider">対象地域：${esc(area(g.a))}</p>
+      <div class="link-row"><a href="${href}"${ext}>${g.url ? '公式ページを見る ↗' : '詳細を見る'}</a></div>
+    </div><div class="p-side"><p class="amount">${esc(yen(g.m))}</p></div></article>`;
+  }
+
+  let activeKind = 'すべて';
   function render() {
     if (!loaded) return;
     const c = conditions();
-    const out = filtered(c);
+    const all = filtered(c);
     const now = Date.now();
+    // 分野の絞り込みボタン（件数つき）
+    const kinds = [...new Set(all.map(kindOf))];
+    if (activeKind !== 'すべて' && !kinds.includes(activeKind)) activeKind = 'すべて';
+    const out = activeKind === 'すべて' ? all : all.filter((g) => kindOf(g) === activeKind);
+    const countOf = (k) => (k === 'すべて' ? all.length : all.filter((g) => kindOf(g) === k).length);
+    document.getElementById('s-filters').innerHTML = ['すべて', ...kinds].map((k) => `<button type="button" class="filter" aria-pressed="${k === activeKind}" data-kind="${esc(k)}">${esc(k)}<sup>${countOf(k)}</sup></button>`).join('');
+    document.getElementById('s-listcount').textContent = out.length ? `${out.length.toLocaleString('ja-JP')}件・${c.text && !isSentence(c.text) ? '関連度順' : '締切順'}` : '';
+    // 概要
+    const place = `${c.city || c.pref || ''}`;
+    const title = place ? `${place}${c.words.length ? `の「${c.words.join('・')}」` : ''}で使えそうな補助金` : c.text && !isSentence(c.text) ? `「${c.text}」に近い補助金` : '募集中の補助金';
+    const chips = [c.pref, c.city, ...c.words, c.purpose && '目的で絞り込み中', c.industry && '業種で絞り込み中'].filter(Boolean);
     const note = isSentence(c.text) ? '文章から言葉を拾って、近い制度を探しています。郵便番号も入れると、AIが内容を読み取って探します。' : '';
-    count.innerHTML = `${out.length ? `<b>${out.length.toLocaleString('ja-JP')}</b> 件の募集中の補助金が見つかりました。${c.text && !isSentence(c.text) ? '関連の高い順に表示しています。' : ''}` : '条件に合う募集中の補助金は見つかりませんでした。キーワードや条件を減らすか、郵便番号を入れてAIで探してみてください。'}${note ? `<br><small>${esc(note)}</small>` : ''}`;
-    list.innerHTML = out.slice(0, shown).map((g) => {
-      if (g.local) return `<li><a href="${esc(g.url)}">${esc(g.t)}</a><p><span class="s-soon">${esc(g.cat || '市区町村の制度')}</span>｜${esc(g.a)}</p></li>`;
-      if (g.guide) return `<li><a href="${esc(g.url)}">${esc(g.t)}</a><p><span class="s-soon">解説ページ</span>｜個人の方向けの仕組みと、申請の流れ</p></li>`;
-      const days = Math.ceil((Date.parse(g.e) - now) / DAY);
-      const soon = days <= 30 ? `<span class="s-soon">締切まで${days}日</span>` : `締切 ${esc(dateJa(g.e))}${g.est ? '（見込み）' : ''}`;
-      const href = g.url ? esc(g.url) : `grants/${encodeURIComponent(g.id)}.html`;
-      const ext = '';
-      return `<li><a href="${href}"${ext}>${esc(g.t)}</a><p>${soon}｜${esc(area(g.a))}｜${esc(yen(g.m))}</p></li>`;
-    }).join('');
+    count.innerHTML = out.length
+      ? `<p class="summary-count"><span class="big-num">${out.length.toLocaleString('ja-JP')}</span><span class="big-unit">件</span></p>
+         <div class="summary-body"><p class="label">検索結果</p><h2>${esc(title)}</h2>
+         ${chips.length ? `<div class="tags">${chips.map((t) => `<span class="tag">${esc(t)}</span>`).join('')}</div>` : ''}
+         ${c.city ? `<p class="notice">${esc(c.city)}の制度を先に表示しています。県・全国の制度も含みます。</p>` : ''}
+         ${note ? `<p class="notice">${esc(note)}</p>` : ''}</div>`
+      : `<div class="summary-body"><p class="label">検索結果</p><h2>条件に合う募集中の補助金は見つかりませんでした</h2><p class="notice">キーワードや条件を減らすか、郵便番号を入れてAIで探してみてください。</p></div>`;
+    list.innerHTML = out.slice(0, shown).map((g, i) => card(g, i, now)).join('');
     more.hidden = out.length <= shown;
   }
+  document.getElementById('s-filters').addEventListener('click', (e) => {
+    const b = e.target.closest('button[data-kind]');
+    if (!b) return;
+    activeKind = b.dataset.kind;
+    shown = PAGE;
+    render();
+  });
 
   function syncUrl() {
     const c = conditions();
@@ -262,7 +324,7 @@
     const mine = items.filter((g) => cityOf(g) === city);
     if (!mine.length) { aiLocal.hidden = true; return; }
     const slug = mine[0].url.split('#')[0];
-    aiLocal.innerHTML = `<div class="u-rhead"><h2 class="u-h">${esc(city)}の個人向けの制度（自治体）</h2></div><ul class="s-results">${mine.slice(0, 20).map((g) => `<li><a href="${esc(g.url)}">${esc(g.t)}</a><p><span class="s-soon">${esc(g.cat || '市区町村の制度')}</span>｜${esc(g.a)}</p></li>`).join('')}</ul><p><a href="${esc(slug)}">${esc(city)}の補助金ページで、すべて見る</a></p>`;
+    aiLocal.innerHTML = `<div class="u-rhead"><h2 class="u-h">${esc(city)}の個人向けの制度（自治体）</h2></div><div class="list">${mine.slice(0, 20).map((g, i) => card(g, i, Date.now())).join('')}</div><p><a href="${esc(slug)}">${esc(city)}の補助金ページで、すべて見る</a></p>`;
     aiLocal.hidden = false;
   }
   new MutationObserver(renderAiLocal).observe(aiSection, { attributes: true, attributeFilter: ['hidden'] });

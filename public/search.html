@@ -267,8 +267,12 @@
           <label>並び順<select id="sort" name="sort"><option value="end">締切が近い順</option><option value="new">新着順</option><option value="amount">上限額の大きい順</option></select></label>
         </div>
       </div>
-      <p id="s-count" class="s-count">読み込み中…</p>
-      <ul id="s-results" class="s-results"></ul>
+      <div id="s-count" class="summary"><p class="notice">読み込み中…</p></div>
+      <div class="toolbar">
+        <div class="filters" role="group" aria-label="分野で絞り込み" id="s-filters"></div>
+        <span class="count" id="s-listcount"></span>
+      </div>
+      <div id="s-results" class="list"></div>
       <p class="s-more-wrap"><button type="button" id="s-more" class="s-more" hidden>さらに表示する</button></p>
     </section>
 

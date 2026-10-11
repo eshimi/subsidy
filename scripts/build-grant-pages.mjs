@@ -406,10 +406,12 @@ export const INDUSTRIES = [
 ];
 
 // 市区町村の制度（地域別のページに載せているもの）を、検索データの形にする。リンクは地域のページへ
+// 検索結果のカードに出す、制度の中身（種類・金額・期間・要約・条件・公式ページ・どの段階の自治体か）
+const detailOf = (p) => ({ ty: p.type, am: p.amount, pd: p.period, pv: p.provider, sm: p.summary, el: (p.eligibility || []).slice(0, 3), o: p.url, lv: p.level, dl: p.deadline || null });
 const localItems = () => LOCAL_PROGRAMS.map((p) => {
   const area = [...(p.prefectures || []), ...(p.cities || [])].join('・') || '全国';
   const city = AREA_CITIES.find((c) => (p.cities || []).includes(c.name));
-  return { id: 'local-' + p.id, t: p.name, a: area, m: null, s: null, e: null, url: city ? `area/${city.slug}.html` : 'area/index.html', local: true, guide: true, p: [], i: [], k: [...new Set([...(p.industries || []), p.type].filter(Boolean))] };
+  return { id: 'local-' + p.id, t: p.name, a: area, m: null, s: null, e: null, ...detailOf(p), url: city ? `area/${city.slug}.html` : 'area/index.html', local: true, guide: true, p: [], i: [], k: [...new Set([...(p.industries || []), p.type].filter(Boolean))] };
 });
 // 個人向けの制度の分野ごとの、ふだんの言葉（検索用）
 const RESIDENT_WORDS = {
@@ -427,7 +429,7 @@ const residentItems = () => RESIDENT_PROGRAMS.map((p) => {
   // 市区町村の制度はその市のページへ。県の制度は、その県の最初の市のページ（県の制度も載っている）へ。どちらもなければ公式のページへ
   const city = AREA_CITIES.find((c) => (p.cities || []).includes(c.name)) || AREA_CITIES.find((c) => c.pref === p.prefectures[0]);
   const area = [...(p.prefectures || []), ...(p.cities || [])].join('・');
-  return { id: 'res-' + p.id, t: p.name, a: area, m: null, s: null, e: null, url: city ? `area/${city.slug}.html#resident-programs` : p.url, local: true, resident: true, cat: p.category, guide: true, p: [], i: [], k: RESIDENT_WORDS[p.category] || [] };
+  return { id: 'res-' + p.id, t: p.name, a: area, m: null, s: null, e: null, ...detailOf(p), url: city ? `area/${city.slug}.html#resident-programs` : p.url, local: true, resident: true, cat: p.category, guide: true, p: [], i: [], k: RESIDENT_WORDS[p.category] || [] };
 });
 // jGrants 以外の国の制度を、検索データの形にする（url は公式の申し込み先）
 const extraItem = (x) => ({ id: x.id, t: x.title, a: x.area, m: x.max, s: x.start, e: x.end, url: x.url, est: Boolean(x.est), guide: Boolean(x.guide), p: x.p, i: x.i, k: x.k });
