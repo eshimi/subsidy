@@ -48,6 +48,289 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.pref.hokkaido.lg.jp/kn/ksd/159060.html"
   },
   {
+    "id": "asahikawa-energy-setsubi",
+    "name": "旭川市地域エネルギー設備等導入促進事業補助金",
+    "provider": "北海道旭川市",
+    "level": "municipality",
+    "category": "太陽光・蓄電池",
+    "type": "補助金",
+    "amount": "対象経費の1/10（上限10万円）※令和7年度版の記載。令和8年度は要確認",
+    "summary": "市内住宅への太陽光発電設備・定置用リチウムイオン蓄電池の設置費用の一部を補助する。令和8年度の額・期間は確認できていない。",
+    "eligibility": [
+      "旭川市の住民または市内に居住予定の方",
+      "交付決定前に工事着手していないこと",
+      "国費補助等との併用不可"
+    ],
+    "prefectures": [
+      "北海道"
+    ],
+    "cities": [
+      "旭川市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.asahikawa.hokkaido.jp/kurashi/271/290/291/p005154.html"
+  },
+  {
+    "id": "asahikawa-furyo-akiya-jokyaku",
+    "name": "令和8年度旭川市不良空き家住宅等除却費補助金",
+    "provider": "北海道旭川市",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "補助金",
+    "amount": "除却工事費の1/3以内（上限30万円）",
+    "summary": "住宅性能が著しく低下した空き家住宅を除却して更地にする費用の一部を補助する。予算枠120万円、予算残があれば先着順で延長受付。",
+    "eligibility": [
+      "不良空き家住宅等の所有者等",
+      "市税の滞納がないこと",
+      "全部を除却し更地にする工事"
+    ],
+    "prefectures": [
+      "北海道"
+    ],
+    "cities": [
+      "旭川市"
+    ],
+    "period": "令和8年4月20日〜5月29日、予算に満たない場合は最長11月27日まで延長",
+    "deadline": "2026-11-27",
+    "url": "https://www.city.asahikawa.hokkaido.jp/kurashi/401/ju01/ju002/d053128.html"
+  },
+  {
+    "id": "asahikawa-jutaku-kaishu",
+    "name": "旭川市住宅改修補助金",
+    "provider": "北海道旭川市",
+    "level": "municipality",
+    "category": "省エネ住宅",
+    "type": "補助金",
+    "amount": "要確認（募集予算総額1,750万円、超過時は抽選）",
+    "summary": "新築後15年以上経過した既存住宅の省エネ改修や屋根・外壁等の維持改修費の一部を補助する。令和8年度の受付は終了している。",
+    "eligibility": [
+      "市内の既存住宅（新築後15年以上）の所有者等",
+      "省エネ改修・維持改修が対象",
+      "詳細要件は要確認"
+    ],
+    "prefectures": [
+      "北海道"
+    ],
+    "cities": [
+      "旭川市"
+    ],
+    "period": "令和8年5月11日〜6月19日（終了）",
+    "deadline": "2026-06-19",
+    "url": "https://www.city.asahikawa.hokkaido.jp/kurashi/401/ho01/ho001/d053154.html"
+  },
+  {
+    "id": "asahikawa-kodomo-iryohi",
+    "name": "旭川市 子ども医療費助成",
+    "provider": "北海道旭川市",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "助成金",
+    "amount": "公的医療保険適用の自己負担額を全額助成",
+    "summary": "高校生年代（18歳到達後最初の3月31日）までの子どもの医療費自己負担を助成する。",
+    "eligibility": [
+      "0歳から18歳到達後最初の3月31日までの子ども",
+      "公的医療保険の対象となる医療費"
+    ],
+    "prefectures": [
+      "北海道"
+    ],
+    "cities": [
+      "旭川市"
+    ],
+    "period": "通年（最新は要確認）",
+    "deadline": null,
+    "url": "https://www.city.asahikawa.hokkaido.jp/kurashi/218/228/230/p004567.html"
+  },
+  {
+    "id": "asahikawa-musho-taishin-shindan",
+    "name": "旭川市 木造住宅無料耐震診断",
+    "provider": "北海道旭川市",
+    "level": "municipality",
+    "category": "耐震",
+    "type": "助成金",
+    "amount": "無料（市職員による診断）",
+    "summary": "市内の一戸建て木造住宅について市職員が無料で耐震診断を行う。耐震改修補助の有無は令和8年度分は確認できず、建築指導課への確認が必要。",
+    "eligibility": [
+      "旭川市内の一戸建て木造住宅"
+    ],
+    "prefectures": [
+      "北海道"
+    ],
+    "cities": [
+      "旭川市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.asahikawa.hokkaido.jp/500/522/53901/5439010/index.html"
+  },
+  {
+    "id": "asahikawa-shougaisha-jutaku",
+    "name": "旭川市 障害者住宅改修助成（手すり・バリアフリー等）",
+    "provider": "北海道旭川市",
+    "level": "municipality",
+    "category": "バリアフリー・介護",
+    "type": "助成金",
+    "amount": "上限20万円（助成率は要確認）",
+    "summary": "在宅の身体障害者の住宅改修（手すり設置、段差解消等）費用を助成する。着工前の申請が必要。情報が古い可能性あり。",
+    "eligibility": [
+      "下肢または体幹機能障害3級以上など",
+      "在宅で生活していること",
+      "工事着手前に申請"
+    ],
+    "prefectures": [
+      "北海道"
+    ],
+    "cities": [
+      "旭川市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.asahikawa.hokkaido.jp/1000/1001/1023/1025/p003226.html"
+  },
+  {
+    "id": "hakodate-akiya-jokyaku",
+    "name": "函館市空家等除却支援補助金",
+    "provider": "北海道函館市",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "補助金",
+    "amount": "除却工事費の1/2（上限30万円）",
+    "summary": "事前の市の建物調査で特定空家に該当する個人所有の空家を除却して更地にする工事費を補助する。敷地内の門塀等も除却対象に含まれる。",
+    "eligibility": [
+      "対象空家を所有する個人（法人は対象外）",
+      "木造または鉄骨造の一戸建て住宅等",
+      "契約・着工前に申請"
+    ],
+    "prefectures": [
+      "北海道"
+    ],
+    "cities": [
+      "函館市"
+    ],
+    "period": "令和8年6月1日〜12月4日",
+    "deadline": "2026-12-04",
+    "url": "https://www.city.hakodate.hokkaido.jp/docs/2016042700059/"
+  },
+  {
+    "id": "hakodate-akiya-kaishu",
+    "name": "函館市空家等改修支援補助金",
+    "provider": "北海道函館市",
+    "level": "municipality",
+    "category": "移住",
+    "type": "補助金",
+    "amount": "対象経費の2/3以内（上限200万円）",
+    "summary": "移住者等が補助対象地区の築10年超の木造一戸建て空家を改修する費用を補助する。家庭用新エネ設備も対象経費に含まれる。",
+    "eligibility": [
+      "本市への移住者等",
+      "対象地区内の築10年超の木造一戸建て空家など",
+      "詳細要件は要確認"
+    ],
+    "prefectures": [
+      "北海道"
+    ],
+    "cities": [
+      "函館市"
+    ],
+    "period": "令和8年6月1日〜12月4日",
+    "deadline": "2026-12-04",
+    "url": "https://www.city.hakodate.hokkaido.jp/docs/2021042200010/"
+  },
+  {
+    "id": "hakodate-ijushienkin",
+    "name": "函館市移住支援金（UIJターン新規就業支援事業）",
+    "provider": "北海道函館市",
+    "level": "municipality",
+    "category": "移住",
+    "type": "給付",
+    "amount": "世帯100万円、単身60万円（移住定住ナビ記載）、18歳未満の帯同者1人につき100万円加算",
+    "summary": "東京圏からの移住者で就業等の要件を満たす方に支給。早期に予算上限に達する見込みと案内されている。",
+    "eligibility": [
+      "東京圏から函館市へ移住した方",
+      "就業等の要件あり（要確認）"
+    ],
+    "prefectures": [
+      "北海道"
+    ],
+    "cities": [
+      "函館市"
+    ],
+    "period": "令和8年度受付中（予算上限に達し次第終了、最新は要確認）",
+    "deadline": null,
+    "url": "https://www.city.hakodate.hokkaido.jp/docs/2020043000070/"
+  },
+  {
+    "id": "hakodate-reform",
+    "name": "函館市住宅リフォーム補助制度（耐震改修・省エネ・バリアフリー）",
+    "provider": "北海道函館市",
+    "level": "municipality",
+    "category": "耐震",
+    "type": "補助金",
+    "amount": "耐震改修は工事費の20%以内（上限40万円）、工事費合計30万円以上が条件。他区分は要確認",
+    "summary": "既存住宅の耐震改修、バリアフリー化、省エネ化等の工事費の一部を補助する。耐震改修の受付は令和8年5月7日〜9月30日（終了）。",
+    "eligibility": [
+      "函館市内の既存住宅の所有者等",
+      "耐震改修は昭和56年5月31日以前の住宅など",
+      "工事は申請年度の2月末日までに完了"
+    ],
+    "prefectures": [
+      "北海道"
+    ],
+    "cities": [
+      "函館市"
+    ],
+    "period": "令和8年5月7日〜12月18日（耐震改修は5月7日〜9月30日）",
+    "deadline": "2026-12-18",
+    "url": "https://www.city.hakodate.hokkaido.jp/docs/2024040900135/"
+  },
+  {
+    "id": "hakodate-shinenergy",
+    "name": "函館市新エネルギーシステム導入補助金",
+    "provider": "北海道函館市",
+    "level": "municipality",
+    "category": "太陽光・蓄電池",
+    "type": "補助金",
+    "amount": "太陽光・蓄電池それぞれ最大5万円",
+    "summary": "太陽光発電システム、定置用リチウムイオン蓄電池等の購入費の一部を補助する。令和8年度からEV・PHEV・エネファームは対象外。先着順で予算到達次第終了。",
+    "eligibility": [
+      "自ら居住する函館市内の住宅に設置する個人",
+      "設置工事に着手していないこと",
+      "国・北海道の補助金との併用不可"
+    ],
+    "prefectures": [
+      "北海道"
+    ],
+    "cities": [
+      "函館市"
+    ],
+    "period": "令和8年4月1日〜令和9年3月1日（予算到達で終了）",
+    "deadline": "2027-03-01",
+    "url": "https://www.city.hakodate.hokkaido.jp/docs/2020032700097/"
+  },
+  {
+    "id": "hakodate-young-family",
+    "name": "函館市ヤングファミリー住まいりんぐ支援事業（家賃補助）",
+    "provider": "北海道函館市",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "補助金",
+    "amount": "家賃から住宅手当を差し引き3万円を超えた分（上限月額1万5千円）",
+    "summary": "補助対象地区内の民間賃貸住宅に転入した、中学校卒業前の子と同居する子育て世帯の家賃を補助する。",
+    "eligibility": [
+      "中学校卒業前の子と同居する世帯",
+      "対象地区内の民間賃貸住宅へ転入"
+    ],
+    "prefectures": [
+      "北海道"
+    ],
+    "cities": [
+      "函館市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.hakodate.hokkaido.jp/docs/2014020500059/"
+  },
+  {
     "id": "sapporo-eco-reform",
     "name": "札幌市 住宅エコリフォーム補助",
     "provider": "札幌市 都市局",
@@ -384,6 +667,147 @@ export const RESIDENT_PROGRAMS = [
     "period": "募集は7月1日から開始（年度は要確認）",
     "deadline": null,
     "url": "https://www.city.aomori.aomori.jp/kurashi_kankyo/sumai/1002171/1002172/1002176.html"
+  },
+  {
+    "id": "hachinohe-block",
+    "name": "八戸市危険ブロック塀等安全対策支援事業",
+    "provider": "青森県八戸市",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "補助金",
+    "amount": "工事費と1m当たり8万円×総延長のいずれか低い額の2/3（上限24万円）",
+    "summary": "危険なブロック塀等の安全対策工事費の一部を補助する。令和8年度の募集は終了している。",
+    "eligibility": [
+      "危険なブロック塀等の所有者",
+      "詳細要件は要確認"
+    ],
+    "prefectures": [
+      "青森県"
+    ],
+    "cities": [
+      "八戸市"
+    ],
+    "period": "令和8年5月7日〜5月29日（終了）",
+    "deadline": "2026-05-29",
+    "url": "https://www.city.hachinohe.aomori.jp/soshikikarasagasu/kenchikushidoka/sumai_kotsuu_suido/3/4260.html"
+  },
+  {
+    "id": "hachinohe-ijushienkin",
+    "name": "八戸市移住支援金",
+    "provider": "青森県八戸市",
+    "level": "municipality",
+    "category": "移住",
+    "type": "給付",
+    "amount": "世帯100万円（基本）、18歳未満の子1人につき100万円加算。単身額は要確認",
+    "summary": "東京圏から八戸市へ移住した方への支援金。令和8年度の交付申請期限は令和9年1月15日。",
+    "eligibility": [
+      "令和7年4月2日以降に八戸市へ転入",
+      "申請時点で転入後1年以内",
+      "東京圏からの移住など（詳細要確認）"
+    ],
+    "prefectures": [
+      "青森県"
+    ],
+    "cities": [
+      "八戸市"
+    ],
+    "period": "令和8年度の交付申請期限は令和9年1月15日",
+    "deadline": "2027-01-15",
+    "url": "https://www.city.hachinohe.aomori.jp/soshikikarasagasu/wakamono/2/1661.html"
+  },
+  {
+    "id": "hachinohe-iryo-kosodate-ijyu",
+    "name": "八戸市医療・福祉職子育て世帯移住支援金",
+    "provider": "青森県八戸市",
+    "level": "municipality",
+    "category": "移住",
+    "type": "給付",
+    "amount": "最大400万円",
+    "summary": "青森県外から移住し、医療・福祉職に就く子育て世帯に支給する。予算がなくなり次第終了。",
+    "eligibility": [
+      "青森県外から移住した子育て世帯",
+      "医療・福祉職での就業など（詳細要確認）"
+    ],
+    "prefectures": [
+      "青森県"
+    ],
+    "cities": [
+      "八戸市"
+    ],
+    "period": "予算がなくなり次第終了（最新は要確認）",
+    "deadline": null,
+    "url": "https://www.city.hachinohe.aomori.jp/soshikikarasagasu/wakamono/2/20749.html"
+  },
+  {
+    "id": "hachinohe-kiken-akiya",
+    "name": "八戸市危険空き家等除却事業補助金",
+    "provider": "青森県八戸市",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "補助金",
+    "amount": "工事費用（税抜）の4/5（上限額は要確認）",
+    "summary": "危険な空き家等の解体費用の一部を補助する。令和8年度の交付申請期限は12月11日と案内。",
+    "eligibility": [
+      "危険な空き家等の所有者等",
+      "詳細要件は要確認"
+    ],
+    "prefectures": [
+      "青森県"
+    ],
+    "cities": [
+      "八戸市"
+    ],
+    "period": "令和8年度の交付申請期限は12月11日まで",
+    "deadline": "2026-12-11",
+    "url": "https://www.city.hachinohe.aomori.jp/soshikikarasagasu/toshiseisakuka/akiya/19570.html"
+  },
+  {
+    "id": "hachinohe-mokuzo-taishin",
+    "name": "八戸市木造住宅耐震改修支援事業",
+    "provider": "青森県八戸市",
+    "level": "municipality",
+    "category": "耐震",
+    "type": "補助金",
+    "amount": "補助対象経費の80%（最大115万円）",
+    "summary": "旧耐震基準の木造住宅の耐震改修工事や建替え工事費を補助する。令和8年度の募集は1戸の抽選で終了している。",
+    "eligibility": [
+      "平成12年5月31日以前に建築された木造住宅など",
+      "耐震改修または建替え工事",
+      "詳細要件は要確認"
+    ],
+    "prefectures": [
+      "青森県"
+    ],
+    "cities": [
+      "八戸市"
+    ],
+    "period": "令和8年5月7日〜5月29日（終了）",
+    "deadline": "2026-05-29",
+    "url": "https://www.city.hachinohe.aomori.jp/soshikikarasagasu/kenchikushidoka/kenchiku_toshikeikaku/1/4/13097.html"
+  },
+  {
+    "id": "hachinohe-saiene",
+    "name": "八戸市再エネ・省エネ設備導入等促進事業補助金（住宅用）",
+    "provider": "青森県八戸市",
+    "level": "municipality",
+    "category": "太陽光・蓄電池",
+    "type": "補助金",
+    "amount": "太陽光5万円/kW（上限25万円）、蓄電池は対象経費の1/3（上限35万円）",
+    "summary": "住宅への太陽光発電設備と蓄電池導入費用の一部を補助する。蓄電池のみの導入、PPA・リースは対象外。令和8年度は省エネエアコン補助なし。",
+    "eligibility": [
+      "市内の住宅に設備を導入する個人",
+      "蓄電池単独は不可",
+      "PPA・リース設置は対象外"
+    ],
+    "prefectures": [
+      "青森県"
+    ],
+    "cities": [
+      "八戸市"
+    ],
+    "period": "令和8年6月12日〜12月21日",
+    "deadline": "2026-12-21",
+    "url": "https://www.city.hachinohe.aomori.jp/soshikikarasagasu/kankyoseisakuka/gomi_kankyo_pet/2/5/21583.html"
   },
   {
     "id": "iwate-kidukai-jutaku",
@@ -1611,6 +2035,238 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.fukushima.fukushima.jp/soshiki/12/1064/1/4736.html"
   },
   {
+    "id": "iwaki-akichi-bank",
+    "name": "令和8年度いわき市空き地バンク登録物件活用支援金",
+    "provider": "福島県いわき市",
+    "level": "municipality",
+    "category": "移住",
+    "type": "補助金",
+    "amount": "基本30万円、若年世帯・市外からの移住世帯にそれぞれ10万円加算",
+    "summary": "空き地バンク登録の土地で住宅を新築する、または新築住宅を購入する世帯への支援金。",
+    "eligibility": [
+      "空き地バンク登録物件で住宅を取得する世帯",
+      "詳細要件は要確認"
+    ],
+    "prefectures": [
+      "福島県"
+    ],
+    "cities": [
+      "いわき市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.iwaki.lg.jp/www/contents/1782885245971/index.html"
+  },
+  {
+    "id": "iwaki-akiya-kaishu",
+    "name": "令和8年度いわき市空き家改修支援事業",
+    "provider": "福島県いわき市",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "補助金",
+    "amount": "対象経費の2/3（上限500万円）",
+    "summary": "空き家を地域に開かれた公益的施設等に改修する費用を補助する。住宅としての居住目的ではなく公益利用が対象。",
+    "eligibility": [
+      "空き家を公益的用途に改修する者",
+      "詳細要件は要確認"
+    ],
+    "prefectures": [
+      "福島県"
+    ],
+    "cities": [
+      "いわき市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.iwaki.lg.jp/www/contents/1770611259263/index.html"
+  },
+  {
+    "id": "iwaki-block-tekkyo",
+    "name": "いわき市ブロック塀等撤去支援事業",
+    "provider": "福島県いわき市",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "補助金",
+    "amount": "撤去費の1/2または1mあたり5,000円の低い額（上限10万円）※拡充の案内あり、令和8年度額は要確認",
+    "summary": "道路に面した倒壊の恐れのあるブロック塀等の撤去費を補助する。契約前の事前相談が必要。",
+    "eligibility": [
+      "道路に面して設置された民有のブロック塀等の所有者",
+      "交付決定前に契約しないこと"
+    ],
+    "prefectures": [
+      "福島県"
+    ],
+    "cities": [
+      "いわき市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.iwaki.lg.jp/www/contents/1590719759683/index.html"
+  },
+  {
+    "id": "iwaki-ev",
+    "name": "令和8年度 いわき市電気自動車等導入促進補助",
+    "provider": "福島県いわき市",
+    "level": "municipality",
+    "category": "EV・充電",
+    "type": "補助金",
+    "amount": "電気自動車5万円/台、燃料電池自動車20万円/台",
+    "summary": "市民・市内事業者が新車の電気自動車等を導入する際の購入費を補助する。HEV・PHEV・ミニカー・電動バイクは対象外。",
+    "eligibility": [
+      "新車で初度登録が令和8年1月1日〜12月31日",
+      "BEVまたはFCV",
+      "詳細要件は要確認"
+    ],
+    "prefectures": [
+      "福島県"
+    ],
+    "cities": [
+      "いわき市"
+    ],
+    "period": "令和8年4月1日〜令和9年3月31日（予算到達で終了）",
+    "deadline": "2027-03-31",
+    "url": "https://www.city.iwaki.lg.jp/www/contents/1679635551239/index.html"
+  },
+  {
+    "id": "iwaki-kosodate-ijushienkin",
+    "name": "いわき子育て世帯移住支援金",
+    "provider": "福島県いわき市",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "補助金",
+    "amount": "県外からは最大10万円、県内からは最大5万円",
+    "summary": "いわき市に移住し新たに生活を始める子育て世帯の引越し費用等を一部補助する。",
+    "eligibility": [
+      "いわき市へ移住した子育て世帯",
+      "詳細要件は要確認"
+    ],
+    "prefectures": [
+      "福島県"
+    ],
+    "cities": [
+      "いわき市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.iwaki.lg.jp/www/contents/1001000004128/index.html"
+  },
+  {
+    "id": "iwaki-machinaka-teiju",
+    "name": "令和8年度いわき市まちなか定住促進事業",
+    "provider": "福島県いわき市",
+    "level": "municipality",
+    "category": "移住",
+    "type": "補助金",
+    "amount": "基本額90〜110万円（18〜39歳を含む世帯等は加算）",
+    "summary": "市外から「まちなか居住区域」に住宅を取得して定住する世帯への支援。第2期は5戸程度の追加募集。",
+    "eligibility": [
+      "市外からまちなか居住区域内に住宅を取得し定住する世帯",
+      "詳細要件は要確認"
+    ],
+    "prefectures": [
+      "福島県"
+    ],
+    "cities": [
+      "いわき市"
+    ],
+    "period": "令和8年度追加募集（第2期、期間は要確認）",
+    "deadline": null,
+    "url": "https://www.city.iwaki.lg.jp/www/contents/1786603687454/index.html"
+  },
+  {
+    "id": "iwaki-solar-battery-v2h",
+    "name": "令和8年度 いわき市住宅用太陽光発電等設置促進補助",
+    "provider": "福島県いわき市",
+    "level": "municipality",
+    "category": "太陽光・蓄電池",
+    "type": "補助金",
+    "amount": "太陽光1万円/kW（上限4万円）、蓄電池1万円/kWh（上限7万円）、V2H1台10万円",
+    "summary": "住宅への太陽光発電、定置用蓄電システム、V2Hの設置費用を補助する。販売または施工のいずれかが市内事業者であることが条件。",
+    "eligibility": [
+      "住民票が設置場所と同一でいわき市にある方",
+      "市税を完納していること",
+      "領収日が令和8年1月1日〜12月31日"
+    ],
+    "prefectures": [
+      "福島県"
+    ],
+    "cities": [
+      "いわき市"
+    ],
+    "period": "令和8年4月24日〜令和9年3月31日（予算到達で終了）",
+    "deadline": "2027-03-31",
+    "url": "https://www.city.iwaki.lg.jp/www/contents/1680488419046/index.html"
+  },
+  {
+    "id": "iwaki-stock-reform",
+    "name": "いわき市個人住宅優良ストック形成支援事業（個人住宅のリフォーム補助）",
+    "provider": "福島県いわき市",
+    "level": "municipality",
+    "category": "省エネ住宅",
+    "type": "補助金",
+    "amount": "工事費の10%（上限15万円）",
+    "summary": "個人住宅のリフォーム工事費の一部を補助する。令和8年度は募集期間が延長されたが、募集件数は約70件で残りわずかと案内。",
+    "eligibility": [
+      "市内の個人住宅の所有者等",
+      "昭和56年5月31日以前着工の木造住宅は耐震診断者派遣事業への申込みが要件"
+    ],
+    "prefectures": [
+      "福島県"
+    ],
+    "cities": [
+      "いわき市"
+    ],
+    "period": "令和8年7月1日〜9月30日（延長後）",
+    "deadline": "2026-09-30",
+    "url": "https://www.city.iwaki.lg.jp/www/contents/1785896784118/index.html"
+  },
+  {
+    "id": "iwaki-taishin-kouji",
+    "name": "いわき市木造住宅耐震化工事支援事業",
+    "provider": "福島県いわき市",
+    "level": "municipality",
+    "category": "耐震",
+    "type": "補助金",
+    "amount": "一般耐震改修は工事費の80%または上限115万円、簡易・部分改修は上限69万円（令和7年度案内。令和8年度は要確認）",
+    "summary": "木造住宅の耐震化工事費を補助する。令和8年度の募集の詳細は確認できていない。",
+    "eligibility": [
+      "市内の木造住宅所有者",
+      "耐震診断者派遣事業の利用が前提となる場合あり（要確認）"
+    ],
+    "prefectures": [
+      "福島県"
+    ],
+    "cities": [
+      "いわき市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.iwaki.lg.jp/www/contents/1716767664250/index.html"
+  },
+  {
+    "id": "iwaki-uij-ijushienkin",
+    "name": "いわき市UIJターン移住支援金",
+    "provider": "福島県いわき市",
+    "level": "municipality",
+    "category": "移住",
+    "type": "給付",
+    "amount": "単身60万円、2人以上の世帯100万円、18歳未満の子1人につき100万円加算",
+    "summary": "東京圏から移住した方への支援金。令和8年度の申請期間は令和9年2月12日（予定）まで。",
+    "eligibility": [
+      "東京圏から移住した方",
+      "就業等の要件あり（要確認）"
+    ],
+    "prefectures": [
+      "福島県"
+    ],
+    "cities": [
+      "いわき市"
+    ],
+    "period": "令和9年2月12日（予定）まで",
+    "deadline": "2027-02-12",
+    "url": "https://www.city.iwaki.lg.jp/www/contents/1568274941668/index.html"
+  },
+  {
     "id": "koriyama-jisedai-jidosha",
     "name": "郡山市次世代自動車導入補助金（令和8年度）",
     "provider": "郡山市",
@@ -2830,6 +3486,121 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.kawaguchi.lg.jp/soshiki/01130/060/2/2236.html"
   },
   {
+    "id": "koshigaya-akiya",
+    "name": "越谷市空家の改修・除却費補助",
+    "provider": "埼玉県越谷市",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "補助金",
+    "amount": "要確認",
+    "summary": "空家の改修・除却費用の一部を補助する。",
+    "eligibility": [
+      "要確認"
+    ],
+    "prefectures": [
+      "埼玉県"
+    ],
+    "cities": [
+      "越谷市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/kurashi/sumai/akiya/koshigaya_contents_akiyakaisyuu.html"
+  },
+  {
+    "id": "koshigaya-reform",
+    "name": "越谷市住宅・店舗改修促進補助金（ブロック塀・外構含む）",
+    "provider": "埼玉県越谷市",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "補助金",
+    "amount": "工事費の20%（上限10万円）",
+    "summary": "市内施工業者による住宅改修等の費用を補助する。外構のブロック塀・フェンス・門扉の改修・撤去も対象。",
+    "eligibility": [
+      "市内の施工業者を使う工事であること",
+      "他の市補助金と同一箇所で併用不可"
+    ],
+    "prefectures": [
+      "埼玉県"
+    ],
+    "cities": [
+      "越谷市"
+    ],
+    "period": "令和8年度第1期は抽選終了。第2期は2026年11月予定（最新は要確認）",
+    "deadline": null,
+    "url": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/kurashi/sumai/sien/kaisyusokusin2026-1.html"
+  },
+  {
+    "id": "koshigaya-taishin",
+    "name": "越谷市木造住宅耐震診断・耐震改修補助",
+    "provider": "埼玉県越谷市",
+    "level": "municipality",
+    "category": "耐震",
+    "type": "補助金",
+    "amount": "診断：費用の2/3（上限7万円）、改修：費用の23%（上限50万円、平成12年5月31日以前の基準の住宅は上限35万円）",
+    "summary": "旧耐震の木造住宅の耐震診断・改修費の一部を補助する。",
+    "eligibility": [
+      "昭和56年5月31日以前の木造戸建て",
+      "市の簡易診断の総合評価が1.0未満",
+      "適合通知前の契約・着工は対象外"
+    ],
+    "prefectures": [
+      "埼玉県"
+    ],
+    "cities": [
+      "越谷市"
+    ],
+    "period": "令和8年度は4月6日から受付（予算がなくなり次第終了）。最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/kurashi/sumai/taisinsindasn/taishintorikumi_jose/taisinsindankaisyuunohojyo.html"
+  },
+  {
+    "id": "koshigaya-zerocarbon-ev",
+    "name": "越谷市ゼロカーボン推進補助金（EV・PHEV・V2H）",
+    "provider": "埼玉県越谷市",
+    "level": "municipality",
+    "category": "EV・充電",
+    "type": "補助金",
+    "amount": "EV/PHEV 5万円/件、V2H 5万円/件",
+    "summary": "外部給電機能を持つEV・PHEVやV2H設備の導入費を補助する。",
+    "eligibility": [
+      "市内居住者または申請年度内に越谷市へ居住予定の方",
+      "EV/PHEVは外部給電機能を有する車両に限る"
+    ],
+    "prefectures": [
+      "埼玉県"
+    ],
+    "cities": [
+      "越谷市"
+    ],
+    "period": "令和8年度後期：2026年10月5日～10月16日",
+    "deadline": "2026-10-16",
+    "url": "https://www.city.koshigaya.saitama.jp/net/kankyoseisakuka/zerocarbon_katei_shinsei_r7zenki.html"
+  },
+  {
+    "id": "koshigaya-zerocarbon-home",
+    "name": "越谷市家庭用ゼロカーボン推進補助金（太陽光・蓄電池・ZEH）",
+    "provider": "埼玉県越谷市",
+    "level": "municipality",
+    "category": "太陽光・蓄電池",
+    "type": "補助金",
+    "amount": "太陽光1kWあたり2万円（戸建上限8万円、市内事業者契約で上限10万円）、蓄電池5万円/件、ZEH20万円/件（太陽光との併用不可）",
+    "summary": "家庭用の太陽光発電・蓄電池・ZEHの導入費を補助する。令和8年度後期の受付がある。",
+    "eligibility": [
+      "市内居住者または申請年度内に越谷市へ居住予定の方",
+      "対象設備を令和9年3月15日までに設置すること"
+    ],
+    "prefectures": [
+      "埼玉県"
+    ],
+    "cities": [
+      "越谷市"
+    ],
+    "period": "令和8年度後期：2026年10月5日～10月16日",
+    "deadline": "2026-10-16",
+    "url": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/kurashi/kankyo/kankyoseisaku/zerocarbon.html"
+  },
+  {
     "id": "saitama-city-block-hei",
     "name": "さいたま市既存ブロック塀等改善事業助成",
     "provider": "さいたま市",
@@ -2938,6 +3709,74 @@ export const RESIDENT_PROGRAMS = [
     "period": "令和8年度は4月1日受付開始（予算枠で途中終了あり）",
     "deadline": null,
     "url": "https://www.city.saitama.lg.jp/001/154/007/002/p022086.html"
+  },
+  {
+    "id": "tokorozawa-akiya-consult",
+    "name": "所沢市空き家利活用等ワンストップ相談事業",
+    "provider": "埼玉県所沢市",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "助成金",
+    "amount": "相談は原則無料（金額の補助は要確認）",
+    "summary": "売却・賃貸・解体・相続・維持管理など空き家に関する相談をワンストップで受け付ける。",
+    "eligibility": [
+      "市内の空き家の所有者等"
+    ],
+    "prefectures": [
+      "埼玉県"
+    ],
+    "cities": [
+      "所沢市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.tokorozawa.saitama.jp/kurashi/jutaku/jyuutakuseisaku/akiyataisaku/akiyarikatuyouonestop/index.html"
+  },
+  {
+    "id": "tokorozawa-smarthouse-ev",
+    "name": "所沢市スマートハウス化推進補助金（EV・FCV・V2H）",
+    "provider": "埼玉県所沢市",
+    "level": "municipality",
+    "category": "EV・充電",
+    "type": "補助金",
+    "amount": "EV 5万円/台、FCV 5万円/台、V2H 5万円/基（三世代同居等で最大33%加算の場合あり）",
+    "summary": "家庭向けにEV・FCV・V2H充給電設備の導入費を補助する。",
+    "eligibility": [
+      "市内居住の個人",
+      "設置後・取得後の申請が基本"
+    ],
+    "prefectures": [
+      "埼玉県"
+    ],
+    "cities": [
+      "所沢市"
+    ],
+    "period": "令和8年度（最新は要確認）",
+    "deadline": null,
+    "url": "https://www.city.tokorozawa.saitama.jp/kurashi/seikatukankyo/kankyo/ekojyosei/sumatohausu.html"
+  },
+  {
+    "id": "tokorozawa-smarthouse-pv",
+    "name": "所沢市スマートハウス化推進補助金（家庭用・太陽光・蓄電池）",
+    "provider": "埼玉県所沢市",
+    "level": "municipality",
+    "category": "太陽光・蓄電池",
+    "type": "補助金",
+    "amount": "太陽光3万円/kW（上限15万円）、蓄電池3万円/kWh（上限24万円）。非FIT太陽光は10万円/kW（上限50万円）",
+    "summary": "家庭用の太陽光発電・蓄電池等の創エネ・蓄エネ設備の導入費を補助する。非FIT太陽光・蓄電池の枠は受付終了の表示があった。",
+    "eligibility": [
+      "市内の住宅に設置する個人",
+      "最新の受付状況は要確認"
+    ],
+    "prefectures": [
+      "埼玉県"
+    ],
+    "cities": [
+      "所沢市"
+    ],
+    "period": "令和8年度（受付状況は市のページで要確認）",
+    "deadline": null,
+    "url": "https://www.city.tokorozawa.saitama.jp/kurashi/seikatukankyo/kankyo/ekojyosei/sumatohausu.html"
   },
   {
     "id": "chiba-pref-iju-shienkin",
@@ -3292,6 +4131,165 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.funabashi.lg.jp/machi/juutaku/006/p010088.html"
   },
   {
+    "id": "ichikawa-akiya-reform",
+    "name": "市川市空家除却・活用事業補助金（空家活用リフォーム）",
+    "provider": "千葉県市川市",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "補助金",
+    "amount": "改修費の1/2（上限100万円）。子育て世帯の転入は上限50万円、市内転居は上限25万円。家財処分は上限20万円、インスペクションは上限5万円",
+    "summary": "空家の除却・活用リフォームを補助する。子育て世帯が空家を改修して住む場合の加算もある。",
+    "eligibility": [
+      "現行の耐震基準を満たす空家の活用等",
+      "子育て世帯は18歳未満の子を養育"
+    ],
+    "prefectures": [
+      "千葉県"
+    ],
+    "cities": [
+      "市川市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.ichikawa.lg.jp/page/5030.html"
+  },
+  {
+    "id": "ichikawa-anshin-housing",
+    "name": "市川市あんしん住宅助成制度（防災改修・バリアフリー改修）",
+    "provider": "千葉県市川市",
+    "level": "municipality",
+    "category": "バリアフリー・介護",
+    "type": "助成金",
+    "amount": "バリアフリー改修は経費の1/3（上限10万円）。防災改修は要確認",
+    "summary": "介護認定や障がい者手帳のない方のバリアフリー改修（手すり・段差解消等）や屋根軽量化などの防災改修を助成する。",
+    "eligibility": [
+      "市内の住宅所有者等（詳細は要確認）",
+      "令和8年度から屋根軽量化は耐震診断が必要"
+    ],
+    "prefectures": [
+      "千葉県"
+    ],
+    "cities": [
+      "市川市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.ichikawa.lg.jp/page/1771.html"
+  },
+  {
+    "id": "ichikawa-block",
+    "name": "市川市危険コンクリートブロック塀等除却事業助成",
+    "provider": "千葉県市川市",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "助成金",
+    "amount": "撤去する塀の長さ1mあたり5千円（上限10万円）",
+    "summary": "危険なブロック塀等の除却費用を助成する。",
+    "eligibility": [
+      "市内の危険なブロック塀等の所有者（詳細は要確認）"
+    ],
+    "prefectures": [
+      "千葉県"
+    ],
+    "cities": [
+      "市川市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.ichikawa.lg.jp/cit06/1111000014.html"
+  },
+  {
+    "id": "ichikawa-ev-v2h",
+    "name": "市川市電気自動車等導入費補助金（EV・V2H）",
+    "provider": "千葉県市川市",
+    "level": "municipality",
+    "category": "EV・充電",
+    "type": "補助金",
+    "amount": "EV 5万円、電動バイク 2万円、V2H設備 5万円（上限）",
+    "summary": "電気自動車・電動バイクの購入費やV2H充放電設備の設置費の一部を補助する。",
+    "eligibility": [
+      "市内在住者等（詳細は要確認）",
+      "令和8年度予算は285万円で残額は要確認"
+    ],
+    "prefectures": [
+      "千葉県"
+    ],
+    "cities": [
+      "市川市"
+    ],
+    "period": "令和8年度（予算に達し次第終了）",
+    "deadline": null,
+    "url": "https://www.city.ichikawa.lg.jp/page/5130.html"
+  },
+  {
+    "id": "ichikawa-kaigo-reform",
+    "name": "市川市住宅改修費の給付・すみよい住まいづくり助成",
+    "provider": "千葉県市川市",
+    "level": "municipality",
+    "category": "バリアフリー・介護",
+    "type": "給付",
+    "amount": "介護保険の住宅改修は20万円を限度。給付限度額超過分への助成も限度20万円",
+    "summary": "手すり取付や段差解消などの住宅改修費を支給する。限度額を超える場合の助成制度もある。",
+    "eligibility": [
+      "要介護・要支援認定を受けている方",
+      "着工前の事前申請が必要"
+    ],
+    "prefectures": [
+      "千葉県"
+    ],
+    "cities": [
+      "市川市"
+    ],
+    "period": "通年（要確認）",
+    "deadline": null,
+    "url": "https://www.city.ichikawa.lg.jp/wel02/1111000006.html"
+  },
+  {
+    "id": "ichikawa-smarthouse",
+    "name": "市川市スマートハウス関連設備導入費補助金",
+    "provider": "千葉県市川市",
+    "level": "municipality",
+    "category": "太陽光・蓄電池",
+    "type": "補助金",
+    "amount": "住宅用太陽光 5万円/kW（上限50万円）。蓄電システム等は要確認",
+    "summary": "住宅用太陽光発電や定置用リチウムイオン蓄電システム等の導入費を補助する。令和8年度の太陽光枠は残額が少ない。",
+    "eligibility": [
+      "市内事業者による施工（太陽光）",
+      "先着順・予算到達で終了"
+    ],
+    "prefectures": [
+      "千葉県"
+    ],
+    "cities": [
+      "市川市"
+    ],
+    "period": "令和8年度（予算到達次第終了）",
+    "deadline": null,
+    "url": "https://www.city.ichikawa.lg.jp/env01/1111000130.html"
+  },
+  {
+    "id": "ichikawa-taishin",
+    "name": "市川市建築物耐震診断・改修助成",
+    "provider": "千葉県市川市",
+    "level": "municipality",
+    "category": "耐震",
+    "type": "助成金",
+    "amount": "木造診断：費用の2/3（上限9万円）、改修：設計・工事費の4/5（上限115万円）",
+    "summary": "木造住宅の耐震診断・改修工事費を助成する。",
+    "eligibility": [
+      "市内の旧耐震の木造住宅等（詳細は要確認）"
+    ],
+    "prefectures": [
+      "千葉県"
+    ],
+    "cities": [
+      "市川市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.ichikawa.lg.jp/cit06/1111000015.html"
+  },
+  {
     "id": "kashiwa-block-jokyaku",
     "name": "危険コンクリートブロック塀等除却工事費補助金",
     "provider": "柏市",
@@ -3424,6 +4422,143 @@ export const RESIDENT_PROGRAMS = [
     "period": "令和8年5月1日受付開始（締切は要確認）",
     "deadline": null,
     "url": "https://www.city.kashiwa.lg.jp/zerocarbon/ecosite/ondanka/shimin/r5ecohouse.html"
+  },
+  {
+    "id": "matsudo-akiya-jokyaku",
+    "name": "松戸市老朽空家等除却費用補助金",
+    "provider": "千葉県松戸市",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "補助金",
+    "amount": "除却費用の1/3以内（上限60万円）、予定15戸程度",
+    "summary": "倒壊のおそれのある老朽空家の除却費を補助する。令和8年度の事前調査申請は受付終了。",
+    "eligibility": [
+      "空家等の所有者等",
+      "市税を滞納していないこと"
+    ],
+    "prefectures": [
+      "千葉県"
+    ],
+    "cities": [
+      "松戸市"
+    ],
+    "period": "令和8年度の事前調査申請は受付終了",
+    "deadline": null,
+    "url": "https://www.city.matsudo.chiba.jp/kurashi/sumai/akiya/akiyatoujyokyaku.html"
+  },
+  {
+    "id": "matsudo-block",
+    "name": "松戸市危険コンクリートブロック塀等対策（除却）事業補助金",
+    "provider": "千葉県松戸市",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "補助金",
+    "amount": "限度額20万円（工事費と長さに応じた額の少ない方）",
+    "summary": "地震時に倒壊のおそれのある危険なブロック塀の撤去費を補助する。",
+    "eligibility": [
+      "危険なブロック塀等の所有者",
+      "除却工事の契約前に事前相談・申請が必要"
+    ],
+    "prefectures": [
+      "千葉県"
+    ],
+    "cities": [
+      "松戸市"
+    ],
+    "period": "令和8年度（最新は要確認）",
+    "deadline": null,
+    "url": "https://www.city.matsudo.chiba.jp/kurashi/sumai/sonota/kikenkonkuritoguroku.html"
+  },
+  {
+    "id": "matsudo-ev-v2h",
+    "name": "松戸市住宅用省エネルギー設備等設置費補助金（EV・V2H）",
+    "provider": "千葉県松戸市",
+    "level": "municipality",
+    "category": "EV・充電",
+    "type": "補助金",
+    "amount": "EV 単体3万円、太陽光併設10万円、太陽光＋V2H併設15万円（上限）。V2H設備は対象経費の1/10（上限25万円）",
+    "summary": "電気自動車とV2H充放電設備の導入費を補助する。旧EV充電設備補助は統合された。",
+    "eligibility": [
+      "市内の住宅等に設置する個人",
+      "一部区分は残りわずか"
+    ],
+    "prefectures": [
+      "千葉県"
+    ],
+    "cities": [
+      "松戸市"
+    ],
+    "period": "令和8年度（予算の範囲内）",
+    "deadline": null,
+    "url": "https://www.city.matsudo.chiba.jp/kurashi/kankyou/tikyuuondanka/hojokin/shoene.html"
+  },
+  {
+    "id": "matsudo-shoene-housing",
+    "name": "松戸市省エネルギー住宅普及促進事業費補助金",
+    "provider": "千葉県松戸市",
+    "level": "municipality",
+    "category": "省エネ住宅",
+    "type": "補助金",
+    "amount": "最大50万円（上限）",
+    "summary": "省エネ住宅の新築・購入・改修に補助する。",
+    "eligibility": [
+      "市内の住宅（詳細は要確認）"
+    ],
+    "prefectures": [
+      "千葉県"
+    ],
+    "cities": [
+      "松戸市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.matsudo.chiba.jp/kurashi/kankyou/tikyuuondanka/hojokin/shoenej.html"
+  },
+  {
+    "id": "matsudo-shoene-pv",
+    "name": "松戸市住宅用省エネルギー設備等設置費補助金（太陽光・蓄電）",
+    "provider": "千葉県松戸市",
+    "level": "municipality",
+    "category": "太陽光・蓄電池",
+    "type": "補助金",
+    "amount": "太陽光 2万円/kW（上限6万円）、蓄電システム 上限7万円",
+    "summary": "住宅用の太陽光発電や蓄電システム等の設置費を補助する。千葉県の補助と併用可。",
+    "eligibility": [
+      "市内の住宅に設置する個人",
+      "予算残額あり（2026年時点の一覧）"
+    ],
+    "prefectures": [
+      "千葉県"
+    ],
+    "cities": [
+      "松戸市"
+    ],
+    "period": "令和8年度（予算の範囲内）",
+    "deadline": null,
+    "url": "https://www.city.matsudo.chiba.jp/kurashi/kankyou/tikyuuondanka/hojokin/shoene.html"
+  },
+  {
+    "id": "matsudo-taishin",
+    "name": "松戸市木造住宅耐震改修費補助金",
+    "provider": "千葉県松戸市",
+    "level": "municipality",
+    "category": "耐震",
+    "type": "補助金",
+    "amount": "設計費・工事費等の4/5（上限100万円）。リフォーム費用の1/10（上限30万円）の別助成あり",
+    "summary": "耐震診断で評点1.0未満の木造住宅の耐震改修費を補助する。",
+    "eligibility": [
+      "平成12年5月31日以前に建築・着工の木造一戸建て等",
+      "契約前に建築指導課との事前協議が必要"
+    ],
+    "prefectures": [
+      "千葉県"
+    ],
+    "cities": [
+      "松戸市"
+    ],
+    "period": "2026年5月7日～11月13日（予算到達で終了）",
+    "deadline": "2026-11-13",
+    "url": "https://www.city.matsudo.chiba.jp/kurashi/sumai/taisin/taisinnkaishuhojokin.html"
   },
   {
     "id": "tokyo-akachan-first",
@@ -10077,6 +11212,255 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.pref.kanagawa.jp/docs/ap4/cnt/f300183/zeh.html"
   },
   {
+    "id": "fujisawa-akiya-riyo",
+    "name": "藤沢市空家利活用事業補助金",
+    "provider": "神奈川県藤沢市",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "補助金",
+    "amount": "大規模改修型：対象経費の2/3（上限100万円）、小規模改修型：1/2（上限50万円）",
+    "summary": "空き家を地域活動の場として再生する際の初期経費を補助する。小規模改修型は個人も対象。",
+    "eligibility": [
+      "大規模改修型は5人以上の団体"
+    ],
+    "prefectures": [
+      "神奈川県"
+    ],
+    "cities": [
+      "藤沢市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.fujisawa.kanagawa.jp/jutaku/akiya/rikatsuyouhojokin.html"
+  },
+  {
+    "id": "fujisawa-block",
+    "name": "藤沢市ブロック塀等安全対策工事費補助",
+    "provider": "神奈川県藤沢市",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "補助金",
+    "amount": "工事費の1/2（上限30万円）。津波避難路沿いは3/4（上限45万円）",
+    "summary": "道路に面した危険なブロック塀等の撤去・改修費を補助する。",
+    "eligibility": [
+      "市内の戸建住宅の所有者かつ居住者等",
+      "市税の滞納がないこと"
+    ],
+    "prefectures": [
+      "神奈川県"
+    ],
+    "cities": [
+      "藤沢市"
+    ],
+    "period": "掲載は令和7年度情報。令和8年度は要確認",
+    "deadline": null,
+    "url": "https://www.city.fujisawa.kanagawa.jp/bousai/bosai/bosai/taisaku/burokkubei.html"
+  },
+  {
+    "id": "fujisawa-nextgen-car",
+    "name": "藤沢市次世代自動車導入補助金（EV）",
+    "provider": "神奈川県藤沢市",
+    "level": "municipality",
+    "category": "EV・充電",
+    "type": "補助金",
+    "amount": "EV 1件5万円",
+    "summary": "電気自動車の導入費を補助する。令和8年度は予定件数に達し受付終了。",
+    "eligibility": [
+      "市内在住等（詳細は要確認）"
+    ],
+    "prefectures": [
+      "神奈川県"
+    ],
+    "cities": [
+      "藤沢市"
+    ],
+    "period": "令和8年度は受付終了",
+    "deadline": null,
+    "url": "https://www.city.fujisawa.kanagawa.jp/zeroc/machizukuri/kankyo/hojo/jidousya2.html"
+  },
+  {
+    "id": "fujisawa-taishin",
+    "name": "藤沢市木造住宅耐震診断・改修等補助",
+    "provider": "神奈川県藤沢市",
+    "level": "municipality",
+    "category": "耐震",
+    "type": "補助金",
+    "amount": "要確認（耐震診断・改修・耐震シェルター設置を補助）",
+    "summary": "木造住宅の耐震診断・改修工事等・耐震シェルター設置の費用を補助する。令和8年度改修分はキャンセル待ちから一部再開された。",
+    "eligibility": [
+      "改修工事が2027年1月中に完了見込みであること等"
+    ],
+    "prefectures": [
+      "神奈川県"
+    ],
+    "cities": [
+      "藤沢市"
+    ],
+    "period": "令和8年度（再開分。最新は要確認）",
+    "deadline": null,
+    "url": "https://www.city.fujisawa.kanagawa.jp/jutaku/machizukuri/sumai/taishin/hojo/jigyoichiran.html"
+  },
+  {
+    "id": "fujisawa-taiyoko-jikasyohi",
+    "name": "藤沢市住宅用太陽光発電システム（自家消費型）等設置費補助金",
+    "provider": "神奈川県藤沢市",
+    "level": "municipality",
+    "category": "太陽光・蓄電池",
+    "type": "補助金",
+    "amount": "太陽光 7万円/kW、定置用蓄電池 補助対象経費の1/3、HEMS 2/3（上限20万円）",
+    "summary": "太陽光・蓄電池・HEMSを同時設置する場合の費用を補助する。令和8年度の募集は終了。",
+    "eligibility": [
+      "市内の住宅に同時設置すること",
+      "交付決定前の着工は原則不可"
+    ],
+    "prefectures": [
+      "神奈川県"
+    ],
+    "cities": [
+      "藤沢市"
+    ],
+    "period": "令和8年度の募集は終了（次回は要確認）",
+    "deadline": null,
+    "url": "https://www.city.fujisawa.kanagawa.jp/zeroc/machizukuri/kankyo/hojo/taiyoko_jikasyouhi.html"
+  },
+  {
+    "id": "fujisawa-teiju-rishi",
+    "name": "藤沢市勤労者住宅資金利子補助制度",
+    "provider": "神奈川県藤沢市",
+    "level": "municipality",
+    "category": "移住",
+    "type": "補助金",
+    "amount": "住宅ローン利子の一部（補助期間4年、対象限度額600万円等）",
+    "summary": "市外から転入して住宅を購入・建築する勤労者に、住宅ローン利子の一部を補助する。",
+    "eligibility": [
+      "市外からの転入者で勤労者",
+      "詳細・予算は産業労働課に要確認"
+    ],
+    "prefectures": [
+      "神奈川県"
+    ],
+    "cities": [
+      "藤沢市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.fujisawa.kanagawa.jp/indus1/roudoukaikan/jutakushikin.html"
+  },
+  {
+    "id": "hiratsuka-block",
+    "name": "平塚市ブロック塀等倒壊予防策補助金",
+    "provider": "神奈川県平塚市",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "補助金",
+    "amount": "撤去費の50%（上限15万円）、非課税世帯は100%（上限30万円）",
+    "summary": "道路に面した危険なブロック塀等の撤去費を補助する。",
+    "eligibility": [
+      "高さ80cm以上で市の現地調査で危険度「大」と判定された塀",
+      "フェンス新設は対象外"
+    ],
+    "prefectures": [
+      "神奈川県"
+    ],
+    "cities": [
+      "平塚市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.hiratsuka.kanagawa.jp/machizukuri/page-c_01930.html"
+  },
+  {
+    "id": "hiratsuka-jutaku-kairyo",
+    "name": "平塚市重度障がい者住宅設備改良費助成",
+    "provider": "神奈川県平塚市",
+    "level": "municipality",
+    "category": "バリアフリー・介護",
+    "type": "助成金",
+    "amount": "工事の種類により上限60万円～100万円（1回限り）",
+    "summary": "在宅の重度障がい者の浴室・便所・玄関・廊下等の住宅改良費を助成する。",
+    "eligibility": [
+      "在宅の重度障がい者がいる世帯"
+    ],
+    "prefectures": [
+      "神奈川県"
+    ],
+    "cities": [
+      "平塚市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.hiratsuka.kanagawa.jp/fukushi/page-c_00988.html"
+  },
+  {
+    "id": "hiratsuka-pv",
+    "name": "平塚市太陽光発電設備導入補助金",
+    "provider": "神奈川県平塚市",
+    "level": "municipality",
+    "category": "太陽光・蓄電池",
+    "type": "補助金",
+    "amount": "太陽光 5万円/kW（上限20万円）、定置型蓄電システム同時設置で5万円加算",
+    "summary": "住宅への太陽光発電設備と蓄電システムの導入費を補助する。",
+    "eligibility": [
+      "市内の住宅に設置",
+      "交付決定前の着工は原則不可（事業完了期限は令和9年3月31日）"
+    ],
+    "prefectures": [
+      "神奈川県"
+    ],
+    "cities": [
+      "平塚市"
+    ],
+    "period": "令和8年度（予算の範囲内）",
+    "deadline": null,
+    "url": "https://www.city.hiratsuka.kanagawa.jp/kankyo/page67_00127.html"
+  },
+  {
+    "id": "hiratsuka-taishin-kaishu",
+    "name": "平塚市木造住宅耐震改修工事の補助金",
+    "provider": "神奈川県平塚市",
+    "level": "municipality",
+    "category": "耐震",
+    "type": "補助金",
+    "amount": "工事費の4/5（一般世帯の上限90万円または45万円）。設計は1/2（上限7万円または3.5万円）",
+    "summary": "評点1.0未満の旧耐震木造住宅を1.0以上にする耐震改修工事等を補助する。",
+    "eligibility": [
+      "昭和56年5月31日以前に建築された2階建て以下の木造住宅",
+      "借家の居住者や改修後に住む所有者も申請可"
+    ],
+    "prefectures": [
+      "神奈川県"
+    ],
+    "cities": [
+      "平塚市"
+    ],
+    "period": "令和8年度分は11月末に締切予定（予算がなくなり次第終了）",
+    "deadline": null,
+    "url": "https://www.city.hiratsuka.kanagawa.jp/machizukuri/page-c_01939.html"
+  },
+  {
+    "id": "hiratsuka-zeh",
+    "name": "平塚市ゼロエネルギーハウス導入補助金",
+    "provider": "神奈川県平塚市",
+    "level": "municipality",
+    "category": "省エネ住宅",
+    "type": "補助金",
+    "amount": "ZEH1件20万円、蓄電システム同時設置で5万円加算",
+    "summary": "ZEHの新築・購入・改修費を補助する。太陽光の補助金とは併用不可。",
+    "eligibility": [
+      "市内でZEHを新築・購入・改修する個人",
+      "Nearly ZEH等は対象外"
+    ],
+    "prefectures": [
+      "神奈川県"
+    ],
+    "cities": [
+      "平塚市"
+    ],
+    "period": "令和8年度（最新は要確認）",
+    "deadline": null,
+    "url": "https://www.city.hiratsuka.kanagawa.jp/kankyo/page67_00041.html"
+  },
+  {
     "id": "kawasaki-block-hei",
     "name": "川崎市ブロック塀等撤去促進助成金",
     "provider": "神奈川県川崎市",
@@ -10165,6 +11549,141 @@ export const RESIDENT_PROGRAMS = [
     "period": "令和8年4月24日～12月28日（予算状況により早期終了の可能性）",
     "deadline": "2026-12-28",
     "url": "https://www.city.kawasaki.jp/300/page/0000185300.html"
+  },
+  {
+    "id": "odawara-akiya",
+    "name": "小田原市空家等除却・仲介手数料補助",
+    "provider": "神奈川県小田原市",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "補助金",
+    "amount": "除却工事費の1/2（上限45万円）、売買仲介手数料の補助（上限5万円）",
+    "summary": "空家等対策支援システム登録の空家の除却費や、売買時の仲介手数料を補助する。",
+    "eligibility": [
+      "空家等の所有者",
+      "除却は支援システムに登録された空家等"
+    ],
+    "prefectures": [
+      "神奈川県"
+    ],
+    "cities": [
+      "小田原市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.odawara.kanagawa.jp/field/c-planning/housingp/akiya/akiyatoutaisaku.html"
+  },
+  {
+    "id": "odawara-block",
+    "name": "小田原市ブロック塀等撤去費補助金",
+    "provider": "神奈川県小田原市",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "補助金",
+    "amount": "撤去する塀の長さ1mあたり1万円（限度額10万円）",
+    "summary": "地震に備え、道路等に面した高さ1m超のブロック塀等の撤去費を補助する。",
+    "eligibility": [
+      "道路などに面し高さが1mを超えるブロック塀等"
+    ],
+    "prefectures": [
+      "神奈川県"
+    ],
+    "cities": [
+      "小田原市"
+    ],
+    "period": "2025年度の受付は2025年11月28日で終了。令和8年度は最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.odawara.kanagawa.jp/field/disaster/disaster/hojo/kikennahei_h.html"
+  },
+  {
+    "id": "odawara-juutaku-kaizo",
+    "name": "小田原市重度障がい者住宅設備改造費助成",
+    "provider": "神奈川県小田原市",
+    "level": "municipality",
+    "category": "バリアフリー・介護",
+    "type": "助成金",
+    "amount": "改造工事費を世帯につき1回に限り助成（上限80万円）",
+    "summary": "障がい者本人または保護者が住宅設備を改造する際の費用を助成する。",
+    "eligibility": [
+      "身体障害者手帳1級・2級の方等",
+      "市の決定前に着工すると対象外"
+    ],
+    "prefectures": [
+      "神奈川県"
+    ],
+    "cities": [
+      "小田原市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.odawara.kanagawa.jp/field/welfare/handic-s/medical/juutakusetubi.html"
+  },
+  {
+    "id": "odawara-ondanka-r8",
+    "name": "小田原市地球温暖化対策推進事業費補助金（蓄電池・ZEH・EV・V2H）",
+    "provider": "神奈川県小田原市",
+    "level": "municipality",
+    "category": "省エネ住宅",
+    "type": "補助金",
+    "amount": "定置型蓄電池5万円/件、エネファーム3万円/件、ZEH10万円/件、EV・V2H各5万円/件",
+    "summary": "家庭用の蓄電池・エネファーム・ZEH・EV・V2Hの導入費を補助する。蓄電池は20件限定。",
+    "eligibility": [
+      "市内の個人（詳細は要確認）"
+    ],
+    "prefectures": [
+      "神奈川県"
+    ],
+    "cities": [
+      "小田原市"
+    ],
+    "period": "令和8年度（予算・件数に達し次第終了）",
+    "deadline": null,
+    "url": "https://www.city.odawara.kanagawa.jp/field/envi/saiene/consideration/p41393.html"
+  },
+  {
+    "id": "odawara-pv",
+    "name": "小田原市自家消費型太陽光発電・家庭用蓄電池補助金",
+    "provider": "神奈川県小田原市",
+    "level": "municipality",
+    "category": "太陽光・蓄電池",
+    "type": "補助金",
+    "amount": "太陽光 7万円/kW（基準）、蓄電池：費用の1/3または5.16万円/kWhの低い額",
+    "summary": "自家消費型太陽光（自己所有）と同時導入する家庭用蓄電池の費用を補助する。",
+    "eligibility": [
+      "蓄電池は20kWh以下で補助対象の太陽光と同時導入",
+      "交付決定後に契約・着工"
+    ],
+    "prefectures": [
+      "神奈川県"
+    ],
+    "cities": [
+      "小田原市"
+    ],
+    "period": "2025年8月に受付再開（令和8年度は要確認）",
+    "deadline": null,
+    "url": "https://www.city.odawara.kanagawa.jp/field/envi/saiene/co20-subsidy/r6-3pv.html"
+  },
+  {
+    "id": "odawara-taishin",
+    "name": "小田原市木造住宅耐震診断・耐震改修費補助",
+    "provider": "神奈川県小田原市",
+    "level": "municipality",
+    "category": "耐震",
+    "type": "補助金",
+    "amount": "改修：1/2（要配慮者世帯上限115万円、その他上限85万円）。診断：居住者本人等は全額（上限9万円）",
+    "summary": "昭和56年5月31日以前着工の木造住宅の耐震診断・設計・改修費を補助する。",
+    "eligibility": [
+      "昭和56年5月31日以前に建築工事が始まった木造住宅"
+    ],
+    "prefectures": [
+      "神奈川県"
+    ],
+    "cities": [
+      "小田原市"
+    ],
+    "period": "令和8年度の申請受付は開始済み（最新は要確認）",
+    "deadline": null,
+    "url": "https://www.city.odawara.kanagawa.jp/field/disaster/disaster/nature/seismi/taisin-hojyo.html"
   },
   {
     "id": "sagamihara-akiya-jokyaku",
@@ -12653,6 +14172,233 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.pref.aichi.jp/soshiki/jutakukeikaku/0000025466.html"
   },
   {
+    "id": "ichinomiya-akiya-kaitai",
+    "name": "一宮市 老朽空き家の解体工事補助",
+    "provider": "愛知県一宮市",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "補助金",
+    "amount": "上限20万円",
+    "summary": "老朽化した空き家の解体工事費の一部を補助する。契約・着手前の申請が必要。",
+    "eligibility": [
+      "老朽空き家の解体工事（契約・着手前に申請）"
+    ],
+    "prefectures": [
+      "愛知県"
+    ],
+    "cities": [
+      "一宮市"
+    ],
+    "period": "申請期間は2026年9月30日までと案内（予算上限到達の可能性あり、要確認）",
+    "deadline": "2026-09-30",
+    "url": "https://www.city.ichinomiya.aichi.jp/kenchiku/juutakuseisaku/1044399/1044400/1044401/1019435/1024044.html"
+  },
+  {
+    "id": "ichinomiya-block",
+    "name": "一宮市 ブロック塀等撤去費補助",
+    "provider": "愛知県一宮市",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "補助金",
+    "amount": "工事費等の1/2以内、上限10万円",
+    "summary": "道路に面した高さ1m以上のブロック塀等の撤去費を補助する。事前相談が必要。",
+    "eligibility": [
+      "道路に面し高さ1m以上のブロック塀等",
+      "同一敷地で一度受けると再度申請不可"
+    ],
+    "prefectures": [
+      "愛知県"
+    ],
+    "cities": [
+      "一宮市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.ichinomiya.aichi.jp/kenchiku/kenchikushidou/1044393/1044394/1046083/1026307.html"
+  },
+  {
+    "id": "ichinomiya-taishin-kaishu",
+    "name": "一宮市民間木造住宅耐震改修費補助",
+    "provider": "愛知県一宮市",
+    "level": "municipality",
+    "category": "耐震",
+    "type": "補助金",
+    "amount": "耐震改修は上限115万円、簡易耐震改修は上限30万円（令和7年度版）",
+    "summary": "無料耐震診断で判定値1.0未満の木造住宅の耐震改修費を補助する。令和7年度は予算上限に達し新規受付を終了しており、令和8年度は要確認。",
+    "eligibility": [
+      "昭和56年5月31日以前着工の2階建て以下の木造住宅",
+      "耐震診断の判定値が1.0未満（簡易は0.7未満）"
+    ],
+    "prefectures": [
+      "愛知県"
+    ],
+    "cities": [
+      "一宮市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.ichinomiya.aichi.jp/kenchiku/juutakuseisaku/1044399/1044400/1044401/1011801/1002208.html"
+  },
+  {
+    "id": "ichinomiya-taishin-sekkei",
+    "name": "一宮市民間木造住宅耐震改修設計費補助",
+    "provider": "愛知県一宮市",
+    "level": "municipality",
+    "category": "耐震",
+    "type": "補助金",
+    "amount": "設計費の2/3以内、上限20万円（令和7年度時点）",
+    "summary": "耐震改修の設計に要する費用の一部を補助する。先着順で予定5戸。",
+    "eligibility": [
+      "耐震診断の結果、耐震改修が必要な民間木造住宅"
+    ],
+    "prefectures": [
+      "愛知県"
+    ],
+    "cities": [
+      "一宮市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.ichinomiya.aichi.jp/kenchiku/juutakuseisaku/1044399/1044400/1044401/1011801/1074892.html"
+  },
+  {
+    "id": "ichinomiya-taiyoko-2026",
+    "name": "一宮市 太陽光発電システム等設置費補助（2026年度）",
+    "provider": "愛知県一宮市",
+    "level": "municipality",
+    "category": "太陽光・蓄電池",
+    "type": "補助金",
+    "amount": "既存住宅：太陽光一体型A12万円、蓄電システム単体5万円ほか。新築：ZEH16万円、GX ZEH水準30万円",
+    "summary": "住宅への太陽光・蓄電システム・HEMS・ZEH等の設置費を補助する。2026年度当初予算3,470万円で先着順。",
+    "eligibility": [
+      "市内で自ら居住する戸建住宅に設備を新たに設置する人",
+      "2026年4月1日以降に設置完了"
+    ],
+    "prefectures": [
+      "愛知県"
+    ],
+    "cities": [
+      "一宮市"
+    ],
+    "period": "2026年度（予算の範囲内・先着順。残額は要確認）",
+    "deadline": null,
+    "url": "https://www.city.ichinomiya.aichi.jp/kankyou/kankyouseisaku/1043982/1043983/1043984/1074943.html"
+  },
+  {
+    "id": "kasugai-akiya-tochi",
+    "name": "春日井市 空き家付き土地の購入補助",
+    "provider": "愛知県春日井市",
+    "level": "municipality",
+    "category": "移住",
+    "type": "補助金",
+    "amount": "対象経費の1/10、上限50万円",
+    "summary": "1年以上使われていない空き家付き土地を購入し、2年以内に居住またはリフォーム・建替えを行う場合に補助する。",
+    "eligibility": [
+      "居住誘導区域内の空き家付き土地",
+      "購入後2年以内に居住、リフォームまたは建替え"
+    ],
+    "prefectures": [
+      "愛知県"
+    ],
+    "cities": [
+      "春日井市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.kasugai.lg.jp/kurashi/1033189/1003661/1003670/1019903.html"
+  },
+  {
+    "id": "kasugai-block",
+    "name": "春日井市 ブロック塀等撤去費補助",
+    "provider": "愛知県春日井市",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "補助金",
+    "amount": "撤去費用等の1/2、上限10万円",
+    "summary": "公道等に面した高さ1m以上のブロック塀等の撤去工事費を補助する。",
+    "eligibility": [
+      "公道・公園等に面した高さ1m以上のブロック塀等"
+    ],
+    "prefectures": [
+      "愛知県"
+    ],
+    "cities": [
+      "春日井市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.kasugai.lg.jp/_res/projects/default_project/_page_/001/009/743/burokkupanhu.pdf"
+  },
+  {
+    "id": "kasugai-chikudenchi-2026",
+    "name": "春日井市 住宅用地球温暖化対策機器設置費補助（蓄電池・2026年度）",
+    "provider": "愛知県春日井市",
+    "level": "municipality",
+    "category": "太陽光・蓄電池",
+    "type": "補助金",
+    "amount": "定置用リチウムイオン蓄電システム1台6万円",
+    "summary": "既存住宅への蓄電システム設置費を補助する。太陽光発電・HEMSは令和7年度から対象外。先着順。",
+    "eligibility": [
+      "既存住宅（新築は対象外）",
+      "環境共創イニシアチブ登録製品",
+      "新品（中古・リース不可）、同種機器は1世帯1回"
+    ],
+    "prefectures": [
+      "愛知県"
+    ],
+    "cities": [
+      "春日井市"
+    ],
+    "period": "2026年4月1日〜2027年2月26日（予算の範囲内）",
+    "deadline": "2027-02-26",
+    "url": "https://www.city.kasugai.lg.jp/kurashi/1033189/1038894/1039004/1039013.html"
+  },
+  {
+    "id": "kasugai-shoene-kaishu",
+    "name": "春日井市 住宅省エネ改修費補助",
+    "provider": "愛知県春日井市",
+    "level": "municipality",
+    "category": "省エネ住宅",
+    "type": "補助金",
+    "amount": "要確認",
+    "summary": "住宅の省エネ改修費の補助制度。2026年度分は11月30日までの受付とされるが、ページに受付終了の表示あり。",
+    "eligibility": [
+      "市内の住宅の省エネ改修（詳細は要確認）"
+    ],
+    "prefectures": [
+      "愛知県"
+    ],
+    "cities": [
+      "春日井市"
+    ],
+    "period": "2026年度（受付終了表示あり、要確認）",
+    "deadline": null,
+    "url": "https://www.city.kasugai.lg.jp/kurashi/1033189/1038894/1039004/1039012.html"
+  },
+  {
+    "id": "kasugai-taishin-shien",
+    "name": "春日井市 木造住宅耐震診断・改修等の支援制度",
+    "provider": "愛知県春日井市",
+    "level": "municipality",
+    "category": "耐震",
+    "type": "補助金",
+    "amount": "要確認",
+    "summary": "無料耐震診断、補強設計、耐震改修、段階的改修、除却、耐震シェルター整備などの補助。予算の範囲内で先着順。",
+    "eligibility": [
+      "旧耐震の木造住宅等（詳細は要確認）",
+      "契約・着工前の申請が必要"
+    ],
+    "prefectures": [
+      "愛知県"
+    ],
+    "cities": [
+      "春日井市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.kasugai.lg.jp/kurashi/1033189/1038894/1038987/1008903.html"
+  },
+  {
     "id": "nagoya-jutaku-datsutanso",
     "name": "住宅等の脱炭素化促進補助",
     "provider": "名古屋市",
@@ -13433,6 +15179,162 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.info.city.tsu.mie.jp/www/contents/1001000009275/simple/keikaku1-1.pdf"
   },
   {
+    "id": "yokkaichi-akiya-ryutsu",
+    "name": "四日市市 空き家流通促進補助",
+    "provider": "三重県四日市市",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "補助金",
+    "amount": "リフォームは費用の1/3、上限50万円",
+    "summary": "空き家・空き地バンクに登録する空き家のリフォーム、家財処分、建物状況調査の費用を補助する。",
+    "eligibility": [
+      "空き家・空き地バンクに登録する空き家"
+    ],
+    "prefectures": [
+      "三重県"
+    ],
+    "cities": [
+      "四日市市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.yokkaichi.lg.jp/www/contents/1697677601303/index.html"
+  },
+  {
+    "id": "yokkaichi-block",
+    "name": "四日市市 ブロック塀等撤去費補助（令和8年度）",
+    "provider": "三重県四日市市",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "補助金",
+    "amount": "撤去費用と延長1m×1万円の少ない方の1/2、上限20万円",
+    "summary": "道路に面した危険なブロック塀等の撤去費を補助する。交付決定前の着工・契約は対象外。",
+    "eligibility": [
+      "道路等に面するブロック塀等（隣地側は対象外）",
+      "完了実績報告を3月19日までに提出"
+    ],
+    "prefectures": [
+      "三重県"
+    ],
+    "cities": [
+      "四日市市"
+    ],
+    "period": "令和8年度（受付開始済み、予算の範囲内）",
+    "deadline": "2027-03-19",
+    "url": "https://www.city.yokkaichi.lg.jp/www/contents/1538285221292/index.html"
+  },
+  {
+    "id": "yokkaichi-kyutaishin-akiya",
+    "name": "四日市市 旧耐震空き家除却促進補助",
+    "provider": "三重県四日市市",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "補助金",
+    "amount": "要確認",
+    "summary": "昭和56年5月31日以前の基準の空き家の除却費補助。令和7年度分は予算上限に達し新規受付終了。",
+    "eligibility": [
+      "昭和56年5月31日以前の基準で建築",
+      "1年以上居住されていない空き家"
+    ],
+    "prefectures": [
+      "三重県"
+    ],
+    "cities": [
+      "四日市市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.yokkaichi.lg.jp/www/contents/1611107330079/index.html"
+  },
+  {
+    "id": "yokkaichi-smartcity-solar",
+    "name": "四日市市スマートシティ構築促進補助金（太陽光・蓄電池等）",
+    "provider": "三重県四日市市",
+    "level": "municipality",
+    "category": "太陽光・蓄電池",
+    "type": "補助金",
+    "amount": "太陽光（10kW未満）7万円、家庭用蓄電池10万円、HEMS 1万円ほか（令和7年度版）",
+    "summary": "家庭用の太陽光・蓄電池・HEMS等の設置費を補助する。確認できたのは令和7年度の内容。",
+    "eligibility": [
+      "申請者所有の設備（リース等は対象外）"
+    ],
+    "prefectures": [
+      "三重県"
+    ],
+    "cities": [
+      "四日市市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.yokkaichi.lg.jp/www/contents/1740984219442/index.html"
+  },
+  {
+    "id": "yokkaichi-taishin-hokyo",
+    "name": "四日市市 木造住宅耐震補強工事費等補助",
+    "provider": "三重県四日市市",
+    "level": "municipality",
+    "category": "耐震",
+    "type": "補助金",
+    "amount": "要確認（令和6〜8年度の3年間、補助を拡大中）",
+    "summary": "木造住宅の耐震補強工事や、同時に行うリフォームへの補助。令和6〜8年度は能登半島地震を受けて拡充。",
+    "eligibility": [
+      "耐震性の低い木造住宅（詳細は要確認）"
+    ],
+    "prefectures": [
+      "三重県"
+    ],
+    "cities": [
+      "四日市市"
+    ],
+    "period": "令和8年度まで拡充（受付状況は要確認）",
+    "deadline": null,
+    "url": "https://www.city.yokkaichi.lg.jp/www/contents/1696126733610/index.html"
+  },
+  {
+    "id": "yokkaichi-taishin-keikaku",
+    "name": "四日市市 木造住宅耐震補強計画費補助",
+    "provider": "三重県四日市市",
+    "level": "municipality",
+    "category": "耐震",
+    "type": "補助金",
+    "amount": "計画費の額、上限18万円",
+    "summary": "耐震補強の計画作成にかかる費用を補助する。",
+    "eligibility": [
+      "耐震補強を計画する木造住宅"
+    ],
+    "prefectures": [
+      "三重県"
+    ],
+    "cities": [
+      "四日市市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.yokkaichi.lg.jp/www/contents/1518062562681/index.html"
+  },
+  {
+    "id": "yokkaichi-tokutei-akiya",
+    "name": "四日市市 特定空家等除却費補助",
+    "provider": "三重県四日市市",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "補助金",
+    "amount": "要確認",
+    "summary": "特定空家等や狭小敷地・無接道敷地の空家等の解体費用の一部を補助する。",
+    "eligibility": [
+      "特定空家等、または狭小敷地・無接道敷地の空家等"
+    ],
+    "prefectures": [
+      "三重県"
+    ],
+    "cities": [
+      "四日市市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.yokkaichi.lg.jp/www/contents/1708407095963/index.html"
+  },
+  {
     "id": "shiga-ev-phv-fcv-r7",
     "name": "次世代自動車（EV・PHV・FCV）の購入および電気自動車等用の充電設備の設置への補助",
     "provider": "滋賀県",
@@ -13516,6 +15418,119 @@ export const RESIDENT_PROGRAMS = [
     "period": "交付申請の予約期限：令和8年11月30日",
     "deadline": "2026-11-30",
     "url": "https://www.pref.shiga.lg.jp/ippan/kendoseibi/zyuutaku/348818.html"
+  },
+  {
+    "id": "kusatsu-akiya-jokyaku",
+    "name": "草津市 不良空き家の除却費補助",
+    "provider": "滋賀県草津市",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "補助金",
+    "amount": "対象経費の4/5、上限50万円",
+    "summary": "不良空き家の除却費用を補助する。",
+    "eligibility": [
+      "1年以上居住等がされていないなど複数要件を満たす空き家"
+    ],
+    "prefectures": [
+      "滋賀県"
+    ],
+    "cities": [
+      "草津市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.kusatsu.shiga.jp/kurashi/sumai/akiya/kenchiku22024.html"
+  },
+  {
+    "id": "kusatsu-block",
+    "name": "草津市 ブロック塀撤去・改修補助",
+    "provider": "滋賀県草津市",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "補助金",
+    "amount": "撤去：3,000円/mまたは撤去費の1/2の低い額",
+    "summary": "道路に面した高さ60cm以上のブロック塀の撤去、フェンス・生垣への改修を補助する。着手前申請が必要。",
+    "eligibility": [
+      "道路に面し高さ60cm以上のブロック塀"
+    ],
+    "prefectures": [
+      "滋賀県"
+    ],
+    "cities": [
+      "草津市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.kusatsu.shiga.jp/kurashi/sumai/sumai/sumaianzen/kenchiku.html"
+  },
+  {
+    "id": "kusatsu-eco-house",
+    "name": "草津市健幸エコハウス（太陽光発電・蓄電池）普及促進補助金（令和8年度）",
+    "provider": "滋賀県草津市",
+    "level": "municipality",
+    "category": "太陽光・蓄電池",
+    "type": "補助金",
+    "amount": "蓄電池：価格の1/3と7.75万円/kWhの1/3の低い方（上限15万円）。太陽光：3.5万円/kW（上限15万円）",
+    "summary": "既存戸建住宅への太陽光・蓄電池の設置費を補助する。事前にうちエコ診断の受診が必要。",
+    "eligibility": [
+      "市民の既存戸建住宅（賃貸・集合住宅は対象外）",
+      "滋賀県内の業者による施工",
+      "うちエコ診断を事前に受診"
+    ],
+    "prefectures": [
+      "滋賀県"
+    ],
+    "cities": [
+      "草津市"
+    ],
+    "period": "2026年5月11日〜2027年3月31日（工事は2027年1月31日まで）",
+    "deadline": "2027-03-31",
+    "url": "https://www.city.kusatsu.shiga.jp/kurashi/kankyo/ondanka/eco-house-hojo.html"
+  },
+  {
+    "id": "kusatsu-kanshin-breaker",
+    "name": "草津市 感震ブレーカー設置事業補助金",
+    "provider": "滋賀県草津市",
+    "level": "municipality",
+    "category": "耐震",
+    "type": "補助金",
+    "amount": "要確認",
+    "summary": "感震ブレーカーの設置費用の一部を補助する。",
+    "eligibility": [
+      "市内の住宅（詳細は要確認）"
+    ],
+    "prefectures": [
+      "滋賀県"
+    ],
+    "cities": [
+      "草津市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.kusatsu.shiga.jp/kurashi/bosai/jishin/kansinbreaker.html"
+  },
+  {
+    "id": "kusatsu-taishin",
+    "name": "草津市 木造住宅耐震改修等事業補助金",
+    "provider": "滋賀県草津市",
+    "level": "municipality",
+    "category": "耐震",
+    "type": "補助金",
+    "amount": "要確認（子育て世帯加算5万円/戸、バリアフリー化にも加算あり）",
+    "summary": "耐震診断で倒壊の可能性が高い木造住宅の改修費を補助する。中学卒業までの子がいる世帯等は割増あり。確認できたのは令和7年度の情報。",
+    "eligibility": [
+      "昭和56年5月31日以前着工の木造住宅",
+      "耐震診断で倒壊の可能性が高いと判定"
+    ],
+    "prefectures": [
+      "滋賀県"
+    ],
+    "cities": [
+      "草津市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.kusatsu.shiga.jp/kurashi/sumai/sumai/sumaianzen/kenchiku_taishin.html"
   },
   {
     "id": "otsu-block-tekkyo",
@@ -13981,6 +15996,207 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.higashiosaka.lg.jp/0000043138.html"
   },
   {
+    "id": "hirakata-block",
+    "name": "枚方市 危険ブロック塀等除却補助",
+    "provider": "大阪府枚方市",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "補助金",
+    "amount": "15万円、除却工事費、見付面積×1.5万円のうち最小の額",
+    "summary": "道路に面する危険なブロック塀等の撤去費用を補助する。事前相談が必要。",
+    "eligibility": [
+      "道路に面するブロック塀等"
+    ],
+    "prefectures": [
+      "大阪府"
+    ],
+    "cities": [
+      "枚方市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.hirakata.osaka.jp/0000023322.html"
+  },
+  {
+    "id": "hirakata-chiiki-akiya",
+    "name": "枚方市地域空き家活用補助",
+    "provider": "大阪府枚方市",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "補助金",
+    "amount": "経費の2/3、上限250万円（耐震改修を含むリフォーム）",
+    "summary": "空き家を地域で活用する事業の改修費を補助する。契約後の申込みは不可。",
+    "eligibility": [
+      "空き家の所有者、または所有者の同意を得て活用事業を行う個人・団体"
+    ],
+    "prefectures": [
+      "大阪府"
+    ],
+    "cities": [
+      "枚方市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.hirakata.osaka.jp/0000047397.html"
+  },
+  {
+    "id": "hirakata-solar-2026",
+    "name": "枚方市 住宅用太陽光発電設備・家庭用蓄電池補助（令和8年度）",
+    "provider": "大阪府枚方市",
+    "level": "municipality",
+    "category": "太陽光・蓄電池",
+    "type": "補助金",
+    "amount": "補助対象経費の1/3、上限47万円",
+    "summary": "太陽光発電設備と家庭用蓄電池の導入費を補助する。蓄電池のみは対象外。蓄電容量20kWh以下。",
+    "eligibility": [
+      "太陽光発電設備と併せて蓄電池を導入すること"
+    ],
+    "prefectures": [
+      "大阪府"
+    ],
+    "cities": [
+      "枚方市"
+    ],
+    "period": "令和8年5月11日〜令和9年1月29日",
+    "deadline": "2027-01-29",
+    "url": "https://www.city.hirakata.osaka.jp/0000053686.html"
+  },
+  {
+    "id": "hirakata-taishin-kaishu",
+    "name": "枚方市 木造住宅の耐震改修事業補助（令和8年度）",
+    "provider": "大阪府枚方市",
+    "level": "municipality",
+    "category": "耐震",
+    "type": "補助金",
+    "amount": "標準改修：上限80万円（所得要件で105万円）、耐震シェルター上限20万円、屋根軽量化上限20万円",
+    "summary": "旧耐震の木造住宅の耐震改修等を補助する。契約・着工後は申込不可で事前相談が必要。先着順。",
+    "eligibility": [
+      "昭和56年5月31日以前の基準で建てられた個人所有の2階建て以下の木造住宅"
+    ],
+    "prefectures": [
+      "大阪府"
+    ],
+    "cities": [
+      "枚方市"
+    ],
+    "period": "事前相談 令和8年4月7日〜12月14日（先着順）",
+    "deadline": "2026-12-14",
+    "url": "https://www.city.hirakata.osaka.jp/0000002435.html"
+  },
+  {
+    "id": "hirakata-wakamono-akiya",
+    "name": "枚方市若者世代空き家活用補助",
+    "provider": "大阪府枚方市",
+    "level": "municipality",
+    "category": "移住",
+    "type": "補助金",
+    "amount": "最大100万円",
+    "summary": "若者世帯・子育て世帯が市内の空き家を活用して定住する際の除却、新築、リフォーム費を補助する。契約前に事前協議が必要。",
+    "eligibility": [
+      "40歳未満の夫婦等、または18歳未満の子がいる世帯",
+      "昭和56年5月31日以前着工の居住されていない一戸建て等",
+      "市外に1年以上居住など"
+    ],
+    "prefectures": [
+      "大阪府"
+    ],
+    "cities": [
+      "枚方市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.hirakata.osaka.jp/0000028668.html"
+  },
+  {
+    "id": "ibaraki-block",
+    "name": "茨木市 ブロック塀等撤去事業補助",
+    "provider": "大阪府茨木市",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "補助金",
+    "amount": "通学路：上限30万円、その他道路等：上限20万円",
+    "summary": "危険なブロック塀等の撤去工事を補助する。",
+    "eligibility": [
+      "高さ80cm以上などの要件を満たすブロック塀等"
+    ],
+    "prefectures": [
+      "大阪府"
+    ],
+    "cities": [
+      "茨木市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.ibaraki.osaka.jp/kikou/kensetsu/kensetsu/menu/42476.html"
+  },
+  {
+    "id": "ibaraki-solar-2026",
+    "name": "茨木市 令和8年度住宅用太陽光発電システム等設置事業補助（蓄電システム）",
+    "provider": "大阪府茨木市",
+    "level": "municipality",
+    "category": "太陽光・蓄電池",
+    "type": "補助金",
+    "amount": "蓄電システム上限4万円（太陽光等は要確認）",
+    "summary": "住宅用の太陽光発電システム等の設置を補助する。蓄電システムは定置型で1kWh以上のリチウムイオン蓄電池が対象。",
+    "eligibility": [
+      "市税を完納していること",
+      "定置型・蓄電容量1kWh以上のリチウムイオン蓄電池"
+    ],
+    "prefectures": [
+      "大阪府"
+    ],
+    "cities": [
+      "茨木市"
+    ],
+    "period": "令和8年度（期間は要確認）",
+    "deadline": null,
+    "url": "https://www.city.ibaraki.osaka.jp/kikou/sangyo/kankyos/menu/hojo/2024solar.html"
+  },
+  {
+    "id": "ibaraki-taishin",
+    "name": "茨木市 木造住宅の耐震設計・改修・除却補助",
+    "provider": "大阪府茨木市",
+    "level": "municipality",
+    "category": "耐震",
+    "type": "補助金",
+    "amount": "耐震設計は設計費の70%・上限10万円。改修は所得条件により上限が異なる（要確認）",
+    "summary": "木造住宅の耐震設計、耐震改修工事、除却工事を補助する。ページ記載の期限は令和8年1月30日で、最新年度は要確認。",
+    "eligibility": [
+      "平成12年5月31日以前に建築確認を受けた木造住宅"
+    ],
+    "prefectures": [
+      "大阪府"
+    ],
+    "cities": [
+      "茨木市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.ibaraki.osaka.jp/kikou/toshiseibi/kyojuuseisaku/menu/taisin/mokuzo_taishinhojo.html"
+  },
+  {
+    "id": "ibaraki-tasedai",
+    "name": "茨木市 多世代近居・同居支援補助（住宅取得・リフォーム）",
+    "provider": "大阪府茨木市",
+    "level": "municipality",
+    "category": "移住",
+    "type": "補助金",
+    "amount": "取得：上限30万円（経費の1/10）、リフォーム：上限30万円（経費の1/3）",
+    "summary": "市外から転入する子育て世帯などの住宅取得費・リフォーム費を補助する。原則先着順。",
+    "eligibility": [
+      "市外から転入する子育て世帯等（詳細は要確認）"
+    ],
+    "prefectures": [
+      "大阪府"
+    ],
+    "cities": [
+      "茨木市"
+    ],
+    "period": "2026年4月1日〜2027年3月10日",
+    "deadline": "2027-03-10",
+    "url": "https://www.city.ibaraki.osaka.jp/kikou/toshiseibi/kyojuuseisaku/menu/izyuteizyu/tasedai/index.html"
+  },
+  {
     "id": "osaka-city-akiya-riyo-kaishu",
     "name": "大阪市 空家利活用改修補助制度",
     "provider": "大阪市",
@@ -14347,6 +16563,139 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.suita.osaka.jp/kurashi/1018501/1018468/1018482/1018483/1010122.html"
   },
   {
+    "id": "takatsuki-3sedai",
+    "name": "高槻市 3世代ファミリー定住支援補助（住宅取得・リフォーム）",
+    "provider": "大阪府高槻市",
+    "level": "municipality",
+    "category": "移住",
+    "type": "補助金",
+    "amount": "各1戸あたり上限20万円（リフォームは工事費の1/3、工事費10万円以上）",
+    "summary": "子育て世帯が市外から転入して住宅を取得またはリフォームする場合に補助する。先着順。",
+    "eligibility": [
+      "子育て世帯で市外から市内へ転入"
+    ],
+    "prefectures": [
+      "大阪府"
+    ],
+    "cities": [
+      "高槻市"
+    ],
+    "period": "令和8年6月1日〜令和9年3月17日",
+    "deadline": "2027-03-17",
+    "url": "https://www.city.takatsuki.osaka.jp/soshiki/50/3903.html"
+  },
+  {
+    "id": "takatsuki-block",
+    "name": "高槻市 ブロック塀等撤去工事費補助",
+    "provider": "大阪府高槻市",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "補助金",
+    "amount": "見付面積1㎡あたり13,000円を基準、上限300万円",
+    "summary": "道路・公園に面した高さ80cm以上のブロック塀等の撤去費を補助する。着手前申請が必要。",
+    "eligibility": [
+      "道路や公園に面した高さ80cm以上のブロック塀等"
+    ],
+    "prefectures": [
+      "大阪府"
+    ],
+    "cities": [
+      "高槻市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.takatsuki.osaka.jp/soshiki/49/5840.html"
+  },
+  {
+    "id": "takatsuki-ecohouse-2026",
+    "name": "高槻市 令和8年度エコハウス補助金（太陽光・蓄電池）",
+    "provider": "大阪府高槻市",
+    "level": "municipality",
+    "category": "太陽光・蓄電池",
+    "type": "補助金",
+    "amount": "設置費用の1/3：同時設置は上限10万円、蓄電池単独は上限5万円",
+    "summary": "太陽光発電と蓄電池の同時設置、または太陽光連携の蓄電池単独設置の費用を補助する。",
+    "eligibility": [
+      "契約・工事着手前に申請し交付決定を受けること",
+      "太陽光発電は余剰電力買取制度に限る"
+    ],
+    "prefectures": [
+      "大阪府"
+    ],
+    "cities": [
+      "高槻市"
+    ],
+    "period": "令和8年5月11日〜令和9年3月5日",
+    "deadline": "2027-03-05",
+    "url": "https://www.city.takatsuki.osaka.jp/soshiki/25/1909.html"
+  },
+  {
+    "id": "takatsuki-kashida-akiya",
+    "name": "高槻市樫田地区空き家再生事業補助",
+    "provider": "大阪府高槻市",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "補助金",
+    "amount": "45歳未満世帯の世帯主等は上限50万円、それ以外は上限25万円",
+    "summary": "樫田地区空き家情報バンクで賃貸借・売買契約が成立した空き家の改修費を補助する。",
+    "eligibility": [
+      "樫田地区の空き家情報バンクで契約成立"
+    ],
+    "prefectures": [
+      "大阪府"
+    ],
+    "cities": [
+      "高槻市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.takatsuki.osaka.jp/soshiki/17/5242.html"
+  },
+  {
+    "id": "takatsuki-taishin",
+    "name": "高槻市 木造住宅耐震診断・改修補助",
+    "provider": "大阪府高槻市",
+    "level": "municipality",
+    "category": "耐震",
+    "type": "補助金",
+    "amount": "診断：上限5.5万円、改修：工事費の8割・上限70万円",
+    "summary": "令和8年4月から対象が平成12年5月31日以前の基準の木造住宅に拡大。申請は年度の1月末までに行う。",
+    "eligibility": [
+      "平成12年5月31日以前の耐震基準で建築された木造住宅"
+    ],
+    "prefectures": [
+      "大阪府"
+    ],
+    "cities": [
+      "高槻市"
+    ],
+    "period": "令和8年度（申請は1月末まで、予算の範囲内）",
+    "deadline": "2027-01-31",
+    "url": "https://www.city.takatsuki.osaka.jp/soshiki/49/5870.html"
+  },
+  {
+    "id": "takatsuki-v2h-2026",
+    "name": "高槻市 エコハウス補助金（V2H）",
+    "provider": "大阪府高槻市",
+    "level": "municipality",
+    "category": "EV・充電",
+    "type": "補助金",
+    "amount": "太陽光とV2H同時設置：設置費の1/3・上限10万円、V2H単独：上限5万円",
+    "summary": "令和8年度エコハウス補助金の対象として、V2H設備の設置費を補助する。単独設置は太陽光との連携が条件。",
+    "eligibility": [
+      "V2H単独は太陽光発電システムとの連携が必要"
+    ],
+    "prefectures": [
+      "大阪府"
+    ],
+    "cities": [
+      "高槻市"
+    ],
+    "period": "令和8年5月11日〜令和9年3月5日（高槻市エコハウス補助金の期間）",
+    "deadline": "2027-03-05",
+    "url": "https://www.city.takatsuki.osaka.jp/soshiki/25/1909.html"
+  },
+  {
     "id": "toyonaka-block-tekkyo",
     "name": "豊中市 ブロック塀などの撤去費の補助",
     "provider": "豊中市",
@@ -14640,6 +16989,119 @@ export const RESIDENT_PROGRAMS = [
     "period": "令和8年度（市町ごとのため要確認）",
     "deadline": null,
     "url": "https://web.pref.hyogo.lg.jp/ks29/wd30_000000017.html"
+  },
+  {
+    "id": "akashi-jutaku-kaizo",
+    "name": "明石市高齢者等住宅改造費助成事業",
+    "provider": "兵庫県明石市",
+    "level": "municipality",
+    "category": "バリアフリー・介護",
+    "type": "助成金",
+    "amount": "要確認",
+    "summary": "高齢者・障害者の手すり設置や段差解消等の住宅改造費を助成。",
+    "eligibility": [
+      "所得要件あり（詳細は要確認）"
+    ],
+    "prefectures": [
+      "兵庫県"
+    ],
+    "cities": [
+      "明石市"
+    ],
+    "period": "申請受理を8月19日から停止中。再開見込みは令和9年4月1日（予定）",
+    "deadline": null,
+    "url": "https://www.city.akashi.lg.jp/fukushi/k_kaigo_shitsu/kenko/koresha/jyutaku-kaizou.html"
+  },
+  {
+    "id": "akashi-katei-datsutanso",
+    "name": "明石市家庭用脱炭素化設備導入支援補助金",
+    "provider": "兵庫県明石市",
+    "level": "municipality",
+    "category": "太陽光・蓄電池",
+    "type": "補助金",
+    "amount": "太陽光 3kW未満4万円・3kW以上8万円（定額）、蓄電池5万円（定額）",
+    "summary": "自己居住住宅への太陽光発電・蓄電池の導入費用を補助。",
+    "eligibility": [
+      "新築住宅に設置済みの設備は対象外",
+      "蓄電池は国補助事業の登録機器であること"
+    ],
+    "prefectures": [
+      "兵庫県"
+    ],
+    "cities": [
+      "明石市"
+    ],
+    "period": "令和8年度（市ページでは募集中表示、予算1,950万円）。最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.akashi.lg.jp/kankyou/kankyou_soumu_ka/top/shouenesetsubidounyuusien.html"
+  },
+  {
+    "id": "akashi-reform",
+    "name": "明石市住宅リフォーム助成事業",
+    "provider": "兵庫県明石市",
+    "level": "municipality",
+    "category": "省エネ住宅",
+    "type": "助成金",
+    "amount": "工事経費の10％以内・上限10万円",
+    "summary": "市内事業者による住宅リフォーム工事費の一部を助成。募集50名の抽選制。",
+    "eligibility": [
+      "工事費20万円以上（税込）",
+      "市内事業者の施工"
+    ],
+    "prefectures": [
+      "兵庫県"
+    ],
+    "cities": [
+      "明石市"
+    ],
+    "period": "2026年度の抽選は2026年5月26日に実施済み（募集終了）",
+    "deadline": null,
+    "url": "https://www.city.akashi.lg.jp/sangyou/sangyou_ka/jyutakurifomu.html"
+  },
+  {
+    "id": "akashi-shutsusan-kosodate",
+    "name": "明石市 妊婦支援給付金・出産子育て応援給付",
+    "provider": "兵庫県明石市",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "給付",
+    "amount": "妊娠時5万円・出生時5万円（子ども1人あたり）",
+    "summary": "妊娠届出後の面談で5万円、出生後の面談で子ども1人あたり5万円を支給。",
+    "eligibility": [
+      "明石市に住民票があること",
+      "面談を受けること"
+    ],
+    "prefectures": [
+      "兵庫県"
+    ],
+    "cities": [
+      "明石市"
+    ],
+    "period": "最新は要確認（出生後は生後4か月までに申請）",
+    "deadline": null,
+    "url": "https://www.city.akashi.lg.jp/kodomo/jidou_fu_ka/s_k_gift.html"
+  },
+  {
+    "id": "akashi-taishin-kaishu",
+    "name": "明石市住宅耐震化促進事業補助（耐震改修等）",
+    "provider": "兵庫県明石市",
+    "level": "municipality",
+    "category": "耐震",
+    "type": "補助金",
+    "amount": "要確認",
+    "summary": "耐震改修工事費・簡易耐震改修・シェルター型・防災ベッド・建替え等への補助。",
+    "eligibility": [
+      "市内の対象住宅の所有者等（詳細は要確認）"
+    ],
+    "prefectures": [
+      "兵庫県"
+    ],
+    "cities": [
+      "明石市"
+    ],
+    "period": "令和8年度は予定数に達し受付終了。令和9年度は要問合せ",
+    "deadline": null,
+    "url": "https://www.city.akashi.lg.jp/tosei/ken_anzen_ka/kurashi/sumai/taishin/gaiyo.html"
   },
   {
     "id": "amagasaki-akiya-kaishu",
@@ -15043,6 +17505,237 @@ export const RESIDENT_PROGRAMS = [
     "period": "最新は要確認（予算に限りあり）",
     "deadline": null,
     "url": "https://www.city.himeji.lg.jp/shisei/0000024502.html"
+  },
+  {
+    "id": "kakogawa-akiya-josyaku",
+    "name": "加古川市隣接空き家一体利用除却補助",
+    "provider": "兵庫県加古川市",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "補助金",
+    "amount": "除却工事費の1/5・上限25万円",
+    "summary": "自己所有地に隣接する狭小宅地等の空き家の除却費を補助。",
+    "eligibility": [
+      "個人のみ",
+      "自己所有地と接する空き家"
+    ],
+    "prefectures": [
+      "兵庫県"
+    ],
+    "cities": [
+      "加古川市"
+    ],
+    "period": "令和8年度は12月25日まで",
+    "deadline": "2026-12-25",
+    "url": "https://www.city.kakogawa.lg.jp/soshikikarasagasu/tosi_kekaku/jyutaku/akiya_akichi/1562032385484.html"
+  },
+  {
+    "id": "kakogawa-akiya-kaishu",
+    "name": "加古川市空き家活用改修費補助",
+    "provider": "兵庫県加古川市",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "補助金",
+    "amount": "改修工事費の1/3・上限50万円",
+    "summary": "空き家バンク登録の市街化区域内住宅の改修費を補助。",
+    "eligibility": [
+      "空き家バンク登録物件",
+      "築20年以上など"
+    ],
+    "prefectures": [
+      "兵庫県"
+    ],
+    "cities": [
+      "加古川市"
+    ],
+    "period": "令和8年度は12月25日まで（予算到達で終了）",
+    "deadline": "2026-12-25",
+    "url": "https://www.city.kakogawa.lg.jp/soshikikarasagasu/tosi_kekaku/jyutaku/akiya_akichi/1562034551362.html"
+  },
+  {
+    "id": "kakogawa-chikudenchi",
+    "name": "加古川市家庭用蓄電池導入補助金",
+    "provider": "兵庫県加古川市",
+    "level": "municipality",
+    "category": "太陽光・蓄電池",
+    "type": "補助金",
+    "amount": "1kWhあたり5万円（上限7kWh・35万円）",
+    "summary": "太陽光設置から10年経過した住宅の家庭用蓄電池導入を補助。",
+    "eligibility": [
+      "市内に住民登録のある個人",
+      "SII登録の蓄電システム",
+      "太陽光設置から10年経過"
+    ],
+    "prefectures": [
+      "兵庫県"
+    ],
+    "cities": [
+      "加古川市"
+    ],
+    "period": "令和8年4月20日〜令和9年3月31日（予算1,750万円・先着。10月2日時点で申請額1,495万円）",
+    "deadline": "2027-03-31",
+    "url": "https://www.city.kakogawa.lg.jp/soshikikarasagasu/kankyobu/kankyo_sesaku/seisaku/hojo_josei/49703.html"
+  },
+  {
+    "id": "kakogawa-ijuu-shienkin",
+    "name": "加古川市移住支援金（東京圏からの移住）",
+    "provider": "兵庫県加古川市",
+    "level": "municipality",
+    "category": "移住",
+    "type": "給付",
+    "amount": "世帯100万円・単身60万円（18歳未満の同行者1人につき100万円加算）",
+    "summary": "兵庫県と協働し、東京圏から移住した人に支援金を交付。",
+    "eligibility": [
+      "転入後1年以内の申請",
+      "5年以上継続して居住する意思",
+      "就業等の要件あり"
+    ],
+    "prefectures": [
+      "兵庫県"
+    ],
+    "cities": [
+      "加古川市"
+    ],
+    "period": "令和8年度の申請受付は2027年2月26日まで",
+    "deadline": "2027-02-26",
+    "url": "https://www.city.kakogawa.lg.jp/soshikikarasagasu/chiikishinkobu/shokoroseika_rousei/1573436789098.html"
+  },
+  {
+    "id": "kakogawa-ijuu-teijuu",
+    "name": "加古川市移住・定住助成金（田園まちづくり地区）",
+    "provider": "兵庫県加古川市",
+    "level": "municipality",
+    "category": "移住",
+    "type": "助成金",
+    "amount": "市外転入者は最大50万円、空き家活用は最大100万円",
+    "summary": "田園まちづくり計画策定地区の住宅への移住・定住を助成。",
+    "eligibility": [
+      "市外からの転入者",
+      "田園まちづくり計画策定地区の住宅"
+    ],
+    "prefectures": [
+      "兵庫県"
+    ],
+    "cities": [
+      "加古川市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.kakogawa.lg.jp/soshikikarasagasu/tosi_kekaku/kaihatsushidoka/denenmatidukuri/ijuu_teijuujosei/40176.html"
+  },
+  {
+    "id": "kakogawa-jutaku-kaizo",
+    "name": "加古川市住宅改造費助成事業",
+    "provider": "兵庫県加古川市",
+    "level": "municipality",
+    "category": "バリアフリー・介護",
+    "type": "助成金",
+    "amount": "助成率1/3〜全額・上限100万円",
+    "summary": "要介護・要支援認定者や障害者手帳所持者のいる世帯のバリアフリー改造費を助成。",
+    "eligibility": [
+      "要介護・要支援認定または障害者手帳等",
+      "所得要件あり",
+      "着工前の申請"
+    ],
+    "prefectures": [
+      "兵庫県"
+    ],
+    "cities": [
+      "加古川市"
+    ],
+    "period": "最新は要確認（手引きは令和7年度版。予算到達で休止の場合あり）",
+    "deadline": null,
+    "url": "https://www.city.kakogawa.lg.jp/soshikikarasagasu/fukushibu/kaigohokenka/kakushushinseisho/j_kaisyu_kaizo/1413872945470.html"
+  },
+  {
+    "id": "kakogawa-kekkon-shinseikatsu",
+    "name": "加古川市結婚新生活支援補助金",
+    "provider": "兵庫県加古川市",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "補助金",
+    "amount": "最大60万円（夫婦とも29歳以下）／最大30万円（夫婦とも39歳以下）",
+    "summary": "新婚世帯の住居費・リフォーム費・引越費用を補助。",
+    "eligibility": [
+      "新婚世帯",
+      "夫婦の年齢要件あり（所得要件等は要確認）"
+    ],
+    "prefectures": [
+      "兵庫県"
+    ],
+    "cities": [
+      "加古川市"
+    ],
+    "period": "2026年6月1日〜2027年3月31日（先着）",
+    "deadline": "2027-03-31",
+    "url": "https://www.city.kakogawa.lg.jp/soshikikarasagasu/kodomo/kodomoseisaku/kekkonshinseikatsu/31177.html"
+  },
+  {
+    "id": "kakogawa-ninpu-kyufu",
+    "name": "加古川市妊婦支援給付金",
+    "provider": "兵庫県加古川市",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "給付",
+    "amount": "1回目5万円、2回目5万円×子どもの数",
+    "summary": "妊娠届出後および出産後の面談等に応じて給付。",
+    "eligibility": [
+      "市に妊娠届出をした妊婦"
+    ],
+    "prefectures": [
+      "兵庫県"
+    ],
+    "cities": [
+      "加古川市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.kakogawa.lg.jp/soshikikarasagasu/kodomo/ikujishienka/37903.html"
+  },
+  {
+    "id": "kakogawa-solar",
+    "name": "加古川市再生可能エネルギー利用設備設置事業補助金（住宅用太陽光）",
+    "provider": "兵庫県加古川市",
+    "level": "municipality",
+    "category": "太陽光・蓄電池",
+    "type": "補助金",
+    "amount": "1kWあたり14万円（上限3kW・42万円）",
+    "summary": "住宅用太陽光発電設備の設置費を補助。",
+    "eligibility": [
+      "市内の住宅への設置",
+      "交付決定前の契約は対象外"
+    ],
+    "prefectures": [
+      "兵庫県"
+    ],
+    "cities": [
+      "加古川市"
+    ],
+    "period": "令和8年4月20日〜令和9年3月31日（先着・予算到達で終了）",
+    "deadline": "2027-03-31",
+    "url": "https://www.city.kakogawa.lg.jp/soshikikarasagasu/kankyobu/kankyo_sesaku/seisaku/hojo_josei/43146.html"
+  },
+  {
+    "id": "kakogawa-taishin",
+    "name": "加古川市住宅耐震化等促進事業補助金",
+    "provider": "兵庫県加古川市",
+    "level": "municipality",
+    "category": "耐震",
+    "type": "補助金",
+    "amount": "要確認（耐震改修・簡易改修・屋根軽量化・シェルター・防災ベッド等）",
+    "summary": "昭和56年5月以前着工の住宅の耐震化工事等を補助。",
+    "eligibility": [
+      "昭和56年5月31日以前に着工された住宅"
+    ],
+    "prefectures": [
+      "兵庫県"
+    ],
+    "cities": [
+      "加古川市"
+    ],
+    "period": "令和8年4月20日〜12月25日（予算到達で終了）",
+    "deadline": "2026-12-25",
+    "url": "https://www.city.kakogawa.lg.jp/soshikikarasagasu/tosi_kekaku/kenchikushidoka/taishin/1490770118951.html"
   },
   {
     "id": "kobe-akiya-kaitai-hojo",
@@ -16779,6 +19472,230 @@ export const RESIDENT_PROGRAMS = [
     "period": "令和8年度（期間は要確認）",
     "deadline": null,
     "url": "https://www.city.hiroshima.lg.jp/living/sumai/1021346/1026338/1018628.html"
+  },
+  {
+    "id": "kure-akiya-kazai",
+    "name": "呉市空き家家財道具等処分支援事業",
+    "provider": "広島県呉市",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "補助金",
+    "amount": "補助率1/2・上限10万円",
+    "summary": "空き家の家財道具等の処分費用を補助。",
+    "eligibility": [
+      "要確認"
+    ],
+    "prefectures": [
+      "広島県"
+    ],
+    "cities": [
+      "呉市"
+    ],
+    "period": "令和8年4月13日受付開始、交付申請期限 令和8年12月15日",
+    "deadline": "2026-12-15",
+    "url": "https://www.city.kure.lg.jp/soshiki/46/akiyakazaidougusyobun.html"
+  },
+  {
+    "id": "kure-block",
+    "name": "呉市ブロック塀等安全確保事業",
+    "provider": "広島県呉市",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "補助金",
+    "amount": "除却：1mあたり9,000円、建替：1mあたり36,000円で算定",
+    "summary": "通学路等の安全性が確認できないブロック塀の除却・建替費用の一部を補助。",
+    "eligibility": [
+      "通学路等に面するブロック塀等"
+    ],
+    "prefectures": [
+      "広島県"
+    ],
+    "cities": [
+      "呉市"
+    ],
+    "period": "令和8年度の募集は要確認（ページは令和7年度分表記）",
+    "deadline": null,
+    "url": "https://www.city.kure.lg.jp/soshiki/22/cbhojyo7.html"
+  },
+  {
+    "id": "kure-chikudenchi",
+    "name": "呉市家庭用蓄電池補助（既存太陽光向け）",
+    "provider": "広島県呉市",
+    "level": "municipality",
+    "category": "太陽光・蓄電池",
+    "type": "補助金",
+    "amount": "定額5万円",
+    "summary": "既存の太陽光発電に接続する蓄電池の後付け設置を補助。",
+    "eligibility": [
+      "個人",
+      "既存太陽光発電に接続"
+    ],
+    "prefectures": [
+      "広島県"
+    ],
+    "cities": [
+      "呉市"
+    ],
+    "period": "令和8年5月25日〜11月30日（先着・予算100万円）",
+    "deadline": "2026-11-30",
+    "url": "https://www.city.kure.lg.jp/soshiki/18/chikudenchi-hojo.html"
+  },
+  {
+    "id": "kure-ijuu-jutaku",
+    "name": "呉市移住希望者住宅取得支援事業",
+    "provider": "広島県呉市",
+    "level": "municipality",
+    "category": "移住",
+    "type": "補助金",
+    "amount": "中古住宅 基本50万円／新築戸建 基本90万円（新婚・子育て加算 各30万円）",
+    "summary": "市外からの移住者の住宅取得費を補助。",
+    "eligibility": [
+      "市外からの移住者"
+    ],
+    "prefectures": [
+      "広島県"
+    ],
+    "cities": [
+      "呉市"
+    ],
+    "period": "住宅政策課一覧では受付終了表記。最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.kure.lg.jp/soshiki/46/zyuutakusyutokusien.html"
+  },
+  {
+    "id": "kure-ijuu-shienkin",
+    "name": "呉市移住支援金",
+    "provider": "広島県呉市",
+    "level": "municipality",
+    "category": "移住",
+    "type": "給付",
+    "amount": "2人以上世帯100万円／単身60万円",
+    "summary": "移住者への支援金。",
+    "eligibility": [
+      "就業先等の要件あり（詳細は要確認）"
+    ],
+    "prefectures": [
+      "広島県"
+    ],
+    "cities": [
+      "呉市"
+    ],
+    "period": "令和8年度の受付案内あり。期間は要確認",
+    "deadline": null,
+    "url": "https://www.city.kure.lg.jp/soshiki/46/izyushienkin.html"
+  },
+  {
+    "id": "kure-kiken-joukyaku",
+    "name": "呉市危険建物除却促進事業",
+    "provider": "広島県呉市",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "補助金",
+    "amount": "除却費の30％・上限30万円（条件により50万円）",
+    "summary": "危険な空き家の解体費用を助成。",
+    "eligibility": [
+      "市内の危険な空き家の所有者等",
+      "接道条件で上限50万円に引上げ"
+    ],
+    "prefectures": [
+      "広島県"
+    ],
+    "cities": [
+      "呉市"
+    ],
+    "period": "令和8年度は受付延長（2026年9月25日更新）。期限は要確認",
+    "deadline": null,
+    "url": "https://www.city.kure.lg.jp/soshiki/46/index1.html"
+  },
+  {
+    "id": "kure-mokuzou-taishin",
+    "name": "呉市木造住宅耐震改修等助成事業",
+    "provider": "広島県呉市",
+    "level": "municipality",
+    "category": "耐震",
+    "type": "補助金",
+    "amount": "居住誘導区域内：工事費の80％以内・上限115万円／区域外：23％以内・上限30万円",
+    "summary": "昭和56年5月以前の木造住宅の耐震改修等工事費を補助。",
+    "eligibility": [
+      "昭和56年5月31日以前に建てられた木造住宅",
+      "改修後の総合評点1.0以上"
+    ],
+    "prefectures": [
+      "広島県"
+    ],
+    "cities": [
+      "呉市"
+    ],
+    "period": "最新は要確認（ページ更新 令和8年4月1日）",
+    "deadline": null,
+    "url": "https://www.city.kure.lg.jp/soshiki/22/mokuzoukaisyuu7.html"
+  },
+  {
+    "id": "kure-shinkon-teijuu",
+    "name": "呉市新婚・子育て世帯定住支援事業",
+    "provider": "広島県呉市",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "補助金",
+    "amount": "基本30万円（購入費の1/2）・最大100万円（加算あり）",
+    "summary": "新婚・子育て世帯の中古住宅購入費を補助。",
+    "eligibility": [
+      "市内の新婚・子育て世帯",
+      "購入前の交付申請が必要"
+    ],
+    "prefectures": [
+      "広島県"
+    ],
+    "cities": [
+      "呉市"
+    ],
+    "period": "住宅政策課一覧では受付終了表記。最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.kure.lg.jp/soshiki/46/kosodatesetainoteizyuusiennzigyou.html"
+  },
+  {
+    "id": "kure-shouene-kaden",
+    "name": "呉市省エネ家電買換促進補助金",
+    "provider": "広島県呉市",
+    "level": "municipality",
+    "category": "省エネ住宅",
+    "type": "補助金",
+    "amount": "要確認",
+    "summary": "省エネ家電への買換えを補助。令和8年度の手引きあり。",
+    "eligibility": [
+      "要確認"
+    ],
+    "prefectures": [
+      "広島県"
+    ],
+    "cities": [
+      "呉市"
+    ],
+    "period": "令和8年度（期間は要確認）",
+    "deadline": null,
+    "url": "https://www.city.kure.lg.jp/soshiki/18/shouenekadenhojo.html"
+  },
+  {
+    "id": "kure-solar-battery",
+    "name": "呉市住宅用太陽光発電設備・蓄電池設置費補助（重点対策加速化事業）",
+    "provider": "広島県呉市",
+    "level": "municipality",
+    "category": "太陽光・蓄電池",
+    "type": "補助金",
+    "amount": "太陽光 1kWあたり7万円（上限63万円）＋加算、蓄電池 費用の1/3＋定額5万円",
+    "summary": "住宅用太陽光発電設備・家庭用蓄電池の設置費を補助。",
+    "eligibility": [
+      "戸建て居住専用住宅を所有し居住する個人"
+    ],
+    "prefectures": [
+      "広島県"
+    ],
+    "cities": [
+      "呉市"
+    ],
+    "period": "最新は要確認（予算6,780万円、予算到達で終了）",
+    "deadline": null,
+    "url": "https://www.city.kure.lg.jp/soshiki/18/taiyoukou-hojo.html"
   },
   {
     "id": "yamaguchi-ijyu-shienkin",
@@ -18599,6 +21516,141 @@ export const RESIDENT_PROGRAMS = [
     "period": "要確認",
     "deadline": null,
     "url": "https://www.city.nagasaki.lg.jp/page/1921.html"
+  },
+  {
+    "id": "sasebo-akiya-joukyaku",
+    "name": "佐世保市老朽危険空き家及び空き建築物除却費補助金",
+    "provider": "長崎県佐世保市",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "補助金",
+    "amount": "限度額60万円（市街化区域内の住宅は条件により最大100万円）",
+    "summary": "老朽危険空き家等の除却費の一部を補助。",
+    "eligibility": [
+      "希望者多数の場合は市が選定"
+    ],
+    "prefectures": [
+      "長崎県"
+    ],
+    "cities": [
+      "佐世保市"
+    ],
+    "period": "令和8年度は受付終了（相談期間 4/15〜5/29）",
+    "deadline": null,
+    "url": "https://www.city.sasebo.lg.jp/tosiseibi/jyutak/rokyu.html"
+  },
+  {
+    "id": "sasebo-chuko-kosodate",
+    "name": "佐世保市子育て世帯の中古住宅購入費補助",
+    "provider": "長崎県佐世保市",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "補助金",
+    "amount": "取得費用（税抜、土地代除く）の1/5・上限40万円",
+    "summary": "居住誘導区域内の中古住宅を取得する子育て世帯への補助。",
+    "eligibility": [
+      "居住誘導区域内の中古住宅",
+      "完了後10年間の居住義務",
+      "交付決定前の売買契約は対象外"
+    ],
+    "prefectures": [
+      "長崎県"
+    ],
+    "cities": [
+      "佐世保市"
+    ],
+    "period": "令和8年5月18日受付開始（予算到達で終了）",
+    "deadline": null,
+    "url": "https://www.city.sasebo.lg.jp/tosiseibi/jyutak/3sedaidoukyokinkyo.html"
+  },
+  {
+    "id": "sasebo-eeco-point",
+    "name": "させぼeエコポイント（省エネ家電）",
+    "provider": "長崎県佐世保市",
+    "level": "municipality",
+    "category": "省エネ住宅",
+    "type": "補助金",
+    "amount": "税抜購入額の1/5相当のポイント・1台あたり上限20,000ポイント",
+    "summary": "エアコン・冷蔵庫・テレビの省エネ家電購入者にポイントを発行。",
+    "eligibility": [
+      "市内実店舗で購入し市内の自宅に設置（ネット通販は対象外）"
+    ],
+    "prefectures": [
+      "長崎県"
+    ],
+    "cities": [
+      "佐世保市"
+    ],
+    "period": "令和8年5月18日〜12月21日（予算到達で終了）",
+    "deadline": "2026-12-21",
+    "url": "https://www.city.sasebo.lg.jp/kankyo/zeroca/saseboeeco.html"
+  },
+  {
+    "id": "sasebo-reform",
+    "name": "佐世保市住宅性能向上リフォーム支援事業",
+    "provider": "長崎県佐世保市",
+    "level": "municipality",
+    "category": "バリアフリー・介護",
+    "type": "補助金",
+    "amount": "対象工事費の1/5・上限20万円",
+    "summary": "バリアフリー・省エネ・防災等の住宅リフォーム工事を補助。",
+    "eligibility": [
+      "対象工事費30万円以上",
+      "1住宅につき1回限り"
+    ],
+    "prefectures": [
+      "長崎県"
+    ],
+    "cities": [
+      "佐世保市"
+    ],
+    "period": "令和7〜8年度（追加募集は令和8年6月1日から先着）。予算到達で終了",
+    "deadline": null,
+    "url": "https://www.city.sasebo.lg.jp/tosiseibi/kentiku/reform.html"
+  },
+  {
+    "id": "sasebo-solar",
+    "name": "佐世保市太陽光発電設備等設置補助金（重点対策加速化事業）",
+    "provider": "長崎県佐世保市",
+    "level": "municipality",
+    "category": "太陽光・蓄電池",
+    "type": "補助金",
+    "amount": "個人1kWあたり7万円、蓄電池は価格の1/3目安、上限80万円",
+    "summary": "太陽光発電設備等の設置費を補助。蓄電池のみは対象外。",
+    "eligibility": [
+      "市内の住宅等"
+    ],
+    "prefectures": [
+      "長崎県"
+    ],
+    "cities": [
+      "佐世保市"
+    ],
+    "period": "令和8年度は予算上限到達により受付終了",
+    "deadline": null,
+    "url": "https://www.city.sasebo.lg.jp/kankyo/zeroca/r6hojo_pvbt.html"
+  },
+  {
+    "id": "sasebo-taishin",
+    "name": "佐世保市安全・安心住まいづくり支援事業（木造住宅耐震診断）",
+    "provider": "長崎県佐世保市",
+    "level": "municipality",
+    "category": "耐震",
+    "type": "補助金",
+    "amount": "診断費用定額136,000円のうち113,000円を助成",
+    "summary": "木造戸建て住宅の耐震診断費用を助成。耐震改修補助は要確認。",
+    "eligibility": [
+      "要確認"
+    ],
+    "prefectures": [
+      "長崎県"
+    ],
+    "cities": [
+      "佐世保市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.sasebo.lg.jp/tosiseibi/kentiku/kodatetaisin.html"
   },
   {
     "id": "kumamoto-akiya-katsuyo-model",
