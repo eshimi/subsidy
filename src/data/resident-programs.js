@@ -28046,6 +28046,30 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.pref.kyoto.jp/taishin/wshindan.html"
   },
   {
+    "id": "fukuchiyama-akiya-kaishu",
+    "name": "農山村地域空き家改修費補助金",
+    "provider": "京都府福知山市",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "補助金",
+    "amount": "費用の2分の1以内。上限は移住する利用者80万円、それ以外40万円",
+    "summary": "農山村地域の空き家バンク登録物件を改修する費用を補助。門・塀の新設改修は対象外。",
+    "eligibility": [
+      "空き家バンク登録物件",
+      "市外在住者または転入1年未満",
+      "交付後5年以上居住(5年以内の転出等は返還)"
+    ],
+    "prefectures": [
+      "京都府"
+    ],
+    "cities": [
+      "福知山市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.fukuchiyama.lg.jp/reiki/reiki_honbun/k103RG00000659.html"
+  },
+  {
     "id": "fukuchiyama-iju-shienkin",
     "name": "福知山市移住支援金",
     "provider": "京都府福知山市",
