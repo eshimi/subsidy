@@ -401,6 +401,51 @@ export const INDUSTRIES = [
   { slug: 'care', label: '医療・介護・保育', match: /医療|介護|福祉|保育/, lead: '医療・介護・保育などに関係しそうな補助金です。' },
 ];
 
+// 検索用の、ふだん使う言葉（制度名が硬くても、暮らしや仕事の言葉で見つけられるように）
+// 目的・業種のタグごとの言葉。タイトルに入っている言葉（省力化・持続化など）からも、言葉を足す
+const EVERYDAY_BY_TAG = {
+  equipment: ['機械', '設備', '店舗', '工場', '買い替え', '修理', '導入', '機材'],
+  digital: ['パソコン', 'ソフト', '会計', '予約', '業務効率化', 'デジタル化', '人手不足', 'システム'],
+  sales: ['集客', '宣伝', 'チラシ', 'ホームページ', '広告', '売上', '新規のお客さん', 'ネット販売', 'お店'],
+  hiring: ['採用', '人材', '研修', '社員', '給料', '賃上げ', '資格', '働く人'],
+  green: ['省エネ', '電気代', '節約', 'エアコン', 'LED', '太陽光', '環境', '節電'],
+  research: ['新商品', '試作', '開発', '新技術', '新しいサービス', '研究'],
+  succession: ['後継者', '引き継ぎ', '事業を譲る', '家業', '親の店'],
+  startup: ['起業', '開業', '独立', '副業', 'はじめて', '創業', '自分のお店'],
+  region: ['地域', '観光', '農業', '地元', '移住', '特産品', 'まちおこし'],
+  food: ['飲食', 'お店', 'カフェ', 'レストラン', '食べ物', '料理', '弁当'],
+  retail: ['お店', '商店街', '物販', '小売', '雑貨', '地元のお店'],
+  beauty: ['美容院', 'サロン', '理容', 'エステ', '髪'],
+  construction: ['リフォーム', '住宅', '工務店', '建築', '家'],
+  manufacturing: ['ものづくり', '製造', '工場', '職人', '製品'],
+  it: ['ソフト', 'パソコン', 'アプリ', 'ウェブ', 'システム'],
+  tourism: ['旅館', 'ホテル', '観光', '宿', 'お客さま'],
+  agriculture: ['農家', '農業', '漁業', '畑', '水産'],
+  care: ['介護', '保育', '医療', '福祉', '施設'],
+};
+// 制度名に入っている言葉から足す言葉（硬い言い方を、ふだんの言葉に言い換える）
+const EVERYDAY_BY_TITLE = [
+  [/省力化/, ['人手不足', '作業の効率化', '機械']],
+  [/持続化/, ['販路', '集客', 'チラシ', 'ホームページ']],
+  [/ものづくり/, ['新商品', '試作', '機械']],
+  [/事業承継|引継|M&A/, ['後継者', '事業を譲る', '引き継ぎ']],
+  [/デジタル|IT|ＩＴ|DX/, ['パソコン', 'ソフト', '業務効率化']],
+  [/雇用|人材|キャリア|助成金/, ['採用', '社員', '研修', '給料']],
+  [/創業|起業/, ['起業', '開業', 'はじめて']],
+  [/省エネ|脱炭素|再エネ|GX/, ['電気代', '節約', '省エネ']],
+  [/再構築|新事業/, ['新しい事業', '業種転換', '新商品']],
+  [/観光|地域|地方|農林/, ['地域', '地元', '観光']],
+  [/住宅|子育て/, ['家', '住まい', '子育て']],
+];
+export function everydayOf(g) {
+  const t = { p: tagsOf(g).p, i: tagsOf(g).i };
+  const words = new Set();
+  for (const slug of t.p) (EVERYDAY_BY_TAG[slug] || []).forEach((w) => words.add(w));
+  for (const slug of t.i) (EVERYDAY_BY_TAG[slug] || []).forEach((w) => words.add(w));
+  for (const [re, list] of EVERYDAY_BY_TITLE) if (re.test(g.title)) list.forEach((w) => words.add(w));
+  return [...words];
+}
+
 // 制度ごとの目的・業種のタグ
 export function tagsOf(g) {
   return {
@@ -522,7 +567,7 @@ ${hubs.map((h) => `        <li><a href="${h.file}">${h.heading}</a></li>`).join(
   writeFileSync(join(out, 'industries.html'), topicIndex({ hubs: industries, heading: '業種別の補助金', lead: '業種に関係しそうな、募集中の補助金を一覧にしました。', description: '飲食、小売、美容、建設、製造、IT、観光、農業、医療・介護など、業種から募集中の補助金を探せます。', canonicalPath: '/grants/industries.html' }));
   for (const h of industries) writeFileSync(join(out, h.file), listPage({ title: h.title, heading: h.heading, lead: h.lead, items: h.items, now, canonicalPath: `/grants/${h.file}`, extra: h.extra }));
   // 検索画面・トップページ用の軽いデータ（ブラウザで絞り込む）
-  writeFileSync(join(out, 'search.json'), JSON.stringify({ generatedAt: new Date(now).toISOString(), items: grants.map((g) => ({ id: g.id, t: g.title, a: g.area, m: g.max, s: g.start, e: g.end, ...tagsOf(g) })) }));
+  writeFileSync(join(out, 'search.json'), JSON.stringify({ generatedAt: new Date(now).toISOString(), items: grants.map((g) => ({ id: g.id, t: g.title, a: g.area, m: g.max, s: g.start, e: g.end, ...tagsOf(g), k: everydayOf(g) })) }));
   writeFileSync(join(out, 'purposes.html'), purposeIndex(purposes, now));
   for (const h of purposes) writeFileSync(join(out, h.file), listPage({ title: h.title, heading: h.heading, lead: h.lead, items: h.items, now, canonicalPath: `/grants/${h.file}` }));
   writeFileSync(join(out, 'deadlines.ics'), icsFor(grants, now));

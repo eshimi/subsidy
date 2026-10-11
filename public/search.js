@@ -91,10 +91,13 @@
     const title = String(g.t || '');
     const area = String(g.a || '');
     let s = 0;
+    // ふだんの言葉（g.k）：入力と、言葉どうしが含み合うときに一致とみなす（1語のときは完全一致も可）
+    const everyday = Array.isArray(g.k) ? g.k : [];
     for (const w of c.words) {
       const lw = w.toLowerCase();
       if (title.toLowerCase().includes(lw)) s += 3;
       else if (area.toLowerCase().includes(lw)) s += 1;
+      if (everyday.some((k) => k === w || (w.length >= 2 && k.includes(w)) || (k.length >= 2 && w.includes(k)))) s += 2;
     }
     const hits = new Set();
     for (const [re, kind, slug] of TAG_HINTS) if (re.test(query)) hits.add(kind + ':' + slug);
@@ -106,7 +109,7 @@
     if (c.words.length === 0 && query) {
       // 文章の場合：文字の並びの重なりで、タイトルとの近さを見る
       const q = bigrams(query);
-      const tb = bigrams(title);
+      const tb = bigrams(`${title} ${everyday.join(' ')}`);
       let n = 0;
       for (const b of q) if (tb.has(b)) n++;
       const ratio = q.size ? n / q.size : 0;
