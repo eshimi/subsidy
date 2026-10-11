@@ -156,7 +156,9 @@
     list.innerHTML = out.slice(0, shown).map((g) => {
       const days = Math.ceil((Date.parse(g.e) - now) / DAY);
       const soon = days <= 30 ? `<span class="s-soon">締切まで${days}日</span>` : `締切 ${esc(dateJa(g.e))}`;
-      return `<li><a href="grants/${encodeURIComponent(g.id)}.html">${esc(g.t)}</a><p>${soon}｜${esc(area(g.a))}｜${esc(yen(g.m))}</p></li>`;
+      const href = g.url ? esc(g.url) : `grants/${encodeURIComponent(g.id)}.html`;
+      const ext = g.url ? ' target="_blank" rel="noopener"' : '';
+      return `<li><a href="${href}"${ext}>${esc(g.t)}</a><p>${soon}｜${esc(area(g.a))}｜${esc(yen(g.m))}</p></li>`;
     }).join('');
     more.hidden = out.length <= shown;
   }
