@@ -2233,6 +2233,28 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.metro.tokyo.lg.jp/information/press/2026/03/2026033008"
   },
   {
+    "id": "adachi-aircon",
+    "name": "気候変動適応対策エアコン購入費補助金（設置後申請）",
+    "provider": "東京都足立区",
+    "level": "municipality",
+    "category": "省エネ住宅",
+    "type": "補助金",
+    "amount": "要確認",
+    "summary": "省エネ性能の高いエアコン購入費の一部を補助。",
+    "eligibility": [
+      "要確認"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "足立区"
+    ],
+    "period": "受付中と掲載（期限は要確認）",
+    "deadline": null,
+    "url": "https://www.city.adachi.tokyo.jp/kankyo/kikouhendoutekioutaisakueakon.html"
+  },
+  {
     "id": "adachi-block-cut",
     "name": "ブロック塀等カット工事助成制度",
     "provider": "足立区",
@@ -2315,6 +2337,99 @@ export const RESIDENT_PROGRAMS = [
     "period": "令和8年度（区の一覧では8月31日提出分で受付終了と記載。ページ間で表記が異なるため要確認）",
     "deadline": null,
     "url": "https://www.city.adachi.tokyo.jp/kankyo/kurashi/kankyo/denkijidousya.html"
+  },
+  {
+    "id": "adachi-funenka-kaitai",
+    "name": "不燃化特区 老朽建築物の解体工事助成",
+    "provider": "東京都足立区",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "補助金",
+    "amount": "実費・延床面積×単価（木造28,000円/㎡、軽量鉄骨41,000円/㎡）の少ない額、上限280万円",
+    "summary": "不燃化特区内の旧耐震の老朽建築物の解体費用を助成する。着手の約1か月前までに申請が必要。",
+    "eligibility": [
+      "不燃化特区内の昭和56年5月31日以前建築の木造・軽量鉄骨造建物等",
+      "着手前の申請が必要"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "足立区"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.adachi.tokyo.jp/k-bousai/machi/toshi/adatikutyuunannbuittaitikufunennkatokkunituite.html"
+  },
+  {
+    "id": "adachi-jutaku-kairyo",
+    "name": "住宅改良助成制度",
+    "provider": "東京都足立区",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "補助金",
+    "amount": "工事費の20%または工事種別の上限額のいずれか低い額、上限30万円",
+    "summary": "自己居住住宅の段差解消・手すり・トイレ改良・間取り変更等の工事費を一部助成する。区内業者施工が原則。",
+    "eligibility": [
+      "区内の自己居住住宅",
+      "施工は原則区内業者"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "足立区"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.adachi.tokyo.jp/k-bousai/machi/jutaku/kairyojose.html"
+  },
+  {
+    "id": "adachi-kaigo-jutaku-kaishu",
+    "name": "介護保険 住宅改修費の支給",
+    "provider": "東京都足立区",
+    "level": "municipality",
+    "category": "バリアフリー・介護",
+    "type": "給付",
+    "amount": "支給限度額20万円（自己負担1〜3割を除く）",
+    "summary": "要介護・要支援認定を受けた方の手すり設置・段差解消等の住宅改修費を支給する。着工前の申請が必要。",
+    "eligibility": [
+      "要介護・要支援認定を受けている",
+      "工事着工前に申請"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "足立区"
+    ],
+    "period": "通年（要確認）",
+    "deadline": null,
+    "url": "https://www.city.adachi.tokyo.jp/kaigo/kurashi/hoken/kaigo-kaishu.html"
+  },
+  {
+    "id": "adachi-shoene-reform",
+    "name": "省エネリフォーム補助金",
+    "provider": "東京都足立区",
+    "level": "municipality",
+    "category": "省エネ住宅",
+    "type": "補助金",
+    "amount": "補助対象経費の1/3、上限5万円",
+    "summary": "窓の交換・内窓設置・断熱材・遮熱塗装・節水型トイレ等の省エネ改修を助成。令和8年度は8月21日で受付終了と掲載。",
+    "eligibility": [
+      "区内に住民登録のある個人で自宅を改修",
+      "対象経費5万円以上",
+      "区内業者との契約"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "足立区"
+    ],
+    "period": "令和8年度は8月21日受付終了（次回は要確認）",
+    "deadline": null,
+    "url": "https://www.city.adachi.tokyo.jp/kankyo/kurashi/kankyo/syouenesetubi.html"
   },
   {
     "id": "adachi-solar-battery",
@@ -2403,6 +2518,28 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.adachi.tokyo.jp/k-bousai/machi/taishinka/sintaisin.html"
   },
   {
+    "id": "adachi-zeh-zeroemi",
+    "name": "ZEH・東京ゼロエミ住宅補助金（設置後申請）",
+    "provider": "東京都足立区",
+    "level": "municipality",
+    "category": "省エネ住宅",
+    "type": "補助金",
+    "amount": "要確認",
+    "summary": "ZEHや東京ゼロエミ住宅の新築等に対する区の補助。",
+    "eligibility": [
+      "要確認"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "足立区"
+    ],
+    "period": "受付中と掲載（期限は要確認）",
+    "deadline": null,
+    "url": "https://www.city.adachi.tokyo.jp/kankyo/kurashi/kankyo/zeh-zeroemi.html"
+  },
+  {
     "id": "arakawa-akiya-rikatsu",
     "name": "空家利活用事業補助金",
     "provider": "東京都荒川区",
@@ -2424,6 +2561,51 @@ export const RESIDENT_PROGRAMS = [
     "period": "要確認",
     "deadline": null,
     "url": "https://www.city.arakawa.tokyo.jp/a041/akiya/akiya-rikatsuhozyo.html"
+  },
+  {
+    "id": "arakawa-babysitter-riyo-shien",
+    "name": "ベビーシッター利用支援事業（一時預かり利用支援）補助金",
+    "provider": "東京都荒川区",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "補助金",
+    "amount": "1時間あたり上限 日中2,500円・夜間3,500円。年度の利用上限は一般144時間、障害児・ひとり親・多胎児は288時間",
+    "summary": "一時的に保育が必要な家庭がベビーシッターを利用した際の料金の一部を補助する（東京都事業を活用）。",
+    "eligibility": [
+      "区内在住で一時的な保育が必要な家庭（詳細要件は要確認）"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "荒川区"
+    ],
+    "period": "令和8年度利用分は期ごとに受付、最終締切は令和9年4月16日",
+    "deadline": "2027-04-16",
+    "url": "https://www.city.arakawa.tokyo.jp/a037/kosodate/bsitijiazukari.html"
+  },
+  {
+    "id": "arakawa-block-hei-tekkyo",
+    "name": "ブロック塀等撤去助成事業",
+    "provider": "東京都荒川区",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "助成金",
+    "amount": "撤去工事費用の3分の2、1メートルあたり16,000円が上限",
+    "summary": "道路等・公園等に面する危険なブロック塀等の撤去費用を助成する。",
+    "eligibility": [
+      "道路等・公園等に面し高さ1.2mを超えるブロック塀等",
+      "事前相談が必要"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "荒川区"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.arakawa.tokyo.jp/a041/machizukuridoboku/machizukuri/tekkyojosei.html"
   },
   {
     "id": "arakawa-eco-battery",
@@ -2629,6 +2811,28 @@ export const RESIDENT_PROGRAMS = [
     "period": "要確認",
     "deadline": null,
     "url": "https://www.city.arakawa.tokyo.jp/a041/safetynet.html"
+  },
+  {
+    "id": "arakawa-shiritsu-yochien-hojo",
+    "name": "私立幼稚園等の園児保護者に対する補助金",
+    "provider": "東京都荒川区",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "補助金",
+    "amount": "入園料は年額70,000円を上限。保育料・給食費は所得割額や子の順番により上限が異なる",
+    "summary": "私立幼稚園等に通う園児の保護者に、入園料・保育料・給食費の一部を補助する。",
+    "eligibility": [
+      "区内在住で私立幼稚園等に通う園児の保護者"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "荒川区"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.arakawa.tokyo.jp/a035/kosodate/hoikuen/hojo.html"
   },
   {
     "id": "bunkyo-shinene-setsubi",
@@ -3163,6 +3367,53 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.edogawa.tokyo.jp/e065/kurashi/sumai/block_tekkyo.html"
   },
   {
+    "id": "edogawa-ev-purchase",
+    "name": "気候変動に備え、脱炭素を目指す補助金（電気自動車等購入費補助）",
+    "provider": "東京都江戸川区",
+    "level": "municipality",
+    "category": "EV・充電",
+    "type": "補助金",
+    "amount": "一律10万円",
+    "summary": "未登録の電気自動車等を新車購入した場合に補助。令和8年度の電気自動車は7月26日に受付終了と掲載。",
+    "eligibility": [
+      "令和7年4月1日以降に初度登録の新車",
+      "区民"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "江戸川区"
+    ],
+    "period": "令和8年度は電気自動車の受付終了（最新は要確認）",
+    "deadline": null,
+    "url": "https://www.city.edogawa.tokyo.jp/e086/toshikeikaku/kankyo/inochi/hojokin/denkijidousha.html"
+  },
+  {
+    "id": "edogawa-hitorioya-yachin",
+    "name": "ひとり親家庭民間賃貸住宅家賃等助成",
+    "provider": "東京都江戸川区",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "補助金",
+    "amount": "要確認（転居後の家賃等の一部）",
+    "summary": "老朽化による取り壊しで立ち退きを求められたひとり親世帯の転居後の家賃等を一部助成。所得制限あり。",
+    "eligibility": [
+      "18歳未満の児童とのひとり親世帯",
+      "民間賃貸で家主から立ち退きを求められている",
+      "所得制限あり"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "江戸川区"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.edogawa.tokyo.jp/e090/kosodate/kosodate/teateshien/shisaku/jutakuyachin.html"
+  },
+  {
     "id": "edogawa-portable-battery",
     "name": "気候変動に備え、脱炭素を目指す補助金（ポータブル蓄電池購入費補助）",
     "provider": "江戸川区 都市計画部",
@@ -3203,6 +3454,29 @@ export const RESIDENT_PROGRAMS = [
     "period": "令和8年度：申請期限は令和8年12月25日（予算到達で終了）",
     "deadline": "2026-12-25",
     "url": "https://www.city.edogawa.tokyo.jp/e021/kurashi/sumai/taishin/mokuzojose.html"
+  },
+  {
+    "id": "edogawa-saiene100",
+    "name": "再エネ電力切替補助金（再エネ100％導入補助）",
+    "provider": "東京都江戸川区",
+    "level": "municipality",
+    "category": "太陽光・蓄電池",
+    "type": "補助金",
+    "amount": "一律2万円（太陽光・蓄電池・高効率給湯器導入で2万円上乗せ）",
+    "summary": "再エネ100％電力への切替に補助。切替前後6か月で太陽光・定置型蓄電池等を導入すると上乗せ。",
+    "eligibility": [
+      "区民",
+      "再エネ100％電力等へ切替"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "江戸川区"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.edogawa.tokyo.jp/e086/toshikeikaku/kankyo/inochi/hojokin/saiene100.html"
   },
   {
     "id": "edogawa-sumai-kaizo-jukunen",
@@ -3359,6 +3633,29 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.fuchu.tokyo.jp/kurashi/machi/jutaku/mokuzotaishin.html"
   },
   {
+    "id": "hachioji-akiya-riyo-seibi",
+    "name": "八王子市空き家利活用促進整備補助金（地域活性化施設利用）",
+    "provider": "東京都八王子市",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "補助金",
+    "amount": "全体改修は上限100万円、スタートアップ整備は上限25万円（1戸あたり）",
+    "summary": "空き家を集会所や交流施設など地域活性化施設として活用する際の改修費・家財整理費を補助する。",
+    "eligibility": [
+      "八王子市空き家マッチング支援事業に登録していること",
+      "地域活性化施設として活用すること"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "八王子市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.hachioji.tokyo.jp/kurashi/life/003/001/004/p014381.html"
+  },
+  {
     "id": "hachioji-block-tekkyo",
     "name": "ブロック塀等の撤去・新設、ブロック塀の診断補助",
     "provider": "八王子市",
@@ -3381,6 +3678,75 @@ export const RESIDENT_PROGRAMS = [
     "period": "確認できた年度：令和7年度（最新は要確認）",
     "deadline": null,
     "url": "https://www.city.hachioji.tokyo.jp/kurashi/life/003/002/burookutbei/p023850.html"
+  },
+  {
+    "id": "hachioji-jiritsu-shien-jutaku-kaishu",
+    "name": "高齢者自立支援住宅改修給付",
+    "provider": "東京都八王子市",
+    "level": "municipality",
+    "category": "バリアフリー・介護",
+    "type": "給付",
+    "amount": "支給限度基準額内の改修費用の9割",
+    "summary": "介護保険で非該当（自立）と判定された高齢者の、浴槽・流し・洗面台の取替えや便器の洋式化などの改修費を給付する。",
+    "eligibility": [
+      "介護保険の認定で非該当（自立）の方（案内ページ上の区分は要確認）",
+      "着工前の事前申請が必要"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "八王子市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.hachioji.tokyo.jp/life/003/001/007/002/p003868.html"
+  },
+  {
+    "id": "hachioji-kyojukankyo-barrier-free",
+    "name": "八王子市居住環境整備補助金（バリアフリー化）",
+    "provider": "東京都八王子市",
+    "level": "municipality",
+    "category": "バリアフリー・介護",
+    "type": "補助金",
+    "amount": "バリアフリー化工事費の20%以内、上限20万円",
+    "summary": "手すりの取付け、床の段差解消、和式便所の洋式化などのバリアフリー改修工事費を補助する。",
+    "eligibility": [
+      "市内の住宅の所有者（賃貸住宅は借主も対象）",
+      "事前申請が必要（詳細は要確認）"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "八王子市"
+    ],
+    "period": "令和8年度分は2026年12月末まで（予算上限に達した区分は受付終了。最新は要確認）",
+    "deadline": null,
+    "url": "https://www.city.hachioji.tokyo.jp/kurashi/life/003/001/004/p006694.html"
+  },
+  {
+    "id": "hachioji-mitaishin-akiya-jokyaku",
+    "name": "八王子市未耐震空き家除却支援補助金",
+    "provider": "東京都八王子市",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "補助金",
+    "amount": "除却工事経費の3分の2以内、1戸あたり上限25万円（完了時期により上限が異なる）",
+    "summary": "相続した旧耐震の空き家の取り壊し費用の一部を補助する。",
+    "eligibility": [
+      "昭和56年5月31日以前に建築された住宅などの空き家",
+      "3,000万円特別控除を受けられない場合が前提"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "八王子市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.hachioji.tokyo.jp/kurashi/life/003/001/akiya/p029655.html"
   },
   {
     "id": "hachioji-saiene",
@@ -3603,6 +3969,29 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.itabashi.tokyo.jp/tetsuduki/sumai/soudan/1062629.html"
   },
   {
+    "id": "katsushika-akiya-tekisei-kanri",
+    "name": "空き家適正管理助成制度",
+    "provider": "東京都葛飾区",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "補助金",
+    "amount": "管理委託費の1/2（年額上限2万円）、樹木せん定費の1/2（上限1万円）",
+    "summary": "空き家の管理委託費や樹木せん定費の一部を助成する。",
+    "eligibility": [
+      "区内の空き家所有者等",
+      "事前相談・申請が必要"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "葛飾区"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.katsushika.lg.jp/kurashi/1003399/1030173/index.html"
+  },
+  {
     "id": "katsushika-block-tekkyo",
     "name": "ブロック塀等撤去工事等助成",
     "provider": "葛飾区",
@@ -3671,6 +4060,52 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.katsushika.lg.jp/kurashi/1000062/1023018/1035385/1036257/1036372.html?hl=en"
   },
   {
+    "id": "katsushika-eco-high-insulation",
+    "name": "かつしかエコ助成金（個人住宅用・高断熱住宅）",
+    "provider": "東京都葛飾区",
+    "level": "municipality",
+    "category": "省エネ住宅",
+    "type": "助成金",
+    "amount": "断熱等性能等級5:15万円、等級6:60万円、等級7:80万円",
+    "summary": "高断熱住宅の新築等に対し断熱性能等級に応じて助成。",
+    "eligibility": [
+      "区内の個人住宅",
+      "断熱等性能等級5以上"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "葛飾区"
+    ],
+    "period": "2026-04-01〜2027-03-31",
+    "deadline": "2027-03-31",
+    "url": "https://www.city.katsushika.lg.jp/kurashi/1000062/1023018/1035385/1030818.html"
+  },
+  {
+    "id": "katsushika-eco-insulation",
+    "name": "かつしかエコ助成金（個人住宅用・断熱改修）",
+    "provider": "東京都葛飾区",
+    "level": "municipality",
+    "category": "省エネ住宅",
+    "type": "助成金",
+    "amount": "対象経費の1/4、上限20万円",
+    "summary": "屋根・壁の断熱や断熱窓へのリフォーム費用を助成。事前協議は工事着工4週間前まで。",
+    "eligibility": [
+      "区内の個人住宅",
+      "事前協議が必要"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "葛飾区"
+    ],
+    "period": "2026-04-01〜2027-03-31",
+    "deadline": "2027-03-31",
+    "url": "https://www.city.katsushika.lg.jp/kurashi/1000062/1023018/1035385/1036257/1036375.html"
+  },
+  {
     "id": "katsushika-eco-solar",
     "name": "かつしかエコ助成金（個人住宅用・太陽光発電システム）",
     "provider": "葛飾区 環境課",
@@ -3713,6 +4148,28 @@ export const RESIDENT_PROGRAMS = [
     "period": "令和8年4月1日〜令和9年3月31日（必着）。事前協議は着工の4週間前まで",
     "deadline": "2027-03-31",
     "url": "https://www.city.katsushika.lg.jp/kurashi/1000062/1023018/1035385/1030818.html"
+  },
+  {
+    "id": "katsushika-funenka-torikowashi",
+    "name": "不燃化特区内の老朽建築物の取壊し助成",
+    "provider": "東京都葛飾区",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "補助金",
+    "amount": "延床面積に応じた額と工事費の低い方、上限200万円",
+    "summary": "四つ木一・二丁目の不燃化特区内の老朽木造等建築物の取壊し費用を助成。",
+    "eligibility": [
+      "不燃化特区内の昭和56年5月31日以前建築の木造・軽量鉄骨造等"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "葛飾区"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.katsushika.lg.jp/planning/1003610/1025770/index.html"
   },
   {
     "id": "katsushika-jiritsu-shien-jutaku-kaishu",
@@ -3760,6 +4217,29 @@ export const RESIDENT_PROGRAMS = [
     "period": "要確認",
     "deadline": null,
     "url": "https://www.city.katsushika.lg.jp/kenkou/1000052/1030186/1002141/1002163.html"
+  },
+  {
+    "id": "katsushika-kaisho-hosho",
+    "name": "家賃債務保証制度利用助成",
+    "provider": "東京都葛飾区",
+    "level": "municipality",
+    "category": "移住",
+    "type": "補助金",
+    "amount": "初回保証料、上限3万円",
+    "summary": "区内の民間賃貸へ転居する際の家賃債務保証料を助成（高齢者世帯・ひとり親世帯等）。",
+    "eligibility": [
+      "区内に1年以上居住し区内の民間賃貸へ転居",
+      "高齢者・ひとり親世帯等"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "葛飾区"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.katsushika.lg.jp/kurashi/1003399/1030172/1003440.html"
   },
   {
     "id": "katsushika-taishin-hi-mokuzo",
@@ -3865,6 +4345,51 @@ export const RESIDENT_PROGRAMS = [
     "period": "要確認",
     "deadline": null,
     "url": "https://www.city.kita.tokyo.jp/korefukushi/kenko/koresha/shien/jutaku.html"
+  },
+  {
+    "id": "kita-ninsho-hoikusho-hoikuryo-keigen",
+    "name": "認証保育所及び認可外保育施設保育料負担軽減補助金",
+    "provider": "東京都北区",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "補助金",
+    "amount": "認可保育園との保育料の差額などに応じて補助（金額は要確認）",
+    "summary": "認証保育所や認可外保育施設を利用する保護者の保育料負担を軽減する補助。",
+    "eligibility": [
+      "保育を必要とし、認証保育所または認可外保育施設を利用する区民"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "北区"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.kita.tokyo.jp/k-hoiku/kosodate/hoikuen/hoikuen/ninkagai/hoiku-02.html"
+  },
+  {
+    "id": "kita-rokyu-akiya-jokyaku",
+    "name": "老朽空家等除却支援事業（空家の解体費用助成）",
+    "provider": "東京都北区",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "助成金",
+    "amount": "除却工事費用の2分の1、上限80万円",
+    "summary": "不良住宅に該当する老朽空家の解体費用の一部を助成する。工事前の事前相談が必要。",
+    "eligibility": [
+      "1年以上居住その他の使用がされていない不良住宅に該当する建物",
+      "工事着手前の事前相談・承認が必要"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "北区"
+    ],
+    "period": "承認申請は10月末、完了報告は11月末が目安（年度は最新は要確認）",
+    "deadline": null,
+    "url": "https://city.kita.tokyo.jp/jutaku/jutaku/jutaku/kenchiku/rokyu.html"
   },
   {
     "id": "kita-solar",
@@ -3994,6 +4519,101 @@ export const RESIDENT_PROGRAMS = [
     "period": "要確認",
     "deadline": null,
     "url": "https://www.city.koto.lg.jp/380201/machizukuri/kankyo/sedo/30ev.html"
+  },
+  {
+    "id": "koto-kaigo-jutaku-kaishu",
+    "name": "介護保険住宅改修費の支給(江東区)",
+    "provider": "東京都江東区",
+    "level": "municipality",
+    "category": "バリアフリー・介護",
+    "type": "給付",
+    "amount": "支給対象限度額20万円(利用者負担割合に応じて支給)",
+    "summary": "要介護・要支援認定者の手すり取付け、段差解消などの小規模改修費を支給。事前申請が必要。",
+    "eligibility": [
+      "要支援・要介護認定者",
+      "改修前にケアマネジャーへ相談し事前申請",
+      "新築・リフォームは対象外"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "江東区"
+    ],
+    "period": "通年(最新は要確認)",
+    "deadline": null,
+    "url": "https://www.city.koto.lg.jp/212106/fukushi/kaigohoken/kyufu/6537.html"
+  },
+  {
+    "id": "koto-koreisha-jutaku-setsubi",
+    "name": "高齢者住宅設備改修給付(介護保険外)",
+    "provider": "東京都江東区",
+    "level": "municipality",
+    "category": "バリアフリー・介護",
+    "type": "給付",
+    "amount": "基準額内で本人1割負担(予防給付20万円、浴槽37.9万円、階段昇降機80万円など)",
+    "summary": "手すり・段差解消、浴槽、洗面台・流し台、トイレ、階段昇降機の改修費を給付。同一種目につき一世帯1回限り。",
+    "eligibility": [
+      "65歳以上で介護保険の認定を受けた方",
+      "給付決定後に工事着手"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "江東区"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.koto.lg.jp/212106/fukushi/koresha/service/jisshi/6602.html"
+  },
+  {
+    "id": "koto-roukyu-jokyaku",
+    "name": "老朽建築物除却助成",
+    "provider": "東京都江東区",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "助成金",
+    "amount": "除却工事費の2分の1(上限100万円)",
+    "summary": "昭和56年5月31日以前着工の老朽化した戸建住宅・共同住宅・長屋の除却工事費の一部を助成する。",
+    "eligibility": [
+      "区内の昭和56年5月31日以前着工の建築物の個人所有者",
+      "前年度の住民税を滞納していないこと",
+      "除却前に申請"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "江東区"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.koto.lg.jp/396201/machizukuri/kenchiku/kowasu/documents/roukyuyoukou20250401.pdf"
+  },
+  {
+    "id": "koto-shoene-madoyuto",
+    "name": "地球温暖化防止設備導入助成(個人住宅用:高断熱窓・エコキュート・エネファーム等)",
+    "provider": "東京都江東区",
+    "level": "municipality",
+    "category": "省エネ住宅",
+    "type": "補助金",
+    "amount": "要確認(令和5年度区報では高断熱窓10%・個人住宅上限10万円、エコキュート5%・上限4万円)",
+    "summary": "高断熱窓(既築のみ)、CO2冷媒ヒートポンプ給湯機、エネファーム、高反射率塗装などの設置費を助成。工事着工前の申請が必要。",
+    "eligibility": [
+      "江東区内の個人住宅",
+      "同一住宅・設備につき過去5年以内に1回限り",
+      "中古品・リースは対象外"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "江東区"
+    ],
+    "period": "令和8年度(集合住宅用資料では令和8年4月1日~令和9年3月15日必着。個人住宅用は要確認)",
+    "deadline": null,
+    "url": "https://www.city.koto.lg.jp/380201/machizukuri/kankyo/sedo/30jyosei.html"
   },
   {
     "id": "koto-taishin-himokuzo",
@@ -4439,6 +5059,30 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.minato.tokyo.jp/chikyukankyou/kankyo-machi/kankyo/hojo/j-chikudenchi.html"
   },
   {
+    "id": "minato-enefarm",
+    "name": "家庭用燃料電池システム(エネファーム)設置費助成",
+    "provider": "東京都港区",
+    "level": "municipality",
+    "category": "省エネ住宅",
+    "type": "補助金",
+    "amount": "機器費の4分の1(区民上限15万円、工事費除く)",
+    "summary": "港区の地球温暖化対策助成制度のひとつ。新品のエネファームを設置する区民に費用の一部を助成。",
+    "eligibility": [
+      "港区民で設置住所に居住",
+      "工事着工前に申請",
+      "同一住所で過去にエネファームの助成を受けていないこと"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "港区"
+    ],
+    "period": "令和8年度(完了報告期限2027-02-26の記載あり。受付期間は要確認)",
+    "deadline": null,
+    "url": "https://www.city.minato.tokyo.jp/chikyukankyou/kankyo-machi/kankyo/hojo/enefarm.html"
+  },
+  {
     "id": "minato-ev-juden",
     "name": "電気自動車等用充電設備設置費助成",
     "provider": "港区",
@@ -4845,6 +5489,29 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.tokyo-nakano.lg.jp/machizukuri/kenchiku/taishin/blockbei-tekkyo.files/r7burokku.pdf"
   },
   {
+    "id": "nakano-bosai-bed",
+    "name": "中野区防災ベッド設置助成金",
+    "provider": "東京都中野区",
+    "level": "municipality",
+    "category": "耐震",
+    "type": "助成金",
+    "amount": "限度額50万円(世帯所得合計500万円以上は25万円)",
+    "summary": "耐震改修が困難な木造住宅に防災ベッドを設置する費用を助成する。",
+    "eligibility": [
+      "65歳以上のみの世帯など",
+      "耐震改修が困難な木造住宅"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "中野区"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.tokyo-nakano.lg.jp/bosai/jishin-sonae/taisaku/bosaibed.html"
+  },
+  {
     "id": "nakano-hi-mokuzo-taishin",
     "name": "非木造住宅の耐震改修等助成",
     "provider": "中野区 都市基盤部 建築課",
@@ -4866,6 +5533,53 @@ export const RESIDENT_PROGRAMS = [
     "period": "要確認",
     "deadline": null,
     "url": "https://www.city.tokyo-nakano.lg.jp/machizukuri/kenchiku/taishin/0686114820240116114027656.html"
+  },
+  {
+    "id": "nakano-hitorioya-jutaku-shien",
+    "name": "中野区ひとり親家庭住宅支援補助金(転居費用補助)",
+    "provider": "東京都中野区",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "補助金",
+    "amount": "上限30万円",
+    "summary": "区内で住み替えるひとり親世帯の引越費用や初期費用を補助する。物件を探す前の事前相談が必要。",
+    "eligibility": [
+      "区内で住み替えるひとり親家庭",
+      "事前相談が必要",
+      "申請は転居日から6か月以内"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "中野区"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/mokuteki/hitorioya/sumai/hitorioyazyuutakushien.html"
+  },
+  {
+    "id": "nakano-koreisha-jiritsu-jutaku-kaishu",
+    "name": "中野区高齢者自立支援住宅改修等給付事業",
+    "provider": "東京都中野区",
+    "level": "municipality",
+    "category": "バリアフリー・介護",
+    "type": "給付",
+    "amount": "浴室改善20万円、台所13万円、便所洋式化9万円が限度(非該当の方の予防給付は20万円限度)",
+    "summary": "介護保険の住宅改修とは別に、高齢者の住宅設備の改善費用を区が給付する。同一種目は1世帯1回限り。",
+    "eligibility": [
+      "区内在住で要支援・要介護認定を受けた65歳以上",
+      "世帯全員の合計所得金額が基準未満(200万円未満と案内)"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "中野区"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.tokyo-nakano.lg.jp/kenko_hukushi/kourei/hokenhukushi/jiritsushienjyutaku.html"
   },
   {
     "id": "nakano-mokuzo-shindan",
@@ -4910,6 +5624,29 @@ export const RESIDENT_PROGRAMS = [
     "period": "要確認",
     "deadline": null,
     "url": "https://www.city.tokyo-nakano.lg.jp/machizukuri/kenchiku/taishin/mokuzojyutaku-hokyo.html"
+  },
+  {
+    "id": "nakano-safetynet-kaishu",
+    "name": "中野区セーフティネット住宅改修費補助",
+    "provider": "東京都中野区",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "補助金",
+    "amount": "改修費の2/3(1戸あたり上限100万円)",
+    "summary": "住宅確保要配慮者向けのセーフティネット住宅として登録する賃貸住宅の改修費を補助する。工事着手前の申請・交付決定が必要。",
+    "eligibility": [
+      "セーフティネット住宅の所有者等",
+      "工事着手前に申請"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "中野区"
+    ],
+    "period": "事前相談は令和8年10月30日まで、申請は令和8年11月30日まで",
+    "deadline": "2026-11-30",
+    "url": "https://www.city.tokyo-nakano.lg.jp/machizukuri/jyutaku/saftynet/safetynet.html"
   },
   {
     "id": "nakano-shoene-setsubi",
@@ -6031,6 +6768,30 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.shinjuku.lg.jp/seikatsu/file07_02_00001.html"
   },
   {
+    "id": "suginami-akiya-josen",
+    "name": "杉並区老朽危険空家除却費用助成",
+    "provider": "東京都杉並区",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "助成金",
+    "amount": "除却工事費の80%または150万円のいずれか低い額",
+    "summary": "倒壊の危険性が高い老朽危険空家の除却工事費の一部を助成する。工事着手前の申請が必要。",
+    "eligibility": [
+      "区内で年間を通して使用されていない老朽危険空家",
+      "所有者が個人",
+      "工事着手前に申請"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "杉並区"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.suginami.tokyo.jp/s093/1839.html"
+  },
+  {
     "id": "suginami-block-kaishu",
     "name": "ブロック塀等改修助成",
     "provider": "杉並区",
@@ -6077,6 +6838,29 @@ export const RESIDENT_PROGRAMS = [
     "period": "要確認",
     "deadline": null,
     "url": "https://www.city.suginami.tokyo.jp/s099/1856.html"
+  },
+  {
+    "id": "suginami-chintai-barrierfree-kaishu",
+    "name": "杉並区高齢者等賃貸住宅改修助成事業",
+    "provider": "東京都杉並区",
+    "level": "municipality",
+    "category": "バリアフリー・介護",
+    "type": "助成金",
+    "amount": "工事費の50%(上限100万円)、10万円以上(税抜)の工事が対象",
+    "summary": "高齢者や障害者向けに賃貸住宅・空家をバリアフリー改修する所有者に費用を助成する。",
+    "eligibility": [
+      "賃貸住宅・空家の所有者",
+      "高齢者等が住みやすくするバリアフリー改修"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "杉並区"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.suginami.tokyo.jp/s093/1920.html"
   },
   {
     "id": "suginami-eco-dannetsu",
@@ -6300,6 +7084,51 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.suginami.tokyo.jp/guide/sumai/taishin/1004991.html"
   },
   {
+    "id": "suginami-tenkyo-hiyo-josei",
+    "name": "杉並区転居費用助成",
+    "provider": "東京都杉並区",
+    "level": "municipality",
+    "category": "移住",
+    "type": "助成金",
+    "amount": "単身世帯上限15万円、2人以上世帯上限20万円",
+    "summary": "住環境の改善や家賃負担軽減のための転居費用を助成する。1世帯1回まで。18歳未満の子がいる世帯は所得要件が緩い。",
+    "eligibility": [
+      "所得要件あり",
+      "物件申込み前(入居審査前)に申請"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "杉並区"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.suginami.tokyo.jp/s093/19882.html"
+  },
+  {
+    "id": "suginami-yachin-josei",
+    "name": "杉並区家賃助成(ひとり親・多子世帯)",
+    "provider": "東京都杉並区",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "助成金",
+    "amount": "要確認",
+    "summary": "区営住宅の優遇抽選に落選したひとり親・多子世帯に、民間賃貸住宅の家賃の一部を助成する。1世帯2回まで。",
+    "eligibility": [
+      "区営住宅の優遇抽選に落選したひとり親・多子世帯"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "杉並区"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.suginami.tokyo.jp/s093/19877.html"
+  },
+  {
     "id": "sumida-akiya-jokyaku",
     "name": "老朽危険家屋除却費等助成制度",
     "provider": "墨田区",
@@ -6320,6 +7149,29 @@ export const RESIDENT_PROGRAMS = [
     "period": "要確認",
     "deadline": null,
     "url": "https://www.city.sumida.lg.jp/anzen_anshin/kurasinoanzen_ansin/akiya-taisaku/roukyuukaokuzyokyaku.html"
+  },
+  {
+    "id": "sumida-block-tekkyo",
+    "name": "ブロック塀等撤去工事助成",
+    "provider": "東京都墨田区",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "助成金",
+    "amount": "撤去延長1mにつき2万円(取り壊し加算との併用不可)",
+    "summary": "令和8年4月から新たに始まった、危険なブロック塀等の撤去工事への助成。無料耐震相談も同時に開始。",
+    "eligibility": [
+      "墨田区内の危険なブロック塀等の所有者",
+      "詳細な要件は要確認"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "墨田区"
+    ],
+    "period": "令和8年度(最新は要確認)",
+    "deadline": null,
+    "url": "https://www.city.sumida.lg.jp/kurashi/kankyou_hozen/midori/josei/midorinohei.html"
   },
   {
     "id": "sumida-bouka-taishin",
@@ -6435,6 +7287,30 @@ export const RESIDENT_PROGRAMS = [
     "period": "令和8年度。初度登録の翌日から1年以内に申請（予算額に達し次第終了）",
     "deadline": null,
     "url": "https://www.city.sumida.lg.jp/kurashi/kankyou_hozen/jyoseikin/JISEDAIJIDOUSHA.html"
+  },
+  {
+    "id": "sumida-juutaku-shutoku-rishi",
+    "name": "すみだ住宅取得利子補助制度",
+    "provider": "東京都墨田区",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "補助金",
+    "amount": "年間利子額(上限10万円)を5年間補助(最大50万円)",
+    "summary": "区内で住宅を取得した子育て世帯・若年夫婦世帯の住宅ローン利子の一部を補助する。",
+    "eligibility": [
+      "中学生以下の子がいる世帯、または夫婦ともに39歳以下の世帯",
+      "自ら居住する区内住宅を建築・購入",
+      "登記から1年以内に申請"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "墨田区"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.sumida.lg.jp/kurashi/zyuutaku/jyutaku_shien/juutaku_housingloan.html"
   },
   {
     "id": "sumida-ondanka-dannetsu",
@@ -6616,6 +7492,51 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.tachikawa.lg.jp/kenko/korei/1003482/1003512.html"
   },
   {
+    "id": "tachikawa-ninsho-hoikusho-futan-keigen",
+    "name": "認証保育所・企業主導型保育施設の利用者負担軽減補助金",
+    "provider": "東京都立川市",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "補助金",
+    "amount": "子ども1人につき月額上限2万円〜4万円（年齢・世帯所得による。実負担額の範囲内）",
+    "summary": "認証保育所や企業主導型保育施設を月極で利用する保護者の保育料負担を軽減する。",
+    "eligibility": [
+      "市内在住で月極め利用の保護者"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "立川市"
+    ],
+    "period": "令和8年度分（最新は要確認）",
+    "deadline": null,
+    "url": "https://www.city.tachikawa.lg.jp/kosodate/m-kosodate/1004946/1005096/1005127.html"
+  },
+  {
+    "id": "tachikawa-shiritsu-yochien-hojo",
+    "name": "私立幼稚園等園児補助金",
+    "provider": "東京都立川市",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "補助金",
+    "amount": "市独自分は月額5,300円（所得にかかわらず一律）。ほか東京都の保護者負担軽減補助あり",
+    "summary": "私立幼稚園等に通う園児の保護者の負担を軽減する補助。幼稚園等を通じて年1回申請する。",
+    "eligibility": [
+      "満3歳児〜5歳児クラスの園児の保護者",
+      "2歳児クラス（プレ幼稚園）は対象外"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "立川市"
+    ],
+    "period": "令和8年度分（申請は毎年1回。最新は要確認）",
+    "deadline": null,
+    "url": "https://www.city.tachikawa.lg.jp/kosodate/m-kosodate/1004946/1004226/1004920.html"
+  },
+  {
     "id": "tachikawa-taishin-mokuzo",
     "name": "木造住宅の耐震化助成制度",
     "provider": "立川市",
@@ -6634,6 +7555,28 @@ export const RESIDENT_PROGRAMS = [
     "period": "年度ごとの予算の範囲内（予算額に達した時点で終了）。最新年度は要確認",
     "deadline": null,
     "url": "https://www.city.tachikawa.lg.jp/kurashi/sumai/1002092/1002114.html"
+  },
+  {
+    "id": "tachikawa-yoikuhi-kakuho-shien",
+    "name": "立川市養育費確保支援事業",
+    "provider": "東京都立川市",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "補助金",
+    "amount": "公正証書等の作成経費は上限4万3千円、養育費保証契約の初回保証料は上限5万円",
+    "summary": "ひとり親家庭の養育費確保のため、公正証書等の作成費用や保証契約の初回保証料を補助する。",
+    "eligibility": [
+      "ひとり親家庭（詳細要件は要確認）"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "立川市"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.tachikawa.lg.jp/kosodate/m-kosodate/1004938/1004955.html"
   },
   {
     "id": "taito-datsutanso-josei",
@@ -6744,6 +7687,29 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.toshima.lg.jp/164/kenko/sekatsu/2605191116.html"
   },
   {
+    "id": "toshima-akiya-riyo-hojo",
+    "name": "豊島区空き家の利活用・補助制度",
+    "provider": "東京都豊島区",
+    "level": "municipality",
+    "category": "空き家・ブロック塀",
+    "type": "補助金",
+    "amount": "旧ページ記載で改修費の2/3(地域貢献型は上限200万円、シェアハウス型は上限150万円)。現行額は要確認",
+    "summary": "空き家をコミュニティカフェ等やシェアハウス、セーフティネット住宅として活用する場合の改修費を補助する。",
+    "eligibility": [
+      "区内の空き家の所有者または運営事業者",
+      "区のマッチング等の要件あり"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "豊島区"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.toshima.lg.jp/508/jutaku/akiya/2012211352.html"
+  },
+  {
     "id": "toshima-block-kaizen",
     "name": "ブロック塀等改善工事助成事業（道路に面する塀のみ）",
     "provider": "豊島区",
@@ -6812,6 +7778,99 @@ export const RESIDENT_PROGRAMS = [
     "period": "令和8年5月25日〜令和9年3月1日必着",
     "deadline": "2027-03-01",
     "url": "https://www.city.toshima.lg.jp/149/machizukuri/shizen/ecojutaku/003402.html"
+  },
+  {
+    "id": "toshima-jutaku-shuzen-reform",
+    "name": "豊島区住宅修繕・リフォーム資金助成事業",
+    "provider": "東京都豊島区",
+    "level": "municipality",
+    "category": "バリアフリー・介護",
+    "type": "助成金",
+    "amount": "修繕工事上限10万円、リフォーム工事上限20万円",
+    "summary": "所得が少なく住宅の修繕やリフォームが難しい世帯に工事費用を助成する。",
+    "eligibility": [
+      "前年の世帯月額所得が158,000円(条件により214,000円)以下"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "豊島区"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.toshima.lg.jp/322/1902080851.html"
+  },
+  {
+    "id": "toshima-koreisha-jiritsu-jutaku-kaishu",
+    "name": "豊島区高齢者自立支援住宅改修助成事業",
+    "provider": "東京都豊島区",
+    "level": "municipality",
+    "category": "バリアフリー・介護",
+    "type": "助成金",
+    "amount": "非該当の方の予防的助成は上限20万円。設備改修の上限は浴槽379,000円、流し等156,000円、便器様式化106,000円",
+    "summary": "介護保険の住宅改修とは別枠で、65歳以上の方の転倒予防等の住宅改修費用を助成する。",
+    "eligibility": [
+      "区内在住の65歳以上",
+      "理由書は高齢者総合相談センターが作成",
+      "大規模リフォーム・増改築は対象外"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "豊島区"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.toshima.lg.jp/379/kenko/koresha/hitorigurashi/000024.html"
+  },
+  {
+    "id": "toshima-koreisha-sumikae-yachin",
+    "name": "豊島区高齢者世帯等住み替え家賃助成制度",
+    "provider": "東京都豊島区",
+    "level": "municipality",
+    "category": "移住",
+    "type": "助成金",
+    "amount": "月額上限15,000円",
+    "summary": "取り壊し等による立ち退きなどで住み替える高齢者世帯等の家賃差額を助成する。18歳未満の子を養育する世帯も対象に含まれる。",
+    "eligibility": [
+      "高齢者世帯等または18歳未満の子を養育する世帯",
+      "立ち退き等の要件あり"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "豊島区"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.toshima.lg.jp/308/2008281223.html"
+  },
+  {
+    "id": "toshima-kosodate-family-yachin",
+    "name": "豊島区子育てファミリー世帯家賃助成制度",
+    "provider": "東京都豊島区",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "助成金",
+    "amount": "月額上限3万円(原則5年間、または児童が15歳に達した年度末までのいずれか早い方)",
+    "summary": "区内の民間賃貸住宅へ転居した子育て世帯に、家賃と基準家賃の差額の一部を助成する。先着順で予算枠に達し次第終了。",
+    "eligibility": [
+      "15歳以下の児童と扶養者が同居",
+      "前年の世帯月額所得338,000円以下",
+      "転居後の家賃が月額17万円以下(共益費除く)"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "豊島区"
+    ],
+    "period": "令和7年4月以降の追加募集(随時)。最新は要確認",
+    "deadline": null,
+    "url": "https://www.city.toshima.lg.jp/308/2509041409.html"
   },
   {
     "id": "toshima-manshon-taishin",
