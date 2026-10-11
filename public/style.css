@@ -681,7 +681,7 @@ details ul { margin: 8px 0; padding-left: 1.5em; }
 .pop-more a { color: var(--accent); }
 
 /* ── トップページ（ポータル） ── */
-.r-hero { background: linear-gradient(90deg, rgba(31, 58, 82, 0.96) 0%, rgba(31, 58, 82, 0.86) 40%, rgba(43, 88, 118, 0.45) 75%, rgba(43, 88, 118, 0.2) 100%), url('images/121.webp') right center / cover no-repeat, #1f3353; color: #fff; padding: 56px 0 48px; }
+.r-hero { --hero-img: url('images/121.webp'); background: linear-gradient(90deg, rgba(31, 58, 82, 0.96) 0%, rgba(31, 58, 82, 0.86) 40%, rgba(43, 88, 118, 0.45) 75%, rgba(43, 88, 118, 0.2) 100%), var(--hero-img) right center / cover no-repeat, #1f3353; color: #fff; padding: 56px 0 48px; }
 .r-hero .wrap { display: grid; gap: 18px; }
 .r-eyebrow { font-size: 0.85rem; letter-spacing: 0.12em; opacity: 0.85; margin: 0; }
 .r-hero h1 { font-size: clamp(2rem, 4.4vw, 3.2rem); font-weight: 900; margin: 0; line-height: 1.25; letter-spacing: -0.02em; }

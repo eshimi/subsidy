@@ -311,6 +311,19 @@
   <script src="site.js"></script>
   <script src="home.js"></script>
   <script>
+    // ヒーローの背景：ページを開くたびに2枚を交互に切り替える（前回の表示を覚えて、次は反対の画像にする）
+    (function () {
+      var KEY = 'subsidy-finder:hero-bg';
+      var IMAGES = ["url('images/121.webp')", "url('images/hero-alt.webp')"];
+      var hero = document.querySelector('.r-hero');
+      if (!hero) return;
+      var last = null;
+      try { last = localStorage.getItem(KEY); } catch (e) { /* 保存できないときは、いつも1枚目 */ }
+      var next = last === '0' ? 1 : 0;
+      hero.style.setProperty('--hero-img', IMAGES[next]);
+      try { localStorage.setItem(KEY, String(next)); } catch (e) { /* 保存できなくても表示は変わる */ }
+    })();
+
     // ヒーローの紹介動画：初回の訪問だけ1回流す。「紹介動画を見る」からは、ヒーロー全面に出して、いつでも見られる
     (function () {
       var KEY = 'subsidy-finder:hero-intro-seen';
