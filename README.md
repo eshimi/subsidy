@@ -94,6 +94,7 @@ gcloud run deploy subsidy-finder --source . --region asia-northeast1 --allow-una
 - **jGrants データ**: `npm run fetch:jgrants` で `public/data/jgrants/` に取得し、デプロイ時にアセットとして同梱します。データが無い場合は jGrants API の直接検索に切り替わります。
 - **定期更新**: `.github/workflows/cloudflare.yml` が毎朝（日本時間 6:12）データを取り直して再デプロイします。
 - **制度ページ（`/grants/`）**: `npm run build:grants`（jGrants データの取得 → 制度ページ・都道府県別・締切カレンダー・RSS の生成）で作ります。生成物はコミットしないため、**Cloudflare の Git 連携でデプロイする場合は、ビルドコマンドを `npm ci && npm run build:grants` にしてください**（未設定だと、push のたびに制度ページの無い版で本番が上書きされます）。
+- **IndexNow**: `public/<キー>.txt`（中身はキーだけ）がキーのファイルです。毎朝のデプロイのあと、`scripts/indexnow.mjs` がサイトマップのページを前回送った内容と比べ、新しい・変わった・なくなったページだけを `api.indexnow.org` に送ります（前回の記録は GitHub Actions のキャッシュ）。手元では `node scripts/indexnow.mjs --dry-run` で送る予定のページを確認できます。キーを変えるときは、`public/` のキーのファイルを新しい名前・中身に差し替えてください。
 - **レート制限**: Worker では行いません。Cloudflare ダッシュボードの **Security → WAF → Rate limiting rules** で設定してください（下記）。
 
 ```bash
