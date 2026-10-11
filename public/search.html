@@ -12,34 +12,34 @@
   <link rel="stylesheet" href="style.css">
   <script src="https://accounts.google.com/gsi/client" async defer></script>
   <style>
-    .u-form { display: grid; gap: 18px; margin: 0 0 28px; padding: 24px; background: #fff; border: 1px solid #dbe6f2; border-radius: 18px; box-shadow: 0 6px 24px rgba(21, 101, 216, 0.08); }
+    .u-form { display: grid; gap: 18px; margin: 0 0 28px; padding: 24px; background: #fff; border: 1px solid #e6e8ec; border-radius: 18px; box-shadow: 0 6px 24px rgba(21, 101, 216, 0.08); }
     .u-label { display: block; font-weight: 700; font-size: 1rem; margin-bottom: 8px; }
-    .u-form textarea { width: 100%; min-height: 76px; padding: 14px 16px; border: 1.5px solid #cfdcea; border-radius: 12px; font: inherit; font-size: 1.05rem; resize: vertical; background: #fff; }
-    .u-form textarea:focus, .u-form input:focus, .u-form select:focus { border-color: #1565d8; outline: none; box-shadow: 0 0 0 3px rgba(21, 101, 216, 0.12); }
+    .u-form textarea { width: 100%; min-height: 76px; padding: 14px 16px; border: 1.5px solid #e6e8ec; border-radius: 12px; font: inherit; font-size: 1.05rem; resize: vertical; background: #fff; }
+    .u-form textarea:focus, .u-form input:focus, .u-form select:focus { border-color: #073461; outline: none; box-shadow: 0 0 0 3px rgba(21, 101, 216, 0.12); }
     .u-form .examples { margin-top: 10px; }
-    .u-sub { display: grid; gap: 4px; font-size: 0.85rem; color: #55606b; font-weight: 600; }
-    .u-form input, .u-form select { width: 100%; padding: 11px 12px; border: 1.5px solid #cfdcea; border-radius: 10px; font: inherit; background: #fff; color: #1d2a3a; }
+    .u-sub { display: grid; gap: 4px; font-size: 0.85rem; color: #56667f; font-weight: 600; }
+    .u-form input, .u-form select { width: 100%; padding: 11px 12px; border: 1.5px solid #e6e8ec; border-radius: 10px; font: inherit; background: #fff; color: #1f3353; }
     .u-place-row { display: grid; grid-template-columns: 1fr auto 1fr; gap: 12px; align-items: end; max-width: 560px; }
-    .u-or { padding-bottom: 12px; color: #55606b; font-size: 0.85rem; }
+    .u-or { padding-bottom: 12px; color: #56667f; font-size: 0.85rem; }
     .u-place .hint { margin: 8px 0 0; }
     .u-place .city-field { margin-top: 10px; max-width: 280px; }
-    .u-more { border-top: 1px dashed #dbe6f2; padding-top: 14px; }
-    .u-more summary { cursor: pointer; font-weight: 700; color: #1565d8; }
+    .u-more { border-top: 1px dashed #e6e8ec; padding-top: 14px; }
+    .u-more summary { cursor: pointer; font-weight: 700; color: #073461; }
     .u-more-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 14px; }
     .u-attrs { border: 0; margin: 14px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
     .u-attrs legend { margin-bottom: 8px; }
     .u-attrs .toggle { width: auto; }
-    .u-submit { display: flex; align-items: center; justify-content: center; gap: 12px; width: 100%; padding: 16px; border: 0; border-radius: 999px; background: #1565d8; color: #fff; font: inherit; font-size: 1.15rem; font-weight: 800; cursor: pointer; box-shadow: 0 6px 16px rgba(21, 101, 216, 0.25); }
-    .u-submit:hover { background: #0f4fae; }
+    .u-submit { display: flex; align-items: center; justify-content: center; gap: 12px; width: 100%; padding: 16px; border: 0; border-radius: 999px; background: #073461; color: #fff; font: inherit; font-size: 1.15rem; font-weight: 800; cursor: pointer; box-shadow: 0 6px 16px rgba(21, 101, 216, 0.25); }
+    .u-submit:hover { background: #052a4f; }
     .u-submit:disabled { background: #9fb3c8; }
-    .u-how { margin: 0; font-size: 0.85rem; color: #55606b; }
-    .u-h { font-size: 1.3rem; margin: 0; padding-left: 10px; border-left: 4px solid #1565d8; }
+    .u-how { margin: 0; font-size: 0.85rem; color: #56667f; }
+    .u-h { font-size: 1.3rem; margin: 0; padding-left: 10px; border-left: 4px solid #073461; }
     #results { margin-bottom: 28px; }
     #results .u-h { margin-bottom: 12px; }
     .u-rhead { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 12px; }
     .u-tools { display: flex; flex-wrap: wrap; gap: 10px; }
-    .u-tools label { display: grid; gap: 2px; font-size: 0.78rem; color: #55606b; }
-    .u-tools select { padding: 8px 10px; border: 1px solid #cfdcea; border-radius: 8px; background: #fff; font: inherit; font-size: 0.9rem; }
+    .u-tools label { display: grid; gap: 2px; font-size: 0.78rem; color: #56667f; }
+    .u-tools select { padding: 8px 10px; border: 1px solid #e6e8ec; border-radius: 8px; background: #fff; font: inherit; font-size: 0.9rem; }
     #results, #kw-results { scroll-margin-top: 84px; }
     @media (max-width: 720px) {
       .u-form { padding: 18px 14px; }
@@ -53,7 +53,7 @@
     .guide-section {
       margin-bottom: 3rem;
       padding-bottom: 2rem;
-      border-bottom: 1px solid var(--color-border, #e0e0e0);
+      border-bottom: 1px solid var(--color-border, #e6e8ec);
     }
     .guide-section:last-child {
       border-bottom: none;
@@ -61,13 +61,13 @@
     .guide-section h2 {
       font-size: 1.5rem;
       margin-bottom: 1rem;
-      color: var(--color-text-primary, #111);
+      color: var(--color-text-primary, #0a2352);
     }
     .guide-section h3 {
       font-size: 1.125rem;
       margin-top: 1.5rem;
       margin-bottom: 0.75rem;
-      color: var(--color-text-primary, #111);
+      color: var(--color-text-primary, #0a2352);
     }
     .guide-section p, .guide-section li {
       line-height: 1.8;
@@ -376,7 +376,7 @@
         </nav>
     </div>
     <div class="footer-bottom">
-                                                                                                                                                                              <nav aria-label="補助リンク">
+                                                                                                                                                                                    <nav aria-label="補助リンク">
         <ul>
           <li><a href="policy/privacy.html">プライバシーポリシー</a></li>
           <li><a href="policy/contact.html">フィードバック・バグ報告</a></li>

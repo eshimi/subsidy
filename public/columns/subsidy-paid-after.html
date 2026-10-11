@@ -27,41 +27,41 @@
   <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-180.png">
   <style>
-    .area-section { background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 32px; margin-bottom: 24px; scroll-margin-top: 72px; }
+    .area-section { background: white; border: 1px solid #e6e8ec; border-radius: 8px; padding: 32px; margin-bottom: 24px; scroll-margin-top: 72px; }
     .area-num { display: block; font-family: var(--font-mono); font-size: 0.75rem; color: var(--mute); text-transform: uppercase; margin-bottom: 8px; }
-    .area-section h2 { font-size: 1.4rem; line-height: 1.5; letter-spacing: -0.02em; margin: 0 0 16px; color: #111; }
+    .area-section h2 { font-size: 1.4rem; line-height: 1.5; letter-spacing: -0.02em; margin: 0 0 16px; color: #0a2352; }
     .area-body { max-width: 48em; line-height: 1.85; color: var(--ink); }
     .area-body p, .area-body li { margin-bottom: 0.7rem; }
     .area-body ul { margin: 0 0 1rem 1.5rem; padding: 0; }
-    .area-program { border-top: 1px solid #e0e0e0; padding: 18px 0; }
+    .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
-    .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #111; }
+    .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
-    .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e0e0e0; }
-    .area-links a { color: #1f3bff; font-weight: 500; text-decoration: none; }
+    .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
+    .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
     .area-links a:hover { text-decoration: underline; }
     .area-title-img { display: inline-block; height: 72px; width: auto; margin-left: 12px; vertical-align: middle; }
     .area-crumb { font-size: 0.85rem; color: var(--mute); margin-bottom: 1.5rem; }
     .area-crumb a { color: var(--mute); }
-    .area-note { font-size: 0.9rem; color: var(--mute); line-height: 1.8; border-left: 3px solid #e0e0e0; padding-left: 16px; margin: 2rem 0 0; max-width: 48em; }
+    .area-note { font-size: 0.9rem; color: var(--mute); line-height: 1.8; border-left: 3px solid #e6e8ec; padding-left: 16px; margin: 2rem 0 0; max-width: 48em; }
     .area-groups { display: grid; gap: 28px; }
     .area-groups h2 { font-size: 1.2rem; margin: 0; }
     .area-pref-head { display: flex; align-items: center; gap: 16px; margin-bottom: 12px; }
     .area-pref-head img { width: 96px; height: auto; flex-shrink: 0; }
     h1.display { font-size: clamp(1.8rem, 7vw, 4.5rem); overflow-wrap: anywhere; }
     .area-pref-link { margin: 0 0 12px; font-size: 0.9rem; }
-    .area-pref-link a { color: #1f3bff; text-decoration: none; }
+    .area-pref-link a { color: #2b65b1; text-decoration: none; }
     .area-pref-link a:hover { text-decoration: underline; }
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
-    .area-groups a { color: #1f3bff; text-decoration: none; }
+    .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
     .article-hero { margin: 0 0 24px; }
-    .article-hero img { display: block; width: 100%; height: auto; border-radius: 8px; border: 1px solid #e0e0e0; }
+    .article-hero img { display: block; width: 100%; height: auto; border-radius: 8px; border: 1px solid #e6e8ec; }
     .article-body h3 { font-size: 1.2rem; margin: 1.6em 0 0.7em; }
     .article-body ol { margin: 0 0 1rem 1.5rem; padding: 0; }
-    .article-body a { color: #1f3bff; text-decoration: underline; }
-    .article-highlight { background: #f0f5ff; border-left: 3px solid #1f3bff; padding: 14px 18px; margin: 1.2rem 0; border-radius: 4px; }
+    .article-body a { color: #2b65b1; text-decoration: underline; }
+    .article-highlight { background: #f0f5ff; border-left: 3px solid #2b65b1; padding: 14px 18px; margin: 1.2rem 0; border-radius: 4px; }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"補助金は「後払い」｜採択されてもすぐ入金されない理由と資金繰り対策","description":"補助金に採択されたと聞くと、すぐに振り込まれるイメージを持つ方が多いかもしれません。しかし、多くの補助金は「後払い（精算払い）」です。これを知らずに進めると、採択されたのに資金が足りず、辞退せざるを得なくなることもありま","url":"https://hojyokin.net/columns/subsidy-paid-after.html","mainEntityOfPage":"https://hojyokin.net/columns/subsidy-paid-after.html","image":"https://hojyokin.net/images/columns/art-03.webp","dateModified":"2026-10-10","inLanguage":"ja","publisher":{"@type":"Organization","name":"補助金ネット","url":"https://hojyokin.net/"}}</script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7811993263471350"
@@ -279,7 +279,7 @@
         </nav>
     </div>
     <div class="footer-bottom">
-                                                                                                                                                                              <nav aria-label="補助リンク">
+                                                                                                                                                                                    <nav aria-label="補助リンク">
         <ul>
           <li><a href="../policy/privacy.html">プライバシーポリシー</a></li>
           <li><a href="../policy/contact.html">フィードバック・バグ報告</a></li>

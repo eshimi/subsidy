@@ -152,7 +152,7 @@ ${g.cities.map((c) => `            <li><a href="${c.slug}.html">${esc(c.name)}</
     <div style="margin-bottom: 2rem;">
       <h1 class="display" style="margin-bottom: 0.5rem;">地域別の補助金・創業支援</h1>
       <p class="lead" style="margin-bottom: 0;">お住まいの市区町村から、市・県・国の制度を確認できます。順次、対象の市区町村を追加しています。</p>
-      <p style="margin: 12px 0 0;"><a href="../grants/prefectures.html" style="color: #1f3bff; font-weight: 500;">47都道府県から、募集中の補助金を探す →</a></p>
+      <p style="margin: 12px 0 0;"><a href="../grants/prefectures.html" style="color: #2b65b1; font-weight: 500;">47都道府県から、募集中の補助金を探す →</a></p>
     </div>
 
     <section class="area-section" aria-labelledby="cities">

@@ -609,7 +609,7 @@ const PERSONAL_MENU = [
 ];
 const PERSONAL_STYLE = `
   <style>
-    .pv { --pv-blue: #1565d8; --pv-line: #dbe6f2; --pv-mute: #5b6878; color: #1d2a3a; }
+    .pv { --pv-blue: #073461; --pv-line: #e6e8ec; --pv-mute: #5b6878; color: #1f3353; }
     .pv-card { background: #fff; border: 1px solid var(--pv-line); border-radius: 18px; box-shadow: 0 6px 24px rgba(21, 101, 216, 0.08); padding: 28px; margin-bottom: 24px; }
     .pv-hero { display: grid; grid-template-columns: 220px 1fr; gap: 24px; align-items: center; background: linear-gradient(160deg, #e8f3ff 0%, #f5fbff 55%, #eef8f0 100%); }
     .pv img.pv-robot { width: 100%; height: auto; -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, #000 60%, transparent 100%); mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, #000 60%, transparent 100%); }
@@ -635,7 +635,7 @@ const PERSONAL_STYLE = `
     .pv-end { display: grid; grid-template-columns: 1fr 170px; gap: 18px; align-items: center; background: linear-gradient(160deg, #e8f3ff 0%, #f5fbff 60%, #eef8f0 100%); }
     .pv-btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
     .pv-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; border-radius: 999px; background: var(--pv-blue); color: #fff; font-weight: 700; text-decoration: none; }
-    .pv-btn:hover { background: #0f4fae; color: #fff; }
+    .pv-btn:hover { background: #052a4f; color: #fff; }
     .pv-btn.ghost { background: #fff; color: var(--pv-blue); border: 1px solid #9cc0ee; }
     @media (max-width: 720px) {
       .pv-card { padding: 20px 16px; }

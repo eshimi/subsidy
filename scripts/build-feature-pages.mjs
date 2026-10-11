@@ -672,12 +672,12 @@ ${SOURCES.map(([label, href]) => `          <li><a href="${href}" target="_blank
 
 const featureStyle = `
     .feature-table { width: 100%; border-collapse: collapse; margin: 8px 0 16px; font-size: 0.92rem; }
-    .feature-table th, .feature-table td { border: 1px solid #e0e0e0; padding: 10px 12px; text-align: left; vertical-align: top; }
+    .feature-table th, .feature-table td { border: 1px solid #e6e8ec; padding: 10px 12px; text-align: left; vertical-align: top; }
     .feature-table thead th { background: #f4f6f8; }
     .table-wrap { overflow-x: auto; }
     .glossary dt { font-weight: 700; margin-top: 12px; }
     .glossary dd { margin: 4px 0 0; }
-    .feature-card { display: block; padding: 20px 0; border-top: 1px solid #e0e0e0; text-decoration: none; }
+    .feature-card { display: block; padding: 20px 0; border-top: 1px solid #e6e8ec; text-decoration: none; }
     .feature-card h2 { font-size: 1.2rem; margin: 0 0 6px; }
     .feature-card p { margin: 0; color: var(--mute); }
 `;

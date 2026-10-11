@@ -24,21 +24,21 @@ function illustFor(i) {
 
 const CASE_STYLE = `
     <style>
-      .cs-top { display: grid; grid-template-columns: 1fr 134px; gap: 16px; align-items: center; margin-top: 1rem; padding: 14px 18px; background: #f4f7fa; border-left: 3px solid #1565d8; border-radius: 0 12px 12px 0; }
+      .cs-top { display: grid; grid-template-columns: 1fr 134px; gap: 16px; align-items: center; margin-top: 1rem; padding: 14px 18px; background: #f4f7fa; border-left: 3px solid #073461; border-radius: 0 12px 12px 0; }
       .cs-facts { display: grid; grid-template-columns: max-content 1fr; align-content: center; gap: 6px 16px; margin: 0; font-size: 0.92rem; }
       .cs-facts dt { font-weight: 700; }
       .cs-facts dd { margin: 0; }
       .cs-illust { margin: 0; }
       .cs-illust img { display: block; width: 100%; height: auto; max-height: 174px; object-fit: cover; border-radius: 10px; box-shadow: 0 4px 12px rgba(29, 42, 58, 0.1); }
       .cs-illust p { margin: 3px 0 0; font-size: 0.68rem; color: var(--mute); text-align: right; }
-      .cs-article { background: #fff; border: 1px solid #e3e8ec; border-radius: 16px; padding: 30px 36px 26px; box-shadow: 0 4px 18px rgba(29, 42, 58, 0.05); line-height: 1.9; }
+      .cs-article { background: #fff; border: 1px solid #e6e8ec; border-radius: 16px; padding: 30px 36px 26px; box-shadow: 0 4px 18px rgba(29, 42, 58, 0.05); line-height: 1.9; }
       .cs-article .cs-lead { font-size: 1.05rem; margin: 0 0 4px; }
       .cs-article h2 { display: flex; align-items: center; gap: 10px; margin: 2.2rem 0 0.8rem; font-size: 1.25rem; }
-      .cs-article h2::before { content: ""; width: 5px; height: 1.2em; border-radius: 3px; background: #1565d8; flex-shrink: 0; }
+      .cs-article h2::before { content: ""; width: 5px; height: 1.2em; border-radius: 3px; background: #073461; flex-shrink: 0; }
       .cs-article ul { margin: 0 0 1rem; padding-left: 1.3em; }
       .cs-article li { margin-bottom: 0.4rem; }
       .cs-article p { margin: 0 0 1rem; }
-      .cs-article .cs-source { margin-top: 2.4rem; padding-top: 1.2rem; border-top: 1px dashed #d6dde3; font-size: 0.9rem; }
+      .cs-article .cs-source { margin-top: 2.4rem; padding-top: 1.2rem; border-top: 1px dashed #e6e8ec; font-size: 0.9rem; }
       .cs-article .cs-source h2 { margin-top: 0; font-size: 1.05rem; }
       .cs-article .cs-updated { font-size: 0.82rem; color: var(--mute); margin: 0; }
       @media (max-width: 640px) { .cs-article { padding: 20px 16px; } .cs-article h2 { font-size: 1.12rem; } }
@@ -129,7 +129,7 @@ function build() {
           <img src="../images/cases/${illustFor(CASES.indexOf(c))}" alt="" width="300" height="411" loading="lazy">
           <span>
             <h3 style="font-size: 1.1rem; margin: 0 0 6px;">${esc(c.title)}</h3>
-            <p style="margin: 0 0 4px; font-size: 0.85rem; font-weight: 700; color: #1565d8;">${esc([c.industry, c.region].filter(Boolean).join('｜'))}</p>
+            <p style="margin: 0 0 4px; font-size: 0.85rem; font-weight: 700; color: #073461;">${esc([c.industry, c.region].filter(Boolean).join('｜'))}</p>
             <p>${esc(c.summary)}</p>
           </span>
         </a>`;

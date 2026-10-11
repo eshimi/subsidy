@@ -57,18 +57,18 @@ const GROUPS = [
 const STYLE = `
   <style>
     .sm-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
-    .sm-card { background: #fff; border: 1px solid #dbe6f2; border-radius: 16px; padding: 22px 24px; }
+    .sm-card { background: #fff; border: 1px solid #e6e8ec; border-radius: 16px; padding: 22px 24px; }
     .sm-card.wide { grid-column: 1 / -1; }
     .sm-card h2 { display: flex; align-items: center; gap: 10px; margin: 0 0 12px; font-size: 1.15rem; }
-    .sm-card h2::before { content: ""; width: 5px; height: 1.2em; border-radius: 3px; background: #1565d8; }
+    .sm-card h2::before { content: ""; width: 5px; height: 1.2em; border-radius: 3px; background: #073461; }
     .sm-card ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
     .sm-card li { line-height: 1.6; }
     .sm-card li.sub { padding-left: 1.1em; font-size: 0.92rem; }
-    .sm-card li.sub::before { content: "└ "; color: #9aa6b4; }
+    .sm-card li.sub::before { content: "└ "; color: #6b778c; }
     .sm-card a { text-decoration: none; }
     .sm-card a:hover { text-decoration: underline; }
     .sm-area { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px 24px; }
-    .sm-area b { display: block; font-size: 0.9rem; color: #55606b; margin-bottom: 2px; }
+    .sm-area b { display: block; font-size: 0.9rem; color: #56667f; margin-bottom: 2px; }
     .sm-area span a { margin-right: 10px; display: inline-block; }
     @media (max-width: 720px) { .sm-grid { grid-template-columns: 1fr; } .sm-card { padding: 18px 16px; } }
   </style>`;
