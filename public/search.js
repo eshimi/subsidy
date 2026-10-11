@@ -120,7 +120,7 @@
 
   function filtered(c) {
     const now = Date.now();
-    let out = items.filter((g) => g.e && Date.parse(g.e) >= now);
+    let out = items.filter((g) => g.guide || (g.e && Date.parse(g.e) >= now));
     const hasQuery = Boolean(c.text);
     const scores = new Map();
     if (hasQuery) {
@@ -135,7 +135,9 @@
     if (c.industry) out = out.filter((g) => (g.i || []).includes(c.industry));
     if (c.amount) out = out.filter((g) => g.m && g.m >= c.amount);
     if (c.within) out = out.filter((g) => Date.parse(g.e) - now <= c.within * DAY);
-    const byEnd = (a, b) => Date.parse(a.e) - Date.parse(b.e);
+    // 締切のない解説ページは、締切の順の最後に並べる
+    const endOf = (g) => (g.e ? Date.parse(g.e) : Infinity);
+    const byEnd = (a, b) => (endOf(a) === endOf(b) ? 0 : endOf(a) < endOf(b) ? -1 : 1);
     const by = {
       end: byEnd,
       new: (a, b) => Date.parse(b.s || 0) - Date.parse(a.s || 0),
@@ -154,6 +156,7 @@
     const note = isSentence(c.text) ? '文章から言葉を拾って、近い制度を探しています。郵便番号も入れると、AIが内容を読み取って探します。' : '';
     count.innerHTML = `${out.length ? `<b>${out.length.toLocaleString('ja-JP')}</b> 件の募集中の補助金が見つかりました。${c.text && !isSentence(c.text) ? '関連の高い順に表示しています。' : ''}` : '条件に合う募集中の補助金は見つかりませんでした。キーワードや条件を減らすか、郵便番号を入れてAIで探してみてください。'}${note ? `<br><small>${esc(note)}</small>` : ''}`;
     list.innerHTML = out.slice(0, shown).map((g) => {
+      if (g.guide) return `<li><a href="${esc(g.url)}">${esc(g.t)}</a><p><span class="s-soon">解説ページ</span>｜個人の方向けの仕組みと、申請の流れ</p></li>`;
       const days = Math.ceil((Date.parse(g.e) - now) / DAY);
       const soon = days <= 30 ? `<span class="s-soon">締切まで${days}日</span>` : `締切 ${esc(dateJa(g.e))}${g.est ? '（見込み）' : ''}`;
       const href = g.url ? esc(g.url) : `grants/${encodeURIComponent(g.id)}.html`;
