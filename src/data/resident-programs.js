@@ -15155,6 +15155,28 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.kobe.lg.jp/a01110/kurashi/sumai/jutaku/information/shinkonportal/oyako/r3_oyako.html"
   },
   {
+    "id": "nishinomiya-jikasyohi-taiyoko",
+    "name": "西宮市自家消費型住宅用太陽光発電設備等導入補助事業",
+    "provider": "兵庫県西宮市",
+    "level": "municipality",
+    "category": "太陽光・蓄電池",
+    "type": "補助金",
+    "amount": "要確認",
+    "summary": "自家消費型の住宅用太陽光発電設備等の導入を支援する令和8年度事業。",
+    "eligibility": [
+      "詳細は要確認"
+    ],
+    "prefectures": [
+      "兵庫県"
+    ],
+    "cities": [
+      "西宮市"
+    ],
+    "period": "令和8年度（最新は要確認）",
+    "deadline": null,
+    "url": "https://www.city.nishinomiya.lg.jp/kurashi/sumai/josei/index.html"
+  },
+  {
     "id": "nishinomiya-jikasyohi-taiyoko-r8",
     "name": "令和8年度自家消費型住宅用太陽光発電設備等導入補助事業",
     "provider": "西宮市",
@@ -15219,6 +15241,28 @@ export const RESIDENT_PROGRAMS = [
     "period": "確認できた年度：令和7年度（令和7年11月28日に終了予定、最新は要確認）",
     "deadline": null,
     "url": "https://www.nishi.or.jp/kurashi/sumai/josei/taishinka.html"
+  },
+  {
+    "id": "nishinomiya-zeh-mado",
+    "name": "西宮市戸建住宅ZEH化及び窓リノベ促進補助事業",
+    "provider": "兵庫県西宮市",
+    "level": "municipality",
+    "category": "省エネ住宅",
+    "type": "補助金",
+    "amount": "要確認",
+    "summary": "戸建住宅のZEH化・窓リノベを促進する令和8年度補助事業。",
+    "eligibility": [
+      "詳細は要確認"
+    ],
+    "prefectures": [
+      "兵庫県"
+    ],
+    "cities": [
+      "西宮市"
+    ],
+    "period": "令和8年度（最新は要確認）",
+    "deadline": null,
+    "url": "https://www.city.nishinomiya.lg.jp/kotsu/kankyo/ondankataisaku/hojojigyo/index.html"
   },
   {
     "id": "nara-smarthouse-fukyu",
