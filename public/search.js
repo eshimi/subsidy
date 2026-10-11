@@ -316,48 +316,45 @@
   if (params.has('desc') && params.has('zip')) kwSection.hidden = true;
 
 
-  // ── 結果の中の「条件を追加して絞り込む」（郵便番号・都道府県・目的・業種・事業の状況・当てはまるもの） ──
-  // 上のフォームと同じ値を共有する（どちらで変えても、もう一方に反映される）。
-  // AIで探した結果では、変えるとAIで探し直す。キーワードの結果では、その場で絞り込む。
+  // ── 「条件を追加して絞り込む」（郵便番号・都道府県・目的・業種・事業の状況・当てはまるもの） ──
+  // 条件の入力はここにまとめる。上のフォームの同じ欄（画面では隠している）と値を共有するので、AIの検索にもそのまま使われる。
+  // AIで探した結果が出ているときは、郵便番号・事業の状況・当てはまるものを変えるとAIで探し直す。それ以外は、その場で絞り込む。
   const attrBoxes = [...form.querySelectorAll('input[name="attributes"]')];
   const attrLabel = (box) => box.closest('label').textContent.trim();
-  function refineBar(mode) {
-    const el = document.createElement('div');
-    el.className = 'refine';
-    el.dataset.mode = mode;
-    el.setAttribute('role', 'group');
-    el.setAttribute('aria-label', '条件を追加して絞り込む');
-    const opts = (name) => field(name).innerHTML;
-    el.innerHTML = `
-      <p class="refine-title">条件を追加して絞り込む</p>
-      <div class="refine-grid">
-        <label class="u-sub">郵便番号<input data-r="zip" inputmode="numeric" autocomplete="postal-code" placeholder="123-4567" maxlength="8"></label>
-        <label class="u-sub kw-only">都道府県<select data-r="pref">${opts('pref')}</select></label>
-        <label class="u-sub kw-only">目的<select data-r="purpose">${opts('purpose')}</select></label>
-        <label class="u-sub kw-only">業種<select data-r="industry">${opts('industry')}</select></label>
-        <label class="u-sub ai-only">事業の状況<select data-r="stage">${opts('stage')}</select></label>
-      </div>
-      <p class="hint" data-r="address" aria-live="polite"></p>
-      <div class="refine-attrs ai-only" role="group" aria-label="当てはまるもの">${attrBoxes.map((b) => `<label class="toggle"><input type="checkbox" data-r-attr="${esc(b.value)}"><span>${esc(attrLabel(b))}</span></label>`).join('')}</div>`;
-    return el;
-  }
-  const bars = [refineBar('ai'), refineBar('kw')];
-  // 置き場所：AIの結果は概要の下、キーワードの結果は見出しの下
-  document.getElementById('summary').after(bars[0]);
-  kwSection.querySelector('.u-rhead').after(bars[1]);
+  const cityField = form.querySelector('.city-field');
+  const bar = document.createElement('div');
+  bar.className = 'refine';
+  bar.setAttribute('role', 'group');
+  bar.setAttribute('aria-label', '条件を追加して絞り込む');
+  const opts = (name) => field(name).innerHTML;
+  bar.innerHTML = `
+    <p class="refine-title">条件を追加して絞り込む</p>
+    <div class="refine-grid">
+      <label class="u-sub">郵便番号<input data-r="zip" inputmode="numeric" autocomplete="postal-code" placeholder="123-4567" maxlength="8"></label>
+      <label class="u-sub">都道府県<select data-r="pref">${opts('pref')}</select></label>
+      <label class="u-sub">目的<select data-r="purpose">${opts('purpose')}</select></label>
+      <label class="u-sub">業種<select data-r="industry">${opts('industry')}</select></label>
+      <label class="u-sub">事業の状況<select data-r="stage">${opts('stage')}</select></label>
+      <label class="u-sub" data-city hidden>市区町村<input data-r="city" placeholder="例：横浜市中区"></label>
+    </div>
+    <p class="hint" data-r="address" aria-live="polite"></p>
+    <div class="refine-attrs" role="group" aria-label="当てはまるもの">${attrBoxes.map((b) => `<label class="toggle"><input type="checkbox" data-r-attr="${esc(b.value)}"><span>${esc(attrLabel(b))}</span></label>`).join('')}</div>`;
+  form.after(bar);
 
   function syncBars() {
-    for (const bar of bars) {
-      for (const c of bar.querySelectorAll('[data-r]')) {
-        const name = c.dataset.r;
-        if (name === 'address') c.textContent = address.textContent.replace(/^📍\s*/u, '');
-        else if (document.activeElement !== c) c.value = field(name).value;
-      }
-      for (const c of bar.querySelectorAll('[data-r-attr]')) c.checked = attrBoxes.some((b) => b.value === c.dataset.rAttr && b.checked);
+    for (const c of bar.querySelectorAll('[data-r]')) {
+      const name = c.dataset.r;
+      if (name === 'address') c.textContent = address.textContent.replace(/^📍\s*/u, '');
+      else if (document.activeElement !== c) c.value = field(name).value;
     }
+    for (const c of bar.querySelectorAll('[data-r-attr]')) c.checked = attrBoxes.some((b) => b.value === c.dataset.rAttr && b.checked);
+    // 住所から市区町村が分からないときだけ、市区町村の欄を出す
+    bar.querySelector('[data-city]').hidden = !cityField || cityField.hidden;
   }
   let reTimer;
-  function refineChanged(bar, target) {
+  bar.addEventListener('input', (e) => { if (e.target.matches('input[data-r]')) refineChanged(e.target); });
+  bar.addEventListener('change', (e) => { if (e.target.matches('select, input[data-r-attr]')) refineChanged(e.target); });
+  function refineChanged(target) {
     const name = target.dataset.r;
     if (name) {
       field(name).value = target.value;
@@ -367,21 +364,19 @@
       for (const b of attrBoxes) if (b.value === target.dataset.rAttr) b.checked = target.checked;
     } else return;
     syncBars();
-    if (bar.dataset.mode === 'kw') { shown = PAGE; syncUrl(); render(); return; }
-    // AIの結果：郵便番号が7桁そろって、文章が5文字以上のときだけ、探し直す
+    if (aiSection.hidden) { shown = PAGE; syncUrl(); render(); return; }
+    // AIの結果が出ているとき：AIが使う条件（郵便番号・市区町村・事業の状況・当てはまるもの）を変えたら、探し直す
+    if (!['zip', 'city', 'stage'].includes(name) && !target.dataset.rAttr) return;
     clearTimeout(reTimer);
     reTimer = setTimeout(() => {
       if (zipOf(field('zip').value).length === 7 && text().length >= 5) form.requestSubmit();
     }, 500);
   }
-  for (const bar of bars) {
-    bar.addEventListener('input', (e) => { if (e.target.matches('input[data-r]')) refineChanged(bar, e.target); });
-    bar.addEventListener('change', (e) => { if (e.target.matches('select, input[data-r-attr]')) refineChanged(bar, e.target); });
-  }
-  // 上のフォームを変えたときも、結果の中の欄に反映する
+  // 上のフォームが変わったとき（例を押した・住所が分かった など）も、欄に反映する
   form.addEventListener('input', syncBars);
   form.addEventListener('change', syncBars);
   new MutationObserver(syncBars).observe(address, { childList: true, characterData: true, subtree: true });
+  if (cityField) new MutationObserver(syncBars).observe(cityField, { attributes: true, attributeFilter: ['hidden'] });
   setTimeout(syncBars, 0);
 
   // AIで探した結果の下に、お住まいの市区町村の個人向け制度（自治体）を出す

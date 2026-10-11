@@ -44,13 +44,15 @@
     /* 結果の中で、条件を足して絞り込む */
     .refine { margin: 18px 0 8px; padding: 16px 18px; background: #fff; border: 1px solid #e6e8ec; border-radius: 14px; display: grid; gap: 12px; }
     .refine-title { margin: 0; font-weight: 700; color: #073461; }
-    .refine-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+    .refine-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+    @media (max-width: 960px) { .refine-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
     .refine .u-sub input, .refine .u-sub select { width: 100%; padding: 9px 10px; border: 1.5px solid #e6e8ec; border-radius: 10px; font: inherit; background: #fff; color: #1f3353; }
     .refine .u-sub input:focus, .refine .u-sub select:focus { border-color: #073461; outline: none; box-shadow: 0 0 0 3px rgba(21, 101, 216, 0.12); }
     .refine .hint { margin: 0; }
     .refine-attrs { display: flex; flex-wrap: wrap; gap: 8px; }
     .refine-attrs .toggle { width: auto; }
-    .refine[data-mode="kw"] .ai-only, .refine[data-mode="ai"] .kw-only { display: none; }
+    .u-dup { display: none; } /* 条件の入力は、結果の上の「条件を追加して絞り込む」にまとめた（値は上のフォームと共有） */
+    .refine { margin: -12px 0 24px; }
     @media (max-width: 720px) { .refine-grid { grid-template-columns: 1fr 1fr; } }
 
     @media (max-width: 720px) {
@@ -213,7 +215,7 @@
         </div>
       </div>
 
-      <div class="u-field u-place">
+      <div class="u-field u-place u-dup">
         <span class="u-label">場所</span>
         <div class="u-place-row">
           <label class="u-sub">郵便番号<input id="zip" name="zip" inputmode="numeric" autocomplete="postal-code" placeholder="123-4567" maxlength="8"></label>
@@ -227,7 +229,7 @@
         </div>
       </div>
 
-      <details class="u-more">
+      <details class="u-more u-dup">
         <summary>条件を追加する（任意）</summary>
         <div class="u-more-grid">
           <label class="u-sub">目的<select name="purpose" id="purpose"><option value="">指定しない</option><option value="equipment">設備投資</option><option value="digital">IT・デジタル導入</option><option value="sales">販路開拓・販売促進</option><option value="hiring">人材・雇用</option><option value="green">省エネ・脱炭素</option><option value="research">研究開発・技術</option><option value="succession">事業承継・事業再構築</option><option value="startup">創業・起業</option><option value="region">地域・観光・農林水産</option></select></label>
