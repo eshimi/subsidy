@@ -41,6 +41,18 @@
     .u-tools label { display: grid; gap: 2px; font-size: 0.78rem; color: #56667f; }
     .u-tools select { padding: 8px 10px; border: 1px solid #e6e8ec; border-radius: 8px; background: #fff; font: inherit; font-size: 0.9rem; }
     #results, #kw-results { scroll-margin-top: 84px; }
+    /* 結果の中で、条件を足して絞り込む */
+    .refine { margin: 18px 0 8px; padding: 16px 18px; background: #fff; border: 1px solid #e6e8ec; border-radius: 14px; display: grid; gap: 12px; }
+    .refine-title { margin: 0; font-weight: 700; color: #073461; }
+    .refine-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+    .refine .u-sub input, .refine .u-sub select { width: 100%; padding: 9px 10px; border: 1.5px solid #e6e8ec; border-radius: 10px; font: inherit; background: #fff; color: #1f3353; }
+    .refine .u-sub input:focus, .refine .u-sub select:focus { border-color: #073461; outline: none; box-shadow: 0 0 0 3px rgba(21, 101, 216, 0.12); }
+    .refine .hint { margin: 0; }
+    .refine-attrs { display: flex; flex-wrap: wrap; gap: 8px; }
+    .refine-attrs .toggle { width: auto; }
+    .refine[data-mode="kw"] .ai-only, .refine[data-mode="ai"] .kw-only { display: none; }
+    @media (max-width: 720px) { .refine-grid { grid-template-columns: 1fr 1fr; } }
+
     @media (max-width: 720px) {
       .u-form { padding: 18px 14px; }
       .u-place-row { grid-template-columns: 1fr; gap: 8px; }
