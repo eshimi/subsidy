@@ -211,7 +211,7 @@ ${list}
 
 function sitemap() {
   // ページの一覧は public/ の実際のファイルから作る（転送用・noindex のページは除く）。市区町村は制度があるページだけ
-  const thinArea = new Set(AREA_CITIES.filter((c) => !programsFor(c).municipal.length).map((c) => `area/${c.slug}.html`));
+  const thinArea = new Set(AREA_CITIES.filter((c) => !programsFor(c).municipal.length && !residentFor(c).municipal.length).map((c) => `area/${c.slug}.html`));
   const urls = sitemapPaths(join(ROOT, 'public')).filter((u) => !thinArea.has(u));
   const entries = urls.map((u) => `  <url>
     <loc>${SITE}/${u}</loc>
