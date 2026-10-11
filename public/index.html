@@ -105,6 +105,7 @@
   </header>
 
   <section class="r-hero" aria-labelledby="hero-title">
+    <div class="r-hero-art" aria-hidden="true"></div>
     <p class="r-video-link"><button type="button" class="r-video-btn" id="hero-video-btn" hidden>▶ 紹介動画を見る</button></p>
     <div class="wrap">
       <p class="r-eyebrow">補助金ネット｜国・都道府県・市区町村の補助金を探せるポータル</p>
@@ -314,13 +315,18 @@
     // ヒーローの背景：ページを開くたびに2枚を交互に切り替える（前回の表示を覚えて、次は反対の画像にする）
     (function () {
       var KEY = 'subsidy-finder:hero-bg';
-      var IMAGES = ["url('images/121.webp')", "url('images/hero-alt.webp')"];
+      // 画像ごとに、帯の色（画像の中の深い色）を合わせる。白い文字が読める暗さにしてある
+      var IMAGES = [
+        { img: "url('images/121.webp')", rgb: '28, 79, 114' },
+        { img: "url('images/hero-alt.webp')", rgb: '31, 81, 80' }
+      ];
       var hero = document.querySelector('.r-hero');
       if (!hero) return;
       var last = null;
       try { last = localStorage.getItem(KEY); } catch (e) { /* 保存できないときは、いつも1枚目 */ }
       var next = last === '0' ? 1 : 0;
-      hero.style.setProperty('--hero-img', IMAGES[next]);
+      hero.style.setProperty('--hero-img', IMAGES[next].img);
+      hero.style.setProperty('--hero-rgb', IMAGES[next].rgb);
       try { localStorage.setItem(KEY, String(next)); } catch (e) { /* 保存できなくても表示は変わる */ }
     })();
 
