@@ -117,9 +117,38 @@ export const FOOTER_GROUPS = [
   },
 ];
 
+// フッターに載せる主要リンク（各4本）。全リンクは「サイトマップ」に載せる
+export const FOOTER_SHORT = [
+  { label: '探す', items: [
+    { label: 'AI・キーワードで探す', href: 'search.html' },
+    { label: 'AI補助金判定', href: 'hantei.html' },
+    { label: '市区町村別の補助金', href: 'area/index.html' },
+    { label: '締切が近い補助金', href: 'grants/deadlines.html' },
+  ] },
+  { label: '知る', items: [
+    { label: '補助金ニュース', href: 'news/index.html' },
+    { label: '基礎知識', href: 'basics/index.html' },
+    { label: '活用事例', href: 'cases/index.html' },
+    { label: 'コラム', href: 'columns.html' },
+  ] },
+  { label: '対象者別', items: [
+    { label: '個人事業主の方', href: 'who/sole-proprietor.html' },
+    { label: '中小企業の方', href: 'who/sme.html' },
+    { label: '創業・副業を始める方', href: 'who/startup.html' },
+    { label: '個人の方', href: 'personal/index.html' },
+  ] },
+  { label: 'サイト', items: [
+    { label: '使い方', href: 'guide.html' },
+    { label: '無料相談', href: 'consult.html' },
+    { label: '運営者情報', href: 'policy/about.html' },
+    { label: 'お問い合わせ', href: 'policy/contact.html' },
+  ] },
+];
+
 // フッター最下部の補助リンク
 export const BOTTOM_LINKS = [
   { label: 'プライバシーポリシー', href: 'policy/privacy.html' },
+  { label: '出典・更新方針', href: 'policy/sources.html' },
   { label: 'フィードバック・バグ報告', href: 'policy/contact.html' },
   { label: 'サイトマップ', href: 'sitemap.html' },
 ];
@@ -145,7 +174,7 @@ ${links}
 }
 
 export function footerNavHtml(prefix, current) {
-  const groups = FOOTER_GROUPS.map((g) => {
+  const groups = FOOTER_SHORT.map((g) => {
     const items = g.items.map((i) => `            <li><a href="${url(prefix, i.href)}"${isCurrent(current, i.href) ? ' aria-current="page"' : ''}>${esc(i.label)}</a></li>`).join('\n');
     return `          <details class="footer-group">
             <summary>${esc(g.label)}</summary>
