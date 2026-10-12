@@ -71,6 +71,15 @@
     .u-form.is-compact .u-submit { width: auto; padding: 12px 26px; font-size: 1rem; box-shadow: none; }
     .u-form.is-compact .u-field { margin: 0; }
     #results .toolbar { align-items: flex-end; }
+    /* 結果の絞り込み（対象の切り替え・条件・締切・並び順・分野・件数）を、1つのバーにまとめた */
+    .s-bar { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0; margin: 28px 0 0; padding: 0; border: 1px solid #e6e8ec; border-radius: 14px; background: #fff; }
+    .s-bar-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 16px; padding: 12px 16px; border-bottom: 1px solid #eef0f2; }
+    .s-bar-top #s-aud.filters { margin: 0; }
+    .s-bar-bottom { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; padding: 10px 16px; }
+    .s-bar .u-tools label { font-size: 0.7rem; }
+    .s-bar .u-tools { align-items: flex-end; }
+    .s-bar-bottom .count { white-space: nowrap; }
+    @media (max-width: 720px) { .s-bar-top, .s-bar-bottom { padding: 10px 12px; } .s-bar-top #s-aud.filters { width: 100%; justify-content: center; flex-wrap: nowrap; } #s-aud .filter { padding: 8px 10px; font-size: 0.86rem; white-space: nowrap; } }
     @media (max-width: 720px) {
       .u-form { padding: 18px 14px; }
       .u-place-row { grid-template-columns: 1fr; gap: 8px; }
@@ -296,16 +305,20 @@
     <section id="kw-results" class="u-results" aria-live="polite">
       <div class="u-rhead">
         <h2 class="u-h">募集中の補助金</h2>
-        <div class="u-tools">
-          <label>締切<select id="within" name="within"><option value="">指定しない</option><option value="30">30日以内</option><option value="90">90日以内</option></select></label>
-          <label>並び順<select id="sort" name="sort"><option value="end">締切が近い順</option><option value="new">新着順</option></select></label>
-        </div>
       </div>
       <div id="s-count" class="summary"><p class="notice">読み込み中…</p></div>
-      <div class="toolbar">
-        <div class="filters" role="group" aria-label="事業者向け・個人向けで切り替え" id="s-aud"></div>
-        <div class="filters" role="group" aria-label="分野で絞り込み" id="s-filters"></div>
-        <span class="count" id="s-listcount"></span>
+      <div class="toolbar s-bar">
+        <div class="s-bar-top">
+          <div class="filters" role="group" aria-label="事業者向け・個人向けで切り替え" id="s-aud"></div>
+          <div class="u-tools">
+            <label>締切<select id="within" name="within"><option value="">指定しない</option><option value="30">30日以内</option><option value="90">90日以内</option></select></label>
+            <label>並び順<select id="sort" name="sort"><option value="end">締切が近い順</option><option value="new">新着順</option></select></label>
+          </div>
+        </div>
+        <div class="s-bar-bottom">
+          <div class="filters" role="group" aria-label="分野で絞り込み" id="s-filters"></div>
+          <span class="count" id="s-listcount"></span>
+        </div>
       </div>
       <div id="s-results" class="list"></div>
       <p class="s-more-wrap"><button type="button" id="s-more" class="s-more" hidden>さらに表示する</button></p>
