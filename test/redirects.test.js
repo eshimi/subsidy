@@ -23,3 +23,10 @@ test('転送先の条件（都道府県・目的・業種）が検索ページ�
     if (m) assert.ok(html.includes(`value="${decodeURIComponent(m[2])}"`), to);
   }
 });
+
+test('個人向けの入口（personal/index.html）は、AI補助金判定の個人向けタブに転送する', () => {
+  const rules = Object.fromEntries(redirectRules());
+  assert.equal(rules['/personal/index.html'], '/hantei.html?for=personal');
+  const html = readFileSync(new URL('../public/hantei.html', import.meta.url), 'utf-8');
+  assert.ok(html.includes('id="hj-personal"') && html.includes('data-aud="p"'));
+});

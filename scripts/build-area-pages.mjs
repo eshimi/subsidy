@@ -89,7 +89,7 @@ function cityPage(city) {
       <span class="area-num">03</span>
       <h2 id="resident-programs">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../personal/index.html">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
 ${residentHtml}
       </div>
     </section>

@@ -207,3 +207,26 @@
     wizard.scrollIntoView({ block: 'start' });
   }
 })();
+
+// 事業者向け（AI判定）／個人向け（住まい・車・子育てなどの案内）の切り替え。?for=personal または #personal で個人向けから開く
+(function () {
+  const biz = document.getElementById('hj-biz');
+  const per = document.getElementById('hj-personal');
+  const tabs = [...document.querySelectorAll('.hj-aud button')];
+  if (!biz || !per || !tabs.length) return;
+  const show = (aud, push) => {
+    const personal = aud === 'p';
+    biz.hidden = personal;
+    per.hidden = !personal;
+    tabs.forEach((t) => t.setAttribute('aria-selected', String(t.dataset.aud === aud)));
+    if (push) {
+      const u = new URL(location.href);
+      if (personal) u.searchParams.set('for', 'personal'); else u.searchParams.delete('for');
+      u.hash = '';
+      history.replaceState(null, '', u);
+    }
+  };
+  tabs.forEach((t) => t.addEventListener('click', () => show(t.dataset.aud, true)));
+  const q = new URLSearchParams(location.search).get('for');
+  show(q === 'personal' || location.hash === '#personal' ? 'p' : 'b', false);
+})();

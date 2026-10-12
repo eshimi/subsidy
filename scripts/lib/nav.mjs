@@ -47,7 +47,7 @@ export const TOP_GROUPS = [
       { label: '個人事業主の方', href: 'who/sole-proprietor.html' },
       { label: '中小企業の方', href: 'who/sme.html' },
       { label: '創業・副業を始める方', href: 'who/startup.html' },
-      { label: '個人の方（住まい・車・子育て）', href: 'personal/index.html' },
+      { label: '個人の方（住まい・車・子育て）', href: 'hantei.html?for=personal' },
     ],
   },
 ];
@@ -94,7 +94,7 @@ export const FOOTER_GROUPS = [
       { label: '個人事業主の方', href: 'who/sole-proprietor.html' },
       { label: '中小企業の方', href: 'who/sme.html' },
       { label: '創業・副業を始める方', href: 'who/startup.html' },
-      { label: '個人の方（住まい・車・子育て）', href: 'personal/index.html' },
+      { label: '個人の方（住まい・車・子育て）', href: 'hantei.html?for=personal' },
       { label: '創業のステップ', href: 'roadmap.html' },
       { label: '副業の始め方ガイド', href: 'beginner-guide.html' },
       { label: '副業おすすめ診断', href: 'diagnosis.html' },
@@ -139,7 +139,7 @@ export const FOOTER_SHORT = [
     { label: '個人事業主', href: 'who/sole-proprietor.html' },
     { label: '中小企業', href: 'who/sme.html' },
     { label: '創業・副業', href: 'who/startup.html' },
-    { label: '個人の方（住まい・車・子育て）', href: 'personal/index.html' },
+    { label: '個人の方（住まい・車・子育て）', href: 'hantei.html?for=personal' },
   ] },
   { label: 'サイト', items: [
     { label: '使い方', href: 'guide.html' },

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AI補助金判定｜補助金ネット</title>
+  <title>AI補助金判定（事業者向け・個人向け）｜補助金ネット</title>
   <meta name="description" content="いくつかの質問に答えるだけで、使えそうな補助金・助成金をAIが判定します。結果を見たあと、専門家への無料相談も申し込めます。">
   <meta name="robots" content="index, follow">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -69,13 +69,13 @@
   <link rel="canonical" href="https://hojyokin.net/hantei.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="補助金ネット">
-  <meta property="og:title" content="AI補助金判定｜補助金ネット">
+  <meta property="og:title" content="AI補助金判定（事業者向け・個人向け）｜補助金ネット">
   <meta property="og:description" content="いくつかの質問に答えるだけで、使えそうな補助金・助成金をAIが判定します。結果を見たあと、専門家への無料相談も申し込めます。">
   <meta property="og:url" content="https://hojyokin.net/hantei.html">
   <meta property="og:image" content="https://hojyokin.net/images/og-image.png">
   <meta property="og:locale" content="ja_JP">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="AI補助金判定｜補助金ネット">
+  <meta name="twitter:title" content="AI補助金判定（事業者向け・個人向け）｜補助金ネット">
   <meta name="twitter:description" content="いくつかの質問に答えるだけで、使えそうな補助金・助成金をAIが判定します。結果を見たあと、専門家への無料相談も申し込めます。">
   <meta name="twitter:image" content="https://hojyokin.net/images/og-image.png">
   <!-- Google tag (gtag.js) -->
@@ -101,6 +101,31 @@
     .hj-primary:disabled { background: #b9c4d0; box-shadow: none; cursor: not-allowed; }
     .hj-ghost { display: inline-flex; align-items: center; gap: 8px; padding: 13px 26px; border: 1px solid var(--hj-line); border-radius: 999px; background: #fff; color: var(--hj-ink); font: inherit; font-weight: 600; cursor: pointer; }
     .hj-sub { display: inline-block; margin-top: 14px; color: var(--hj-blue); font-weight: 600; }
+    .hj-aud { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 14px; }
+    .hj-aud button { flex: 1 1 240px; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 18px; border: 1.5px solid var(--hj-line); border-radius: 999px; background: #fff; color: var(--hj-ink); font: inherit; font-weight: 700; cursor: pointer; }
+    .hj-aud button[aria-selected="true"] { border-color: var(--hj-blue); background: var(--hj-blue); color: #fff; box-shadow: 0 4px 14px rgba(7, 52, 97, 0.2); }
+    .hj-aud button:focus-visible { outline: 2px solid var(--hj-blue); outline-offset: 2px; }
+    .hj-pv .hj-ask { display: grid; grid-template-columns: 120px 1fr; gap: 16px; align-items: center; margin-bottom: 20px; }
+    .hj-pv .hj-ask img { width: 100%; height: auto; -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, #000 60%, transparent 100%); mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, #000 60%, transparent 100%); }
+    .hj-pv .hj-bubble { background: #fff; border-radius: 18px; padding: 16px 20px; line-height: 1.8; box-shadow: 0 4px 16px rgba(29, 42, 58, 0.08); }
+    .hj-pv .hj-bubble h2 { margin: 0 0 4px; font-size: 1.2rem; }
+    .hj-pv-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; }
+    .hj-pv-item { display: grid; grid-template-rows: auto auto 1fr auto; justify-items: center; gap: 6px; padding: 22px 16px 16px; border: 1.5px solid var(--hj-line); border-radius: 14px; background: #fff; text-align: center; text-decoration: none; color: inherit; transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s; }
+    .hj-pv-item:hover { border-color: var(--hj-blue); box-shadow: 0 6px 18px rgba(21, 101, 216, 0.12); transform: translateY(-2px); color: inherit; }
+    .hj-pv-item i { display: grid; place-items: center; width: 68px; height: 68px; border-radius: 50%; background: var(--hj-sky); font-style: normal; font-size: 2rem; }
+    .hj-pv-item b { font-size: 1.05rem; }
+    .hj-pv-item span { font-size: 0.85rem; color: var(--hj-mute); line-height: 1.6; }
+    .hj-pv-item em { font-style: normal; margin-top: 6px; padding: 5px 14px; border: 1px solid #9cc0ee; border-radius: 999px; font-size: 0.82rem; font-weight: 600; color: var(--hj-blue); }
+    .hj-pv-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--hj-line); font-size: 0.92rem; line-height: 1.7; }
+    .hj-pv-foot a.btn { display: inline-flex; padding: 10px 20px; border-radius: 999px; background: var(--hj-blue); color: #fff; font-weight: 700; text-decoration: none; }
+    .hj-pv-foot a.btn:hover { background: var(--hj-blue-d); color: #fff; }
+    @media (max-width: 720px) {
+      .hj-pv .hj-ask { grid-template-columns: 80px 1fr; gap: 10px; }
+      .hj-pv-grid { grid-template-columns: 1fr; }
+      .hj-pv-item { grid-template-columns: 56px 1fr; grid-template-rows: auto auto; justify-items: start; text-align: left; column-gap: 14px; row-gap: 2px; padding: 14px; }
+      .hj-pv-item i { grid-row: 1 / 3; width: 56px; height: 56px; font-size: 1.6rem; }
+      .hj-pv-item em { display: none; }
+    }
     .hj-progress { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); margin: 0 0 24px; padding: 0; counter-reset: hj; }
     .hj-progress li { position: relative; text-align: center; font-size: 0.82rem; color: var(--hj-mute); counter-increment: hj; }
     .hj-progress li::before { content: counter(hj); display: grid; place-items: center; width: 30px; height: 30px; margin: 0 auto 6px; border-radius: 50%; background: #e3e9f0; color: var(--hj-mute); font-weight: 700; position: relative; z-index: 1; }
@@ -251,7 +276,7 @@
             <a href="who/sole-proprietor.html">個人事業主の方</a>
             <a href="who/sme.html">中小企業の方</a>
             <a href="who/startup.html">創業・副業を始める方</a>
-            <a href="personal/index.html">個人の方（住まい・車・子育て）</a>
+            <a href="hantei.html?for=personal">個人の方（住まい・車・子育て）</a>
           </div>
         </details>
         <a href="guide.html">使い方</a>
@@ -267,23 +292,46 @@
     <h1 class="visually-hidden">AI補助金判定</h1>
 
     <section class="hj-app" id="hj-app" aria-live="polite">
-      <div class="hj-card hj-start" id="hj-start">
-        <img class="hj-robot" src="images/hantei/robot-wave.webp" alt="" width="250" height="300">
-        <div>
-          <div class="hj-bubble">こんにちは！<br>一緒にあなたに合った補助金を見つけましょう！</div>
-          <ul class="hj-checks">
-            <li>約1分で診断できます</li>
-            <li>無料で利用できます</li>
-            <li>国の主な補助金・助成金から候補を判定します</li>
-          </ul>
-          <button type="button" class="hj-primary" id="hj-begin">診断をはじめる <span aria-hidden="true">→</span></button><br>
-          <a class="hj-sub" href="feature/popular.html">どんな補助金があるの？まずは例をみる ›</a>
+      <div class="hj-aud" role="tablist" aria-label="どちらの補助金を探しますか？">
+        <button type="button" role="tab" id="hj-tab-b" data-aud="b" aria-selected="true" aria-controls="hj-biz"><span aria-hidden="true">🏢</span>事業をしている・始める方</button>
+        <button type="button" role="tab" id="hj-tab-p" data-aud="p" aria-selected="false" aria-controls="hj-personal"><span aria-hidden="true">🏠</span>個人の方（住まい・車・子育て）</button>
+      </div>
+
+      <div id="hj-biz" role="tabpanel" aria-labelledby="hj-tab-b">
+        <div class="hj-card hj-start" id="hj-start">
+          <img class="hj-robot" src="images/hantei/robot-wave.webp" alt="" width="250" height="300">
+          <div>
+            <div class="hj-bubble">こんにちは！<br>一緒にあなたに合った補助金を見つけましょう！</div>
+            <ul class="hj-checks">
+              <li>約1分で診断できます</li>
+              <li>無料で利用できます</li>
+              <li>国の主な補助金・助成金から候補を判定します</li>
+            </ul>
+            <button type="button" class="hj-primary" id="hj-begin">診断をはじめる <span aria-hidden="true">→</span></button><br>
+            <a class="hj-sub" href="feature/popular.html">どんな補助金があるの？まずは例をみる ›</a>
+          </div>
+        </div>
+
+        <div class="hj-card" id="hj-wizard" hidden>
+          <ol class="hj-progress" id="hj-progress" aria-label="診断の進み具合"><li>基本情報</li><li>事業内容</li><li>詳細条件</li><li>診断結果</li></ol>
+          <div id="hj-stage"></div>
         </div>
       </div>
 
-      <div class="hj-card" id="hj-wizard" hidden>
-        <ol class="hj-progress" id="hj-progress" aria-label="診断の進み具合"><li>基本情報</li><li>事業内容</li><li>詳細条件</li><li>診断結果</li></ol>
-        <div id="hj-stage"></div>
+      <div id="hj-personal" role="tabpanel" aria-labelledby="hj-tab-p" hidden>
+        <div class="hj-card hj-pv">
+          <div class="hj-ask"><img src="images/hantei/robot-ask.webp" alt="" width="163" height="142"><div class="hj-bubble"><h2>個人が使える補助金・支援</h2>どんなことに使いたいですか？当てはまるものを選んでください。</div></div>
+          <div class="hj-pv-grid">
+          <a class="hj-pv-item" href="personal/housing.html"><i aria-hidden="true">🏠</i><b>家の省エネ・リフォーム</b><span>断熱窓・給湯器・省エネ住宅の新築など</span><em>詳しく見る ›</em></a>
+          <a class="hj-pv-item" href="personal/ev.html"><i aria-hidden="true">🚗</i><b>電気自動車（EV）</b><span>EV・PHVの購入、充電設備・V2Hの導入</span><em>詳しく見る ›</em></a>
+          <a class="hj-pv-item" href="personal/solar.html"><i aria-hidden="true">☀️</i><b>太陽光発電・蓄電池</b><span>家庭用の太陽光発電・蓄電池の導入</span><em>詳しく見る ›</em></a>
+          <a class="hj-pv-item" href="personal/seismic.html"><i aria-hidden="true">🛠️</i><b>耐震・バリアフリー</b><span>耐震診断・耐震改修、手すり・段差の解消</span><em>詳しく見る ›</em></a>
+          <a class="hj-pv-item" href="personal/kids.html"><i aria-hidden="true">👶</i><b>子育て</b><span>児童手当、妊娠・出産・子育ての支援</span><em>詳しく見る ›</em></a>
+          <a class="hj-pv-item" href="personal/learning.html"><i aria-hidden="true">📚</i><b>学び直し</b><span>教育訓練給付で、講座の費用の一部を支給</span><em>詳しく見る ›</em></a>
+          <a class="hj-pv-item" href="personal/relocation.html"><i aria-hidden="true">🏡</i><b>地方への移住</b><span>移住支援金、移住して起業するときの支援</span><em>詳しく見る ›</em></a>
+          </div>
+          <p class="hj-pv-foot">お住まいの自治体だけの制度もあります。<a class="btn" href="area/index.html">地域から探す →</a><span>制度は申請の前に、必ず公式の情報で確認してください。事業をしている方は、上の「事業をしている・始める方」から判定できます。</span></p>
+        </div>
       </div>
     </section>
 
@@ -331,7 +379,7 @@
             <li><a href="who/sole-proprietor.html">個人事業主</a></li>
             <li><a href="who/sme.html">中小企業</a></li>
             <li><a href="who/startup.html">創業・副業</a></li>
-            <li><a href="personal/index.html">個人の方（住まい・車・子育て）</a></li>
+            <li><a href="hantei.html?for=personal">個人の方（住まい・車・子育て）</a></li>
             </ul>
           </details>
           <details class="footer-group">
@@ -347,7 +395,7 @@
         </nav>
     </div>
     <div class="footer-bottom">
-                                                                                                                                                                                                      <nav aria-label="補助リンク">
+                                                                                                                                                                                                            <nav aria-label="補助リンク">
         <ul>
           <li><a href="policy/privacy.html">プライバシーポリシー</a></li>
           <li><a href="policy/sources.html">出典・更新方針</a></li>

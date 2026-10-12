@@ -1,4 +1,4 @@
-// 都道府県別・目的別・業種別などの一覧ページを、検索結果ページ（search.html）と同じ画面に転送する設定（public/_redirects）を作る。
+// 都道府県別・目的別・業種別などの一覧ページを検索結果ページ（search.html）に、個人向けの入口をAI補助金判定（hantei.html）に転送する設定（public/_redirects）を作る。
 // Cloudflare の静的アセットの転送（301）として動く。使い方：node scripts/build-redirects.mjs
 import { writeFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
@@ -12,6 +12,9 @@ export function redirectRules() {
   const rules = [
     ['/grants/index.html', '/search.html'],
     ['/grants/deadlines.html', '/search.html?within=90&sort=end'],
+    ['/personal/index.html', '/hantei.html?for=personal'],
+    ['/personal/', '/hantei.html?for=personal'],
+    ['/personal', '/hantei.html?for=personal'],
   ];
   for (const pref of PREFECTURES) rules.push([`/grants/pref-${PREF_SLUGS[pref]}.html`, `/search.html?pref=${encodeURIComponent(pref)}`]);
   for (const s of PURPOSE_SLUGS) rules.push([`/grants/purpose-${s}.html`, `/search.html?purpose=${s}`]);
