@@ -878,3 +878,9 @@ button.r-way:focus-visible { outline: 2px solid var(--accent); outline-offset: 2
 .related-links h2 + h3.rl-group { margin-top: 0; }
 .page-side .related-links h3.rl-group { color: #5b6878; }
 .related-links h3.rl-group + ul { margin-bottom: 0; }
+
+/* 検索結果の「事業者向け／個人向け／すべて」の切り替え：ひと目で分かる、大きめの分節ボタン */
+#s-aud.filters { display: inline-flex; gap: 0; padding: 4px; background: #eef1f5; border-radius: 999px; margin: 0 0 8px; }
+#s-aud .filter { border: 0; border-radius: 999px; background: transparent; padding: 8px 18px; font-weight: 600; color: #3b4a5c; }
+#s-aud .filter[aria-pressed="true"] { background: #fff; color: #073461; box-shadow: 0 1px 4px rgba(7, 52, 97, 0.18); }
+#s-aud .filter:focus-visible { outline: 2px solid #073461; outline-offset: 2px; }
