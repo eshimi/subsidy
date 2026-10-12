@@ -220,16 +220,24 @@ export function faqFor(g, now) {
 
 // 制度ページの「分類」：目的・業種のタグと、関連する解説記事
 const GUIDE_FOR = { digital: ['../feature/digital-subsidy.html', 'デジタル補助金とは？'], sales: ['../feature/jizokuka.html', '持続化補助金とは？'], equipment: ['../feature/monodukuri.html', '新事業進出・ものづくり補助金とは？'], research: ['../feature/monodukuri.html', '新事業進出・ものづくり補助金とは？'], succession: ['../feature/succession.html', '事業承継・M&A補助金とは？'], startup: ['../who/startup.html', '創業・副業を始める方へ'] };
+// 対象地域に都道府県が1つだけ書かれている制度は、その都道府県を検索結果ページに引き継ぐ（複数・全国向けは引き継がない）
+export function prefOfArea(area) {
+  const found = PREFECTURES.filter((p) => String(area || '').includes(p));
+  return found.length === 1 ? found[0] : '';
+}
+
 function tagHtml(g) {
   const t = tagsOf(g);
-  const p = PURPOSES.filter((x) => t.p.includes(x.slug)).map((x) => `<a class="grant-tag" href="../search.html?purpose=${x.slug}">${esc(x.label)}</a>`);
-  const i = INDUSTRIES.filter((x) => t.i.includes(x.slug)).map((x) => `<a class="grant-tag" href="../search.html?industry=${x.slug}">${esc(x.label)}</a>`);
+  const pref = prefOfArea(g.area);
+  const prefQ = pref ? `&pref=${encodeURIComponent(pref)}` : '';
+  const p = PURPOSES.filter((x) => t.p.includes(x.slug)).map((x) => `<a class="grant-tag" href="../search.html?purpose=${x.slug}${prefQ}">${esc(x.label)}</a>`);
+  const i = INDUSTRIES.filter((x) => t.i.includes(x.slug)).map((x) => `<a class="grant-tag" href="../search.html?industry=${x.slug}${prefQ}">${esc(x.label)}</a>`);
   const guides = [...new Set(t.p.filter((k) => GUIDE_FOR[k]).map((k) => GUIDE_FOR[k].join('|')))].map((v) => { const [h, l] = v.split('|'); return `<a href="${h}">${esc(l)}</a>`; });
   if (!p.length && !i.length) return '';
   return `        <dt>分類（参考）</dt><dd>${[...p, ...i].join(' ')}${guides.length ? `<br><span class="grant-guide">関連する解説：${guides.join('、')}</span>` : ''}</dd>`;
 }
 
-function grantPage(g, now) {
+export function grantPage(g, now) {
   const st = statusOf(g.end, now);
   const title = `${g.title}｜補助金ネット`;
   const description = `${g.title}の対象地域（${g.area || '記載なし'}）、上限額、申請期間を一覧で確認できます。申請要件は公式サイトで確認してください。`.slice(0, 160);

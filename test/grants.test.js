@@ -119,3 +119,17 @@ test('faqFor: データがある項目はその値で、無い項目は公式確
   assert.match(faq[0][1], /受付締切は/);
   assert.match(faq[2][1], /公募要領で確認/);
 });
+
+test('制度ページの分類（目的・業種）は、対象地域が1つの都道府県なら検索結果ページに引き継ぐ', async () => {
+  const { prefOfArea, grantPage } = await import('../scripts/build-grant-pages.mjs');
+  assert.equal(prefOfArea('東京都'), '東京都');
+  assert.equal(prefOfArea('北海道'), '北海道');
+  assert.equal(prefOfArea('東京都 / 神奈川県'), '');
+  assert.equal(prefOfArea('全国'), '');
+  const g = { id: 'T1', title: 'IT導入の補助金（設備投資・販路開拓）飲食店向け', area: '東京都', end: new Date(NOW + DAY * 30).toISOString(), start: new Date(NOW).toISOString(), max: 1000000 };
+  const html = grantPage(g, NOW);
+  assert.match(html, /href="\.\.\/search\.html\?purpose=[a-z]+&pref=%E6%9D%B1%E4%BA%AC%E9%83%BD"/);
+  assert.match(html, /href="\.\.\/search\.html\?industry=[a-z]+&pref=%E6%9D%B1%E4%BA%AC%E9%83%BD"/);
+  const national = grantPage({ ...g, area: '全国' }, NOW);
+  assert.doesNotMatch(national, /search\.html\?[^"]*pref=/);
+});
