@@ -84,3 +84,13 @@
   else box.append(label, a, pixel, note);
   main.appendChild(box);
 })();
+
+// フッターのリンク：広い画面では全カテゴリを開いたままにする（狭い画面は開閉式）
+(function () {
+  const groups = document.querySelectorAll('.footer-group');
+  if (!groups.length || !window.matchMedia) return;
+  const mq = window.matchMedia('(min-width: 901px)');
+  const apply = () => { if (mq.matches) groups.forEach((d) => { d.open = true; }); else groups.forEach((d) => { d.open = false; }); };
+  apply();
+  mq.addEventListener ? mq.addEventListener('change', apply) : mq.addListener(apply);
+})();

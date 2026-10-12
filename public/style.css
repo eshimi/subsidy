@@ -874,3 +874,64 @@ button.r-way:focus-visible { outline: 2px solid var(--accent); outline-offset: 2
 .footer-group summary::before { content: none; }
 .footer-group summary { width: auto; margin: 0; color: var(--ink); }
 .footer-brand { display: block; line-height: 0; }
+
+/* フッター（横いっぱい版）：左に紹介、右にリンクを4列で全部表示。下段は1行 */
+.footer { background: rgba(0, 0, 0, 0.025); }
+.footer-top { grid-template-columns: 240px minmax(0, 1fr); gap: 24px 48px; padding-block: 28px 20px; }
+.footer-info { display: block; }
+.footer-info .footer-qr { display: flex; align-items: center; gap: 10px; margin: 12px 0 0; text-align: left; }
+.footer-info .footer-qr figcaption { margin: 0; font-size: 0.72rem; }
+.footer-top .footer-nav { grid-template-columns: 1fr 1.25fr 1fr 1fr; gap: 0 28px; }
+.footer-group, .footer-group:first-child { border-top: 0; }
+.footer-group summary { padding: 0 0 8px; margin-bottom: 8px; border-bottom: 2px solid var(--accent, #0b7a55); font-size: 0.82rem; cursor: default; pointer-events: none; }
+.footer-group summary::after { content: none !important; }
+.footer-group ul { gap: 5px; padding: 0; font-size: 0.78rem; line-height: 1.5; }
+.footer-group ul a { color: var(--mute); }
+.footer-group ul a:hover { color: var(--ink); }
+.footer-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 4px 24px; padding-block: 10px; text-align: left; }
+.footer-bottom nav { order: 0; }
+.footer-bottom ul { justify-content: flex-start; margin: 0; }
+@media (max-width: 900px) {
+  .footer-top { grid-template-columns: 1fr; gap: 16px; }
+  .footer-top .footer-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 24px; }
+  .footer-group summary { pointer-events: auto; cursor: pointer; }
+  .footer-group summary::after { content: "+" !important; }
+  .footer-group[open] summary::after { content: "−" !important; }
+}
+@media (max-width: 480px) {
+  .footer-top .footer-nav { grid-template-columns: 1fr; gap: 0; }
+  .footer-bottom { justify-content: center; text-align: center; }
+  .footer-bottom ul { justify-content: center; }
+}
+.footer-group[open] summary::before, .footer-group summary::before { content: none; }
+.footer-group summary { justify-content: flex-start; }
+.footer-top .footer-nav { grid-template-columns: 1.8fr 2fr 1fr 1fr; gap: 0 24px; }
+.footer-group:nth-child(-n+2) ul { display: block; columns: 2; column-gap: 18px; }
+.footer-group:nth-child(-n+2) li { break-inside: avoid; margin-bottom: 4px; }
+.footer-group ul { gap: 3px; font-size: 0.76rem; line-height: 1.45; }
+.footer-top, .footer-bottom { max-width: var(--max); margin-inline: auto; padding-inline: var(--gutter); box-sizing: border-box; }
+@media (max-width: 900px) { .footer-group:nth-child(-n+2) ul { columns: 1; } }
+.footer-top { grid-template-columns: 210px minmax(0, 1fr); gap: 24px 32px; }
+.footer-top .footer-nav { grid-template-columns: 2.1fr 2.1fr 1.15fr 1fr; gap: 0 20px; }
+.footer-group:nth-child(-n+2) ul { column-gap: 14px; }
+.footer-group ul a { white-space: nowrap; }
+@media (max-width: 900px) { .footer-top { grid-template-columns: 1fr; } }
+.footer-top { grid-template-columns: 230px minmax(0, 1fr); }
+.footer-info { display: grid; grid-template-columns: 1fr auto; column-gap: 8px; }
+.footer-info > * { grid-column: 1 / -1; }
+.footer-info .footer-brand { grid-column: 1; grid-row: 1; align-self: center; }
+.footer-info .footer-qr { grid-column: 2; grid-row: 1; margin: 0; display: block; }
+.footer-info .footer-qr img { width: 56px; height: 56px; }
+.footer-info .footer-qr figcaption { display: none; }
+.footer-info p { font-size: 0.74rem; line-height: 1.55; margin-top: 6px; }
+@media (max-width: 900px) { .footer-top { grid-template-columns: 1fr; } .footer-info .footer-qr { display: none; } }
+@media (max-width: 900px) {
+  .footer-top .footer-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 24px; }
+  .footer-group summary { justify-content: space-between; margin-bottom: 0; padding: 10px 0; border-bottom: 1px solid var(--line-soft); }
+  .footer-group[open] summary { margin-bottom: 8px; }
+  .footer-group ul { padding-bottom: 10px; }
+  .footer-group ul a { white-space: normal; }
+}
+@media (max-width: 480px) {
+  .footer-top .footer-nav { grid-template-columns: 1fr; }
+}
