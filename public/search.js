@@ -9,7 +9,7 @@
   const more = document.getElementById('s-more');
   const kwSection = document.getElementById('kw-results');
   const aiSection = document.getElementById('results');
-  const tools = ['amount', 'within', 'sort'].map((id) => document.getElementById(id));
+  const tools = ['within', 'sort'].map((id) => document.getElementById(id));
   if (!form || !list) return;
   const PAGE = 50;
   const DAY = 24 * 60 * 60 * 1000;
@@ -98,9 +98,8 @@
       pref,
       purpose: field('purpose').value,
       industry: field('industry').value,
-      amount: Number(tools[0].value || 0) * 10000,
-      within: Number(tools[1].value || 0),
-      sort: tools[2].value || 'end',
+      within: Number(tools[0].value || 0),
+      sort: tools[1].value || 'end',
     };
   }
 
@@ -183,15 +182,13 @@
     if (c.city) out = out.filter((g) => !cityOf(g) || cityOf(g) === c.city);
     if (c.purpose) out = out.filter((g) => (g.p || []).includes(c.purpose));
     if (c.industry) out = out.filter((g) => (g.i || []).includes(c.industry));
-    if (c.amount) out = out.filter((g) => g.m && g.m >= c.amount);
-    if (c.within) out = out.filter((g) => Date.parse(g.e) - now <= c.within * DAY);
+    if (c.within) out = out.filter((g) => { const d = deadlineOf(g); return d && Date.parse(d) >= now && Date.parse(d) - now <= c.within * DAY; });
     // 締切のない解説ページは、締切の順の最後に並べる
     const endOf = (g) => { const d = g.e || g.dl; return d && Date.parse(d) >= now ? Date.parse(d) : Infinity; };
     const byEnd = (a, b) => (endOf(a) === endOf(b) ? 0 : endOf(a) < endOf(b) ? -1 : 1);
     const by = {
       end: byEnd,
       new: (a, b) => Date.parse(b.s || 0) - Date.parse(a.s || 0),
-      amount: (a, b) => (b.m || 0) - (a.m || 0),
     }[c.sort] || byEnd;
     // キーワードで探したときは、関連度の高い順（同じなら締切の早い順）。並べ替えを選んだときはそれに従う
     // 市区町村が分かっているときは、その市区町村の制度を先に並べる
@@ -345,7 +342,7 @@
     return el;
   }
   const bars = [refinePop(), refinePop()];
-  // 置き場所：キーワードの結果は「上限額・締切・並び順」の左、AIの結果は種類・金額の絞り込みの行
+  // 置き場所：キーワードの結果は「締切・並び順」の左、AIの結果は種類・金額の絞り込みの行
   kwSection.querySelector('.u-tools').prepend(bars[0]);
   bars[1].classList.add('at-left');
   document.querySelector('#results .toolbar').prepend(bars[1]);
