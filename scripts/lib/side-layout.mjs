@@ -1,3 +1,45 @@
+// 「関連ページ」のリンクを、行き先の種類で分けて見出しをつける
+const RELATED_GROUPS = [
+  ['cases', '活用事例'],
+  ['feature', '制度の解説・比較'],
+  ['know', '基礎知識・コラム・ニュース'],
+  ['who', '対象者別のガイド'],
+  ['find', '補助金を探す・調べる'],
+  ['other', 'その他'],
+];
+
+// href（current からの相対）から、行き先のグループを決める
+export function relatedKind(href, current) {
+  if (/^https?:/.test(href)) return 'other';
+  if (/[?&]for=personal/.test(href)) return 'who';
+  const clean = href.split(/[?#]/)[0];
+  const parts = (current.includes('/') ? current.split('/').slice(0, -1) : []).concat(clean.split('/'));
+  const stack = [];
+  for (const seg of parts) { if (seg === '..') stack.pop(); else if (seg && seg !== '.') stack.push(seg); }
+  const path = stack.join('/');
+  const top = stack[0] || '';
+  if (top === 'cases') return 'cases';
+  if (top === 'feature' || top === 'compare') return 'feature';
+  if (['basics', 'columns', 'blog', 'news', 'guides'].includes(top) || ['columns.html', 'real-life.html', 'beginner-guide.html', 'roadmap.html', 'books.html', 'resources.html'].includes(path)) return 'know';
+  if (top === 'who' || top === 'personal') return 'who';
+  if (['grants', 'area'].includes(top) || ['search.html', 'hantei.html', 'hitsuyo.html', 'diagnosis.html', 'chat.html', ''].includes(path) || path === 'index.html') return 'find';
+  return 'other';
+}
+
+// <nav class="related-links" aria-label="関連ページ"> の中のリンクを、種類ごとに分ける。1種類だけなら、そのまま返す
+export function groupRelated(nav, current) {
+  if (!/aria-label="関連ページ"/.test(nav) || nav.includes('rl-group')) return nav;
+  const m = nav.match(/^([\s\S]*?<ul>)([\s\S]*?)(<\/ul>[\s\S]*)$/);
+  if (!m) return nav;
+  const items = [...m[2].matchAll(/<li>(<a href="([^"]*)"[^>]*>[\s\S]*?<\/a>)<\/li>/g)].map((x) => ({ html: x[0], kind: relatedKind(x[2], current) }));
+  if (!items.length) return nav;
+  const groups = RELATED_GROUPS.map(([k, label]) => [label, items.filter((i) => i.kind === k)]).filter(([, l]) => l.length);
+  if (groups.length < 2) return nav;
+  const head = m[1].replace(/\s*<ul>$/, '\n');
+  const body = groups.map(([label, list]) => `      <h3 class="rl-group">${label}</h3>\n      <ul>\n${list.map((i) => `        ${i.html}`).join('\n')}\n      </ul>`).join('\n');
+  return `${head}${body}${m[3].replace(/^<\/ul>/, '')}`;
+}
+
 // 本文の右側に「関連ページ」（なければ、そのページのカテゴリのリンク）を置く共通レイアウト。
 // 見出し・パンくず・タイトルは全幅、その下で本文と右側の列に分ける。
 import { FOOTER_GROUPS } from './nav.mjs';
@@ -53,7 +95,7 @@ export function splitLayout(inner, current) {
   let rest = inner.slice(cut);
   const related = [...rest.matchAll(/ *<nav class="related-links"[\s\S]*?<\/nav>\n?/g)].map((m) => m[0]);
   rest = rest.replace(/ *<nav class="related-links"[\s\S]*?<\/nav>\n?/g, '');
-  let side = related.join('\n');
+  let side = related.map((r) => groupRelated(r, current)).join('\n');
   if (!related.length) {
     side = groupNav(current);
     if (!side) return null;
