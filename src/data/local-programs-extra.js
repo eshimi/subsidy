@@ -2645,6 +2645,179 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "url": "https://www.city.funabashi.lg.jp/jigyou/shoukou/002/p048619.html"
   },
   {
+    "id": "funabashi-city-chingin-ouen",
+    "name": "国の補助金等を活用した賃上げ取組み支援",
+    "provider": "船橋市 経済部 商工振興課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "人材・雇用",
+    "amount": "補助対象経費の3/4・上限15万円",
+    "summary": "賃上げ要件のある国の補助金・助成金に申請した市内中小企業者等を市が上乗せで支援する。",
+    "eligibility": [
+      "令和8年4月1日以降に賃上げを要件とする国の補助金・助成金へ申請している市内中小企業者等"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "千葉県"
+    ],
+    "cities": [
+      "船橋市"
+    ],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.funabashi.lg.jp/jigyou/shoukou/002/p145307.html"
+  },
+  {
+    "id": "funabashi-city-chusho-yushi",
+    "name": "船橋市中小企業融資制度(創業支援資金ほか)",
+    "provider": "船橋市 経済部 商工振興課",
+    "level": "municipality",
+    "type": "融資",
+    "cat": "融資・利子補給",
+    "amount": "創業支援資金は融資限度額2,000万円以内(その他は要確認)",
+    "summary": "市内中小企業者向けの制度融資。創業支援資金は創業者も利用でき、特定創業支援を受けた場合の保証料補給等の優遇がある。",
+    "eligibility": [
+      "市内で事業を営む(創業予定含む)中小企業者",
+      "創業支援資金以外は市内で1年以上の事業継続が必要"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "千葉県"
+    ],
+    "cities": [
+      "船橋市"
+    ],
+    "stages": [
+      "planning",
+      "early",
+      "established"
+    ],
+    "period": "通年(詳細は要確認)",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.funabashi.lg.jp/jigyou/shoukou/003/p017711.html"
+  },
+  {
+    "id": "funabashi-city-sogyo-shien",
+    "name": "創業支援等事業計画認定による各種支援(ふなばし起業スクール)",
+    "provider": "船橋市 経済部 商工振興課・船橋商工会議所",
+    "level": "municipality",
+    "type": "専門家支援",
+    "cat": "創業・起業",
+    "amount": "要確認(受講で登録免許税軽減・保証料補給等)",
+    "summary": "船橋商工会議所の起業スクールで特定創業支援等事業を受け市の証明を得ると、登録免許税の軽減や信用保証料の補給などを受けられる。",
+    "eligibility": [
+      "創業予定者・創業後間もない事業者",
+      "4テーマ受講・8割以上出席"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "千葉県"
+    ],
+    "cities": [
+      "船橋市"
+    ],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "令和8年度は上期(7/25,8/29)開催を確認、下期は要確認",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.funabashi.lg.jp/jigyou/shoukou/001/p032771.html"
+  },
+  {
+    "id": "kashiwa-city-chusho-shikin-yushi",
+    "name": "柏市中小企業資金融資制度(利子補給)",
+    "provider": "柏市 産業政策課",
+    "level": "municipality",
+    "type": "融資",
+    "cat": "融資・利子補給",
+    "amount": "挑戦資金: 運転1,000万円・設備2,000万円まで、創業支援資金: 上限3,500万円。利子補給は5年以内",
+    "summary": "千葉県信用保証協会と市内金融機関が連携する制度融資で、支払利息の一部を市が負担する。",
+    "eligibility": [
+      "市内中小企業者・創業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "千葉県"
+    ],
+    "cities": [
+      "柏市"
+    ],
+    "stages": [
+      "planning",
+      "early",
+      "established"
+    ],
+    "period": "通年(最新は要確認)",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.kashiwa.lg.jp/sangyoseisaku/jigyosha/finance/shikinyushi.html"
+  },
+  {
+    "id": "kashiwa-city-shinyohoshoryo-hojo",
+    "name": "柏市中小企業融資制度における信用保証料補助",
+    "provider": "柏市 産業政策課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "融資・利子補給",
+    "amount": "創業支援資金の信用保証料を全額補助",
+    "summary": "市の中小企業融資制度(創業支援資金)を利用した際の信用保証料を市が補助する。",
+    "eligibility": [
+      "柏市中小企業資金融資制度の創業支援資金の融資を受けた者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "千葉県"
+    ],
+    "cities": [
+      "柏市"
+    ],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "通年(最新は要確認)",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.kashiwa.lg.jp/sangyoseisaku/jigyosha/finance/shinyohoshoryo.html"
+  },
+  {
+    "id": "kashiwa-city-sogyosha-ouen-hojokin",
+    "name": "柏市創業者応援事業補助金",
+    "provider": "柏市 産業政策課(柏商工会議所・柏市沼南商工会経由)",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "創業・起業",
+    "amount": "補助率1/2以内・上限50万円(経費の1/3以上は広報費)",
+    "summary": "市内で初めて創業する人の広報費・店舗借入費・内装工事費・法人登記費用等を補助する。",
+    "eligibility": [
+      "令和8年4月1日以降に市内で創業し、市の創業支援セミナー等を修了した者",
+      "市税の滞納がないこと"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "千葉県"
+    ],
+    "cities": [
+      "柏市"
+    ],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "令和8年8月17日〜10月30日(予算上限で終了)",
+    "deadline": "2026-10-30",
+    "priority": 8,
+    "url": "https://www.city.kashiwa.lg.jp/shoko/sougyou/sougyou-hojokin.html"
+  },
+  {
     "id": "kashiwa-city-startup-jigyoka-ouen",
     "name": "柏市スタートアップ事業化応援補助金",
     "provider": "柏市 産業政策・スタートアップ推進課",
@@ -2841,6 +3014,119 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "url": "https://www.tokyo-kosha.or.jp/support/josei/index.html"
   },
   {
+    "id": "chofu-city-jigyo-shikin-assen",
+    "name": "調布市中小企業 事業資金融資あっせん制度",
+    "provider": "調布市 産業振興課",
+    "level": "municipality",
+    "type": "融資",
+    "cat": "融資・利子補給",
+    "amount": "利子補給・信用保証料全額補助(物価高騰対策の運転資金は当初3年間利子全額補助、4年目以降1/2)",
+    "summary": "市内中小企業者の事業資金の融資をあっせんし、利子と信用保証料を市が補助する。",
+    "eligibility": [
+      "市内で事業を営む中小企業者",
+      "物価高騰対策分はセーフティネット保証5号の基準を満たすこと"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "調布市"
+    ],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "通年(最新は要確認)",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.chofu.tokyo.jp/www/contents/1176118978600/"
+  },
+  {
+    "id": "chofu-city-kaigyo-shikin-assen",
+    "name": "調布市中小企業 開業資金融資あっせん制度",
+    "provider": "調布市 産業振興課",
+    "level": "municipality",
+    "type": "融資",
+    "cat": "創業・起業",
+    "amount": "限度額1,000万円・償還84か月以内・利率2.20%(市が利率の1/2を補助、信用保証料は全額補助)",
+    "summary": "市内で開業する中小企業者向けの融資あっせん。利子の1/2と信用保証料を市が補助する。",
+    "eligibility": [
+      "市内で開業する(開業1年未満含む)中小企業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "調布市"
+    ],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "通年(最新は要確認)",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.chofu.tokyo.jp/www/contents/1315357463913/index.html"
+  },
+  {
+    "id": "chofu-city-marukei-rishi",
+    "name": "マル経融資(経営改善貸付)利子補給",
+    "provider": "調布市 産業振興課・調布市商工会",
+    "level": "municipality",
+    "type": "融資",
+    "cat": "融資・利子補給",
+    "amount": "要確認(無担保・無保証人融資への利子補給)",
+    "summary": "調布市商工会の経営指導を受ける小規模事業者向けのマル経融資に対し、市と商工会が利子補給を行う。",
+    "eligibility": [
+      "調布市商工会の経営指導を原則6か月以上受けた小規模事業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "調布市"
+    ],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "通年(最新は要確認)",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://city.chofu.tokyo.jp/www/contents/1392361371164/index.html"
+  },
+  {
+    "id": "chofu-city-zerocarbon-chusho",
+    "name": "中小企業等ゼロカーボン推進補助事業",
+    "provider": "調布市",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "設備投資・省エネ",
+    "amount": "要確認(LED照明・断熱改修・高効率給湯器が対象)",
+    "summary": "市内中小企業等のLED照明、断熱化改修、高効率給湯器の導入費用を補助する(令和8年度の補助制度一覧に掲載)。",
+    "eligibility": [
+      "市内の中小企業等"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "調布市"
+    ],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "令和8年度(募集状況は要確認)",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.chofu.tokyo.jp/www/genre/1391389837286/index.html"
+  },
+  {
     "id": "fuchu-city-akitenpo-yachin",
     "name": "空き店舗等対策家賃補助事業",
     "provider": "府中市 産業観光課",
@@ -2874,6 +3160,94 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "url": "https://www.city.fuchu.tokyo.jp/jigyosha/keesha/kigyo/tyushokigyoshienn/akitenpohojo.html"
   },
   {
+    "id": "fuchu-city-hanro-kaitaku",
+    "name": "小規模事業者販路開拓等補助金",
+    "provider": "府中市 産業観光課・むさし府中商工会議所",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "販路開拓・PR",
+    "amount": "補助率2/3・上限30万円",
+    "summary": "経営計画に基づく小規模事業者の販路開拓や業務効率化の取組費用を補助する。",
+    "eligibility": [
+      "市内の小規模事業者",
+      "経営計画の策定"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "府中市"
+    ],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.fuchu.tokyo.jp/jigyosha/keesha/kigyo/tyushokigyoshienn/hanrokaitaku.html"
+  },
+  {
+    "id": "fuchu-city-shoene-setsubi",
+    "name": "省エネ設備更新支援事業補助金",
+    "provider": "府中市 産業観光課・むさし府中商工会議所",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "設備投資・省エネ",
+    "amount": "補助率2/3・上限50万円",
+    "summary": "市内店舗・事務所の既存設備を省エネ設備に更新する費用を補助する。事前相談が必要。",
+    "eligibility": [
+      "市内の店舗・事務所を持つ事業者",
+      "事前相談を受けていること"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "府中市"
+    ],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.fuchu.tokyo.jp/jigyosha/keesha/kigyo/tyushokigyoshienn/shoene.html"
+  },
+  {
+    "id": "fuchu-city-yushi-assen-rishi",
+    "name": "府中市融資あっ旋制度(創業資金・小口事業資金)利子補助",
+    "provider": "府中市 産業観光課",
+    "level": "municipality",
+    "type": "融資",
+    "cat": "融資・利子補給",
+    "amount": "創業資金は1,000万円、利用者負担利率0.5〜0.7%(版により差異あり、要確認)",
+    "summary": "市内中小企業者や創業予定者への融資をあっ旋し、利子の一部を市が補助する。創業資金は創業支援機関への相談が必要。",
+    "eligibility": [
+      "市内中小企業者(個人事業主含む)",
+      "市内で創業しようとする者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "府中市"
+    ],
+    "stages": [
+      "planning",
+      "early",
+      "established"
+    ],
+    "period": "通年(令和8年度版パンフレットあり)",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.fuchu.tokyo.jp/jigyosha/keesha/kigyo/tyushokigyoshienn/chusho.html"
+  },
+  {
     "id": "hachioji-city-akiten-kaishu",
     "name": "空き店舗等活用補助金(中心市街地以外)",
     "provider": "八王子市 産業振興課",
@@ -2904,6 +3278,235 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "deadline": "2026-12-25",
     "priority": 8,
     "url": "https://www.city.hachioji.tokyo.jp/kurashi/sangyo/003/003/p006356.html"
+  },
+  {
+    "id": "hachioji-city-jigyo-shikin-assen",
+    "name": "八王子市事業資金融資あっ旋制度(創業支援資金含む)",
+    "provider": "八王子市 産業振興課",
+    "level": "municipality",
+    "type": "融資",
+    "cat": "融資・利子補給",
+    "amount": "要確認(予算の範囲で利子補給)",
+    "summary": "信用保証協会の保証を前提に市が融資をあっ旋し、予算の範囲内で利子補給を行う。創業支援資金もある。",
+    "eligibility": [
+      "市内中小企業者・創業者",
+      "審査あり"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "八王子市"
+    ],
+    "stages": [
+      "planning",
+      "early",
+      "established"
+    ],
+    "period": "2026年度(通年)",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.hachioji.tokyo.jp/jigyosha/014/005/001/p006509.html"
+  },
+  {
+    "id": "hachioji-city-keiei-kyoka-hanro",
+    "name": "経営力強化補助金(販路拡大事業)",
+    "provider": "八王子市 産業振興課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "販路開拓・PR",
+    "amount": "要確認",
+    "summary": "令和8年度の公募ページが公開されている販路拡大向けの補助金。補助率・上限は要確認。",
+    "eligibility": [
+      "市内事業者(詳細は要確認)"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "八王子市"
+    ],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "令和8年度公募(期間は要確認)",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.hachioji.tokyo.jp/kurashi/sangyo/001/p035389.html"
+  },
+  {
+    "id": "hachioji-city-sogyosha-hanro",
+    "name": "創業者販路拡大支援補助金",
+    "provider": "八王子市 産業振興課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "販路開拓・PR",
+    "amount": "補助率3/4以内・上限10万円",
+    "summary": "創業者の販路拡大の取組費用を補助する。予算終了次第受付終了。",
+    "eligibility": [
+      "創業予定の方",
+      "創業後5年未満の方"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "八王子市"
+    ],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "令和8年4月1日〜令和9年1月31日(予算終了まで)",
+    "deadline": "2027-01-31",
+    "priority": 8,
+    "url": "https://www.city.hachioji.tokyo.jp/kurashi/sangyo/001/p035372.html"
+  },
+  {
+    "id": "hachioji-city-yushi-shienkin",
+    "name": "八王子市事業資金融資支援金(保証料自己負担分)",
+    "provider": "八王子市 産業振興課",
+    "level": "municipality",
+    "type": "給付金",
+    "cat": "融資・利子補給",
+    "amount": "信用保証料の自己負担分を交付",
+    "summary": "中東情勢の影響を受ける中小企業等で、市融資(創業支援資金を含む)の融資実行を受けた者に保証料自己負担分を交付する。",
+    "eligibility": [
+      "2026年7月1日〜2027年2月28日に対象の市融資が実行された中小企業等"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "八王子市"
+    ],
+    "stages": [
+      "planning",
+      "early",
+      "established"
+    ],
+    "period": "8月3日から申請受付(融資実行は2027年2月28日まで)",
+    "deadline": "2027-02-28",
+    "priority": 8,
+    "url": "https://www.city.hachioji.tokyo.jp/kurashi/sangyo/001/p037700.html"
+  },
+  {
+    "id": "machida-city-jigyo-shokei-hojokin",
+    "name": "町田市事業承継事業補助金",
+    "provider": "町田市 経済観光部 産業政策課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "事業承継",
+    "amount": "補助率1/2・上限50万円",
+    "summary": "事業承継推進ネットワークによる実施計画確認を受けた市内中小企業の、診断・承継計画作成・M&A仲介登録等の費用を補助する。",
+    "eligibility": [
+      "市内に本社がある中小企業者(個人事業者を除く)",
+      "1年以上の営業実績・市税完納"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "町田市"
+    ],
+    "stages": [
+      "established"
+    ],
+    "period": "申請4月〜12月(予算上限で終了)。実施期限は2027年3月12日",
+    "deadline": "2026-12-31",
+    "priority": 8,
+    "url": "https://www.city.machida.tokyo.jp/jigyousha/shien/syoukeisien/hojokin.html"
+  },
+  {
+    "id": "machida-city-marukei-rishi-josei",
+    "name": "小規模事業者経営改善資金(マル経融資)利子助成制度",
+    "provider": "町田市 産業政策課・町田商工会議所",
+    "level": "municipality",
+    "type": "融資",
+    "cat": "融資・利子補給",
+    "amount": "融資実行後2年間の利子を助成(率は要確認)",
+    "summary": "町田商工会議所の経営指導を受けて日本政策金融公庫のマル経融資を利用する小規模事業者に利子助成を行う。",
+    "eligibility": [
+      "町田商工会議所の経営指導を受ける小規模事業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "町田市"
+    ],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "通年(最新は要確認)",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.machida.tokyo.jp/jigyousha/shien/yushiseido/shokibo_rishi.html"
+  },
+  {
+    "id": "machida-city-sogyo-project",
+    "name": "町田創業プロジェクト(特定創業支援)",
+    "provider": "町田市 産業政策課・町田商工会議所・町田新産業創造センター",
+    "level": "municipality",
+    "type": "専門家支援",
+    "cat": "創業・起業",
+    "amount": "要確認(登録免許税軽減・融資優遇など)",
+    "summary": "特定創業支援を1か月以上受けて証明を得ると、登録免許税の軽減や制度融資の優遇利率を受けられる。",
+    "eligibility": [
+      "創業予定者・創業後間もない事業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "町田市"
+    ],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "通年(最新は要確認)",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.machida.tokyo.jp/jigyousha/shien/yushiseido/seidoyushi/shurui/sougyousikin.html"
+  },
+  {
+    "id": "machida-city-sogyo-shikin",
+    "name": "町田市中小企業融資制度 創業資金(利子補助)",
+    "provider": "町田市 産業政策課",
+    "level": "municipality",
+    "type": "融資",
+    "cat": "創業・起業",
+    "amount": "限度額1,500万円・期間7年以内。町田創業プロジェクト証明で3年以内利率1.10%など優遇",
+    "summary": "創業5年未満の中小企業者向け制度融資。市が利子を補助し、東京都の要件で保証料補助(2/3)もある。",
+    "eligibility": [
+      "創業5年未満の中小企業者・創業予定者",
+      "市内に本店登記、市税完納"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "町田市"
+    ],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "2026年度(通年)",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.machida.tokyo.jp/jigyousha/shien/yushiseido/seidoyushi/shurui/sougyousikin.html"
   },
   {
     "id": "mitaka-city-shinki-shutten-shienkin",

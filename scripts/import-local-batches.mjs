@@ -64,6 +64,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     for (const p of list) {
       // 業種が1つだけのとき、文字列で書かれていても配列にする
       if (typeof p.industries === 'string' && p.industries !== 'all') p.industries = [p.industries];
+      if (Array.isArray(p.industries) && p.industries.includes('all')) p.industries = 'all';
       if (curatedIds.has(p.id)) { skipped++; continue; }
       const problems = problemsOf(p);
       if (problems.length) { rejected++; console.error(`× ${f} ${p.id || '(idなし)'}：${problems.join('／')}`); continue; }
