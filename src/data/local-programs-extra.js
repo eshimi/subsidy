@@ -136,6 +136,152 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "url": "https://www.pref.hokkaido.lg.jp/kz/csk/kny/yuushi/180084.html"
   },
   {
+    "id": "asahikawa-city-chushin-shuten",
+    "name": "旭川市中心市街地出店促進補助金",
+    "provider": "旭川市 産業振興課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "空き店舗・商店街",
+    "amount": "家賃の一部（詳細は要確認）",
+    "summary": "中心市街地の空き店舗を賃借して出店する人に家賃の一部を補助。",
+    "eligibility": [
+      "中心市街地の空き店舗を賃借して出店する人"
+    ],
+    "industries": [
+      "retail",
+      "food"
+    ],
+    "prefectures": [
+      "北海道"
+    ],
+    "cities": [
+      "旭川市"
+    ],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "最新は要確認（令和8年度の要件は要確認）",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.asahikawa.hokkaido.jp/500/542/54501/545/p003799.html"
+  },
+  {
+    "id": "asahikawa-city-monozukuri",
+    "name": "旭川ものづくり支援補助金",
+    "provider": "旭川市 産業振興課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "販路開拓・PR",
+    "amount": "補助率1/2以内（販路拡大連携枠は上限100万円）",
+    "summary": "展示会出展、ホームページ・カタログ制作などの販路開拓費を補助。",
+    "eligibility": [
+      "市内で1年以上操業する中小企業者（製造業中心）"
+    ],
+    "industries": [
+      "manufacturing",
+      "food"
+    ],
+    "prefectures": [
+      "北海道"
+    ],
+    "cities": [
+      "旭川市"
+    ],
+    "stages": [
+      "established"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.asahikawa.hokkaido.jp/500/501/502/d075399.html"
+  },
+  {
+    "id": "asahikawa-city-shinki-kaigyo-riko",
+    "name": "旭川市新規開業支援利子補給制度",
+    "provider": "旭川市 産業振興課",
+    "level": "municipality",
+    "type": "融資",
+    "cat": "創業・起業",
+    "amount": "支払済み利子の2/3相当額（融資後1年間、原則）",
+    "summary": "日本政策金融公庫の新規開業者向け融資を利用した人に利子を補給。",
+    "eligibility": [
+      "日本政策金融公庫の新規開業者向け融資を利用した創業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "北海道"
+    ],
+    "cities": [
+      "旭川市"
+    ],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.asahikawa.hokkaido.jp/500/542/547/p003873.html"
+  },
+  {
+    "id": "asahikawa-city-shinki-sogyo-shikin-hojo",
+    "name": "旭川市中小企業振興資金（新規創業支援資金）の保証料・利子補給",
+    "provider": "旭川市 産業振興課",
+    "level": "municipality",
+    "type": "融資",
+    "cat": "創業・起業",
+    "amount": "保証料の50%相当額（上限100万円）、利子は支払済み利子の全額（融資後2年間）",
+    "summary": "市の中小企業振興資金（新規創業支援資金）利用者に保証料補助と利子補給。",
+    "eligibility": [
+      "市の中小企業振興資金（新規創業支援資金）を利用する創業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "北海道"
+    ],
+    "cities": [
+      "旭川市"
+    ],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.asahikawa.hokkaido.jp/500/542/54501/54502/p003878.html"
+  },
+  {
+    "id": "asahikawa-city-startup-hojo",
+    "name": "旭川市スタートアップ支援補助金",
+    "provider": "旭川市 産業振興課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "創業・起業",
+    "amount": "補助率1/2以内・上限50万円",
+    "summary": "市内で起業・創業する事業者の商品・サービス開発や販路開拓費用を補助。第2創業も対象。",
+    "eligibility": [
+      "市内で起業・創業する事業者",
+      "市内で1年以上操業する事業を承継した第2創業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "北海道"
+    ],
+    "cities": [
+      "旭川市"
+    ],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "令和8年度募集は5月1日〜6月30日（受付終了。来年度は要確認）",
+    "deadline": "2026-06-30",
+    "priority": 8,
+    "url": "https://www.city.asahikawa.hokkaido.jp/kurashi/364/11218/11219/d077387.html"
+  },
+  {
     "id": "aomori-kakehashi-shikin",
     "name": "「青森新時代」への架け橋資金（創業する事業ほか）",
     "provider": "青森県 経済産業部",
@@ -2968,6 +3114,215 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "url": "https://www.city.kashiwa.lg.jp/sangyoseisaku/startup/jigyouka-ouen.html"
   },
   {
+    "id": "matsudo-city-akitenpo",
+    "name": "松戸市商店街商業事業者誘致促進事業補助金（空き店舗出店）",
+    "provider": "松戸市 商工振興課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "空き店舗・商店街",
+    "amount": "改修費：1/2以内・上限50万円、賃借料補助あり（詳細は要確認）",
+    "summary": "商店会エリアの空き店舗に出店する商業事業者の店舗改修費と賃借料の一部を補助する。",
+    "eligibility": [
+      "商店会エリア内の3か月以上貸し出されていない空き店舗に入居",
+      "営業開始後3年間の事業継続"
+    ],
+    "industries": [
+      "retail",
+      "food"
+    ],
+    "prefectures": [
+      "千葉県"
+    ],
+    "cities": [
+      "松戸市"
+    ],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.matsudo.chiba.jp/jigyosya/syoukougyou/syotenkai-hojyo/syoutenngaiakitenpo.html"
+  },
+  {
+    "id": "matsudo-city-chusho-risihokyu",
+    "name": "松戸市中小企業振興資金利子補給制度",
+    "provider": "松戸市 商工振興課",
+    "level": "municipality",
+    "type": "融資",
+    "cat": "融資・利子補給",
+    "amount": "年1.0％以内等の利子補給（創業後5年未満の融資や事業承継資金など。率は融資種別により要確認）",
+    "summary": "千葉県制度融資の利用者に対し市が利子の一部を補給する。毎年度の予算措置で、3年間の補給を約束するものではない。",
+    "eligibility": [
+      "市内の中小企業者",
+      "対象の制度融資を利用（創業後5年未満・事業承継資金など）"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "千葉県"
+    ],
+    "cities": [
+      "松戸市"
+    ],
+    "stages": [
+      "planning",
+      "early",
+      "established"
+    ],
+    "period": "令和8年度の実施有無は令和8年4月に公表とされる。最新は要確認",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.matsudo.chiba.jp/jigyosya/syoukougyou/risihokyu.html"
+  },
+  {
+    "id": "matsudo-city-digital-challenge",
+    "name": "松戸市中小企業デジタル化チャレンジ補助金",
+    "provider": "松戸市 商工振興課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "IT・デジタル",
+    "amount": "上限50万円（補助率は要確認）",
+    "summary": "業務改善により売上・生産性向上につながるソフトウェアの利用料・購入費・開発費、保守委託費などを補助する。",
+    "eligibility": [
+      "市内の中小企業者等",
+      "ソフトウェアの導入が必須"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "千葉県"
+    ],
+    "cities": [
+      "松戸市"
+    ],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "令和8年4月1日〜令和9年2月27日",
+    "deadline": "2027-02-27",
+    "priority": 8,
+    "url": "https://www.city.matsudo.chiba.jp/jigyosya/syoukougyou/dx-charenji.html"
+  },
+  {
+    "id": "matsudo-city-kaisha-setsuritsu-hojo",
+    "name": "松戸市新規会社設立登録免許税補助金",
+    "provider": "松戸市 商工振興課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "創業・起業",
+    "amount": "登録免許税（株式会社75,000円・合同会社30,000円まで）＋定款認証手数料（5万円まで）、合算上限125,000円",
+    "summary": "株式会社・合同会社の設立にかかる登録免許税等の一部を補助する。",
+    "eligibility": [
+      "市内で会社を設立する創業者",
+      "会社設立前（支払前）に申請すること"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "千葉県"
+    ],
+    "cities": [
+      "松戸市"
+    ],
+    "stages": [
+      "planning"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.matsudo.chiba.jp/jigyosya/syoukougyou/tourokumenkyozei.html"
+  },
+  {
+    "id": "matsudo-city-setsubi-toushi",
+    "name": "松戸市中小企業設備投資補助金",
+    "provider": "松戸市 商工振興課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "設備投資・省エネ",
+    "amount": "一般型：1/10以内・上限50万円、生産性向上型：1/3以内・上限250万円（賃上げありの場合）",
+    "summary": "製造業者が税抜300万円以上の生産機械等を購入した費用の一部を補助する。",
+    "eligibility": [
+      "市内の中小企業者（製造業者）",
+      "取得価額合計が税抜300万円以上の機械・装置",
+      "製造小売業は対象外"
+    ],
+    "industries": [
+      "manufacturing"
+    ],
+    "prefectures": [
+      "千葉県"
+    ],
+    "cities": [
+      "松戸市"
+    ],
+    "stages": [
+      "established"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.matsudo.chiba.jp/jigyosya/syoukougyou/setubitousi.html"
+  },
+  {
+    "id": "matsudo-city-sogyosha-hoshoryo",
+    "name": "松戸市創業者保証料補助金",
+    "provider": "松戸市 商工振興課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "創業・起業",
+    "amount": "千葉県制度融資「創業資金 一般枠」で支払った保証料を補助（上限額は要確認）",
+    "summary": "市内で創業し千葉県制度融資の創業資金を借りた際の信用保証料を補助する。",
+    "eligibility": [
+      "市内で創業する方",
+      "千葉県制度融資 創業資金 一般枠を利用",
+      "特定創業支援等事業の証明書が必要な場合あり（要確認）"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "千葉県"
+    ],
+    "cities": [
+      "松戸市"
+    ],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "令和8年度の申請受付は令和8年11月中下旬にページで案内予定",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.matsudo.chiba.jp/jigyosya/syoukougyou/sougyoushahoshou.html"
+  },
+  {
+    "id": "matsudo-city-tenjikai-hojo",
+    "name": "松戸市展示会・見本市等出展補助",
+    "provider": "松戸市 商工振興課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "販路開拓・PR",
+    "amount": "国内展示会：経費の1/2以内・上限10万円（海外は要確認）",
+    "summary": "自社製品を国内外の展示会・見本市に出展する際の出展費用の一部を補助する。",
+    "eligibility": [
+      "市内の中小企業者等",
+      "自社製品の受注拡大・販路開拓が目的"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "千葉県"
+    ],
+    "cities": [
+      "松戸市"
+    ],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.matsudo.chiba.jp/jigyosya/syoukougyou/tenjikaihojo.html"
+  },
+  {
     "id": "tokyo-jigyoshokei-josei",
     "name": "事業承継支援助成金（第3回）",
     "provider": "東京都中小企業振興公社",
@@ -4164,6 +4519,327 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "url": "https://r8seisansei.pref.kanagawa.jp/about/founder.php"
   },
   {
+    "id": "fujisawa-city-community-business",
+    "name": "藤沢市コミュニティビジネス支援補助金",
+    "provider": "藤沢市 産業労働課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "空き店舗・商店街",
+    "amount": "対象事業費の40％以内（女性・シニア世代は45％以内）、予算の範囲内",
+    "summary": "空き店舗などの賃借料と改装工事費の一部を補助する。",
+    "eligibility": [
+      "市内でコミュニティビジネスを行う（行う予定の）事業者",
+      "要件の詳細は要確認"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "神奈川県"
+    ],
+    "cities": [
+      "藤沢市"
+    ],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.fujisawa.kanagawa.jp/indus1/shigoto/shokogyo/sogyo/communitybusiness.html"
+  },
+  {
+    "id": "fujisawa-city-tokutei-sogyo",
+    "name": "藤沢市 特定創業支援等事業（創業スタートアップ支援）",
+    "provider": "藤沢市 産業労働課",
+    "level": "municipality",
+    "type": "専門家支援",
+    "cat": "創業・起業",
+    "amount": "要確認（支援は無料または要確認）",
+    "summary": "創業セミナー・相談など1か月以上・4回以上の継続支援を受け、証明書で登録免許税軽減や融資の金利優遇等を受けられる。",
+    "eligibility": [
+      "市内で創業予定または創業後間もない方"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "神奈川県"
+    ],
+    "cities": [
+      "藤沢市"
+    ],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.fujisawa.kanagawa.jp/indus1/shigoto/shokogyo/sogyo/tokuteisogyo.html"
+  },
+  {
+    "id": "fujisawa-city-yushi-hoshoryo-riko",
+    "name": "藤沢市制度融資 信用保証料補助・利子補給",
+    "provider": "藤沢市 産業労働課（融資窓口：湘南産業振興財団）",
+    "level": "municipality",
+    "type": "融資",
+    "cat": "融資・利子補給",
+    "amount": "保証料の90％（上限20万円）補助。利子補給は年2.2％以内（2年間、女性・若者・シニア起業家は3年間）",
+    "summary": "創業支援融資・キュンとするスタートアップ等の市制度融資の利用者へ、保証料補助と利子補給を行う。",
+    "eligibility": [
+      "市制度融資（創業支援資金等）の利用者",
+      "対象要件の確認が必要（要確認）"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "神奈川県"
+    ],
+    "cities": [
+      "藤沢市"
+    ],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "令和8年度分は藤沢市公式ページで確認（最新は要確認）",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.fujisawa.kanagawa.jp/indus1/shigoto/shokogyo/yushi/chusho.html"
+  },
+  {
+    "id": "hiratsuka-city-akitenpo-kaisou",
+    "name": "平塚市中心市街地活性化事業（空き店舗対策・改装費補助）",
+    "provider": "平塚市 産業振興課（事務局：平塚商工会議所）",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "空き店舗・商店街",
+    "amount": "改装費の2/3以内、原則上限50万円（重点エリア100万円）、賃借料補助あり",
+    "summary": "中心市街地の1階空き店舗への出店に伴う賃借料と改装費を補助する。",
+    "eligibility": [
+      "対象エリアの1階空き店舗に出店する事業者"
+    ],
+    "industries": [
+      "retail",
+      "food",
+      "beauty"
+    ],
+    "prefectures": [
+      "神奈川県"
+    ],
+    "cities": [
+      "平塚市"
+    ],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "予算の範囲内で受付（最新は要確認）",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.hiratsuka.kanagawa.jp/sangyo/page-c_01110.html"
+  },
+  {
+    "id": "hiratsuka-city-chinage-shoreikin",
+    "name": "平塚市中小企業等賃上げ応援奨励金",
+    "provider": "平塚市 産業振興課",
+    "level": "municipality",
+    "type": "給付金",
+    "cat": "人材・雇用",
+    "amount": "奨励金10万円〜30万円",
+    "summary": "賃上げに取り組む中小企業等に奨励金を交付する。",
+    "eligibility": [
+      "市内の中小企業者等",
+      "賃上げの実施（詳細は要確認）"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "神奈川県"
+    ],
+    "cities": [
+      "平塚市"
+    ],
+    "stages": [
+      "established"
+    ],
+    "period": "令和9年1月31日まで（予算に達し次第終了）",
+    "deadline": "2027-01-31",
+    "priority": 8,
+    "url": "https://www.city.hiratsuka.kanagawa.jp/sangyo/page33_00136.html"
+  },
+  {
+    "id": "hiratsuka-city-datsutanso-setsubi",
+    "name": "平塚市脱炭素設備投資促進補助金",
+    "provider": "平塚市 産業振興課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "設備投資・省エネ",
+    "amount": "省エネ設備：30万円以上300万円未満の経費の1/5、上限50万円",
+    "summary": "CO2排出量を年間2％以上削減する設備等の導入費を補助する。",
+    "eligibility": [
+      "市内の事業者",
+      "本体価格30万円（税抜）以上の設備"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "神奈川県"
+    ],
+    "cities": [
+      "平塚市"
+    ],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.hiratsuka.kanagawa.jp/sangyo/page33_00104.html"
+  },
+  {
+    "id": "hiratsuka-city-dx-hojo",
+    "name": "平塚市中小企業等DX支援補助金",
+    "provider": "平塚市 産業振興課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "IT・デジタル",
+    "amount": "要確認",
+    "summary": "中小企業等のDX（デジタル化）に取り組む費用を補助する。",
+    "eligibility": [
+      "市内の中小企業者等（詳細は要確認）"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "神奈川県"
+    ],
+    "cities": [
+      "平塚市"
+    ],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "令和8年4月1日〜令和9年2月28日",
+    "deadline": "2027-02-28",
+    "priority": 8,
+    "url": "https://www.city.hiratsuka.kanagawa.jp/sangyo/page33_00096.html"
+  },
+  {
+    "id": "hiratsuka-city-shin-sogyo-shien",
+    "name": "平塚市 新創業支援資金（利子・保証料全額補助）",
+    "provider": "平塚市 産業振興課",
+    "level": "municipality",
+    "type": "融資",
+    "cat": "創業・起業",
+    "amount": "融資時の信用保証料と利子を全額市が補助（限度額・利率は制度表で要確認）",
+    "summary": "創業予定者と創業後5年未満の方向けの市制度融資で、保証料と利子を市が全額補助する。",
+    "eligibility": [
+      "創業予定者または創業後5年未満",
+      "特定創業支援等事業の証明が条件となる場合あり"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "神奈川県"
+    ],
+    "cities": [
+      "平塚市"
+    ],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "通年（最新は要確認）",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.hiratsuka.kanagawa.jp/kigyo/page-c_01622.html"
+  },
+  {
+    "id": "odawara-city-akitenpo-riyo",
+    "name": "小田原市空き店舗等利活用促進事業費補助金（出店者向け）",
+    "provider": "小田原市 商業振興担当",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "空き店舗・商店街",
+    "amount": "出店者：開業時の広告宣伝費の1/2・上限10万円（物件所有者は改修費2/3・上限100万円）",
+    "summary": "空き店舗への出店者の広告宣伝費等を補助する。",
+    "eligibility": [
+      "空き店舗に出店する事業者"
+    ],
+    "industries": [
+      "retail",
+      "food"
+    ],
+    "prefectures": [
+      "神奈川県"
+    ],
+    "cities": [
+      "小田原市"
+    ],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "令和8年度分は受付終了。次年度は要確認",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.odawara.kanagawa.jp/field/industry/commerce/p27668.html"
+  },
+  {
+    "id": "odawara-city-hanro-kaitaku",
+    "name": "小田原市中小企業等販路開拓事業補助金",
+    "provider": "小田原市 産業政策課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "販路開拓・PR",
+    "amount": "補助率1/2、上限：海外30万円・県外20万円・県内およびオンライン10万円",
+    "summary": "展示会・商談会・見本市への出展経費の一部を助成する。",
+    "eligibility": [
+      "市内に事業所を持つ中小企業・個人事業者",
+      "市税を滞納していないこと"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "神奈川県"
+    ],
+    "cities": [
+      "小田原市"
+    ],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.odawara.kanagawa.jp/field/industry/jibasan/hanrokaitakujigyohojokin.html"
+  },
+  {
+    "id": "odawara-city-sogyo-risihokyu",
+    "name": "小田原市創業融資利子補給金",
+    "provider": "小田原市 産業政策課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "融資・利子補給",
+    "amount": "年間10万円上限、利子支払の3年以内",
+    "summary": "神奈川県創業支援融資（創業特例）を利用する創業者の利子負担を補助する。",
+    "eligibility": [
+      "市内で創業する（した）方",
+      "神奈川県創業支援融資（創業特例）を利用"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "神奈川県"
+    ],
+    "cities": [
+      "小田原市"
+    ],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.odawara.kanagawa.jp/field/industry/industrial_promotion/sougyou.html"
+  },
+  {
     "id": "yokosuka-city-chusho-hosyoryo-hojo",
     "name": "横須賀市中小企業制度融資（信用保証料補助）",
     "provider": "横須賀市 経済部 産業振興課",
@@ -4951,6 +5627,147 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "url": "https://www.fisc.jp/subsidy/fukui_sougyo1/"
   },
   {
+    "id": "fukui-city-chusho-yushi",
+    "name": "福井市中小企業者等融資制度（創業支援資金ほか）",
+    "provider": "福井市 商工労政課",
+    "level": "municipality",
+    "type": "融資",
+    "cat": "融資・利子補給",
+    "amount": "要確認（令和8年度手引き参照）",
+    "summary": "若者・女性等向け創業支援資金を含む市の制度融資。",
+    "eligibility": [
+      "市内で事業を営む、または創業する中小企業者等"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "福井県"
+    ],
+    "cities": [
+      "福井市"
+    ],
+    "stages": [
+      "planning",
+      "early",
+      "established"
+    ],
+    "period": "令和8年度（随時、詳細は手引き参照）",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.fukui.lg.jp/sigoto/syoukou/yusi/p002408_d/fil/tebiki.pdf"
+  },
+  {
+    "id": "fukui-city-jigyoshokei-hojo",
+    "name": "福井市事業承継促進事業補助金",
+    "provider": "福井市 商工労政課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "事業承継",
+    "amount": "限度額15万円、補助率1/2以内",
+    "summary": "事業承継に係る経費の一部を補助する。",
+    "eligibility": [
+      "市内中小企業者等（詳細は要確認）"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "福井県"
+    ],
+    "cities": [
+      "福井市"
+    ],
+    "stages": [
+      "established"
+    ],
+    "period": "令和8年4月1日～令和9年1月29日",
+    "deadline": "2027-01-29",
+    "priority": 8,
+    "url": "https://www.city.fukui.lg.jp/sigoto/syoukou/hojo/p071260.html"
+  },
+  {
+    "id": "fukui-city-ma-kasokuka",
+    "name": "福井市M&A加速化支援補助金",
+    "provider": "福井市 商工労政課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "事業承継",
+    "amount": "限度額5万円",
+    "summary": "M&Aの活用に係る経費の一部を補助する。",
+    "eligibility": [
+      "市内中小企業者等（詳細は要確認）"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "福井県"
+    ],
+    "cities": [
+      "福井市"
+    ],
+    "stages": [
+      "established"
+    ],
+    "period": "令和8年度（最新は要確認）",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.fukui.lg.jp/sigoto/syoukou/hojo/p072771.html"
+  },
+  {
+    "id": "fukui-city-shinseihin-kaihatsu",
+    "name": "福井市新製品・新技術開発支援補助金",
+    "provider": "福井市 商工労政課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "研究開発・新事業",
+    "amount": "限度額 産学連携枠400万円・単独企業枠200万円、補助率2/3以内",
+    "summary": "実用化の見込みがある新製品・新技術・新サービスの開発費（広告宣伝・展示会出展費含む）を補助する。",
+    "eligibility": [
+      "市内中小企業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "福井県"
+    ],
+    "cities": [
+      "福井市"
+    ],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "令和8年度分は募集終了（来年度は要確認）",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.fukui.lg.jp/sigoto/syoukou/hojo/p072760.html"
+  },
+  {
+    "id": "fukui-city-startup-sosyutsu",
+    "name": "福井市スタートアップ創出補助金",
+    "provider": "福井市 商工労政課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "創業・起業",
+    "amount": "上限20万円、補助率1/2以内（在学中は2/3以内）",
+    "summary": "市内での創業初期費用（改装・設備・広告宣伝・会社設立等）を補助する。",
+    "eligibility": [
+      "申請時35歳未満で令和9年3月31日までに市内で開業し代表者になる人",
+      "特定創業支援等事業を受けていること",
+      "市内に住民票と主たる事業所を置くこと"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "福井県"
+    ],
+    "cities": [
+      "福井市"
+    ],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "令和8年4月1日～（予算額に達し次第終了）",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.fukui.lg.jp/sisei/hojyo/sigoto/p070264.html"
+  },
+  {
     "id": "yamanashi-chingin-up",
     "name": "山梨県賃金アップ事業費補助金",
     "provider": "山梨県 産業労働部",
@@ -5082,6 +5899,118 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "deadline": null,
     "priority": 6,
     "url": "https://www.pref.yamanashi.jp/sangyo-sin/sinkousikin/goannai_jigyousyoukei.html"
+  },
+  {
+    "id": "kofu-city-akitenpo",
+    "name": "甲府市中心市街地空き店舗活用事業補助金",
+    "provider": "甲府市 商工課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "空き店舗・商店街",
+    "amount": "経費の1/3以内、上限30万円（商店街加入で50万円）",
+    "summary": "中心市街地の空き店舗に出店する事業者の改装工事等を補助する。",
+    "eligibility": [
+      "中心市街地の空き店舗で出店する事業者",
+      "工事着手前の申請が必要"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "山梨県"
+    ],
+    "cities": [
+      "甲府市"
+    ],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "令和8年4月1日～令和9年2月末（予算額に達し次第終了）",
+    "deadline": "2027-02-28",
+    "priority": 8,
+    "url": "https://www.city.kofu.yamanashi.jp/shoko/akitenpo.html"
+  },
+  {
+    "id": "kofu-city-jigyoshokei-hojo",
+    "name": "甲府市中小企業者等事業承継補助金",
+    "provider": "甲府市 商工課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "事業承継",
+    "amount": "要確認",
+    "summary": "事業承継に必要な資産査定・企業価値の簡易算定などの費用を補助する。",
+    "eligibility": [
+      "本社が山梨県内で市内に主たる事業所を持つ中小企業等"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "山梨県"
+    ],
+    "cities": [
+      "甲府市"
+    ],
+    "stages": [
+      "established"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.kofu.yamanashi.jp/shoko/business/jigyoukeisyouhojo.html"
+  },
+  {
+    "id": "kofu-city-sogyo-shikin",
+    "name": "甲府市創業支援資金（利子補給）",
+    "provider": "甲府市 商工課",
+    "level": "municipality",
+    "type": "融資",
+    "cat": "創業・起業",
+    "amount": "運転資金1,000万円・設備資金1,500万円まで、市が1.0%分を利子補給",
+    "summary": "創業者向け制度融資で、認定特定創業支援事業の証明を受けた人に利子補給を行う。",
+    "eligibility": [
+      "市内で創業する人・創業間もない人",
+      "特定創業支援の証明書の交付を受けた人（利子補給）"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "山梨県"
+    ],
+    "cities": [
+      "甲府市"
+    ],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "通年（最新は要確認）",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.kofu.yamanashi.jp/shoko/business/jigyo/kee/dokuritsu.html"
+  },
+  {
+    "id": "kofu-city-tokubetsu-keiei-shikin",
+    "name": "甲府市特別経営安定資金（令和8年7月拡充）",
+    "provider": "甲府市 商工課",
+    "level": "municipality",
+    "type": "融資",
+    "cat": "融資・利子補給",
+    "amount": "要確認",
+    "summary": "経営安定のための市の制度融資で、令和8年7月1日から一部が拡充された。",
+    "eligibility": [
+      "市内中小企業者（詳細は要確認）"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "山梨県"
+    ],
+    "cities": [
+      "甲府市"
+    ],
+    "stages": [
+      "established"
+    ],
+    "period": "通年（最新は要確認）",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.kofu.yamanashi.jp/shoko/business/jigyo/kee/ante.html"
   },
   {
     "id": "nagano-gyomu-kyodoka",
@@ -5218,6 +6147,298 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "url": "https://www.pref.nagano.lg.jp/keieishien/sangyo/shokogyo/sogyo/suyuchi_r8.html"
   },
   {
+    "id": "matsumoto-city-akitenpo-kaiso",
+    "name": "松本市商店街空き店舗改装支援事業補助金",
+    "provider": "松本市 商工課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "空き店舗・商店街",
+    "amount": "補助率1/3以内・限度額20万〜100万円",
+    "summary": "空き店舗の改装費を補助（新規出店や賃貸目的の改装が対象）。",
+    "eligibility": [
+      "商店街の空き店舗で新規出店する事業者等"
+    ],
+    "industries": [
+      "retail",
+      "food"
+    ],
+    "prefectures": [
+      "長野県"
+    ],
+    "cities": [
+      "松本市"
+    ],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "令和8年4月1日以降受付開始（終期は要確認）",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.matsumoto.nagano.jp/soshiki/75/196825.html"
+  },
+  {
+    "id": "matsumoto-city-akitenpo-katsuyo",
+    "name": "松本市空き店舗活用事業補助金",
+    "provider": "松本市 商工課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "空き店舗・商店街",
+    "amount": "家賃の1/10以内（月額上限4万円。中心市街地は2/10・月額上限8万円）、補助期間1年上限",
+    "summary": "商店街の空き店舗を活用して事業を営む場合の家賃を補助。",
+    "eligibility": [
+      "松本商工会議所または波田商工会の指導を受けていること"
+    ],
+    "industries": [
+      "retail",
+      "food"
+    ],
+    "prefectures": [
+      "長野県"
+    ],
+    "cities": [
+      "松本市"
+    ],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "最新は要確認（ページにより受付状況の記載が異なる）",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.matsumoto.nagano.jp/soshiki/75/3202.html"
+  },
+  {
+    "id": "matsumoto-city-seizogyo-jinzai",
+    "name": "松本市製造業等人材育成事業補助金",
+    "provider": "松本市 商工課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "人材・雇用",
+    "amount": "要確認",
+    "summary": "製造業等の人材育成に係る費用を補助。",
+    "eligibility": [
+      "市内の製造業等の事業者"
+    ],
+    "industries": [
+      "manufacturing"
+    ],
+    "prefectures": [
+      "長野県"
+    ],
+    "cities": [
+      "松本市"
+    ],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.matsumoto.nagano.jp/soshiki/75/3022.html"
+  },
+  {
+    "id": "matsumoto-city-seizogyo-katsseika",
+    "name": "松本市製造業等活性化支援事業助成金",
+    "provider": "松本市 商工課",
+    "level": "municipality",
+    "type": "助成金",
+    "cat": "研究開発・新事業",
+    "amount": "要確認",
+    "summary": "令和8年度から新しい支援メニューが追加された製造業等向け助成金。",
+    "eligibility": [
+      "市内の製造業等の事業者"
+    ],
+    "industries": [
+      "manufacturing"
+    ],
+    "prefectures": [
+      "長野県"
+    ],
+    "cities": [
+      "松本市"
+    ],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.matsumoto.nagano.jp/soshiki/75/3023.html"
+  },
+  {
+    "id": "matsumoto-city-shinki-kaigyo-yachin",
+    "name": "松本市新規開業家賃補助事業",
+    "provider": "松本市 商工課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "創業・起業",
+    "amount": "1年目 対象経費の3/10以内（月額上限8万円）、2年目 2/10以内（月額上限6万円）",
+    "summary": "市内で店舗を借りて開業する人の家賃を補助。",
+    "eligibility": [
+      "市内で店舗を借りて新規開業する人",
+      "中小企業信用保険法の要件に該当"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "長野県"
+    ],
+    "cities": [
+      "松本市"
+    ],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.matsumoto.nagano.jp/soshiki/75/3205.html"
+  },
+  {
+    "id": "nagano-city-dx-model",
+    "name": "長野市中小企業DXモデル支援事業補助金",
+    "provider": "長野市 商工労働課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "IT・デジタル",
+    "amount": "要確認",
+    "summary": "中小企業のDX推進の取組を支援する補助金。",
+    "eligibility": [
+      "市内中小企業者（詳細は要確認）"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "長野県"
+    ],
+    "cities": [
+      "長野市"
+    ],
+    "stages": [
+      "established"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.nagano.nagano.jp/n140300/contents/p006049.html"
+  },
+  {
+    "id": "nagano-city-iju-kigyo-shienkin",
+    "name": "長野市移住者起業支援金",
+    "provider": "長野市 移住担当課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "創業・起業",
+    "amount": "各経費上限100万円、交付率10/10以内",
+    "summary": "移住者が市内で新たに事業を始める際の拠点整備・人材育成・広告宣伝費等を支援する。",
+    "eligibility": [
+      "市内で起業する移住者（詳細は要確認）"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "長野県"
+    ],
+    "cities": [
+      "長野市"
+    ],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "令和8年度（最新は要確認）",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.nagano.nagano.jp/n041600/iju/p004278.html"
+  },
+  {
+    "id": "nagano-city-jinzai-ikusei",
+    "name": "長野市中小企業者人材育成事業補助金",
+    "provider": "長野市 商工労働課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "人材・雇用",
+    "amount": "補助率1/2以内、上限30万円（1人10万円）",
+    "summary": "従業員の人材育成講習の受講費用を補助する。",
+    "eligibility": [
+      "市内中小企業者",
+      "創業1年未満は対象外"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "長野県"
+    ],
+    "cities": [
+      "長野市"
+    ],
+    "stages": [
+      "established"
+    ],
+    "period": "令和8年度募集中（年2回まで）",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.nagano.nagano.jp/n140300/contents/p003893.html"
+  },
+  {
+    "id": "nagano-city-shinseihin-hanro",
+    "name": "長野市新製品開発・販路開拓補助",
+    "provider": "長野市 商工労働課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "販路開拓・PR",
+    "amount": "補助率1/2以内、新製品開発30万円・販路開拓50万円まで",
+    "summary": "新製品開発や販路開拓の経費を補助する。",
+    "eligibility": [
+      "市内中小企業者",
+      "年度1回まで"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "長野県"
+    ],
+    "cities": [
+      "長野市"
+    ],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "令和8年度分受付中（期限は要確認）",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.nagano.nagano.jp/n140300/contents/p003894.html"
+  },
+  {
+    "id": "nagano-city-startup-shien",
+    "name": "長野市スタートアップ支援補助金",
+    "provider": "長野市 商工労働課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "創業・起業",
+    "amount": "設備費1/2以内上限500万円、事業費上限150万円（合計上限1,000万円）",
+    "summary": "創業10年未満のスタートアップの設備・事業費を補助する。",
+    "eligibility": [
+      "創業10年未満",
+      "原則3年以上長野市で事業継続予定"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "長野県"
+    ],
+    "cities": [
+      "長野市"
+    ],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "令和8年度は5/18～6/30で受付終了（来年度は要確認）",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.nagano.nagano.jp/n140600/contents/p003911.html"
+  },
+  {
     "id": "gifu-hanro-kaitaku",
     "name": "岐阜県 中小企業販路開拓等支援事業費補助金",
     "provider": "岐阜県 地域産業課",
@@ -5323,6 +6544,144 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "deadline": null,
     "priority": 6,
     "url": "https://www.pref.gifu.lg.jp/page/61575.html"
+  },
+  {
+    "id": "gifu-city-dx-shikin",
+    "name": "ぎふしDX促進資金",
+    "provider": "岐阜市 商工課",
+    "level": "municipality",
+    "type": "融資",
+    "cat": "IT・デジタル",
+    "amount": "要確認",
+    "summary": "DX推進に取り組む事業者向けの市の制度融資。",
+    "eligibility": [
+      "市内中小企業者（詳細は要確認）"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "岐阜県"
+    ],
+    "cities": [
+      "岐阜市"
+    ],
+    "stages": [
+      "established"
+    ],
+    "period": "通年（最新は要確認）",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.gifu.lg.jp/business/sangyoushinkou/1005687/1016313.html"
+  },
+  {
+    "id": "gifu-city-dx-suishin",
+    "name": "岐阜市中小企業等DX推進補助金",
+    "provider": "岐阜市 商工課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "IT・デジタル",
+    "amount": "専門家派遣:1/2以内・年5万円上限、システム・機器導入:75万円超部分の1/2以内・上限20万円",
+    "summary": "専門家派遣やシステム・機器導入などDX推進を補助する。",
+    "eligibility": [
+      "市内中小企業等"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "岐阜県"
+    ],
+    "cities": [
+      "岐阜市"
+    ],
+    "stages": [
+      "established"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.gifu.lg.jp/business/sangyoushinkou/1005687/1025648.html"
+  },
+  {
+    "id": "gifu-city-jigyo-sozo",
+    "name": "岐阜市事業創造支援補助金",
+    "provider": "岐阜市 商工課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "研究開発・新事業",
+    "amount": "要確認",
+    "summary": "新たな事業に挑戦する市内事業者への補助金（令和8年度案内あり）。",
+    "eligibility": [
+      "市内事業者（詳細は要確認）"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "岐阜県"
+    ],
+    "cities": [
+      "岐阜市"
+    ],
+    "stages": [
+      "planning",
+      "early",
+      "established"
+    ],
+    "period": "令和8年度（最新は要確認）",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.gifu.lg.jp/business/sangyoushinkou/1005760/1005777/index.html"
+  },
+  {
+    "id": "gifu-city-mihonichi",
+    "name": "岐阜市見本市等出展補助金",
+    "provider": "岐阜市 商工課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "販路開拓・PR",
+    "amount": "補助率1/2以内、上限10万円",
+    "summary": "見本市等の出展料を補助する（今年度10件程度）。",
+    "eligibility": [
+      "市内中小企業者等"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "岐阜県"
+    ],
+    "cities": [
+      "岐阜市"
+    ],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "令和8年4月1日～令和9年2月26日（予算枠到達で終了）",
+    "deadline": "2027-02-26",
+    "priority": 8,
+    "url": "https://www.city.gifu.lg.jp/business/sangyoushinkou/1005760/1005777/1005779.html"
+  },
+  {
+    "id": "gifu-city-shinsotsu-brand",
+    "name": "岐阜市新卒人材採用ブランディング補助金",
+    "provider": "岐阜市 商工課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "人材・雇用",
+    "amount": "要確認",
+    "summary": "新卒人材採用のためのブランディング経費を補助する。",
+    "eligibility": [
+      "市内中小企業者（詳細は要確認）"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "岐阜県"
+    ],
+    "cities": [
+      "岐阜市"
+    ],
+    "stages": [
+      "established"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.gifu.lg.jp/business/roudou/1023136.html"
   },
   {
     "id": "shizuoka-chiiki-sosei-kigyo",
@@ -5586,6 +6945,298 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "deadline": null,
     "priority": 6,
     "url": "https://www.pref.aichi.jp/soshiki/startup/8-hojo0401.html"
+  },
+  {
+    "id": "ichinomiya-city-akitenpo",
+    "name": "一宮市空き店舗利活用支援補助金",
+    "provider": "一宮市 産業振興課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "空き店舗・商店街",
+    "amount": "補助率1/2（特定創業支援を受けた事業者は2/3）、初期費用等と賃借料合わせて上限80万円",
+    "summary": "商店街の空き店舗で開業する事業者の初期費用等と賃借料を補助する。",
+    "eligibility": [
+      "商店街の空き店舗で開業する事業者",
+      "申請年度末までに事業開始"
+    ],
+    "industries": [
+      "retail",
+      "food",
+      "beauty"
+    ],
+    "prefectures": [
+      "愛知県"
+    ],
+    "cities": [
+      "一宮市"
+    ],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.ichinomiya.aichi.jp/katsuryokusouzou/sangyoushinkou/1044297/1044298/1055136.html"
+  },
+  {
+    "id": "ichinomiya-city-boeki-shinko",
+    "name": "一宮市貿易振興事業等補助金",
+    "provider": "一宮市 産業振興課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "販路開拓・PR",
+    "amount": "国内見本市：定額5万円、海外見本市：1/4以内（1回上限30万円）",
+    "summary": "見本市・展示会の出展料を補助する。",
+    "eligibility": [
+      "市内に主たる事務所がある中小企業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "愛知県"
+    ],
+    "cities": [
+      "一宮市"
+    ],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.ichinomiya.aichi.jp/katsuryokusouzou/sangyoushinkou/1044297/1044298/1016015.html"
+  },
+  {
+    "id": "ichinomiya-city-sdgs-shien",
+    "name": "一宮市SDGs推進支援補助金",
+    "provider": "一宮市 産業振興課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "設備投資・省エネ",
+    "amount": "補助率1/2、上限100万円",
+    "summary": "生産・受注管理システム導入や繊維産業の生産設備移設等の費用を補助する。",
+    "eligibility": [
+      "製造業の小規模企業者等"
+    ],
+    "industries": [
+      "manufacturing"
+    ],
+    "prefectures": [
+      "愛知県"
+    ],
+    "cities": [
+      "一宮市"
+    ],
+    "stages": [
+      "established"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.ichinomiya.aichi.jp/katsuryokusouzou/sangyoushinkou/1044297/1044298/1065777.html"
+  },
+  {
+    "id": "ichinomiya-city-shouene-setsubi",
+    "name": "一宮市中小企業省エネ設備導入補助金",
+    "provider": "一宮市 環境政策課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "設備投資・省エネ",
+    "amount": "補助率1/2、上限100万円",
+    "summary": "省エネ診断で提案された対策に係る設備更新・改良費の一部を補助する。",
+    "eligibility": [
+      "市内の中小企業",
+      "省エネ診断を受けていること"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "愛知県"
+    ],
+    "cities": [
+      "一宮市"
+    ],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "事業完了は2027年1月31日まで（予算に達し次第締切）",
+    "deadline": "2027-01-31",
+    "priority": 8,
+    "url": "https://www.city.ichinomiya.aichi.jp/kankyou/kankyouseisaku/1043982/1043983/1043984/1066100.html"
+  },
+  {
+    "id": "ichinomiya-city-sogyo-shikin-joseikin",
+    "name": "一宮市 創業資金助成（融資に伴う助成）",
+    "provider": "一宮市 産業振興課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "創業・起業",
+    "amount": "融資金額の2％（認定特定創業支援を受けた場合2.2％）",
+    "summary": "経済環境適応資金の創業等支援資金の利用者に、融資額の一部を助成する。",
+    "eligibility": [
+      "創業等支援資金の利用者",
+      "融資実行日から60日以内に申請"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "愛知県"
+    ],
+    "cities": [
+      "一宮市"
+    ],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "通年（掲載が古いため最新は要確認）",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.ichinomiya.aichi.jp/katsuryokusouzou/sangyoushinkou/1044297/1044298/1010591/1020487.html"
+  },
+  {
+    "id": "kasugai-city-crowdfunding-joseikin",
+    "name": "春日井市クラウドファンディング事業助成金",
+    "provider": "春日井市 産業振興課",
+    "level": "municipality",
+    "type": "助成金",
+    "cat": "販路開拓・PR",
+    "amount": "対象経費の20％以内、年50万円限度",
+    "summary": "購入型クラウドファンディング等を行う中小企業者の経費を助成する。",
+    "eligibility": [
+      "市内の中小企業者",
+      "春日井商工会議所の専門家派遣による診断を受けて実施"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "愛知県"
+    ],
+    "cities": [
+      "春日井市"
+    ],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.kasugai.lg.jp/business/kigyo/hanro/1034125.html"
+  },
+  {
+    "id": "kasugai-city-kenshu-joseikin",
+    "name": "春日井市研修事業助成金",
+    "provider": "春日井市 産業振興課",
+    "level": "municipality",
+    "type": "助成金",
+    "cat": "人材・雇用",
+    "amount": "受講料の20％以内、年30万円限度（1事業5万円）",
+    "summary": "公的・民間研修の受講料を助成する。",
+    "eligibility": [
+      "市内の中小企業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "愛知県"
+    ],
+    "cities": [
+      "春日井市"
+    ],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.kasugai.lg.jp/business/kigyo/jinzaiikusei/kenshu.html"
+  },
+  {
+    "id": "kasugai-city-shokibo-yushi-joseisei",
+    "name": "春日井市小規模企業等振興資金融資助成制度",
+    "provider": "春日井市 産業振興課",
+    "level": "municipality",
+    "type": "融資",
+    "cat": "融資・利子補給",
+    "amount": "信用保証料の助成：通常資金90％、小口資金100％、上限50万円",
+    "summary": "市の融資制度利用時の信用保証料を助成する。",
+    "eligibility": [
+      "市内の小規模企業等",
+      "対象融資の利用者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "愛知県"
+    ],
+    "cities": [
+      "春日井市"
+    ],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.kasugai.lg.jp/business/kigyo/yuusi/syokogyoyusi.html"
+  },
+  {
+    "id": "kasugai-city-shushoku-site-joseikin",
+    "name": "春日井市就職支援サイト掲載助成事業補助金",
+    "provider": "春日井市 産業振興課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "人材・雇用",
+    "amount": "要確認",
+    "summary": "就職情報サイトに求人情報を掲載する（掲載期間1年以内）市内事業者に補助する。",
+    "eligibility": [
+      "市内の事業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "愛知県"
+    ],
+    "cities": [
+      "春日井市"
+    ],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.kasugai.lg.jp/business/kigyo/jinzaikakuho/1016952.html"
+  },
+  {
+    "id": "kasugai-city-sogyo-jigyo-hojo",
+    "name": "春日井市創業事業補助金",
+    "provider": "春日井市 産業振興課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "創業・起業",
+    "amount": "補助対象経費の1/2、上限30万円",
+    "summary": "登記等の書類作成費、創業時の事業所工事費、1年間の広報費などを補助する。",
+    "eligibility": [
+      "市内に住所・事業所を持つ個人または市内に本店を置く会社",
+      "認定特定創業支援等事業の支援を受けていること",
+      "創業から5年以内に申請"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "愛知県"
+    ],
+    "cities": [
+      "春日井市"
+    ],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "令和8年4月1日以後の申請に改正要綱を適用（受付期間は要確認）",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.kasugai.lg.jp/business/kigyo/1009878/1019695.html"
   },
   {
     "id": "okazaki-city-chusho-hosyoryo",
@@ -5973,6 +7624,143 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "url": "https://www.pref.mie.lg.jp/TOPICS/m0360800137.htm"
   },
   {
+    "id": "tsu-city-jinzai-ikusei",
+    "name": "津市中小企業振興事業補助金（人材育成支援事業）",
+    "provider": "津市 商業振興労政課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "人材・雇用",
+    "amount": "補助率1/2以内、同一事業者10万円上限",
+    "summary": "従業員の人材育成にかかる費用の一部を補助する。",
+    "eligibility": [
+      "市内で1年以上事業を営む中小企業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "三重県"
+    ],
+    "cities": [
+      "津市"
+    ],
+    "stages": [
+      "established"
+    ],
+    "period": "令和8年度（最新は要確認）",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.info.city.tsu.mie.jp/sangyou_shigoto/shoukougyou/1004195/1009870/1004207.html"
+  },
+  {
+    "id": "tsu-city-seisansei-setsubi",
+    "name": "津市中小企業振興事業補助金（生産性向上設備支援事業）",
+    "provider": "津市 商業振興労政課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "設備投資・省エネ",
+    "amount": "要確認",
+    "summary": "生産性向上のための設備導入費の一部を補助する。",
+    "eligibility": [
+      "市内で1年以上事業を営む中小企業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "三重県"
+    ],
+    "cities": [
+      "津市"
+    ],
+    "stages": [
+      "established"
+    ],
+    "period": "令和8年4月2日～6月12日（受付終了、来年度は要確認）",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.info.city.tsu.mie.jp/sangyou_shigoto/shoukougyou/1004195/1009870/1004206.html"
+  },
+  {
+    "id": "tsu-city-shinshohin-kaihatsu",
+    "name": "津市中小企業振興事業補助金（新商品等開発支援事業）",
+    "provider": "津市 商業振興労政課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "研究開発・新事業",
+    "amount": "製造業100万円以内、その他50万円以内",
+    "summary": "新商品等の開発費の一部を補助する。",
+    "eligibility": [
+      "市内で1年以上事業を営む中小企業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "三重県"
+    ],
+    "cities": [
+      "津市"
+    ],
+    "stages": [
+      "established"
+    ],
+    "period": "令和8年4月2日～6月12日（受付終了、来年度は要確認）",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.info.city.tsu.mie.jp/sangyou_shigoto/shoukougyou/1004195/1009870/1004208.html"
+  },
+  {
+    "id": "tsu-city-sogyo-hokyukin",
+    "name": "津市創業資金融資に係る補給金",
+    "provider": "津市 商業振興労政課",
+    "level": "municipality",
+    "type": "融資",
+    "cat": "創業・起業",
+    "amount": "保証料補給金:上限10万円、利子補給金あり",
+    "summary": "創業融資の信用保証料または日本公庫融資の利子を補給する。",
+    "eligibility": [
+      "創業後5年未満等",
+      "保証協会保証または日本公庫の融資を受けた人"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "三重県"
+    ],
+    "cities": [
+      "津市"
+    ],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "常設（保証料は融資実行から3か月以内、利子補給は毎年2月末）",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.info.city.tsu.mie.jp/sangyou_shigoto/shoukougyou/1004195/1004201.html"
+  },
+  {
+    "id": "tsu-city-tenjikai-shuttenn",
+    "name": "津市中小企業振興事業補助金（展示会等出展支援事業）",
+    "provider": "津市 商業振興労政課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "販路開拓・PR",
+    "amount": "20万円以内",
+    "summary": "展示会等への出展費用の一部を補助する。",
+    "eligibility": [
+      "市内で1年以上事業を営む中小企業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "三重県"
+    ],
+    "cities": [
+      "津市"
+    ],
+    "stages": [
+      "established"
+    ],
+    "period": "令和8年度（ページにより予算到達で終了とも10/30までとも記載、要確認）",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.info.city.tsu.mie.jp/sangyou_shigoto/shoukougyou/1004195/1009870/1004205.html"
+  },
+  {
     "id": "shiga-jigyo-shokei-seicho",
     "name": "滋賀県 事業承継・成長促進補助金",
     "provider": "滋賀県 商工観光労働部",
@@ -6078,6 +7866,88 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "deadline": null,
     "priority": 6,
     "url": "https://www.pref.shiga.lg.jp/ippan/shigotosangyou/kigyou/300703.html"
+  },
+  {
+    "id": "otsu-city-hanro-kaitaku",
+    "name": "大津市小規模企業販路開拓事業費補助金",
+    "provider": "大津市 商工労働政策課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "販路開拓・PR",
+    "amount": "補助率1/2、上限50万円",
+    "summary": "小規模企業の販路開拓の経費を補助する。",
+    "eligibility": [
+      "事業開始から3年を経過した小規模企業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "滋賀県"
+    ],
+    "cities": [
+      "大津市"
+    ],
+    "stages": [
+      "established"
+    ],
+    "period": "令和8年5月18日～12月28日",
+    "deadline": "2026-12-28",
+    "priority": 8,
+    "url": "https://www.city.otsu.lg.jp/soshiki/025/1601/g/hojo/56655.html"
+  },
+  {
+    "id": "otsu-city-seisansei-suishin",
+    "name": "大津市生産性向上推進事業費補助金",
+    "provider": "大津市 商工労働政策課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "設備投資・省エネ",
+    "amount": "通常枠上限300万円",
+    "summary": "生産性向上のための取組・設備投資を補助する。",
+    "eligibility": [
+      "市内中小企業者（詳細は要確認）"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "滋賀県"
+    ],
+    "cities": [
+      "大津市"
+    ],
+    "stages": [
+      "established"
+    ],
+    "period": "第2次募集 令和8年9月1日～12月28日（予算上限で終了）",
+    "deadline": "2026-12-28",
+    "priority": 8,
+    "url": "https://www.city.otsu.lg.jp/soshiki/025/1601/g/hojo/48570.html"
+  },
+  {
+    "id": "otsu-city-sogyo-sokushin",
+    "name": "大津市創業促進事業費補助金",
+    "provider": "大津市 商工労働政策課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "創業・起業",
+    "amount": "補助率1/2、上限50万円（35歳以下は100万円）",
+    "summary": "創業に要する経費を補助する。",
+    "eligibility": [
+      "創業から3年以内、または令和9年2月28日までに創業する人"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "滋賀県"
+    ],
+    "cities": [
+      "大津市"
+    ],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "令和8年度2次募集は8/3～8/31で終了（来年度は要確認）",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.otsu.lg.jp/soshiki/025/1601/g/hojo/48891.html"
   },
   {
     "id": "kyoto-keiei-kaikaku",
@@ -6788,6 +8658,153 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "url": "https://web.pref.hyogo.lg.jp/sr08/ie05_000000031.html"
   },
   {
+    "id": "amagasaki-city-akitenpo-katsuyo",
+    "name": "尼崎市空店舗活用支援事業（創業者向け）",
+    "provider": "尼崎市 商業観光課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "空き店舗・商店街",
+    "amount": "補助率2/3以内（限度額 1年目75万円・2年目50万円・3年目25万円）",
+    "summary": "市場・商店街の空き店舗で新たに開業する創業者を支援。",
+    "eligibility": [
+      "創業塾などの講座を修了し創業支援を受けている人",
+      "市場・商店街の空き店舗で開業"
+    ],
+    "industries": [
+      "retail",
+      "food"
+    ],
+    "prefectures": [
+      "兵庫県"
+    ],
+    "cities": [
+      "尼崎市"
+    ],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.amagasaki.hyogo.jp/sangyo/yusi_josei/keiei_sien/co_hojo/068syougyo.html"
+  },
+  {
+    "id": "amagasaki-city-gijutsu-support-yushi",
+    "name": "あまがさき技術サポート融資（利子補給）",
+    "provider": "尼崎市／尼崎商工会議所",
+    "level": "municipality",
+    "type": "融資",
+    "cat": "研究開発・新事業",
+    "amount": "利息の1/2以内（借入日から2年以内）",
+    "summary": "新技術・新製品の事業化を目指す中小企業向けの無担保融資に対し利子を補助。",
+    "eligibility": [
+      "新技術・新製品の事業化を目指す中小企業"
+    ],
+    "industries": [
+      "manufacturing"
+    ],
+    "prefectures": [
+      "兵庫県"
+    ],
+    "cities": [
+      "尼崎市"
+    ],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.amagasaki.hyogo.jp/sangyo/yusi_josei/monodukuri/re_yusi/068asisuto.html"
+  },
+  {
+    "id": "amagasaki-city-hoshoryo-hojo",
+    "name": "令和8年度尼崎市信用保証料補助金",
+    "provider": "尼崎市 産業振興課",
+    "level": "municipality",
+    "type": "融資",
+    "cat": "融資・利子補給",
+    "amount": "保証料の1/4以内（協調支援型長期資金）、1/2以内（経営円滑化貸付）",
+    "summary": "兵庫県の融資制度を利用する中小企業の信用保証料の一部を補助。",
+    "eligibility": [
+      "市内に主たる事業所を有する中小企業者",
+      "市税の未納がないこと"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "兵庫県"
+    ],
+    "cities": [
+      "尼崎市"
+    ],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "令和8年度（対象者確認後に保証申込み）",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.amagasaki.hyogo.jp/sangyo/yusi_josei/yusi_sonota/1043484/1043103.html"
+  },
+  {
+    "id": "amagasaki-city-shoryokuka-setsubi",
+    "name": "尼崎市省力化・生産性向上設備導入支援補助金2026",
+    "provider": "公益財団法人尼崎地域産業活性化機構",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "設備投資・省エネ",
+    "amount": "通常枠上限 製造業200万円・その他100万円、拡充枠最大500万円",
+    "summary": "設備導入費用の一部を補助。",
+    "eligibility": [
+      "市内の中小企業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "兵庫県"
+    ],
+    "cities": [
+      "尼崎市"
+    ],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "令和8年度（受付期間は要確認）",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.amagasaki.hyogo.jp/sangyo/yusi_josei/1011977/1042556.html"
+  },
+  {
+    "id": "amagasaki-city-sogyo-anteika",
+    "name": "尼崎市創業安定化支援（インキュベーション施設の賃料補助）",
+    "provider": "尼崎市／株式会社エーリック",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "創業・起業",
+    "amount": "月額賃料の1/2以内（上限月額48,000円）",
+    "summary": "尼崎リサーチ・インキュベーションセンター入居の創業者に賃料を補助。経営相談員の派遣もあり。",
+    "eligibility": [
+      "創業5年未満の中小企業者等",
+      "同センターに入居"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "兵庫県"
+    ],
+    "cities": [
+      "尼崎市"
+    ],
+    "stages": [
+      "early"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.amagasaki.hyogo.jp/sangyo/yusi_josei/keiei_sien/1006270.html"
+  },
+  {
     "id": "himeji-city-digital-katsuyo",
     "name": "姫路市産業デジタル化活用促進補助金",
     "provider": "姫路商工会議所（姫路市事業）",
@@ -7154,6 +9171,149 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "url": "https://www.pref.nara.jp/27444.htm"
   },
   {
+    "id": "nara-city-chusho-yushi",
+    "name": "奈良市中小企業融資制度（令和6年度新制度）",
+    "provider": "奈良市 産業政策課",
+    "level": "municipality",
+    "type": "融資",
+    "cat": "融資・利子補給",
+    "amount": "要確認",
+    "summary": "市内中小企業の資金繰りを支える市の融資制度。令和6年度から新制度に移行。",
+    "eligibility": [
+      "市内で事業を営む中小企業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "奈良県"
+    ],
+    "cities": [
+      "奈良市"
+    ],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "随時（最新は要確認）",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.nara.lg.jp/soshiki/109/9010.html"
+  },
+  {
+    "id": "nara-city-datsutanso-hojo",
+    "name": "奈良市地域脱炭素移行・再エネ推進事業補助金（事業所向け）",
+    "provider": "奈良市 環境都市推進課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "設備投資・省エネ",
+    "amount": "要確認",
+    "summary": "事業所への省エネ・再エネ設備の導入費用を補助。",
+    "eligibility": [
+      "市内の事業所（事業者）"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "奈良県"
+    ],
+    "cities": [
+      "奈良市"
+    ],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "令和8年4月16日〜12月25日",
+    "deadline": "2026-12-25",
+    "priority": 8,
+    "url": "https://www.city.nara.lg.jp/site/zerocarbon/263838.html"
+  },
+  {
+    "id": "nara-city-nigiwai-hojo",
+    "name": "奈良市中小商業者等にぎわい創出事業補助金",
+    "provider": "奈良市 産業政策課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "販路開拓・PR",
+    "amount": "要確認",
+    "summary": "市内の中小商業者等による販路拡大・にぎわい創出のイベント等を支援する補助金。",
+    "eligibility": [
+      "市内の中小商業者等（対象団体・要件は要確認）"
+    ],
+    "industries": [
+      "retail",
+      "food"
+    ],
+    "prefectures": [
+      "奈良県"
+    ],
+    "cities": [
+      "奈良市"
+    ],
+    "stages": [
+      "established"
+    ],
+    "period": "最新は要確認（令和8年度ページは6月30日更新）",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.nara.lg.jp/site/jigyosyashien/list932.html"
+  },
+  {
+    "id": "nara-city-shintaisen-hojo",
+    "name": "奈良市中小企業等新たな挑戦支援補助金",
+    "provider": "奈良市 産業政策課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "研究開発・新事業",
+    "amount": "補助率2/3・上限30万円（過去公募の情報。令和8年度は要確認）",
+    "summary": "新商品開発・新サービス提供など新たな挑戦に取り組む市内事業者を支援する補助金。",
+    "eligibility": [
+      "市内の中小企業者等",
+      "新たな挑戦・取組（新商品開発・新サービス等）を行うこと"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "奈良県"
+    ],
+    "cities": [
+      "奈良市"
+    ],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "最新は要確認（令和8年度ページは6月30日更新）",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.nara.lg.jp/soshiki/109/180941.html"
+  },
+  {
+    "id": "nara-city-sogyo-shien-shikin",
+    "name": "奈良市創業支援資金",
+    "provider": "奈良市 産業政策課",
+    "level": "municipality",
+    "type": "融資",
+    "cat": "創業・起業",
+    "amount": "融資限度額1,000万円・利率年1.00%以内（固定）・期間5年以内（据置6月以内）",
+    "summary": "新しく事業を始める事業者向けの市の制度融資。奈良県信用保証協会の創業関連保証を利用。",
+    "eligibility": [
+      "創業関連保証を受けられる創業者・創業間もない事業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "奈良県"
+    ],
+    "cities": [
+      "奈良市"
+    ],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "随時（最新は要確認）",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.nara.lg.jp/soshiki/109/8684.html"
+  },
+  {
     "id": "wakayama-chiiki-kadai-kigyo",
     "name": "わかやま地域課題解決型起業支援補助金",
     "provider": "和歌山県 商工観光労働部 商工振興課",
@@ -7257,6 +9417,147 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "deadline": null,
     "priority": 6,
     "url": "https://www.pref.wakayama.lg.jp/prefg/060300/gyoumu/kinyuu/sangyoushien.html"
+  },
+  {
+    "id": "wakayama-city-business-chance",
+    "name": "和歌山市ビジネスチャンス創出支援補助金",
+    "provider": "和歌山市 商工振興課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "販路開拓・PR",
+    "amount": "要確認（見本市出展・自社ECサイト構築・パンフレット作成等が対象）",
+    "summary": "市内中小企業者の販路開拓や新製品の改良を支援する補助金。予算枠に達し次第終了。",
+    "eligibility": [
+      "市内の中小企業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "和歌山県"
+    ],
+    "cities": [
+      "和歌山市"
+    ],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "令和8年4月1日〜令和9年1月29日（予算枠に達し次第終了）",
+    "deadline": "2027-01-29",
+    "priority": 8,
+    "url": "https://www.city.wakayama.wakayama.jp/1016047/sangyoukigyousien/1017324.html"
+  },
+  {
+    "id": "wakayama-city-datsutanso-keiei",
+    "name": "和歌山市中小企業脱炭素経営促進補助金",
+    "provider": "和歌山市 環境部局",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "設備投資・省エネ",
+    "amount": "要確認",
+    "summary": "中小企業の脱炭素経営の取組を促進する令和8年度の補助金。",
+    "eligibility": [
+      "市内の中小企業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "和歌山県"
+    ],
+    "cities": [
+      "和歌山市"
+    ],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "令和8年度（詳細は要確認）",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.wakayama.wakayama.jp/kurashi/gomi_kankyo/1001115/1065401/index.html"
+  },
+  {
+    "id": "wakayama-city-joshi-wakamono-riko",
+    "name": "和歌山市 女性・若者・シニア新規開業資金等利子補給金",
+    "provider": "和歌山市 商工振興課",
+    "level": "municipality",
+    "type": "融資",
+    "cat": "創業・起業",
+    "amount": "支払利子の1/2相当額（年利率1.0%上限、当初3年間）",
+    "summary": "日本政策金融公庫の新規開業資金等を利用した創業者に利子の一部を補給。",
+    "eligibility": [
+      "日本政策金融公庫の対象融資を利用した市内の創業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "和歌山県"
+    ],
+    "cities": [
+      "和歌山市"
+    ],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "交付申請は令和8年12月28日まで",
+    "deadline": "2026-12-28",
+    "priority": 8,
+    "url": "https://www.city.wakayama.wakayama.jp/1016047/sangyoukigyousien/1007360/1009974.html"
+  },
+  {
+    "id": "wakayama-city-machinaka-hosho",
+    "name": "和歌山市まちなか新規出店促進保証料補給金",
+    "provider": "和歌山市 商工振興課",
+    "level": "municipality",
+    "type": "融資",
+    "cat": "空き店舗・商店街",
+    "amount": "信用保証料の1/2・上限30万円",
+    "summary": "市融資制度の「まちなか枠」を利用してまちなかに事業所を新設する際の信用保証料を補助。",
+    "eligibility": [
+      "まちなかに事業所を新設する中小企業者等",
+      "市中小企業融資制度（まちなか枠）を利用"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "和歌山県"
+    ],
+    "cities": [
+      "和歌山市"
+    ],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "随時（最新は要確認）",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.wakayama.wakayama.jp/1016047/sangyoukigyousien/1007360/1009293.html"
+  },
+  {
+    "id": "wakayama-city-shotoku-koujo",
+    "name": "和歌山市所得向上補助金",
+    "provider": "和歌山市 商工振興課",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "設備投資・省エネ",
+    "amount": "設備投資費の一部（令和8年度から補助率最大10%）",
+    "summary": "設備投資の一部を補助し、所得向上につなげる制度。",
+    "eligibility": [
+      "市内で事業を営む事業者（要件は要確認）"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "和歌山県"
+    ],
+    "cities": [
+      "和歌山市"
+    ],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "令和8年12月28日必着",
+    "deadline": "2026-12-28",
+    "priority": 8,
+    "url": "https://www.city.wakayama.wakayama.jp/1016047/sangyoukigyousien/1001189/1049442.html"
   },
   {
     "id": "tottori-chiiki-kadai-kigyo",
@@ -11529,5 +13830,148 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "deadline": null,
     "priority": 6,
     "url": "https://www.pref.okinawa.jp/shigoto/keizai/1009879/1010143/1021963.html"
+  },
+  {
+    "id": "naha-city-ganbaru-machigwa",
+    "name": "那覇市頑張るマチグヮー支援事業",
+    "provider": "那覇市 商工振興グループ",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "空き店舗・商店街",
+    "amount": "要確認",
+    "summary": "市内のマチグヮー（市場・商店街）の事業者を支援する令和8年度事業。",
+    "eligibility": [
+      "対象者・要件は要確認"
+    ],
+    "industries": [
+      "retail",
+      "food"
+    ],
+    "prefectures": [
+      "沖縄県"
+    ],
+    "cities": [
+      "那覇市"
+    ],
+    "stages": [
+      "established"
+    ],
+    "period": "令和8年度（最新は要確認）",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.naha.okinawa.jp/business/sangyou/1003586/1003610.html"
+  },
+  {
+    "id": "naha-city-hanro-kakudai",
+    "name": "那覇市中小企業者販路拡大支援事業",
+    "provider": "那覇市 商工振興グループ",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "販路開拓・PR",
+    "amount": "要確認（県外・海外の展示会等の参加費を助成）",
+    "summary": "県外・海外の展示会、見本市、商談会、物産展などへの出展参加費を助成。",
+    "eligibility": [
+      "市内の中小企業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "沖縄県"
+    ],
+    "cities": [
+      "那覇市"
+    ],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "令和8年4月15日〜令和9年1月29日（予算に達し次第終了）",
+    "deadline": "2027-01-29",
+    "priority": 8,
+    "url": "https://www.city.naha.okinawa.jp/business/kigyouricchi/1003642/1011678.html"
+  },
+  {
+    "id": "naha-city-keiei-kiban",
+    "name": "那覇市 市内企業経営基盤強化事業",
+    "provider": "那覇市 商工振興グループ",
+    "level": "municipality",
+    "type": "専門家支援",
+    "cat": "その他",
+    "amount": "要確認（セミナーと専門家派遣）",
+    "summary": "市内企業の経営課題に専門家を派遣し伴走支援する事業。",
+    "eligibility": [
+      "市内企業（詳細は要確認）"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "沖縄県"
+    ],
+    "cities": [
+      "那覇市"
+    ],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "令和8年度（詳細は要確認）",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://www.city.naha.okinawa.jp/business/kigyouricchi/kigyoushien/index.html"
+  },
+  {
+    "id": "naha-city-koguchi-yushi",
+    "name": "那覇市小口資金融資",
+    "provider": "那覇市 商工振興グループ",
+    "level": "municipality",
+    "type": "融資",
+    "cat": "融資・利子補給",
+    "amount": "限度額1,000万円・保証料率0.40〜0.80%（一般小口）",
+    "summary": "市・金融機関・沖縄県信用保証協会が協力する小規模企業者向け事業資金融資。",
+    "eligibility": [
+      "市内の小規模企業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "沖縄県"
+    ],
+    "cities": [
+      "那覇市"
+    ],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "随時（最新は要確認）",
+    "deadline": null,
+    "priority": 8,
+    "url": "https://city.naha.okinawa.jp/business/syoukougyou/yuusi/20191003091222209.html"
+  },
+  {
+    "id": "naha-city-shakaikadai-kigyo",
+    "name": "なはし社会地域課題解決型起業支援補助金",
+    "provider": "那覇市 商工振興グループ",
+    "level": "municipality",
+    "type": "補助金",
+    "cat": "創業・起業",
+    "amount": "補助率2/3以内・上限100万円",
+    "summary": "社会・地域課題の解決を目指す起業者等を支援する補助金。",
+    "eligibility": [
+      "社会課題・地域課題の解決を目指す起業者",
+      "創業5年未満の事業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "沖縄県"
+    ],
+    "cities": [
+      "那覇市"
+    ],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "令和8年度公募は4月28日〜6月10日（受付終了。来年度は要確認）",
+    "deadline": "2026-06-10",
+    "priority": 8,
+    "url": "https://www.city.naha.okinawa.jp/business/kigyoaogyo/socialbusiness_naha.html"
   },
 ];
