@@ -103,6 +103,51 @@
     .cs-status { margin: 0; min-height: 1.5em; }
     .cs-status.ok { color: #1a7f4b; font-weight: 700; }
     .cs-status.err { color: var(--alert); }
+
+    .cs-hero { display: grid; grid-template-columns: 1.3fr 1fr; gap: 16px; align-items: center; background: linear-gradient(135deg,#f6efe0,#eaf3ec); border-radius: 16px; padding: 32px 36px; margin: 8px 0 20px; overflow: hidden; }
+    .cs-hero h1 { margin: 0 0 12px; font-size: clamp(1.5rem,3.6vw,2.2rem); line-height: 1.4; color: #12372b; }
+    .cs-hl { color: #0b7a55; }
+    .cs-hero p { margin: 0 0 18px; color: #3d4a44; line-height: 1.8; }
+    .cs-feats { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .cs-feats li { display: grid; grid-template-columns: 40px auto; column-gap: 8px; align-items: center; background: #fff; border-radius: 999px; padding: 6px 16px 6px 6px; box-shadow: 0 1px 4px rgba(0,0,0,.08); }
+    .cs-feats .cs-ico { grid-row: 1 / 3; width: 40px; height: 40px; border-radius: 50%; background: #0b7a55; color: #fff; display: grid; place-items: center; font-weight: 700; }
+    .cs-feats b { font-size: .9rem; line-height: 1.2; }
+    .cs-feats small { font-size: .72rem; color: #5b6761; line-height: 1.2; }
+    .cs-hero-art { position: relative; height: 180px; }
+    .cs-hero-art i { position: absolute; border-radius: 18px; background: #fff; box-shadow: 0 6px 18px rgba(18,55,43,.15); }
+    .cs-hero-art i:nth-child(1) { width: 150px; height: 110px; left: 10%; top: 10px; background: #0b7a55; transform: rotate(-6deg); }
+    .cs-hero-art i:nth-child(2) { width: 130px; height: 100px; right: 8%; top: 40px; transform: rotate(5deg); }
+    .cs-hero-art i:nth-child(3) { width: 90px; height: 90px; left: 38%; bottom: 0; border-radius: 50%; background: #f2c14e; }
+    .cs-steps { list-style: none; display: flex; align-items: center; justify-content: center; gap: 0; margin: 0 0 18px; padding: 0; font-weight: 700; color: #12372b; }
+    .cs-steps li { display: flex; align-items: center; gap: 8px; }
+    .cs-steps li + li::before { content: ""; width: 80px; height: 2px; background: #b9d3c6; margin: 0 14px; }
+    .cs-steps span { background: #0b7a55; color: #fff; border-radius: 50%; width: 32px; height: 32px; display: grid; place-items: center; font-size: .8rem; }
+    .cs-form { background: none; border: 0; border-radius: 0; padding: 0; gap: 18px; max-width: 56em; margin: 0 auto; }
+    .cs-card { background: #fff; border: 1px solid #e6e8ec; border-radius: 14px; padding: 24px 28px; box-shadow: 0 2px 10px rgba(0,0,0,.04); }
+    .cs-form .cs-card h2 { margin: 0 0 18px; font-size: 1.15rem; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; color: #12372b; }
+    .cs-form .cs-card h2 small { font-size: .8rem; font-weight: 400; color: #5b6761; }
+    .cs-no { background: #0b7a55; color: #fff; border-radius: 6px; padding: 2px 8px; font-size: .85rem; }
+    .cs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 20px; }
+    .cs-wide { margin-top: 16px; }
+    .cs-form select, .cs-form input[type="text"], .cs-form input[type="tel"], .cs-form input[type="email"], .cs-form textarea { box-sizing: border-box; }
+    .cs-form select { font-weight: 400; }
+    .cs-form .cs-badge { background: #d64545; }
+    .cs-form .cs-badge.cs-opt { background: #e5e7eb; }
+    .cs-form select:focus, .cs-form input:focus, .cs-form textarea:focus { outline: 2px solid #0b7a55; outline-offset: 1px; }
+    .cs-privacy { display: flex; gap: 12px; align-items: flex-start; background: #f1f6f3; border: 1px solid #d5e5dc; border-radius: 12px; padding: 14px 18px; }
+    .cs-privacy p { margin: 0; font-size: .88rem; line-height: 1.7; color: #3d4a44; }
+    .cs-consent { justify-content: center; font-weight: 600; }
+    .cs-submit { justify-self: center; background: #0b7a55; border-radius: 999px; padding: 16px 56px; font-size: 1.1rem; box-shadow: 0 4px 12px rgba(11,122,85,.3); }
+    .cs-submit:hover { background: #096647; }
+    .cs-status { text-align: center; }
+    .cs-notes { list-style: none; margin: 0; padding: 0; text-align: center; font-size: .82rem; color: #5b6761; }
+    @media (max-width: 720px) {
+      .cs-hero { grid-template-columns: 1fr; padding: 22px 18px; }
+      .cs-hero-art { display: none; }
+      .cs-grid { grid-template-columns: 1fr; }
+      .cs-card { padding: 18px 16px; }
+      .cs-steps li + li::before { width: 36px; margin: 0 8px; }
+    }
     .cs-done { background: #fff; border: 1px solid #e6e8ec; border-radius: 10px; padding: 22px 24px; max-width: 46em; }
   </style>
 </head>
@@ -166,14 +211,29 @@
 
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="./">補助金ネット</a> ＞ <a href="hantei.html">AI補助金判定</a> ＞ 無料相談のお申し込み</nav>
-    <div class="pb-banner" style="background-image: url('images/banner/b02.webp')"><h1 class="pb-title">無料相談のお申し込み</h1></div>
-    <div style="margin-bottom: 1.5rem;">
-      <p class="lead" style="margin-bottom: 0;">補助金・助成金に詳しい専門家（提携先）から、ご連絡します。相談は無料です。</p>
-    </div>
+    <section class="cs-hero">
+      <div class="cs-hero-text">
+        <h1>補助金のこと、専門家に<span class="cs-hl">無料</span>で相談。</h1>
+        <p>ご相談内容を入力いただくと、提携する補助金・助成金の専門家からご連絡します。</p>
+        <ul class="cs-feats">
+          <li><span class="cs-ico" aria-hidden="true">¥</span><b>相談無料</b><small>費用はかかりません</small></li>
+          <li><span class="cs-ico" aria-hidden="true">✎</span><b>入力は約3分</b><small>わかる範囲でOK</small></li>
+          <li><span class="cs-ico" aria-hidden="true">☎</span><b>専門家からご連絡</b><small>お電話またはメール</small></li>
+        </ul>
+      </div>
+      <div class="cs-hero-art" aria-hidden="true"><i></i><i></i><i></i></div>
+    </section>
+
+    <ol class="cs-steps" aria-label="入力の流れ">
+      <li><span>01</span>ご相談の内容</li>
+      <li><span>02</span>ご連絡先</li>
+    </ol>
 
     <form class="cs-form" id="cs-form" novalidate>
       <div class="cs-cands" id="cs-cands" hidden></div>
-      <h2>ご相談の内容</h2>
+      <section class="cs-card">
+        <h2><span class="cs-no">01</span>ご相談の内容<small>わかる範囲でご入力ください</small></h2>
+        <div class="cs-grid">
       <label class="f">事業の形態<small class="cs-badge">必須</small><select name="kind" required><option value="">選択してください</option><option value="法人（株式会社・合同会社など）">法人（株式会社・合同会社など）</option><option value="個人事業主（フリーランスを含む）">個人事業主（フリーランスを含む）</option><option value="これから創業予定">これから創業予定</option></select></label>
       <label class="f">業種<small class="cs-badge">必須</small><select name="industry" required><option value="">選択してください</option><option value="飲食業">飲食業</option><option value="小売業">小売業</option><option value="美容・サロン">美容・サロン</option><option value="建設業">建設業</option><option value="製造業">製造業</option><option value="IT・情報通信">IT・情報通信</option><option value="宿泊・観光">宿泊・観光</option><option value="農林水産業">農林水産業</option><option value="医療・介護・保育">医療・介護・保育</option><option value="その他">その他</option></select></label>
       <label class="f">従業員数<small class="cs-badge">必須</small><select name="employees" required><option value="">選択してください</option><option value="0人（自分だけ）">0人（自分だけ）</option><option value="1〜5人">1〜5人</option><option value="6〜20人">6〜20人</option><option value="21〜50人">21〜50人</option><option value="51〜100人">51〜100人</option><option value="101〜300人">101〜300人</option><option value="301人以上">301人以上</option></select></label>
@@ -181,16 +241,24 @@
       <label class="f">社会保険の加入<small class="cs-badge">必須</small><select name="shakai" required><option value="">選択してください</option><option value="加入している">加入している</option><option value="加入していない">加入していない</option><option value="わからない">わからない</option></select></label>
       <label class="f">ご相談内容<small class="cs-badge">必須</small><select name="topic" required><option value="">選択してください</option><option value="設備投資・機械の導入">設備投資・機械の導入</option><option value="IT・デジタル化">IT・デジタル化</option><option value="販路開拓・集客">販路開拓・集客</option><option value="人材の採用・育成・賃上げ">人材の採用・育成・賃上げ</option><option value="正社員化・待遇の改善">正社員化・待遇の改善</option><option value="省力化・人手不足">省力化・人手不足</option><option value="事業承継・M&A">事業承継・M&A</option><option value="創業・新規事業">創業・新規事業</option><option value="海外展開・輸出">海外展開・輸出</option><option value="その他">その他</option></select></label>
       <label class="f">時期<small class="cs-badge">必須</small><select name="timing" required><option value="">選択してください</option><option value="すぐに">すぐに</option><option value="3か月以内">3か月以内</option><option value="半年以内">半年以内</option><option value="まだ決めていない">まだ決めていない</option></select></label>
-      <h2>ご連絡先</h2>
+        </div>
+      </section>
+      <section class="cs-card">
+        <h2><span class="cs-no">02</span>ご連絡先</h2>
+        <div class="cs-grid">
       <label class="f">会社名・屋号<small class="cs-badge">必須</small><input type="text" name="company" maxlength="100" placeholder="株式会社〇〇" autocomplete="organization" required></label>
       <label class="f">お名前<small class="cs-badge">必須</small><input type="text" name="name" maxlength="60" placeholder="山田 太郎" autocomplete="name" required></label>
       <label class="f">電話番号<small class="cs-badge">必須</small><input type="tel" name="phone" maxlength="20" placeholder="0312345678" autocomplete="tel" required></label>
       <label class="f">メールアドレス<small class="cs-badge cs-opt">任意</small><input type="email" name="email" maxlength="200" placeholder="info@example.co.jp" autocomplete="email"></label>
-      <label class="f">その他ご記入事項<small class="cs-badge cs-opt">任意</small><textarea name="note" maxlength="2000" placeholder="相談したいこと、導入したい設備など"></textarea></label>
+        </div>
+        <label class="f cs-wide">その他ご記入事項<small class="cs-badge cs-opt">任意</small><textarea name="note" maxlength="2000" placeholder="相談したいこと、導入したい設備など"></textarea></label>
+      </section>
       <div class="cs-hp" aria-hidden="true"><label>この欄は空のままにしてください<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
-      <label class="cs-consent"><input type="checkbox" name="consent" required> <span><a href="policy/privacy.html" target="_blank">個人情報の取り扱い</a>に同意します（ご入力内容は、無料相談のため業務提携先へ提供する場合があります）</span></label>
-      <button type="submit" class="cs-submit">無料で相談する</button>
+      <div class="cs-privacy"><span class="cs-lock" aria-hidden="true">🔒</span><p>ご入力内容は、無料相談のため業務提携先へ提供する場合があります。個人情報の取り扱いについては、<a href="policy/privacy.html" target="_blank">プライバシーポリシー</a>をご確認ください。</p></div>
+      <label class="cs-consent"><input type="checkbox" name="consent" required> <span>個人情報の取り扱いに同意します</span></label>
+      <button type="submit" class="cs-submit">無料で相談する <span aria-hidden="true">→</span></button>
       <p class="cs-status" id="cs-status" role="status" aria-live="polite"></p>
+      <ul class="cs-notes"><li>相談は無料です。しつこい勧誘は行いません。</li><li>ご相談の内容によっては、ご希望に添えない場合があります。</li></ul>
     </form>
 
     <div class="cs-done" id="cs-done" hidden>
