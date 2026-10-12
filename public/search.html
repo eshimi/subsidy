@@ -37,19 +37,20 @@
     #results { margin-bottom: 28px; }
     #results .u-h { margin-bottom: 12px; }
     .u-rhead { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 12px; }
-    .u-tools { display: flex; flex-wrap: wrap; gap: 10px; }
+    .u-tools { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 10px; }
     .u-tools label { display: grid; gap: 2px; font-size: 0.78rem; color: #56667f; }
-    .u-tools select { padding: 8px 10px; border: 1px solid #e6e8ec; border-radius: 8px; background: #fff; font: inherit; font-size: 0.9rem; }
+    .u-tools select { box-sizing: border-box; height: 38px; padding: 0 10px; border: 1px solid #e6e8ec; border-radius: 8px; background: #fff; font: inherit; font-size: 0.9rem; }
     #results, #kw-results { scroll-margin-top: 84px; }
     /* 結果の見出しの行に出す「条件」ボタン（押すと、郵便番号・都道府県・目的・業種などの入力が開く） */
-    .refine-pop { position: relative; align-self: end; }
-    .refine-btn { list-style: none; display: inline-flex; align-items: center; gap: 6px; padding: 8px 12px; border: 1px solid #e6e8ec; border-radius: 8px; background: #fff; font-size: 0.9rem; cursor: pointer; color: #1f3353; }
+    .refine-pop { position: relative; align-self: flex-end; }
+    .refine-btn { list-style: none; display: flex; width: max-content; align-items: center; gap: 6px; box-sizing: border-box; height: 38px; padding: 0 12px; border: 1px solid #e6e8ec; border-radius: 8px; background: #fff; font: inherit; font-size: 0.9rem; line-height: 1; cursor: pointer; color: #1f3353; }
     .refine-btn::-webkit-details-marker { display: none; }
+    .refine-pop:not([open]) { height: 38px; }
     .refine-btn:hover, .refine-pop[open] .refine-btn { border-color: #073461; }
     .refine-btn .n { min-width: 1.4em; padding: 0 6px; border-radius: 999px; background: #073461; color: #fff; font-size: 0.78rem; line-height: 1.5; text-align: center; }
     .refine-btn .n:empty { display: none; }
-    .refine-panel { margin-top: 6px; padding: 16px 18px; background: #fff; border: 1px solid #e6e8ec; border-radius: 12px; display: grid; gap: 12px; box-shadow: 0 10px 28px rgba(7, 52, 97, 0.16); }
-    .refine-pop[open] .refine-panel { position: absolute; right: 0; top: 100%; z-index: 30; width: min(720px, 92vw); }
+    .refine-panel { margin-top: 0; padding: 16px 18px; background: #fff; border: 1px solid #e6e8ec; border-radius: 12px; display: grid; gap: 12px; box-shadow: 0 10px 28px rgba(7, 52, 97, 0.16); }
+    .refine-pop[open] .refine-panel { position: absolute; right: 0; top: calc(100% + 6px); z-index: 30; width: min(720px, 92vw); }
     .refine-pop.at-left[open] .refine-panel { left: 0; right: auto; }
     .refine-title { margin: 0; font-weight: 700; color: #073461; }
     .refine-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
