@@ -1,8 +1,10 @@
-// トップページの「解説記事・ガイド ○本以上」を、実際の記事の数から更新する（10本単位で切り捨て）。
+// トップページの数字（掲載している補助金・支援制度、自治体の独自制度、市区町村、解説記事・ガイド）を、実際のデータから更新する。
+// 補助金・支援制度の数は、検索ページが使う grants/search.json の件数と同じ（検索ページの「○件」と合わせる）。
 // 使い方：node scripts/update-stats.mjs（記事を追加したとき、またはデプロイ時に実行）
 import { readdirSync, readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { MUNICIPALITY_COUNT } from '../src/data/prefectures.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', 'public');
 const FOLDERS = ['feature', 'basics', 'who', 'personal', 'cases', 'columns', 'guides', 'compare'];
@@ -23,9 +25,33 @@ export function withArticleCount(html, n) {
   return html.replace(/(<dd id="r-articles">)\d+(<small>本以上<\/small><\/dd>)/, `$1${shown}$2`);
 }
 
+// grants/search.json の件数。検索ページの全件の数（jGrants＋自治体の制度＋個人向け）と同じ
+export function countPrograms(root = ROOT) {
+  const file = join(root, 'grants', 'search.json');
+  if (!existsSync(file)) return null;
+  const items = JSON.parse(readFileSync(file, 'utf-8')).items || [];
+  return { total: items.length, local: items.filter((i) => i.local).length };
+}
+
+const ja = (n) => Number(n).toLocaleString('ja-JP');
+const floorTo = (n, unit) => Math.max(unit, Math.floor(n / unit) * unit);
+
+// トップページの数字を差し替える。件数は、検索ページの表示と食い違わないよう、正確な数を載せる（「○件以上」は使わない）
+export function withProgramStats(html, stats, municipalities = MUNICIPALITY_COUNT) {
+  let out = html.replace(/(<dd id="r-cities">)[\d,]+(<small>市区町村<\/small><\/dd>)/, `$1${ja(municipalities)}$2`);
+  if (stats) {
+    out = out
+      .replace(/(<dd id="r-live">)[\d,]+<small>件(?:以上)?<\/small>(<\/dd>)/, `$1${ja(stats.total)}<small>件</small>$2`)
+      .replace(/(<dd id="r-local">)[\d,]+<small>件(?:以上)?<\/small>(<\/dd>)/, `$1${ja(stats.local)}<small>件</small>$2`)
+      .replace(/(<span id="r-total">)[^<]*(<\/span>)/, `$1${ja(stats.total)}件を掲載。毎日更新。$2`);
+  }
+  return out;
+}
+
 if (import.meta.url === `file://${process.argv[1]}`) {
   const file = join(ROOT, 'index.html');
   const n = countArticles();
-  writeFileSync(file, withArticleCount(readFileSync(file, 'utf-8'), n));
-  console.log(`解説記事・ガイド：${n} 本`);
+  const stats = countPrograms();
+  writeFileSync(file, withProgramStats(withArticleCount(readFileSync(file, 'utf-8'), n), stats));
+  console.log(`解説記事・ガイド：${n} 本／補助金・支援制度：${stats ? `${stats.total} 件（自治体の独自制度 ${stats.local} 件）` : '（search.json なし）'}`);
 }
