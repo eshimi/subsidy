@@ -1,0 +1,38 @@
+// トップページの「新着・更新情報」を更新する：補助金ニュースとブログの最新、最終更新日（日本時間）。
+// 何度実行しても同じ結果。build:grants / build:news / ブログ投稿のあとに実行する。
+import { readdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', 'public');
+const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const dateJa = (d) => { const [y, m, day] = d.split('-').map(Number); return `${y}年${m}月${day}日`; };
+
+export function latestOf(folder, n) {
+  const dir = join(ROOT, folder);
+  return readdirSync(dir).filter((f) => /^\d{4}-\d{2}-\d{2}-.+\.html$/.test(f)).sort().reverse().slice(0, n).map((f) => {
+    const h = readFileSync(join(dir, f), 'utf-8');
+    const title = ((h.match(/<h1[^>]*>([\s\S]*?)<\/h1>/) || [])[1] || f).replace(/<[^>]+>/g, '').trim();
+    return `<li><a href="${folder}/${f}">${esc(title)}</a><span class="m">${dateJa(f.slice(0, 10))}</span></li>`;
+  }).join('');
+}
+
+export function jstToday(now = new Date()) {
+  return new Date(now.getTime() + 9 * 3600e3).toISOString().slice(0, 10);
+}
+
+export function applyLatest(html, { news, blog, today }) {
+  return html
+    .replace(/<!-- news-latest:start -->[\s\S]*?<!-- news-latest:end -->/, `<!-- news-latest:start --><ul class="r-list">${news}</ul><!-- news-latest:end -->`)
+    .replace(/<!-- blog-latest:start -->[\s\S]*?<!-- blog-latest:end -->/, `<!-- blog-latest:start --><ul class="r-list">${blog}</ul><!-- blog-latest:end -->`)
+    .replace(/<time id="r-updated" datetime="[^"]*">[^<]*<\/time>/, `<time id="r-updated" datetime="${today}">${dateJa(today)}</time>`);
+}
+
+export function run() {
+  const file = join(ROOT, 'index.html');
+  const before = readFileSync(file, 'utf-8');
+  const after = applyLatest(before, { news: latestOf('news', 3), blog: latestOf('blog', 3), today: jstToday() });
+  if (after !== before) writeFileSync(file, after);
+}
+
+if (process.argv[1] === fileURLToPath(import.meta.url)) { run(); console.log('トップの新着・更新情報を更新'); }

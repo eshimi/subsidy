@@ -55,6 +55,7 @@ draft: false
 node scripts/build-blog.mjs
 node scripts/apply-related.mjs   # 関連ページ
 node scripts/apply-seo.mjs       # タグ（約10個）・構造化データ・説明文
+node scripts/update-latest.mjs   # トップの「新着・更新情報」
 node scripts/apply-nav.mjs       # ※メニューを変えたときだけ
 ```
 

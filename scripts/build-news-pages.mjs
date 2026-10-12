@@ -162,12 +162,6 @@ ${items}
 </rss>
 `);
 
-  // トップページの「補助金ニュース」（最新5本）
-  const top = join(ROOT, 'index.html');
-  const html = readFileSync(top, 'utf-8');
-  const list = news.slice(0, 5).map((n) => `<li><a href="news/${fileOf(n)}">${esc(n.title)}</a><span class="m">${dateJa(n.date)}</span></li>`).join('');
-  const next = html.replace(/<!-- news-latest:start -->[\s\S]*?<!-- news-latest:end -->/, `<!-- news-latest:start --><ul class="r-list">${list}</ul><!-- news-latest:end -->`);
-  writeFileSync(top, next);
   return news.length;
 }
 
