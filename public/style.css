@@ -884,3 +884,9 @@ button.r-way:focus-visible { outline: 2px solid var(--accent); outline-offset: 2
 #s-aud .filter { border: 0; border-radius: 999px; background: transparent; padding: 8px 18px; font-weight: 600; color: #3b4a5c; }
 #s-aud .filter[aria-pressed="true"] { background: #fff; color: #073461; box-shadow: 0 1px 4px rgba(7, 52, 97, 0.18); }
 #s-aud .filter:focus-visible { outline: 2px solid #073461; outline-offset: 2px; }
+
+/* トップのヒーロー：事業向けと個人向けの入口を、ラベルつきの2行に分ける */
+.r-chiprows { display: grid; gap: 8px; }
+.r-chiprow { display: flex; align-items: center; gap: 10px 12px; }
+.r-chiplabel { flex: 0 0 auto; min-width: 5.6em; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em; color: rgba(255, 255, 255, 0.78); }
+@media (max-width: 640px) { .r-chiprow { flex-direction: column; align-items: flex-start; gap: 6px; } }
