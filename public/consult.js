@@ -24,7 +24,7 @@
     const body = Object.fromEntries(f.entries());
     body.consent = f.get('consent') === 'on';
     body.candidates = candidates;
-    const missing = ['kind', 'industry', 'employees', 'koyou', 'shakai', 'topic', 'timing', 'company', 'name', 'phone'].filter((k) => !String(body[k] || '').trim());
+    const missing = ['company', 'name', 'phone'].filter((k) => !String(body[k] || '').trim());
     if (missing.length) { status.className = 'cs-status err'; status.textContent = '必須の項目をすべて入力・選択してください。'; return; }
     if (!body.consent) { status.className = 'cs-status err'; status.textContent = '個人情報の取り扱いへの同意が必要です。'; return; }
     const btn = form.querySelector('button[type="submit"]');

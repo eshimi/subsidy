@@ -40,3 +40,11 @@ test('worker: /api/consult は送信設定が無ければ 503、入力不備は 
   assert.equal((await post('/api/consult', consult)).status, 503);
   assert.equal((await post('/api/consult', { ...consult, consent: false })).status, 400);
 });
+
+test('parseConsult: ご相談の内容（選択式）は未選択でもよい。個人の方は会社名に「個人」と書ける', () => {
+  const blank = { ...consult, kind: '', industry: '', employees: '', koyou: '', shakai: '', topic: '', timing: '', company: '個人' };
+  const c = parseConsult(blank);
+  assert.equal(c.kind, '');
+  assert.match(consultText(c), /業種：（未選択）/);
+  assert.throws(() => parseConsult({ ...consult, topic: '何でも' }));
+});

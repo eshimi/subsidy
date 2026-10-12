@@ -92,6 +92,7 @@
     .cs-form label.f { display: block; font-weight: 600; font-size: 0.95rem; }
     .cs-form label.f > select, .cs-form label.f > input, .cs-form label.f > textarea { display: block; margin-top: 6px; }
     .cs-form .cs-badge { display: inline-block; width: auto; border: 0; margin: 0 0 0 8px; padding: 1px 7px; border-radius: 4px; font-size: 0.72rem; font-weight: 600; line-height: 1.5; vertical-align: 1px; background: #c9411a; color: #fff; }
+    .cs-form .cs-hint { display: block; margin-top: 2px; font-size: 0.74rem; font-weight: 400; color: #5b6761; }
     .cs-form .cs-badge.cs-opt { background: #e5e7eb; color: #4b5563; }
     .cs-form input[type="text"], .cs-form input[type="tel"], .cs-form input[type="email"], .cs-form textarea, .cs-form select { width: 100%; padding: 12px 14px; border: 1px solid #e6e8ec; border-radius: 6px; background: #fff; font: inherit; }
     .cs-form textarea { min-height: 120px; resize: vertical; }
@@ -233,19 +234,19 @@
       <section class="cs-card">
         <h2><span class="cs-no">01</span>ご相談の内容<small>わかる範囲でご入力ください</small></h2>
         <div class="cs-grid">
-      <label class="f">事業の形態<small class="cs-badge">必須</small><select name="kind" required><option value="">選択してください</option><option value="法人（株式会社・合同会社など）">法人（株式会社・合同会社など）</option><option value="個人事業主（フリーランスを含む）">個人事業主（フリーランスを含む）</option><option value="これから創業予定">これから創業予定</option></select></label>
-      <label class="f">業種<small class="cs-badge">必須</small><select name="industry" required><option value="">選択してください</option><option value="飲食業">飲食業</option><option value="小売業">小売業</option><option value="美容・サロン">美容・サロン</option><option value="建設業">建設業</option><option value="製造業">製造業</option><option value="IT・情報通信">IT・情報通信</option><option value="宿泊・観光">宿泊・観光</option><option value="農林水産業">農林水産業</option><option value="医療・介護・保育">医療・介護・保育</option><option value="その他">その他</option></select></label>
-      <label class="f">従業員数<small class="cs-badge">必須</small><select name="employees" required><option value="">選択してください</option><option value="0人（自分だけ）">0人（自分だけ）</option><option value="1〜5人">1〜5人</option><option value="6〜20人">6〜20人</option><option value="21〜50人">21〜50人</option><option value="51〜100人">51〜100人</option><option value="101〜300人">101〜300人</option><option value="301人以上">301人以上</option></select></label>
-      <label class="f">雇用保険の加入<small class="cs-badge">必須</small><select name="koyou" required><option value="">選択してください</option><option value="加入している">加入している</option><option value="加入していない">加入していない</option><option value="わからない">わからない</option></select></label>
-      <label class="f">社会保険の加入<small class="cs-badge">必須</small><select name="shakai" required><option value="">選択してください</option><option value="加入している">加入している</option><option value="加入していない">加入していない</option><option value="わからない">わからない</option></select></label>
-      <label class="f">ご相談内容<small class="cs-badge">必須</small><select name="topic" required><option value="">選択してください</option><option value="設備投資・機械の導入">設備投資・機械の導入</option><option value="IT・デジタル化">IT・デジタル化</option><option value="販路開拓・集客">販路開拓・集客</option><option value="人材の採用・育成・賃上げ">人材の採用・育成・賃上げ</option><option value="正社員化・待遇の改善">正社員化・待遇の改善</option><option value="省力化・人手不足">省力化・人手不足</option><option value="事業承継・M&A">事業承継・M&A</option><option value="創業・新規事業">創業・新規事業</option><option value="海外展開・輸出">海外展開・輸出</option><option value="その他">その他</option></select></label>
-      <label class="f">時期<small class="cs-badge">必須</small><select name="timing" required><option value="">選択してください</option><option value="すぐに">すぐに</option><option value="3か月以内">3か月以内</option><option value="半年以内">半年以内</option><option value="まだ決めていない">まだ決めていない</option></select></label>
+      <label class="f">事業の形態<select name="kind"><option value="">選択してください</option><option value="法人（株式会社・合同会社など）">法人（株式会社・合同会社など）</option><option value="個人事業主（フリーランスを含む）">個人事業主（フリーランスを含む）</option><option value="これから創業予定">これから創業予定</option></select></label>
+      <label class="f">業種<select name="industry"><option value="">選択してください</option><option value="飲食業">飲食業</option><option value="小売業">小売業</option><option value="美容・サロン">美容・サロン</option><option value="建設業">建設業</option><option value="製造業">製造業</option><option value="IT・情報通信">IT・情報通信</option><option value="宿泊・観光">宿泊・観光</option><option value="農林水産業">農林水産業</option><option value="医療・介護・保育">医療・介護・保育</option><option value="その他">その他</option></select></label>
+      <label class="f">従業員数<select name="employees"><option value="">選択してください</option><option value="0人（自分だけ）">0人（自分だけ）</option><option value="1〜5人">1〜5人</option><option value="6〜20人">6〜20人</option><option value="21〜50人">21〜50人</option><option value="51〜100人">51〜100人</option><option value="101〜300人">101〜300人</option><option value="301人以上">301人以上</option></select></label>
+      <label class="f">雇用保険の加入<select name="koyou"><option value="">選択してください</option><option value="加入している">加入している</option><option value="加入していない">加入していない</option><option value="わからない">わからない</option></select></label>
+      <label class="f">社会保険の加入<select name="shakai"><option value="">選択してください</option><option value="加入している">加入している</option><option value="加入していない">加入していない</option><option value="わからない">わからない</option></select></label>
+      <label class="f">ご相談内容<select name="topic"><option value="">選択してください</option><option value="設備投資・機械の導入">設備投資・機械の導入</option><option value="IT・デジタル化">IT・デジタル化</option><option value="販路開拓・集客">販路開拓・集客</option><option value="人材の採用・育成・賃上げ">人材の採用・育成・賃上げ</option><option value="正社員化・待遇の改善">正社員化・待遇の改善</option><option value="省力化・人手不足">省力化・人手不足</option><option value="事業承継・M&A">事業承継・M&A</option><option value="創業・新規事業">創業・新規事業</option><option value="海外展開・輸出">海外展開・輸出</option><option value="その他">その他</option></select></label>
+      <label class="f">時期<select name="timing"><option value="">選択してください</option><option value="すぐに">すぐに</option><option value="3か月以内">3か月以内</option><option value="半年以内">半年以内</option><option value="まだ決めていない">まだ決めていない</option></select></label>
         </div>
       </section>
       <section class="cs-card">
         <h2><span class="cs-no">02</span>ご連絡先</h2>
         <div class="cs-grid">
-      <label class="f">会社名・屋号<small class="cs-badge">必須</small><input type="text" name="company" maxlength="100" placeholder="株式会社〇〇" autocomplete="organization" required></label>
+      <label class="f">会社名・屋号<small class="cs-badge">必須</small><input type="text" name="company" maxlength="100" placeholder="株式会社〇〇 ／ 個人" autocomplete="organization" required><small class="cs-hint">個人の方は「個人」とご記入ください</small></label>
       <label class="f">お名前<small class="cs-badge">必須</small><input type="text" name="name" maxlength="60" placeholder="山田 太郎" autocomplete="name" required></label>
       <label class="f">電話番号<small class="cs-badge">必須</small><input type="tel" name="phone" maxlength="20" placeholder="0312345678" autocomplete="tel" required></label>
       <label class="f">メールアドレス<small class="cs-badge cs-opt">任意</small><input type="email" name="email" maxlength="200" placeholder="info@example.co.jp" autocomplete="email"></label>

@@ -30,14 +30,20 @@ const EMAIL_RE = /^[^\s@<>"',;:]+@[^\s@<>"',;:]+\.[^\s@<>"',;:]+$/;
 export function parseConsult(body) {
   if (!body || typeof body !== 'object') throw bad('入力が正しくありません');
   if (typeof body.website === 'string' && body.website.trim()) return { spam: true };
-  const answers = parseAnswers(body);
+  // 相談の内容（選択式）は任意。選んだものだけ、選択肢と一致するか確認する
+  const answers = {};
+  for (const [key, list] of Object.entries(OPTIONS)) {
+    const v = str(body[key]);
+    if (v && !list.includes(v)) throw bad('回答が正しくありません。もう一度やり直してください');
+    answers[key] = v;
+  }
   const company = str(body.company);
   const name = str(body.name);
   const phone = str(body.phone);
   const email = str(body.email);
   const note = str(body.note);
   const candidates = Array.isArray(body.candidates) ? body.candidates.filter((c) => typeof c === 'string').map((c) => c.trim()).filter(Boolean).slice(0, 8) : [];
-  if (!company || company.length > 100) throw bad('会社名（屋号）を入力してください');
+  if (!company || company.length > 100) throw bad('会社名・屋号を入力してください（個人の方は「個人」とご記入ください）');
   if (!name || name.length > 60) throw bad('お名前を入力してください');
   if (!PHONE_RE.test(phone)) throw bad('電話番号を正しく入力してください');
   if (email && (email.length > 200 || !EMAIL_RE.test(email))) throw bad('メールアドレスを正しく入力してください');
@@ -55,13 +61,13 @@ export function consultText(c) {
     `電話番号：${c.phone}`,
     `メールアドレス：${c.email || '（未入力）'}`,
     '',
-    `事業の形態：${c.kind}`,
-    `業種：${c.industry}`,
-    `従業員数：${c.employees}`,
-    `雇用保険の加入：${c.koyou}`,
-    `社会保険の加入：${c.shakai}`,
-    `ご相談内容：${c.topic}`,
-    `時期：${c.timing}`,
+    `事業の形態：${c.kind || '（未選択）'}`,
+    `業種：${c.industry || '（未選択）'}`,
+    `従業員数：${c.employees || '（未選択）'}`,
+    `雇用保険の加入：${c.koyou || '（未選択）'}`,
+    `社会保険の加入：${c.shakai || '（未選択）'}`,
+    `ご相談内容：${c.topic || '（未選択）'}`,
+    `時期：${c.timing || '（未選択）'}`,
     `判定で表示した候補：${c.candidates.length ? c.candidates.join('、') : '（なし）'}`,
     '',
     'その他ご記入事項：',
