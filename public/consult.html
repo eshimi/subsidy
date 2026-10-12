@@ -104,7 +104,8 @@
     .cs-status.ok { color: #1a7f4b; font-weight: 700; }
     .cs-status.err { color: var(--alert); }
 
-    .cs-hero { display: grid; grid-template-columns: 1.3fr 1fr; gap: 16px; align-items: center; background: linear-gradient(135deg,#f6efe0,#eaf3ec); border-radius: 16px; padding: 32px 36px; margin: 8px 0 20px; overflow: hidden; }
+    .cs-hero { position: relative; display: block; background: #faf1e3; min-height: 230px; border-radius: 16px; padding: 32px 36px; margin: 8px 0 20px; overflow: hidden; }
+    .cs-hero-text { position: relative; z-index: 1; max-width: 64%; }
     .cs-hero h1 { margin: 0 0 12px; font-size: clamp(1.5rem,3.6vw,2.2rem); line-height: 1.4; color: #12372b; }
     .cs-hl { color: #0b7a55; }
     .cs-hero p { margin: 0 0 18px; color: #3d4a44; line-height: 1.8; }
@@ -113,11 +114,7 @@
     .cs-feats .cs-ico { grid-row: 1 / 3; width: 40px; height: 40px; border-radius: 50%; background: #0b7a55; color: #fff; display: grid; place-items: center; font-weight: 700; }
     .cs-feats b { font-size: .9rem; line-height: 1.2; }
     .cs-feats small { font-size: .72rem; color: #5b6761; line-height: 1.2; }
-    .cs-hero-art { position: relative; height: 180px; }
-    .cs-hero-art i { position: absolute; border-radius: 18px; background: #fff; box-shadow: 0 6px 18px rgba(18,55,43,.15); }
-    .cs-hero-art i:nth-child(1) { width: 150px; height: 110px; left: 10%; top: 10px; background: #0b7a55; transform: rotate(-6deg); }
-    .cs-hero-art i:nth-child(2) { width: 130px; height: 100px; right: 8%; top: 40px; transform: rotate(5deg); }
-    .cs-hero-art i:nth-child(3) { width: 90px; height: 90px; left: 38%; bottom: 0; border-radius: 50%; background: #f2c14e; }
+    .cs-hero-art { position: absolute; top: 0; right: 0; bottom: 0; width: 38%; background: url('images/consult-hero.webp') right center / cover no-repeat; -webkit-mask-image: linear-gradient(to right, transparent, #000 22%); mask-image: linear-gradient(to right, transparent, #000 22%); }
     .cs-steps { list-style: none; display: flex; align-items: center; justify-content: center; gap: 0; margin: 0 0 18px; padding: 0; font-weight: 700; color: #12372b; }
     .cs-steps li { display: flex; align-items: center; gap: 8px; }
     .cs-steps li + li::before { content: ""; width: 80px; height: 2px; background: #b9d3c6; margin: 0 14px; }
@@ -142,8 +139,9 @@
     .cs-status { text-align: center; }
     .cs-notes { list-style: none; margin: 0; padding: 0; text-align: center; font-size: .82rem; color: #5b6761; }
     @media (max-width: 720px) {
-      .cs-hero { grid-template-columns: 1fr; padding: 22px 18px; }
-      .cs-hero-art { display: none; }
+      .cs-hero { padding: 22px 18px; }
+      .cs-hero-text { max-width: none; }
+      .cs-hero-art { opacity: .25; width: 100%; }
       .cs-grid { grid-template-columns: 1fr; }
       .cs-card { padding: 18px 16px; }
       .cs-steps li + li::before { width: 36px; margin: 0 8px; }
@@ -221,7 +219,7 @@
           <li><span class="cs-ico" aria-hidden="true">☎</span><b>専門家からご連絡</b><small>お電話またはメール</small></li>
         </ul>
       </div>
-      <div class="cs-hero-art" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="cs-hero-art" aria-hidden="true"></div>
     </section>
 
     <ol class="cs-steps" aria-label="入力の流れ">
