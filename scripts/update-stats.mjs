@@ -25,11 +25,14 @@ export function withArticleCount(html, n) {
   return html.replace(/(<dd id="r-articles">)\d+(<small>本以上<\/small><\/dd>)/, `$1${shown}$2`);
 }
 
-// grants/search.json の件数。検索ページの全件の数（jGrants＋自治体の制度＋個人向け）と同じ
-export function countPrograms(root = ROOT) {
+// 掲載数の数え方（検索ページ・トップページ・home.js と同じ）：募集中（締切が今日以降）の制度と、解説（guide）
+export const isListed = (g, now = Date.now()) => Boolean(g.guide || (g.e && Date.parse(g.e) >= now));
+
+// grants/search.json の件数。検索ページの件数と同じ数え方
+export function countPrograms(root = ROOT, now = Date.now()) {
   const file = join(root, 'grants', 'search.json');
   if (!existsSync(file)) return null;
-  const items = JSON.parse(readFileSync(file, 'utf-8')).items || [];
+  const items = (JSON.parse(readFileSync(file, 'utf-8')).items || []).filter((g) => isListed(g, now));
   return { total: items.length, local: items.filter((i) => i.local).length };
 }
 

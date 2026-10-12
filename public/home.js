@@ -16,11 +16,16 @@
     .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
     .then((data) => {
       const now = Date.now();
-      const open = (data.items || []).filter((g) => g.e && Date.parse(g.e) >= now);
-      if (total && open.length) total.textContent = `いま募集中 ${open.length.toLocaleString('ja-JP')} 件・毎日更新。`;
+      // 掲載数は、検索ページと同じ数え方（募集中の制度と解説）。scripts/update-stats.mjs の isListed と合わせる
+      const open = (data.items || []).filter((g) => g.guide || (g.e && Date.parse(g.e) >= now));
+      const local = open.filter((g) => g.local).length;
+      const n = (x) => x.toLocaleString('ja-JP');
+      if (total && open.length) total.textContent = `${n(open.length)}件を掲載。毎日更新。`;
       const live = document.getElementById('r-live');
-      if (live && open.length) live.innerHTML = `${open.length.toLocaleString('ja-JP')}<small>件</small>`;
-      const bySoon = [...open].sort((a, b) => Date.parse(a.e) - Date.parse(b.e)).slice(0, 6);
+      if (live && open.length) live.innerHTML = `${n(open.length)}<small>件</small>`;
+      const loc = document.getElementById('r-local');
+      if (loc) loc.innerHTML = `${n(local)}<small>件</small>`;
+      const bySoon = open.filter((g) => g.e).sort((a, b) => Date.parse(a.e) - Date.parse(b.e)).slice(0, 6);
       const byNew = [...open].filter((g) => g.s).sort((a, b) => Date.parse(b.s) - Date.parse(a.s)).slice(0, 6);
       if (bySoon.length) soon.innerHTML = bySoon.map((g) => item(g, `<span class="soon">締切まで${Math.max(0, Math.ceil((Date.parse(g.e) - now) / DAY))}日</span>`)).join('');
       else empty(soon, '表示できる制度がありません。');

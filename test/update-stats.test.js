@@ -15,7 +15,7 @@ test('withProgramStats / countPrograms: トップの件数を、検索ページ�
   const { join } = await import('node:path');
   const root = mkdtempSync(join(tmpdir(), 'stats-'));
   mkdirSync(join(root, 'grants'));
-  writeFileSync(join(root, 'grants', 'search.json'), JSON.stringify({ items: [{ id: 1 }, { id: 2, local: true }, { id: 3, local: true }, { id: 4 }] }));
+  writeFileSync(join(root, 'grants', 'search.json'), JSON.stringify({ items: [{ id: 1, guide: true }, { id: 2, local: true, guide: true }, { id: 3, local: true, guide: true }, { id: 4, guide: true }] }));
   const stats = countPrograms(root);
   assert.deepEqual(stats, { total: 4, local: 2 });
   assert.equal(countPrograms(join(root, 'none')), null);
@@ -33,4 +33,22 @@ test('デプロイ時のビルド（build:grants）で、トップの数字も�
   const { readFileSync } = await import('node:fs');
   const pkg = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf-8'));
   assert.match(pkg.scripts['build:grants'], /update-stats\.mjs/);
+});
+
+test('countPrograms: 検索ページと同じ数え方（締切が過ぎた制度は数えず、解説は数える）', async () => {
+  const { countPrograms } = await import('../scripts/update-stats.mjs');
+  const { mkdtempSync, mkdirSync, writeFileSync } = await import('node:fs');
+  const { tmpdir } = await import('node:os');
+  const { join } = await import('node:path');
+  const root = mkdtempSync(join(tmpdir(), 'stats2-'));
+  mkdirSync(join(root, 'grants'));
+  const now = Date.parse('2026-10-12T00:00:00Z');
+  const day = 86400000;
+  writeFileSync(join(root, 'grants', 'search.json'), JSON.stringify({ items: [
+    { id: 'a', e: new Date(now + day).toISOString() },
+    { id: 'b', e: new Date(now - day).toISOString() },
+    { id: 'c', local: true, e: new Date(now + day).toISOString() },
+    { id: 'd', guide: true },
+  ] }));
+  assert.deepEqual(countPrograms(root, now), { total: 3, local: 1 });
 });
