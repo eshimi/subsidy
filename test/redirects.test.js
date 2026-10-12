@@ -30,3 +30,10 @@ test('個人向けの入口（personal/index.html）は、AI補助金判定の�
   const html = readFileSync(new URL('../public/hantei.html', import.meta.url), 'utf-8');
   assert.ok(html.includes('id="hj-personal"') && html.includes('data-aud="p"'));
 });
+
+test('書籍のAmazonへのリンクは、サイト内の /go/book/ から302で転送する', () => {
+  const rule = redirectRules().find(([f]) => f === '/go/book/:asin');
+  assert.ok(rule && rule[2] === 302 && rule[1].startsWith('https://www.amazon.co.jp/dp/:asin?tag='));
+  assert.match(readFileSync(new URL('../public/books.js', import.meta.url), 'utf-8'), /\/go\/book\//);
+  assert.doesNotMatch(readFileSync(new URL('../public/books.js', import.meta.url), 'utf-8'), /amazon\.co\.jp\/dp/);
+});

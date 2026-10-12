@@ -1,5 +1,3 @@
-const AFFILIATE_TAG = 'eshimi-22';
-
 const el = (tag, className, text) => {
   const e = document.createElement(tag);
   if (className) e.className = className;
@@ -32,9 +30,9 @@ function coverFor(book) {
 
 function bookCard(book) {
   const card = el('a', 'book-card');
-  card.href = `https://www.amazon.co.jp/dp/${book.asin}?tag=${AFFILIATE_TAG}`;
+  card.href = `/go/book/${encodeURIComponent(book.asin)}`;
   card.target = '_blank';
-  card.rel = 'noopener sponsored';
+  card.rel = 'noopener sponsored nofollow';
 
   const info = el('div', 'book-info');
   info.append(

@@ -69,3 +69,4 @@
 /grants/industry-tourism.html /search.html?industry=tourism 301
 /grants/industry-agriculture.html /search.html?industry=agriculture 301
 /grants/industry-care.html /search.html?industry=care 301
+/go/book/:asin https://www.amazon.co.jp/dp/:asin?tag=eshimi-22 302
