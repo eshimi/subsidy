@@ -4,7 +4,7 @@
 import { readdirSync, readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { MUNICIPALITY_COUNT } from '../src/data/prefectures.js';
+import { AREA_CITIES } from '../src/data/area-cities.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', 'public');
 const FOLDERS = ['feature', 'basics', 'who', 'personal', 'cases', 'columns', 'guides', 'compare'];
@@ -40,8 +40,13 @@ const ja = (n) => Number(n).toLocaleString('ja-JP');
 const floorTo = (n, unit) => Math.max(unit, Math.floor(n / unit) * unit);
 
 // トップページの数字を差し替える。件数は、検索ページの表示と食い違わないよう、正確な数を載せる（「○件以上」は使わない）
-export function withProgramStats(html, stats, municipalities = MUNICIPALITY_COUNT) {
-  let out = html.replace(/(<dd id="r-cities">)[\d,]+(<small>市区町村<\/small><\/dd>)/, `$1${ja(municipalities)}$2`);
+// 対応している市区町村の数：地域別ページがある市区町村。都道府県＋名前で重複を除いた数（トップ・地域別の入口で同じ数を使う）
+export const municipalityCount = (cities = AREA_CITIES) => new Set(cities.map((c) => `${c.pref}${c.name}`)).size;
+
+export function withProgramStats(html, stats, municipalities = municipalityCount()) {
+  let out = html
+    .replace(/(<dd id="r-cities">)[\d,]+(<small>市区町村<\/small><\/dd>)/, `$1${ja(municipalities)}$2`)
+    .replace(/(<span id="area-total">)[\d,]+(<\/span>)/, `$1${ja(municipalities)}$2`);
   if (stats) {
     out = out
       .replace(/(<dd id="r-live">)[\d,]+<small>件(?:以上)?<\/small>(<\/dd>)/, `$1${ja(stats.total)}<small>件</small>$2`)
@@ -55,6 +60,8 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   const file = join(ROOT, 'index.html');
   const n = countArticles();
   const stats = countPrograms();
+  const areaIndex = join(ROOT, 'area', 'index.html');
+  if (existsSync(areaIndex)) writeFileSync(areaIndex, withProgramStats(readFileSync(areaIndex, 'utf-8'), null));
   writeFileSync(file, withProgramStats(withArticleCount(readFileSync(file, 'utf-8'), n), stats));
   console.log(`解説記事・ガイド：${n} 本／補助金・支援制度：${stats ? `${stats.total} 件（自治体の独自制度 ${stats.local} 件）` : '（search.json なし）'}`);
 }

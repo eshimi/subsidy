@@ -52,3 +52,14 @@ test('countPrograms: 検索ページと同じ数え方（締切が過ぎた制�
   ] }));
   assert.deepEqual(countPrograms(root, now), { total: 3, local: 1 });
 });
+
+test('municipalityCount: 都道府県＋名前で重複を除いた市区町村の数。トップと地域別の入口に同じ数を入れる', async () => {
+  const { municipalityCount, withProgramStats } = await import('../scripts/update-stats.mjs');
+  const { AREA_CITIES } = await import('../src/data/area-cities.js');
+  assert.equal(municipalityCount([{ pref: '東京都', name: '府中市' }, { pref: '広島県', name: '府中市' }, { pref: '東京都', name: '府中市' }]), 2);
+  assert.equal(municipalityCount(), AREA_CITIES.length);
+  const html = '<dd id="r-cities">1<small>市区町村</small></dd><span id="area-total">1</span>';
+  const out = withProgramStats(html, null, 267);
+  assert.match(out, /<dd id="r-cities">267</);
+  assert.match(out, /<span id="area-total">267<\/span>/);
+});
