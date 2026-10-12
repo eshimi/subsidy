@@ -70,13 +70,15 @@ ${lis}
 
 function cityPage(city) {
   const { municipal, prefectural } = programsFor(city);
+  const resident = residentFor(city);
+  // 個人向けの制度が下の欄に載っているときは、そこへ案内する（上の欄が空に見えないように）
+  const toResident = (n) => (RESIDENT_PROGRAMS.length && n ? `個人の方向けの制度は、<a href="#resident-programs">下の「住まい・暮らしの制度」</a>に載せています。` : '');
   const municipalHtml = municipal.length
     ? municipal.map(programCard).join('\n')
-    : `          <p>${esc(city.name)}の制度は、まだ掲載していません。市の公式サイトの「創業・産業振興」などのページで、最新の公募を確認してください。</p>`;
+    : `          <p>${esc(city.name)}の事業・創業の方向けの制度は、まだ掲載していません。市の公式サイトの「創業・産業振興」などのページで、最新の公募を確認してください。${toResident(resident.municipal.length)}</p>`;
   const prefHtml = prefectural.length
     ? prefectural.map(programCard).join('\n')
-    : `          <p>${esc(city.pref)}全体の制度は、県の公式サイトで確認できます。</p>`;
-  const resident = residentFor(city);
+    : `          <p>${esc(city.pref)}全体の事業・創業の方向けの制度は、県の公式サイトで確認できます。${toResident(resident.prefectural.length)}</p>`;
   const residentCard = (p) => programCard({ ...p, provider: `${p.provider}` });
   const residentHtml = [
     resident.municipal.length ? `          <p><strong>${esc(city.name)}の制度</strong></p>\n${residentGroups(resident.municipal, residentCard)}` : '',
@@ -84,7 +86,7 @@ function cityPage(city) {
   ].filter(Boolean).join('\n') || `          <p>${esc(city.name)}・${esc(city.pref)}の、個人の方向けの制度（耐震・太陽光・EV・子育てなど）は、まだ掲載していません。市の公式サイトの「くらし・住まい」のページで確認してください。</p>`;
   // 個人向けのデータが1件もないあいだは、欄を出さない（空の案内だけが並ばないように）
   const residentSection = RESIDENT_PROGRAMS.length ? `    <section class="area-section" aria-labelledby="resident-programs">
-      <span class="area-num">02</span>
+      <span class="area-num">03</span>
       <h2 id="resident-programs">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../personal/index.html">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
@@ -115,7 +117,7 @@ ${residentHtml}
 
     <section class="area-section" aria-labelledby="city-programs">
       <span class="area-num">01</span>
-      <h2 id="city-programs">${esc(city.name)}の制度</h2>
+      <h2 id="city-programs">${esc(city.name)}の制度（事業・創業の方向け）</h2>
       <div class="area-body">
 ${municipalHtml}
       </div>
@@ -123,14 +125,14 @@ ${municipalHtml}
 
     <section class="area-section" aria-labelledby="pref-programs">
       <span class="area-num">02</span>
-      <h2 id="pref-programs">${esc(city.pref)}の制度</h2>
+      <h2 id="pref-programs">${esc(city.pref)}の制度（事業・創業の方向け）</h2>
       <div class="area-body">
 ${prefHtml}
       </div>
     </section>
 
 ${residentSection}    <section class="area-section" aria-labelledby="national">
-      <span class="area-num">03</span>
+      <span class="area-num">${residentSection ? '04' : '03'}</span>
       <h2 id="national">国の制度・全国から探す</h2>
       <div class="area-body">
         <p>国の制度は、市や県の制度と並行して使えるものがあります。まずは、サイトのトップで事業の内容と郵便番号を入れると、対象になりそうな制度をまとめて確認できます。</p>
