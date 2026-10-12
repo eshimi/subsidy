@@ -844,52 +844,40 @@ button.r-way:focus-visible { outline: 2px solid var(--accent); outline-offset: 2
 .sec-divider { margin: 0 0 1.8rem; text-align: center; }
 .sec-divider img { display: block; width: 100%; max-width: 640px; height: auto; margin: 0 auto; }
 
-/* フッター（左に紹介とQR、右に4カテゴリ×4リンク。白地・淡いグレーの見出し） */
+/* フッター（左にロゴ・QR、右に4行のミニ・サイトマップ。ラベル＋リンクを横に並べる） */
 .footer { margin-top: 56px; background: #fff; border-top: 1px solid var(--line); }
 .footer-top, .footer-bottom { max-width: var(--max); margin-inline: auto; padding-inline: var(--gutter); box-sizing: border-box; }
-.footer-top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); gap: 24px 56px; padding-block: 28px 18px; align-items: start; }
-.footer-info { display: grid; grid-template-columns: 1fr auto; column-gap: 16px; align-items: start; }
-.footer-info > * { grid-column: 1 / -1; }
-.footer-info .footer-brand { grid-column: 1; grid-row: 1; }
+.footer-top { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 24px 48px; padding-block: 24px 18px; align-items: start; }
+.footer-info { position: relative; display: block; padding-right: 76px; }
+.footer-brand { display: block; line-height: 0; }
 .footer-brand img { height: 30px; width: auto; display: block; }
-.footer-info p { font-size: 0.74rem; line-height: 1.7; color: var(--mute); margin: 10px 0 0; max-width: 30em; }
+.footer-info p { font-size: 0.72rem; line-height: 1.6; color: var(--mute); margin: 10px 0 0; max-width: none; }
+.footer-info .footer-source { margin-top: 8px; }
 .footer-info .footer-contact { display: none; }
-.footer-info .footer-qr { grid-column: 2; grid-row: 1 / span 3; margin: 0; text-align: center; }
-.footer-info .footer-qr img { width: 72px; height: 72px; border-radius: 6px; }
-.footer-info .footer-qr figcaption { margin-top: 4px; font-size: 0.66rem; color: var(--mute); }
-.footer-top .footer-nav { margin: 0; padding: 0; border: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 24px; align-items: start; }
-.footer-group, .footer-group:first-child { border: 0; }
-.footer-group summary { display: block; padding: 0; margin: 0 0 8px; font-size: 0.76rem; font-weight: 500; letter-spacing: 0.04em; color: var(--mute); cursor: default; pointer-events: none; }
+.footer-info .footer-qr { position: absolute; top: 0; right: 0; margin: 0; }
+.footer-info .footer-qr img { width: 60px; height: 60px; border-radius: 6px; }
+.footer-info .footer-qr figcaption { display: none; }
+.footer-top .footer-nav { margin: 0; padding: 0; border: 0; display: grid; gap: 0; }
+.footer-group, .footer-group:first-child { display: grid; grid-template-columns: 84px minmax(0, 1fr); align-items: baseline; padding: 9px 0; border: 0; border-bottom: 1px solid #eef0f2; }
+.footer-group:first-child { padding-top: 0; }
+.footer-group:last-child { border-bottom: 0; padding-bottom: 0; }
+.footer-group summary { display: block; width: auto; margin: 0; padding: 0; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; color: var(--accent, #0b7a55); cursor: default; pointer-events: none; }
 .footer-group summary::before, .footer-group[open] summary::before, .footer-group summary::after, .footer-group[open] summary::after { content: none !important; }
-.footer-group ul { display: grid; gap: 6px; padding: 0; font-size: 0.82rem; line-height: 1.5; }
-.footer-group ul a { color: var(--ink); text-decoration: none; white-space: nowrap; }
+.footer-group ul { display: flex; flex-wrap: wrap; gap: 4px 22px; margin: 0; padding: 0; font-size: 0.82rem; line-height: 1.6; list-style: none; }
+.footer-group ul a { color: var(--ink); text-decoration: none; }
 .footer-group ul a:hover { text-decoration: underline; }
 .footer-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 4px 24px; padding-block: 12px 14px; border-top: 1px solid var(--line-soft); text-align: left; }
-.footer-bottom ul { display: flex; flex-wrap: wrap; gap: 4px 18px; margin: 0; padding: 0; justify-content: flex-start; font-size: 0.72rem; }
+.footer-bottom ul { display: flex; flex-wrap: wrap; gap: 4px 18px; margin: 0; padding: 0; justify-content: flex-start; font-size: 0.72rem; list-style: none; }
 .footer-bottom a { color: var(--mute); }
 .footer-copy { font-size: 0.7rem; color: var(--mute); margin: 0; }
 @media (max-width: 900px) {
-  .footer-top { grid-template-columns: 1fr; gap: 20px; padding-block: 22px 12px; }
-  .footer-top .footer-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 24px; }
-  .footer-group summary { pointer-events: auto; cursor: pointer; display: flex; justify-content: space-between; padding: 10px 0; margin: 0; border-bottom: 1px solid var(--line-soft); }
-  .footer-group summary::after, .footer-group[open] summary::after { content: "+" !important; }
-  .footer-group[open] summary::after { content: "−" !important; }
-  .footer-group[open] summary { margin-bottom: 8px; }
-  .footer-group ul { padding-bottom: 10px; }
+  .footer-top { grid-template-columns: 1fr; gap: 18px; padding-block: 20px 12px; }
+  .footer-info { padding-right: 76px; max-width: 420px; }
 }
 @media (max-width: 480px) {
-  .footer-top .footer-nav { grid-template-columns: 1fr; }
-  .footer-bottom { justify-content: center; text-align: center; }
-  .footer-bottom ul { justify-content: center; }
+  .footer-group, .footer-group:first-child { grid-template-columns: 1fr; gap: 4px; padding: 10px 0; }
+  .footer-group:first-child { padding-top: 0; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
 }
-.footer-group summary { width: auto; }
-.footer-info .footer-qr { grid-row: 1 / span 4; }
-.footer-info .footer-qr img { width: 64px; height: 64px; }
-.footer-info .footer-qr figcaption { display: none; }
-.footer-info .footer-source { font-size: 0.72rem; margin-top: 6px; line-height: 1.6; }
-.footer-info .footer-brand { margin-bottom: 0; }
-.footer-info .footer-qr { grid-row: 1 / span 2; }
-.footer-info { position: relative; display: block; padding-right: 84px; }
-.footer-info .footer-qr { position: absolute; top: 0; right: 0; }
-.footer-brand { display: block; line-height: 0; }
-@media (max-width: 900px) { .footer-info { padding-right: 84px; } }
+.footer-info .footer-source { font-size: 0.72rem; line-height: 1.6; }
+@media (max-width: 480px) { .footer-group ul { gap: 3px 16px; font-size: 0.8rem; } .footer-group:first-child, .footer-group { padding: 8px 0; } }

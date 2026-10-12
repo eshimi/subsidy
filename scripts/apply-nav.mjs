@@ -35,6 +35,7 @@ for (const file of walk(ROOT)) {
   s = replaceOnce(s, /<nav class="footer-nav" aria-label="フッター">[\s\S]*?<\/nav>/, () =>
     `<nav class="footer-nav" aria-label="フッター">\n${footerNavHtml(prefix, current)}\n        </nav>`);
   s = replaceOnce(s, /<nav aria-label="補助リンク">[\s\S]*?<\/nav>/, () => footerBottomHtml(prefix));
+  s = s.split('事業者の補助金・助成金・支援制度を、目的・地域・締切から探せるサイトです。創業や副業を始める方向けの解説も載せています。').join('目的・地域・締切から探せる、事業者向けの補助金サイト');
   if (s !== before) {
     writeFileSync(file, s);
     changed++;

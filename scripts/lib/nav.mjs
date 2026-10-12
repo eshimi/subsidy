@@ -117,31 +117,36 @@ export const FOOTER_GROUPS = [
   },
 ];
 
-// フッターに載せる主要リンク（各4本）。全リンクは「サイトマップ」に載せる
+// フッターに載せるリンク（4行。1行に横並びで表示する）。全リンクは「サイトマップ」に載せる
 export const FOOTER_SHORT = [
   { label: '探す', items: [
     { label: 'AI・キーワードで探す', href: 'search.html' },
     { label: 'AI補助金判定', href: 'hantei.html' },
-    { label: '市区町村別の補助金', href: 'area/index.html' },
+    { label: '目的別', href: 'grants/purposes.html' },
+    { label: '業種別', href: 'grants/industries.html' },
+    { label: '地域別', href: 'area/index.html' },
     { label: '締切が近い補助金', href: 'grants/deadlines.html' },
   ] },
   { label: '知る', items: [
     { label: '補助金ニュース', href: 'news/index.html' },
     { label: '基礎知識', href: 'basics/index.html' },
+    { label: '申請の流れ', href: 'basics/flow.html' },
     { label: '活用事例', href: 'cases/index.html' },
     { label: 'コラム', href: 'columns.html' },
+    { label: '用語集', href: 'basics/glossary.html' },
   ] },
   { label: '対象者別', items: [
-    { label: '個人事業主の方', href: 'who/sole-proprietor.html' },
-    { label: '中小企業の方', href: 'who/sme.html' },
-    { label: '創業・副業を始める方', href: 'who/startup.html' },
-    { label: '個人の方', href: 'personal/index.html' },
+    { label: '個人事業主', href: 'who/sole-proprietor.html' },
+    { label: '中小企業', href: 'who/sme.html' },
+    { label: '創業・副業', href: 'who/startup.html' },
+    { label: '個人の方（住まい・車・子育て）', href: 'personal/index.html' },
   ] },
   { label: 'サイト', items: [
     { label: '使い方', href: 'guide.html' },
     { label: '無料相談', href: 'consult.html' },
     { label: '運営者情報', href: 'policy/about.html' },
     { label: 'お問い合わせ', href: 'policy/contact.html' },
+    { label: 'サイトマップ', href: 'sitemap.html' },
   ] },
 ];
 
