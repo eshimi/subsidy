@@ -2898,4 +2898,2691 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "priority": 6,
     "url": "https://www.pref.mie.lg.jp/TOPICS/m0360800137.htm"
   },
+  {
+    "id": "shiga-jigyo-shokei-seicho",
+    "name": "滋賀県 事業承継・成長促進補助金",
+    "provider": "滋賀県 商工観光労働部",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "事業承継",
+    "amount": "補助率2/3・上限50万円",
+    "summary": "事業承継を契機とした経営革新や人材育成につながる取組の経費の一部を補助する。",
+    "eligibility": [
+      "事業承継を行う滋賀県内の中小企業者",
+      "事業承継ネットワーク構成機関の意見書が必要"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "滋賀県"
+    ],
+    "cities": [],
+    "stages": [
+      "established"
+    ],
+    "period": "令和8年度第3回は8月10日〜9月14日で終了。以降は要確認",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.shiga.lg.jp/ippan/shigotosangyou/kigyou/349513.html"
+  },
+  {
+    "id": "shiga-keiei-kakushin",
+    "name": "中小企業経営革新等応援事業補助金",
+    "provider": "滋賀県 商工観光労働部",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "研究開発・新事業",
+    "amount": "補助率1/2以内・50万円〜300万円",
+    "summary": "県内中小企業の経営革新等の取組経費の一部を補助する。",
+    "eligibility": [
+      "滋賀県内の中小企業者",
+      "詳細は募集要領で要確認"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "滋賀県"
+    ],
+    "cities": [],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "令和8年度二次募集は2026年6月26日〜7月31日で終了。最新は要確認",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.shiga.lg.jp/ippan/shigotosangyou/kigyou/300713.html"
+  },
+  {
+    "id": "shiga-local-venture",
+    "name": "滋賀県ローカルベンチャー創出支援金",
+    "provider": "滋賀県 商工観光労働部／滋賀県産業支援プラザ",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "創業・起業",
+    "amount": "補助上限200万円・補助率1/2（掲載情報）",
+    "summary": "デジタル技術を活用した起業や、事業承継・第二創業に取り組むローカルベンチャーの経費の一部を補助する。",
+    "eligibility": [
+      "滋賀県内で起業・第二創業等を行う方",
+      "デジタル技術を活用した事業"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "滋賀県"
+    ],
+    "cities": [],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "令和8年度三次募集は2026年9月4日で締切済み。次回は要確認",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.shigaplaza.or.jp/news/hojyokin_sogyo_260807/"
+  },
+  {
+    "id": "shiga-seidoyuushi-kaigyo",
+    "name": "滋賀県制度融資「開業資金」（創業枠・創業サポート枠ほか）",
+    "provider": "滋賀県 商工観光労働部／滋賀県信用保証協会",
+    "level": "prefecture",
+    "type": "融資",
+    "cat": "融資・利子補給",
+    "amount": "要確認",
+    "summary": "開業前および開業後5年未満の方向けの制度融資。創業枠・創業サポート枠、女性創業枠、北部振興枠がある。小規模企業者向けの経営支援資金（小規模企業者特別枠）も案内されている。",
+    "eligibility": [
+      "開業前または開業後5年未満の方",
+      "詳細は県の制度融資ページで要確認"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "滋賀県"
+    ],
+    "cities": [],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "随時（最新は要確認）",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.shiga.lg.jp/ippan/shigotosangyou/kigyou/300703.html"
+  },
+  {
+    "id": "kyoto-keiei-kaikaku",
+    "name": "京都府 中小企業経営改革支援事業",
+    "provider": "京都府／京都産業21",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "研究開発・新事業",
+    "amount": "補助率1/2以内・100万円〜3,000万円（令和5年度公募要領）",
+    "summary": "創業10年以内の未上場企業の経営改革・成長投資を支援する補助事業。",
+    "eligibility": [
+      "創業10年以内で府内に拠点を持つ未上場企業"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "京都府"
+    ],
+    "cities": [],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.ki21.jp/subsidy/kobo-r5-kaikaku/"
+  },
+  {
+    "id": "kyoto-seisansei-hitode",
+    "name": "京都府生産性向上・人手不足対策事業費補助事業",
+    "provider": "京都府／京都産業21",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "人材・雇用",
+    "amount": "要確認",
+    "summary": "令和8年度の生産性向上・人手不足対策の補助事業。府内に拠点を有する中小企業者の企業グループが対象。",
+    "eligibility": [
+      "府内に拠点を有する4者以上の中小企業者で構成される企業グループ"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "京都府"
+    ],
+    "cities": [],
+    "stages": [
+      "established"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.ki21.jp/subsidy/kobo-r8-koujou/"
+  },
+  {
+    "id": "kyoto-shokibo-ouen-shikin",
+    "name": "京都府・京都市 小規模企業おうえん資金",
+    "provider": "京都府 商工労働観光部／取扱金融機関",
+    "level": "prefecture",
+    "type": "融資",
+    "cat": "融資・利子補給",
+    "amount": "限度額2,000万円・年1.2%固定・期間10年以内（令和7年度版資料）",
+    "summary": "従業員20人以下（商業・サービス業は5人以下）の小規模企業者向けの制度融資。",
+    "eligibility": [
+      "小規模企業者",
+      "府内で1年以上継続して事業を行っていること（原則）"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "京都府"
+    ],
+    "cities": [],
+    "stages": [
+      "established"
+    ],
+    "period": "随時（令和8年度の条件は要確認）",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.kyoto.jp/kinyu/documents/27kokiboouen.pdf"
+  },
+  {
+    "id": "kyoto-sogyo-shien-shikin",
+    "name": "京都府・京都市 創業支援資金（創業・事業転換等）",
+    "provider": "京都府 商工労働観光部／京都府・京都市制度融資取扱金融機関",
+    "level": "prefecture",
+    "type": "融資",
+    "cat": "創業・起業",
+    "amount": "創業型は限度額1,500万円（追加要件で3,500万円）・年1.2%固定・期間10年以内",
+    "summary": "新たに事業を始める方を支援する制度融資。創業型・無保証人型・事業転換・多角化型がある。",
+    "eligibility": [
+      "新たに事業を開始しようとする方等",
+      "追加要件に創業セミナー受講等"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "京都府"
+    ],
+    "cities": [],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "随時（令和8年4月1日版）",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.kyoto.jp/kinyu/documents/29-1sougyou.pdf"
+  },
+  {
+    "id": "osaka-datsutanso-jishu",
+    "name": "大阪府 中小事業者の脱炭素化に係る自主的取組支援補助金",
+    "provider": "大阪府 環境農林水産部",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "設備投資・省エネ",
+    "amount": "補助率1/3・1法人上限200万円",
+    "summary": "中小事業者の脱炭素化に向けた設備導入等の取組を補助する。",
+    "eligibility": [
+      "大阪府内の中小事業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "大阪府"
+    ],
+    "cities": [],
+    "stages": [
+      "established"
+    ],
+    "period": "令和8年度2次公募は2026年10月5日で終了。以降は要確認",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.osaka.lg.jp/o120020/eneseisaku/sec/plan2_subsidy.html"
+  },
+  {
+    "id": "osaka-gyomukaizen-chinage",
+    "name": "大阪府 業務改善・賃上げ促進補助金",
+    "provider": "大阪府 商工労働部",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "人材・雇用",
+    "amount": "補助率1/4・上限200万円",
+    "summary": "国の業務改善助成金を活用する事業者への府の上乗せ補助。",
+    "eligibility": [
+      "国の業務改善助成金を活用する府内中小企業"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "大阪府"
+    ],
+    "cities": [],
+    "stages": [
+      "established"
+    ],
+    "period": "事前登録は2026年9月30日まで（終了。以降は要確認）",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.osaka.lg.jp/o110050/keieishien/chinagepackage.html"
+  },
+  {
+    "id": "osaka-kaigyo-startup-shikin",
+    "name": "大阪府制度融資「開業・スタートアップ応援資金」",
+    "provider": "大阪府 商工労働部／大阪信用保証協会",
+    "level": "prefecture",
+    "type": "融資",
+    "cat": "創業・起業",
+    "amount": "限度額3,500万円・返済期間10年以内",
+    "summary": "開業前および開業後5年未満の方向けの制度融資。",
+    "eligibility": [
+      "開業前または開業後5年未満の方"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "大阪府"
+    ],
+    "cities": [],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "随時（最新は要確認）",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.osaka.lg.jp/o110080/kinyushien/kaigyo-sien/index.html"
+  },
+  {
+    "id": "osaka-tenjikai-shuttenshien",
+    "name": "大阪府 中小企業展示商談会出展支援事業補助金",
+    "provider": "大阪府 商工労働部",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "販路開拓・PR",
+    "amount": "補助率2/3・10万円〜200万円",
+    "summary": "BtoB向け展示商談会の出展小間料を補助する（賃上げ促進支援パッケージ）。",
+    "eligibility": [
+      "大阪府内に主たる事務所または事業所を有する中小企業"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "大阪府"
+    ],
+    "cities": [],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "令和8年12月18日まで（予算上限に達し次第終了。受付終了表示もあり要確認）",
+    "deadline": "2026-12-18",
+    "priority": 6,
+    "url": "https://www.pref.osaka.lg.jp/o110070/mono/r8syuttenshien.html"
+  },
+  {
+    "id": "hyogo-gxdx-setsubi-taiyo",
+    "name": "兵庫県 GX・DX促進設備導入推進事業",
+    "provider": "兵庫県 産業労働部／ひょうご産業活性化センター",
+    "level": "prefecture",
+    "type": "融資",
+    "cat": "IT・デジタル",
+    "amount": "要確認（設備の割賦・リース貸与）",
+    "summary": "省エネ等のGXや人手不足対策のDXなどの設備を貸与する、令和8年度開始の事業。補助金ではなく貸与。",
+    "eligibility": [
+      "兵庫県内の中小企業"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "兵庫県"
+    ],
+    "cities": [],
+    "stages": [
+      "established"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://web.pref.hyogo.lg.jp/sr07/gxdxsokushinsetubidounyusuishin.html"
+  },
+  {
+    "id": "hyogo-kasegu-chikara-setsubi",
+    "name": "兵庫県 稼ぐ力の強化に向けた設備投資支援事業",
+    "provider": "兵庫県 産業労働部",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "設備投資・省エネ",
+    "amount": "要確認",
+    "summary": "持続的な賃上げ環境の整備を目的に、中小企業者等の収益力向上に資する設備投資を補助する。",
+    "eligibility": [
+      "兵庫県内の中小企業者等"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "兵庫県"
+    ],
+    "cities": [],
+    "stages": [
+      "established"
+    ],
+    "period": "事業実施期間は第1期2026年11月30日まで・第2期2027年1月31日まで。募集状況は要確認",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://web.pref.hyogo.lg.jp/sr07/kaseguchikara.html"
+  },
+  {
+    "id": "hyogo-kigyoka-shien",
+    "name": "兵庫県 起業家支援事業（一般事業枠・ふるさと・事業承継枠・若者枠・社会的事業枠）",
+    "provider": "兵庫県 産業労働部／ひょうご産業活性化センター",
+    "level": "prefecture",
+    "type": "助成金",
+    "cat": "創業・起業",
+    "amount": "助成率は対象経費の1/2以内（上限額は要確認）",
+    "summary": "県内での起業・創業を支援する助成金。ふるさと・事業承継枠、若者枠(30歳以下)、社会的事業枠などがある。",
+    "eligibility": [
+      "兵庫県内で起業する方",
+      "枠ごとの要件は募集要領で要確認"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "兵庫県"
+    ],
+    "cities": [],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "令和8年度は2026年4月17日〜6月22日で受付終了。次回は要確認",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://web.pref.hyogo.lg.jp/sr10/press/20260417.html"
+  },
+  {
+    "id": "hyogo-seidoyuushi",
+    "name": "兵庫県中小企業融資制度（制度融資）",
+    "provider": "兵庫県 産業労働部／兵庫県信用保証協会",
+    "level": "prefecture",
+    "type": "融資",
+    "cat": "融資・利子補給",
+    "amount": "要確認",
+    "summary": "創業・小規模事業者向けメニューを含む県の制度融資。",
+    "eligibility": [
+      "兵庫県内の中小企業者・創業者",
+      "メニューごとの条件は要確認"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "兵庫県"
+    ],
+    "cities": [],
+    "stages": [
+      "planning",
+      "early",
+      "established"
+    ],
+    "period": "随時（令和8年度版）",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://web.pref.hyogo.lg.jp/sr08/ie05_000000031.html"
+  },
+  {
+    "id": "nara-jigyo-shokei-enkatsu",
+    "name": "奈良県事業承継円滑化支援補助金",
+    "provider": "奈良県 経営支援課",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "事業承継",
+    "amount": "要確認",
+    "summary": "後継者不在の事業者の第三者承継（M&A）マッチング費用等を補助する。",
+    "eligibility": [
+      "後継者不在等の県内中小事業者",
+      "事業承継・引継ぎ支援センターの確認が必要"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "奈良県"
+    ],
+    "cities": [],
+    "stages": [
+      "established"
+    ],
+    "period": "令和7年度は2025年12月26日で終了。令和8年度は要確認",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.nara.jp/31935.htm"
+  },
+  {
+    "id": "nara-kigyoka-shien",
+    "name": "奈良県 起業家支援事業",
+    "provider": "奈良県 産業・観光・雇用振興部 経営支援課",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "創業・起業",
+    "amount": "上限200万円・補助率1/2以内（令和7年度情報）",
+    "summary": "県内で起業する方の人件費・店舗賃料・設備費・原材料費等を補助する。",
+    "eligibility": [
+      "奈良県内で起業する方"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "奈良県"
+    ],
+    "cities": [],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "最新は要確認（令和7年度情報）",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.nara.jp/68792.htm"
+  },
+  {
+    "id": "nara-senior-kigyo",
+    "name": "奈良県 シニア起業支援事業",
+    "provider": "奈良県 産業・観光・雇用振興部 経営支援課",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "創業・起業",
+    "amount": "最大200万円・補助率1/2以内",
+    "summary": "県内で新たに起業するシニア世代を支援する補助金。",
+    "eligibility": [
+      "奈良県内で起業するシニア世代の方"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "奈良県"
+    ],
+    "cities": [],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "令和8年度は6月8日〜7月17日で終了。次回は要確認",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.nara.jp/68894.htm"
+  },
+  {
+    "id": "nara-shoryokuka-setsubi",
+    "name": "奈良県 中小企業省力化・生産性向上設備投資支援補助金",
+    "provider": "奈良県 産業・観光・雇用振興部 経営支援課",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "設備投資・省エネ",
+    "amount": "上限500万円・補助率1/2（令和7年度）",
+    "summary": "賃上げを条件に、省力化・生産性向上設備の投資を補助する。",
+    "eligibility": [
+      "奈良県内の中小企業",
+      "賃上げが条件"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "奈良県"
+    ],
+    "cities": [],
+    "stages": [
+      "established"
+    ],
+    "period": "令和7年度は2026年1月16日で終了。令和8年度は要確認",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.nara.jp/69203.htm"
+  },
+  {
+    "id": "nara-sogyo-shikin",
+    "name": "奈良県 創業資金（女性・若者・シニア・UIJターン枠）",
+    "provider": "奈良県 経営支援課／奈良県信用保証協会",
+    "level": "prefecture",
+    "type": "融資",
+    "cat": "創業・起業",
+    "amount": "限度額1,500万円・知事認定で利率・保証料率0%",
+    "summary": "創業する女性・若者・シニア・UIJターンの方向けの制度融資。",
+    "eligibility": [
+      "創業する方",
+      "知事認定が必要"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "奈良県"
+    ],
+    "cities": [],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "随時（令和8年4月1日現在）",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.nara.jp/27444.htm"
+  },
+  {
+    "id": "wakayama-chiiki-kadai-kigyo",
+    "name": "わかやま地域課題解決型起業支援補助金",
+    "provider": "和歌山県 商工観光労働部 商工振興課",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "創業・起業",
+    "amount": "要確認",
+    "summary": "地域課題の解決に取り組む起業を支援する県の創業補助金。",
+    "eligibility": [
+      "和歌山県内で地域課題解決型の起業を行う方"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "和歌山県"
+    ],
+    "cities": [],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "令和8年度は4月1日〜5月8日で終了。次回は要確認",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.wakayama.lg.jp/prefg/061000/d00201895.html"
+  },
+  {
+    "id": "wakayama-chusho-seicho-sokushin",
+    "name": "和歌山県中小企業成長促進事業（補助金）",
+    "provider": "和歌山県 商工観光労働部 商工企画課",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "設備投資・省エネ",
+    "amount": "補助率2/3以内・100万円〜1,000万円",
+    "summary": "生産性向上や賃上げに向けた設備投資を補助する。",
+    "eligibility": [
+      "県内中小企業",
+      "創業から1年以上経過していること"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "和歌山県"
+    ],
+    "cities": [],
+    "stages": [
+      "established"
+    ],
+    "period": "令和8年度は5月18日〜7月31日で終了（受付終了表示あり）。以降は要確認",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.wakayama.lg.jp/prefg/060100/d00221813.html"
+  },
+  {
+    "id": "wakayama-genki-fund",
+    "name": "わかやま中小企業元気ファンド",
+    "provider": "わかやま産業振興財団",
+    "level": "prefecture",
+    "type": "助成金",
+    "cat": "販路開拓・PR",
+    "amount": "助成率2/3以内・分野A 50万〜99.9万円、分野B 100万〜600万円",
+    "summary": "地域産業資源を活用した新商品・新サービスの開発や販路開拓を支援する。",
+    "eligibility": [
+      "県内の中小企業者等"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "和歌山県"
+    ],
+    "cities": [],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "令和8年度は2026年1月16日で終了。次回は要確認",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.wakayama.lg.jp/prefg/061000/fund/fund.html"
+  },
+  {
+    "id": "wakayama-seidoyuushi",
+    "name": "和歌山県中小企業融資制度（新規開業資金・事業承継支援資金ほか）",
+    "provider": "和歌山県 商工観光労働部 商工振興課／和歌山県信用保証協会",
+    "level": "prefecture",
+    "type": "融資",
+    "cat": "融資・利子補給",
+    "amount": "要確認",
+    "summary": "新規開業資金（創業枠・創業サポート枠）や事業承継支援資金などを含む制度融資。",
+    "eligibility": [
+      "県内で新規に事業を開始する創業者、中小企業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "和歌山県"
+    ],
+    "cities": [],
+    "stages": [
+      "planning",
+      "early",
+      "established"
+    ],
+    "period": "随時（令和8年度版）",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.wakayama.lg.jp/prefg/060300/gyoumu/kinyuu/sangyoushien.html"
+  },
+  {
+    "id": "tottori-chiiki-kadai-kigyo",
+    "name": "鳥取県地域課題解決型起業支援補助金",
+    "provider": "鳥取県 商工労働部 企業支援課",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "創業・起業",
+    "amount": "補助率1/2、上限200万円",
+    "summary": "県内で地域課題の解決に取り組む起業・創業に要する経費を補助する。令和8年度は2次募集が行われた。",
+    "eligibility": [
+      "県内で開業届の提出や法人設立を行う人など",
+      "地域課題の解決を目的とした事業"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "鳥取県"
+    ],
+    "cities": [],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "令和8年度2次募集 2026-06-19〜2026-07-31（受付終了。次回は要確認）",
+    "deadline": "2026-07-31",
+    "priority": 6,
+    "url": "https://www.pref.tottori.lg.jp/269488.htm"
+  },
+  {
+    "id": "tottori-chinage-oen-shikin",
+    "name": "中小事業者賃上げ応援資金",
+    "provider": "鳥取県 商工労働部（制度融資）",
+    "level": "prefecture",
+    "type": "融資",
+    "cat": "人材・雇用",
+    "amount": "融資限度額3,000万円",
+    "summary": "賃上げに取り組む中小事業者向けの県制度融資。",
+    "eligibility": [
+      "賃上げに取り組む県内中小事業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "鳥取県"
+    ],
+    "cities": [],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.tottori.lg.jp/322253.htm"
+  },
+  {
+    "id": "tottori-ichinengo-shienkin",
+    "name": "設立・開業一年後支援金",
+    "provider": "鳥取県 商工労働部 企業支援課",
+    "level": "prefecture",
+    "type": "給付金",
+    "cat": "創業・起業",
+    "amount": "法人25万円、個人15万円（定額）",
+    "summary": "創業支援資金などの融資を受けた事業者に、融資開始から1年後に定額の支援金を支給する。",
+    "eligibility": [
+      "創業支援資金等の融資を受けた事業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "鳥取県"
+    ],
+    "cities": [],
+    "stages": [
+      "early"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.tottori.lg.jp/99747.htm"
+  },
+  {
+    "id": "tottori-jigyoshokei-sokushin",
+    "name": "産業未来共創事業〈事業承継促進型〉",
+    "provider": "鳥取県 商工労働部 企業支援課",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "事業承継",
+    "amount": "補助率1/2、上限200万円",
+    "summary": "事業承継に伴う取組に要する経費を補助する。",
+    "eligibility": [
+      "事業承継に取り組む県内中小企業者等"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "鳥取県"
+    ],
+    "cities": [],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.tottori.lg.jp/312267.htm"
+  },
+  {
+    "id": "tottori-sogyo-shien-shikin",
+    "name": "鳥取県創業支援資金",
+    "provider": "鳥取県 商工労働部（制度融資）",
+    "level": "prefecture",
+    "type": "融資",
+    "cat": "融資・利子補給",
+    "amount": "要確認",
+    "summary": "新たに事業に取り組もうとする個人や中小企業者等に必要な資金を融資する県の制度融資。",
+    "eligibility": [
+      "創業しようとする個人・中小企業者等"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "鳥取県"
+    ],
+    "cities": [],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.tottori.lg.jp/244761.htm"
+  },
+  {
+    "id": "tottori-startup-kakusoku",
+    "name": "鳥取県スタートアップ創出加速化補助金（事業拡大型）",
+    "provider": "鳥取県 商工労働部 企業支援課",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "研究開発・新事業",
+    "amount": "補助率2/3、上限1,000万円",
+    "summary": "スタートアップの事業拡大に要する経費を補助する。補助対象期間は交付決定日から36か月以内。",
+    "eligibility": [
+      "県内のスタートアップ事業者",
+      "詳細は募集要領で要確認"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "鳥取県"
+    ],
+    "cities": [],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.tottori.lg.jp/312270.htm"
+  },
+  {
+    "id": "shimane-chiiki-kadai-kigyo",
+    "name": "地域課題解決型しまね起業支援事業費補助金",
+    "provider": "島根県 商工労働部",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "創業・起業",
+    "amount": "補助率1/2以内、上限200万円",
+    "summary": "地域課題の解決を目指す起業に要する経費を補助する。",
+    "eligibility": [
+      "島根県内で地域課題解決型の起業を行う人"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "島根県"
+    ],
+    "cities": [],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "令和8年度 第2回 2026-06-22〜2026-07-28（受付終了。次回は要確認）",
+    "deadline": "2026-07-28",
+    "priority": 6,
+    "url": "https://www.pref.shimane.lg.jp/industry/syoko/sangyo/kigyo/kigyo_sien/wakuwaushimane.html"
+  },
+  {
+    "id": "shimane-jigyoshokei-shinjigyo",
+    "name": "島根県事業承継新事業活動等支援補助金",
+    "provider": "島根県 商工労働部 中小企業課",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "事業承継",
+    "amount": "補助率1/2、上限100万円（条件により200万円）",
+    "summary": "事業承継を契機とした新商品開発・販路開拓などの新たな取組を補助する。",
+    "eligibility": [
+      "事業承継を行った（行う）県内中小企業者等"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "島根県"
+    ],
+    "cities": [],
+    "stages": [
+      "planning",
+      "early",
+      "established"
+    ],
+    "period": "令和8年度 2026-09-01〜2026-09-30（受付終了。次回は要確認）",
+    "deadline": "2026-09-30",
+    "priority": 6,
+    "url": "https://www.pref.shimane.lg.jp/industry/syoko/sangyo/chusho/syoukei.html"
+  },
+  {
+    "id": "shimane-saiyo-branding",
+    "name": "新卒採用ブランディング支援補助金",
+    "provider": "島根県 商工労働部 雇用政策課",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "人材・雇用",
+    "amount": "補助率1/2、上限75万円",
+    "summary": "中小企業の採用力向上のためのブランディング取組を補助する。",
+    "eligibility": [
+      "県内の中小企業等"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "島根県"
+    ],
+    "cities": [],
+    "stages": [
+      "planning",
+      "early",
+      "established"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.shimane.lg.jp/industry/employ/koyo_syugyo/shien/saiyobranding.html"
+  },
+  {
+    "id": "shimane-small-business",
+    "name": "スモール・ビジネス育成支援事業補助金（直接補助型）",
+    "provider": "島根県 地域政策局 中山間地域・離島振興課",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "創業・起業",
+    "amount": "補助率2/3以内、上限250万円",
+    "summary": "中山間地域での起業・創業や雇用創出につながる取組を補助する。",
+    "eligibility": [
+      "中山間地域で起業・創業等を行う事業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "島根県"
+    ],
+    "cities": [],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "令和8年度 2026-04-01〜2026-05-29（受付終了。次回は要確認）",
+    "deadline": "2026-05-29",
+    "priority": 6,
+    "url": "https://www.pref.shimane.lg.jp/life/region/chiiki/chusankan/small-business/"
+  },
+  {
+    "id": "shimane-sogyo-seido-yushi",
+    "name": "島根県中小企業制度融資（創業者向け）",
+    "provider": "島根県 商工労働部 中小企業課",
+    "level": "prefecture",
+    "type": "融資",
+    "cat": "融資・利子補給",
+    "amount": "要確認",
+    "summary": "創業計画段階から開業後5年未満の中小企業者等向けの県制度融資。",
+    "eligibility": [
+      "創業予定者から開業後5年未満の中小企業者・組合"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "島根県"
+    ],
+    "cities": [],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.shimane.lg.jp/industry/syoko/sangyo/yuushi/sogyo_saisei.data/sougyou_tirasi.pdf"
+  },
+  {
+    "id": "okayama-chiiki-kadai-kigyo",
+    "name": "岡山県地域課題解決型起業支援金",
+    "provider": "岡山県 産業労働部 経営支援課",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "創業・起業",
+    "amount": "補助率1/2以内、上限200万円",
+    "summary": "地域課題解決を目的とする起業・事業承継・第二創業の経費を補助し、伴走支援も行う。デジタル技術の活用が要件。",
+    "eligibility": [
+      "地域課題の解決を目的に起業・事業承継・第二創業する人"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "岡山県"
+    ],
+    "cities": [],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "令和8年度 2026-04-17〜2026-06-30（受付終了。次回は要確認）",
+    "deadline": "2026-06-30",
+    "priority": 6,
+    "url": "https://www.pref.okayama.jp/page/969485.html"
+  },
+  {
+    "id": "okayama-shinki-sogyo-shikin",
+    "name": "岡山県 新規創業資金",
+    "provider": "岡山県 産業労働部（制度融資）",
+    "level": "prefecture",
+    "type": "融資",
+    "cat": "融資・利子補給",
+    "amount": "融資枠3,500万円、利率1.75%以内",
+    "summary": "創業者向けの県制度融資。",
+    "eligibility": [
+      "創業しようとする方・創業後間もない中小企業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "岡山県"
+    ],
+    "cities": [],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.okayama.jp/soshiki/45/"
+  },
+  {
+    "id": "okayama-shoene-setsubi-koshin",
+    "name": "岡山県中小企業省エネ設備更新支援補助金",
+    "provider": "岡山県 産業労働部 経営支援課",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "設備投資・省エネ",
+    "amount": "要確認",
+    "summary": "中小企業の省エネ設備の更新を支援する県の補助金。",
+    "eligibility": [
+      "県内の中小企業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "岡山県"
+    ],
+    "cities": [],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.okayama.jp/page/1030479.html"
+  },
+  {
+    "id": "hiroshima-chinage-kankyo",
+    "name": "広島県賃上げ環境整備支援事業補助金",
+    "provider": "広島県 商工労働局",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "人材・雇用",
+    "amount": "要確認",
+    "summary": "国の業務改善助成金を活用する事業者に上乗せ補助を行う。",
+    "eligibility": [
+      "業務改善助成金を活用する県内事業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "広島県"
+    ],
+    "cities": [],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "令和8年9月1日受付開始予定（最新は要確認）",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.hiroshima.lg.jp/soshiki/68/r8chinage-hojokin.html"
+  },
+  {
+    "id": "hiroshima-chusankan-kigyo",
+    "name": "広島県中山間地域課題解決型起業支援金",
+    "provider": "広島県 地域政策局",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "創業・起業",
+    "amount": "補助率1/2以内、上限200万円",
+    "summary": "中山間地域の社会的事業の起業・事業承継・第二創業の経費を補助し、伴走支援も行う。",
+    "eligibility": [
+      "中山間地域で社会的事業を行う起業・事業承継・第二創業"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "広島県"
+    ],
+    "cities": [],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "令和8年度 第2回締切 2026-07-29（受付終了。次回は要確認）",
+    "deadline": "2026-07-29",
+    "priority": 6,
+    "url": "https://www.pref.hiroshima.lg.jp/soshiki/35/r8-kigyousienjijyo-bosyu.html"
+  },
+  {
+    "id": "hiroshima-pro-jinzai",
+    "name": "中小企業等プロフェッショナル人材確保支援事業補助金",
+    "provider": "広島県 商工労働局 プロフェッショナル人材戦略拠点",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "人材・雇用",
+    "amount": "要確認",
+    "summary": "新規事業展開のため、人材紹介会社経由でプロ人材の採用や副業・兼業人材の活用を行う費用の一部を補助する。",
+    "eligibility": [
+      "県内の中小企業等"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "広島県"
+    ],
+    "cities": [],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "令和9年3月24日まで（予算がなくなり次第終了）",
+    "deadline": "2027-03-24",
+    "priority": 6,
+    "url": "https://www.pref.hiroshima.lg.jp/site/pro-kyoten/probosyu08.html"
+  },
+  {
+    "id": "hiroshima-shoene-setsubi",
+    "name": "広島県中小企業省エネ設備等導入支援補助金",
+    "provider": "広島県 環境県民局",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "設備投資・省エネ",
+    "amount": "補助率1/2、上限500万円",
+    "summary": "エネルギー価格高騰の影響を受ける中小企業の省エネ設備等導入費を補助する。",
+    "eligibility": [
+      "県内の中小企業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "広島県"
+    ],
+    "cities": [],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "2期募集 9月4日〜9月25日の予定（受付終了の可能性。最新は要確認）",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.hiroshima.lg.jp/site/eco/shoenehojokin-r8.html"
+  },
+  {
+    "id": "hiroshima-shogakukin-hensai",
+    "name": "Go！ひろしま奨学金返済支援制度導入企業応援補助金",
+    "provider": "広島県 商工労働局",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "人材・雇用",
+    "amount": "要確認",
+    "summary": "従業員の奨学金返済支援制度を導入する企業を応援する補助金。",
+    "eligibility": [
+      "奨学金返済支援制度を導入する県内企業"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "広島県"
+    ],
+    "cities": [],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "令和9年2月26日まで",
+    "deadline": "2027-02-26",
+    "priority": 6,
+    "url": "https://www.pref.hiroshima.lg.jp/soshiki/68/shogakukin-hensai-shien-hojokin.html"
+  },
+  {
+    "id": "hiroshima-sogyo-shien-shikin",
+    "name": "広島県 創業支援資金",
+    "provider": "広島県 商工労働局 経営革新課（制度融資）",
+    "level": "prefecture",
+    "type": "融資",
+    "cat": "融資・利子補給",
+    "amount": "限度額3,500万円",
+    "summary": "新規創業や新規事業展開を行う事業者向けの県制度融資。",
+    "eligibility": [
+      "創業・新規事業展開を行う事業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "広島県"
+    ],
+    "cities": [],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.hiroshima.lg.jp/soshiki/75/1168822517324.html"
+  },
+  {
+    "id": "yamaguchi-dx-tool",
+    "name": "山口県中小企業DX推進補助金（DXツール導入型）",
+    "provider": "山口県 商工労働部",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "IT・デジタル",
+    "amount": "補助率1/2、上限75万円",
+    "summary": "中小企業のDXツール導入費を補助する。予算上限に達し次第終了。",
+    "eligibility": [
+      "県内の中小企業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "山口県"
+    ],
+    "cities": [],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "2026-12-25まで随時募集（予算上限に達し次第終了）",
+    "deadline": "2026-12-25",
+    "priority": 6,
+    "url": "https://www.pref.yamaguchi.lg.jp/press/343044.html"
+  },
+  {
+    "id": "yamaguchi-gaikokujin-zairyu",
+    "name": "山口県外国人材確保定着支援補助金",
+    "provider": "山口県 商工労働部",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "人材・雇用",
+    "amount": "要確認",
+    "summary": "外国人材の確保・定着に取り組む県内中小企業等への補助金。",
+    "eligibility": [
+      "外国人材を確保・定着させる県内中小企業等"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "山口県"
+    ],
+    "cities": [],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "2026-04-28〜2027-01-29",
+    "deadline": "2027-01-29",
+    "priority": 6,
+    "url": "https://www.pref.yamaguchi.lg.jp/press/345829.html"
+  },
+  {
+    "id": "yamaguchi-seido-yuushi",
+    "name": "山口県中小企業制度融資",
+    "provider": "山口県 商工労働部 経営金融課",
+    "level": "prefecture",
+    "type": "融資",
+    "cat": "融資・利子補給",
+    "amount": "要確認",
+    "summary": "創業や事業承継支援資金などの目的別メニューを備えた県の制度融資。令和8年度は2026-03-31運用開始。",
+    "eligibility": [
+      "県内の中小企業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "山口県"
+    ],
+    "cities": [],
+    "stages": [
+      "planning",
+      "early",
+      "established"
+    ],
+    "period": "令和8年度運用中（10月1日から利率0.1%引上げ）",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.yamaguchi.lg.jp/soshiki/85/21831.html"
+  },
+  {
+    "id": "yamaguchi-shoene-setsubi",
+    "name": "山口県中小企業者等向け省・創・蓄エネ設備設置補助金",
+    "provider": "山口県 商工労働部",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "設備投資・省エネ",
+    "amount": "要確認",
+    "summary": "中小企業者等の省エネ・創エネ・蓄エネ設備の設置を補助する。",
+    "eligibility": [
+      "県内の中小企業者等"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "山口県"
+    ],
+    "cities": [],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "令和8年度 2次募集まで実施し受付終了（次回は要確認）",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.yamaguchi.lg.jp/soshiki/38/209060.html"
+  },
+  {
+    "id": "yamaguchi-sogyo-hojokin",
+    "name": "やまぐち創業補助金",
+    "provider": "山口県 商工労働部 経営金融課",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "創業・起業",
+    "amount": "補助率1/2、上限200万円",
+    "summary": "社会的事業の創業を支援する補助金。令和8年度は採択11件程度の予定だった。",
+    "eligibility": [
+      "山口県内で社会的事業の創業を行う人"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "山口県"
+    ],
+    "cities": [],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "令和8年度 2026-04-30〜2026-06-18（公募終了。次回は要確認）",
+    "deadline": "2026-06-18",
+    "priority": 6,
+    "url": "https://www.pref.yamaguchi.lg.jp/soshiki/85/208170.html"
+  },
+  {
+    "id": "tokushima-chusho-yushi-r8",
+    "name": "徳島県 令和8年度中小企業向け融資制度（創業者無担保資金等）",
+    "provider": "徳島県 商工労働観光部（制度融資）",
+    "level": "prefecture",
+    "type": "融資",
+    "cat": "融資・利子補給",
+    "amount": "協調支援型経営課題対応資金は限度額1億円、事業承継枠8,000万円 ほか",
+    "summary": "23の資金メニューがある県の融資制度。創業者無担保資金は保証料率が軽減されている。",
+    "eligibility": [
+      "県内の中小企業者（創業者含む）"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "徳島県"
+    ],
+    "cities": [],
+    "stages": [
+      "planning",
+      "early",
+      "established"
+    ],
+    "period": "令和8年度運用中",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.tokushima.lg.jp/jigyoshanokata/sangyo/shokogyo/5015570/"
+  },
+  {
+    "id": "tokushima-furusato-kigyoka",
+    "name": "徳島県ふるさと起業家支援プロジェクト",
+    "provider": "徳島県 商工労働観光部",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "創業・起業",
+    "amount": "補助率2/3以内、上限1,000万円",
+    "summary": "地域資源を活用して地域課題解決を図る起業を補助する。あったかビジネス事業計画の認定（見込み含む）が必要。",
+    "eligibility": [
+      "あったかビジネス事業計画の認定を受けた者または見込者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "徳島県"
+    ],
+    "cities": [],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "令和8年度 締切2026-05-29（受付終了。次回は要確認）",
+    "deadline": "2026-05-29",
+    "priority": 6,
+    "url": "https://www.pref.tokushima.lg.jp/ippannokata/nyusatsu/itaku/7302698/"
+  },
+  {
+    "id": "tokushima-seicho-ma",
+    "name": "徳島県成長型M＆A促進応援金",
+    "provider": "徳島県 商工労働観光部",
+    "level": "prefecture",
+    "type": "給付金",
+    "cat": "事業承継",
+    "amount": "要確認",
+    "summary": "M&Aを実施した中小・小規模企業者を支援する応援金。2026-02-13から対象が中小企業者まで拡大され年齢要件が撤廃された。",
+    "eligibility": [
+      "M&Aを実施した県内中小・小規模企業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "徳島県"
+    ],
+    "cities": [],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.tokushima.lg.jp/jigyoshanokata/sangyo/shokogyo/7302058/"
+  },
+  {
+    "id": "tokushima-seisansei-seicho",
+    "name": "徳島県 生産性向上・成長力強化支援事業費補助金",
+    "provider": "徳島県 商工労働観光部",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "設備投資・省エネ",
+    "amount": "補助率1/2以内、10万〜500万円",
+    "summary": "3年の経営計画に基づく設備投資などを補助する。",
+    "eligibility": [
+      "県内の中小企業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "徳島県"
+    ],
+    "cities": [],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "募集は2026-03-31に締切（次回は要確認）",
+    "deadline": "2026-03-31",
+    "priority": 6,
+    "url": "https://www.pref.tokushima.lg.jp/jigyoshanokata/sangyo/shokogyo/7309846/"
+  },
+  {
+    "id": "kagawa-business-challenge-compe",
+    "name": "香川県ビジネスチャレンジコンペ2026",
+    "provider": "香川県 商工労働部",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "創業・起業",
+    "amount": "最優秀賞500万円以内・優秀賞300万円以内・奨励賞200万円以内（補助率10/10以内）",
+    "summary": "独創的なビジネスプランを募集し、入賞者の事業化経費を補助する。補助対象は交付決定日から令和9年2月28日までに完了する事業。",
+    "eligibility": [
+      "創業予定者または県内に本店等を有する中小企業者等（詳細は要項要確認）"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "香川県"
+    ],
+    "cities": [],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "2026年度募集（募集期間・最新は要確認）",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.kagawa.lg.jp/sangyo/shinki/bijikon_r8.html"
+  },
+  {
+    "id": "kagawa-shin-ouen-fund",
+    "name": "新かがわ中小企業応援ファンド等事業（新分野等チャレンジ支援・海外見本市出展支援）",
+    "provider": "香川県／かがわ産業支援財団",
+    "level": "prefecture",
+    "type": "助成金",
+    "cat": "研究開発・新事業",
+    "amount": "要確認",
+    "summary": "県内中小企業の新分野への挑戦や海外見本市出展などの経費を助成する。令和8年度後期助成の募集が案内されている。",
+    "eligibility": [
+      "県内の中小企業者等"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "香川県"
+    ],
+    "cities": [],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "令和8年度後期助成の募集（期間は最新要確認）",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.kagawa.lg.jp/sangyo/shinki/r7fund.html"
+  },
+  {
+    "id": "kagawa-sogyo-yushi",
+    "name": "新規創業融資（香川県中小企業者融資制度）",
+    "provider": "香川県 商工労働部／香川県信用保証協会",
+    "level": "prefecture",
+    "type": "融資",
+    "cat": "融資・利子補給",
+    "amount": "融資上限2,000万円、年1.75%（7年以内固定）・年1.85%（7年超固定）",
+    "summary": "独立・開業・起業を行う方向けの県制度融資。保証料の一部を県が補給する制度もある。",
+    "eligibility": [
+      "独立・開業・起業を予定または開業間もない中小企業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "香川県"
+    ],
+    "cities": [],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "随時（令和8年6月時点案内。最新は要確認）",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.kagawa.lg.jp/documents/12009/panflet0806_2.pdf"
+  },
+  {
+    "id": "kagawa-startup-shien",
+    "name": "起業等スタートアップ支援補助金（地域課題解決型）",
+    "provider": "香川県 商工労働部／かがわ産業支援財団",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "創業・起業",
+    "amount": "上限200万円・補助率1/2",
+    "summary": "デジタル技術を活用して県内で起業・事業承継・第二創業を行う人の経費の一部を補助する。申請前に伴走支援員の指導を2回以上受ける必要がある。",
+    "eligibility": [
+      "デジタル技術を活用して県内で起業・事業承継・第二創業する人",
+      "伴走支援員の指導を申請前に2回以上受けること"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "香川県"
+    ],
+    "cities": [],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "令和8年度は4/10〜6/3で受付終了（来年度は要確認）",
+    "deadline": "2026-06-03",
+    "priority": 6,
+    "url": "https://www.pref.kagawa.lg.jp/sangyo/shinki/02.html"
+  },
+  {
+    "id": "ehime-chinage-shokibo",
+    "name": "賃上げ対応型小規模事業者経営力強化支援事業費補助金",
+    "provider": "愛媛県 経営支援課",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "人材・雇用",
+    "amount": "通常枠で上限100万円",
+    "summary": "支援機関の伴走支援を受けて経営力強化に取り組む県内小規模事業者の経費の一部を補助する。",
+    "eligibility": [
+      "県内の小規模事業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "愛媛県"
+    ],
+    "cities": [],
+    "stages": [
+      "established"
+    ],
+    "period": "令和8年6/1〜7/31で受付終了（来年度は要確認）",
+    "deadline": "2026-07-31",
+    "priority": 6,
+    "url": "https://www.pref.ehime.jp/site/madoguchi/148380.html"
+  },
+  {
+    "id": "ehime-dx-hajime",
+    "name": "愛媛県DXはじめの一歩補助金",
+    "provider": "愛媛県 産業創出課",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "IT・デジタル",
+    "amount": "要確認",
+    "summary": "DX推進の第一歩を踏み出す事業者を支援する補助金。追加公募が実施されている。",
+    "eligibility": [
+      "DX認定を取得済みまたは申請済みの県内事業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "愛媛県"
+    ],
+    "cities": [],
+    "stages": [
+      "established"
+    ],
+    "period": "追加公募 2026年10月2日〜10月30日",
+    "deadline": "2026-10-30",
+    "priority": 6,
+    "url": "https://www.pref.ehime.jp/site/madoguchi/160117.html"
+  },
+  {
+    "id": "ehime-koukeisha-shinjigyo",
+    "name": "愛媛県後継者新事業展開支援事業費補助金",
+    "provider": "愛媛県 経営支援課",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "事業承継",
+    "amount": "補助対象経費の2/3以内、1件100万円上限",
+    "summary": "事業承継を契機とした後継者・後継予定者の第二創業や新規事業展開の経費を補助する。",
+    "eligibility": [
+      "県内中小企業の後継者（承継後10年未満）または後継予定者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "愛媛県"
+    ],
+    "cities": [],
+    "stages": [
+      "established"
+    ],
+    "period": "令和8年8月19日〜12月25日17:15（追加募集の案内あり）",
+    "deadline": "2026-12-25",
+    "priority": 6,
+    "url": "https://www.pref.ehime.jp/page/148144.html"
+  },
+  {
+    "id": "ehime-shinjigyo-sozo-shikin",
+    "name": "新事業創出支援資金（創業向け県制度融資・保証料全額補助）",
+    "provider": "愛媛県 経営支援課／愛媛県信用保証協会",
+    "level": "prefecture",
+    "type": "融資",
+    "cat": "創業・起業",
+    "amount": "融資限度額3,500万円（運転7年以内・設備10年以内）、保証料全額補助（保証協会案内では2027年3月31日まで）",
+    "summary": "創業者や創業後間もない事業者向けの県制度融資。県が信用保証料を全額補助する。",
+    "eligibility": [
+      "創業を行う個人・法人、創業後間もない事業者",
+      "保証料補助は申込時に保証協会の保証債務残高がない方"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "愛媛県"
+    ],
+    "cities": [],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "随時（保証料補助は2027年3月31日まで）",
+    "deadline": "2027-03-31",
+    "priority": 6,
+    "url": "https://www.pref.ehime.jp/site/madoguchi/59788.html"
+  },
+  {
+    "id": "kochi-chiiki-kadai-kigyo",
+    "name": "高知県地域課題解決起業支援事業費補助金",
+    "provider": "高知県 産業イノベーション課",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "創業・起業",
+    "amount": "通常枠 上限200万円（下限60万円）、中山間地域枠 上限100万円（下限30万円）",
+    "summary": "社会的事業分野で県内に起業する人の経費を補助する。県指定の起業支援プログラム修了などが条件。",
+    "eligibility": [
+      "社会的課題の解決につながる事業で県内に起業する人",
+      "こうち起業・創業支援プラットフォーム会員で指定プログラムを修了すること"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "高知県"
+    ],
+    "cities": [],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "令和8年度第3回公募は9/30締切、県ページでは受付終了表記あり（最新は要確認）",
+    "deadline": "2026-09-30",
+    "priority": 6,
+    "url": "https://www.pref.kochi.lg.jp/doc/2026022400299/"
+  },
+  {
+    "id": "kochi-kigyoka-ikusei",
+    "name": "高知県起業家育成事業費補助金",
+    "provider": "高知県 産業イノベーション課",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "創業・起業",
+    "amount": "上限700万円（令和7年度版ページの記載）",
+    "summary": "学生向け起業家教育や起業家向けアクセラレータープログラムなど、次世代の起業家育成の取組を補助する。",
+    "eligibility": [
+      "起業家育成の取組を行う事業者（詳細は要項要確認）"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "高知県"
+    ],
+    "cities": [],
+    "stages": [
+      "planning"
+    ],
+    "period": "令和8年度の詳細は要確認",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.kochi.lg.jp/doc/2024040100061/"
+  },
+  {
+    "id": "kochi-shinjigyo-sozo",
+    "name": "高知県新事業創出支援事業費補助金（実証等支援・製品開発支援）",
+    "provider": "高知県 産業イノベーション課",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "研究開発・新事業",
+    "amount": "要確認",
+    "summary": "新事業の実証や製品開発に取り組む事業者を支援する補助金。令和8年度は5月21日に公募を開始した。",
+    "eligibility": [
+      "県内で新事業・製品開発に取り組む事業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "高知県"
+    ],
+    "cities": [],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "令和8年5月21日公募開始、現在は受付終了（来年度は要確認）",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.kochi.lg.jp/doc/2025042800126/"
+  },
+  {
+    "id": "kochi-shotoku-koujou",
+    "name": "所得向上推進企業等総合支援事業費補助金",
+    "provider": "高知県 産業振興部",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "設備投資・省エネ",
+    "amount": "要確認",
+    "summary": "付加価値向上や賃金向上を目指す企業の商品高度化・生産能力拡大・販路拡大・人材育成などを補助する。賃金・付加価値の3年計画が必要。",
+    "eligibility": [
+      "3年間の賃金・付加価値向上計画を策定する県内事業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "高知県"
+    ],
+    "cities": [],
+    "stages": [
+      "established"
+    ],
+    "period": "令和8年度1次公募は5/20に終了（以降は要確認）",
+    "deadline": "2026-05-20",
+    "priority": 6,
+    "url": "https://www.pref.kochi.lg.jp/doc/2026021300101/"
+  },
+  {
+    "id": "fukuoka-keiei-kakushin-chinage",
+    "name": "福岡県中小企業経営革新・賃上げ緊急支援補助金",
+    "provider": "福岡県 商工部／福岡県中小企業振興センター",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "人材・雇用",
+    "amount": "要確認",
+    "summary": "賃上げを行いながら経営革新に取り組む県内中小企業を支援する補助金。第5次募集は6/22〜7/15。",
+    "eligibility": [
+      "賃上げに取り組む県内中小企業"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "福岡県"
+    ],
+    "cities": [],
+    "stages": [
+      "established"
+    ],
+    "period": "第5次募集 令和8年6/22〜7/15（以降は要確認）",
+    "deadline": "2026-07-15",
+    "priority": 6,
+    "url": "https://www.joho-fukuoka.or.jp/chinage/index.html"
+  },
+  {
+    "id": "fukuoka-shinki-sogyo-shikin",
+    "name": "新規創業資金（福岡県中小企業融資制度）",
+    "provider": "福岡県 商工部／福岡県信用保証協会",
+    "level": "prefecture",
+    "type": "融資",
+    "cat": "創業・起業",
+    "amount": "限度額3,500万円（成長支援資金と合算）、年1.60%、保証料0.00%、運転7年・設備10年以内",
+    "summary": "創業する個人または会社の事業資金を融資する県制度融資。担保は原則不要。",
+    "eligibility": [
+      "創業する個人または会社"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "福岡県"
+    ],
+    "cities": [],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "随時（令和8年度融資制度。最新は要確認）",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.fukuoka.lg.jp/contents/r8yuushiseidoannai.html"
+  },
+  {
+    "id": "fukuoka-shoene-shinseihin",
+    "name": "福岡県省エネ新製品開発支援補助金",
+    "provider": "福岡県 商工部",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "設備投資・省エネ",
+    "amount": "補助率1/2以内、上限500万円",
+    "summary": "省エネに資する新製品開発に取り組む中小企業の経費を補助する。",
+    "eligibility": [
+      "省エネ新製品開発に取り組む県内中小企業（製造業等）"
+    ],
+    "industries": [
+      "manufacturing"
+    ],
+    "prefectures": [
+      "福岡県"
+    ],
+    "cities": [],
+    "stages": [
+      "established"
+    ],
+    "period": "令和8年7/6〜8/21で受付終了（3次募集の案内ページあり、最新は要確認）",
+    "deadline": "2026-08-21",
+    "priority": 6,
+    "url": "https://www.pref.fukuoka.lg.jp/contents/shoenehojokin2026.html"
+  },
+  {
+    "id": "fukuoka-yokatoko-kigyo",
+    "name": "福岡よかとこ起業支援金",
+    "provider": "福岡県 商工部／福岡県中小企業振興センター",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "創業・起業",
+    "amount": "補助率1/2以内、上限200万円",
+    "summary": "地域課題解決を目的に県内で起業・事業承継・第二創業する人に、立ち上げ経費の一部を補助する。",
+    "eligibility": [
+      "福岡県内で起業、事業承継または第二創業する人"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "福岡県"
+    ],
+    "cities": [],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "令和8年度は5/15〜7/21で受付終了（来年度は要確認）",
+    "deadline": "2026-07-21",
+    "priority": 6,
+    "url": "https://www.joho-fukuoka.or.jp/yokatoko/index.html"
+  },
+  {
+    "id": "saga-akiten-model",
+    "name": "佐賀県空き店舗対策モデル創出事業費補助金",
+    "provider": "佐賀県 産業政策課",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "空き店舗・商店街",
+    "amount": "改装費の1/2以内、1事業者あたり上限500万円",
+    "summary": "市町が計画的に商業振興を図るエリア内の空き店舗の活用・流通を促進するモデルを創出する事業を補助する。",
+    "eligibility": [
+      "商業エリア内の空き店舗を活用する事業者"
+    ],
+    "industries": [
+      "retail",
+      "food"
+    ],
+    "prefectures": [
+      "佐賀県"
+    ],
+    "cities": [],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "令和7年度募集（締切2025/7/9）。令和8年度は最新は要確認",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.saga.lg.jp/kiji003113963/index.html"
+  },
+  {
+    "id": "saga-jigyo-hikitsugi",
+    "name": "佐賀県事業引継ぎ奨励金",
+    "provider": "佐賀県 産業政策課",
+    "level": "prefecture",
+    "type": "給付金",
+    "cat": "事業承継",
+    "amount": "第三者承継で譲渡側・譲受側それぞれ30万円",
+    "summary": "県内中小企業・小規模事業者の第三者への円滑な事業引継ぎを後押しする奨励金。",
+    "eligibility": [
+      "県内の中小企業・小規模事業者の事業引継ぎ（譲渡側・譲受側）"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "佐賀県"
+    ],
+    "cities": [],
+    "stages": [
+      "established"
+    ],
+    "period": "令和9年3月1日まで受付",
+    "deadline": "2027-03-01",
+    "priority": 6,
+    "url": "https://www.pref.saga.lg.jp/kiji003112764/index.html"
+  },
+  {
+    "id": "saga-jigyo-shokei-enkatsuka",
+    "name": "佐賀県中小企業事業承継円滑化支援事業費補助金",
+    "provider": "佐賀県 産業政策課",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "事業承継",
+    "amount": "補助率1/2以内、上限100万円",
+    "summary": "事業承継を円滑に進める県内中小企業の経費を補助する。",
+    "eligibility": [
+      "県内の中小企業者（事業承継に取り組む者）"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "佐賀県"
+    ],
+    "cities": [],
+    "stages": [
+      "established"
+    ],
+    "period": "令和8年度2次公募は8/14〜9/25で受付終了",
+    "deadline": "2026-09-25",
+    "priority": 6,
+    "url": "https://www.pref.saga.lg.jp/kiji003112937/index.html"
+  },
+  {
+    "id": "saga-seisansei-koujou",
+    "name": "佐賀県中小企業生産性向上支援補助金（第7弾）",
+    "provider": "佐賀県 産業政策課",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "設備投資・省エネ",
+    "amount": "補助率原則2/3以内",
+    "summary": "原材料・エネルギー価格高騰や人材不足の中、県内中小企業の生産性向上を支援する補助金。",
+    "eligibility": [
+      "県内中小企業者等"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "佐賀県"
+    ],
+    "cities": [],
+    "stages": [
+      "established"
+    ],
+    "period": "第7弾は令和8年7/1〜7/31で受付終了（次弾は要確認）",
+    "deadline": "2026-07-31",
+    "priority": 6,
+    "url": "https://www.pref.saga.lg.jp/kiji003119835/index.html"
+  },
+  {
+    "id": "saga-sousei-kashitsuke",
+    "name": "さが創生貸付（創業資金）",
+    "provider": "佐賀県 産業政策課／佐賀県信用保証協会",
+    "level": "prefecture",
+    "type": "融資",
+    "cat": "融資・利子補給",
+    "amount": "限度額3,500万円（設備・運転合計）、年1.3%（ページ記載）",
+    "summary": "創業者向けの県制度融資。ページ更新日が古く、現行条件は要確認。",
+    "eligibility": [
+      "独立・創業する者（設立された会社に限る等の要件あり）"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "佐賀県"
+    ],
+    "cities": [],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.saga.lg.jp/kiji00327241/index.html"
+  },
+  {
+    "id": "nagasaki-chinage-kinkyu-shienkin",
+    "name": "中小・小規模事業者賃上げ緊急支援金",
+    "provider": "長崎県 産業労働部",
+    "level": "prefecture",
+    "type": "給付金",
+    "cat": "人材・雇用",
+    "amount": "1事業者15万円",
+    "summary": "最低賃金の大幅引上げの影響を受ける県内中小・小規模事業者への直接支援金。",
+    "eligibility": [
+      "従業員を1名以上雇用する県内中小・小規模事業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "長崎県"
+    ],
+    "cities": [],
+    "stages": [
+      "established"
+    ],
+    "period": "令和8年6/1〜12/28（予定）",
+    "deadline": "2026-12-28",
+    "priority": 6,
+    "url": "https://www.pref.nagasaki.jp/bunrui/shigoto-sangyo/chushokigyoshien-kinyu/jigyoshashien/chinage-shien/"
+  },
+  {
+    "id": "nagasaki-digital-koujou",
+    "name": "長崎県デジタル力向上支援事業費補助金",
+    "provider": "長崎県 経営支援課",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "IT・デジタル",
+    "amount": "補助率2/3以内、10万〜100万円",
+    "summary": "社内人材のデジタル能力向上や機器・ツール導入を支援する。",
+    "eligibility": [
+      "創業後1年を経過した県内中小企業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "長崎県"
+    ],
+    "cities": [],
+    "stages": [
+      "established"
+    ],
+    "period": "令和8年度（受付状況は最新は要確認）",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.nagasaki.jp/doc/page-721123.html"
+  },
+  {
+    "id": "nagasaki-jigyo-shokei-sokushin",
+    "name": "事業承継促進・後継者事業展開支援補助金",
+    "provider": "長崎県 経営支援課",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "事業承継",
+    "amount": "補助率1/2以内（小規模企業者2/3以内）、経費区分ごと上限50万円",
+    "summary": "事業承継や後継者による事業展開に伴う経費を補助する。予算上限に達し次第締切。",
+    "eligibility": [
+      "県内の中小企業者・小規模企業者（事業承継・後継者の事業展開）"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "長崎県"
+    ],
+    "cities": [],
+    "stages": [
+      "established"
+    ],
+    "period": "令和8年3/30〜9/30（当日消印有効）で受付終了",
+    "deadline": "2026-09-30",
+    "priority": 6,
+    "url": "https://www.pref.nagasaki.jp/doc/page-651166.html"
+  },
+  {
+    "id": "nagasaki-kokkyoritou-sogyo",
+    "name": "長崎県国境離島創業・事業拡大等支援事業（雇用機会拡充事業）",
+    "provider": "長崎県 地域振興部（対馬・壱岐・五島）",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "創業・起業",
+    "amount": "創業の補助上限450万円（年間上限600万円）",
+    "summary": "国境離島で新たな雇用を生む創業・事業拡大を支援する。",
+    "eligibility": [
+      "対馬・壱岐・五島列島で雇用を生む創業・事業拡大を行う事業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "長崎県"
+    ],
+    "cities": [],
+    "stages": [
+      "planning",
+      "early",
+      "established"
+    ],
+    "period": "第1回交付決定分は終了。市町ごとに募集（最新は要確認）",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.nagasaki.jp/bunrui/kurashi-kankyo/chiikidukuri/rito-hanto-kaso/kokkyoritou/koyoukikaikakujyu/body.html"
+  },
+  {
+    "id": "nagasaki-sogyo-shienkin",
+    "name": "長崎県創業支援金（創業支援事業）",
+    "provider": "長崎県 産業労働部",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "創業・起業",
+    "amount": "補助率1/2以内、上限200万円",
+    "summary": "県内で地域課題の解決に資する社会的事業を始める創業予定者の創業経費の一部を補助し、伴走支援も行う。",
+    "eligibility": [
+      "県内で社会的事業を創業する予定の者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "長崎県"
+    ],
+    "cities": [],
+    "stages": [
+      "planning"
+    ],
+    "period": "令和8年度は4/10〜5/29で受付終了（来年度は要確認）",
+    "deadline": "2026-05-29",
+    "priority": 6,
+    "url": "https://www.pref.nagasaki.jp/doc/page-391611.html"
+  },
+  {
+    "id": "kumamoto-chiiki-kadai-kigyo",
+    "name": "熊本県地域課題解決型起業支援補助金",
+    "provider": "熊本県",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "創業・起業",
+    "amount": "補助率1/2以内、上限200万円",
+    "summary": "デジタル技術を活用して地域課題の解決を目的に起業する人を支援する補助金。",
+    "eligibility": [
+      "地域課題解決を目的に県内で起業する者",
+      "デジタル技術を活用する事業"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "熊本県"
+    ],
+    "cities": [],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "令和8年度の申請は2026年8月24日で受付終了。次回は要確認",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.kumamoto.jp/soshiki/21/276337.html"
+  },
+  {
+    "id": "kumamoto-fukugyo-kengyo-jinzai",
+    "name": "熊本県副業・兼業人材活用促進事業費補助金",
+    "provider": "熊本県 産業支援課",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "人材・雇用",
+    "amount": "補助率10分の8以内、上限50万円（1事業者あたり）",
+    "summary": "副業・兼業人材を活用する県内事業者の紹介手数料・報酬・交通費・宿泊費を補助。",
+    "eligibility": [
+      "県内に本社または主たる事業所を持つ事業者",
+      "副業・兼業人材を活用する事業"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "熊本県"
+    ],
+    "cities": [],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "令和8年度は第1期〜第3期（4/15〜7/10）、7月に2次募集の案内あり。最新は要確認",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.kumamoto.jp/soshiki/65/263597.html"
+  },
+  {
+    "id": "kumamoto-jigyo-shokei-atotsugi",
+    "name": "熊本県事業承継・後継ぎ支援事業補助金",
+    "provider": "熊本県 商工振興金融課",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "事業承継",
+    "amount": "要確認",
+    "summary": "県内中小企業の事業承継・後継ぎを支援する補助金（令和8年度2次公募）。",
+    "eligibility": [
+      "県内の中小企業者等",
+      "事業承継に取り組む事業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "熊本県"
+    ],
+    "cities": [],
+    "stages": [
+      "established"
+    ],
+    "period": "令和8年度2次公募。事業承継準備枠は11月30日締切（詳細は要確認）",
+    "deadline": "2026-11-30",
+    "priority": 6,
+    "url": "https://www.pref.kumamoto.jp/soshiki/61/231111.html"
+  },
+  {
+    "id": "kumamoto-shokibo-ouen-shikin",
+    "name": "熊本県融資制度 小規模事業者おうえん資金",
+    "provider": "熊本県 商工振興金融課／熊本県信用保証協会",
+    "level": "prefecture",
+    "type": "融資",
+    "cat": "融資・利子補給",
+    "amount": "保証限度額・利率は資料により異なるため要確認",
+    "summary": "従業員20人以内などの小規模事業者向けの県制度融資。",
+    "eligibility": [
+      "小規模事業者（従業員20人以内など）",
+      "取扱金融機関等で申込"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "熊本県"
+    ],
+    "cities": [],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "通年（最新は要確認）",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.kumamoto.jp/soshiki/61/50733.html"
+  },
+  {
+    "id": "kumamoto-sogyosha-shien-shikin",
+    "name": "熊本県融資制度 創業者支援資金",
+    "provider": "熊本県 商工振興金融課／熊本県信用保証協会",
+    "level": "prefecture",
+    "type": "融資",
+    "cat": "融資・利子補給",
+    "amount": "融資限度額3,500万円（金利・保証料は要確認）",
+    "summary": "新たに事業を始める人、開業後5年未満の人向けの県制度融資。",
+    "eligibility": [
+      "個人事業の開始前または開業後5年未満の方など（一般枠）",
+      "取扱金融機関・商工会議所・商工会が窓口"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "熊本県"
+    ],
+    "cities": [],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "通年（令和8年度融資制度案内R8.8.10改正。最新は要確認）",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.kumamoto.jp/soshiki/61/50733.html"
+  },
+  {
+    "id": "oita-shin-kachi-sozo-shien",
+    "name": "大分県新価値創出支援補助金",
+    "provider": "大分県 経営創造・金融課",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "研究開発・新事業",
+    "amount": "要確認",
+    "summary": "令和8年度の募集が県サイトで案内されている補助金（詳細は募集ページで確認）。",
+    "eligibility": [
+      "要確認"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "大分県"
+    ],
+    "cities": [],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "令和8年度募集（2026年6月8日更新）。最新は要確認",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.oita.jp/life/sub/6/22/72/"
+  },
+  {
+    "id": "oita-shoryokuka-seisansei",
+    "name": "大分県省力化・生産性向上支援補助金",
+    "provider": "大分県 商工観光労働部",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "設備投資・省エネ",
+    "amount": "国補助金への上乗せ（率・上限は要確認）",
+    "summary": "国の省力化投資補助金（カタログ注文型）やIT導入補助金（インボイス枠）に県が上乗せ支給。大幅な賃上げで上乗せ率が引き上げ。",
+    "eligibility": [
+      "国の省力化投資補助金またはIT導入補助金を活用する県内事業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "大分県"
+    ],
+    "cities": [],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.oita.jp/site/tyusyodx/dxhojyo.html"
+  },
+  {
+    "id": "oita-sogyo-shien-shikin",
+    "name": "大分県創業支援資金特別融資",
+    "provider": "大分県 経営創造・金融課／大分県信用保証協会",
+    "level": "prefecture",
+    "type": "融資",
+    "cat": "創業・起業",
+    "amount": "保証限度額3,500万円、利率7年以内1.6%・10年以内1.8%（協会案内。最新は要確認）",
+    "summary": "これから創業する人、創業後5年未満の人向けの県制度融資。保証料を県と協会が一部補助。",
+    "eligibility": [
+      "創業予定または創業後5年未満の方"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "大分県"
+    ],
+    "cities": [],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "通年（最新条件は要確認）",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.oita.jp/soshiki/14040/seidosikin-gaiyo.html"
+  },
+  {
+    "id": "oita-sogyo-shinjigyo-hojo",
+    "name": "大分県創業・新事業創出事業補助金（創業支援施設指定事業）",
+    "provider": "大分県 経営創造・金融課",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "創業・起業",
+    "amount": "補助率1/2以内、上限40万円（令和7年度回の記載）",
+    "summary": "県指定の創業支援施設に入居する創業者等の賃料等を補助。",
+    "eligibility": [
+      "県の指定創業支援施設の入居者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "大分県"
+    ],
+    "cities": [],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "令和7年度回は2025年8月15日締切。令和8年度は最新は要確認",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.oita.jp/life/sub/6/22/72/"
+  },
+  {
+    "id": "miyazaki-fukugyo-jinzai",
+    "name": "宮崎県副業・兼業人材活用促進事業補助金",
+    "provider": "宮崎県 経営金融支援課",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "人材・雇用",
+    "amount": "要確認",
+    "summary": "プロフェッショナル人材を副業・兼業で活用する県内事業者を支援。",
+    "eligibility": [
+      "副業・兼業人材を活用する県内事業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "宮崎県"
+    ],
+    "cities": [],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "最新は要確認",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.miyazaki.lg.jp/keieikinyushien/shigoto/chushokigyo/20200618170145.html"
+  },
+  {
+    "id": "miyazaki-jigyo-shokei-hikitsugi",
+    "name": "宮崎県事業承継・引継ぎ応援事業補助金",
+    "provider": "宮崎県 経営金融支援課",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "事業承継",
+    "amount": "要確認",
+    "summary": "事業承継・引継ぎに取り組む県内事業者を支援（事業期間2026年4月1日〜2027年3月31日）。",
+    "eligibility": [
+      "事業承継・引継ぎに取り組む県内事業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "宮崎県"
+    ],
+    "cities": [],
+    "stages": [
+      "established"
+    ],
+    "period": "令和8年度。募集期間は要確認",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.miyazaki.lg.jp/keieikinyushien/shigoto/chushokigyo/20230703153447.html"
+  },
+  {
+    "id": "miyazaki-kasegu-chikara",
+    "name": "県内事業者の「稼ぐ力」強化支援事業費補助金",
+    "provider": "宮崎県 商工政策課",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "販路開拓・PR",
+    "amount": "補助率2/3以内、上限50万円または100万円",
+    "summary": "県内の中小企業・小規模事業者の稼ぐ力強化の取組を支援。",
+    "eligibility": [
+      "県内の中小企業・小規模事業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "宮崎県"
+    ],
+    "cities": [],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "令和8年度は2026年5月7日〜5月29日で受付終了。次回は要確認",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.miyazaki.lg.jp/shokoseisaku/press/2026/05/20260427095937.html"
+  },
+  {
+    "id": "miyazaki-kigyo-challenge",
+    "name": "女性・若者応援！起業チャレンジ支援事業費補助金",
+    "provider": "宮崎県 商工政策課",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "創業・起業",
+    "amount": "補助率1/2以内、上限300万円（コンテスト枠）／100万円（地域魅力度アップ枠）",
+    "summary": "女性・若者の起業を支援。ビジネスプランコンテストで採択者を決定。",
+    "eligibility": [
+      "県内で起業する女性・若者等"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "宮崎県"
+    ],
+    "cities": [],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "令和8年度はコンテスト枠5/1〜6/15、地域枠6/1〜6/29で受付終了",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.miyazaki.lg.jp/shokoseisaku/shigoto/chushokigyo/20250422114116.html"
+  },
+  {
+    "id": "miyazaki-sogyo-shinbunya-loan",
+    "name": "宮崎県 創業・新分野進出支援貸付（創業）",
+    "provider": "宮崎県 経営金融支援課／宮崎県信用保証協会",
+    "level": "prefecture",
+    "type": "融資",
+    "cat": "創業・起業",
+    "amount": "設備・運転合計3,500万円まで、利率年1.1〜1.6%以内。女性・若者・シニア等は保証料0%",
+    "summary": "創業者向けの県制度融資。担保不要、個人は原則保証人不要。",
+    "eligibility": [
+      "創業予定または創業間もない中小企業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "宮崎県"
+    ],
+    "cities": [],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "通年（最新は要確認）",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.miyazaki.lg.jp/keieikinyushien/shigoto/chushokigyo/3_1shinbunyashinsyutsu.html"
+  },
+  {
+    "id": "kagoshima-chiiki-kadai-kigyo",
+    "name": "かごしま地域課題解決型起業支援金",
+    "provider": "鹿児島県 地域政策課",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "創業・起業",
+    "amount": "起業経費の1/2以内、最大200万円",
+    "summary": "デジタル技術を使い地域課題を解決する起業者に支援金と伴走支援。",
+    "eligibility": [
+      "令和8年4月1日以降に開業・法人設立する代表者",
+      "デジタル技術で地域課題解決に取り組む"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "鹿児島県"
+    ],
+    "cities": [],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "令和8年度は5/25〜7/3で受付終了。次回は要確認",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.kagoshima.jp/af23/jinzai/kigyousien2026.html"
+  },
+  {
+    "id": "kagoshima-chusho-dx",
+    "name": "かごしま中小企業DX推進事業費補助金",
+    "provider": "鹿児島県 産業立地・企業支援課",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "IT・デジタル",
+    "amount": "上限400万円（補助率は要確認）",
+    "summary": "県内中小企業のデジタル技術導入を支援。",
+    "eligibility": [
+      "県内中小企業"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "鹿児島県"
+    ],
+    "cities": [],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "令和8年度は募集終了。次回は要確認",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.kagoshima.jp/af22/sangyo-rodo/2026_dx_hojokin.html"
+  },
+  {
+    "id": "kagoshima-jigyo-shokei-kasokuka",
+    "name": "鹿児島県中小企業事業承継加速化事業費補助金",
+    "provider": "鹿児島県 商工政策課",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "事業承継",
+    "amount": "要確認",
+    "summary": "第三者承継（M&A）による後継者確保や承継後の新規事業の取組を支援。",
+    "eligibility": [
+      "原則として事業承継後5年未満の県内中小企業者等"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "鹿児島県"
+    ],
+    "cities": [],
+    "stages": [
+      "established"
+    ],
+    "period": "令和8年度。補助対象期間は令和9年2月28日まで。募集期間は要確認",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.kagoshima.jp/af02/jigyousyoukeikasokukar6.html"
+  },
+  {
+    "id": "kagoshima-kasegu-chikara",
+    "name": "かごしまの「稼ぐ力」加速化総合補助金",
+    "provider": "鹿児島県 商工政策課",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "販路開拓・PR",
+    "amount": "補助率2/3以内（重点支援枠3/4以内）、上限100万円（重点支援枠300万円）",
+    "summary": "展示会出展、販促、EC開設や認証取得、人材スキル習得を支援。個人事業主も対象。",
+    "eligibility": [
+      "県内に本店・主たる事務所を置く中小企業者（個人事業主含む）"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "鹿児島県"
+    ],
+    "cities": [],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "令和8年度2次募集は2026年10月5日で終了。次回は要確認",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.kagoshima.jp/af02/r8kasegupower-total.html"
+  },
+  {
+    "id": "kagoshima-sogyo-shien-shikin",
+    "name": "鹿児島県 創業支援資金（県制度融資）",
+    "provider": "鹿児島県 商工政策課／鹿児島県信用保証協会",
+    "level": "prefecture",
+    "type": "融資",
+    "cat": "創業・起業",
+    "amount": "要確認（運転7年以内・設備10年以内の保証期間）",
+    "summary": "商工団体の推薦または特定創業支援事業の支援を受けて創業する人向け県制度融資。",
+    "eligibility": [
+      "商工団体の推薦または特定創業支援事業の支援を受けて創業する方"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "鹿児島県"
+    ],
+    "cities": [],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "通年（最新は要確認）",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.kagoshima-cgc.or.jp/case/7178/"
+  },
+  {
+    "id": "okinawa-keiei-kakushin-hojo",
+    "name": "沖縄県中小企業等経営革新強化支援事業費補助金",
+    "provider": "沖縄県 中小企業支援課",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "研究開発・新事業",
+    "amount": "要確認",
+    "summary": "経営革新計画の承認を受けた事業者の販路開拓・新商品開発・新システム導入等を補助。",
+    "eligibility": [
+      "経営革新計画の承認を受けた中小企業者等"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "沖縄県"
+    ],
+    "cities": [],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "令和8年度は2026年5月11日〜6月12日で受付終了。次回は要確認",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.okinawa.lg.jp/shigoto/shien/1010056/1022723/1010107.html"
+  },
+  {
+    "id": "okinawa-shokibo-taisaku-shikin",
+    "name": "沖縄県 小規模企業対策資金（一般貸付）",
+    "provider": "沖縄県 商工労働部",
+    "level": "prefecture",
+    "type": "融資",
+    "cat": "融資・利子補給",
+    "amount": "設備・運転合計2,000万円以内",
+    "summary": "小規模企業者向けの県制度融資（特別小口貸付もあり）。",
+    "eligibility": [
+      "従業員20名以下（商業・サービス業は5名以下）の小規模企業者"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "沖縄県"
+    ],
+    "cities": [],
+    "stages": [
+      "early",
+      "established"
+    ],
+    "period": "通年（最新は要確認）",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.okinawa.jp/site/shoko/keiei/kinyu/syoukiboippann.html"
+  },
+  {
+    "id": "okinawa-sogyosha-shien-kashitsuke",
+    "name": "沖縄県 創業者・事業承継支援資金（創業者支援貸付）",
+    "provider": "沖縄県 商工労働部／沖縄県信用保証協会",
+    "level": "prefecture",
+    "type": "融資",
+    "cat": "創業・起業",
+    "amount": "設備・運転合計2,000万円以内、返済10年以内、利率年2.10%（R8.4.1現在）",
+    "summary": "独立・開業する人、創業後5年未満の人向けの県制度融資。経営者保証非提供の枠もあり。",
+    "eligibility": [
+      "創業前または創業後5年未満の方",
+      "商工会・商工会議所で創業計画書の指導を受ける"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "沖縄県"
+    ],
+    "cities": [],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "通年（最新は要確認）",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.okinawa.jp/shigoto/shien/1010056/1022724/1010093.html"
+  },
+  {
+    "id": "okinawa-startup-kigyo-shienkin",
+    "name": "沖縄県スタートアップ起業支援金",
+    "provider": "沖縄県 商工労働部",
+    "level": "prefecture",
+    "type": "補助金",
+    "cat": "創業・起業",
+    "amount": "人件費・事業費とも補助率1/2以内、上限200万円",
+    "summary": "デジタル技術を活用して起業する人への支援金（第二期）。",
+    "eligibility": [
+      "令和8年4月1日以降に株式会社・合同会社を設立しその代表者となる者",
+      "個人事業からの同一事業の法人化は対象外"
+    ],
+    "industries": "all",
+    "prefectures": [
+      "沖縄県"
+    ],
+    "cities": [],
+    "stages": [
+      "planning",
+      "early"
+    ],
+    "period": "第二期は2026年7月24日〜8月19日で受付終了。次回は要確認",
+    "deadline": null,
+    "priority": 6,
+    "url": "https://www.pref.okinawa.jp/shigoto/keizai/1009879/1010143/1021963.html"
+  },
 ];
