@@ -119,12 +119,12 @@
     .cs-steps li { display: flex; align-items: center; gap: 8px; }
     .cs-steps li + li::before { content: ""; width: 80px; height: 2px; background: #b9d3c6; margin: 0 14px; }
     .cs-steps span { background: #0b7a55; color: #fff; border-radius: 50%; width: 32px; height: 32px; display: grid; place-items: center; font-size: .8rem; }
-    .cs-form { background: none; border: 0; border-radius: 0; padding: 0; gap: 18px; max-width: 56em; margin: 0 auto; }
+    .cs-form { background: none; border: 0; border-radius: 0; padding: 0; gap: 18px; max-width: none; margin: 0; }
     .cs-card { background: #fff; border: 1px solid #e6e8ec; border-radius: 14px; padding: 24px 28px; box-shadow: 0 2px 10px rgba(0,0,0,.04); }
     .cs-form .cs-card h2 { margin: 0 0 18px; font-size: 1.15rem; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; color: #12372b; }
     .cs-form .cs-card h2 small { font-size: .8rem; font-weight: 400; color: #5b6761; }
     .cs-no { background: #0b7a55; color: #fff; border-radius: 6px; padding: 2px 8px; font-size: .85rem; }
-    .cs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 20px; }
+    .cs-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px 20px; }
     .cs-wide { margin-top: 16px; }
     .cs-form select, .cs-form input[type="text"], .cs-form input[type="tel"], .cs-form input[type="email"], .cs-form textarea { box-sizing: border-box; }
     .cs-form select { font-weight: 400; }
@@ -138,6 +138,7 @@
     .cs-submit:hover { background: #096647; }
     .cs-status { text-align: center; }
     .cs-notes { list-style: none; margin: 0; padding: 0; text-align: center; font-size: .82rem; color: #5b6761; }
+    @media (max-width: 1000px) { .cs-grid { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 720px) {
       .cs-hero { padding: 22px 18px; }
       .cs-hero-text { max-width: none; }
@@ -146,7 +147,7 @@
       .cs-card { padding: 18px 16px; }
       .cs-steps li + li::before { width: 36px; margin: 0 8px; }
     }
-    .cs-done { background: #fff; border: 1px solid #e6e8ec; border-radius: 10px; padding: 22px 24px; max-width: 46em; }
+    .cs-done { background: #fff; border: 1px solid #e6e8ec; border-radius: 10px; padding: 22px 24px; }
   </style>
 </head>
 <body>
