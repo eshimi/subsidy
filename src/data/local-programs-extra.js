@@ -38,7 +38,7 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "level": "prefecture",
     "type": "補助金",
     "cat": "販路開拓・PR",
-    "amount": "要確認",
+    "amount": "補助率1/2以内、上限100万円（道外実施）・200万円（海外実施）",
     "summary": "市場調査や展示会出展などマーケティング活動の経費を補助する。",
     "eligibility": [
       "道内の中小企業者"
@@ -52,8 +52,8 @@ export const LOCAL_PROGRAMS_EXTRA = [
       "early",
       "established"
     ],
-    "period": "令和8年度2次募集 2026/8/19〜9/16（終了の可能性大・最新は要確認）",
-    "deadline": null,
+    "period": "2次募集 2026年8月19日〜9月16日（17時必着）",
+    "deadline": "2026-09-16",
     "priority": 6,
     "url": "https://www.pref.hokkaido.lg.jp/kz/ssg/kyosoryoku.html"
   },
@@ -558,7 +558,7 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "level": "municipality",
     "type": "補助金",
     "cat": "研究開発・新事業",
-    "amount": "要確認",
+    "amount": "補助率2/3、上限500万円",
     "summary": "新たな商品開発に係る機械等の導入経費、パッケージデザイン費、商標登録等の経費の一部を支援する（令和8年度募集の案内あり）。",
     "eligibility": [
       "函館市内で特産品の開発を行う事業者（詳細は要確認）"
@@ -577,8 +577,8 @@ export const LOCAL_PROGRAMS_EXTRA = [
       "early",
       "established"
     ],
-    "period": "最新は要確認",
-    "deadline": null,
+    "period": "令和8年4月1日〜4月15日（交付申請書受付）",
+    "deadline": "2026-04-15",
     "priority": 8,
     "url": "https://www.city.hakodate.hokkaido.jp/docs/2026012600012/"
   },
@@ -1504,7 +1504,7 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "level": "prefecture",
     "type": "助成金",
     "cat": "研究開発・新事業",
-    "amount": "要確認",
+    "amount": "新事業活動支援事業：補助率1/2以内（若者・女性は2/3以内）、上限200万円ほか／創業支援事業：補助率1/2以内、上限150万円",
     "summary": "起業・経営革新・地域資源活用・農商工連携・商店街活性化などの新たな取組を助成する。",
     "eligibility": [
       "三陸沿岸地域の中小企業者等（農商工連携型を除く）"
@@ -1981,7 +1981,7 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "level": "prefecture",
     "type": "補助金",
     "cat": "IT・デジタル",
-    "amount": "要確認",
+    "amount": "補助率2/3以内、上限100万円",
     "summary": "中小企業のデジタル化導入を補助する。賃上げ緊急支援事業の申請者は審査加点あり。",
     "eligibility": [
       "県内の中小企業者"
@@ -4428,7 +4428,7 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "level": "prefecture",
     "type": "補助金",
     "cat": "IT・デジタル",
-    "amount": "要確認",
+    "amount": "補助率1/2、上限1,000万円",
     "summary": "パートナーシップ構築宣言を行っている中小企業者のDX・技術革新の取組を支援する。",
     "eligibility": [
       "パートナーシップ構築宣言を行っている中小企業者"
@@ -4441,7 +4441,7 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "stages": [
       "established"
     ],
-    "period": "令和8年度は4月〜5/15で終了。次回は要確認",
+    "period": "令和8年4月1日〜5月15日",
     "deadline": null,
     "priority": 6,
     "url": "https://www.pref.gunma.jp/site/hojokin/10641.html"
@@ -6152,7 +6152,7 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "level": "municipality",
     "type": "補助金",
     "cat": "人材・雇用",
-    "amount": "要確認",
+    "amount": "1着7,000円、上限3万5,000円（1事業者・作業員5人分まで）",
     "summary": "建設業者の暑さ対策ウエア・冷却ベスト等の購入費を補助。令和8年度は購入期間が4月1日〜9月30日で終了の可能性。",
     "eligibility": [
       "市内に事業所を持つ建設業者"
@@ -6169,8 +6169,8 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "stages": [
       "established"
     ],
-    "period": "令和8年度の購入期間：4月1日〜9月30日（終了の可能性。最新は要確認）",
-    "deadline": null,
+    "period": "申請期間 令和8年5月15日〜10月31日（予算額に達し次第終了）",
+    "deadline": "2026-10-31",
     "priority": 8,
     "url": "https://www.city.kumagaya.lg.jp/about/soshiki/sangyo/kigyokatsudo/hojyokin/okugaihutankeigen.html"
   },
@@ -6356,7 +6356,7 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "level": "municipality",
     "type": "融資",
     "cat": "融資・利子補給",
-    "amount": "要確認",
+    "amount": "利子補給率1.5%（貸付利率が1.5%未満の場合はその利率）、対象借入上限1,000万円、補給期間3年",
     "summary": "創業時の融資に対する利子の一部を市が補給する制度。補給率などは要確認。",
     "eligibility": [
       "新座市内で新規創業する事業者",
@@ -6804,7 +6804,7 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "level": "prefecture",
     "type": "専門家支援",
     "cat": "人材・雇用",
-    "amount": "要確認",
+    "amount": "参加費無料",
     "summary": "令和8年度の参加企業を募集する、中小企業向けの伴走型リスキリング支援。",
     "eligibility": [
       "千葉県内の中小企業"
@@ -6817,8 +6817,8 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "stages": [
       "established"
     ],
-    "period": "最新は要確認",
-    "deadline": null,
+    "period": "申込期限 令和8年8月23日（日）まで（募集期間延長）",
+    "deadline": "2026-08-23",
     "priority": 6,
     "url": "https://www.pref.chiba.lg.jp/sanjin/press/2026/reskilling-2026.html"
   },
@@ -8237,7 +8237,7 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "level": "prefecture",
     "type": "助成金",
     "cat": "人材・雇用",
-    "amount": "要確認",
+    "amount": "業務改善コース 助成率2/3以内、上限600万円／賃上げ重点コース 上限600万円、助成率2/3以内（賃金引上げ計画策定で3/4以内、小規模事業者4/5以内）",
     "summary": "業務改善や賃上げに取り組む中小企業を支援する。",
     "eligibility": [
       "都内中小企業者等",
@@ -8251,7 +8251,7 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "stages": [
       "established"
     ],
-    "period": "第3回 業務改善コース11/2〜11/13、賃上げ重点コース12/1〜12/14（予定）",
+    "period": "第3回 業務改善コース 令和8年11月2日〜11月13日、賃上げ重点コース 令和8年12月1日〜12月14日",
     "deadline": "2026-12-14",
     "priority": 6,
     "url": "https://www.tokyo-kosha.or.jp/support/josei/index.html"
@@ -8559,7 +8559,7 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "level": "municipality",
     "type": "補助金",
     "cat": "販路開拓・PR",
-    "amount": "要確認",
+    "amount": "補助率2/3以内、上限50万円（海外型は100万円）",
     "summary": "令和8年度の公募ページが公開されている販路拡大向けの補助金。補助率・上限は要確認。",
     "eligibility": [
       "市内事業者(詳細は要確認)"
@@ -8575,8 +8575,8 @@ export const LOCAL_PROGRAMS_EXTRA = [
       "early",
       "established"
     ],
-    "period": "令和8年度公募(期間は要確認)",
-    "deadline": null,
+    "period": "令和8年4月1日〜令和9年1月31日",
+    "deadline": "2027-01-31",
     "priority": 8,
     "url": "https://www.city.hachioji.tokyo.jp/kurashi/sangyo/001/p035389.html"
   },
@@ -9471,7 +9471,7 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "level": "municipality",
     "type": "助成金",
     "cat": "設備投資・省エネ",
-    "amount": "要確認",
+    "amount": "上限25万円",
     "summary": "市内事業所の蛍光灯器具をLED照明に交換する費用を助成する。1事業者1回まで。リースは対象外。",
     "eligibility": [
       "市内の中小企業者等",
@@ -9489,8 +9489,8 @@ export const LOCAL_PROGRAMS_EXTRA = [
       "early",
       "established"
     ],
-    "period": "最新は要確認",
-    "deadline": null,
+    "period": "令和8年7月1日〜12月25日",
+    "deadline": "2026-12-25",
     "priority": 8,
     "url": "https://www.city.nishitokyo.lg.jp/kurasi/kankyo/ondanka/josei/hozyo/R8LEDjigyosya.html"
   },
@@ -9780,7 +9780,7 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "level": "prefecture",
     "type": "補助金",
     "cat": "IT・デジタル",
-    "amount": "要確認",
+    "amount": "補助率2/3以内、上限50万円",
     "summary": "小規模事業者のデジタル化の取組を支援する。",
     "eligibility": [
       "県内の小規模事業者",
@@ -9795,7 +9795,7 @@ export const LOCAL_PROGRAMS_EXTRA = [
       "early",
       "established"
     ],
-    "period": "令和8年4月15日〜9月30日（先着順。受付終了の可能性あり、最新は要確認）",
+    "period": "令和8年4月15日〜9月30日（先着順）",
     "deadline": "2026-09-30",
     "priority": 6,
     "url": "https://www.pref.kanagawa.jp/docs/m2w/shokibo_digital/r8.html"
@@ -11497,7 +11497,7 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "level": "prefecture",
     "type": "補助金",
     "cat": "設備投資・省エネ",
-    "amount": "要確認",
+    "amount": "上限500万円、補助率 地中熱2/3以内・高効率空調/給湯1/2以内・水力2/3以内、自家消費型太陽光は5万円/kW以内",
     "summary": "中小企業の脱炭素化の取組をモデルとして育成する。",
     "eligibility": [
       "県内中小企業"
@@ -11510,8 +11510,8 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "stages": [
       "established"
     ],
-    "period": "最新は要確認",
-    "deadline": null,
+    "period": "令和8年5月1日〜10月30日（六次締切まで）",
+    "deadline": "2026-10-30",
     "priority": 6,
     "url": "https://www.pref.toyama.jp/130131/20260501.html"
   },
@@ -11522,7 +11522,7 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "level": "prefecture",
     "type": "補助金",
     "cat": "その他",
-    "amount": "要確認",
+    "amount": "補助率2/3以内（地震対策は3/4以内）、上限 計画策定枠20万円・計画実行枠100万円",
     "summary": "災害への事前対策など事業継続力強化に取り組む小規模事業者を支援する。",
     "eligibility": [
       "県内の小規模事業者"
@@ -12157,8 +12157,8 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "stages": [
       "established"
     ],
-    "period": "最新は要確認",
-    "deadline": null,
+    "period": "令和8年4月10日〜令和8年6月10日",
+    "deadline": "2026-06-10",
     "priority": 6,
     "url": "https://www.fisc.jp/subsidy/dxkasoku/"
   },
@@ -12874,7 +12874,7 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "level": "prefecture",
     "type": "補助金",
     "cat": "その他",
-    "amount": "要確認",
+    "amount": "補助率1/2以内、上限500万円",
     "summary": "令和8年度の業務共同化モデル実証補助金の補助対象者の募集（詳細は公式ページで確認）。",
     "eligibility": [
       "要確認"
@@ -12887,8 +12887,8 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "stages": [
       "established"
     ],
-    "period": "令和8年度募集あり（期間は要確認）",
-    "deadline": null,
+    "period": "提出期限 令和8年7月17日（金）16時30分",
+    "deadline": "2026-07-17",
     "priority": 6,
     "url": "https://www.pref.nagano.lg.jp/keieishien/gyoumhojyo.html"
   },
@@ -13008,7 +13008,7 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "level": "municipality",
     "type": "補助金",
     "cat": "空き店舗・商店街",
-    "amount": "要確認",
+    "amount": "改修費は補助率1/2以内、上限30万円。賃借料は補助率1/2以内、上限4万円/月（1年間）",
     "summary": "商店街等の空き店舗を活用して創業する新規出店者の経費の一部を助成する。",
     "eligibility": [
       "商店街等の空き店舗を活用して創業する新規出店者",
@@ -13040,7 +13040,7 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "level": "municipality",
     "type": "補助金",
     "cat": "人材・雇用",
-    "amount": "要確認",
+    "amount": "補助率1/2、上限10万円",
     "summary": "市内事業者が副業・兼業人材を活用する際の費用の一部を補助する制度（飯田市事業者等支援補助金一覧に掲載）。",
     "eligibility": [
       "市内事業者で副業・兼業人材を活用すること",
@@ -13057,8 +13057,8 @@ export const LOCAL_PROGRAMS_EXTRA = [
       "early",
       "established"
     ],
-    "period": "要確認",
-    "deadline": null,
+    "period": "令和8年4月1日〜令和9年1月31日",
+    "deadline": "2027-01-31",
     "priority": 8,
     "url": "https://www.city.iida.lg.jp/soshiki/21/projinzai.html"
   },
@@ -13131,7 +13131,7 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "level": "municipality",
     "type": "補助金",
     "cat": "人材・雇用",
-    "amount": "要確認",
+    "amount": "受講料の1/2以内、1人上限2万5千円、1事業所上限10万円",
     "summary": "製造業等の人材育成に係る費用を補助。",
     "eligibility": [
       "市内の製造業等の事業者"
@@ -13161,7 +13161,7 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "level": "municipality",
     "type": "助成金",
     "cat": "研究開発・新事業",
-    "amount": "要確認",
+    "amount": "補助率1/2、上限100万円（地域中核企業は2/3、上限300万円）",
     "summary": "令和8年度から新しい支援メニューが追加された製造業等向け助成金。",
     "eligibility": [
       "市内の製造業等の事業者"
@@ -13179,8 +13179,8 @@ export const LOCAL_PROGRAMS_EXTRA = [
       "early",
       "established"
     ],
-    "period": "最新は要確認",
-    "deadline": null,
+    "period": "令和8年4月1日〜令和8年11月30日",
+    "deadline": "2026-11-30",
     "priority": 8,
     "url": "https://www.city.matsumoto.nagano.jp/soshiki/75/3023.html"
   },
@@ -13220,7 +13220,7 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "level": "municipality",
     "type": "補助金",
     "cat": "IT・デジタル",
-    "amount": "要確認",
+    "amount": "補助率1/2以内、上限500万円（事業規模により300万円〜500万円）",
     "summary": "中小企業のDX推進の取組を支援する補助金。",
     "eligibility": [
       "市内中小企業者（詳細は要確認）"
@@ -13643,8 +13643,8 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "stages": [
       "established"
     ],
-    "period": "令和8年度は5/26に締切済み。来年度は要確認",
-    "deadline": null,
+    "period": "令和8年4月21日〜令和8年5月26日",
+    "deadline": "2026-05-26",
     "priority": 6,
     "url": "https://www.pref.gifu.lg.jp/site/pressrelease/494031.html"
   },
@@ -13735,7 +13735,7 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "level": "municipality",
     "type": "融資",
     "cat": "IT・デジタル",
-    "amount": "要確認",
+    "amount": "融資限度額1,000万円、年1.70%（固定）、設備10年以内・運転7年以内",
     "summary": "DX推進に取り組む事業者向けの市の制度融資。",
     "eligibility": [
       "市内中小企業者（詳細は要確認）"
@@ -13806,8 +13806,8 @@ export const LOCAL_PROGRAMS_EXTRA = [
       "early",
       "established"
     ],
-    "period": "令和8年度（最新は要確認）",
-    "deadline": null,
+    "period": "令和8年4月15日〜令和8年5月15日（令和8年度の受付は終了）",
+    "deadline": "2026-05-15",
     "priority": 8,
     "url": "https://www.city.gifu.lg.jp/business/sangyoushinkou/1005760/1005777/index.html"
   },
