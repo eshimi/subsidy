@@ -46,7 +46,7 @@ export function parseConsult(body) {
   if (!company || company.length > 100) throw bad('会社名・屋号を入力してください（個人の方は「個人」とご記入ください）');
   if (!name || name.length > 60) throw bad('お名前を入力してください');
   if (!PHONE_RE.test(phone)) throw bad('電話番号を正しく入力してください');
-  if (email && (email.length > 200 || !EMAIL_RE.test(email))) throw bad('メールアドレスを正しく入力してください');
+  if (!email || email.length > 200 || !EMAIL_RE.test(email)) throw bad('メールアドレスを正しく入力してください');
   if (note.length > 2000) throw bad('その他ご記入事項は2000字以内で入力してください');
   if (body.consent !== true) throw bad('個人情報の取り扱いへの同意が必要です');
   return { ...answers, company, name, phone, email, note, candidates: candidates.map((c) => c.slice(0, 60)) };
@@ -59,7 +59,7 @@ export function consultText(c) {
     `会社名：${c.company}`,
     `お名前：${c.name}`,
     `電話番号：${c.phone}`,
-    `メールアドレス：${c.email || '（未入力）'}`,
+    `メールアドレス：${c.email}`,
     '',
     `事業の形態：${c.kind || '（未選択）'}`,
     `業種：${c.industry || '（未選択）'}`,

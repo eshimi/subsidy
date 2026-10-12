@@ -4,7 +4,7 @@ import worker from '../src/worker.js';
 import { parseAnswers, parseConsult, consultText } from '../src/consult.js';
 
 const answers = { kind: '個人事業主（フリーランスを含む）', industry: '飲食業', employees: '1〜5人', koyou: '加入している', shakai: 'わからない', topic: '販路開拓・集客', timing: '3か月以内' };
-const consult = { ...answers, company: '株式会社テスト', name: '山田 太郎', phone: '03-1234-5678', email: '', note: '', consent: true, candidates: ['小規模事業者持続化補助金'] };
+const consult = { ...answers, company: '株式会社テスト', name: '山田 太郎', phone: '03-1234-5678', email: 'taro@example.co.jp', note: '', consent: true, candidates: ['小規模事業者持続化補助金'] };
 const env = { SUBSIDY_AI: 'off', ASSETS: { fetch: async () => new Response('asset') } };
 const post = (path, body) => worker.fetch(new Request(`https://example.test${path}`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) }), env);
 
@@ -19,6 +19,7 @@ test('parseConsult: 必須項目・電話番号・同意を確認する', () => 
   assert.throws(() => parseConsult({ ...consult, phone: 'abc' }));
   assert.throws(() => parseConsult({ ...consult, consent: false }));
   assert.throws(() => parseConsult({ ...consult, email: 'bad' }));
+  assert.throws(() => parseConsult({ ...consult, email: '' }));
   assert.deepEqual(parseConsult({ ...consult, website: 'spam' }), { spam: true });
 });
 
