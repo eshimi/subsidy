@@ -41,20 +41,33 @@
     .u-tools label { display: grid; gap: 2px; font-size: 0.78rem; color: #56667f; }
     .u-tools select { padding: 8px 10px; border: 1px solid #e6e8ec; border-radius: 8px; background: #fff; font: inherit; font-size: 0.9rem; }
     #results, #kw-results { scroll-margin-top: 84px; }
-    /* 結果の中で、条件を足して絞り込む */
-    .refine { margin: 18px 0 8px; padding: 16px 18px; background: #fff; border: 1px solid #e6e8ec; border-radius: 14px; display: grid; gap: 12px; }
+    /* 結果の見出しの行に出す「条件」ボタン（押すと、郵便番号・都道府県・目的・業種などの入力が開く） */
+    .refine-pop { position: relative; align-self: end; }
+    .refine-btn { list-style: none; display: inline-flex; align-items: center; gap: 6px; padding: 8px 12px; border: 1px solid #e6e8ec; border-radius: 8px; background: #fff; font-size: 0.9rem; cursor: pointer; color: #1f3353; }
+    .refine-btn::-webkit-details-marker { display: none; }
+    .refine-btn:hover, .refine-pop[open] .refine-btn { border-color: #073461; }
+    .refine-btn .n { min-width: 1.4em; padding: 0 6px; border-radius: 999px; background: #073461; color: #fff; font-size: 0.78rem; line-height: 1.5; text-align: center; }
+    .refine-btn .n:empty { display: none; }
+    .refine-panel { margin-top: 6px; padding: 16px 18px; background: #fff; border: 1px solid #e6e8ec; border-radius: 12px; display: grid; gap: 12px; box-shadow: 0 10px 28px rgba(7, 52, 97, 0.16); }
+    .refine-pop[open] .refine-panel { position: absolute; right: 0; top: 100%; z-index: 30; width: min(720px, 92vw); }
+    .refine-pop.at-left[open] .refine-panel { left: 0; right: auto; }
     .refine-title { margin: 0; font-weight: 700; color: #073461; }
-    .refine-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
-    @media (max-width: 960px) { .refine-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-    .refine .u-sub input, .refine .u-sub select { width: 100%; padding: 9px 10px; border: 1.5px solid #e6e8ec; border-radius: 10px; font: inherit; background: #fff; color: #1f3353; }
-    .refine .u-sub input:focus, .refine .u-sub select:focus { border-color: #073461; outline: none; box-shadow: 0 0 0 3px rgba(21, 101, 216, 0.12); }
-    .refine .hint { margin: 0; }
+    .refine-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .refine .u-sub input, .refine .u-sub select, .refine-panel .u-sub input, .refine-panel .u-sub select { width: 100%; padding: 9px 10px; border: 1.5px solid #e6e8ec; border-radius: 10px; font: inherit; background: #fff; color: #1f3353; }
+    .refine-panel .u-sub input:focus, .refine-panel .u-sub select:focus { border-color: #073461; outline: none; box-shadow: 0 0 0 3px rgba(21, 101, 216, 0.12); }
+    .refine-panel .hint { margin: 0; }
     .refine-attrs { display: flex; flex-wrap: wrap; gap: 8px; }
     .refine-attrs .toggle { width: auto; }
-    .u-dup { display: none; } /* 条件の入力は、結果の上の「条件を追加して絞り込む」にまとめた（値は上のフォームと共有） */
-    .refine { margin: -12px 0 24px; }
-    @media (max-width: 720px) { .refine-grid { grid-template-columns: 1fr 1fr; } }
-
+    .refine-clear { justify-self: start; border: 0; background: none; color: #073461; text-decoration: underline; cursor: pointer; font: inherit; font-size: 0.85rem; padding: 0; }
+    .u-dup { display: none; } /* 条件の入力は、結果の見出しの「条件」にまとめた（値は上のフォームと共有） */
+    /* 検索したあとは、入力欄を1行にして、結果を上に出す */
+    .u-form.is-compact { grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 10px 12px; padding: 14px 16px; margin-bottom: 18px; }
+    .u-form.is-compact .u-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+    .u-form.is-compact textarea { min-height: 50px; height: 50px; padding: 12px 14px; }
+    .u-form.is-compact .examples, .u-form.is-compact .u-how { display: none; }
+    .u-form.is-compact .u-submit { width: auto; padding: 12px 26px; font-size: 1rem; box-shadow: none; }
+    .u-form.is-compact .u-field { margin: 0; }
+    #results .toolbar { align-items: flex-end; }
     @media (max-width: 720px) {
       .u-form { padding: 18px 14px; }
       .u-place-row { grid-template-columns: 1fr; gap: 8px; }
@@ -62,6 +75,11 @@
       .u-more-grid { grid-template-columns: 1fr; }
       .u-tools { width: 100%; }
       .u-tools label { flex: 1; }
+      .refine-pop { position: static; width: 100%; }
+      .refine-pop[open] .refine-panel { position: static; width: auto; }
+      .refine-grid { grid-template-columns: 1fr 1fr; }
+      .u-form.is-compact { grid-template-columns: 1fr; }
+      .u-form.is-compact .u-submit { width: 100%; }
       .u-tools select { width: 100%; }
     }
     .guide-section {
