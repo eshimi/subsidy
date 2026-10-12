@@ -843,3 +843,34 @@ button.r-way:focus-visible { outline: 2px solid var(--accent); outline-offset: 2
 .art-box .art-sec + .art-sec { border-top: 0; padding-top: 0; }
 .sec-divider { margin: 0 0 1.8rem; text-align: center; }
 .sec-divider img { display: block; width: 100%; max-width: 640px; height: auto; margin: 0 auto; }
+
+/* フッター（コンパクト版）：左に紹介・QR、右にカテゴリ4列を横並びにして上下を詰める */
+.footer { margin-top: 56px; }
+.footer-top { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 24px 40px; padding-block: 24px 16px; align-items: start; }
+.footer-info { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 16px; align-items: start; }
+.footer-info > * { grid-column: 1; }
+.footer-info .footer-qr { grid-column: 2; grid-row: 1 / span 4; margin: 0; }
+.footer-brand img { height: 36px; }
+.footer-info p { font-size: 0.8rem; line-height: 1.6; margin: 8px 0 0; max-width: none; }
+.footer-info .footer-source, .footer-info .footer-contact { font-size: 0.75rem; margin-top: 4px; }
+.footer-qr img { width: 72px; height: 72px; }
+.footer-qr figcaption { margin-top: 2px; font-size: 0.68rem; }
+.footer-top .footer-nav { border-left: 0; padding-left: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 20px; align-items: start; }
+.footer-group, .footer-group:first-child { border: 0; border-top: 2px solid var(--line-soft); }
+.footer-group summary { padding: 8px 0; font-size: 0.85rem; font-weight: 700; }
+.footer-group ul { padding: 0 0 8px; gap: 5px; font-size: 0.8rem; }
+.footer-bottom { padding-block: 10px 14px; }
+.footer-bottom ul { margin: 0 0 4px; gap: 4px 16px; font-size: 0.78rem; }
+.footer-copy { font-size: 0.7rem; }
+@media (max-width: 900px) {
+  .footer-top { grid-template-columns: 1fr; gap: 16px; padding-block: 20px 12px; }
+  .footer-top .footer-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 480px) {
+  .footer-top .footer-nav { grid-template-columns: 1fr; }
+  .footer-group, .footer-group:first-child { border-top: 1px solid var(--line-soft); }
+  .footer-info .footer-qr { display: none; }
+}
+.footer-group summary::before { content: none; }
+.footer-group summary { width: auto; margin: 0; color: var(--ink); }
+.footer-brand { display: block; line-height: 0; }
