@@ -407,7 +407,7 @@ export const INDUSTRIES = [
 
 // 市区町村の制度（地域別のページに載せているもの）を、検索データの形にする。リンクは地域のページへ
 // 検索結果のカードに出す、制度の中身（種類・金額・期間・要約・条件・公式ページ・どの段階の自治体か）
-const detailOf = (p) => ({ ty: p.type, am: p.amount, pd: p.period, pv: p.provider, sm: p.summary, el: (p.eligibility || []).slice(0, 3), o: p.url, lv: p.level, dl: p.deadline || null });
+const detailOf = (p) => ({ au: 'b', ty: p.type, am: p.amount, pd: p.period, pv: p.provider, sm: p.summary, el: (p.eligibility || []).slice(0, 3), o: p.url, lv: p.level, dl: p.deadline || null });
 const localItems = () => LOCAL_PROGRAMS.map((p) => {
   const area = [...(p.prefectures || []), ...(p.cities || [])].join('・') || '全国';
   const city = AREA_CITIES.find((c) => (p.cities || []).includes(c.name));
@@ -429,10 +429,10 @@ const residentItems = () => RESIDENT_PROGRAMS.map((p) => {
   // 市区町村の制度はその市のページへ。県の制度は、その県の最初の市のページ（県の制度も載っている）へ。どちらもなければ公式のページへ
   const city = AREA_CITIES.find((c) => (p.cities || []).includes(c.name)) || AREA_CITIES.find((c) => c.pref === p.prefectures[0]);
   const area = [...(p.prefectures || []), ...(p.cities || [])].join('・');
-  return { id: 'res-' + p.id, t: p.name, a: area, m: null, s: null, e: null, ...detailOf(p), url: city ? `area/${city.slug}.html#resident-programs` : p.url, local: true, resident: true, cat: p.category, guide: true, p: [], i: [], k: RESIDENT_WORDS[p.category] || [] };
+  return { id: 'res-' + p.id, t: p.name, a: area, m: null, s: null, e: null, ...detailOf(p), au: 'p', url: city ? `area/${city.slug}.html#resident-programs` : p.url, local: true, resident: true, cat: p.category, guide: true, p: [], i: [], k: RESIDENT_WORDS[p.category] || [] };
 });
 // jGrants 以外の国の制度を、検索データの形にする（url は公式の申し込み先）
-const extraItem = (x) => ({ id: x.id, t: x.title, a: x.area, m: x.max, s: x.start, e: x.end, url: x.url, est: Boolean(x.est), guide: Boolean(x.guide), p: x.p, i: x.i, k: x.k });
+const extraItem = (x) => ({ au: 'p', id: x.id, t: x.title, a: x.area, m: x.max, s: x.start, e: x.end, url: x.url, est: Boolean(x.est), guide: Boolean(x.guide), p: x.p, i: x.i, k: x.k });
 
 // 検索用の、ふだん使う言葉（制度名が硬くても、暮らしや仕事の言葉で見つけられるように）
 // 目的・業種のタグごとの言葉。タイトルに入っている言葉（省力化・持続化など）からも、言葉を足す
@@ -600,7 +600,7 @@ ${hubs.map((h) => `        <li><a href="${h.file}">${h.heading}</a></li>`).join(
   writeFileSync(join(out, 'industries.html'), topicIndex({ hubs: industries, heading: '業種別の補助金', lead: '業種に関係しそうな、募集中の補助金を一覧にしました。', description: '飲食、小売、美容、建設、製造、IT、観光、農業、医療・介護など、業種から募集中の補助金を探せます。', canonicalPath: '/grants/industries.html' }));
   for (const h of industries) writeFileSync(join(out, h.file), listPage({ title: h.title, heading: h.heading, lead: h.lead, items: h.items, now, canonicalPath: `/grants/${h.file}`, extra: h.extra }));
   // 検索画面・トップページ用の軽いデータ（ブラウザで絞り込む）
-  writeFileSync(join(out, 'search.json'), JSON.stringify({ generatedAt: new Date(now).toISOString(), items: [...grants.map((g) => ({ id: g.id, t: g.title, a: g.area, m: g.max, s: g.start, e: g.end, ...tagsOf(g), k: everydayOf(g) })), ...NATIONAL_EXTRA.map(extraItem), ...PERSONAL_GUIDES.map(extraItem), ...localItems(), ...residentItems()] }));
+  writeFileSync(join(out, 'search.json'), JSON.stringify({ generatedAt: new Date(now).toISOString(), items: [...grants.map((g) => ({ au: 'b', id: g.id, t: g.title, a: g.area, m: g.max, s: g.start, e: g.end, ...tagsOf(g), k: everydayOf(g) })), ...NATIONAL_EXTRA.map(extraItem), ...PERSONAL_GUIDES.map(extraItem), ...localItems(), ...residentItems()] }));
   writeFileSync(join(out, 'purposes.html'), purposeIndex(purposes, now));
   for (const h of purposes) writeFileSync(join(out, h.file), listPage({ title: h.title, heading: h.heading, lead: h.lead, items: h.items, now, canonicalPath: `/grants/${h.file}` }));
   writeFileSync(join(out, 'deadlines.ics'), icsFor(grants, now));

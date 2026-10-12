@@ -60,6 +60,8 @@
     .refine-attrs { display: flex; flex-wrap: wrap; gap: 8px; }
     .refine-attrs .toggle { width: auto; }
     .refine-clear { justify-self: start; border: 0; background: none; color: #073461; text-decoration: underline; cursor: pointer; font: inherit; font-size: 0.85rem; padding: 0; }
+    .badge.aud-p { color: #0b6b3a; }
+    .badge.aud-b { color: #8a4b00; }
     .u-dup { display: none; } /* 条件の入力は、結果の見出しの「条件」にまとめた（値は上のフォームと共有） */
     /* 検索したあとは、入力欄を1行にして、結果を上に出す */
     .u-form.is-compact { grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 10px 12px; padding: 14px 16px; margin-bottom: 18px; }
@@ -301,6 +303,7 @@
       </div>
       <div id="s-count" class="summary"><p class="notice">読み込み中…</p></div>
       <div class="toolbar">
+        <div class="filters" role="group" aria-label="対象で絞り込み" id="s-aud"></div>
         <div class="filters" role="group" aria-label="分野で絞り込み" id="s-filters"></div>
         <span class="count" id="s-listcount"></span>
       </div>

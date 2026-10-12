@@ -200,7 +200,7 @@
 
   // ── カード（AIで探した結果と同じ見た目） ──
   const LEVEL = { national: '国', prefecture: '都道府県', municipality: '市区町村' };
-  const kindOf = (g) => (g.resident ? g.cat : g.local ? '事業者向けの制度' : g.guide ? '解説ページ' : g.url ? '国の制度' : '募集中の補助金');
+  const kindOf = (g) => (g.resident ? g.cat : g.local ? '市区町村の制度' : g.guide ? '解説ページ' : g.url ? '国の制度' : '募集中の補助金');
   const deadlineOf = (g) => g.e || g.dl || '';
   function statusBadge(g, now) {
     const d = deadlineOf(g);
@@ -210,6 +210,7 @@
     if (days <= 30) return `<span class="badge closing">締切間近 あと${days}日</span>`;
     return `<span class="badge open">締切 ${esc(dateJa(d))}${g.est ? '（見込み）' : ''}</span>`;
   }
+  const audBadge = (g) => (g.au === 'p' ? '<span class="badge aud-p">個人向け</span>' : g.au === 'b' ? '<span class="badge aud-b">事業者向け</span>' : '');
   function card(g, i, now) {
     const idx = String(i + 1).padStart(2, '0');
     const status = statusBadge(g, now);
@@ -217,7 +218,7 @@
       const city = cityOf(g);
       const more = g.url ? `<a href="${esc(g.url)}">${city ? `${esc(city)}の` : ''}ページで、ほかの制度も見る</a>` : '';
       return `<article class="program"><div class="p-index">${idx}</div><div class="p-main">
-        <div class="meta-line"><span class="badge level">${esc(LEVEL[g.lv] || '自治体')}</span>${g.ty ? `<span class="badge type">${esc(g.ty)}</span>` : ''}<span class="badge live">${esc(g.cat || '事業者向け')}</span>${status}</div>
+        <div class="meta-line">${audBadge(g)}<span class="badge level">${esc(LEVEL[g.lv] || '自治体')}</span>${g.ty ? `<span class="badge type">${esc(g.ty)}</span>` : ''}${g.cat ? `<span class="badge live">${esc(g.cat)}</span>` : ''}${status}</div>
         <h3><a href="${esc(g.url)}">${esc(g.t)}</a></h3>
         <p class="provider">${esc(g.pv || g.a)}</p>
         ${g.sm ? `<p class="summary-text">${esc(g.sm)}</p>` : ''}
@@ -227,7 +228,7 @@
     }
     if (g.guide) {
       return `<article class="program"><div class="p-index">${idx}</div><div class="p-main">
-        <div class="meta-line"><span class="badge level">解説</span></div>
+        <div class="meta-line">${audBadge(g)}<span class="badge level">解説</span></div>
         <h3><a href="${esc(g.url)}">${esc(g.t)}</a></h3>
         <p class="summary-text">個人の方向けの、仕組みと申請の流れをまとめたページです。</p>
         <div class="link-row"><a href="${esc(g.url)}">解説ページを見る</a></div>
@@ -236,7 +237,7 @@
     const href = g.url ? esc(g.url) : `grants/${encodeURIComponent(g.id)}.html`;
     const ext = g.url ? ' target="_blank" rel="noopener"' : '';
     return `<article class="program"><div class="p-index">${idx}</div><div class="p-main">
-      <div class="meta-line"><span class="badge live">${g.url ? '国' : '募集中'}</span>${status}</div>
+      <div class="meta-line">${audBadge(g)}<span class="badge live">${g.url ? '国' : '募集中'}</span>${status}</div>
       <h3><a href="${href}"${ext}>${esc(g.t)}</a></h3>
       <p class="provider">対象地域：${esc(area(g.a))}</p>
       <div class="link-row"><a href="${href}"${ext}>${g.url ? '公式ページを見る ↗' : '詳細を見る'}</a></div>
@@ -244,11 +245,16 @@
   }
 
   let activeKind = 'すべて';
+  let activeAud = ['p', 'b'].includes(params.get('aud')) ? params.get('aud') : '';
   function render() {
     if (!loaded) return;
     const c = conditions();
-    const all = filtered(c);
+    const base = filtered(c);
     const now = Date.now();
+    // 対象（個人向け／事業者向け）の切り分け
+    const audCount = (a) => (a ? base.filter((g) => g.au === a).length : base.length);
+    const all = activeAud ? base.filter((g) => g.au === activeAud) : base;
+    document.getElementById('s-aud').innerHTML = [['', 'すべて'], ['p', '個人向け'], ['b', '事業者向け']].map(([a, label]) => `<button type="button" class="filter" aria-pressed="${a === activeAud}" data-aud="${a}">${label}<sup>${audCount(a)}</sup></button>`).join('');
     // 分野の絞り込みボタン（件数つき）
     const kinds = [...new Set(all.map(kindOf))];
     if (activeKind !== 'すべて' && !kinds.includes(activeKind)) activeKind = 'すべて';
@@ -271,6 +277,15 @@
     list.innerHTML = out.slice(0, shown).map((g, i) => card(g, i, now)).join('');
     more.hidden = out.length <= shown;
   }
+  document.getElementById('s-aud').addEventListener('click', (e) => {
+    const b = e.target.closest('button[data-aud]');
+    if (!b) return;
+    activeAud = b.dataset.aud;
+    activeKind = 'すべて';
+    shown = PAGE;
+    syncUrl();
+    render();
+  });
   document.getElementById('s-filters').addEventListener('click', (e) => {
     const b = e.target.closest('button[data-kind]');
     if (!b) return;
@@ -285,6 +300,7 @@
     if (c.text) q.set('q', c.text);
     for (const name of ['pref', 'purpose', 'industry']) if (field(name).value) q.set(name, field(name).value);
     for (const el of tools) if (el.value && !(el.name === 'sort' && el.value === 'end')) q.set(el.name, el.value);
+    if (activeAud) q.set('aud', activeAud);
     history.replaceState(null, '', `${location.pathname}${q.toString() ? `?${q}` : ''}`);
   }
 
