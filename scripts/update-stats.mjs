@@ -49,7 +49,7 @@ export function withProgramStats(html, stats, municipalities = municipalityCount
     .replace(/(<span id="area-total">)[\d,]+(<\/span>)/, `$1${ja(municipalities)}$2`);
   if (stats) {
     out = out
-      .replace(/(<dd id="r-live">)[\d,]+<small>件(?:以上)?<\/small>(<\/dd>)/, `$1${ja(stats.total)}<small>件</small>$2`)
+      .replace(/(<dd id="r-live">)[\d,]+<small>件(?:以上)?<\/small>(?:<span class="r-daily">毎日更新<\/span>)?(<\/dd>)/, `$1${ja(stats.total)}<small>件</small><span class="r-daily">毎日更新</span>$2`)
       .replace(/(<dd id="r-local">)[\d,]+<small>件(?:以上)?<\/small>(<\/dd>)/, `$1${ja(stats.local)}<small>件</small>$2`)
       .replace(/(<span id="r-total">)[^<]*(<\/span>)/, `$1${ja(stats.total)}件を掲載。毎日更新。$2`);
   }

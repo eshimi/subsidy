@@ -22,7 +22,7 @@
       const n = (x) => x.toLocaleString('ja-JP');
       if (total && open.length) total.textContent = `${n(open.length)}件を掲載。毎日更新。`;
       const live = document.getElementById('r-live');
-      if (live && open.length) live.innerHTML = `${n(open.length)}<small>件</small>`;
+      if (live && open.length) live.innerHTML = `${n(open.length)}<small>件</small><span class="r-daily">毎日更新</span>`;
       const loc = document.getElementById('r-local');
       if (loc) loc.innerHTML = `${n(local)}<small>件</small>`;
       const bySoon = open.filter((g) => g.e).sort((a, b) => Date.parse(a.e) - Date.parse(b.e)).slice(0, 6);

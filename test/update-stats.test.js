@@ -21,7 +21,7 @@ test('withProgramStats / countPrograms: トップの件数を、検索ページ�
   assert.equal(countPrograms(join(root, 'none')), null);
   const html = '<span id="r-total">毎日更新。</span><dd id="r-live">3,000<small>件以上</small></dd><dd id="r-cities">1<small>市区町村</small></dd><dd id="r-local">2,800<small>件以上</small></dd>';
   const out = withProgramStats(html, { total: 3195, local: 2874 }, 1741);
-  assert.match(out, /<dd id="r-live">3,195<small>件<\/small><\/dd>/);
+  assert.match(out, /<dd id="r-live">3,195<small>件<\/small><span class="r-daily">毎日更新<\/span><\/dd>/);
   assert.match(out, /<dd id="r-local">2,874<small>件<\/small><\/dd>/);
   assert.match(out, /<dd id="r-cities">1,741<small>市区町村<\/small><\/dd>/);
   assert.match(out, /3,195件を掲載。毎日更新。/);
