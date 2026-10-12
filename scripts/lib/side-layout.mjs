@@ -51,7 +51,7 @@ const FOLDER_HINT = {
   feature: 'feature/index.html',
   compare: 'compare/index.html',
   area: 'area/index.html',
-  grants: 'grants/index.html',
+  grants: 'search.html',
   policy: 'policy/about.html',
   basics: 'basics/index.html',
   news: 'news/index.html',

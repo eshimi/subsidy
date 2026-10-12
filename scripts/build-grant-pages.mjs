@@ -77,7 +77,7 @@ export function rssFor(grants, now) {
 <rss version="2.0">
   <channel>
     <title>補助金ネット｜募集中の補助金</title>
-    <link>${SITE}/grants/index.html</link>
+    <link>${SITE}/search.html</link>
     <description>jGrants で募集中の補助金を、新しい順にお知らせします。</description>
     <language>ja</language>
 ${items}
@@ -242,7 +242,7 @@ export function grantPage(g, now) {
   const title = `${g.title}｜補助金ネット`;
   const description = `${g.title}の対象地域（${g.area || '記載なし'}）、上限額、申請期間を一覧で確認できます。申請要件は公式サイトで確認してください。`.slice(0, 160);
   const url = `${SITE}/grants/${g.id}.html`;
-  const body = `${crumb([['index.html', '制度一覧'], [null, g.title]])}
+  const body = `${crumb([['../search.html', '制度一覧'], [null, g.title]])}
 
     <div style="margin-bottom: 2rem;">
       <h1 class="display" style="margin-bottom: 0.5rem; font-size: clamp(1.5rem, 3.5vw, 2.2rem);">${esc(g.title)}</h1>
@@ -292,8 +292,8 @@ ${faqFor(g, now).map(([q, a]) => `        <dt><strong>${esc(q)}</strong></dt><dd
     <nav class="related-links" aria-label="関連ページ">
       <h2>関連ページ</h2>
       <ul>
-        <li><a href="deadlines.html">締切が近い補助金</a></li>
-        <li><a href="index.html">制度一覧</a></li>
+        <li><a href="../search.html?within=90&amp;sort=end">締切が近い補助金</a></li>
+        <li><a href="../search.html">募集中の補助金を探す</a></li>
         <li><a href="../area/index.html">地域別の補助金</a></li>
         <li><a href="../columns.html">コラム</a></li>
         <li><a href="../">補助金を探す</a></li>

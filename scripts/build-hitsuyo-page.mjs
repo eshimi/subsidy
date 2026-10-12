@@ -98,5 +98,6 @@ const html = shell({
   body: body,
 }).replace('</style>', `${style}\n  </style>`);
 
-writeFileSync(join(ROOT, 'hitsuyo.html'), html);
+// このページは public/ 直下にあるので、サブフォルダ用の共通部品の「../」を外す
+writeFileSync(join(ROOT, 'hitsuyo.html'), html.replaceAll('"../', '"'));
 console.log(`必要なものから探すページを生成：${PURCHASES.length} 件`);

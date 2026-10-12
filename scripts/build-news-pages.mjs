@@ -114,7 +114,7 @@ function build() {
       ...(newer ? [[fileOf(newer), `次の記事：${newer.title}`]] : []),
       ...(older ? [[fileOf(older), `前の記事：${older.title}`]] : []),
       ['../search.html', '募集中の補助金を探す'],
-      ['../grants/deadlines.html', '締切が近い補助金'],
+      ['../search.html?within=90&sort=end', '締切が近い補助金'],
     ];
     writeArticle(OUT, 'news', file, {
       title: n.title,

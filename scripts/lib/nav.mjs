@@ -13,10 +13,9 @@ export const TOP_GROUPS = [
       { label: '必要なものから探す', href: 'hitsuyo.html' },
       { label: '目的別の補助金', href: 'grants/purposes.html' },
       { label: '業種別の補助金', href: 'grants/industries.html' },
-      { label: '締切が近い補助金', href: 'grants/deadlines.html' },
+      { label: '締切が近い補助金', href: 'search.html?within=90&sort=end' },
       { label: '都道府県別の補助金', href: 'grants/prefectures.html' },
       { label: '市区町村別の補助金', href: 'area/index.html' },
-      { label: '募集中の制度一覧', href: 'grants/index.html' },
     ],
   },
   {
@@ -64,10 +63,9 @@ export const FOOTER_GROUPS = [
       { label: '必要なものから探す', href: 'hitsuyo.html' },
       { label: '目的別の補助金', href: 'grants/purposes.html' },
       { label: '業種別の補助金', href: 'grants/industries.html' },
-      { label: '締切が近い補助金', href: 'grants/deadlines.html' },
+      { label: '締切が近い補助金', href: 'search.html?within=90&sort=end' },
       { label: '都道府県別の補助金', href: 'grants/prefectures.html' },
       { label: '市区町村別の補助金', href: 'area/index.html' },
-      { label: '募集中の制度一覧', href: 'grants/index.html' },
     ],
   },
   {
@@ -125,7 +123,7 @@ export const FOOTER_SHORT = [
     { label: '目的別', href: 'grants/purposes.html' },
     { label: '業種別', href: 'grants/industries.html' },
     { label: '地域別', href: 'area/index.html' },
-    { label: '締切が近い補助金', href: 'grants/deadlines.html' },
+    { label: '締切が近い補助金', href: 'search.html?within=90&sort=end' },
   ] },
   { label: '知る', items: [
     { label: '補助金ニュース', href: 'news/index.html' },

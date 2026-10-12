@@ -177,7 +177,7 @@ function indexPage() {
             <img src="../images/prefectures/pref-${PREF_SLUGS[g.pref]}.webp" alt="" width="96" height="auto" loading="lazy">
             <h2>${esc(g.pref)}</h2>
           </div>
-          <p class="area-pref-link"><a href="../grants/pref-${PREF_SLUGS[g.pref]}.html">${esc(g.pref)}で募集中の補助金を見る →</a></p>
+          <p class="area-pref-link"><a href="../search.html?pref=${encodeURIComponent(g.pref)}">${esc(g.pref)}で募集中の補助金を見る →</a></p>
           <ul>
 ${g.cities.map((c) => `            <li><a href="${c.slug}.html">${esc(c.name)}</a></li>`).join('\n')}
           </ul>

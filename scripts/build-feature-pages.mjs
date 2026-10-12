@@ -75,7 +75,7 @@ const POPULAR = {
   summary: '利用の多い5つの補助金について、人気の理由、主な使い道、注意点を整理しました。旧ものづくり補助金・旧事業再構築補助金の今の扱いも説明します。',
   lead: '事業の目的に合わせて、どの補助金から調べればよいかを一覧で確認できます。',
   image: { file: 'b01', alt: '' },
-  related: [['../columns/how-to-find-subsidy.html', '補助金の探し方'], ['../columns/free-consultation.html', '補助金の無料相談窓口'], ['../grants/deadlines.html', '締切が近い補助金']],
+  related: [['../columns/how-to-find-subsidy.html', '補助金の探し方'], ['../columns/free-consultation.html', '補助金の無料相談窓口'], ['../search.html?within=90&sort=end', '締切が近い補助金']],
   sources: [
     ['ミラサポplus（補助金の情報と公募要領）', 'https://mirasapo-plus.go.jp/'],
     ['jGrants（デジタル庁の電子申請・公募情報）', 'https://www.jgrants-portal.go.jp/'],
