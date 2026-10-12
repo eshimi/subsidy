@@ -261,7 +261,8 @@
     const out = activeKind === 'すべて' ? all : all.filter((g) => kindOf(g) === activeKind);
     const countOf = (k) => (k === 'すべて' ? all.length : all.filter((g) => kindOf(g) === k).length);
     document.getElementById('s-filters').innerHTML = ['すべて', ...kinds].map((k) => `<button type="button" class="filter" aria-pressed="${k === activeKind}" data-kind="${esc(k)}">${esc(k)}<sup>${countOf(k)}</sup></button>`).join('');
-    document.getElementById('s-listcount').textContent = out.length ? `${out.length.toLocaleString('ja-JP')}件・${c.text && !isSentence(c.text) ? '関連度順' : '締切順'}` : '';
+    // 分野が2つ以上あるときだけ、分野の行を出す（1つだけなら「すべて」と同じなので出さない）。件数は上の大きな数字と同じなので出さない
+    document.getElementById('s-bar-kinds').hidden = kinds.length < 2;
     // 概要
     const place = `${c.city || c.pref || ''}`;
     const title = place ? `${place}${c.words.length ? `の「${c.words.join('・')}」` : ''}で使えそうな補助金` : c.text && !isSentence(c.text) ? `「${c.text}」に近い補助金` : '募集中の補助金';

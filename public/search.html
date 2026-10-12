@@ -78,7 +78,8 @@
     .s-bar-bottom { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; padding: 10px 16px; }
     .s-bar .u-tools label { font-size: 0.7rem; }
     .s-bar .u-tools { align-items: flex-end; }
-    .s-bar-bottom .count { white-space: nowrap; }
+    .s-bar-bottom[hidden] { display: none; }
+    .s-bar-top:last-child { border-bottom: 0; }
     @media (max-width: 720px) { .s-bar-top, .s-bar-bottom { padding: 10px 12px; } .s-bar-top #s-aud.filters { width: 100%; justify-content: center; flex-wrap: nowrap; } #s-aud .filter { padding: 8px 10px; font-size: 0.86rem; white-space: nowrap; } }
     @media (max-width: 720px) {
       .u-form { padding: 18px 14px; }
@@ -315,9 +316,8 @@
             <label>並び順<select id="sort" name="sort"><option value="end">締切が近い順</option><option value="new">新着順</option></select></label>
           </div>
         </div>
-        <div class="s-bar-bottom">
+        <div class="s-bar-bottom" id="s-bar-kinds" hidden>
           <div class="filters" role="group" aria-label="分野で絞り込み" id="s-filters"></div>
-          <span class="count" id="s-listcount"></span>
         </div>
       </div>
       <div id="s-results" class="list"></div>
