@@ -155,7 +155,7 @@ ${grantListHtml(open, now, { showArea: false })}
 function prefectureIndex(counts, now) {
   const tiles = PREFECTURES.map((pref) => {
     const n = counts[pref].filter((g) => statusOf(g.end, now).key !== 'closed').length;
-    return tile(`pref-${PREF_SLUGS[pref]}.html`, pref, n, PREF_SLUGS[pref]);
+    return tile(`../search.html?pref=${encodeURIComponent(pref)}`, pref, n, PREF_SLUGS[pref]);
   }).join('\n');
   const body = `${crumb([[null, '都道府県別の補助金']])}
 
@@ -498,8 +498,14 @@ export function industryHubsFor(grants, now) {
   return hubs;
 }
 
+// 目的別・業種別の一覧（purpose-xxx.html / industry-xxx.html）は、検索結果ページの条件つきURLに置き換える
+const searchHref = (file) => {
+  const m = /^(purpose|industry)-(.+)\.html$/.exec(file);
+  return m ? `../search.html?${m[1]}=${m[2]}` : file;
+};
+
 function topicIndex({ hubs, heading, lead, canonicalPath, description, file }) {
-  const lis = hubs.map((h) => `        <li><a href="${h.file}">${esc(h.heading)}</a><p class="grant-meta">募集中 ${h.count} 件｜${esc(h.lead)}</p></li>`).join('\n');
+  const lis = hubs.map((h) => `        <li><a href="${searchHref(h.file)}">${esc(h.heading)}</a><p class="grant-meta">募集中 ${h.count} 件｜${esc(h.lead)}</p></li>`).join('\n');
   const body = `${crumb([[null, heading]])}
 
     <div style="margin-bottom: 2rem;">
@@ -536,7 +542,7 @@ export function purposeHubsFor(grants, now) {
 }
 
 function purposeIndex(hubs, now) {
-  const lis = hubs.map((h) => `        <li><a href="${h.file}">${esc(h.heading)}</a><p class="grant-meta">募集中 ${h.count} 件｜${esc(h.lead)}</p></li>`).join('\n');
+  const lis = hubs.map((h) => `        <li><a href="${searchHref(h.file)}">${esc(h.heading)}</a><p class="grant-meta">募集中 ${h.count} 件｜${esc(h.lead)}</p></li>`).join('\n');
   const body = `${crumb([[null, '目的別の補助金']])}
 
     <div style="margin-bottom: 2rem;">
@@ -609,7 +615,8 @@ ${hubs.map((h) => `        <li><a href="${h.file}">${h.heading}</a></li>`).join(
   writeFileSync(join(out, 'prefectures.html'), prefectureIndex(counts, now));
   for (const pref of PREFECTURES) writeFileSync(join(out, `pref-${PREF_SLUGS[pref]}.html`), prefPage(pref, counts[pref], now));
   if (existsSync(sitemap)) {
-    const urls = ['grants/index.html', 'grants/deadlines.html', 'grants/prefectures.html', 'grants/purposes.html', 'grants/industries.html', ...purposes.map((h) => `grants/${h.file}`), ...industries.map((h) => `grants/${h.file}`), ...hubs.map((h) => `grants/${h.file}`), ...PREFECTURES.map((p) => `grants/pref-${PREF_SLUGS[p]}.html`), ...grants.map((g) => `grants/${g.id}.html`)];
+    // 検索結果ページに転送する一覧（都道府県別・目的別・業種別・制度一覧・締切が近い）は、サイトマップに載せない
+    const urls = ['grants/prefectures.html', 'grants/purposes.html', 'grants/industries.html', ...hubs.map((h) => `grants/${h.file}`), ...grants.map((g) => `grants/${g.id}.html`)];
     writeFileSync(sitemap, sitemapWith(readFileSync(sitemap, 'utf-8'), urls, lastmod));
   }
   return { pages: grants.length };
