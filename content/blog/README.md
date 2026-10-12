@@ -48,9 +48,14 @@ draft: false
 
 ## 4. 書いたあとの作業
 
+タグは本文から自動で付きます（約10個）。付けたいタグがあるときは、先頭の設定に `tags: [持続化補助金, 創業]` のように書くと、先頭に入ります。
+
+
 ```
 node scripts/build-blog.mjs
-node scripts/apply-nav.mjs   # ※メニューを変えたときだけ
+node scripts/apply-related.mjs   # 関連ページ
+node scripts/apply-seo.mjs       # タグ（約10個）・構造化データ・説明文
+node scripts/apply-nav.mjs       # ※メニューを変えたときだけ
 ```
 
 生成された `public/blog/` と、変更したファイルをまとめてコミットし、ブランチに push します（サイトの更新と同じ手順です）。
