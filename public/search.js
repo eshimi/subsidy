@@ -200,7 +200,7 @@
 
   // ── カード（AIで探した結果と同じ見た目） ──
   const LEVEL = { national: '国', prefecture: '都道府県', municipality: '市区町村' };
-  const kindOf = (g) => (g.resident ? g.cat : g.local ? '市区町村の制度' : g.guide ? '解説ページ' : g.url ? '国の制度' : '募集中の補助金');
+  const kindOf = (g) => (g.resident || (g.local && g.cat) ? g.cat : g.local ? '市区町村の制度（事業）' : g.guide ? '解説ページ' : g.url ? '国の制度' : '募集中の補助金');
   const deadlineOf = (g) => g.e || g.dl || '';
   function statusBadge(g, now) {
     const d = deadlineOf(g);

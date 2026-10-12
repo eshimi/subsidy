@@ -2,7 +2,9 @@
 // cities は住所の市区町村名の先頭一致で判定する（例: '札幌市' は '札幌市中央区' にも一致）。
 // deadline（YYYY-MM-DD）がある制度は、締切後に「今年度の受付終了」として扱い、次年度の公募確認を促す。
 
-export const LOCAL_PROGRAMS = [
+import { LOCAL_PROGRAMS_EXTRA } from './local-programs-extra.js';
+
+const CURATED_LOCAL_PROGRAMS = [
   // ───── 北海道 ─────
   {
     id: 'sapporo-shinki-sogyo',
@@ -3590,3 +3592,7 @@ export const LOCAL_PROGRAMS = [
       "url": "https://www.city.edogawa.tokyo.jp/e093/shigotosangyo/jigyosha_oen/sangyo_jigyosya/jyosei/jinzai/roudoukankyou.html"
   },
 ];
+
+// 手で整えた制度（上）と、調べて取り込んだ制度（local-programs-extra.js）を合わせる。同じ id は、手で整えたほうを使う
+const curatedIds = new Set(CURATED_LOCAL_PROGRAMS.map((p) => p.id));
+export const LOCAL_PROGRAMS = [...CURATED_LOCAL_PROGRAMS, ...LOCAL_PROGRAMS_EXTRA.filter((p) => !curatedIds.has(p.id))];

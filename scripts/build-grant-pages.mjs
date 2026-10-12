@@ -411,7 +411,7 @@ const detailOf = (p) => ({ au: 'b', ty: p.type, am: p.amount, pd: p.period, pv: 
 const localItems = () => LOCAL_PROGRAMS.map((p) => {
   const area = [...(p.prefectures || []), ...(p.cities || [])].join('・') || '全国';
   const city = AREA_CITIES.find((c) => (p.cities || []).includes(c.name));
-  return { id: 'local-' + p.id, t: p.name, a: area, m: null, s: null, e: null, ...detailOf(p), url: city ? `area/${city.slug}.html` : 'area/index.html', local: true, guide: true, p: [], i: [], k: [...new Set([...(p.industries || []), p.type].filter(Boolean))] };
+  return { id: 'local-' + p.id, t: p.name, a: area, m: null, s: null, e: null, ...detailOf(p), ...(p.cat ? { cat: p.cat } : {}), url: city ? `area/${city.slug}.html` : 'area/index.html', local: true, guide: true, p: [], i: [], k: [...new Set([...(p.industries || []), p.type].filter(Boolean))] };
 });
 // 個人向けの制度の分野ごとの、ふだんの言葉（検索用）
 const RESIDENT_WORDS = {
