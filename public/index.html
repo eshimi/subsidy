@@ -334,10 +334,11 @@
         hero.querySelectorAll('.r-hero-video').forEach(function (x) { x.remove(); });
         hero.insertBefore(v, hero.firstChild);
         if (full) hero.classList.add('is-playing');
+        hero.classList.add('has-video');
         var close = function () {
           if (!v.parentNode) return;
           v.classList.add('is-done');
-          hero.classList.remove('is-playing');
+          hero.classList.remove('is-playing', 'has-video');
           if (full && closeBtn) closeBtn.remove();
           setTimeout(function () { v.remove(); }, 900);
         };
@@ -359,6 +360,9 @@
         btn.hidden = false;
         btn.addEventListener('click', function () { play(true); });
       }
+
+      // スマホ幅では、初回の自動再生はしない（通信量のため）。「紹介動画を見る」から手動で見られる
+      if (matchMedia('(max-width: 760px)').matches) return;
 
       var seen = false;
       try { seen = localStorage.getItem(KEY) === '1'; } catch (e) { return; }
