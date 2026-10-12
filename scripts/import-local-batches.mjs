@@ -62,6 +62,8 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     let list;
     try { list = JSON.parse(readFileSync(join(dir, f), 'utf-8')); } catch (e) { console.error(`${f}: JSON が読めません（${e.message}）`); continue; }
     for (const p of list) {
+      // 業種が1つだけのとき、文字列で書かれていても配列にする
+      if (typeof p.industries === 'string' && p.industries !== 'all') p.industries = [p.industries];
       if (curatedIds.has(p.id)) { skipped++; continue; }
       const problems = problemsOf(p);
       if (problems.length) { rejected++; console.error(`× ${f} ${p.id || '(idなし)'}：${problems.join('／')}`); continue; }
