@@ -52,3 +52,14 @@ test('loadPosts: 日付やファイル名が決まりに合わないと止まる
   writeFileSync(join(dir, 'bad-name.md'), '---\ntitle: x\ndate: 2026-01-01\n---\n本文');
   assert.throws(() => loadPosts(dir), /ファイル名は/);
 });
+
+test('loadPosts: 題材リスト（TOPICS.md）は記事として読まない', async () => {
+  const { mkdtempSync, writeFileSync } = await import('node:fs');
+  const { tmpdir } = await import('node:os');
+  const { join } = await import('node:path');
+  const { loadPosts } = await import('../scripts/build-blog.mjs');
+  const dir = mkdtempSync(join(tmpdir(), 'blog-'));
+  writeFileSync(join(dir, 'TOPICS.md'), '# 題材\n- [ ] x\n');
+  writeFileSync(join(dir, '2026-10-13-sample-post.md'), '---\ntitle: テスト\ndate: 2026-10-13\n---\n\n本文です。\n');
+  assert.deepEqual(loadPosts(dir).map((p) => p.slug), ['2026-10-13-sample-post']);
+});

@@ -26,7 +26,7 @@ const RELATED = [
 export function loadPosts(dir = SRC) {
   if (!existsSync(dir)) return [];
   const posts = [];
-  for (const file of readdirSync(dir).filter((f) => f.endsWith('.md') && f !== 'README.md').sort()) {
+  for (const file of readdirSync(dir).filter((f) => f.endsWith('.md') && !['README.md', 'TOPICS.md'].includes(f)).sort()) {
     const slug = file.replace(/\.md$/, '');
     const { data, body } = parseFrontmatter(readFileSync(join(dir, file), 'utf-8'));
     if (data.draft === true) continue;
