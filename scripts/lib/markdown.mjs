@@ -1,7 +1,7 @@
 // ブログ記事（content/blog/*.md）を HTML にする、最小限の Markdown の変換。
 // 対応：front matter（--- で囲んだ key: value）、## の見出し（記事の節）、### の小見出し、段落、
-//       箇条書き（- と 1.）、引用（>）、**太字**、`コード`、[リンク](URL)
-// 対応していない書き方（表・画像・コードブロックなど）は、そのまま文字として出る。
+//       箇条書き（- と 1.）、引用（>）、表（| 列 | 列 | と、2行目の | --- | --- |）、**太字**、`コード`、[リンク](URL)
+// 対応していない書き方（画像・コードブロックなど）は、そのまま文字として出る。
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 
 const unquote = (s) => s.replace(/^(["'])(.*)\1$/, '$2');
@@ -39,6 +39,19 @@ export function inline(text) {
   return s;
 }
 
+// | a | b | の行（先頭と末尾の | は省略可）を、セルの配列にする
+const cellsOf = (line) => line.trim().replace(/^\|/, '').replace(/\|$/, '').split('|').map((c) => c.trim());
+const isTableSep = (line) => /^\|?\s*:?-{3,}:?\s*(\|\s*:?-{3,}:?\s*)*\|?$/.test(line.trim());
+
+function tableHtml(head, rows) {
+  return `<div class="table-wrap"><table class="feature-table">
+          <thead><tr>${head.map((h) => `<th scope="col">${inline(h)}</th>`).join('')}</tr></thead>
+          <tbody>
+${rows.map((r) => `            <tr><th scope="row">${inline(r[0] ?? '')}</th>${r.slice(1).map((c) => `<td>${inline(c)}</td>`).join('')}</tr>`).join('\n')}
+          </tbody>
+        </table></div>`;
+}
+
 // 見出し以外の部分（段落・箇条書き・引用・小見出し）を HTML にする
 export function blocksToHtml(md) {
   const out = [];
@@ -50,10 +63,22 @@ export function blocksToHtml(md) {
     if (list) { out.push(`<${list.tag}>\n${list.items.map((i) => `          <li>${inline(i)}</li>`).join('\n')}\n        </${list.tag}>`); list = null; }
     if (quote.length) { out.push(`<blockquote><p>${quote.map(inline).join('<br>')}</p></blockquote>`); quote = []; }
   };
-  for (const raw of md.split(/\r?\n/)) {
-    const line = raw.trimEnd();
+  const lines = md.split(/\r?\n/);
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trimEnd();
     let m;
     if (!line.trim()) { flush(); continue; }
+    // 表：| で始まる行に、区切りの行（| --- | --- |）が続くとき
+    if (line.trim().startsWith('|') && i + 1 < lines.length && isTableSep(lines[i + 1])) {
+      flush();
+      const head = cellsOf(line);
+      const rows = [];
+      i += 2;
+      while (i < lines.length && lines[i].trim().startsWith('|')) { rows.push(cellsOf(lines[i])); i++; }
+      i--;
+      out.push(tableHtml(head, rows));
+      continue;
+    }
     if ((m = line.match(/^###\s+(.*)$/))) { flush(); out.push(`<h3>${inline(m[1])}</h3>`); continue; }
     if ((m = line.match(/^(?:-|\*)\s+(.*)$/))) {
       if (!list || list.tag !== 'ul') { flush(); list = { tag: 'ul', items: [] }; }

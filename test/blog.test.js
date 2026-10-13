@@ -63,3 +63,12 @@ test('loadPosts: 題材リスト（TOPICS.md）は記事として読まない', 
   writeFileSync(join(dir, '2026-10-13-sample-post.md'), '---\ntitle: テスト\ndate: 2026-10-13\n---\n\n本文です。\n');
   assert.deepEqual(loadPosts(dir).map((p) => p.slug), ['2026-10-13-sample-post']);
 });
+
+test('ブログ：表（| で区切る書き方）を、表として出す', async () => {
+  const { blocksToHtml } = await import('../scripts/lib/markdown.mjs');
+  const html = blocksToHtml('| 項目 | 内容 |\n| --- | --- |\n| 補助率 | 2/3 |\n| 締切 | **12月15日** |\n\n本文');
+  assert.match(html, /<table class="feature-table">/);
+  assert.match(html, /<th scope="row">補助率<\/th><td>2\/3<\/td>/);
+  assert.match(html, /<strong>12月15日<\/strong>/);
+  assert.match(html, /<p>本文<\/p>/);
+});
