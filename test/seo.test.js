@@ -70,3 +70,8 @@ test('基礎知識・対象者別の独自解説は、何度入れても同じ�
     if (EXTRA[key].sections.some((s) => s.faq)) assert.match(html, /"@type":"FAQPage"/, key);
   }
 });
+
+test('AdSense：ads.txt と、サイト確認用のメタタグがある', () => {
+  assert.equal(readFileSync(join(process.cwd(), 'public/ads.txt'), 'utf-8').trim(), 'google.com, pub-7811993263471350, DIRECT, f08c47fec0942fa0');
+  assert.match(readFileSync(join(process.cwd(), 'public/index.html'), 'utf-8'), /<meta name="google-adsense-account" content="ca-pub-7811993263471350">/);
+});

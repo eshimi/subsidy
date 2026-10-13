@@ -96,7 +96,8 @@ function shell({ title, description: rawDescription, canonicalPath, body, jsonLd
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <style>${STYLE}
   </style>
-${jsonLd}  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7811993263471350"
+${jsonLd}  <meta name="google-adsense-account" content="ca-pub-7811993263471350">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7811993263471350"
      crossorigin="anonymous"></script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-J5DWZQLCB0"></script>
