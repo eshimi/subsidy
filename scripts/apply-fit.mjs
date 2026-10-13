@@ -32,9 +32,9 @@ export function applyFit(html, slug) {
   const f = FIT[slug];
   if (!f) return html;
   const clean = html.replace(RE, '');
-  const anchor = '    <section class="art-sec" aria-labelledby="sources">';
-  if (!clean.includes(anchor)) return html;
-  return clean.replace(anchor, `${fitHtml(f)}\n${anchor}`);
+  const m = /    <section class="art-sec" aria-labelledby="[^"]*"><h2 id="[^"]*">(?:<img[^>]*>)?最新情報の確認先/.exec(clean);
+  if (!m) return html;
+  return `${clean.slice(0, m.index)}${fitHtml(f)}\n${clean.slice(m.index)}`;
 }
 
 export function run() {
