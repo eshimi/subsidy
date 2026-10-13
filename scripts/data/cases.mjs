@@ -16,6 +16,7 @@ export const SUBSIDIES = {
   saikouchiku: { name: '事業再構築補助金（後継：新事業進出・ものづくり商業サービス補助金）', short: '事業再構築補助金', guide: 'feature/monodukuri.html', guideTitle: '新事業進出・ものづくり商業サービス補助金とは？' },
   shoryokuka: { name: '中小企業省力化投資補助金', short: '省力化投資補助金', guide: 'feature/shoryokuka.html', guideTitle: '中小企業省力化投資補助金とは？' },
   shokei: { name: '事業承継・引継ぎ補助金（現：事業承継・M&A補助金）', short: '事業承継の補助金', guide: 'feature/succession.html', guideTitle: '事業承継・M&A補助金とは？' },
+  career: { name: 'キャリアアップ助成金', short: 'キャリアアップ助成金', guide: 'feature/employment.html', guideTitle: '雇用関係の助成金' },
   employment: { name: '業務改善助成金', short: '業務改善助成金', guide: 'feature/employment.html', guideTitle: '雇用関係の助成金' },
 };
 
@@ -329,5 +330,100 @@ export const CASES = [
     ],
     source: { title: '東北経済産業局「小規模事業者持続化補助金 活用事例集」（令和元年度〜令和2年度実施分）', url: 'https://www.tohoku.meti.go.jp/s_cyusyo/topics/pdf/21_casestudy.pdf', publisher: '東北経済産業局（経済産業省）', license: 'pdl' },
     links: ['feature/monodukuri.html', 'feature/jizokuka.html', 'who/sme.html'],
+  },
+  {
+    slug: "soba-tanemura-matsumoto", subsidy: "jizokuka",
+    title: "長野県松本市のそば処種村が持続化補助金で製粉設備を更新し、英語表記のメニューも整えた事例",
+    summary: "長野県松本市のそば店「そば処種村」は、商工会議所の経営指導員から持続化補助金の紹介を受けて応募した。老朽化した磨き機と集塵機を更新し、英語表記のメニューやのぼりも作った。導入後2か月の売上は前年比約30%増とされる。",
+    industry: "飲食業（そば店）",
+    region: "長野県松本市",
+    business: "そば処種村",
+    size: "",
+    challenge: "磨き機と集塵機が老朽化しており、処理時間や安定性に問題があった。繁忙期には売り切れによる機会損失が生じていた。",
+    actions: [
+      "日頃から相談していた商工会議所の経営指導員から持続化補助金の紹介を受けて応募した",
+      "老朽化した磨き機と集塵機を更新した",
+      "インバウンド向けの英語表記メニューやのぼりを作った",
+    ],
+    results: [
+      "設備更新により生産量が増え、繁忙期の売り切れによる機会損失を防げた",
+      "導入後2か月の売上が前年比で約30%増加した",
+    ],
+    points: [
+      "身近な商工会議所の経営指導員への日常的な相談が、制度を知るきっかけになる場合がある",
+      "設備更新と販促（外国語メニュー等）を組み合わせる進め方は、他の飲食店でも参考になりうる",
+    ],
+    source: {"title": "働き方改革・生産性向上に資する補助金の活用事例 飲食業「そば処種村」（長野県松本市）の事例", "url": "https://www.chusho.meti.go.jp/pamflet/pamflet/2018/180417hatarakiHojokin.pdf", "publisher": "中小企業庁", "license": "pdl"},
+    links: ["feature/jizokuka.html", "who/sole-proprietor.html", "basics/business-plan.html"],
+  },
+  {
+    slug: "tensense-ecopresso-osaka", subsidy: "monodukuri",
+    title: "大阪市のテンセンス株式会社がものづくり補助金で食べられるカップの量産設備を導入した事例",
+    summary: "大阪市北区のテンセンス株式会社は、クッキー生地で作る食べられるカップ「ECOPRESSO」を考案した。手作りでは1日100個ほどしか作れず企業からの依頼に応えられなかったため、2017年にものづくり補助金で量産できる設備を導入した。",
+    industry: "飲食・食品製造（カフェ運営、クッキー生地のカップ製造）",
+    region: "大阪府大阪市北区",
+    business: "テンセンス株式会社",
+    size: "",
+    challenge: "手作りでは1日100個ほどしか作れず、企業からのコラボ依頼に応えられなかった。",
+    actions: [
+      "クッキー生地で作る食べられるエコなカップ「ECOPRESSO」を考案した",
+      "2017年にものづくり補助金を活用し、大量生産できる設備を導入した",
+    ],
+    results: [
+      "手作りでは応えきれなかった企業からの依頼に対応できるよう、ECOPRESSOを量産できる設備を導入しました。（出典のページには、導入後の売上などの数値は載っていません）",
+    ],
+    points: [
+      "手作業の生産能力の限界が事業拡大の壁になっている場合、設備投資が選択肢になりうる",
+      "成果の数値は出典ごとに異なりうるため、掲載時は出典ページの記述に合わせる必要がある",
+    ],
+    source: {"title": "企業のSDGs取組事例（SDGs貢献ビジネス）（テンセンス株式会社）", "url": "https://www.kansai.meti.go.jp/2kokusai/SDGS/jirei_from2021fy/sdgs_jirei_10sense.html", "publisher": "近畿経済産業局（経済産業省）", "license": "pdl"},
+    links: ["feature/monodukuri.html", "who/sme.html", "basics/business-plan.html"],
+  },
+  {
+    slug: "kaya-cellophane-ishikawa", subsidy: "career",
+    title: "石川県の賀谷セロファンがキャリアアップ助成金を活用し派遣社員らを正社員に転換した事例",
+    summary: "石川県の包装紙・フィルム加工業の賀谷セロファンは、派遣社員・契約社員の1年以内の離職率の高さが課題だった。2014年度に就業規則を整備してキャリアアップ助成金を活用し、派遣社員5名を含む6名を正社員へ転換した。",
+    industry: "包装紙・フィルム加工業",
+    region: "石川県（市区町村は確認できず）",
+    business: "賀谷セロファン株式会社",
+    size: "",
+    challenge: "派遣社員・契約社員の1年以内の離職率が高いことが課題だった。",
+    actions: [
+      "2014年度に就業規則を整備した",
+      "キャリアアップ助成金を活用して正社員転換を進めた",
+    ],
+    results: [
+      "6名（うち派遣社員5名）を正社員に転換した",
+    ],
+    points: [
+      "助成金の活用を機に就業規則や転換制度を整えることが、雇用の見直しにつながる場合がある",
+      "要件や助成額は年度で変わるため、最新の案内の確認が前提となる",
+    ],
+    source: {"title": "事業主の皆さまへ ～キャリアアップ助成金を活用して優秀な人材を確保～ 派遣労働者を正社員として直接雇用しませんか", "url": "https://jsite.mhlw.go.jp/niigata-roudoukyoku/library/niigata-roudoukyoku/jigyounushi/jyoseikin/281001career_up/281214haken_leaf.pdf", "publisher": "厚生労働省 新潟労働局", "license": "pdl"},
+    links: ["feature/employment.html", "who/sme.html", "basics/flow.html"],
+  },
+  {
+    slug: "yamachiku-nankan-kumamoto", subsidy: "saikouchiku",
+    title: "熊本県南関町のヤマチクが事業再構築補助金でカフェ併設のファクトリーショップを新設した事例",
+    summary: "熊本県南関町の竹箸メーカー、株式会社ヤマチクは、箸のOEM中心で利益が出にくい状態にあった。自社ブランドの直販強化のため、事業再構築補助金でカフェ併設のファクトリーショップなどを新設し、自社商品の売上は全体の60%を占めるとされる。",
+    industry: "製造業（竹製の箸の製造・販売）",
+    region: "熊本県玉名郡南関町",
+    business: "株式会社ヤマチク",
+    size: "",
+    challenge: "箸のOEMが主な収益源で下請け色が強く、利益が全く出ない状態だった。働く人たちが仕事に誇りを持てていないことも課題だった。",
+    actions: [
+      "自社ブランド「okaeri」を立ち上げ、社員を巻き込んで開発を進めた",
+      "自社ブランドの直販を強化するため、ギャラリー兼ワークショップスペースとカフェを併設したファクトリーショップを新設する計画を立て、事業再構築補助金（第9回公募）を活用した事例として、九州経済産業局が紹介しています。",
+      "2023年に工場横にカフェ併設のファクトリーショップ「拝啓」をオープンした",
+    ],
+    results: [
+      "自社商品の売上が会社全体の60%を占めるようになった",
+    ],
+    points: [
+      "下請け中心の事業構造を見直す際、自社ブランドと直販拠点を組み合わせる方法がある",
+      "売上60%は補助事業単独の効果ではなく自社ブランド全体の数字である点に注意が必要",
+    ],
+    source: {"title": "株式会社ヤマチク（九州経済産業局 事例資料）", "url": "https://www.kyushu.meti.go.jp/seisaku/ryutsu/design/pdf/jirei03_yamachiku.pdf", "publisher": "九州経済産業局（経済産業省）", "license": "pdl"},
+    links: ["feature/monodukuri.html", "who/sme.html", "basics/business-plan.html"],
   },
 ];
