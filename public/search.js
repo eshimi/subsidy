@@ -86,7 +86,7 @@
   const zipCityOf = (pref) => (!pref || pref === zipPref ? cityNames.find((n) => zipRest.startsWith(n)) || '' : '');
 
   function conditions() {
-    const t = text();
+    const t = window.HJFold.expand(text());
     const q = isSentence(t) ? { pref: '', city: '', words: [] } : splitQuery(t);
     // 市区町村：入力した名前を優先し、なければ郵便番号の住所から
     const city = q.city || zipCityOf(field('pref').value || q.pref);
@@ -132,6 +132,7 @@
   };
 
   // 1件の補助金の関連度。タイトルの一致を最も重く、次に目的・業種のタグ、地域の順
+  const fold = window.HJFold.fold;
   function scoreOf(g, c) {
     const query = c.text;
     const title = String(g.t || '');
@@ -140,10 +141,10 @@
     // ふだんの言葉（g.k）：入力と、言葉どうしが含み合うときに一致とみなす（1語のときは完全一致も可）
     const everyday = Array.isArray(g.k) ? g.k : [];
     for (const w of c.words) {
-      const lw = w.toLowerCase();
-      if (title.toLowerCase().includes(lw)) s += 3;
-      else if (area.toLowerCase().includes(lw)) s += 1;
-      if (everyday.some((k) => k === w || (w.length >= 2 && k.includes(w)) || (k.length >= 2 && w.includes(k)))) s += 2;
+      const lw = fold(w);
+      if (fold(title).includes(lw)) s += 3;
+      else if (fold(area).includes(lw)) s += 1;
+      if (everyday.some((k0) => { const k = fold(k0); return k === lw || (lw.length >= 2 && k.includes(lw)) || (k.length >= 2 && lw.includes(k)); })) s += 2;
     }
     const hits = new Set();
     for (const [re, kind, slug] of TAG_HINTS) if (re.test(query)) hits.add(kind + ':' + slug);
@@ -154,8 +155,8 @@
     }
     if (c.words.length === 0 && query) {
       // 文章の場合：文字の並びの重なりで、タイトルとの近さを見る
-      const q = bigrams(query);
-      const tb = bigrams(`${title} ${everyday.join(' ')}`);
+      const q = bigrams(fold(query));
+      const tb = bigrams(fold(`${title} ${everyday.join(" ")}`));
       let n = 0;
       for (const b of q) if (tb.has(b)) n++;
       const ratio = q.size ? n / q.size : 0;
