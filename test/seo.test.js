@@ -49,3 +49,13 @@ test('説明文が短いページは、サイトの説明を添えて長くす�
   assert.equal(padDescription(d), d);
   assert.equal(padDescription('あ'.repeat(70)), 'あ'.repeat(70));
 });
+
+test('特集ページの独自解説（向き・不向き、近い制度との違い）は、何度入れても同じ結果', async () => {
+  const { applyFit } = await import('../scripts/apply-fit.mjs');
+  const { FIT } = await import('../scripts/data/feature-fit.mjs');
+  for (const slug of Object.keys(FIT)) {
+    const html = readFileSync(join(process.cwd(), 'public/feature', `${slug}.html`), 'utf-8');
+    assert.match(html, /id="fit"/, slug);
+    assert.equal(applyFit(html, slug), html, slug);
+  }
+});
