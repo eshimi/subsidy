@@ -918,3 +918,14 @@ button.r-way:focus-visible { outline: 2px solid var(--accent); outline-offset: 2
 .r-more b { color: #0a2352; margin-right: 4px; }
 .r-more a { padding: 5px 13px; border-radius: 999px; background: #fff; border: 1px solid #d5dce8; color: #0a2352; text-decoration: none; }
 .r-more a:hover { background: #e8eef8; }
+
+/* 右側の列の広告（300x250）：列を広げ、広告のある列は固定せずに流す */
+.page-split { grid-template-columns: minmax(0, 1fr) 320px; column-gap: 44px; }
+.page-side.has-ad { position: static; max-height: none; overflow: visible; padding: 20px 10px 22px; }
+.page-side.has-ad .related-links { padding: 0 12px; }
+.pr-side { margin: 28px 0 0; padding-top: 14px; border-top: 1px solid rgba(31, 58, 82, 0.15); }
+.pr-side-label { margin: 0 0 8px 12px; font-size: 0.75rem; color: var(--mute); }
+.pr-side .pr-tag { display: inline-block; padding: 1px 6px; margin-right: 4px; border: 1px solid var(--mute); font-size: 0.68rem; font-weight: 700; }
+.pr-side a { display: block; width: 300px; max-width: 100%; border: 0; padding: 0; }
+.pr-side img:not(.pr-pixel) { display: block; width: 300px; max-width: 100%; height: auto; border-radius: 4px; }
+@media (max-width: 960px) { .page-split { grid-template-columns: 1fr; } .page-side.has-ad { padding: 20px 0 22px; } .pr-side { margin-left: 0; } .pr-side-label { margin-left: 0; } .page-side.has-ad .related-links { padding: 0; } }

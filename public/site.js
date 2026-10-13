@@ -85,5 +85,52 @@
   main.appendChild(box);
 })();
 
+// A8.net アフィリエイト広告（300x250）：右側の列（関連ページの下）に1つ表示する。右側の列があるページだけ。
+// 300x250 の広告が増えたら sideAds に足す（複数あるときは、ページごとにランダムで1つ）
+(function () {
+  const path = location.pathname.replace(/index\.html$/, '');
+  if (path === '/' || path === '' || path.indexOf('/policy/') === 0 || path === '/compare/virtual-office.html') return;
+  const side = document.querySelector('.page-side');
+  if (!side) return;
+  const sideAds = [
+    // 広告主名が未確認の広告。分かり次第 name を書き換える
+    {
+      name: '提携先の広告',
+      href: 'https://px.a8.net/svt/ejp?a8mat=4BED92+98TBXU+5UY6+5ZMCH',
+      img: 'https://www27.a8.net/svt/bgt?aid=261010838559&wid=001&eno=01&mid=s00000027339001006000&mc=1',
+      pixel: 'https://www17.a8.net/0.gif?a8mat=4BED92+98TBXU+5UY6+5ZMCH'
+    }
+  ];
+  const ad = sideAds[Math.floor(Math.random() * sideAds.length)];
+  const box = document.createElement('div');
+  box.className = 'pr-side';
+  const label = document.createElement('p');
+  label.className = 'pr-side-label';
+  const tag = document.createElement('span');
+  tag.className = 'pr-tag';
+  tag.textContent = 'PR';
+  label.append(tag, ' 広告');
+  const a = document.createElement('a');
+  a.href = ad.href;
+  a.rel = 'sponsored nofollow noopener';
+  a.target = '_blank';
+  const img = document.createElement('img');
+  img.width = 300;
+  img.height = 250;
+  img.alt = ad.name + '（広告）';
+  img.loading = 'lazy';
+  img.src = ad.img;
+  a.appendChild(img);
+  const pixel = document.createElement('img');
+  pixel.className = 'pr-pixel';
+  pixel.width = 1;
+  pixel.height = 1;
+  pixel.alt = '';
+  pixel.src = ad.pixel;
+  box.append(label, a, pixel);
+  side.classList.add('has-ad');
+  side.appendChild(box);
+})();
+
 // フッターのリンク：全カテゴリを開いたままにする
 document.querySelectorAll('.footer-group').forEach((d) => { d.open = true; });

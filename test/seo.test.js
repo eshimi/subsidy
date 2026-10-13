@@ -75,3 +75,10 @@ test('AdSense：ads.txt と、サイト確認用のメタタグがある', () =>
   assert.equal(readFileSync(join(process.cwd(), 'public/ads.txt'), 'utf-8').trim(), 'google.com, pub-7811993263471350, DIRECT, f08c47fec0942fa0');
   assert.match(readFileSync(join(process.cwd(), 'public/index.html'), 'utf-8'), /<meta name="google-adsense-account" content="ca-pub-7811993263471350">/);
 });
+
+test('A8の300x250のバナーは、右側の列に出す（site.js）', () => {
+  const js = readFileSync(join(process.cwd(), 'public/site.js'), 'utf-8');
+  assert.match(js, /a8mat=4BED92\+98TBXU\+5UY6\+5ZMCH/);
+  assert.match(js, /page-side/);
+  assert.match(readFileSync(join(process.cwd(), 'public/style.css'), 'utf-8'), /\.pr-side/);
+});
