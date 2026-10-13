@@ -102,3 +102,17 @@ test('トップ・検索ページの一覧を、先にHTMLへ書き出す（締�
   assert.match(applySearch(s, lists), /<ul class="r-list">.*制度B/);
   assert.equal(applySearch(s, { search: '' }), s);
 });
+
+test('特集の「背景と目的」：何度入れても同じ結果。出典・確認日・関連記事が付く', async () => {
+  const { applyBackground, articles, relatedFor } = await import('../scripts/apply-background.mjs');
+  const { BACKGROUND } = await import('../scripts/data/feature-background.mjs');
+  const list = articles();
+  for (const slug of Object.keys(BACKGROUND)) {
+    const html = readFileSync(join(process.cwd(), 'public/feature', `${slug}.html`), 'utf-8');
+    assert.match(html, /id="bg"/, slug);
+    assert.equal(applyBackground(html, slug, list), html, slug);
+    assert.match(html, /出典（確認した日：/, slug);
+    assert.ok(BACKGROUND[slug].sources.length >= 3, slug);
+  }
+  assert.ok(relatedFor(['省力化'], list).every((a) => a.title.includes('省力化')));
+});
