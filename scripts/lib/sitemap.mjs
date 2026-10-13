@@ -7,7 +7,7 @@ const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&
 
 // 転送用のページ（noindex・自動で移動するもの）はサイトマップに載せない
 function isRedirect(html) {
-  return /<meta\s+name="robots"\s+content="noindex"/i.test(html) || /http-equiv="refresh"/i.test(html);
+  return /<meta\s+name="robots"\s+content="noindex[^"]*"/i.test(html) || /http-equiv="refresh"/i.test(html);
 }
 
 const unesc = (s) => s.replace(/&(amp|lt|gt|quot|#39);/g, (_, e) => ({ amp: '&', lt: '<', gt: '>', quot: '"', '#39': "'" })[e]);
@@ -18,7 +18,7 @@ function titleOf(html) {
 }
 
 // public/ 直下と、記事のフォルダのページ（grants/ はデプロイ時に作られるため別扱い）
-const FOLDERS = ['', 'basics', 'who', 'personal', 'feature', 'cases', 'compare', 'columns', 'guides', 'news', 'blog', 'policy', 'area'];
+const FOLDERS = ['', 'basics', 'who', 'personal', 'feature', 'cases', 'compare', 'columns', 'guides', 'news', 'blog', 'policy', 'area', 'research'];
 
 export function listPages(publicDir) {
   const pages = [];

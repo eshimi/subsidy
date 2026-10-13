@@ -27,6 +27,7 @@ export const FOLDER_TAGS = {
   compare: ['補助金の比較'],
   news: ['補助金ニュース', '公募情報'],
   blog: ['補助金ブログ'],
+  research: ['補助金データ', '補助金の統計'],
 };
 
 const stripTags = (h) => h.replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<style[\s\S]*?<\/style>/g, ' ').replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/&[a-z]+;/g, ' ').replace(/\s+/g, ' ').trim();

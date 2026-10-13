@@ -20,7 +20,7 @@ export function relatedKind(href, current) {
   const top = stack[0] || '';
   if (top === 'cases') return 'cases';
   if (top === 'feature' || top === 'compare') return 'feature';
-  if (['basics', 'columns', 'blog', 'news', 'guides'].includes(top) || ['columns.html', 'real-life.html', 'beginner-guide.html', 'roadmap.html', 'books.html', 'resources.html'].includes(path)) return 'know';
+  if (['basics', 'columns', 'blog', 'news', 'guides', 'research'].includes(top) || ['columns.html', 'real-life.html', 'beginner-guide.html', 'roadmap.html', 'books.html', 'resources.html'].includes(path)) return 'know';
   if (top === 'who' || top === 'personal') return 'who';
   if (['grants', 'area'].includes(top) || ['search.html', 'hantei.html', 'hitsuyo.html', 'diagnosis.html', 'chat.html', ''].includes(path) || path === 'index.html') return 'find';
   return 'other';
@@ -57,6 +57,7 @@ const FOLDER_HINT = {
   news: 'news/index.html',
   who: 'who/sme.html',
   personal: 'hantei.html?for=personal',
+  research: 'research/index.html',
 };
 const EXCLUDE = ['index.html', 'sitemap.html', 'search.html', 'shindan.html', 'ai.html', 'hantei.html', 'consult.html'];
 

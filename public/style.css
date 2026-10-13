@@ -940,3 +940,19 @@ button.r-way:focus-visible { outline: 2px solid var(--accent); outline-offset: 2
 .tool-faq h2 { font-size: 1.15rem; margin: 0 0 12px; color: #0a2352; }
 .tool-faq h3 { font-size: 0.98rem; margin: 18px 0 6px; }
 .tool-faq p { margin: 0; line-height: 1.8; font-size: 0.93rem; color: #2b3a52; }
+
+/* 補助金データ（research/）：棒グラフ、主な数字、このデータについて */
+.rs-list { list-style: none; margin: 8px 0 16px; padding: 0; display: grid; gap: 8px; }
+.rs-list li { display: grid; grid-template-columns: minmax(7em, 14em) 1fr 4.5em; gap: 10px; align-items: center; font-size: 0.92rem; }
+.rs-b { display: block; height: 14px; background: #eef1f6; border-radius: 7px; overflow: hidden; }
+.rs-b i { display: block; height: 100%; background: linear-gradient(90deg, #2b65b1, #5b8fd6); border-radius: 7px; }
+.rs-n { text-align: right; font-weight: 700; color: #0a2352; }
+.rs-key { list-style: none; margin: 8px 0 16px; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+.rs-key li { padding: 14px 16px; background: #f4f7fb; border: 1px solid #e6e8ec; border-radius: 10px; }
+.rs-key b { font-size: 1.7rem; color: #0a2352; }
+.rs-key span { font-size: 0.85rem; margin-left: 2px; }
+.rs-key em { display: block; font-style: normal; font-size: 0.8rem; color: #56667f; margin-top: 4px; }
+.rs-box { display: grid; grid-template-columns: max-content 1fr; gap: 6px 16px; margin: 8px 0; padding: 14px 18px; background: #f9fafc; border-left: 3px solid #073461; border-radius: 0 10px 10px 0; font-size: 0.88rem; line-height: 1.7; }
+.rs-box dt { font-weight: 700; }
+.rs-box dd { margin: 0; }
+@media (max-width: 640px) { .rs-list li { grid-template-columns: 1fr 3em; } .rs-list .rs-l { grid-column: 1 / -1; } .rs-box { grid-template-columns: 1fr; } .rs-box dd { margin-bottom: 6px; } }
