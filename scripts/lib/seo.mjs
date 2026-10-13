@@ -64,6 +64,14 @@ export function descriptionFor(desc, lead) {
   return merged;
 }
 
+// 説明文が60字に満たないページ（一覧・案内など）は、サイトの説明を添えて補う
+export const SITE_BLURB = '補助金ネットは、補助金・助成金をキーワード・地域・目的・締切から探せる無料のサイトです。';
+export function padDescription(desc) {
+  const d = String(desc || '').trim();
+  if (!d || d.length >= 60 || d.includes(SITE_BLURB)) return d;
+  return `${d.replace(/。$/, '')}。${SITE_BLURB}`;
+}
+
 export function jsonLdArticle({ type, headline, description, url, image, datePublished, dateModified, keywords, section }) {
   const o = {
     '@context': 'https://schema.org', '@type': type, headline, description, url, mainEntityOfPage: { '@type': 'WebPage', '@id': url },

@@ -305,10 +305,10 @@ ${faqFor(g, now).map(([q, a]) => `        <dt><strong>${esc(q)}</strong></dt><dd
     '@context': 'https://schema.org', '@type': 'FAQPage',
     mainEntity: faqFor(g, now).map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
   })}</script>\n`;
-  return shell({ title, description, canonicalPath: `/grants/${g.id}.html`, body, jsonLd }).replace('</style>', `${STYLE_EXTRA}\n  </style>`);
+  return shell({ title, description, canonicalPath: `/grants/${g.id}.html`, body, jsonLd, robots: 'noindex, follow' }).replace('</style>', `${STYLE_EXTRA}\n  </style>`);
 }
 
-function listPage({ title, heading, lead, items, now, canonicalPath, extra = '' }) {
+function listPage({ title, heading, lead, items, now, canonicalPath, extra = '', robots = 'index, follow' }) {
   const body = `${crumb([[null, heading]])}
 
     <div style="margin-bottom: 2rem;">
@@ -322,7 +322,7 @@ ${grantListHtml(items, now, { empty: '現在、表示できる制度がありま
 
 ${extra}
     <p class="area-note">情報は jGrants（デジタル庁）の公開データをもとに、毎日自動で更新しています。最新の要件は公式サイトで確認してください。</p>`;
-  return shell({ title, description: lead, canonicalPath, body }).replace('</style>', `${STYLE_EXTRA}\n  </style>`);
+  return shell({ title, description: lead, canonicalPath, body, robots }).replace('</style>', `${STYLE_EXTRA}\n  </style>`);
 }
 
 const MIN_HUB = 3; // 該当が少ない一覧は作らない（内容が薄いページを増やさない）
@@ -607,7 +607,7 @@ ${hubs.map((h) => `        <li><a href="${h.file}">${h.heading}</a></li>`).join(
       </ul>
     </nav>` }));
   for (const h of hubs) {
-    writeFileSync(join(out, h.file), listPage({ title: `${h.title}｜補助金ネット`, heading: h.heading, lead: h.lead, items: h.items, now, canonicalPath: `/grants/${h.file}` }));
+    writeFileSync(join(out, h.file), listPage({ title: `${h.title}｜補助金ネット`, heading: h.heading, lead: h.lead, items: h.items, now, canonicalPath: `/grants/${h.file}`, robots: 'noindex, follow' }));
   }
   const purposes = purposeHubsFor(grants, now);
   const industries = industryHubsFor(grants, now);
@@ -624,7 +624,8 @@ ${hubs.map((h) => `        <li><a href="${h.file}">${h.heading}</a></li>`).join(
   for (const pref of PREFECTURES) writeFileSync(join(out, `pref-${PREF_SLUGS[pref]}.html`), prefPage(pref, counts[pref], now));
   if (existsSync(sitemap)) {
     // 検索結果ページに転送する一覧（都道府県別・目的別・業種別・制度一覧・締切が近い）は、サイトマップに載せない
-    const urls = ['grants/prefectures.html', 'grants/purposes.html', 'grants/industries.html', ...hubs.map((h) => `grants/${h.file}`), ...grants.map((g) => `grants/${g.id}.html`)];
+    // 制度ごとのページと、締切・上限額の一覧は、公開データの自動生成で独自の内容が薄いため、検索に出さない（noindex）。サイトマップにも載せない
+    const urls = ['grants/prefectures.html', 'grants/purposes.html', 'grants/industries.html'];
     writeFileSync(sitemap, sitemapWith(readFileSync(sitemap, 'utf-8'), urls, lastmod));
   }
   return { pages: grants.length };

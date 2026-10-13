@@ -3,6 +3,7 @@ import { topnavHtml, footerNavHtml, footerBottomHtml } from './nav.mjs';
 import { splitLayout } from './side-layout.mjs';
 import { applyBanner } from './banners.mjs';
 import { addSectionIcons, addSectionDividers } from './section-icons.mjs';
+import { padDescription } from './seo.mjs';
 
 export const SITE = 'https://hojyokin.net';
 
@@ -61,7 +62,8 @@ export function boxSections(html, prefix = '') {
   return addSectionDividers(addSectionIcons(boxed, prefix), prefix);
 }
 
-function shell({ title, description, canonicalPath, body, jsonLd = '', robots = 'index, follow' }) {
+function shell({ title, description: rawDescription, canonicalPath, body, jsonLd = '', robots = 'index, follow' }) {
+  const description = padDescription(rawDescription);
   // 現在のページ（public/ からのパス）。メニューの現在地の表示に使う
   const current = canonicalPath.replace(/^\//, '') || 'index.html';
   return `<!doctype html>

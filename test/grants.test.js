@@ -59,7 +59,10 @@ test('buildAll: 制度ページ・一覧・締切一覧を作り、sitemapに追
   assert.match(pref, /data-end="[^"]+" data-start="" data-max="0"/);
   const deadlines = readFileSync(join(out, 'deadlines.html'), 'utf-8');
   assert.ok(deadlines.indexOf('b2.html') < deadlines.indexOf('a1.html'));
-  assert.match(readFileSync(sitemap, 'utf-8'), /grants\/b2\.html/);
+  const sm = readFileSync(sitemap, "utf-8");
+  assert.doesNotMatch(sm, /grants\/b2\.html/); // 制度ごとのページは noindex のため、サイトマップに載せない
+  assert.match(sm, /grants\/prefectures\.html/);
+  assert.match(readFileSync(join(out, "b2.html"), "utf-8"), /<meta name="robots" content="noindex, follow">/);
 });
 
 test('buildAll: データがないときは準備中の案内だけを出す', () => {

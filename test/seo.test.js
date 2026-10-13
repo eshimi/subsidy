@@ -41,3 +41,11 @@ test('すべての記事ページに、キーワード・構造化データ・�
     }
   }
 });
+
+test('説明文が短いページは、サイトの説明を添えて長くする', async () => {
+  const { padDescription } = await import('../scripts/lib/seo.mjs');
+  const d = padDescription('ブログの一覧');
+  assert.ok(d.length >= 45 && d.startsWith('ブログの一覧。'));
+  assert.equal(padDescription(d), d);
+  assert.equal(padDescription('あ'.repeat(70)), 'あ'.repeat(70));
+});

@@ -8,7 +8,7 @@ import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseFrontmatter } from './lib/markdown.mjs';
-import { SITE, FOLDER_TAGS, autoTags, descriptionFor, jsonLdArticle, jsonLdBreadcrumb, stripTags } from './lib/seo.mjs';
+import { SITE, FOLDER_TAGS, padDescription, autoTags, descriptionFor, jsonLdArticle, jsonLdBreadcrumb, stripTags } from './lib/seo.mjs';
 
 const REPO = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PUB = join(REPO, 'public');
@@ -45,7 +45,7 @@ export function seoFor(folder, file, html) {
   if (!modified) modified = published;
   const tags = autoTags({ folder, title: h1, headings: h2s, text, extra });
   const desc0 = (html.match(/<meta name="description" content="([^"]*)"/) || [])[1] || '';
-  const description = descriptionFor(desc0.replace(/&quot;/g, '"').replace(/&amp;/g, '&'), lead);
+  const description = padDescription(descriptionFor(desc0.replace(/&quot;/g, '"').replace(/&amp;/g, '&'), lead));
   const url = `${SITE}/${folder}/${file}`;
   const crumbLinks = [...crumbHtml.matchAll(/<a href="([^"]+)">([^<]+)<\/a>/g)].map((m) => [m[2], new URL(m[1], url).href]);
   const crumbLast = stripTags(crumbHtml.replace(/<a[\s\S]*?<\/a>/g, '')).replace(/^[\s＞]+/, '').replace(/[\s＞]+$/g, '').split(/\s*＞\s*/).filter(Boolean).pop() || h1;
@@ -85,15 +85,35 @@ export function applySeo(folder, file, html) {
   return out;
 }
 
+// 記事以外のページ（public/ 直下、area/、policy/ など）：短い説明文だけを補う
+export function padPageDescription(html) {
+  const d = (html.match(/<meta name="description" content="([^"]*)"/) || [])[1];
+  if (!d) return html;
+  const plain = d.replace(/&quot;/g, '"').replace(/&amp;/g, '&');
+  const next = padDescription(plain);
+  if (next === plain) return html;
+  return html.split(`content="${d}"`).join(`content="${esc(next)}"`);
+}
+
 export function run() {
   let n = 0;
+  const others = [''].concat(readdirSync(PUB, { withFileTypes: true }).filter((e) => e.isDirectory() && !FOLDERS.includes(e.name) && !['grants', 'images', 'icons', 'media', 'data'].includes(e.name)).map((e) => e.name));
+  for (const folder of others) {
+    const dir = join(PUB, folder);
+    for (const file of readdirSync(dir).filter((f) => f.endsWith('.html'))) {
+      const p = join(dir, file);
+      const before = readFileSync(p, 'utf-8');
+      const after = padPageDescription(before);
+      if (after !== before) { writeFileSync(p, after); n++; }
+    }
+  }
   for (const folder of FOLDERS) {
     const dir = join(PUB, folder);
     if (!existsSync(dir)) continue;
-    for (const file of readdirSync(dir).filter((f) => f.endsWith('.html') && f !== 'index.html')) {
+    for (const file of readdirSync(dir).filter((f) => f.endsWith('.html'))) {
       const p = join(dir, file);
       const before = readFileSync(p, 'utf-8');
-      const after = applySeo(folder, file, before);
+      const after = file === 'index.html' ? padPageDescription(before) : applySeo(folder, file, before);
       if (after !== before) { writeFileSync(p, after); n++; }
     }
   }
