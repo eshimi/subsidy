@@ -59,3 +59,14 @@ test('特集ページの独自解説（向き・不向き、近い制度との�
     assert.equal(applyFit(html, slug), html, slug);
   }
 });
+
+test('基礎知識・対象者別の独自解説は、何度入れても同じ結果で、FAQの構造化データが付く', async () => {
+  const { applyExtra } = await import('../scripts/apply-extra.mjs');
+  const { EXTRA } = await import('../scripts/data/extra-sections.mjs');
+  for (const key of Object.keys(EXTRA)) {
+    const html = readFileSync(join(process.cwd(), 'public', key), 'utf-8');
+    assert.match(html, /<!-- extra:start -->/, key);
+    assert.equal(applyExtra(html, key), html, key);
+    if (EXTRA[key].sections.some((s) => s.faq)) assert.match(html, /"@type":"FAQPage"/, key);
+  }
+});
