@@ -82,3 +82,23 @@ test('A8の300x250のバナーは、右側の列に出す（site.js）', () => {
   assert.match(js, /page-side/);
   assert.match(readFileSync(join(process.cwd(), 'public/style.css'), 'utf-8'), /\.pr-side/);
 });
+
+test('トップ・検索ページの一覧を、先にHTMLへ書き出す（締切の近い順、何度でも同じ結果）', async () => {
+  const { listsFor, applyHome, applySearch } = await import('../scripts/prerender-lists.mjs');
+  const now = Date.parse('2026-10-13T00:00:00Z');
+  const items = [
+    { id: 'a', t: '制度A', a: '東京都', s: '2026-10-01', e: '2026-12-01' },
+    { id: 'b', t: '制度B', a: '全国', s: '2026-10-10', e: '2026-10-20' },
+    { id: 'c', t: '終了した制度', a: '全国', s: '2026-01-01', e: '2026-02-01' },
+  ];
+  const lists = listsFor(items, now);
+  assert.match(lists.home.soon, /制度B.*締切まで7日.*制度A/);
+  assert.ok(!lists.search.includes('終了した制度'));
+  const home = '<ul id="r-soon"><!-- prerender-soon:start --><li>読み込み中…</li><!-- prerender-soon:end --></ul><ul id="r-new"><!-- prerender-new:start --><!-- prerender-new:end --></ul>';
+  const once = applyHome(home, lists);
+  assert.equal(applyHome(once, lists), once);
+  assert.ok(!once.includes('読み込み中'));
+  const s = '<div id="s-results"><!-- prerender:start --><!-- prerender:end --></div>';
+  assert.match(applySearch(s, lists), /<ul class="r-list">.*制度B/);
+  assert.equal(applySearch(s, { search: '' }), s);
+});

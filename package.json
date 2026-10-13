@@ -12,7 +12,7 @@
     "fetch:jgrants": "node scripts/fetch-jgrants.mjs",
     "build:blog": "node scripts/build-blog.mjs",
     "build:news": "node scripts/build-news-pages.mjs && node scripts/build-blog.mjs && node scripts/build-area-pages.mjs && node scripts/update-stats.mjs && node scripts/apply-seo.mjs && node scripts/update-latest.mjs",
-    "build:grants": "node scripts/fetch-jgrants.mjs && node scripts/build-grant-pages.mjs && node scripts/build-redirects.mjs && node scripts/update-stats.mjs && node scripts/update-latest.mjs"
+    "build:grants": "node scripts/fetch-jgrants.mjs && node scripts/build-grant-pages.mjs && node scripts/build-redirects.mjs && node scripts/update-stats.mjs && node scripts/prerender-lists.mjs && node scripts/update-latest.mjs"
   },
   "engines": {
     "node": ">=20"

@@ -92,7 +92,7 @@ ${panels}
     <script src="hitsuyo.js" defer></script>`;
 
 const html = shell({
-  title: '必要なものから補助金を探す｜補助金ネット',
+  title: '補助金で買えるもの｜ホームページ・店舗改装・POS・PCから補助金を探す｜補助金ネット',
   description: 'POSレジ、店舗の改装、業務用PC、AIツールなど、買い物や投資の内容から関係しそうな補助金を探せます。購入前の確認事項や、契約・発注の注意も表示します。',
   canonicalPath: '/hitsuyo.html',
   body: body,

@@ -929,3 +929,14 @@ button.r-way:focus-visible { outline: 2px solid var(--accent); outline-offset: 2
 .pr-side a { display: block; width: 300px; max-width: 100%; border: 0; padding: 0; }
 .pr-side img:not(.pr-pixel) { display: block; width: 300px; max-width: 100%; height: auto; border-radius: 4px; }
 @media (max-width: 960px) { .page-split { grid-template-columns: 1fr; } .page-side.has-ad { padding: 20px 0 22px; } .pr-side { margin-left: 0; } .pr-side-label { margin-left: 0; } .page-side.has-ad .related-links { padding: 0; } }
+
+/* 都道府県ページ：市区町村・都道府県のリンク一覧 */
+.area-city-list { display: flex; flex-wrap: wrap; gap: 8px 10px; list-style: none; margin: 0; padding: 0; }
+.area-city-list a { display: inline-block; padding: 4px 12px; border-radius: 999px; background: #fff; border: 1px solid #d5dce8; color: #0a2352; text-decoration: none; font-size: 0.9rem; }
+.area-city-list a:hover { background: #e8eef8; }
+
+/* 検索・AI判定ページの「よくある質問」 */
+.tool-faq { margin: 48px 0 24px; padding: 24px 28px; background: #fff; border: 1px solid #e6e8ec; border-radius: 12px; }
+.tool-faq h2 { font-size: 1.15rem; margin: 0 0 12px; color: #0a2352; }
+.tool-faq h3 { font-size: 0.98rem; margin: 18px 0 6px; }
+.tool-faq p { margin: 0; line-height: 1.8; font-size: 0.93rem; color: #2b3a52; }
