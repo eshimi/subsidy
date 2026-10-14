@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import worker from '../src/worker.js';
-import { parsePlanInput, createDailyLimiter, memoryStore, jstDate, planText } from '../src/plan.js';
+import { parsePlanInput, planMode, createDailyLimiter, memoryStore, jstDate, planText } from '../src/plan.js';
 import { planSystem, shapePlan } from '../src/ai.js';
 
 const valid = {
@@ -20,7 +20,7 @@ const valid = {
 };
 
 test('plan: 正しい入力をそのまま返し、補助金・選択肢・字数を検証する', () => {
-  assert.deepEqual(parsePlanInput(valid), valid);
+  assert.deepEqual(parsePlanInput(valid), { ...valid, mode: 'simple' });
   assert.throws(() => parsePlanInput({ ...valid, subsidy: 'other' }), { status: 400 });
   assert.throws(() => parsePlanInput({ ...valid, industry: '宇宙' }), { status: 400 });
   assert.throws(() => parsePlanInput({ ...valid, business: '' }), /事業の内容を入力/);
@@ -76,4 +76,12 @@ test('plan: 市場データは、Web 検索の結果に出てきた URL のも�
   assert.deepEqual(out.swot.threats, []);
   assert.deepEqual(out.kpis, []);
   assert.equal(shapePlan({ marketData: [{ fact: 'x', source: 'y', url: 'https://a.jp/' }] }, 'X', null).marketData.length, 0);
+});
+
+test('plan: 詳しい版は PLAN_DETAILED=on のときだけ。それ以外は無料の簡易版', () => {
+  const detailed = parsePlanInput({ ...valid, mode: 'detailed' });
+  assert.equal(planMode(detailed, undefined), 'simple');
+  assert.equal(planMode(detailed, 'off'), 'simple');
+  assert.equal(planMode(detailed, 'on'), 'detailed');
+  assert.equal(planMode(parsePlanInput(valid), 'on'), 'simple');
 });

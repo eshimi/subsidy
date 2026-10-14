@@ -10,7 +10,7 @@ import { parseChatMessages, aiUnavailable } from './chat-input.js';
 import { errorPayload } from './http-error.js';
 import { parseContact, buildRawMessage, buildMail } from './contact.js';
 import { parseAnswers, parseConsult, consultText } from './consult.js';
-import { parsePlanInput, createDailyLimiter, cacheStore, memoryStore } from './plan.js';
+import { parsePlanInput, planMode, createDailyLimiter, cacheStore, memoryStore } from './plan.js';
 
 const MAX_BODY_BYTES = 32 * 1024;
 const cache = new TtlCache();
@@ -68,6 +68,7 @@ async function planResponse(request, env, ctx) {
   if (input.spam) throw httpError(400, 'リクエストが不正です');
   if (!aiEnabled()) throw aiUnavailable();
   const limiter = getPlanLimiter(env);
+  const mode = planMode(input, env.PLAN_DETAILED);
   const key = await limiter.take(request.headers.get('cf-connecting-ip'));
   const { readable, writable } = new TransformStream();
   const writer = writable.getWriter();
@@ -78,7 +79,7 @@ async function planResponse(request, env, ctx) {
     const keepAlive = setInterval(() => send({ ping: true }), 20_000);
     try {
       send({ stage: 'start' });
-      const plan = await planWithClaude(input, { onStage: (stage) => send({ stage }) });
+      const plan = await planWithClaude(input, { onStage: (stage) => send({ stage, mode }), mode });
       await send({ result: plan });
     } catch (e) {
       await limiter.release(key);

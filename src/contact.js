@@ -1,7 +1,7 @@
 // /api/contact（お問い合わせフォーム）の入力検証と、送信するメールの組み立て。Workers 以外でも試せるよう、送信処理とは分けている。
 const MAX_MESSAGE = 2000;
 const MAX_NAME = 100;
-const CATEGORIES = ['ご意見・ご要望', '情報の誤りのご指摘', '不具合のご報告', '広告・提携について', 'その他'];
+const CATEGORIES = ['ご意見・ご要望', '情報の誤りのご指摘', '不具合のご報告', '広告・提携について', '事業計画書AI 詳しい版のご希望', 'その他'];
 const EMAIL_RE = /^[^\s@<>"',;:]+@[^\s@<>"',;:]+\.[^\s@<>"',;:]+$/;
 
 const bad = (message) => Object.assign(new Error(message), { status: 400, expose: true });

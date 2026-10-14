@@ -139,7 +139,7 @@
     // 表紙の帯は、余白を取れるよう1マスの表にする
     out.push(box([
       para(run('BUSINESS PLAN DRAFT', { b: true, color: '9DB8E0', size: 17 }), { after: 60 }),
-      para(run('事業計画づくりシート（下書き）', { b: true, color: 'FFFFFF', size: 40 }), { after: 80 }),
+      para(run(plan.mode === 'detailed' ? '事業計画づくりシート（下書き）' : '事業計画書の下書き（たたき台）', { b: true, color: 'FFFFFF', size: 40 }), { after: 80 }),
       para(run(plan.subsidy, { color: 'DCE6F5', size: 22 }), { after: 40 }),
       para(run(`作成日：${dateText}`, { color: 'DCE6F5', size: 18 }), { after: 0 }),
     ].join(''), { fill: NAVY, pad: 360 }));

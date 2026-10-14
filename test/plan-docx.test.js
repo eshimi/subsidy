@@ -31,7 +31,8 @@ test('plan-docx: Word に必要なファイルがそろい、本文に見出し�
   const files = unzip(bytes);
   for (const name of ['[Content_Types].xml', '_rels/.rels', 'word/document.xml', 'word/styles.xml', 'word/footer1.xml', 'word/_rels/document.xml.rels']) assert.ok(files[name], name);
   const doc = files['word/document.xml'];
-  assert.match(doc, /事業計画づくりシート（下書き）/);
+  assert.match(doc, /事業計画書の下書き（たたき台）/);
+  assert.match(unzip(load()({ mode: 'detailed', subsidy: 'X', summary: 'Y' }, 'D'))['word/document.xml'], /事業計画づくりシート（下書き）/);
   assert.match(doc, /要点 &lt;A&amp;B&gt;/);
   assert.match(doc, /C2410C"\/>[^]*?【売上】/);
   assert.match(doc, /実施スケジュールの例/);

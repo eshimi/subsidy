@@ -3,6 +3,9 @@
   if (!form) return;
   const status = document.getElementById('contact-status');
   const button = form.querySelector('button[type="submit"]');
+  // ?category=… で、お問い合わせの種類を選んだ状態にする（事業計画書AIの詳しい版など）
+  const wanted = new URLSearchParams(location.search).get('category');
+  if (wanted && [...form.elements.category.options].some((o) => o.value === wanted)) form.elements.category.value = wanted;
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     status.className = 'contact-status';

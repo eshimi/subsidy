@@ -42,7 +42,7 @@ export function parsePlanInput(body) {
   if (typeof body.website === 'string' && body.website.trim()) return { spam: true };
   const subsidy = str(body.subsidy);
   if (!Object.hasOwn(PLAN_SUBSIDIES, subsidy)) throw bad('補助金を選んでください');
-  const out = { subsidy };
+  const out = { subsidy, mode: str(body.mode) === 'detailed' ? 'detailed' : 'simple' };
   for (const [key, list] of Object.entries(PLAN_OPTIONS)) {
     const v = str(body[key]);
     if (!list.includes(v)) throw bad('業種と従業員数を選んでください');
@@ -60,6 +60,12 @@ export function parsePlanInput(body) {
     out[key] = v;
   }
   return out;
+}
+
+// 詳しい版（市場データの調査・分析つき）は有料で提供する予定のため、PLAN_DETAILED=on のときだけ使える。
+// それ以外は、無料お試しの簡易版にする
+export function planMode(input, flag) {
+  return input.mode === 'detailed' && flag === 'on' ? 'detailed' : 'simple';
 }
 
 // 日本時間の日付（YYYY-MM-DD）。回数制限は日本時間の0時で切り替わる

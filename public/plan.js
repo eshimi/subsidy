@@ -3,7 +3,9 @@
 // 結果はこのブラウザ（localStorage）にだけ保存し、再読み込みしても消えないようにする（お試しは1日1回のため）
 (function () {
   const form = document.getElementById('pl-form');
-  if (!form) return;
+  // サンプルのページ（plan-sample.html）では、埋め込んだ結果を表示するだけにする
+  const sampleEl = document.getElementById('pl-sample-data');
+  if (!form && !sampleEl) return;
   const send = document.getElementById('pl-send');
   const status = document.getElementById('pl-status');
   const result = document.getElementById('pl-result');
@@ -27,11 +29,19 @@
     value: 0,
   };
   // 段階ごとの [開始%, 上限%, 目安の秒数, 表示する文, 段階の番号]
-  const STAGES = {
-    start: [0, 6, 6, '入力内容を確認しています', 0],
-    research: [6, 40, 70, '市場データを調べています（Web検索）', 1],
-    writing: [40, 97, 130, '分析して、計画の下書きを書いています', 2],
+  // 詳しい版（調査→分析）と簡易版（下書きのみ）で、段階の範囲と目安の時間を変える
+  const STAGE_SETS = {
+    detailed: {
+      start: [0, 6, 6, '入力内容を確認しています', 0],
+      research: [6, 40, 70, '市場データを調べています（Web検索）', 1],
+      writing: [40, 97, 130, '分析して、計画の下書きを書いています', 2],
+    },
+    simple: {
+      start: [0, 6, 4, '入力内容を確認しています', 0],
+      writing: [6, 97, 60, '計画の構成を考えています', 1],
+    },
   };
+  let STAGES = STAGE_SETS.simple;
 
   function draw(p, label, idx) {
     const v = Math.round(p);
@@ -51,7 +61,10 @@
     progress.value = Math.max(progress.value, p);
     // 作成の終盤は「仕上げ」として表示する
     const finishing = progress.stage === 'writing' && progress.value > 85;
-    draw(progress.value, finishing ? '仕上げています' : label, finishing ? 3 : idx);
+    const drafting = STAGES === STAGE_SETS.simple && progress.stage === 'writing' && progress.value > 40;
+    if (finishing) draw(progress.value, '仕上げています', 3);
+    else if (drafting) draw(progress.value, '下書きを書いています', 2);
+    else draw(progress.value, label, idx);
   }
 
   function setStage(stage) {
@@ -79,7 +92,7 @@
     setTimeout(() => { progress.box.hidden = true; }, 1200);
   }
 
-  for (const c of form.querySelectorAll('.pl-count')) {
+  for (const c of form ? form.querySelectorAll('.pl-count') : []) {
     const ta = form.elements[c.dataset.for];
     const update = () => { c.textContent = `${ta.value.length} / ${ta.maxLength}`; };
     ta.addEventListener('input', update);
@@ -186,6 +199,8 @@
   function render(plan) {
     last = plan;
     document.getElementById('pl-cover-sub').textContent = plan.subsidy;
+    const title = document.getElementById('pl-result-h');
+    if (title) title.textContent = plan.mode === 'detailed' ? '事業計画づくりシート（下書き）' : '事業計画書の下書き（たたき台）';
     const sheet = document.getElementById('pl-sheet');
     sheet.replaceChildren();
     blocks(plan).forEach((blk, i) => {
@@ -200,8 +215,10 @@
     result.hidden = false;
   }
 
+  const fileBase = (plan) => (plan.mode === 'detailed' ? '事業計画づくりシート_下書き' : '事業計画書_下書き');
+
   function asText(plan) {
-    const L = [`【${plan.subsidy}】事業計画づくりシート（下書き）`, '※AIが作成した下書きです。そのまま提出せず、ご自身の言葉で書き直し、事実と数字を確かめてください。', ''];
+    const L = [`【${plan.subsidy}】${plan.mode === 'detailed' ? '事業計画づくりシート（下書き）' : '事業計画書の下書き（たたき台）'}`, '※AIが作成した下書きです。そのまま提出せず、ご自身の言葉で書き直し、事実と数字を確かめてください。', ''];
     blocks(plan).forEach((blk, i) => {
       L.push(`■ ${String(i + 1).padStart(2, '0')} ${blk.title}`);
       switch (blk.kind) {
@@ -225,10 +242,14 @@
     return L.join('\n');
   }
 
-  try {
-    const saved = JSON.parse(localStorage.getItem(STORE) || 'null');
-    if (saved && saved.plan) render(saved.plan);
-  } catch { /* 保存できない環境では何もしない */ }
+  if (sampleEl) {
+    render(JSON.parse(sampleEl.textContent));
+  } else {
+    try {
+      const saved = JSON.parse(localStorage.getItem(STORE) || 'null');
+      if (saved && saved.plan) render(saved.plan);
+    } catch { /* 保存できない環境では何もしない */ }
+  }
 
   function download(bytes, type, name) {
     const url = URL.createObjectURL(new Blob([bytes], { type }));
@@ -245,7 +266,7 @@
     if (!last || typeof window.planToDocxBytes !== 'function') return;
     const d = new Date();
     download(window.planToDocxBytes(last, `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日`),
-      'application/vnd.openxmlformats-officedocument.wordprocessingml.document', '事業計画づくりシート_下書き.docx');
+      'application/vnd.openxmlformats-officedocument.wordprocessingml.document', `${fileBase(last)}.docx`);
     if (typeof gtag === 'function') gtag('event', 'plan_docx');
   });
 
@@ -261,7 +282,7 @@
   });
 
   document.getElementById('pl-save').addEventListener('click', () => {
-    if (last) download(asText(last), 'text/plain;charset=utf-8', '事業計画づくりシート_下書き.txt');
+    if (last) download(asText(last), 'text/plain;charset=utf-8', `${fileBase(last)}.txt`);
   });
 
   // NDJSON を1行ずつ読み、段階の知らせで進み具合を動かし、最後の結果を返す
@@ -278,6 +299,7 @@
         buf = buf.slice(nl + 1);
         if (!line) continue;
         const msg = JSON.parse(line);
+        if (msg.mode && STAGE_SETS[msg.mode]) STAGES = STAGE_SETS[msg.mode];
         if (msg.stage) setStage(msg.stage);
         if (msg.error) throw new Error(msg.error);
         if (msg.result) return msg.result;
@@ -287,7 +309,7 @@
     throw new Error('下書きを受け取れませんでした。時間をおいて、もう一度お試しください。');
   }
 
-  form.addEventListener('submit', async (e) => {
+  if (form) form.addEventListener('submit', async (e) => {
     e.preventDefault();
     status.className = 'pl-status';
     status.textContent = '';
@@ -300,6 +322,7 @@
     for (const k of FIELDS) body[k] = form.elements[k].value;
     send.disabled = true;
     send.querySelector('span').textContent = '作成しています…';
+    STAGES = STAGE_SETS.simple;
     startProgress();
     let ok = false;
     try {

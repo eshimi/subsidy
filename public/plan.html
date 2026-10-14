@@ -89,6 +89,23 @@
     .pl-insight { margin-top: 10px !important; background: #fffdf5; border: 1px solid #f0d9b5; border-radius: 8px; padding: 10px 12px; }
     .pl-foot-note { font-size: .84rem; color: var(--mute); margin: 0; }
     @media (max-width: 720px) { .pl-grid3, .pl-grid2, .pl-row2 { grid-template-columns: 1fr; } .pl-sec { overflow-x: auto; } }
+    .pl-detailed { margin-top: 32px; padding: 24px 26px; border-radius: 14px; background: #f4f8fd; border: 1px solid #d9e3f1; border-top: 5px solid #0a2352; }
+    .pl-detailed h2 { margin: 0 0 10px; font-size: 1.3rem; }
+    .pl-detailed > p { line-height: 1.85; }
+    .pl-detailed-kicker { display: inline-block; margin: 0 0 8px; padding: 3px 12px; border-radius: 999px; background: #0a2352; color: #fff; font-size: .78rem; font-weight: 700; }
+    .pl-compare { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 14px 0 18px; }
+    .pl-compare-col { background: #fff; border: 1px solid #e3e8f0; border-radius: 10px; padding: 14px 16px; }
+    .pl-compare-col b { display: block; margin-bottom: 6px; }
+    .pl-compare-col ul { margin: 0; padding-left: 1.2em; line-height: 1.85; font-size: .92rem; }
+    .pl-compare-pro { border: 2px solid #2b65b1; }
+    .pl-compare-pro b { color: #2b65b1; }
+    .pl-detailed-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .pl-detailed-btn { display: inline-block; padding: 12px 24px; border-radius: 999px; background: #0a2352; color: #fff; font-weight: 700; text-decoration: none; }
+    .pl-detailed-btn:hover { color: #fff; opacity: .9; }
+    .pl-detailed-btn--sub { background: #fff; color: #0a2352; border: 1.5px solid #0a2352; }
+    .pl-detailed-btn--sub:hover { color: #0a2352; background: #eef3fa; }
+    .pl-detailed-note { margin: 12px 0 0; font-size: .82rem; color: var(--mute); }
+    @media (max-width: 720px) { .pl-compare { grid-template-columns: 1fr; } .pl-detailed { padding: 18px 16px; } }
   </style>
   <meta name="google-adsense-account" content="ca-pub-7811993263471350">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7811993263471350"
@@ -183,7 +200,7 @@
     <nav class="area-crumb" aria-label="パンくず"><a href="./">補助金ネット</a> ＞ <a href="basics/business-plan.html">事業計画書の書き方</a> ＞ 事業計画書AI下書き（無料お試し）</nav>
     <div class="pb-banner" style="background-image: url('images/banner/b07.webp')"><h1 class="pb-title">事業計画書AI下書き</h1></div>
     <div style="margin-bottom: 1.5rem;">
-      <p class="lead" style="margin-bottom: 0;">事業の内容と、補助金で取り組みたいことを入力すると、AIが<strong>Web検索で市場データ（出典つき）</strong>を調べ、<strong>3C分析・SWOT・課題→施策→効果・KPI・経費案・リスク</strong>まで整理した「事業計画づくりシート」の下書きを作ります。計画書を書き始める前の、考えの整理にお使いください。<strong>無料お試し（1日1回まで）</strong>。</p>
+      <p class="lead" style="margin-bottom: 0;">事業の内容と、補助金で取り組みたいことを入力すると、AIが事業計画書の<strong>下書きのたたき台</strong>と、<strong>自分で確かめて書き足すべき点</strong>をまとめます。計画書を書き始める前の、考えの整理にお使いください。<strong>無料お試し（1日1回まで）</strong>。市場データの調査や3C・SWOT分析まで入った<a href="#pl-detailed">詳しい版</a>もご用意しています。</p>
     </div>
 
     <div class="page-split"><div class="page-main">
@@ -209,7 +226,7 @@
       <label class="f">補助金で取り組みたいこと<span class="pl-hint">何にお金を使い、どう変えたいか（20〜600字）</span><textarea name="idea" maxlength="600" required placeholder="例：ホームページとネット予約の仕組みを作り、焼き菓子のギフトをネットでも売りたい。チラシも作って近隣の新しい住宅地に配りたい。"></textarea><span class="pl-count" data-for="idea">0 / 600</span></label>
       <label class="f">目指す効果<span class="pl-hint">任意（300字以内）。数字の目標があれば</span><textarea name="goal" maxlength="300" placeholder="例：新規のお客様を月20人増やしたい。電話対応の時間を減らしたい。"></textarea><span class="pl-count" data-for="goal">0 / 300</span></label>
       <fieldset class="pl-extra">
-        <legend>補足情報（任意）<small>入れるほど、市場データの調査と分析が具体的になります</small></legend>
+        <legend>補足情報（任意）<small>入れるほど、下書きが具体的になります</small></legend>
         <div class="pl-row pl-row2">
           <label class="f">所在地（都道府県）<select name="prefecture"><option value="">選択しない</option><option value="北海道">北海道</option><option value="青森県">青森県</option><option value="岩手県">岩手県</option><option value="宮城県">宮城県</option><option value="秋田県">秋田県</option><option value="山形県">山形県</option><option value="福島県">福島県</option><option value="茨城県">茨城県</option><option value="栃木県">栃木県</option><option value="群馬県">群馬県</option><option value="埼玉県">埼玉県</option><option value="千葉県">千葉県</option><option value="東京都">東京都</option><option value="神奈川県">神奈川県</option><option value="新潟県">新潟県</option><option value="富山県">富山県</option><option value="石川県">石川県</option><option value="福井県">福井県</option><option value="山梨県">山梨県</option><option value="長野県">長野県</option><option value="岐阜県">岐阜県</option><option value="静岡県">静岡県</option><option value="愛知県">愛知県</option><option value="三重県">三重県</option><option value="滋賀県">滋賀県</option><option value="京都府">京都府</option><option value="大阪府">大阪府</option><option value="兵庫県">兵庫県</option><option value="奈良県">奈良県</option><option value="和歌山県">和歌山県</option><option value="鳥取県">鳥取県</option><option value="島根県">島根県</option><option value="岡山県">岡山県</option><option value="広島県">広島県</option><option value="山口県">山口県</option><option value="徳島県">徳島県</option><option value="香川県">香川県</option><option value="愛媛県">愛媛県</option><option value="高知県">高知県</option><option value="福岡県">福岡県</option><option value="佐賀県">佐賀県</option><option value="長崎県">長崎県</option><option value="熊本県">熊本県</option><option value="大分県">大分県</option><option value="宮崎県">宮崎県</option><option value="鹿児島県">鹿児島県</option><option value="沖縄県">沖縄県</option></select></label>
           <label class="f">補助事業の経費の目安<select name="budget"><option value="">選択しない</option><option value="まだ決めていない">まだ決めていない</option><option value="50万円未満">50万円未満</option><option value="50〜100万円">50〜100万円</option><option value="100〜200万円">100〜200万円</option><option value="200〜500万円">200〜500万円</option><option value="500万円以上">500万円以上</option></select></label>
@@ -228,9 +245,9 @@
         <div class="pl-progress-head"><b id="pl-progress-step">内容を読み込んでいます</b><span id="pl-progress-pct">0%</span></div>
         <div class="pl-progress-bar" role="progressbar" aria-label="下書きの作成の進み具合（目安）" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="pl-progress-fill"></span></div>
         <ol class="pl-progress-steps" id="pl-progress-steps">
-          <li>内容の確認</li><li>市場データの調査</li><li>分析と計画づくり</li><li>仕上げ</li>
+          <li>内容の確認</li><li>構成を考える</li><li>下書きを書く</li><li>仕上げ</li>
         </ol>
-        <p class="pl-progress-note">経過 <span id="pl-progress-sec">0</span> 秒・市場データの調査と分析を行うため、ふつうは2〜4分ほどかかります。このページを閉じずにお待ちください。</p>
+        <p class="pl-progress-note">経過 <span id="pl-progress-sec">0</span> 秒・ふつうは1〜2分ほどで完成します。このページを閉じずにお待ちください。</p>
       </div>
     </form>
 
@@ -246,7 +263,28 @@
         <button type="button" class="pill" id="pl-copy">テキストをコピー</button>
         <button type="button" class="pill" id="pl-save">テキストファイルで保存</button>
       </div>
-      <p class="pl-foot-note">【　】の部分は、ご自身で数字や事実を確かめて書き入れてください。市場データは、AIがWeb検索で見つけた公表資料です。数値は必ず出典で確かめてください。この下書きはこのブラウザにだけ保存されます。</p>
+      <p class="pl-foot-note">【　】の部分は、ご自身で数字や事実を確かめて書き入れてください。この下書きはこのブラウザにだけ保存されます。</p>
+    </section>
+
+    <section class="pl-detailed" id="pl-detailed" aria-labelledby="pl-detailed-h">
+      <p class="pl-detailed-kicker">詳しい版（有料）</p>
+      <h2 id="pl-detailed-h">もっと詳しく、根拠のある計画にしたい方へ</h2>
+      <p>無料お試しは、計画書の本文の下書きまでの簡易版です。詳しい版では、AIが<strong>Web検索で出典つきの市場データ</strong>を調べ、コンサルタントが作るシートのように、分析から計画までを一つの流れで整理します。</p>
+      <div class="pl-compare">
+        <div class="pl-compare-col">
+          <b>無料お試し（簡易版）</b>
+          <ul><li>計画書の本文の下書き</li><li>実施スケジュールの例</li><li>自分で確かめて書き足すこと</li><li>1日1回まで</li></ul>
+        </div>
+        <div class="pl-compare-col pl-compare-pro">
+          <b>詳しい版（有料）</b>
+          <ul><li>簡易版の内容すべて</li><li>市場データと示唆（出典つき）</li><li>3C分析・SWOT分析</li><li>ターゲット顧客、課題→施策→効果</li><li>成果指標（KPI）・経費の内訳案・リスクと対策</li><li>デザインを整えたWord出力</li></ul>
+        </div>
+      </div>
+      <div class="pl-detailed-actions">
+        <a class="pl-detailed-btn" href="plan-sample.html">詳しい版のサンプルを見る <span aria-hidden="true">→</span></a>
+        <a class="pl-detailed-btn pl-detailed-btn--sub" href="policy/contact.html?category=%E4%BA%8B%E6%A5%AD%E8%A8%88%E7%94%BB%E6%9B%B8AI%20%E8%A9%B3%E3%81%97%E3%81%84%E7%89%88%E3%81%AE%E3%81%94%E5%B8%8C%E6%9C%9B">詳しい版を問い合わせる</a>
+      </div>
+      <p class="pl-detailed-note">詳しい版は、現在お問い合わせフォームから受け付けています（お問い合わせの種類「事業計画書AI 詳しい版のご希望」）。料金や納期などは、お返事でご案内します。</p>
     </section>
 </div><aside class="page-side" aria-label="関連ページ">
     <nav class="related-links" aria-label="計画書づくりに役立つページ" data-group>
@@ -259,6 +297,7 @@
         <li><a href="cases/index.html">補助金の活用事例</a></li>
         <li><a href="consult.html">専門家への無料相談</a></li>
         <li><a href="plan.html" aria-current="page">事業計画書AI下書き</a></li>
+        <li><a href="plan-sample.html">詳しい版のサンプル</a></li>
       </ul>
     </nav>
 </aside></div>

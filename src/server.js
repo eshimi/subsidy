@@ -8,7 +8,7 @@ import { TtlCache, securityHeaders, rateLimit } from './middleware.js';
 import { loadGrants } from './grants-store.js';
 import { parseChatMessages, aiUnavailable } from './chat-input.js';
 import { errorPayload } from './http-error.js';
-import { parsePlanInput, createDailyLimiter, memoryStore } from './plan.js';
+import { parsePlanInput, planMode, createDailyLimiter, memoryStore } from './plan.js';
 
 export function createApp(options = {}) {
   const deps = { cache: new TtlCache(), loadGrants, ...options };
@@ -65,6 +65,7 @@ export function createApp(options = {}) {
       const input = parsePlanInput(req.body);
       if (input.spam) return res.status(400).json({ error: 'リクエストが不正です' });
       if (!aiEnabled()) throw aiUnavailable();
+      const mode = planMode(input, process.env.PLAN_DETAILED);
       key = await planLimiter.take(req.ip);
       res.setHeader('Content-Type', 'application/x-ndjson; charset=utf-8');
       res.setHeader('Cache-Control', 'no-store');
@@ -72,7 +73,7 @@ export function createApp(options = {}) {
       const keepAlive = setInterval(() => send({ ping: true }), 20_000);
       try {
         send({ stage: 'start' });
-        send({ result: await planWithClaude(input, { onStage: (stage) => send({ stage }) }) });
+        send({ result: await planWithClaude(input, { onStage: (stage) => send({ stage, mode }), mode }) });
       } catch (e) {
         await planLimiter.release(key);
         const { status, error } = errorPayload(e);
