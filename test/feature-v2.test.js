@@ -29,6 +29,6 @@ test('特集「デジタル補助金」：FAQを<details>にしても、回答�
   assert.equal((html.match(/<details open>\s*<summary><span class="fx-qa fx-qa--q">/g) || []).length, 1);
   assert.match(html, /個人で契約した一般の有料プランは、対象になりません。/);
   assert.match(html, /事業を行っていることを示す書類（確定申告の控えなど）を用意しておくと安心です。/);
-  assert.equal((html.match(/class="fx-step-no/g) || []).length, 8);
+  assert.equal((html.match(/class="fx-step-no/g) || []).length, 16, "ステップ名の一覧（8）と、開いたときの説明（8）");
   assert.match(html, /ここから契約・支払いOK/);
 });

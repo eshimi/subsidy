@@ -86,14 +86,6 @@ function splitPreview(text, limit = 160) {
   return [head.join('\n'), lines.slice(i).join('\n')];
 }
 
-// 申請の流れの「さわり」：8つのステップの名前だけを、番号つきで横に並べる（説明は「各ステップの説明を見る」で開く）
-function stepsMini(groups) {
-  const all = groups.flatMap((g) => g.steps.map((st, i) => ({ ...st, no: g.start + i, gate: g.gate && i === g.steps.length - 1 })));
-  return `      <ol class="fx-card fx-steps-mini">
-${all.map((st) => `        <li${st.gate ? ' class="is-gate"' : ''}><span class="fx-step-no${st.tone ? ` fx-step-no--${st.tone}` : ''}">${st.no}</span><span>${st.title.replace(/<[^>]+>/g, '')}</span></li>`).join('\n')}
-      </ol>`;
-}
-
 // 概要の項目表（fx-facts）。tagRows は「分類（参考）」の <dt><dd> の HTML（なければ空）
 // jGrants の「利用目的」「業種」は「 / 」区切りの一覧。2つ以上なら、1つずつのタグにして並べる
 function tagsOrText(v) {
@@ -171,11 +163,7 @@ ${facts([
       <p class="fx-links-row"><a class="fx-btn" href="${jgrantsDetail}" target="_blank" rel="noopener">jGrants でこの補助金の詳細を見る →</a></p>`));
 
   parts.push(fx.section('flow', 's-flow', '申請の流れ（一般的な8ステップ）', `      <p>多くの補助金に共通する、一般的な流れです。この制度の手続きは、公募要領で確認してください。<strong class="fx-em">契約・支払いは、交付決定の後から（多くの補助金の場合）。</strong></p>
-${stepsMini(FLOW)}
-      <details class="fx-more fx-more--card">
-        <summary>各ステップの説明を見る</summary>
-${fx.steps(FLOW)}
-      </details>`));
+${fx.stepsCompact(FLOW)}`));
 
   parts.push(fx.section('mistakes', 's-mistakes', '多くの補助金で、つまずきやすい所', fx.mistakes(MISTAKES, ['この制度が自分に合うか、まず確かめたい方へ', '../consult.html', '無料で相談する →'])));
 

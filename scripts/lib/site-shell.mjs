@@ -3,6 +3,7 @@ import { topnavHtml, footerNavHtml, footerBottomHtml } from './nav.mjs';
 import { splitLayout } from './side-layout.mjs';
 import { applyBanner } from './banners.mjs';
 import { addSectionIcons, addSectionDividers } from './section-icons.mjs';
+import { compactFlow } from './flow-compact.mjs';
 import { padDescription } from './seo.mjs';
 
 export const SITE = 'https://hojyokin.net';
@@ -59,7 +60,7 @@ export function boxSections(html, prefix = '') {
   const sec = html.replace(/<(?:article|section) class="area-section"([^>]*)>\s*(?:<span class="area-num">[^<]*<\/span>\s*)?/g, '<section class="art-sec"$1>');
   const withEnds = sec.replace(/(<section class="art-sec"[\s\S]*?)<\/article>/g, '$1</section>');
   const boxed = withEnds.replace(/(?:<section class="art-sec"[\s\S]*?<\/section>)(?:\s*<section class="art-sec"[\s\S]*?<\/section>)*/g, (run) => `<div class="art-box">\n${run}\n</div>`);
-  return addSectionDividers(addSectionIcons(boxed, prefix), prefix);
+  return compactFlow(addSectionDividers(addSectionIcons(boxed, prefix), prefix));
 }
 
 function shell({ title, description: rawDescription, canonicalPath, body, jsonLd = '', robots = 'index, follow' }) {

@@ -108,7 +108,7 @@ ${fx.table(['業種', '資本金（以下）', '従業員数（以下）'], [
   parts.push(fx.partHead(2, '申請する：流れと、つまずきやすい所'));
 
   parts.push(fx.section('flow', 's4', '申請の流れ（8ステップ）', `      <p>IT導入補助金の場合の、一般的な流れです。細かな手続きは、公募ごとに異なります。<strong class="fx-em">契約・支払いは、交付決定の後から。</strong></p>
-${fx.steps([
+${fx.stepsCompact([
     { label: '準備', start: 1, steps: [
       { title: 'IT導入支援事業者を選ぶ', html: '申請は、支援事業者と一緒に進めます。事業者が登録しているツールを確認します。' },
       { title: '導入するツールを決める', html: '登録されたツールの中から、事業に合うものを選びます。' },

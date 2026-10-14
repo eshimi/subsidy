@@ -104,6 +104,18 @@ ${g.steps.map((s, i) => `          <li class="fx-step${i === g.steps.length - 1 
       </div>`;
 }
 
+// 申請の流れを短く見せる：ステップ名だけを番号つきで並べ、各ステップの説明（縦のステップ）は「各ステップの説明を見る」で開く
+export function stepsCompact(groups) {
+  const all = groups.flatMap((g) => g.steps.map((st, i) => ({ ...st, no: g.start + i })));
+  return `      <ol class="fx-card fx-steps-mini">
+${all.map((st) => `        <li><span class="fx-step-no${st.tone ? ` fx-step-no--${st.tone}` : ''}">${st.no}</span><span>${st.title.replace(/<[^>]+>/g, '')}</span></li>`).join('\n')}
+      </ol>
+      <details class="fx-more fx-more--card">
+        <summary>各ステップの説明を見る</summary>
+${steps(groups)}
+      </details>`;
+}
+
 export function mistakes(items, cta) {
   return `      <div class="fx-grid">
 ${items.map(([h, t]) => `        <div class="fx-card fx-pad-m fx-mistake"><p class="fx-mistake-h">${ICON.warn}<span>${h}</span></p><p>${t}</p></div>`).join('\n')}
