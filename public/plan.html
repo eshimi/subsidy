@@ -27,6 +27,7 @@
     .pl-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
     .pl-status { margin: 0; min-height: 1.5em; }
     .pl-status.err { color: var(--alert); }
+    .pl-status:empty { display: none; }
     .pl-result { margin-top: 28px; display: grid; gap: 16px; }
     .pl-result h2 { margin: 0; }
     .pl-summary { background: #f2f7f4; border-left: 4px solid #0b7a55; padding: 12px 16px; line-height: 1.8; margin: 0; }
@@ -39,6 +40,22 @@
     .pl-sec ol { margin: 0; padding-left: 1.4em; line-height: 1.85; }
     .pl-q { background: #fffdf5; border-color: #f0d9b5; }
     .pl-tools { display: flex; flex-wrap: wrap; gap: 10px; }
+    .pl-tools .pl-word { background: #0a2352; color: #fff; border-color: #0a2352; font-weight: 700; cursor: pointer; }
+    .pl-tools .pill { cursor: pointer; }
+    .pl-progress { margin-top: 4px; padding: 16px 18px; border: 1px solid #d9e3f1; border-radius: 10px; background: #f4f8fd; }
+    .pl-progress-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 8px; color: var(--ink); }
+    .pl-progress-head span { font-variant-numeric: tabular-nums; font-weight: 700; color: var(--accent); }
+    .pl-progress-bar { height: 12px; border-radius: 999px; background: #dfe7f2; overflow: hidden; }
+    .pl-progress-bar span { display: block; height: 100%; width: 0; border-radius: inherit; background: linear-gradient(90deg, #2b65b1, #4f8be0); background-size: 200% 100%; animation: pl-shine 1.6s linear infinite; transition: width .6s ease; }
+    @keyframes pl-shine { from { background-position: 100% 0; } to { background-position: -100% 0; } }
+    @media (prefers-reduced-motion: reduce) { .pl-progress-bar span { animation: none; transition: none; } }
+    .pl-progress-steps { list-style: none; display: flex; justify-content: space-between; gap: 6px; margin: 10px 0 6px; padding: 0; font-size: .8rem; color: var(--mute); }
+    .pl-progress-steps li::before { content: "○ "; }
+    .pl-progress-steps li.done { color: var(--ok); }
+    .pl-progress-steps li.done::before { content: "✓ "; }
+    .pl-progress-steps li.now { color: var(--accent); font-weight: 700; }
+    .pl-progress-steps li.now::before { content: "● "; }
+    .pl-progress-note { margin: 0; font-size: .8rem; color: var(--mute); }
     @media (max-width: 720px) { .pl-row { grid-template-columns: 1fr; } .pl-form { padding: 18px 16px; } }
   </style>
   <meta name="google-adsense-account" content="ca-pub-7811993263471350">
@@ -165,6 +182,14 @@
         <button type="submit" class="primary" id="pl-send"><span>下書きを作る</span><span class="arrow" aria-hidden="true">→</span></button>
         <p class="pl-status" id="pl-status" role="status" aria-live="polite"></p>
       </div>
+      <div class="pl-progress" id="pl-progress" hidden>
+        <div class="pl-progress-head"><b id="pl-progress-step">内容を読み込んでいます</b><span id="pl-progress-pct">0%</span></div>
+        <div class="pl-progress-bar" role="progressbar" aria-label="下書きの作成の進み具合（目安）" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="pl-progress-fill"></span></div>
+        <ol class="pl-progress-steps" id="pl-progress-steps">
+          <li>内容の読み込み</li><li>構成を考える</li><li>下書きを書く</li><li>仕上げ</li>
+        </ol>
+        <p class="pl-progress-note">経過 <span id="pl-progress-sec">0</span> 秒・ふつうは1〜2分ほどで完成します（進み具合は目安です）。このページを閉じずにお待ちください。</p>
+      </div>
     </form>
 
     <section class="pl-result" id="pl-result" hidden aria-labelledby="pl-result-h">
@@ -173,6 +198,7 @@
       <div id="pl-sections"></div>
       <div class="pl-tools">
         <button type="button" class="pill" id="pl-copy">テキストをコピー</button>
+        <button type="button" class="pill pl-word" id="pl-word">Wordで保存（.docx）</button>
         <button type="button" class="pill" id="pl-save">テキストファイルで保存</button>
       </div>
       <p class="chat-notice" style="font-size:.86rem; color: var(--mute); margin:0;">【　】の部分は、ご自身で数字や事実を確かめて書き入れてください。この下書きはこのブラウザにだけ保存されます。</p>
@@ -262,6 +288,7 @@
     </div>
   </footer>
   <script src="site.js"></script>
+  <script src="plan-docx.js"></script>
   <script src="plan.js"></script>
 </body>
 </html>
