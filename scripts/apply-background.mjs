@@ -29,28 +29,47 @@ export function articles(pub = PUB) {
   return out;
 }
 
-export function relatedFor(keywords, list, limit = 6) {
-  const hit = list.filter((a) => keywords.some((k) => a.title.includes(k)));
+// 活用事例は、別の制度の事例が混ざらないよう、caseKeywords（なければ keywords）で、より厳しく選ぶ
+export function relatedFor(keywords, list, limit = 6, caseKeywords = keywords) {
+  const hit = list.filter((a) => (a.folder === 'cases' ? caseKeywords : keywords).some((k) => a.title.includes(k)));
   return hit.sort((a, b) => (b.date || '').localeCompare(a.date || '') || a.title.localeCompare(b.title, 'ja')).slice(0, limit);
 }
 
 export function bgHtml(def, related) {
-  const paras = (arr) => arr.map((t) => `        <p>${t}</p>`).join('\n');
-  const topics = def.topics.map((t) => `        <h3>${esc(t.h)}</h3>\n${paras(t.paras)}`).join('\n');
+  const paras = (arr) => arr.map((t) => `          <p>${t}</p>`).join('\n');
+  const flow = def.flow.map(([k, v], i) => `${i ? '<span class="bg-arrow" aria-hidden="true">→</span>' : ''}<div class="bg-step"><em>${esc(k)}</em><b>${esc(v).replace(/\n/g, '<br>')}</b></div>`).join('');
+  const timeline = def.timeline.map(([d, t]) => `          <li><time>${esc(d)}</time><span>${t}</span></li>`).join('\n');
+  const details = def.topics.map((t) => `        <details class="bg-more">
+          <summary>${esc(t.h)}</summary>
+${paras(t.paras)}
+        </details>`).join('\n');
   const rel = related.length ? `        <h3>この制度に関連する、当サイトの記事</h3>
-        <ul>
-${related.map((a) => `          <li><a href="../${a.folder}/${a.file}">${esc(a.title)}</a>（${esc(a.label)}${a.date ? `｜${esc(a.date)}` : ''}）</li>`).join('\n')}
+        <ul class="bg-rel">
+${related.map((a) => `          <li><span class="bg-kind">${esc(a.label)}</span><a href="../${a.folder}/${a.file}">${esc(a.title)}</a></li>`).join('\n')}
         </ul>` : '';
-  const view = def.view ? `        <h3>当サイトの見方（解釈）</h3>\n${paras(def.view)}` : '';
-  const src = `        <h3>出典（確認した日：${esc(def.asOf)}）</h3>
-        <ul>
-${def.sources.map(([label, url, pub]) => `          <li><a href="${url}" target="_blank" rel="noopener">${esc(label)}</a>（${esc(pub)}）</li>`).join('\n')}
-        </ul>`;
+  const view = def.view ? `        <div class="bg-view"><h3>当サイトの見方（解釈）</h3>\n${def.view.map((t) => `          <p>${t}</p>`).join('\n')}\n        </div>` : '';
+  const src = `        <details class="bg-more bg-src">
+          <summary>出典（確認した日：${esc(def.asOf)}）</summary>
+          <ul>
+${def.sources.map(([label, url, pub]) => `            <li><a href="${url}" target="_blank" rel="noopener">${esc(label)}</a>（${esc(pub)}）</li>`).join('\n')}
+          </ul>
+        </details>`;
   return `    <!-- bg:start -->
     <section class="art-sec" aria-labelledby="bg"><h2 id="bg">この制度ができた背景と目的</h2>
       <div class="area-body">
-        <p>${def.lead}</p>
-${topics}
+        <div class="bg-sum">
+          <p class="bg-sum-h">3つのポイント</p>
+          <ul>
+${def.summary.map((t) => `            <li>${t}</li>`).join('\n')}
+          </ul>
+        </div>
+        <div class="bg-flow" role="img" aria-label="${esc(def.flow.map(([k, v]) => `${k}：${v.replace(/\n/g, '、')}`).join(' → '))}">${flow}</div>
+        <h3>制度のあゆみ</h3>
+        <ol class="bg-tl">
+${timeline}
+        </ol>
+        <h3>くわしく知る</h3>
+${details}
 ${view}
 ${rel}
 ${src}
@@ -68,7 +87,7 @@ export function applyBackground(html, slug, list) {
   const def = BACKGROUND[slug];
   if (!def) return html;
   const clean = html.replace(RE, '');
-  const block = bgHtml(def, relatedFor(def.keywords, list));
+  const block = bgHtml(def, relatedFor(def.keywords, list, 6, def.caseKeywords));
   const m = /^[ \t]*<!-- fit:start -->/m.exec(clean) || /^[ \t]*<section class="art-sec" aria-labelledby="[^"]*"><h2 id="[^"]*">(?:<img[^>]*>)?最新情報の確認先/m.exec(clean);
   if (!m) return html;
   return `${clean.slice(0, m.index)}${block}${clean.slice(m.index)}`;
