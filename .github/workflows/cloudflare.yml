@@ -52,7 +52,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           # 実行中に、ブランチに別のコミットが入ることがある。最新のブランチの上に、詳細データだけを載せ直して保存する（最大3回）
-          files="jgrants-details.json research-history.json jgrants-ids.json analysis-latest.json"
+          files="jgrants-details.json research-history.json jgrants-ids.json analysis-latest.json sitemap-lastmod.json"
           for f in $files; do [ -f "data/$f" ] && cp "data/$f" "$RUNNER_TEMP/"; done
           saved=""
           for i in 1 2 3; do

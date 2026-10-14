@@ -8,11 +8,10 @@ import { LOCAL_PROGRAMS } from '../src/data/local-programs.js';
 import { RESIDENT_PROGRAMS, RESIDENT_CATEGORIES } from '../src/data/resident-programs.js';
 import { PREFECTURES, PREF_SLUGS } from '../src/data/prefectures.js';
 import { SITE, esc, shell } from './lib/site-shell.mjs';
-import { sitemapPaths, writeSitemapHtml } from './lib/sitemap.mjs';
+import { sitemapPaths, writeSitemapHtml, lastmodMap } from './lib/sitemap.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = join(ROOT, 'public', 'area');
-const LASTMOD = '2026-10-08';
 
 
 // 市区町村の制度（cities に含まれるもの）と、都道府県の制度（level: prefecture）を分けて取り出す
@@ -355,9 +354,14 @@ function sitemap() {
   // ページの一覧は public/ の実際のファイルから作る（転送用・noindex のページは除く）。市区町村は制度があるページだけ
   const thinArea = new Set(AREA_CITIES.filter((c) => !programsFor(c).municipal.length && !residentFor(c).municipal.length).map((c) => `area/${c.slug}.html`));
   const urls = sitemapPaths(join(ROOT, 'public')).filter((u) => !thinArea.has(u));
+  // 更新日は、ページの中身が変わった日（data/sitemap-lastmod.json）。毎日の更新（update-sitemap.mjs）と同じ記録を使う
+  let prev = {};
+  try { prev = JSON.parse(readFileSync(join(ROOT, 'data', 'sitemap-lastmod.json'), 'utf-8')); } catch { /* 初回 */ }
+  const map = lastmodMap(join(ROOT, 'public'), urls, prev);
+  writeFileSync(join(ROOT, 'data', 'sitemap-lastmod.json'), JSON.stringify(map, null, 1) + '\n');
   const entries = urls.map((u) => `  <url>
     <loc>${SITE}/${u}</loc>
-    <lastmod>${LASTMOD}</lastmod>
+    <lastmod>${map[u] ? map[u].d : new Date().toISOString().slice(0, 10)}</lastmod>
   </url>`).join('\n');
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

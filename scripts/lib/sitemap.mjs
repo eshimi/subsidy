@@ -124,3 +124,43 @@ ${area}
   next = next.replace(/\n  <style>\s*\.sitemap-group[\s\S]*?<\/style>|\n  <style>\s*\.sm-grid[\s\S]*?<\/style>/, STYLE);
   writeFileSync(file, next);
 }
+
+// ---- sitemap.xml の更新日（lastmod） ----
+// ページの中身のハッシュを data/sitemap-lastmod.json に覚えておき、中身が変わったページだけ更新日を今日にする。
+// （デプロイ先の git が浅い履歴でも、同じ結果になる。毎日の更新で data/ に保存される）
+import { createHash } from 'node:crypto';
+
+export function lastmodMap(publicDir, paths, prev = {}, today = new Date().toISOString().slice(0, 10)) {
+  const next = {};
+  for (const p of paths) {
+    const file = join(publicDir, p === '' ? 'index.html' : p);
+    if (!existsSync(file)) continue;
+    const h = createHash('sha1').update(readFileSync(file)).digest('hex').slice(0, 12);
+    const old = prev[p];
+    next[p] = old && old.h === h ? old : { h, d: today };
+  }
+  return next;
+}
+
+// 既存の sitemap.xml の中身を、ページの実ファイルに合わせて作り直す（制度ページの追記分はそのまま残す）
+export function refreshSitemap(xml, publicDir, prev = {}, today) {
+  const locRe = /<url>\s*<loc>https:\/\/hojyokin\.net\/([^<]*)<\/loc>\s*<lastmod>[^<]*<\/lastmod>\s*<\/url>/g;
+  const block = xml.match(/\s*<!-- grants:start -->[\s\S]*?<!-- grants:end -->/);
+  const body = block ? xml.replace(block[0], '') : xml;
+  const known = [...body.matchAll(locRe)].map((m) => m[1]);
+  const present = known.filter((p) => existsSync(join(publicDir, p === '' ? 'index.html' : p)));
+  // 新しく増えたページ（area/ は、制度のない市区町村を外す判断があるので、build-area-pages.mjs に任せる）
+  const added = sitemapPaths(publicDir).filter((p) => !known.includes(p) && !p.startsWith('area/'));
+  const paths = [...present, ...added];
+  const map = lastmodMap(publicDir, paths, prev, today);
+  const entries = paths.filter((p) => map[p]).map((p) => `  <url>
+    <loc>https://hojyokin.net/${p}</loc>
+    <lastmod>${map[p].d}</lastmod>
+  </url>`).join('\n');
+  const out = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${entries}${block ? block[0] : ''}
+</urlset>
+`;
+  return { xml: out, map };
+}
