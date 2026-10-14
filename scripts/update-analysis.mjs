@@ -24,12 +24,14 @@ export function loadAnalysis(file = ANALYSIS_FILE) {
 export function computeAnalysis({ now = Date.now(), grants = null, details = {}, previous = null } = {}) {
   const local = analyzeLocal(LOCAL_PROGRAMS, now);
   local.pref = prefectureCounts(LOCAL_PROGRAMS, PREFECTURES);
+  const resident = analyzeResident(RESIDENT_PROGRAMS, now);
+  resident.pref = prefectureCounts(RESIDENT_PROGRAMS, PREFECTURES);
   const jgrants = grants ? { ...analyzeJgrants(grants, now), asOf: jst(now) } : (previous?.jgrants ?? null);
   return {
     version: 1,
     asOf: jst(now),
     local,
-    resident: analyzeResident(RESIDENT_PROGRAMS, now),
+    resident,
     details: analyzeDetails(details),
     jgrants,
     gaps: gapAnalysis(LOCAL_PROGRAMS, AREA_CITIES, PREFECTURES),

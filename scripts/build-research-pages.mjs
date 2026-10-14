@@ -97,7 +97,8 @@ function pageIndex(asOf, ctx) {
           <li><a href="prefectures.html"><strong>都道府県別の掲載状況</strong></a>：47都道府県の、県の制度・市区町村の制度・個人向けの制度の件数を比べます。</li>
           <li><a href="programs.html"><strong>制度の種類・対象・分野の内訳</strong></a>：補助金・助成金・融資の別、創業前から事業が安定した方までの対象、個人向けの分野を集計します。</li>
           <li><a href="startup-map.html"><strong>市区町村の創業支援マップ</strong></a>：創業を考える方が使える制度の多い市区町村を、一覧で確認できます。</li>
-          <li><a href="analysis.html"><strong>補助金データ分析レポート</strong></a>：種類・目的・対象・金額・締切・地域を横断して集計した、毎日更新のレポートです。</li>
+          <li><a href="business.html"><strong>事業向けリサーチデータ</strong></a>：事業者・創業者向けの補助金・助成金・融資を、種類・目的・対象・金額・締切・地域で集計した、毎日更新のデータです。</li>
+          <li><a href="personal.html"><strong>個人向けリサーチデータ</strong></a>：耐震・空き家・太陽光・移住など、住まい・暮らしの制度を、分野・金額・締切・地域で集計した、毎日更新のデータです。</li>
           <li><a href="gaps.html"><strong>地域×目的の空白マップ</strong></a>：市区町村ごとに、どの目的の制度が掲載されていないかを一覧にします。</li>
           <li><a href="monthly.html"><strong>月次レポート</strong></a>：国の制度の募集中の件数、新規掲載・募集終了の数を、月ごとにまとめます。</li>
           <li><a href="digest.html"><strong>今週の公募ダイジェスト</strong></a>：国の制度（jGrants）の、新しく始まった公募と、締切が近い公募を、毎日更新します。</li>

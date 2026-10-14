@@ -116,7 +116,7 @@ export function prefectureCounts(L, prefectures) {
   return prefectures.map((p) => {
     const l = L.filter((x) => x.prefectures?.includes(p));
     const pref = l.filter((x) => x.level === 'prefecture').length;
-    const grantish = l.filter((x) => ['補助金', '助成金', '給付金'].includes(x.type)).length;
+    const grantish = l.filter((x) => ['補助金', '助成金', '給付金', '給付'].includes(x.type)).length;
     return { pref: p, total: l.length, prefLevel: pref, muni: l.length - pref, grantShare: l.length ? Math.round((grantish / l.length) * 100) : null };
   });
 }

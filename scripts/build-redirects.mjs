@@ -17,6 +17,8 @@ export function redirectRules() {
     ['/personal/index.html', '/hantei.html?for=personal'],
     ['/personal/', '/hantei.html?for=personal'],
     ['/personal', '/hantei.html?for=personal'],
+    // 分析レポートは、事業向け・個人向けの2ページに分けた
+    ['/research/analysis.html', '/research/business.html'],
   ];
   for (const pref of PREFECTURES) rules.push([`/grants/pref-${PREF_SLUGS[pref]}.html`, `/search.html?pref=${encodeURIComponent(pref)}`]);
   for (const s of PURPOSE_SLUGS) rules.push([`/grants/purpose-${s}.html`, `/search.html?purpose=${s}`]);

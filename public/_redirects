@@ -4,6 +4,7 @@
 /personal/index.html /hantei.html?for=personal 301
 /personal/ /hantei.html?for=personal 301
 /personal /hantei.html?for=personal 301
+/research/analysis.html /research/business.html 301
 /grants/pref-hokkaido.html /search.html?pref=%E5%8C%97%E6%B5%B7%E9%81%93 301
 /grants/pref-aomori.html /search.html?pref=%E9%9D%92%E6%A3%AE%E7%9C%8C 301
 /grants/pref-iwate.html /search.html?pref=%E5%B2%A9%E6%89%8B%E7%9C%8C 301
