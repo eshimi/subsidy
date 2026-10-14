@@ -61,14 +61,27 @@ ${tagRows}
       </dl>`;
 }
 
+// 目次のリンク（本文の目次と、右の列の目次で同じ内容を使う）
+const tocLinks = (g) => [
+  ['#facts', '制度の概要'], ['#flow', '申請の流れ'], ['#mistakes', 'よくある失敗'], ['#check', '申請前に確認したいこと'],
+  ...(g.employees ? [['#size', '中小企業の目安']] : []),
+  ['#faq', 'よくある質問'], ['#glossary', '用語集'], ['#sources', '最新情報の確認先'],
+];
+
+// 右の列（パソコン幅）の先頭に置く目次。スマホ幅では、本文の先頭の目次を使う
+export function grantTocSide(g) {
+  return `    <nav class="related-links" aria-label="このページの内容">
+      <h2>目次</h2>
+      <ul>
+${tocLinks(g).map(([h, t]) => `        <li><a href="${h}">${esc(t)}</a></li>`).join('\n')}
+      </ul>
+    </nav>`;
+}
+
 export function grantBody({ g, st, startJa, endJa, amount, faq, tagRows, guides, jgrantsDetail, jgrantsPortal }) {
-  const links = [
-    ['#facts', '制度の概要'], ['#flow', '申請の流れ'], ['#mistakes', 'よくある失敗'], ['#check', '申請前に確認したいこと'],
-    ...(g.employees ? [['#size', '中小企業の目安']] : []),
-    ['#faq', 'よくある質問'], ['#glossary', '用語集'], ['#sources', '最新情報の確認先'],
-  ];
+  const links = tocLinks(g);
   const parts = [];
-  parts.push(fx.toc([['', 'orange', links]]).replace('<nav class="fx-toc fx-card"', '<nav class="fx-toc fx-card fx-toc--first"'));
+  parts.push(fx.toc([['', 'orange', links]]).replace('<nav class="fx-toc fx-card"', '<nav class="fx-toc fx-card fx-toc--first fx-toc--m"'));
 
   parts.push(fx.section('sec-facts', 'facts', '制度の概要', `${facts([
     ['対象地域', g.area || '記載なし'],
