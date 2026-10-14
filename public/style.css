@@ -1007,6 +1007,7 @@ button.r-way:focus-visible { outline: 2px solid var(--accent); outline-offset: 2
 .fx-sub { font-size: 13px; line-height: 1.7; color: #56667f; }
 .fx-hero .pb-title { background: rgba(255, 255, 255, 0.88); }
 .fx-lead { margin: 0 0 8px; display: grid; gap: 12px; }
+.pb-banner + div > .lead { max-width: none; }
 .fx-lead .lead { max-width: none; font-size: 17px; line-height: 1.9; }
 .fx-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; font-size: 13px; color: #56667f; margin: 0; }
 .fx-chip { display: inline-block; font-size: 12px; font-weight: 700; line-height: 16px; background: #eef1f5; color: #2b3a52; padding: 4px 8px; border-radius: 4px; }
