@@ -3,9 +3,7 @@
 // 結果はこのブラウザ（localStorage）にだけ保存し、再読み込みしても消えないようにする（お試しは1日1回のため）
 (function () {
   const form = document.getElementById('pl-form');
-  // サンプルのページ（plan-sample.html）では、埋め込んだ結果を表示するだけにする
-  const sampleEl = document.getElementById('pl-sample-data');
-  if (!form && !sampleEl) return;
+  if (!form) return;
   const send = document.getElementById('pl-send');
   const status = document.getElementById('pl-status');
   const result = document.getElementById('pl-result');
@@ -92,7 +90,7 @@
     setTimeout(() => { progress.box.hidden = true; }, 1200);
   }
 
-  for (const c of form ? form.querySelectorAll('.pl-count') : []) {
+  for (const c of form.querySelectorAll('.pl-count')) {
     const ta = form.elements[c.dataset.for];
     const update = () => { c.textContent = `${ta.value.length} / ${ta.maxLength}`; };
     ta.addEventListener('input', update);
@@ -242,14 +240,22 @@
     return L.join('\n');
   }
 
-  if (sampleEl) {
-    render(JSON.parse(sampleEl.textContent));
-  } else {
-    try {
-      const saved = JSON.parse(localStorage.getItem(STORE) || 'null');
-      if (saved && saved.plan) render(saved.plan);
-    } catch { /* 保存できない環境では何もしない */ }
-  }
+  // 前回作った下書きは、すぐには表示せず「開く」のリンクだけ出す（ページを開くたびに結果が並ばないように）
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORE) || 'null');
+    const bar = document.getElementById('pl-saved');
+    if (saved && saved.plan && bar) {
+      const d = new Date(saved.at || Date.now());
+      bar.querySelector('[data-date]').textContent = `${d.getMonth() + 1}月${d.getDate()}日`;
+      bar.hidden = false;
+      bar.querySelector('button').addEventListener('click', () => {
+        render(saved.plan);
+        bar.hidden = true;
+        result.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    }
+  } catch { /* 保存できない環境では何もしない */ }
+
 
   function download(bytes, type, name) {
     const url = URL.createObjectURL(new Blob([bytes], { type }));
@@ -309,7 +315,7 @@
     throw new Error('下書きを受け取れませんでした。時間をおいて、もう一度お試しください。');
   }
 
-  if (form) form.addEventListener('submit', async (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     status.className = 'pl-status';
     status.textContent = '';

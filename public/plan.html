@@ -28,6 +28,9 @@
     .pl-status { margin: 0; min-height: 1.5em; }
     .pl-status.err { color: var(--alert); }
     .pl-status:empty { display: none; }
+    .pl-saved { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin: 0 0 16px; padding: 10px 14px; border: 1px solid #d9e3f1; border-radius: 8px; background: #f4f8fd; font-size: .9rem; }
+    .pl-saved[hidden] { display: none; }
+    .pl-saved button { padding: 5px 14px; border-radius: 999px; border: 1.5px solid #2b65b1; background: #fff; color: #2b65b1; font-weight: 700; cursor: pointer; }
     .pl-result { margin-top: 28px; display: grid; gap: 16px; }
     .pl-result h2 { margin: 0; }
     .pl-summary { background: #f2f7f4; border-left: 4px solid #0b7a55; padding: 12px 16px; line-height: 1.8; margin: 0; }
@@ -204,6 +207,7 @@
     </div>
 
     <div class="page-split"><div class="page-main">
+    <p class="pl-saved" id="pl-saved" hidden>前回作成した下書き（<span data-date></span>）が、このブラウザに保存されています。<button type="button">下書きを開く</button></p>
     <section class="pl-notice" aria-labelledby="pl-notice-h">
       <h2 id="pl-notice-h">ご利用の前に（必ずお読みください）</h2>
       <ul>
