@@ -1,4 +1,5 @@
-// トップページの「新着・更新情報」を更新する：補助金ニュースとブログの最新、最終更新日（日本時間）。
+// トップページの「新着・更新情報」を更新する：補助金ニュースとブログの最新、サイトからのお知らせ（data/notices.json）、最終更新日（日本時間）。
+// お知らせは、新しい機能やコーナーを公開したときに data/notices.json の先頭に1件足す（日付の新しい順に上から4件を表示）。
 // 何度実行しても同じ結果。build:grants / build:news / ブログ投稿のあとに実行する。
 import { readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
@@ -17,12 +18,20 @@ export function latestOf(folder, n) {
   }).join('');
 }
 
+export function noticesHtml(list, n = 4) {
+  return [...list].sort((a, b) => b.date.localeCompare(a.date)).slice(0, n).map((x) => {
+    const text = x.href ? `<a href="${x.href}">${esc(x.text)}</a>` : esc(x.text);
+    return `<li><time datetime="${x.date}">${x.date.replace(/-/g, '.')}</time><span>${text}</span></li>`;
+  }).join('');
+}
+
 export function jstToday(now = new Date()) {
   return new Date(now.getTime() + 9 * 3600e3).toISOString().slice(0, 10);
 }
 
-export function applyLatest(html, { news, blog, today }) {
-  return html
+export function applyLatest(html, { news, blog, today, notices }) {
+  const out = notices == null ? html : html.replace(/<!-- notice:start -->[\s\S]*?<!-- notice:end -->/, `<!-- notice:start -->${notices}<!-- notice:end -->`);
+  return out
     .replace(/<!-- news-latest:start -->[\s\S]*?<!-- news-latest:end -->/, `<!-- news-latest:start --><ul class="r-list">${news}</ul><!-- news-latest:end -->`)
     .replace(/<!-- blog-latest:start -->[\s\S]*?<!-- blog-latest:end -->/, `<!-- blog-latest:start --><ul class="r-list">${blog}</ul><!-- blog-latest:end -->`)
     .replace(/<time id="r-updated" datetime="[^"]*">[^<]*<\/time>/, `<time id="r-updated" datetime="${today}">${dateJa(today)}</time>`);
@@ -31,7 +40,8 @@ export function applyLatest(html, { news, blog, today }) {
 export function run() {
   const file = join(ROOT, 'index.html');
   const before = readFileSync(file, 'utf-8');
-  const after = applyLatest(before, { news: latestOf('news', 3), blog: latestOf('blog', 3), today: jstToday() });
+  const notices = noticesHtml(JSON.parse(readFileSync(join(ROOT, '..', 'data', 'notices.json'), 'utf-8')));
+  const after = applyLatest(before, { news: latestOf('news', 3), blog: latestOf('blog', 3), today: jstToday(), notices });
   if (after !== before) writeFileSync(file, after);
 }
 

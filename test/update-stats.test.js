@@ -63,3 +63,16 @@ test('municipalityCount: 都道府県＋名前で重複を除いた市区町村�
   assert.match(out, /<dd id="r-cities">267</);
   assert.match(out, /<span id="area-total">267<\/span>/);
 });
+
+test('お知らせ：data/notices.json を日付の新しい順に4件まで出し、リンクと記号を正しく扱う', async () => {
+  const { noticesHtml, applyLatest } = await import('../scripts/update-latest.mjs');
+  const html = noticesHtml([
+    { date: '2026-10-01', text: '古い' },
+    { date: '2026-10-14', text: '新しい <機能>', href: 'plan.html' },
+    { date: '2026-10-05', text: 'b' }, { date: '2026-10-06', text: 'c' }, { date: '2026-10-07', text: 'd' },
+  ]);
+  assert.match(html, /^<li><time datetime="2026-10-14">2026\.10\.14<\/time><span><a href="plan.html">新しい &lt;機能&gt;<\/a>/);
+  assert.ok(!html.includes('古い'));
+  const page = applyLatest('<!-- notice:start -->x<!-- notice:end -->', { news: '', blog: '', today: '2026-10-14', notices: html });
+  assert.ok(page.startsWith(`<!-- notice:start -->${html}`));
+});
