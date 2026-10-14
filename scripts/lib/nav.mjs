@@ -8,7 +8,7 @@ export const TOP_GROUPS = [
   {
     label: '補助金を探す',
     items: [
-      { label: 'AI・キーワードで探す', href: 'search.html' },
+      { label: 'キーワードで探す', href: 'search.html' },
       { label: 'AI補助金判定（質問に答えて探す）', href: 'hantei.html' },
       { label: '必要なものから探す', href: 'hitsuyo.html' },
       { label: '目的別の補助金', href: 'grants/purposes.html' },
@@ -63,7 +63,7 @@ export const FOOTER_GROUPS = [
     label: '補助金を探す',
     items: [
       { label: 'トップ', href: '' },
-      { label: 'AI・キーワードで探す', href: 'search.html' },
+      { label: 'キーワードで探す', href: 'search.html' },
       { label: 'AI補助金判定', href: 'hantei.html' },
       { label: '必要なものから探す', href: 'hitsuyo.html' },
       { label: '目的別の補助金', href: 'grants/purposes.html' },
@@ -124,7 +124,7 @@ export const FOOTER_GROUPS = [
 // フッターに載せるリンク（4行。1行に横並びで表示する）。全リンクは「サイトマップ」に載せる
 export const FOOTER_SHORT = [
   { label: '探す', items: [
-    { label: 'AI・キーワードで探す', href: 'search.html' },
+    { label: 'キーワードで探す', href: 'search.html' },
     { label: 'AI補助金判定', href: 'hantei.html' },
     { label: '目的別', href: 'grants/purposes.html' },
     { label: '業種別', href: 'grants/industries.html' },
