@@ -6,6 +6,7 @@ import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { BACKGROUND } from './data/feature-background.mjs';
+import { PERSONAL_BACKGROUND } from './data/personal-background.mjs';
 
 const PUB = join(dirname(fileURLToPath(import.meta.url)), '..', 'public');
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -83,8 +84,8 @@ ${src}
 `;
 }
 
-export function applyBackground(html, slug, list) {
-  const def = BACKGROUND[slug];
+export function applyBackground(html, slug, list, defs = BACKGROUND) {
+  const def = defs[slug];
   if (!def) return html;
   const clean = html.replace(RE, '');
   const block = bgHtml(def, relatedFor(def.keywords, list, 6, def.caseKeywords));
@@ -96,12 +97,14 @@ export function applyBackground(html, slug, list) {
 export function run() {
   const list = articles();
   let n = 0;
-  for (const slug of Object.keys(BACKGROUND)) {
-    const p = join(PUB, 'feature', `${slug}.html`);
-    if (!existsSync(p)) continue;
-    const before = readFileSync(p, 'utf-8');
-    const after = applyBackground(before, slug, list);
-    if (after !== before) { writeFileSync(p, after); n++; }
+  for (const [folder, defs] of [['feature', BACKGROUND], ['personal', PERSONAL_BACKGROUND]]) {
+    for (const slug of Object.keys(defs)) {
+      const p = join(PUB, folder, `${slug}.html`);
+      if (!existsSync(p)) continue;
+      const before = readFileSync(p, 'utf-8');
+      const after = applyBackground(before, slug, list, defs);
+      if (after !== before) { writeFileSync(p, after); n++; }
+    }
   }
   return n;
 }
