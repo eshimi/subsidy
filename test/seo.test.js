@@ -116,3 +116,16 @@ test('特集の「背景と目的」：何度入れても同じ結果。出典�
   }
   assert.ok(relatedFor(['省力化'], list).every((a) => a.title.includes('省力化')));
 });
+
+test('個人向けページの「背景と目的」：7ページすべてに入り、何度入れても同じ結果', async () => {
+  const { applyBackground, articles } = await import('../scripts/apply-background.mjs');
+  const { PERSONAL_BACKGROUND } = await import('../scripts/data/personal-background.mjs');
+  const list = articles();
+  assert.equal(Object.keys(PERSONAL_BACKGROUND).length, 7);
+  for (const slug of Object.keys(PERSONAL_BACKGROUND)) {
+    const html = readFileSync(join(process.cwd(), 'public/personal', `${slug}.html`), 'utf-8');
+    assert.match(html, /id="bg"/, slug);
+    assert.equal(applyBackground(html, slug, list, PERSONAL_BACKGROUND), html, slug);
+    assert.ok(PERSONAL_BACKGROUND[slug].sources.length >= 3, slug);
+  }
+});
