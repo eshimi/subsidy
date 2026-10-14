@@ -1239,3 +1239,19 @@ button.r-way:focus-visible { outline: 2px solid var(--accent); outline-offset: 2
 .fx-toc--first { margin-top: 24px; }
 @media (min-width: 961px) { .fx-toc--m { display: none; } }
 @media (max-width: 960px) { .page-side nav[aria-label="このページの内容"] { display: none; } }
+
+/* 右の列の目次：ページ内を移動するための部品なので、下の「関連ページ」（他のページへのリンク）とは見た目を分ける */
+.page-side nav.related-links[aria-label="このページの内容"] { background: #ffffff; border-radius: 12px; box-shadow: 0 2px 12px rgba(10, 35, 82, 0.06); padding: 18px 18px 14px; margin: 0 0 28px; }
+.page-side nav[aria-label="このページの内容"] h2 { display: flex; align-items: center; gap: 8px; margin: 0 0 12px; font-size: 0.95rem; color: #0a2352; }
+.page-side nav[aria-label="このページの内容"] h2::before { content: ""; width: 4px; height: 1.1em; border-radius: 2px; background: #c9411a; }
+.page-side nav[aria-label="このページの内容"] ul { display: block; margin: 0; padding: 0 0 0 2px; border-left: 2px solid #d5dce8; }
+.page-side nav[aria-label="このページの内容"] li { margin: 0; }
+.page-side nav[aria-label="このページの内容"] a { display: block; margin-left: -2px; padding: 7px 8px 7px 14px; border-bottom: 0; border-left: 2px solid transparent; font-size: 0.88rem; line-height: 1.5; color: #1f3353; }
+.page-side nav[aria-label="このページの内容"] a:hover { color: #c9411a; background: #f4f7fb; }
+.page-side nav[aria-label="このページの内容"] a[aria-current="location"] { border-left-color: #c9411a; color: #c9411a; font-weight: 700; background: #fff8f3; }
+/* 目次が右の列にあるページ：スクロールしても目次が見えるように、目次だけ画面に固定する（パソコン幅のみ） */
+@media (min-width: 961px) {
+  .page-split:has(nav[aria-label="このページの内容"]) { align-items: stretch; }
+  .page-split:has(nav[aria-label="このページの内容"]) .page-side { position: static; max-height: none; overflow: visible; }
+  .page-side nav.related-links[aria-label="このページの内容"] { position: sticky; top: 84px; z-index: 2; }
+}

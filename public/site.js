@@ -134,3 +134,23 @@
 
 // フッターのリンク：全カテゴリを開いたままにする
 document.querySelectorAll('.footer-group').forEach((d) => { d.open = true; });
+
+// 右の列の目次：いま読んでいる節を強調する（目次がないページでは何もしない）
+(function () {
+  try {
+    var nav = document.querySelector('.page-side nav[aria-label="このページの内容"]');
+    if (!nav || !('IntersectionObserver' in window)) return;
+    var links = Array.prototype.slice.call(nav.querySelectorAll('a[href^="#"]'));
+    var map = {};
+    links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+    var heads = Object.keys(map).map(function (id) { return document.getElementById(id); }).filter(Boolean);
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        links.forEach(function (a) { a.removeAttribute('aria-current'); });
+        map[e.target.id].setAttribute('aria-current', 'location');
+      });
+    }, { rootMargin: '-80px 0px -65% 0px' });
+    heads.forEach(function (h) { io.observe(h); });
+  } catch (e) { /* 目次の強調ができなくても、リンクは使える */ }
+})();
