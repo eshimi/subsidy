@@ -154,3 +154,18 @@ document.querySelectorAll('.footer-group').forEach((d) => { d.open = true; });
     heads.forEach(function (h) { io.observe(h); });
   } catch (e) { /* 目次の強調ができなくても、リンクは使える */ }
 })();
+
+// 右の列をスクロールについてこさせる（パソコン幅）。右の列が画面より長いときは、最後まで見えた所で止める
+(function () {
+  try {
+    var side = document.querySelector('.page-split > .page-side');
+    if (!side) return;
+    var fit = function () {
+      var room = window.innerHeight - side.offsetHeight - 16;
+      side.style.setProperty('--side-top', Math.min(84, room) + 'px');
+    };
+    fit();
+    window.addEventListener('resize', fit);
+    if ('ResizeObserver' in window) new ResizeObserver(fit).observe(side);
+  } catch (e) { /* 動かなくても、右の列はふつうに表示される */ }
+})();

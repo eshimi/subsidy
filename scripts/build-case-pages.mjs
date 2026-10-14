@@ -8,19 +8,11 @@ import { CASES, SUBSIDIES, LICENSES } from './data/cases.mjs';
 import { P, UL, articleBody, writeArticle } from './lib/article.mjs';
 import { bannerFor } from './lib/banners.mjs';
 import { esc } from './lib/site-shell.mjs';
-import { withCases } from './lib/cases.mjs';
+import { withCases, illustFor } from './lib/cases.mjs';
 
 const OUT = join(dirname(fileURLToPath(import.meta.url)), '..', 'public', 'cases');
 const UPDATED = '2026年10月10日';
 
-// 記事ごとのイラスト（public/images/cases/illust-01〜10.webp）。事例の並びをもとに固定の順で混ぜ、毎回の生成で変わらないようにする
-const ILLUSTS = Array.from({ length: 10 }, (_, i) => `illust-${String(i + 1).padStart(2, '0')}.webp`);
-function illustFor(i) {
-  const order = [...ILLUSTS];
-  let seed = 20261010;
-  for (let k = order.length - 1; k > 0; k--) { seed = (seed * 1103515245 + 12345) % 2147483648; const j = seed % (k + 1); [order[k], order[j]] = [order[j], order[k]]; }
-  return order[i % order.length];
-}
 
 const CASE_STYLE = `
     <style>
