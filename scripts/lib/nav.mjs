@@ -25,6 +25,8 @@ export const TOP_GROUPS = [
       { label: 'ブログ', href: 'blog/index.html' },
       { label: '補助金はなぜできたのか（制度の背景）', href: 'background/index.html' },
       { label: '補助金データ（独自統計）', href: 'research/index.html' },
+      { label: '事業向けリサーチデータ', href: 'research/business.html' },
+      { label: '個人向けリサーチデータ', href: 'research/personal.html' },
       { label: '特に人気の5つの補助金', href: 'feature/popular.html' },
       { label: '主な補助金の特集', href: 'feature/index.html' },
       { label: '補助金の活用事例', href: 'cases/index.html' },

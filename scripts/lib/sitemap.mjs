@@ -47,6 +47,7 @@ const GROUPS = [
   { title: '補助金ニュース', pages: [['news/index.html', 'ニュースの一覧'], ['news/sources.html', '情報の取得元一覧']], folder: 'news', newestFirst: true },
   { title: 'ブログ', pages: [['blog/index.html', 'ブログの一覧']], folder: 'blog', newestFirst: true },
   { title: '補助金の活用事例', pages: [['cases/index.html', '活用事例の一覧']], folder: 'cases' },
+  { title: '補助金データ', pages: [['research/index.html', '補助金データのトップ'], ['research/business.html', '事業向けリサーチデータ'], ['research/personal.html', '個人向けリサーチデータ'], ['research/gaps.html', '地域×目的の空白マップ'], ['research/monthly.html', '月次レポート'], ['research/digest.html', '今週の公募ダイジェスト'], ['research/prefectures.html', '都道府県別の掲載状況'], ['research/programs.html', '制度の種類・対象・分野の内訳'], ['research/startup-map.html', '市区町村の創業支援マップ'], ['research/methods.html', 'データの作り方・出典・更新方針']] },
   { title: '特集・比較', pages: [['feature/index.html', '主な補助金の特集'], ['feature/popular.html', '特に人気の5つの補助金']], folder: 'feature', more: [['compare/index.html', '比較記事の一覧']], folder2: 'compare' },
   { title: '基礎知識・コラム', pages: [['basics/index.html', '基礎知識のトップ']], folder: 'basics', more: [['columns.html', 'コラムの一覧']], folder2: 'columns', tail: [['real-life.html', '補助金のリアル']] },
   { title: '対象者別', pages: [['who/index.html', '対象者別のトップ']], folder: 'who', more: [['hantei.html?for=personal', '個人が使える補助金・支援']], folder2: 'personal' },

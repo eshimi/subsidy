@@ -20,7 +20,8 @@ export function relatedKind(href, current) {
   const top = stack[0] || '';
   if (top === 'cases') return 'cases';
   if (top === 'feature' || top === 'compare') return 'feature';
-  if (['basics', 'columns', 'blog', 'news', 'guides', 'research', 'background'].includes(top) || ['columns.html', 'real-life.html', 'beginner-guide.html', 'roadmap.html', 'plan.html', 'books.html', 'resources.html'].includes(path)) return 'know';
+  if (top === 'research') return 'find';
+  if (['basics', 'columns', 'blog', 'news', 'guides', 'background'].includes(top) || ['columns.html', 'real-life.html', 'beginner-guide.html', 'roadmap.html', 'plan.html', 'books.html', 'resources.html'].includes(path)) return 'know';
   if (top === 'who' || top === 'personal') return 'who';
   if (['grants', 'area'].includes(top) || ['search.html', 'hantei.html', 'hitsuyo.html', 'diagnosis.html', 'chat.html', ''].includes(path) || path === 'index.html') return 'find';
   return 'other';

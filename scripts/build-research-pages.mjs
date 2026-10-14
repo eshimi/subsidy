@@ -12,12 +12,14 @@ import { PREFECTURES, PREF_SLUGS } from '../src/data/prefectures.js';
 import { articleBody, writeArticle, TABLE } from './lib/article.mjs';
 import { esc } from './lib/site-shell.mjs';
 import { loadHistory } from './update-research-history.mjs';
+import { loadAnalysis } from './update-analysis.mjs';
 
 const PUBLIC = join(dirname(fileURLToPath(import.meta.url)), '..', 'public');
 const DAY = 24 * 60 * 60 * 1000;
 export const jst = (now) => new Date(now + 9 * 3600e3).toISOString().slice(0, 10);
 export const dateJa = (iso) => { const [y, m, d] = iso.split('-').map(Number); return `${y}年${m}月${d}日`; };
 export const n = (x) => x.toLocaleString('ja-JP');
+const pct = (a, b) => (b ? Math.round((a / b) * 100) : 0);
 export const SECTION = ['index.html', '補助金データ'];
 export const BANNER = 'b13';
 
@@ -76,10 +78,79 @@ export function cityRows() {
   });
 }
 
+// 「補助金データ」のトップの案内（調べたいことから選ぶカード）。数字は、分析結果（data/analysis-latest.json）から読む
+const ICON = {
+  biz: '<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/>',
+  home: '<path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/>',
+  map: '<path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14M15 6v14"/>',
+  pin: '<path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/>',
+  grid: '<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>',
+  cal: '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>',
+  trend: '<path d="M3 17l6-6 4 4 8-9"/><path d="M15 6h6v6"/>',
+  pie: '<path d="M12 3v9h9"/><path d="M21 12a9 9 0 1 1-9-9"/>',
+  book: '<path d="M4 4h10a4 4 0 0 1 4 4v12H8a4 4 0 0 1-4-4z"/><path d="M8 4v12"/>',
+};
+const svg = (k) => `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICON[k]}</svg>`;
+const manLabel = (v) => (v >= 1e4 ? `${(v / 1e4).toLocaleString('ja-JP', { maximumFractionDigits: 1 })}万円` : `${n(v)}円`);
+
+function dataNav(ctx, a, history) {
+  const { rows } = ctx;
+  const L = a?.local;
+  const R = a?.resident;
+  const J = a?.jgrants;
+  const top = [...rows].sort((x, y) => y.total - x.total)[0];
+  const startup = cityRows().filter((r) => r.startup > 0).length;
+  const typeN = (t) => (L?.type.find(([k]) => k === t) || [, 0])[1];
+  const grantish = L ? typeN('補助金') + typeN('助成金') + typeN('給付金') : 0;
+  const gapTop = a?.gaps ? [...a.gaps.cats].sort((x, y) => y.none - x.none)[0] : null;
+  const days = (history.days || []).length;
+  const stat = (b, u, e) => `<li><b>${b}</b><span>${u}</span><em>${e}</em></li>`;
+  const lead = (cls, icon, kicker, title, desc, stats, href, go) => `          <a class="rs-lead ${cls}" href="${href}">
+            <span class="rs-lead-ico">${svg(icon)}</span>
+            <span class="rs-lead-k">${kicker}</span>
+            <strong class="rs-lead-t">${title}</strong>
+            <span class="rs-lead-d">${desc}</span>
+            ${stats.length ? `<ul class="rs-lead-s">${stats.join('')}</ul>` : ''}
+            <span class="rs-go">${go} <i aria-hidden="true">→</i></span>
+          </a>`;
+  const card = (icon, q, title, desc, teaser, href) => `          <a class="rs-card" href="${href}">
+            <span class="rs-card-ico">${svg(icon)}</span>
+            <span class="rs-card-q">${q}</span>
+            <strong class="rs-card-t">${title}</strong>
+            <span class="rs-card-d">${desc}</span>
+            ${teaser ? `<span class="rs-card-n">${teaser}</span>` : ''}
+          </a>`;
+  const group = (h, sub, cols, cards) => `        <h3 class="rs-gh">${h}<small>${sub}</small></h3>\n        <div class="rs-cards rs-cols${cols}">\n${cards.join('\n')}\n        </div>`;
+  return [
+    `        <div class="rs-leads">`,
+    lead('rs-lead--biz', 'biz', '事業者・創業者の方', '事業向けリサーチデータ', '補助金・助成金・融資を、種類・目的・対象・金額・締切・地域で集計。国の制度（jGrants）も。',
+      L ? [stat(n(L.n), '件', '自治体の事業者向け制度'), stat(`${pct(grantish, L.n)}`, '%', '返済不要の制度'), L.quartiles[1] !== null ? stat(manLabel(L.quartiles[1]), '', '金額の中央値') : ''].filter(Boolean) : [],
+      'business.html', '事業向けのデータを見る'),
+    lead('rs-lead--per', 'home', '住まい・暮らしの方', '個人向けリサーチデータ', '耐震・空き家・太陽光・移住・子育てなど、住まいと暮らしの制度を、分野・金額・締切・地域で集計。',
+      R ? [stat(n(R.n), '件', '自治体の個人向け制度'), stat(String(R.category.length), '分野', '耐震・空き家・移住など'), R.median[0] ? stat(manLabel(R.median[0][1]), '', `${esc(R.median[0][0])}の金額の中央値`) : ''].filter(Boolean) : [],
+      'personal.html', '個人向けのデータを見る'),
+    `        </div>`,
+    group('地域から見る', '自分の地域は、どうなっている？', 3, [
+      card('map', '自分の県は、制度が多い？', '都道府県別の掲載状況', '47都道府県の、県の制度・市区町村の制度・個人向けの件数を比べます。', top ? `最多は${esc(top.pref)}（${n(top.total)}件）` : '', 'prefectures.html'),
+      card('pin', '創業するなら、どの市区町村？', '市区町村の創業支援マップ', '創業前・創業直後に使える制度のある市区町村を、一覧で確認できます。', `${n(startup)}市区町村で、創業向けの制度を掲載`, 'startup-map.html'),
+      card('grid', 'どの目的の制度が、足りない？', '地域×目的の空白マップ', '市区町村ごとに、創業・設備・人材・ITなどの制度が掲載されているかを一覧にします。', gapTop ? `空白が最も大きい目的：${esc(gapTop.cat)}（${n(gapTop.none)}市区町村）` : '', 'gaps.html'),
+    ]),
+    group('動きから見る', '今、何が起きている？', 2, [
+      card('cal', '今週、新しく始まった公募は？', '今週の公募ダイジェスト', '国の制度（jGrants）の、新しく始まった公募と、締切が近い公募を、毎日更新でまとめます。', J ? `募集中の国の制度は${n(J.total)}件` : '毎日更新', 'digest.html'),
+      card('trend', '募集中の制度は、増えている？', '月次レポート', '国の制度の、募集中の件数・新規掲載・募集終了の数を、月ごとにまとめます。', days >= 2 ? `${n(days)}日分の記録` : '記録を溜めています（毎朝の記録から）', 'monthly.html'),
+    ]),
+    group('内訳とつくり方', '数字の中身と、見方', 2, [
+      card('pie', '補助金と融資、どちらが多い？', '制度の種類・対象・分野の内訳', '自治体の制度を、種類・対象（創業前〜事業が安定した方）・個人向けの分野・締切の月で集計します。', L ? `補助金${n(typeN('補助金'))}件・融資${n(typeN('融資'))}件・助成金${n(typeN('助成金'))}件` : '', 'programs.html'),
+      card('book', 'この数字は、どこまで信じていい？', 'データの作り方・出典・更新方針', '出典・集計のルール・調査時点・更新の方針と、数字の見方をまとめています。', '出典と調査時点を、すべてのページに表示', 'methods.html'),
+    ]),
+  ].join('\n');
+}
+
 function pageIndex(asOf, ctx) {
-  const { rows, bizTotal, resTotal } = ctx;
+  const { rows, bizTotal, resTotal, analysis, history } = ctx;
   const top = [...rows].sort((a, b) => b.total - a.total)[0];
   const sections = [
+    ['知りたいことから、データを選ぶ', dataNav(ctx, analysis, history)],
     ['このコーナーについて', [
       P('「補助金データ」は、当サイトが集めた補助金・助成金の情報を集計して、地域や分野ごとの様子を見やすくするコーナーです。制度を一つずつ調べるだけでは分かりにくい、<strong>全体の傾向</strong>を確認できます。'),
       P('集計は、当サイトの掲載データにもとづきます。全国の全数ではないため、各ページに、出典・集計の対象・調査時点・算出の方法・注意を表示しています。'),
@@ -93,17 +164,6 @@ function pageIndex(asOf, ctx) {
         </ul>`,
       P(`自治体の制度の掲載数が最も多いのは、${esc(top.pref)}（${n(top.total)}件）です。ただし、人口や市区町村の数、当サイトの調べた範囲によって変わるため、地域間の優劣を示す数字ではありません。`),
     ].join('\n')],
-    ['データの一覧', `        <ul>
-          <li><a href="prefectures.html"><strong>都道府県別の掲載状況</strong></a>：47都道府県の、県の制度・市区町村の制度・個人向けの制度の件数を比べます。</li>
-          <li><a href="programs.html"><strong>制度の種類・対象・分野の内訳</strong></a>：補助金・助成金・融資の別、創業前から事業が安定した方までの対象、個人向けの分野を集計します。</li>
-          <li><a href="startup-map.html"><strong>市区町村の創業支援マップ</strong></a>：創業を考える方が使える制度の多い市区町村を、一覧で確認できます。</li>
-          <li><a href="business.html"><strong>事業向けリサーチデータ</strong></a>：事業者・創業者向けの補助金・助成金・融資を、種類・目的・対象・金額・締切・地域で集計した、毎日更新のデータです。</li>
-          <li><a href="personal.html"><strong>個人向けリサーチデータ</strong></a>：耐震・空き家・太陽光・移住など、住まい・暮らしの制度を、分野・金額・締切・地域で集計した、毎日更新のデータです。</li>
-          <li><a href="gaps.html"><strong>地域×目的の空白マップ</strong></a>：市区町村ごとに、どの目的の制度が掲載されていないかを一覧にします。</li>
-          <li><a href="monthly.html"><strong>月次レポート</strong></a>：国の制度の募集中の件数、新規掲載・募集終了の数を、月ごとにまとめます。</li>
-          <li><a href="digest.html"><strong>今週の公募ダイジェスト</strong></a>：国の制度（jGrants）の、新しく始まった公募と、締切が近い公募を、毎日更新します。</li>
-          <li><a href="methods.html"><strong>データの作り方・出典・更新方針</strong></a>：集計のルールと、数字の見方。</li>
-        </ul>`],
     ['このデータについて', dataBox({
       source: LOCAL_SOURCE,
       scope: `自治体の事業者向けの制度${n(bizTotal)}件、個人向けの制度${n(resTotal)}件（当サイトの掲載分）`,
@@ -111,7 +171,7 @@ function pageIndex(asOf, ctx) {
       caution: CAUTION_COVERAGE,
     })],
   ];
-  return { file: 'index.html', title: '補助金データ｜地域・分野で見る、補助金・助成金の掲載状況', description: '当サイトの掲載データを集計した、補助金・助成金の独自統計。都道府県別の掲載状況、制度の種類・対象・分野の内訳、市区町村の創業支援マップ、今週の公募ダイジェストを、出典と調査時点つきで公開しています。', lead: '地域や分野ごとの、補助金・助成金の掲載状況を集計しました。出典・調査時点・集計の方法を、すべてのページに表示しています。', sections, kicker: null, related: CTA };
+  return { file: 'index.html', title: '補助金データ｜地域・分野で見る、補助金・助成金の掲載状況', description: '当サイトの掲載データを集計した、補助金・助成金の独自統計。都道府県別の掲載状況、制度の種類・対象・分野の内訳、市区町村の創業支援マップ、今週の公募ダイジェストを、出典と調査時点つきで公開しています。', lead: '地域や分野ごとの、補助金・助成金の掲載状況を集計しました。出典・調査時点・集計の方法を、すべてのページに表示しています。', sections, kicker: null, related: [['business.html', '事業向けリサーチデータ'], ['personal.html', '個人向けリサーチデータ'], ...CTA] };
 }
 
 function pagePrefectures(asOf, ctx) {
@@ -278,7 +338,7 @@ export function buildAll({ out = join(PUBLIC, 'research'), now = Date.now(), ite
     items = existsSync(f) ? JSON.parse(readFileSync(f, 'utf-8')).items : [];
   }
   const pages = [
-    pageIndex(asOf, { rows, bizTotal, resTotal }),
+    pageIndex(asOf, { rows, bizTotal, resTotal, analysis: loadAnalysis(), history: loadHistory() }),
     pagePrefectures(asOf, { rows }),
     pagePrograms(asOf, now),
     pageStartup(asOf),
