@@ -31,34 +31,35 @@ jobs:
       - run: npm ci
       - run: npm test
       # 制度ごとの詳細は、持っていない制度・内容が変わった制度だけを取る（1回の上限は JGRANTS_DETAIL_BUDGET）。失敗しても、デプロイは続ける
-      - name: jGrants の制度の詳細を更新（差分のみ）
+      - name: jGrants の制度の詳細（差分のみ）と、補助金データの履歴を更新
         continue-on-error: true
         env:
           JGRANTS_DETAIL_BUDGET: '400'
         run: |
           node scripts/fetch-jgrants.mjs
           node scripts/update-jgrants-details.mjs
+          node scripts/update-research-history.mjs
       # 更新した詳細データをリポジトリに保存する。Cloudflare の Git 連携のビルドは、これを読むだけにする。
       # [skip ci] でビルドの二重起動を避ける（このあとのデプロイが、更新したデータを使う）
       - name: 詳細データをリポジトリに保存
         continue-on-error: true
         run: |
-          if git diff --quiet -- data/jgrants-details.json && [ -z "$(git ls-files --others --exclude-standard data/jgrants-details.json)" ]; then
+          if git diff --quiet -- data/ && [ -z "$(git ls-files --others --exclude-standard data/)" ]; then
             echo "詳細データに変更はありません"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           # 実行中に、ブランチに別のコミットが入ることがある。最新のブランチの上に、詳細データだけを載せ直して保存する（最大3回）
-          cp data/jgrants-details.json "$RUNNER_TEMP/jgrants-details.json"
+          cp data/jgrants-details.json data/research-history.json "$RUNNER_TEMP/"
           saved=""
           for i in 1 2 3; do
             git fetch -q --depth=1 origin "${GITHUB_REF_NAME}"
             git reset -q --hard "origin/${GITHUB_REF_NAME}"
-            cp "$RUNNER_TEMP/jgrants-details.json" data/jgrants-details.json
-            git add data/jgrants-details.json
+            cp "$RUNNER_TEMP/jgrants-details.json" "$RUNNER_TEMP/research-history.json" data/
+            git add data/jgrants-details.json data/research-history.json
             git diff --cached --quiet && { echo "詳細データに変更はありません"; saved=1; break; }
-            git commit -q -m "jGrants の制度の詳細データを更新 [skip ci]"
+            git commit -q -m "jGrants の制度の詳細データと、補助金データの履歴を更新 [skip ci]"
             if git push origin "HEAD:${GITHUB_REF_NAME}"; then saved=1; break; fi
             sleep 5
           done

@@ -11,6 +11,7 @@ import { AREA_CITIES } from '../src/data/area-cities.js';
 import { PREFECTURES, PREF_SLUGS } from '../src/data/prefectures.js';
 import { articleBody, writeArticle, TABLE } from './lib/article.mjs';
 import { esc } from './lib/site-shell.mjs';
+import { loadHistory } from './update-research-history.mjs';
 
 const PUBLIC = join(dirname(fileURLToPath(import.meta.url)), '..', 'public');
 const DAY = 24 * 60 * 60 * 1000;
@@ -201,6 +202,21 @@ export function digestFor(items, now) {
   };
 }
 
+// 募集中の件数の推移（data/research-history.json。毎朝の記録）。記録が2日分以上あるときだけ出す
+function historySection(history = loadHistory()) {
+  const days = (history.days || []).slice(-30);
+  if (days.length < 2) return [];
+  const md = (iso) => { const [, m, d] = iso.split('-').map(Number); return `${m}/${d}`; };
+  const first = days[0];
+  const last = days[days.length - 1];
+  const diff = last.total - first.total;
+  return [['募集中の件数の推移（毎日の記録）', [
+    P(`国の制度（jGrants）の募集中の件数を、毎朝記録しています。直近${days.length}日間（${esc(md(first.date))}〜${esc(md(last.date))}）で、${n(first.total)}件から${n(last.total)}件へ、${diff === 0 ? '同じ件数でした' : `${n(Math.abs(diff))}件${diff > 0 ? '増えました' : '減りました'}`}。`),
+    bars(days.map((x) => [esc(md(x.date)), x.total])),
+    P(`いちばん新しい記録（${esc(md(last.date))}）：全国向け${n(last.national)}件／30日以内に締切${n(last.soon30)}件／直近7日間に受付開始${n(last.fresh7)}件。記録は、${esc(dateJa(history.days[0].date))}から始めています。`),
+  ].join('\n')]];
+}
+
 function pageDigest(asOf, now, items) {
   const d = digestFor(items, now);
   const has = d.total > 0;
@@ -210,6 +226,7 @@ function pageDigest(asOf, now, items) {
   const started = (g) => `受付開始：${esc(dateJa(String(g.s).slice(0, 10)))}`;
   const sections = has ? [
     ['今週の動き', P(`${esc(dateJa(jst(now)))}時点で、国の制度（jGrants）の募集中は<strong>${n(d.total)}件</strong>です。直近7日間に受付が始まった制度は<strong>${n(d.fresh.length)}件</strong>、14日以内に締切を迎える制度は<strong>${n(d.closing.length)}件</strong>です。`)],
+    ...historySection(),
     ['直近7日間に受付が始まった制度', list(d.fresh, started)],
     ['14日以内に締切を迎える制度（締切の近い順）', list(d.closing, left)],
     ['このデータについて', dataBox({ source: 'デジタル庁「Jグランツ」の公開データ（補助金の公募情報）', scope: 'jGrantsに掲載されている、募集中の補助金・助成金（自治体の独自制度などjGrantsにないものは含みません）', asOf, method: '受付開始日が直近7日以内のものを「新着」、締切が14日以内のものを「締切が近い」として、毎日自動で集計しています。', caution: '国の電子申請（jGrants）に掲載された制度だけの集計です。金額・条件は、必ず公式の案内で確認してください。' })],
