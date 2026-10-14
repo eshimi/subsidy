@@ -62,20 +62,13 @@ ${tagRows}
 }
 
 export function grantBody({ g, st, startJa, endJa, amount, faq, tagRows, guides, jgrantsDetail, jgrantsPortal }) {
-  const closed = st.key === 'closed';
   const links = [
     ['#facts', '制度の概要'], ['#flow', '申請の流れ'], ['#mistakes', 'よくある失敗'], ['#check', '申請前に確認したいこと'],
     ...(g.employees ? [['#size', '中小企業の目安']] : []),
     ['#faq', 'よくある質問'], ['#glossary', '用語集'], ['#sources', '最新情報の確認先'],
   ];
   const parts = [];
-  parts.push(fx.conclusion([
-    [closed ? 'この募集は、受付を終了しています。' : `${esc(st.label)}。受付締切は${esc(endJa)}です。`, closed ? '次回の公募の有無は、公式サイトで確認してください。' : `受付開始は${esc(startJa)}です。`],
-    [`上限額は、${esc(amount)}。`, `対象地域は「${esc(g.area || '記載なし')}」です。${g.employees ? `対象の従業員数は「${esc(g.employees)}」と記載されています。` : ''}`],
-    ['申請の前に、公募要領で、対象と経費を確認しましょう。', '電子申請（jGrants）で申請する制度では、gBizIDプライムが必要です。取得に時間がかかるため、早めに始めてください。'],
-  ], 'この情報は jGrants（デジタル庁）の公開データをもとに自動で作成しています。対象・金額・締切は変わることがあるため、申請前に必ず公式サイトで確認してください。', 'この制度のポイント'));
-
-  parts.push(fx.toc([['', 'orange', links]]));
+  parts.push(fx.toc([['', 'orange', links]]).replace('<nav class="fx-toc fx-card"', '<nav class="fx-toc fx-card fx-toc--first"'));
 
   parts.push(fx.section('sec-facts', 'facts', '制度の概要', `${facts([
     ['対象地域', g.area || '記載なし'],

@@ -152,5 +152,6 @@ test('制度ページ：特集記事の共通部品（要点・申請の流れ�
   // 従業員数の条件がない制度には「中小企業の目安」を出さない。受付終了の制度は、その旨を要点に書く
   const closed = grantPage({ ...g, employees: '', end: new Date(NOW - DAY).toISOString() }, NOW);
   assert.doesNotMatch(closed, /id="size"/);
-  assert.match(closed, /この募集は、受付を終了しています。/);
+  assert.match(closed, /fx-chip fx-chip--closed/);
+  assert.doesNotMatch(html, /この制度のポイント/);
 });
