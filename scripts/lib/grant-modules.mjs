@@ -53,6 +53,19 @@ const SIZE_TABLE = [
   ['小売業', '5,000万円', '50人'],
 ];
 
+// 説明文（プレーンテキスト）を、段落と箇条書きにする。HTML は入れず、すべてエスケープする
+function prose(text) {
+  const out = [];
+  let list = [];
+  const flush = () => { if (list.length) { out.push(`      <ul class="fx-prose-list">\n${list.map((l) => `        <li>${esc(l)}</li>`).join('\n')}\n      </ul>`); list = []; } };
+  for (const line of text.split('\n')) {
+    if (line.startsWith('・')) list.push(line.slice(1).trim());
+    else { flush(); out.push(`      <p class="fx-prose">${esc(line)}</p>`); }
+  }
+  flush();
+  return `      <div class="fx-card fx-pad-l fx-prose-box">\n${out.join('\n')}\n      </div>`;
+}
+
 // 概要の項目表（fx-facts）。tagRows は「分類（参考）」の <dt><dd> の HTML（なければ空）
 function facts(rows, tagRows) {
   return `      <dl class="fx-card fx-facts">
@@ -62,24 +75,24 @@ ${tagRows}
 }
 
 // 目次のリンク（本文の目次と、右の列の目次で同じ内容を使う）
-const tocLinks = (g) => [
-  ['#facts', '制度の概要'], ['#flow', '申請の流れ'], ['#mistakes', 'よくある失敗'], ['#check', '申請前に確認したいこと'],
+const tocLinks = (g, detail) => [
+  ['#facts', '制度の概要'], ...(detail?.text ? [['#detail', '制度の説明（jGrants掲載）']] : []), ['#flow', '申請の流れ'], ['#mistakes', 'よくある失敗'], ['#check', '申請前に確認したいこと'],
   ...(g.employees ? [['#size', '中小企業の目安']] : []),
   ['#faq', 'よくある質問'], ['#glossary', '用語集'], ['#sources', '最新情報の確認先'],
 ];
 
 // 右の列（パソコン幅）の先頭に置く目次。スマホ幅では、本文の先頭の目次を使う
-export function grantTocSide(g) {
+export function grantTocSide(g, detail = null) {
   return `    <nav class="related-links" aria-label="このページの内容">
       <h2>目次</h2>
       <ul>
-${tocLinks(g).map(([h, t]) => `        <li><a href="${h}">${esc(t)}</a></li>`).join('\n')}
+${tocLinks(g, detail).map(([h, t]) => `        <li><a href="${h}">${esc(t)}</a></li>`).join('\n')}
       </ul>
     </nav>`;
 }
 
-export function grantBody({ g, st, startJa, endJa, amount, faq, tagRows, guides, jgrantsDetail, jgrantsPortal }) {
-  const links = tocLinks(g);
+export function grantBody({ g, st, detail = null, projectEndJa = '', startJa, endJa, amount, faq, tagRows, guides, jgrantsDetail, jgrantsPortal }) {
+  const links = tocLinks(g, detail);
   const parts = [];
   parts.push(fx.toc([['', 'orange', links]]).replace('<nav class="fx-toc fx-card"', '<nav class="fx-toc fx-card fx-toc--first fx-toc--m"'));
 
@@ -87,10 +100,26 @@ export function grantBody({ g, st, startJa, endJa, amount, faq, tagRows, guides,
     ['対象地域', g.area || '記載なし'],
     ['上限額', amount],
     ['対象の従業員数', g.employees || '記載なし'],
+    ...(detail?.rate ? [['補助率', detail.rate]] : []),
+    ...(detail?.purpose ? [['利用目的', detail.purpose]] : []),
+    ...(detail?.industry ? [['対象の業種', detail.industry]] : []),
+    ...(detail?.areaDetail ? [['対象地域の詳細', detail.areaDetail]] : []),
     ['受付開始', startJa],
     ['受付締切', endJa],
+    ...(projectEndJa ? [['事業の終了期限', projectEndJa]] : []),
   ], tagRows)}
       <p class="fx-links-row"><a class="fx-btn" href="${jgrantsDetail}" target="_blank" rel="noopener">jGrants でこの補助金の詳細を見る →</a></p>`));
+
+  if (detail?.text) {
+    parts.push(fx.section('detail', 's-detail', '制度の説明（jGrants掲載の内容）', `      <p>次の説明は、jGrants（デジタル庁）に掲載されている内容を、そのまま表示しています。</p>
+${prose(detail.text)}${detail.clipped ? `
+      <p class="fx-note-plain">長い説明のため、途中までを表示しています。続きは、<a href="${jgrantsDetail}" target="_blank" rel="noopener">jGrants のこの補助金のページ</a>でご覧ください。</p>` : ''}${detail.files?.length ? `
+      <h3 class="fx-h3">jGrants に掲載されている資料</h3>
+      <ul class="fx-card fx-pad-m fx-files">
+${detail.files.map((f) => `        <li>${esc(f)}</li>`).join('\n')}
+      </ul>
+      <p class="fx-note-plain">資料の本文は、<a href="${jgrantsDetail}" target="_blank" rel="noopener">jGrants のページ</a>から確認できます。</p>` : ''}`));
+  }
 
   parts.push(fx.section('flow', 's-flow', '申請の流れ（一般的な8ステップ）', `      <p>多くの補助金に共通する、一般的な流れです。この制度の手続きは、公募要領で確認してください。<strong class="fx-em">契約・支払いは、交付決定の後から（多くの補助金の場合）。</strong></p>
 ${fx.steps(FLOW)}`));

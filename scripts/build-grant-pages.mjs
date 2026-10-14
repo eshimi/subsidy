@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { SITE, esc, shell } from './lib/site-shell.mjs';
 import { grantBody, grantTocSide, genericFaq } from './lib/grant-modules.mjs';
 import { bannerFor } from './lib/banners.mjs';
+import { loadCache } from './lib/jgrants-detail.mjs';
 import { PREFECTURES, PREF_SLUGS } from '../src/data/prefectures.js';
 import { NATIONAL_EXTRA, PERSONAL_GUIDES } from './data/national-extra.mjs';
 import { LOCAL_PROGRAMS } from '../src/data/local-programs.js';
@@ -245,7 +246,7 @@ function guidesOf(g) {
   return [...new Set(t.p.filter((k) => GUIDE_FOR[k]).map((k) => GUIDE_FOR[k].join('|')))].map((v) => { const [h, l] = v.split('|'); return [h, l, '', false]; });
 }
 
-export function grantPage(g, now) {
+export function grantPage(g, now, detail = null) {
   const st = statusOf(g.end, now);
   const title = `${g.title}｜補助金ネット`;
   const description = `${g.title}の対象地域（${g.area || '記載なし'}）、上限額、申請期間を一覧で確認できます。申請要件は公式サイトで確認してください。`.slice(0, 160);
@@ -257,14 +258,14 @@ export function grantPage(g, now) {
     <div class="fx-hero"><div class="pb-banner" style="background-image: url('../images/banner/${bannerFor(`grants/${g.id}.html`)}.webp')"><h1 class="pb-title">${esc(g.title)}</h1></div></div>
     <div class="fx-lead">
       <p class="fx-meta"><span class="fx-chip fx-chip--${st.key}">${esc(st.label)}</span></p>
-      <p class="lead">${esc(st.label)}｜締切：${esc(dateJa(g.end))}</p>
+      <p class="lead">${esc(st.label)}｜締切：${esc(dateJa(g.end))}</p>${detail?.catch ? `\n      <p class="fx-catch">${esc(detail.catch)}</p>` : ''}
     </div>
 
     <article class="fx" data-layout="feature-v2">
-${grantBody({ g, st, startJa: dateJa(g.start), endJa: dateJa(g.end), amount: amountJa(g.max), faq, tagRows: tagHtml(g), guides, jgrantsDetail: `${JGRANTS}subsidy/${encodeURIComponent(g.id)}`, jgrantsPortal: JGRANTS })}
+${grantBody({ g, st, detail, projectEndJa: detail?.projectEnd && /^\d{4}-\d{2}-\d{2}/.test(detail.projectEnd) ? dateJa(detail.projectEnd) : (detail?.projectEnd || ''), startJa: dateJa(g.start), endJa: dateJa(g.end), amount: amountJa(g.max), faq, tagRows: tagHtml(g), guides, jgrantsDetail: `${JGRANTS}subsidy/${encodeURIComponent(g.id)}`, jgrantsPortal: JGRANTS })}
     </article>
 
-${grantTocSide(g)}
+${grantTocSide(g, detail)}
 
     <nav class="related-links" aria-label="関連ページ">
       <h2>関連ページ</h2>
@@ -569,7 +570,8 @@ export function buildAll({ dir = DATA, out = OUT, sitemap = SITEMAP, now = Date.
   }
   const soon = grants.filter((g) => statusOf(g.end, now).key !== 'closed');
   const hubs = hubsFor(grants, now);
-  for (const g of grants) writeFileSync(join(out, `${g.id}.html`), grantPage(g, now));
+  const details = loadCache().items || {};
+  for (const g of grants) writeFileSync(join(out, `${g.id}.html`), grantPage(g, now, details[g.id] && !details[g.id].empty ? details[g.id] : null));
   writeFileSync(join(out, 'index.html'), listPage({ title: '制度一覧｜補助金ネット', heading: '制度一覧', lead: `jGrants で募集中の補助金 ${grants.length} 件を、締切の早い順に並べています。`, items: grants, now, canonicalPath: '/grants/index.html' }));
   writeFileSync(join(out, 'deadlines.html'), listPage({ title: '締切が近い補助金｜補助金ネット', heading: '締切が近い補助金', lead: `受付中の補助金 ${soon.length} 件を、締切の早い順に並べています。`, items: soon, now, canonicalPath: '/grants/deadlines.html', extra: `
     <nav class="related-links" aria-label="カレンダーと RSS">

@@ -11,8 +11,9 @@ on:
     - cron: '12 21 * * *'
   workflow_dispatch:
 
+# 詳細データ（data/jgrants-details.json）をリポジトリに保存するため、書き込み権限が要る
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: cloudflare-deploy
@@ -29,6 +30,33 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm test
+      # 制度ごとの詳細は、持っていない制度・内容が変わった制度だけを取る（1回の上限は JGRANTS_DETAIL_BUDGET）。失敗しても、デプロイは続ける
+      - name: jGrants の制度の詳細を更新（差分のみ）
+        continue-on-error: true
+        env:
+          JGRANTS_DETAIL_BUDGET: '400'
+        run: |
+          node scripts/fetch-jgrants.mjs
+          node scripts/update-jgrants-details.mjs
+      # 更新した詳細データをリポジトリに保存する。Cloudflare の Git 連携のビルドは、これを読むだけにする。
+      # [skip ci] でビルドの二重起動を避ける（このあとのデプロイが、更新したデータを使う）
+      - name: 詳細データをリポジトリに保存
+        continue-on-error: true
+        run: |
+          if git diff --quiet -- data/jgrants-details.json && [ -z "$(git ls-files --others --exclude-standard data/jgrants-details.json)" ]; then
+            echo "詳細データに変更はありません"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/jgrants-details.json
+          git commit -m "jGrants の制度の詳細データを更新 [skip ci]"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
+          # 本番のブランチが2つに分かれているため、もう一方にも保存する（早送りできるときだけ）
+          for b in claude/subsidy-finder-cloudflare-2oorwy claude/business-subsidy-finder-2v9gwr; do
+            [ "$b" = "${GITHUB_REF_NAME}" ] && continue
+            git push origin "HEAD:$b" || echo "::warning::$b には保存できませんでした（分岐している可能性があります）"
+          done
       - name: Deploy
         id: deploy
         env:

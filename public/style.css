@@ -1259,3 +1259,10 @@ button.r-way:focus-visible { outline: 2px solid var(--accent); outline-offset: 2
 .page-split:has(nav[aria-label="このページの内容"]) .page-side a { border-radius: 3px; transition: color 0.12s, background-color 0.12s, box-shadow 0.12s, border-color 0.12s; }
 .page-split:has(nav[aria-label="このページの内容"]) .page-side .related-links:not([aria-label="このページの内容"]) a:hover,
 .page-split:has(nav[aria-label="このページの内容"]) .page-side .related-links:not([aria-label="このページの内容"]) a:focus-visible { color: #c9411a; border-bottom-color: #c9411a; background: #fff8f3; box-shadow: 0 0 0 4px #fff8f3; }
+
+/* 制度ページ：jGrants から取り込んだ説明文 */
+.fx-catch { margin: 0; font-size: 16px; font-weight: 700; line-height: 1.8; color: #0a2352; }
+.fx-prose-box { display: grid; gap: 10px; }
+.fx-prose-box p.fx-prose { margin: 0; font-size: 15px; line-height: 1.9; overflow-wrap: anywhere; }
+.fx-prose-list { margin: 0; padding-left: 1.3em; display: grid; gap: 4px; font-size: 15px; line-height: 1.85; overflow-wrap: anywhere; }
+.fx-files { list-style: disc; margin: 0; padding-left: 2.4em; font-size: 14px; line-height: 1.8; overflow-wrap: anywhere; }
