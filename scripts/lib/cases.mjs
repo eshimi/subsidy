@@ -35,10 +35,35 @@ export function casesForGrant(title, purposes = [], limit = 3) {
 // 右の列に置く、活用事例のカード（イメージのイラスト＋短い要約）
 export function caseCards(title, purposes, prefix = '../') {
   const { list, exact } = casesForGrant(title, purposes);
+  return cardsHtml(list, exact ? 'この補助金の活用事例' : '似た目的の活用事例', prefix);
+}
+
+// 特集ページ（feature/）ごとの、事例の選び方（補助金の種類）。成長加速化は、同じ補助金の事例がないため、近い「設備投資」の事例を出す
+const FEATURE_KEYS = {
+  'feature/digital-subsidy.html': [['digital'], true],
+  'feature/jizokuka.html': [['jizokuka'], true],
+  'feature/monodukuri.html': [['monodukuri', 'saikouchiku'], true],
+  'feature/shoryokuka.html': [['shoryokuka'], true],
+  'feature/succession.html': [['shokei'], true],
+  'feature/employment.html': [['career', 'employment'], true],
+  'feature/growth.html': [['monodukuri', 'saikouchiku'], false],
+};
+export function featureCases(path, limit = 3) {
+  if (FEATURE_KEYS[path]) {
+    const [keys, exact] = FEATURE_KEYS[path];
+    return { list: CASES.filter((c) => keys.includes(c.subsidy)).slice(0, limit), heading: exact ? 'この補助金の活用事例' : '似た目的の活用事例' };
+  }
+  // 特集のトップ・人気の補助金など：補助金の種類が重ならないように、1件ずつ選ぶ
+  const seen = new Set();
+  const list = CASES.filter((c) => (seen.has(c.subsidy) ? false : seen.add(c.subsidy))).slice(0, limit);
+  return { list, heading: '補助金の活用事例' };
+}
+
+function cardsHtml(list, heading, prefix = '../') {
   if (!list.length) return '';
   const clip = (s, n) => (s.length > n ? `${s.slice(0, n)}…` : s);
   return `    <nav class="related-links" aria-label="関連する活用事例" data-cases>
-      <h2>${exact ? 'この補助金の活用事例' : '似た目的の活用事例'}</h2>
+      <h2>${heading}</h2>
       <ul>
 ${list.map((c) => `        <li><a class="case-card" href="${prefix}cases/${c.slug}.html"><img src="${prefix}images/cases/${illustFor(CASES.indexOf(c))}" alt="" width="64" height="88" loading="lazy"><span class="case-card-b"><b>${esc(c.title)}</b><span>${esc(clip(c.summary, 60))}</span><em>${esc(SUBSIDIES[c.subsidy]?.short || '')}</em></span></a></li>`).join('\n')}
       </ul>
@@ -54,6 +79,10 @@ export function casesFor(path) {
 }
 
 export function casesBlock(path, prefix = '../') {
+  if (path.startsWith('feature/')) {
+    const { list, heading } = featureCases(path);
+    return list.length ? `\n${cardsHtml(list, heading, prefix)}\n` : '';
+  }
   const list = casesFor(path).slice(0, 5);
   if (!list.length) return '';
   return `
@@ -72,7 +101,9 @@ export function withCases(html, path, prefix = '../') {
   const cleaned = html.replace(/\n?<!-- cases:start -->[\s\S]*?<!-- cases:end -->\n?/, '\n');
   const block = casesBlock(path, prefix);
   if (!block) return cleaned;
-  const at = cleaned.indexOf('<nav class="related-links" aria-label="関連ページ">');
+  let at = cleaned.indexOf('<nav class="related-links" aria-label="関連ページ">');
+  // 特集のトップなど「関連ページ」のないページは、右の列の先頭に入れる
+  if (at < 0 && path.startsWith('feature/')) { const side = cleaned.indexOf('<aside class="page-side"'); if (side >= 0) at = cleaned.indexOf('<nav class="related-links"', side); }
   if (at < 0) return cleaned;
   const i = cleaned.lastIndexOf('\n', at) + 1;
   return `${cleaned.slice(0, i)}<!-- cases:start -->${block}<!-- cases:end -->\n${cleaned.slice(i)}`;
