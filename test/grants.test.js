@@ -136,3 +136,21 @@ test('制度ページの分類（目的・業種）は、対象地域が1つの�
   const national = grantPage({ ...g, area: '全国' }, NOW);
   assert.doesNotMatch(national, /search\.html\?[^"]*pref=/);
 });
+
+test('制度ページ：特集記事の共通部品（要点・申請の流れ・よくある失敗・FAQ・用語集・確認先）が入り、アンカーとFAQの構造化データが残る', async () => {
+  const { grantPage } = await import('../scripts/build-grant-pages.mjs');
+  const g = { id: 'T9', title: 'テスト補助金（設備投資）', area: '東京都', end: new Date(NOW + DAY * 20).toISOString(), start: new Date(NOW - DAY).toISOString(), max: 1000000, employees: '300人以下' };
+  const html = grantPage(g, NOW);
+  assert.match(html, /data-layout="feature-v2"/);
+  for (const id of ['facts', 'faq', 'check', 'flow', 'mistakes', 'glossary', 'sources', 'size']) assert.match(html, new RegExp(`id="${id}"`), id);
+  assert.equal((html.match(/class="fx-step-no/g) || []).length, 8);
+  assert.match(html, /robots" content="noindex, follow"/);
+  const ld = JSON.parse(html.match(/<script type="application\/ld\+json">(.*?)<\/script>/)[1]);
+  assert.equal(ld.mainEntity.length, 7);
+  // 回答文は、<details> の中にも残る
+  assert.match(html, /受付締切は.*です（締切まで20日）。/);
+  // 従業員数の条件がない制度には「中小企業の目安」を出さない。受付終了の制度は、その旨を要点に書く
+  const closed = grantPage({ ...g, employees: '', end: new Date(NOW - DAY).toISOString() }, NOW);
+  assert.doesNotMatch(closed, /id="size"/);
+  assert.match(closed, /この募集は、受付を終了しています。/);
+});

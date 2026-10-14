@@ -34,9 +34,9 @@ export function partHead(n, title, tone = 'orange') {
     </div>`;
 }
 
-export function conclusion(items, noteHtml) {
+export function conclusion(items, noteHtml, title = 'この記事の結論') {
   return `    <section class="fx-sec fx-sec--first fx-card fx-pad-l" aria-labelledby="s0">
-      <div class="fx-h2"><span class="fx-bar fx-bar--orange" aria-hidden="true"></span><h2 id="s0">この記事の結論</h2></div>
+      <div class="fx-h2"><span class="fx-bar fx-bar--orange" aria-hidden="true"></span><h2 id="s0">${esc(title)}</h2></div>
       <ol class="fx-sum">
 ${items.map(([head, body], i) => `        <li><span class="fx-num">${i + 1}</span><div><p class="fx-sum-h">${head}</p><p>${body}</p></div></li>`).join('\n')}
       </ol>
@@ -49,7 +49,7 @@ export function toc(parts) {
       <h2 id="toc">目次</h2>
       <div class="fx-toc-cols">
 ${parts.map(([label, tone, links]) => `        <div>
-          <p class="fx-toc-part fx-toc-part--${tone}">${esc(label)}</p>
+          ${label ? `<p class="fx-toc-part fx-toc-part--${tone}">${esc(label)}</p>` : ''}
           <ol>
 ${links.map(([href, text]) => `            <li><a href="${href}">${esc(text)}</a></li>`).join('\n')}
           </ol>

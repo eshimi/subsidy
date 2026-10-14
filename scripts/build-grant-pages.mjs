@@ -4,6 +4,8 @@ import { mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync, existsSync
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { SITE, esc, shell } from './lib/site-shell.mjs';
+import { grantBody, genericFaq } from './lib/grant-modules.mjs';
+import { bannerFor } from './lib/banners.mjs';
 import { PREFECTURES, PREF_SLUGS } from '../src/data/prefectures.js';
 import { NATIONAL_EXTRA, PERSONAL_GUIDES } from './data/national-extra.mjs';
 import { LOCAL_PROGRAMS } from '../src/data/local-programs.js';
@@ -237,57 +239,30 @@ function tagHtml(g) {
   return `        <dt>分類（参考）</dt><dd>${[...p, ...i].join(' ')}${guides.length ? `<br><span class="grant-guide">関連する解説：${guides.join('、')}</span>` : ''}</dd>`;
 }
 
+// 制度の目的のタグに合う、特集の解説へのリンク（[href, ラベル, 補足, 外部リンクか]）
+function guidesOf(g) {
+  const t = tagsOf(g);
+  return [...new Set(t.p.filter((k) => GUIDE_FOR[k]).map((k) => GUIDE_FOR[k].join('|')))].map((v) => { const [h, l] = v.split('|'); return [h, l, '', false]; });
+}
+
 export function grantPage(g, now) {
   const st = statusOf(g.end, now);
   const title = `${g.title}｜補助金ネット`;
   const description = `${g.title}の対象地域（${g.area || '記載なし'}）、上限額、申請期間を一覧で確認できます。申請要件は公式サイトで確認してください。`.slice(0, 160);
   const url = `${SITE}/grants/${g.id}.html`;
+  const faq = [...faqFor(g, now), ...genericFaq()];
+  const guides = guidesOf(g);
   const body = `${crumb([['../search.html', '制度一覧'], [null, g.title]])}
 
-    <div style="margin-bottom: 2rem;">
-      <h1 class="display" style="margin-bottom: 0.5rem; font-size: clamp(1.5rem, 3.5vw, 2.2rem);">${esc(g.title)}</h1>
-      <p class="lead" style="margin-bottom: 0;">${esc(st.label)}｜締切：${esc(dateJa(g.end))}</p>
+    <div class="fx-hero"><div class="pb-banner" style="background-image: url('../images/banner/${bannerFor(`grants/${g.id}.html`)}.webp')"><h1 class="pb-title">${esc(g.title)}</h1></div></div>
+    <div class="fx-lead">
+      <p class="fx-meta"><span class="fx-chip fx-chip--${st.key}">${esc(st.label)}</span></p>
+      <p class="lead">${esc(st.label)}｜締切：${esc(dateJa(g.end))}</p>
     </div>
 
-    <section class="area-section" aria-labelledby="facts">
-      <span class="area-num">01</span>
-      <h2 id="facts">制度の概要</h2>
-      <dl class="grant-facts">
-        <dt>対象地域</dt><dd>${esc(g.area || '記載なし')}</dd>
-        <dt>上限額</dt><dd>${esc(amountJa(g.max))}</dd>
-        <dt>対象の従業員数</dt><dd>${esc(g.employees || '記載なし')}</dd>
-        <dt>受付開始</dt><dd>${esc(dateJa(g.start))}</dd>
-        <dt>受付締切</dt><dd>${esc(dateJa(g.end))}</dd>
-${tagHtml(g)}
-      </dl>
-      <div class="area-links">
-        <a href="${JGRANTS}subsidy/${encodeURIComponent(g.id)}" target="_blank" rel="noopener">jGrants でこの補助金の詳細を見る →</a>
-      </div>
-    </section>
-
-    <section class="area-section" aria-labelledby="faq">
-      <span class="area-num">02</span>
-      <h2 id="faq">よくある質問</h2>
-      <dl class="grant-facts" style="grid-template-columns: 1fr;">
-${faqFor(g, now).map(([q, a]) => `        <dt><strong>${esc(q)}</strong></dt><dd>${esc(a)}</dd>`).join('\n')}
-      </dl>
-    </section>
-
-    <section class="area-section" aria-labelledby="check">
-      <span class="area-num">03</span>
-      <h2 id="check">申請前に確認したいこと</h2>
-      <div class="area-body">
-        <ul>
-          <li>自分が対象になるか（事業者の種類、創業後の年数、従業員数など）</li>
-          <li>対象になる経費は何か。交付決定の前に発注すると対象外になることがあります。</li>
-          <li>多くの補助金は後払いのため、先に自己資金で支払う必要があります。</li>
-        </ul>
-      </div>
-      <div class="area-links">
-        <a href="../columns/subsidy-paid-after.html">後払いの仕組みを読む →</a>
-        <a href="../columns/how-to-find-subsidy.html">補助金の探し方を読む →</a>
-      </div>
-    </section>
+    <article class="fx" data-layout="feature-v2">
+${grantBody({ g, st, startJa: dateJa(g.start), endJa: dateJa(g.end), amount: amountJa(g.max), faq, tagRows: tagHtml(g), guides, jgrantsDetail: `${JGRANTS}subsidy/${encodeURIComponent(g.id)}`, jgrantsPortal: JGRANTS })}
+    </article>
 
     <nav class="related-links" aria-label="関連ページ">
       <h2>関連ページ</h2>
@@ -298,12 +273,10 @@ ${faqFor(g, now).map(([q, a]) => `        <dt><strong>${esc(q)}</strong></dt><dd
         <li><a href="../columns.html">コラム</a></li>
         <li><a href="../">補助金を探す</a></li>
       </ul>
-    </nav>
-
-    <p class="area-note">この情報は jGrants（デジタル庁）の公開データをもとに自動で作成しています。対象・金額・締切は変わることがあるため、申請前に必ず公式サイトで確認してください。</p>`;
+    </nav>`;
   const jsonLd = `  <script type="application/ld+json">${JSON.stringify({
     '@context': 'https://schema.org', '@type': 'FAQPage',
-    mainEntity: faqFor(g, now).map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+    mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
   })}</script>\n`;
   return shell({ title, description, canonicalPath: `/grants/${g.id}.html`, body, jsonLd, robots: 'noindex, follow' }).replace('</style>', `${STYLE_EXTRA}\n  </style>`);
 }
