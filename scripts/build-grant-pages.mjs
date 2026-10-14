@@ -254,7 +254,7 @@ export function grantPage(g, now, detail = null) {
   const url = `${SITE}/grants/${g.id}.html`;
   const faq = [...faqFor(g, now), ...genericFaq()];
   const guides = guidesOf(g);
-  const body = `${crumb([['../search.html', '制度一覧'], [null, g.title]])}
+  const body = `${crumb([['../search.html', '補助金を探す'], [null, g.title]])}
 
     <div class="fx-hero"><div class="pb-banner" style="background-image: url('../images/banner/${bannerFor(`grants/${g.id}.html`)}.webp')"><h1 class="pb-title">${esc(g.title)}</h1></div></div>
     <div class="fx-lead">
