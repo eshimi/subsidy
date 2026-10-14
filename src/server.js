@@ -3,11 +3,12 @@ import { fileURLToPath } from 'node:url';
 import { stat } from 'node:fs/promises';
 import { runSearch } from './search.js';
 import { lookupPostalCode } from './postal.js';
-import { aiEnabled, chatWithClaude } from './ai.js';
+import { aiEnabled, chatWithClaude, planWithClaude } from './ai.js';
 import { TtlCache, securityHeaders, rateLimit } from './middleware.js';
 import { loadGrants } from './grants-store.js';
 import { parseChatMessages, aiUnavailable } from './chat-input.js';
 import { errorPayload } from './http-error.js';
+import { parsePlanInput, createDailyLimiter, memoryStore } from './plan.js';
 
 export function createApp(options = {}) {
   const deps = { cache: new TtlCache(), loadGrants, ...options };
@@ -20,6 +21,7 @@ export function createApp(options = {}) {
   app.use('/api/postal', rateLimit({ max: limit * 4 }));
   app.use('/api/search', rateLimit({ max: limit }));
   app.use('/api/chat', rateLimit({ max: Math.max(1, Math.floor(limit / 3)) }));
+  app.use('/api/plan', rateLimit({ max: 5 }));
   app.use(express.json({ limit: '32kb' }));
   app.use(express.static(fileURLToPath(new URL('../public', import.meta.url)), {
     maxAge: '1h',
@@ -51,6 +53,24 @@ export function createApp(options = {}) {
       const result = await chatWithClaude(messages);
       if (result === null) throw aiUnavailable();
       res.json(result);
+    } catch (e) {
+      next(e);
+    }
+  });
+
+  const planLimiter = createDailyLimiter({ store: memoryStore(), max: Math.max(1, Number(process.env.PLAN_DAILY_MAX) || 1) });
+  app.post('/api/plan', async (req, res, next) => {
+    try {
+      const input = parsePlanInput(req.body);
+      if (input.spam) return res.status(400).json({ error: 'リクエストが不正です' });
+      if (!aiEnabled()) throw aiUnavailable();
+      const key = await planLimiter.take(req.ip);
+      try {
+        res.json(await planWithClaude(input));
+      } catch (e) {
+        await planLimiter.release(key);
+        throw e;
+      }
     } catch (e) {
       next(e);
     }

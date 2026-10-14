@@ -3,17 +3,28 @@
 // レート制限は Cloudflare ダッシュボード側のルールで行う（README を参照）。
 import { runSearch } from './search.js';
 import { lookupPostalCode } from './postal.js';
-import { aiEnabled, chatWithClaude, judgeWithClaude } from './ai.js';
+import { aiEnabled, chatWithClaude, judgeWithClaude, planWithClaude } from './ai.js';
 import { TtlCache, SECURITY_HEADERS } from './middleware.js';
 import { createAssetsGrantsLoader } from './grants-assets.js';
 import { parseChatMessages, aiUnavailable } from './chat-input.js';
 import { errorPayload } from './http-error.js';
 import { parseContact, buildRawMessage, buildMail } from './contact.js';
 import { parseAnswers, parseConsult, consultText } from './consult.js';
+import { parsePlanInput, createDailyLimiter, cacheStore, memoryStore } from './plan.js';
 
 const MAX_BODY_BYTES = 32 * 1024;
 const cache = new TtlCache();
 let grantsLoader;
+let planLimiter;
+
+// 事業計画書 AI下書きの回数制限（1日1回/IP）。本番は Cache API、テストなど Cache API がない環境ではメモリに記録する
+function getPlanLimiter(env) {
+  planLimiter ??= createDailyLimiter({
+    store: globalThis.caches?.default ? cacheStore(globalThis.caches.default) : memoryStore(),
+    max: Math.max(1, Number(env.PLAN_DAILY_MAX) || 1),
+  });
+  return planLimiter;
+}
 
 // Secret / 環境変数を process.env に写す（ai.js が process.env を参照するため）
 function applyEnv(env) {
@@ -95,6 +106,21 @@ async function route(request, env, url) {
     const candidates = Array.isArray(body?.candidates) ? body.candidates.filter((c) => typeof c === 'string').map((c) => c.slice(0, 60)).slice(0, 8) : [];
     const comment = await judgeWithClaude(answers, candidates);
     return { ai: comment !== null, comment };
+  }
+
+  if (pathname === '/api/plan') {
+    allow(request, 'POST');
+    const input = parsePlanInput(await readJsonBody(request));
+    if (input.spam) throw httpError(400, 'リクエストが不正です');
+    if (!aiEnabled()) throw aiUnavailable();
+    const limiter = getPlanLimiter(env);
+    const key = await limiter.take(request.headers.get('cf-connecting-ip'));
+    try {
+      return await planWithClaude(input);
+    } catch (e) {
+      await limiter.release(key);
+      throw e;
+    }
   }
 
   if (pathname === '/api/consult') {

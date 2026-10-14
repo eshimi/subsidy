@@ -39,11 +39,11 @@ test('build: 下書きは載せず、日付の新しい順に一覧へ出す', (
   mkdirSync(src);
   writeFileSync(join(src, '2026-01-01-old.md'), '---\ntitle: 古い記事\ndate: 2026-01-01\n---\n## 節\n本文');
   writeFileSync(join(src, '2026-03-01-new.md'), '---\ntitle: 新しい記事\ndate: 2026-03-01\n---\n## 節\n本文');
-  writeFileSync(join(src, '2026-04-01-draft.md'), '---\ntitle: 下書き\ndate: 2026-04-01\ndraft: true\n---\n本文');
+  writeFileSync(join(src, '2026-04-01-draft.md'), '---\ntitle: 公開前の記事\ndate: 2026-04-01\ndraft: true\n---\n本文');
   assert.equal(build({ src, out }), 2);
   const index = readFileSync(join(out, 'index.html'), 'utf-8');
   assert.ok(index.indexOf('新しい記事') < index.indexOf('古い記事'));
-  assert.ok(!index.includes('下書き'));
+  assert.ok(!index.includes('公開前の記事'));
   assert.ok(readFileSync(join(out, '2026-03-01-new.html'), 'utf-8').includes('<link rel="canonical" href="https://hojyokin.net/blog/2026-03-01-new.html">'));
 });
 
