@@ -60,6 +60,42 @@ function allow(request, method) {
   }
 }
 
+// 事業計画書 AI下書き。調査と作成で数分かかるため、進み具合を1行ずつの JSON（NDJSON）で流す。
+// 入力の誤り・回数の上限などは、流し始める前に通常の JSON エラーで返す
+async function planResponse(request, env, ctx) {
+  allow(request, 'POST');
+  const input = parsePlanInput(await readJsonBody(request));
+  if (input.spam) throw httpError(400, 'リクエストが不正です');
+  if (!aiEnabled()) throw aiUnavailable();
+  const limiter = getPlanLimiter(env);
+  const key = await limiter.take(request.headers.get('cf-connecting-ip'));
+  const { readable, writable } = new TransformStream();
+  const writer = writable.getWriter();
+  const enc = new TextEncoder();
+  const send = (obj) => writer.write(enc.encode(`${JSON.stringify(obj)}\n`)).catch(() => {});
+  const work = (async () => {
+    // 接続が切れないよう、作成中も20秒ごとに空の行を送る
+    const keepAlive = setInterval(() => send({ ping: true }), 20_000);
+    try {
+      send({ stage: 'start' });
+      const plan = await planWithClaude(input, { onStage: (stage) => send({ stage }) });
+      await send({ result: plan });
+    } catch (e) {
+      await limiter.release(key);
+      const { status, error } = errorPayload(e);
+      if (status >= 500) console.error(e);
+      await send({ error, status });
+    } finally {
+      clearInterval(keepAlive);
+      await writer.close().catch(() => {});
+    }
+  })();
+  ctx?.waitUntil?.(work);
+  return new Response(readable, {
+    headers: { 'content-type': 'application/x-ndjson; charset=utf-8', 'cache-control': 'no-store', ...SECURITY_HEADERS },
+  });
+}
+
 async function route(request, env, url) {
   const { pathname } = url;
 
@@ -108,21 +144,6 @@ async function route(request, env, url) {
     return { ai: comment !== null, comment };
   }
 
-  if (pathname === '/api/plan') {
-    allow(request, 'POST');
-    const input = parsePlanInput(await readJsonBody(request));
-    if (input.spam) throw httpError(400, 'リクエストが不正です');
-    if (!aiEnabled()) throw aiUnavailable();
-    const limiter = getPlanLimiter(env);
-    const key = await limiter.take(request.headers.get('cf-connecting-ip'));
-    try {
-      return await planWithClaude(input);
-    } catch (e) {
-      await limiter.release(key);
-      throw e;
-    }
-  }
-
   if (pathname === '/api/consult') {
     allow(request, 'POST');
     const input = parseConsult(await readJsonBody(request));
@@ -162,13 +183,14 @@ async function route(request, env, url) {
 }
 
 export default {
-  async fetch(request, env) {
+  async fetch(request, env, ctx) {
     applyEnv(env);
     const url = new URL(request.url);
     // html_handling が "none" のため、トップページ（/）だけ index.html を返す。他のファイルは URL のまま配信される
     if (url.pathname === '/') return env.ASSETS.fetch(new Request(new URL('/index.html', url), request));
     if (!url.pathname.startsWith('/api/')) return env.ASSETS.fetch(request);
     try {
+      if (url.pathname === '/api/plan') return await planResponse(request, env, ctx);
       return json(await route(request, env, url));
     } catch (e) {
       const { status, error } = errorPayload(e);

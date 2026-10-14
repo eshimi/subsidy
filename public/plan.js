@@ -1,4 +1,5 @@
-// 事業計画書AI下書き（plan.html）。入力を /api/plan に送り、結果を表示する。
+// 事業計画書AI下書き（plan.html）。入力を /api/plan に送り、結果を「計画づくりシート」として表示する。
+// /api/plan は進み具合を1行ずつの JSON（NDJSON）で返す: {stage} → … → {result} または {error}
 // 結果はこのブラウザ（localStorage）にだけ保存し、再読み込みしても消えないようにする（お試しは1日1回のため）
 (function () {
   const form = document.getElementById('pl-form');
@@ -7,10 +8,11 @@
   const status = document.getElementById('pl-status');
   const result = document.getElementById('pl-result');
   const STORE = 'hojyokin-plan-draft';
+  const FIELDS = ['subsidy', 'industry', 'employees', 'prefecture', 'budget', 'business', 'issue', 'idea', 'goal', 'customers', 'strength', 'competitors', 'website'];
   let last = null;
 
-  // 進み具合の表示（目安）。AI の応答は一度に返るため、経過時間から推定し、完成したら100%にする。
-  // 1〜2分で9割ほどに近づき、それ以降はゆっくり進む（100%の手前で止まって見えないよう、少しずつ動かす）
+  // ── 進み具合の表示 ──
+  // サーバーから届く段階（調査→作成）に合わせて範囲を決め、その中は経過時間で少しずつ進める
   const progress = {
     box: document.getElementById('pl-progress'),
     fill: document.getElementById('pl-progress-fill'),
@@ -20,41 +22,61 @@
     steps: [...document.querySelectorAll('#pl-progress-steps li')],
     timer: null,
     start: 0,
+    stageAt: 0,
+    stage: 'start',
+    value: 0,
   };
-  const STEPS = [[0, '内容を読み込んでいます'], [8, '計画の構成を考えています'], [35, '下書きを書いています'], [85, '仕上げています']];
+  // 段階ごとの [開始%, 上限%, 目安の秒数, 表示する文, 段階の番号]
+  const STAGES = {
+    start: [0, 6, 6, '入力内容を確認しています', 0],
+    research: [6, 40, 70, '市場データを調べています（Web検索）', 1],
+    writing: [40, 97, 130, '分析して、計画の下書きを書いています', 2],
+  };
 
-  function setProgress(p) {
+  function draw(p, label, idx) {
     const v = Math.round(p);
     progress.fill.style.width = `${v}%`;
     progress.pct.textContent = `${v}%`;
     progress.fill.parentElement.setAttribute('aria-valuenow', String(v));
-    const idx = STEPS.reduce((n, [at], i) => (p >= at ? i : n), 0);
-    progress.step.textContent = p >= 100 ? '完成しました' : STEPS[idx][1];
-    progress.steps.forEach((li, i) => {
-      li.className = p >= 100 || i < idx ? 'done' : i === idx ? 'now' : '';
-    });
+    progress.step.textContent = label;
+    progress.steps.forEach((li, i) => { li.className = i < idx ? 'done' : i === idx ? 'now' : ''; });
+  }
+
+  function tick() {
+    const now = Date.now();
+    progress.sec.textContent = String(Math.floor((now - progress.start) / 1000));
+    const [from, to, secs, label, idx] = STAGES[progress.stage];
+    const t = (now - progress.stageAt) / 1000;
+    const p = from + (to - from) * (1 - Math.exp(-t / (secs / 2)));
+    progress.value = Math.max(progress.value, p);
+    // 作成の終盤は「仕上げ」として表示する
+    const finishing = progress.stage === 'writing' && progress.value > 85;
+    draw(progress.value, finishing ? '仕上げています' : label, finishing ? 3 : idx);
+  }
+
+  function setStage(stage) {
+    if (!STAGES[stage] || stage === progress.stage) return;
+    progress.stage = stage;
+    progress.stageAt = Date.now();
+    progress.value = Math.max(progress.value, STAGES[stage][0]);
+    tick();
   }
 
   function startProgress() {
-    progress.start = Date.now();
+    progress.start = progress.stageAt = Date.now();
+    progress.stage = 'start';
+    progress.value = 0;
     progress.box.hidden = false;
-    setProgress(0);
     clearInterval(progress.timer);
-    progress.timer = setInterval(() => {
-      const t = (Date.now() - progress.start) / 1000;
-      progress.sec.textContent = String(Math.floor(t));
-      setProgress(Math.min(97, 92 * (1 - Math.exp(-t / 35)) + Math.min(5, t / 60)));
-    }, 500);
+    tick();
+    progress.timer = setInterval(tick, 500);
   }
 
   function stopProgress(ok) {
     clearInterval(progress.timer);
-    if (ok) {
-      setProgress(100);
-      setTimeout(() => { progress.box.hidden = true; }, 1200);
-    } else {
-      progress.box.hidden = true;
-    }
+    if (!ok) { progress.box.hidden = true; return; }
+    draw(100, '完成しました', 4);
+    setTimeout(() => { progress.box.hidden = true; }, 1200);
   }
 
   for (const c of form.querySelectorAll('.pl-count')) {
@@ -64,6 +86,7 @@
     update();
   }
 
+  // ── 表示 ──
   const el = (tag, text, cls) => {
     const e = document.createElement(tag);
     if (text != null) e.textContent = text;
@@ -71,50 +94,160 @@
     return e;
   };
 
+  // 【　】の空欄を目立たせた段落
+  function rich(tag, text, cls) {
+    const e = el(tag, null, cls);
+    String(text || '').split(/(【[^】]*】)/).filter(Boolean).forEach((part) => {
+      e.append(/^【/.test(part) ? el('span', part, 'pl-blank') : document.createTextNode(part));
+    });
+    return e;
+  }
+
+  function list(items, tag = 'ul') {
+    const ul = el(tag);
+    for (const x of items || []) ul.append(rich('li', x));
+    return ul;
+  }
+
+  function table(head, rows, cls = 'pl-tbl') {
+    const t = el('table', null, cls);
+    const thead = el('thead');
+    const tr = el('tr');
+    head.forEach((h) => tr.append(el('th', h)));
+    thead.append(tr);
+    const tb = el('tbody');
+    for (const r of rows) {
+      const row = el('tr');
+      r.forEach((c) => row.append(c instanceof Node ? (() => { const td = el('td'); td.append(c); return td; })() : rich('td', c)));
+      tb.append(row);
+    }
+    t.append(thead, tb);
+    return t;
+  }
+
+  function tile(title, body, cls = '') {
+    const d = el('div', null, `pl-tile ${cls}`);
+    d.append(el('b', title));
+    d.append(Array.isArray(body) ? list(body) : rich('p', body));
+    return d;
+  }
+
+  // 表示する節の一覧（plan-docx.js と共通。画面・Word・テキストで同じ順番にする）
+  const blocks = (plan) => window.planBlocks(plan);
+
+  function blockBody(plan, blk) {
+    const f = document.createDocumentFragment();
+    switch (blk.kind) {
+      case 'summary': f.append(rich('p', plan.summary, 'pl-summary-box')); break;
+      case 'market': {
+        if ((plan.marketData || []).length) {
+          f.append(table(['データ', '出典'], plan.marketData.map((m) => {
+            const a = el('a', m.source || '出典');
+            a.href = m.url;
+            a.target = '_blank';
+            a.rel = 'noopener nofollow';
+            return [m.fact, a];
+          })));
+        }
+        if (plan.marketInsight) f.append(rich('p', `示唆：${plan.marketInsight}`, 'pl-insight'));
+        break;
+      }
+      case '3c': {
+        const g = el('div', null, 'pl-grid3');
+        g.append(tile('Customer（顧客）', plan.threeC.customer), tile('Competitor（競合）', plan.threeC.competitor), tile('Company（自社）', plan.threeC.company));
+        f.append(g);
+        break;
+      }
+      case 'swot': {
+        const g = el('div', null, 'pl-grid2');
+        g.append(tile('Strengths（強み）', plan.swot.strengths, 'pl-swot-s'), tile('Weaknesses（弱み）', plan.swot.weaknesses, 'pl-swot-w'),
+          tile('Opportunities（機会）', plan.swot.opportunities, 'pl-swot-o'), tile('Threats（脅威）', plan.swot.threats, 'pl-swot-t'));
+        f.append(g);
+        break;
+      }
+      case 'target': {
+        const g = el('div', null, 'pl-grid2');
+        g.append(tile('狙う顧客像', plan.target.persona), tile('顧客のニーズ', plan.target.needs));
+        f.append(g);
+        break;
+      }
+      case 'logic': f.append(table(['課題', '施策（補助事業の取組）', '効果'], plan.logic.map((x) => [x.issue, `→ ${x.action}`, `→ ${x.effect}`]), 'pl-tbl pl-logic')); break;
+      case 'text': f.append(rich('p', blk.body)); break;
+      case 'kpi': f.append(table(['指標', '現状', '目標', '時期'], plan.kpis.map((x) => [x.indicator, x.current, x.target, x.timing]))); break;
+      case 'budget': f.append(table(['経費の項目', '使いみち', '金額の目安'], plan.budget.map((x) => [x.item, x.purpose, x.amount]))); break;
+      case 'schedule': f.append(table(['時期', '実施する内容'], plan.schedule.map((x) => [x.period, x.task]))); break;
+      case 'risks': f.append(table(['想定されるリスク', '対策'], plan.risks.map((x) => [x.risk, x.measure]))); break;
+      case 'questions': f.append(list(plan.questions, 'ol')); break;
+      default: break;
+    }
+    return f;
+  }
+
   function render(plan) {
     last = plan;
-    document.getElementById('pl-summary').textContent = plan.summary;
-    const box = document.getElementById('pl-sections');
-    box.replaceChildren();
-    for (const s of plan.sections) {
-      const sec = el('section', null, 'pl-sec');
-      sec.append(el('h3', s.heading), el('p', s.body));
-      box.append(sec);
-    }
-    if (plan.schedule.length) {
-      const sec = el('section', null, 'pl-sec');
-      const table = el('table');
-      for (const r of plan.schedule) {
-        const tr = el('tr');
-        tr.append(el('th', r.period), el('td', r.task));
-        table.append(tr);
-      }
-      sec.append(el('h3', '実施スケジュールの例'), table);
-      box.append(sec);
-    }
-    if (plan.questions.length) {
-      const sec = el('section', null, 'pl-sec pl-q');
-      const ol = el('ol');
-      for (const q of plan.questions) ol.append(el('li', q));
-      sec.append(el('h3', '仕上げる前に、自分で確かめて書き足すこと'), ol);
-      box.append(sec);
-    }
+    document.getElementById('pl-cover-sub').textContent = plan.subsidy;
+    const sheet = document.getElementById('pl-sheet');
+    sheet.replaceChildren();
+    blocks(plan).forEach((blk, i) => {
+      const sec = el('section', null, `pl-sec${blk.kind === 'questions' ? ' pl-q' : ''}`);
+      const h = el('h3');
+      h.append(el('span', String(i + 1).padStart(2, '0'), 'no'), document.createTextNode(blk.title));
+      sec.append(h);
+      if (blk.sub) sec.append(el('p', blk.sub, 'pl-sub'));
+      sec.append(blockBody(plan, blk));
+      sheet.append(sec);
+    });
     result.hidden = false;
   }
 
   function asText(plan) {
-    const lines = [`【${plan.subsidy}】事業計画書の下書き（たたき台）`, '※AIが作成した下書きです。そのまま提出せず、ご自身の言葉で書き直し、事実と数字を確かめてください。', '', plan.summary, ''];
-    for (const s of plan.sections) lines.push(`■ ${s.heading}`, s.body, '');
-    if (plan.schedule.length) lines.push('■ 実施スケジュールの例', ...plan.schedule.map((r) => `・${r.period}：${r.task}`), '');
-    if (plan.questions.length) lines.push('■ 仕上げる前に、自分で確かめて書き足すこと', ...plan.questions.map((q, i) => `${i + 1}. ${q}`), '');
-    lines.push('作成：補助金ネット 事業計画書AI下書き（https://hojyokin.net/plan.html）');
-    return lines.join('\n');
+    const L = [`【${plan.subsidy}】事業計画づくりシート（下書き）`, '※AIが作成した下書きです。そのまま提出せず、ご自身の言葉で書き直し、事実と数字を確かめてください。', ''];
+    blocks(plan).forEach((blk, i) => {
+      L.push(`■ ${String(i + 1).padStart(2, '0')} ${blk.title}`);
+      switch (blk.kind) {
+        case 'summary': L.push(plan.summary); break;
+        case 'market': (plan.marketData || []).forEach((m) => L.push(`・${m.fact}（${m.source} ${m.url}）`)); if (plan.marketInsight) L.push(`示唆：${plan.marketInsight}`); break;
+        case '3c': L.push(`顧客：${plan.threeC.customer}`, `競合：${plan.threeC.competitor}`, `自社：${plan.threeC.company}`); break;
+        case 'swot': [['強み', 'strengths'], ['弱み', 'weaknesses'], ['機会', 'opportunities'], ['脅威', 'threats']].forEach(([n, k]) => L.push(`${n}：${(plan.swot[k] || []).join('／')}`)); break;
+        case 'target': L.push(plan.target.persona, ...plan.target.needs.map((x) => `・${x}`)); break;
+        case 'logic': plan.logic.forEach((x) => L.push(`・${x.issue} → ${x.action} → ${x.effect}`)); break;
+        case 'text': L.push(blk.body); break;
+        case 'kpi': plan.kpis.forEach((x) => L.push(`・${x.indicator}：現状 ${x.current} → 目標 ${x.target}（${x.timing}）`)); break;
+        case 'budget': plan.budget.forEach((x) => L.push(`・${x.item}：${x.purpose}（${x.amount}）`)); break;
+        case 'schedule': plan.schedule.forEach((x) => L.push(`・${x.period}：${x.task}`)); break;
+        case 'risks': plan.risks.forEach((x) => L.push(`・${x.risk} → ${x.measure}`)); break;
+        case 'questions': plan.questions.forEach((q, n) => L.push(`${n + 1}. ${q}`)); break;
+        default: break;
+      }
+      L.push('');
+    });
+    L.push('作成：補助金ネット 事業計画書AI下書き（https://hojyokin.net/plan.html）');
+    return L.join('\n');
   }
 
   try {
     const saved = JSON.parse(localStorage.getItem(STORE) || 'null');
     if (saved && saved.plan) render(saved.plan);
   } catch { /* 保存できない環境では何もしない */ }
+
+  function download(bytes, type, name) {
+    const url = URL.createObjectURL(new Blob([bytes], { type }));
+    const a = el('a');
+    a.href = url;
+    a.download = name;
+    document.body.append(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }
+
+  document.getElementById('pl-word').addEventListener('click', () => {
+    if (!last || typeof window.planToDocxBytes !== 'function') return;
+    const d = new Date();
+    download(window.planToDocxBytes(last, `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日`),
+      'application/vnd.openxmlformats-officedocument.wordprocessingml.document', '事業計画づくりシート_下書き.docx');
+    if (typeof gtag === 'function') gtag('event', 'plan_docx');
+  });
 
   document.getElementById('pl-copy').addEventListener('click', async (e) => {
     if (!last) return;
@@ -127,52 +260,55 @@
     setTimeout(() => { e.target.textContent = 'テキストをコピー'; }, 2000);
   });
 
-  document.getElementById('pl-word').addEventListener('click', () => {
-    if (!last || typeof window.planToDocxBytes !== 'function') return;
-    const d = new Date();
-    const bytes = window.planToDocxBytes(last, `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日`);
-    const url = URL.createObjectURL(new Blob([bytes], { type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' }));
-    const a = el('a');
-    a.href = url;
-    a.download = '事業計画書_下書き.docx';
-    document.body.append(a);
-    a.click();
-    a.remove();
-    setTimeout(() => URL.revokeObjectURL(url), 1000);
-    if (typeof gtag === 'function') gtag('event', 'plan_docx');
+  document.getElementById('pl-save').addEventListener('click', () => {
+    if (last) download(asText(last), 'text/plain;charset=utf-8', '事業計画づくりシート_下書き.txt');
   });
 
-  document.getElementById('pl-save').addEventListener('click', () => {
-    if (!last) return;
-    const url = URL.createObjectURL(new Blob([asText(last)], { type: 'text/plain;charset=utf-8' }));
-    const a = el('a');
-    a.href = url;
-    a.download = '事業計画書_下書き.txt';
-    document.body.append(a);
-    a.click();
-    a.remove();
-    setTimeout(() => URL.revokeObjectURL(url), 1000);
-  });
+  // NDJSON を1行ずつ読み、段階の知らせで進み具合を動かし、最後の結果を返す
+  async function readPlanStream(res) {
+    const reader = res.body.getReader();
+    const dec = new TextDecoder();
+    let buf = '';
+    for (;;) {
+      const { value, done } = await reader.read();
+      buf += dec.decode(value || new Uint8Array(), { stream: !done });
+      let nl;
+      while ((nl = buf.indexOf('\n')) >= 0) {
+        const line = buf.slice(0, nl).trim();
+        buf = buf.slice(nl + 1);
+        if (!line) continue;
+        const msg = JSON.parse(line);
+        if (msg.stage) setStage(msg.stage);
+        if (msg.error) throw new Error(msg.error);
+        if (msg.result) return msg.result;
+      }
+      if (done) break;
+    }
+    throw new Error('下書きを受け取れませんでした。時間をおいて、もう一度お試しください。');
+  }
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     status.className = 'pl-status';
+    status.textContent = '';
     if (!form.elements.agree.checked) {
       status.className = 'pl-status err';
       status.textContent = '「ご利用の前に」への同意にチェックを入れてください。';
       return;
     }
     const body = {};
-    for (const k of ['subsidy', 'industry', 'employees', 'business', 'issue', 'idea', 'goal', 'website']) body[k] = form.elements[k].value;
+    for (const k of FIELDS) body[k] = form.elements[k].value;
     send.disabled = true;
     send.querySelector('span').textContent = '作成しています…';
-    status.textContent = '';
     startProgress();
     let ok = false;
     try {
       const res = await fetch('/api/plan', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) });
-      const data = await res.json().catch(() => ({}));
-      if (!res.ok) throw new Error(data.error || '下書きを作成できませんでした。時間をおいて、もう一度お試しください。');
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || '下書きを作成できませんでした。時間をおいて、もう一度お試しください。');
+      }
+      const data = await readPlanStream(res);
       ok = true;
       stopProgress(true);
       render(data);

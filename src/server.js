@@ -60,16 +60,27 @@ export function createApp(options = {}) {
 
   const planLimiter = createDailyLimiter({ store: memoryStore(), max: Math.max(1, Number(process.env.PLAN_DAILY_MAX) || 1) });
   app.post('/api/plan', async (req, res, next) => {
+    let key;
     try {
       const input = parsePlanInput(req.body);
       if (input.spam) return res.status(400).json({ error: 'リクエストが不正です' });
       if (!aiEnabled()) throw aiUnavailable();
-      const key = await planLimiter.take(req.ip);
+      key = await planLimiter.take(req.ip);
+      res.setHeader('Content-Type', 'application/x-ndjson; charset=utf-8');
+      res.setHeader('Cache-Control', 'no-store');
+      const send = (obj) => res.write(`${JSON.stringify(obj)}\n`);
+      const keepAlive = setInterval(() => send({ ping: true }), 20_000);
       try {
-        res.json(await planWithClaude(input));
+        send({ stage: 'start' });
+        send({ result: await planWithClaude(input, { onStage: (stage) => send({ stage }) }) });
       } catch (e) {
         await planLimiter.release(key);
-        throw e;
+        const { status, error } = errorPayload(e);
+        if (status >= 500) console.error(e);
+        send({ error, status });
+      } finally {
+        clearInterval(keepAlive);
+        res.end();
       }
     } catch (e) {
       next(e);

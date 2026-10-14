@@ -11,9 +11,17 @@ export const PLAN_SUBSIDIES = {
   },
 };
 
+import { PREFECTURES } from './data/prefectures.js';
+
 export const PLAN_OPTIONS = {
   industry: ['飲食業', '小売業', '美容・サロン', '建設業', '製造業', 'IT・情報通信', '宿泊・観光', '農林水産業', '医療・介護・保育', 'サービス業（その他）', 'その他'],
   employees: ['0人（自分だけ）', '1〜5人', '6〜20人', '21〜50人', '51人以上'],
+};
+
+// 任意の選択肢（空欄も可）
+export const PLAN_OPTIONAL = {
+  prefecture: PREFECTURES,
+  budget: ['まだ決めていない', '50万円未満', '50〜100万円', '100〜200万円', '200〜500万円', '500万円以上'],
 };
 
 export const PLAN_FIELDS = {
@@ -21,6 +29,9 @@ export const PLAN_FIELDS = {
   issue: { label: '今の課題', min: 10, max: 600 },
   idea: { label: '補助金で取り組みたいこと', min: 20, max: 600 },
   goal: { label: '目指す効果', min: 0, max: 300 },
+  customers: { label: '主なお客様', min: 0, max: 200 },
+  strength: { label: '自社の強み', min: 0, max: 300 },
+  competitors: { label: '競合・まわりのお店', min: 0, max: 200 },
 };
 
 const bad = (message) => Object.assign(new Error(message), { status: 400, expose: true });
@@ -35,6 +46,11 @@ export function parsePlanInput(body) {
   for (const [key, list] of Object.entries(PLAN_OPTIONS)) {
     const v = str(body[key]);
     if (!list.includes(v)) throw bad('業種と従業員数を選んでください');
+    out[key] = v;
+  }
+  for (const [key, list] of Object.entries(PLAN_OPTIONAL)) {
+    const v = str(body[key]);
+    if (v && !list.includes(v)) throw bad('選択肢が正しくありません。もう一度選んでください');
     out[key] = v;
   }
   for (const [key, { label, min, max }] of Object.entries(PLAN_FIELDS)) {
@@ -119,6 +135,8 @@ export function planText(input) {
     `対象の補助金: ${s.label}`,
     `業種: ${input.industry}`,
     `従業員数: ${input.employees}`,
+    `所在地: ${input.prefecture || '（未記入）'}`,
+    `補助事業の経費の目安: ${input.budget || '（未記入）'}`,
     '',
     `事業の内容:\n${input.business}`,
     '',
@@ -127,5 +145,11 @@ export function planText(input) {
     `補助金で取り組みたいこと:\n${input.idea}`,
     '',
     `目指す効果:\n${input.goal || '（未記入）'}`,
+    '',
+    `主なお客様:\n${input.customers || '（未記入）'}`,
+    '',
+    `自社の強み:\n${input.strength || '（未記入）'}`,
+    '',
+    `競合・まわりのお店:\n${input.competitors || '（未記入）'}`,
   ].join('\n');
 }

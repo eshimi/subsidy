@@ -57,6 +57,38 @@
     .pl-progress-steps li.now::before { content: "● "; }
     .pl-progress-note { margin: 0; font-size: .8rem; color: var(--mute); }
     @media (max-width: 720px) { .pl-row { grid-template-columns: 1fr; } .pl-form { padding: 18px 16px; } }
+    .pl-extra { border: 1px dashed #c9d6e8; border-radius: 10px; padding: 14px 16px 6px; display: grid; gap: 14px; margin: 0; }
+    .pl-extra legend { font-weight: 700; padding: 0 6px; }
+    .pl-extra legend small { font-weight: 400; color: var(--mute); margin-left: 8px; font-size: .78rem; }
+    .pl-extra textarea { min-height: 72px; }
+    .pl-row2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .pl-cover { background: #0a2352; color: #fff; border-radius: 12px; padding: 22px 26px; }
+    .pl-cover h2 { color: #fff; margin: 0 0 6px; font-size: 1.5rem; }
+    .pl-cover p { margin: 0; color: #dce6f5; }
+    .pl-cover .pl-cover-kicker { color: #9db8e0; font-size: .75rem; font-weight: 700; letter-spacing: .12em; margin-bottom: 4px; }
+    #pl-sheet { display: grid; gap: 14px; }
+    .pl-sec h3 .no { display: inline-block; min-width: 2em; color: #2b65b1; font-weight: 800; }
+    .pl-sec h3 { border-bottom: 2px solid #2b65b1; padding-bottom: 6px; }
+    .pl-sec .pl-sub { margin: 0 0 10px; font-size: .82rem; color: var(--mute); }
+    .pl-sec ul { margin: 0; padding-left: 1.2em; line-height: 1.8; }
+    .pl-summary-box { background: #eef3fa; border-left: 5px solid #2b65b1; padding: 14px 16px; line-height: 1.85; margin: 0; }
+    .pl-grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+    .pl-grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .pl-tile { border-radius: 8px; padding: 12px 14px; background: #f7f9fc; border: 1px solid #e3e8f0; }
+    .pl-tile b { display: block; margin-bottom: 6px; font-size: .9rem; }
+    .pl-tile p, .pl-tile ul { font-size: .9rem; }
+    .pl-swot-s { background: #eef7f1; border-color: #cfe5d7; } .pl-swot-s b { color: #2e7e4b; }
+    .pl-swot-w { background: #fdf1f1; border-color: #f1d2d2; } .pl-swot-w b { color: #d23a3a; }
+    .pl-swot-o { background: #eef3fa; border-color: #d3dff0; } .pl-swot-o b { color: #2b65b1; }
+    .pl-swot-t { background: #fff6ec; border-color: #f2dcc0; } .pl-swot-t b { color: #c2410c; }
+    .pl-sec td a { word-break: break-all; }
+    .pl-logic td:nth-child(2), .pl-logic td:nth-child(3) { position: relative; }
+    .pl-logic th { background: #0a2352; color: #fff; width: auto; }
+    .pl-tbl thead th { background: #0a2352; color: #fff; width: auto; }
+    .pl-blank { color: #c2410c; font-weight: 700; }
+    .pl-insight { margin-top: 10px !important; background: #fffdf5; border: 1px solid #f0d9b5; border-radius: 8px; padding: 10px 12px; }
+    .pl-foot-note { font-size: .84rem; color: var(--mute); margin: 0; }
+    @media (max-width: 720px) { .pl-grid3, .pl-grid2, .pl-row2 { grid-template-columns: 1fr; } .pl-sec { overflow-x: auto; } }
   </style>
   <meta name="google-adsense-account" content="ca-pub-7811993263471350">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7811993263471350"
@@ -151,7 +183,7 @@
     <nav class="area-crumb" aria-label="パンくず"><a href="./">補助金ネット</a> ＞ <a href="basics/business-plan.html">事業計画書の書き方</a> ＞ 事業計画書AI下書き（無料お試し）</nav>
     <div class="pb-banner" style="background-image: url('images/banner/b07.webp')"><h1 class="pb-title">事業計画書AI下書き</h1></div>
     <div style="margin-bottom: 1.5rem;">
-      <p class="lead" style="margin-bottom: 0;">事業の内容と、補助金で取り組みたいことを入力すると、AIが事業計画書の<strong>下書きのたたき台</strong>と、<strong>自分で確かめて書き足すべき点</strong>をまとめます。計画書を書き始める前の、考えの整理にお使いください。<strong>無料お試し（1日1回まで）</strong>。</p>
+      <p class="lead" style="margin-bottom: 0;">事業の内容と、補助金で取り組みたいことを入力すると、AIが<strong>Web検索で市場データ（出典つき）</strong>を調べ、<strong>3C分析・SWOT・課題→施策→効果・KPI・経費案・リスク</strong>まで整理した「事業計画づくりシート」の下書きを作ります。計画書を書き始める前の、考えの整理にお使いください。<strong>無料お試し（1日1回まで）</strong>。</p>
     </div>
 
     <div class="page-split"><div class="page-main">
@@ -176,6 +208,16 @@
       <label class="f">今の課題<span class="pl-hint">困っていること、うまくいっていないこと（10〜600字）</span><textarea name="issue" maxlength="600" required placeholder="例：近所の常連客は多いが、新しい客がなかなか増えない。予約は電話だけで、営業中に手が離せないことが多い。"></textarea><span class="pl-count" data-for="issue">0 / 600</span></label>
       <label class="f">補助金で取り組みたいこと<span class="pl-hint">何にお金を使い、どう変えたいか（20〜600字）</span><textarea name="idea" maxlength="600" required placeholder="例：ホームページとネット予約の仕組みを作り、焼き菓子のギフトをネットでも売りたい。チラシも作って近隣の新しい住宅地に配りたい。"></textarea><span class="pl-count" data-for="idea">0 / 600</span></label>
       <label class="f">目指す効果<span class="pl-hint">任意（300字以内）。数字の目標があれば</span><textarea name="goal" maxlength="300" placeholder="例：新規のお客様を月20人増やしたい。電話対応の時間を減らしたい。"></textarea><span class="pl-count" data-for="goal">0 / 300</span></label>
+      <fieldset class="pl-extra">
+        <legend>補足情報（任意）<small>入れるほど、市場データの調査と分析が具体的になります</small></legend>
+        <div class="pl-row pl-row2">
+          <label class="f">所在地（都道府県）<select name="prefecture"><option value="">選択しない</option><option value="北海道">北海道</option><option value="青森県">青森県</option><option value="岩手県">岩手県</option><option value="宮城県">宮城県</option><option value="秋田県">秋田県</option><option value="山形県">山形県</option><option value="福島県">福島県</option><option value="茨城県">茨城県</option><option value="栃木県">栃木県</option><option value="群馬県">群馬県</option><option value="埼玉県">埼玉県</option><option value="千葉県">千葉県</option><option value="東京都">東京都</option><option value="神奈川県">神奈川県</option><option value="新潟県">新潟県</option><option value="富山県">富山県</option><option value="石川県">石川県</option><option value="福井県">福井県</option><option value="山梨県">山梨県</option><option value="長野県">長野県</option><option value="岐阜県">岐阜県</option><option value="静岡県">静岡県</option><option value="愛知県">愛知県</option><option value="三重県">三重県</option><option value="滋賀県">滋賀県</option><option value="京都府">京都府</option><option value="大阪府">大阪府</option><option value="兵庫県">兵庫県</option><option value="奈良県">奈良県</option><option value="和歌山県">和歌山県</option><option value="鳥取県">鳥取県</option><option value="島根県">島根県</option><option value="岡山県">岡山県</option><option value="広島県">広島県</option><option value="山口県">山口県</option><option value="徳島県">徳島県</option><option value="香川県">香川県</option><option value="愛媛県">愛媛県</option><option value="高知県">高知県</option><option value="福岡県">福岡県</option><option value="佐賀県">佐賀県</option><option value="長崎県">長崎県</option><option value="熊本県">熊本県</option><option value="大分県">大分県</option><option value="宮崎県">宮崎県</option><option value="鹿児島県">鹿児島県</option><option value="沖縄県">沖縄県</option></select></label>
+          <label class="f">補助事業の経費の目安<select name="budget"><option value="">選択しない</option><option value="まだ決めていない">まだ決めていない</option><option value="50万円未満">50万円未満</option><option value="50〜100万円">50〜100万円</option><option value="100〜200万円">100〜200万円</option><option value="200〜500万円">200〜500万円</option><option value="500万円以上">500万円以上</option></select></label>
+        </div>
+        <label class="f">主なお客様<span class="pl-hint">年代・地域・どんな人か（200字以内）</span><textarea name="customers" maxlength="200" placeholder="例：近所の30〜40代の子育て世帯。週末に家族で来店する方が多い。"></textarea><span class="pl-count" data-for="customers">0 / 200</span></label>
+        <label class="f">自社の強み<span class="pl-hint">選ばれている理由、こだわり、実績（300字以内）</span><textarea name="strength" maxlength="300" placeholder="例：地元産の卵と牛乳を使ったケーキ。オーダーメイドのデコレーションに対応できる。"></textarea><span class="pl-count" data-for="strength">0 / 300</span></label>
+        <label class="f">競合・まわりのお店<span class="pl-hint">近くの競合や、比べられやすいお店・サービス（200字以内）</span><textarea name="competitors" maxlength="200" placeholder="例：駅前のチェーンの洋菓子店、スーパーのケーキ売り場。"></textarea><span class="pl-count" data-for="competitors">0 / 200</span></label>
+      </fieldset>
       <div class="pl-hp" aria-hidden="true"><label>ウェブサイト<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
       <label class="pl-consent"><input type="checkbox" name="agree" required> 上の「ご利用の前に」を読み、出力は下書きとして自分で書き直して使うことに同意します。</label>
       <div class="pl-actions">
@@ -186,22 +228,25 @@
         <div class="pl-progress-head"><b id="pl-progress-step">内容を読み込んでいます</b><span id="pl-progress-pct">0%</span></div>
         <div class="pl-progress-bar" role="progressbar" aria-label="下書きの作成の進み具合（目安）" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="pl-progress-fill"></span></div>
         <ol class="pl-progress-steps" id="pl-progress-steps">
-          <li>内容の読み込み</li><li>構成を考える</li><li>下書きを書く</li><li>仕上げ</li>
+          <li>内容の確認</li><li>市場データの調査</li><li>分析と計画づくり</li><li>仕上げ</li>
         </ol>
-        <p class="pl-progress-note">経過 <span id="pl-progress-sec">0</span> 秒・ふつうは1〜2分ほどで完成します（進み具合は目安です）。このページを閉じずにお待ちください。</p>
+        <p class="pl-progress-note">経過 <span id="pl-progress-sec">0</span> 秒・市場データの調査と分析を行うため、ふつうは2〜4分ほどかかります。このページを閉じずにお待ちください。</p>
       </div>
     </form>
 
     <section class="pl-result" id="pl-result" hidden aria-labelledby="pl-result-h">
-      <h2 id="pl-result-h">事業計画書の下書き（たたき台）</h2>
-      <p class="pl-summary" id="pl-summary"></p>
-      <div id="pl-sections"></div>
+      <div class="pl-cover">
+        <p class="pl-cover-kicker">BUSINESS PLAN DRAFT</p>
+        <h2 id="pl-result-h">事業計画づくりシート（下書き）</h2>
+        <p id="pl-cover-sub"></p>
+      </div>
+      <div id="pl-sheet"></div>
       <div class="pl-tools">
-        <button type="button" class="pill" id="pl-copy">テキストをコピー</button>
         <button type="button" class="pill pl-word" id="pl-word">Wordで保存（.docx）</button>
+        <button type="button" class="pill" id="pl-copy">テキストをコピー</button>
         <button type="button" class="pill" id="pl-save">テキストファイルで保存</button>
       </div>
-      <p class="chat-notice" style="font-size:.86rem; color: var(--mute); margin:0;">【　】の部分は、ご自身で数字や事実を確かめて書き入れてください。この下書きはこのブラウザにだけ保存されます。</p>
+      <p class="pl-foot-note">【　】の部分は、ご自身で数字や事実を確かめて書き入れてください。市場データは、AIがWeb検索で見つけた公表資料です。数値は必ず出典で確かめてください。この下書きはこのブラウザにだけ保存されます。</p>
     </section>
 </div><aside class="page-side" aria-label="関連ページ">
     <nav class="related-links" aria-label="計画書づくりに役立つページ" data-group>
