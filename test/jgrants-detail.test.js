@@ -72,5 +72,6 @@ test('制度ページ：詳細があれば項目と説明を出す（HTMLは入�
   assert.match(html, /公募要領\.pdf/);
   assert.match(html, /class="fx-catch">キャッチX/);
   assert.doesNotMatch(html, /<script>alert/);
-  assert.match(html, /href="#detail"/);
+  // 説明は、概要の枠の中に入り、先頭のあとは「続きを読む」で開く
+  assert.match(html, /<div class="fx-card fx-facts-box">[\s\S]*<div class="fx-desc" id="detail">/);
 });

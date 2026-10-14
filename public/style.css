@@ -1292,3 +1292,28 @@ button.r-way:focus-visible { outline: 2px solid var(--accent); outline-offset: 2
 @media (min-width: 961px) {
   .page-split > .page-side, .page-split > .page-side.has-ad { position: sticky; top: var(--side-top, 84px); max-height: none; overflow: visible; align-self: start; }
 }
+
+/* 制度ページ：概要の枠（項目の表＋jGrants の説明）。説明は先頭だけ見せ、残りは「続きを読む」 */
+.fx-facts-box { padding: 0; overflow: hidden; }
+.fx-facts-box .fx-facts { padding: 8px 24px; }
+.fx-desc { border-top: 1px solid #e6e8ec; padding: 18px 24px 20px; scroll-margin-top: 72px; }
+.fx-desc h3 { margin: 0 0 10px; font-size: 15px; line-height: 1.6; color: #0a2352; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.fx-desc h3 small { font-size: 12px; font-weight: 400; color: #56667f; }
+.fx-desc .fx-prose-box p.fx-prose, .fx-desc .fx-prose-list { font-size: 14px; line-height: 1.85; }
+.fx-desc-sub { margin: 8px 0 4px !important; font-size: 13px; font-weight: 700; color: #0a2352; }
+.fx-desc .fx-files { padding-left: 1.4em; font-size: 13px; }
+.fx-more { margin-top: 10px; }
+.fx-more > summary { display: inline-flex; align-items: center; gap: 6px; margin: 0; padding: 6px 14px; border: 1px solid #d5dce8; border-radius: 999px; background: #f4f7fb; color: #0a2352; font-size: 13px; font-weight: 700; cursor: pointer; list-style: none; user-select: none; }
+.fx-more > summary::-webkit-details-marker { display: none; }
+.fx-more > summary::after { content: "＋"; font-size: 12px; color: #c9411a; }
+.fx-more[open] > summary::after { content: "－"; }
+.fx-more > summary:hover { border-color: #c9411a; color: #c9411a; }
+.fx-more[open] > summary { margin-bottom: 12px; }
+.fx-more--card { margin-top: 12px; }
+
+/* 申請の流れの「さわり」：ステップ名だけを番号つきで並べる */
+.fx-steps-mini { list-style: none; margin: 0; padding: 16px 18px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px 12px; }
+.fx-steps-mini li { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; line-height: 1.5; color: #0a2352; min-width: 0; }
+.fx-steps-mini .fx-step-no { flex: 0 0 26px; width: 26px; height: 26px; font-size: 12px; }
+.fx-steps-mini li.is-gate { position: relative; }
+@media (max-width: 760px) { .fx-steps-mini { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 14px; } .fx-desc { padding: 16px 18px 18px; } .fx-facts-box .fx-facts { padding: 8px 18px; } }

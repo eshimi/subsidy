@@ -143,7 +143,8 @@ test('制度ページ：特集記事の共通部品（要点・申請の流れ�
   const html = grantPage(g, NOW);
   assert.match(html, /data-layout="feature-v2"/);
   for (const id of ['facts', 'faq', 'check', 'flow', 'mistakes', 'glossary', 'sources', 'size']) assert.match(html, new RegExp(`id="${id}"`), id);
-  assert.equal((html.match(/class="fx-step-no/g) || []).length, 8);
+  assert.equal((html.match(/class="fx-step-no/g) || []).length, 16, '申請の流れ：ステップ名の一覧（8）と、開いたときの説明（8）');
+  assert.match(html, /<details class="fx-more fx-more--card">\s*<summary>各ステップの説明を見る<\/summary>/);
   assert.match(html, /robots" content="noindex, follow"/);
   const ld = JSON.parse(html.match(/<script type="application\/ld\+json">(.*?)<\/script>/)[1]);
   assert.equal(ld.mainEntity.length, 7);

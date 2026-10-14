@@ -63,7 +63,35 @@ function prose(text) {
     else { flush(); out.push(`      <p class="fx-prose">${esc(line)}</p>`); }
   }
   flush();
-  return `      <div class="fx-card fx-pad-l fx-prose-box">\n${out.join('\n')}\n      </div>`;
+  return out.join('\n');
+}
+
+// 説明文の先頭（約160字まで）と、残りに分ける。残りは「続きを読む」で開く
+function splitPreview(text, limit = 160) {
+  const head = [];
+  let n = 0;
+  const lines = text.split('\n');
+  let i = 0;
+  for (; i < lines.length && n < limit; i++) {
+    const line = lines[i];
+    if (n + line.length <= limit * 1.4) { head.push(line); n += line.length; continue; }
+    // 長い行は、残りの字数の範囲で、文の切れ目（。）で切る。切れ目がなければ、字数で切る
+    const room = Math.max(40, limit - n);
+    const cut = line.lastIndexOf('。', room);
+    const at = cut > 20 ? cut + 1 : room;
+    head.push(line.slice(0, at));
+    lines[i] = line.slice(at).trim();
+    if (lines[i]) return [head.join('\n'), lines.slice(i).join('\n')];
+  }
+  return [head.join('\n'), lines.slice(i).join('\n')];
+}
+
+// 申請の流れの「さわり」：8つのステップの名前だけを、番号つきで横に並べる（説明は「各ステップの説明を見る」で開く）
+function stepsMini(groups) {
+  const all = groups.flatMap((g) => g.steps.map((st, i) => ({ ...st, no: g.start + i, gate: g.gate && i === g.steps.length - 1 })));
+  return `      <ol class="fx-card fx-steps-mini">
+${all.map((st) => `        <li${st.gate ? ' class="is-gate"' : ''}><span class="fx-step-no${st.tone ? ` fx-step-no--${st.tone}` : ''}">${st.no}</span><span>${st.title.replace(/<[^>]+>/g, '')}</span></li>`).join('\n')}
+      </ol>`;
 }
 
 // 概要の項目表（fx-facts）。tagRows は「分類（参考）」の <dt><dd> の HTML（なければ空）
@@ -75,7 +103,7 @@ function tagsOrText(v) {
 }
 
 function facts(rows, tagRows) {
-  return `      <dl class="fx-card fx-facts">
+  return `      <dl class="fx-facts">
 ${rows.map(([t, d]) => `        <dt>${esc(t)}</dt><dd>${typeof d === 'object' ? d.html : esc(d)}</dd>`).join('\n')}
 ${tagRows}
       </dl>`;
@@ -83,7 +111,7 @@ ${tagRows}
 
 // 目次のリンク（本文の目次と、右の列の目次で同じ内容を使う）
 const tocLinks = (g, detail) => [
-  ['#facts', '制度の概要'], ...(detail?.text ? [['#detail', '制度の説明（jGrants掲載）']] : []), ['#flow', '申請の流れ'], ['#mistakes', 'よくある失敗'], ['#check', '申請前に確認したいこと'],
+  ['#facts', '制度の概要'], ['#flow', '申請の流れ'], ['#mistakes', 'よくある失敗'], ['#check', '申請前に確認したいこと'],
   ...(g.employees ? [['#size', '中小企業の目安']] : []),
   ['#faq', 'よくある質問'], ['#glossary', '用語集'], ['#sources', '最新情報の確認先'],
 ];
@@ -99,7 +127,35 @@ ${links.map(([h, t]) => `        <li><a href="${h}">${esc(t)}</a></li>`).join('\
       </ol>
     </nav>`);
 
-  parts.push(fx.section('sec-facts', 'facts', '制度の概要', `${facts([
+  // 制度の概要：項目の表と、jGrants に掲載の説明を、1つの枠にまとめる。説明は先頭だけを見せ、残りは「続きを読む」で開く
+  let desc = '';
+  if (detail?.text) {
+    const [head, rest] = splitPreview(detail.text);
+    const more = [
+      rest ? prose(rest) : '',
+      detail.clipped ? `        <p class="fx-note-plain">長い説明のため、途中までを表示しています。続きは、<a href="${jgrantsDetail}" target="_blank" rel="noopener">jGrants のこの補助金のページ</a>でご覧ください。</p>` : '',
+      detail.files?.length ? `        <p class="fx-desc-sub">jGrants に掲載されている資料</p>
+        <ul class="fx-files">
+${detail.files.map((f) => `          <li>${esc(f)}</li>`).join('\n')}
+        </ul>
+        <p class="fx-note-plain">資料の本文は、<a href="${jgrantsDetail}" target="_blank" rel="noopener">jGrants のページ</a>から確認できます。</p>` : '',
+    ].filter(Boolean).join('\n');
+    desc = `
+      <div class="fx-desc" id="detail">
+        <h3>制度の説明<small>jGrants（デジタル庁）に掲載の内容を、そのまま表示しています</small></h3>
+        <div class="fx-prose-box">
+${prose(head)}
+        </div>${more ? `
+        <details class="fx-more">
+          <summary>続きを読む</summary>
+          <div class="fx-prose-box">
+${more}
+          </div>
+        </details>` : ''}
+      </div>`;
+  }
+  parts.push(fx.section('sec-facts', 'facts', '制度の概要', `      <div class="fx-card fx-facts-box">
+${facts([
     ['対象地域', g.area || '記載なし'],
     ['上限額', amount],
     ['対象の従業員数', g.employees || '記載なし'],
@@ -110,22 +166,16 @@ ${links.map(([h, t]) => `        <li><a href="${h}">${esc(t)}</a></li>`).join('\
     ['受付開始', startJa],
     ['受付締切', endJa],
     ...(projectEndJa ? [['事業の終了期限', projectEndJa]] : []),
-  ], tagRows)}
+  ], tagRows)}${desc}
+      </div>
       <p class="fx-links-row"><a class="fx-btn" href="${jgrantsDetail}" target="_blank" rel="noopener">jGrants でこの補助金の詳細を見る →</a></p>`));
 
-  if (detail?.text) {
-    parts.push(fx.section('detail', 's-detail', '制度の説明（jGrants掲載の内容）', `      <p>次の説明は、jGrants（デジタル庁）に掲載されている内容を、そのまま表示しています。</p>
-${prose(detail.text)}${detail.clipped ? `
-      <p class="fx-note-plain">長い説明のため、途中までを表示しています。続きは、<a href="${jgrantsDetail}" target="_blank" rel="noopener">jGrants のこの補助金のページ</a>でご覧ください。</p>` : ''}${detail.files?.length ? `
-      <h3 class="fx-h3">jGrants に掲載されている資料</h3>
-      <ul class="fx-card fx-pad-m fx-files">
-${detail.files.map((f) => `        <li>${esc(f)}</li>`).join('\n')}
-      </ul>
-      <p class="fx-note-plain">資料の本文は、<a href="${jgrantsDetail}" target="_blank" rel="noopener">jGrants のページ</a>から確認できます。</p>` : ''}`));
-  }
-
   parts.push(fx.section('flow', 's-flow', '申請の流れ（一般的な8ステップ）', `      <p>多くの補助金に共通する、一般的な流れです。この制度の手続きは、公募要領で確認してください。<strong class="fx-em">契約・支払いは、交付決定の後から（多くの補助金の場合）。</strong></p>
-${fx.steps(FLOW)}`));
+${stepsMini(FLOW)}
+      <details class="fx-more fx-more--card">
+        <summary>各ステップの説明を見る</summary>
+${fx.steps(FLOW)}
+      </details>`));
 
   parts.push(fx.section('mistakes', 's-mistakes', '多くの補助金で、つまずきやすい所', fx.mistakes(MISTAKES, ['この制度が自分に合うか、まず確かめたい方へ', '../consult.html', '無料で相談する →'])));
 
