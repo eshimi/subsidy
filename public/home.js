@@ -6,6 +6,8 @@
   if (!soon || !fresh) return;
   const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
   const DAY = 24 * 60 * 60 * 1000;
+  // トップに載せる件数。多くは一覧ページへ案内する（scripts/prerender-lists.mjs の HOME_ITEMS と同じ値）
+  const HOME_ITEMS = 3;
   const area = (a) => {
     const parts = String(a || '全国').split(/\s*[\/／、,]\s*/).filter(Boolean);
     return parts.length > 2 ? `${parts.slice(0, 2).join('・')} ほか${parts.length - 2}地域` : parts.join('・');
@@ -25,8 +27,8 @@
       if (live && open.length) live.innerHTML = `${n(open.length)}<small>件</small><span class="r-daily">毎日更新</span>`;
       const loc = document.getElementById('r-local');
       if (loc) loc.innerHTML = `${n(local)}<small>件</small>`;
-      const bySoon = open.filter((g) => g.e).sort((a, b) => Date.parse(a.e) - Date.parse(b.e)).slice(0, 6);
-      const byNew = [...open].filter((g) => g.s).sort((a, b) => Date.parse(b.s) - Date.parse(a.s)).slice(0, 6);
+      const bySoon = open.filter((g) => g.e).sort((a, b) => Date.parse(a.e) - Date.parse(b.e)).slice(0, HOME_ITEMS);
+      const byNew = [...open].filter((g) => g.s).sort((a, b) => Date.parse(b.s) - Date.parse(a.s)).slice(0, HOME_ITEMS);
       if (bySoon.length) soon.innerHTML = bySoon.map((g) => item(g, `<span class="soon">締切まで${Math.max(0, Math.ceil((Date.parse(g.e) - now) / DAY))}日</span>`)).join('');
       else empty(soon, '表示できる制度がありません。');
       if (byNew.length) fresh.innerHTML = byNew.map((g) => item(g, '受付中')).join('');

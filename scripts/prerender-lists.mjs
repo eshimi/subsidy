@@ -7,6 +7,8 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', 'public');
 const DAY = 24 * 60 * 60 * 1000;
+// トップページに載せる件数。多くは一覧ページ（search.html）へ案内する（public/home.js の HOME_ITEMS と同じ値にする）
+export const HOME_ITEMS = 3;
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 const area = (a) => {
   const parts = String(a || '全国').split(/\s*[\/／、,]\s*/).filter(Boolean);
@@ -25,8 +27,8 @@ export function listsFor(items, now = Date.now()) {
   const days = (g) => Math.max(0, Math.ceil((Date.parse(g.e) - now) / DAY));
   return {
     home: {
-      soon: soon.slice(0, 6).map((g) => item(g, `<span class="soon">締切まで${days(g)}日</span>`)).join(''),
-      fresh: fresh.slice(0, 6).map((g) => item(g, '受付中')).join(''),
+      soon: soon.slice(0, HOME_ITEMS).map((g) => item(g, `<span class="soon">締切まで${days(g)}日</span>`)).join(''),
+      fresh: fresh.slice(0, HOME_ITEMS).map((g) => item(g, '受付中')).join(''),
     },
     search: soon.slice(0, 20).map((g) => item(g, `<span class="soon">締切まで${days(g)}日</span>`)).join(''),
   };
