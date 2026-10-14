@@ -34,6 +34,17 @@ const winterShare = (months, asOf) => {
 };
 const SRC_JG = 'デジタル庁「Jグランツ」の公開データ';
 
+// ページ冒頭の説明枠は本文を押し下げるので、末尾の「このデータについて」の直前へ回す
+const INTRO_TITLES = ['このレポートについて', 'このリサーチの範囲', 'このページの見方'];
+function introLast(sections) {
+  const i = sections.findIndex(([t]) => INTRO_TITLES.includes(t));
+  const j = sections.findIndex(([t]) => t === 'このデータについて');
+  if (i !== 0 || j < 0) return sections;
+  const rest = sections.slice(1);
+  rest.splice(j - 1, 0, sections[0]);
+  return rest;
+}
+
 function pageBusiness(a, asOf) {
   const { local: L, details: D, jgrants: J } = a;
   const typeCount = (t) => (L.type.find(([k]) => k === t) || [, 0])[1];
@@ -140,7 +151,7 @@ function pageBusiness(a, asOf) {
     title: '事業向けリサーチデータ｜補助金・助成金・融資の種類・目的・金額・締切・地域（毎日更新）',
     description: `事業者・創業者向けの補助金・助成金・融資のデータ（自治体の制度${n(L.n)}件${J ? `・国の制度${n(J.total)}件` : ''}）を、種類・目的・対象・金額・締切・地域で集計した、毎日更新のリサーチデータです。出典と調査時点つき。`,
     lead: '事業者・創業者向けの補助金・助成金・融資のデータを、種類・目的・対象・金額・締切・地域の切り口で集計した、毎日更新のリサーチデータです。',
-    sections, kicker: '事業向けリサーチデータ',
+    sections: introLast(sections), kicker: '事業向けリサーチデータ',
     related: [['personal.html', '個人向けリサーチデータ'], ['gaps.html', '地域×目的の空白マップ'], ['monthly.html', '月次レポート'], ...CTA],
   };
 }
@@ -219,7 +230,7 @@ function pagePersonal(a, asOf) {
     title: '個人向けリサーチデータ｜住まい・暮らしの補助金の分野・金額・締切・地域（毎日更新）',
     description: `耐震・空き家・太陽光・移住など、個人向け（住まい・暮らし）の自治体の補助金・助成金（${n(R.n)}件）を、分野・金額・締切・地域で集計した、毎日更新のリサーチデータです。出典と調査時点つき。`,
     lead: '住まい・暮らしの補助金・助成金・給付のデータを、分野・金額・締切・地域の切り口で集計した、毎日更新のリサーチデータです。',
-    sections, kicker: '個人向けリサーチデータ',
+    sections: introLast(sections), kicker: '個人向けリサーチデータ',
     related: [['business.html', '事業向けリサーチデータ'], ['../hantei.html?for=personal', '個人の方（住まい・車・子育て）の補助金判定'], ['../area/index.html', '地域から探す'], ...CTA],
   };
 }
@@ -276,7 +287,7 @@ ${G.byPref.map((r) => `            <tr><th scope="row" ${nw}><a href="../area/pr
     title: '地域×目的の空白マップ｜市区町村ごとに、掲載されていない補助金の目的',
     description: `ページのある${n(G.cityN)}市区町村について、創業・設備投資・人材・IT・販路・事業承継などの目的別に、市区町村の独自制度が掲載されているかを一覧にしました。掲載の空白と、探し方の手がかりを、出典と調査時点つきで公開しています。`,
     lead: '市区町村ごとに、どの目的の補助金・助成金が掲載されていないかを、一覧にしました。',
-    sections, kicker: '地域×目的の空白', related: [['business.html', '事業向けリサーチデータ'], ['../area/index.html', '地域から探す'], ...CTA],
+    sections: introLast(sections), kicker: '地域×目的の空白', related: [['business.html', '事業向けリサーチデータ'], ['../area/index.html', '地域から探す'], ...CTA],
   };
 }
 
@@ -312,7 +323,7 @@ function pageMonthly(history, asOf) {
     title: '補助金データ月次レポート｜募集中の件数・新規掲載・募集終了（国の制度）',
     description: '国の補助金・助成金（jGrants）の募集中の件数、新規掲載・募集終了の数を、毎日の記録から月ごとにまとめた月次レポートです。出典と調査時点つき。',
     lead: '国の補助金・助成金の、募集中の件数と、新規掲載・募集終了の数を、月ごとにまとめています。',
-    sections, kicker: '月次レポート', related: [['business.html', '事業向けリサーチデータ'], ['digest.html', '今週の公募ダイジェスト'], ...CTA], noindex: !ready,
+    sections: introLast(sections), kicker: '月次レポート', related: [['business.html', '事業向けリサーチデータ'], ['digest.html', '今週の公募ダイジェスト'], ...CTA], noindex: !ready,
   };
 }
 
