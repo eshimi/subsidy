@@ -1331,3 +1331,28 @@ button.r-way:focus-visible { outline: 2px solid var(--accent); outline-offset: 2
 .plan-cta .plan-cta-title { font-size: 1.08rem; font-weight: 700; color: var(--ink); }
 .plan-cta-btn { display: inline-block; margin-top: 4px; padding: 10px 22px; border-radius: 999px; background: var(--accent); color: var(--accent-ink); font-weight: 700; text-decoration: none; }
 .plan-cta-btn:hover { opacity: .9; color: var(--accent-ink); }
+
+/* ヘッダーの「AI計画書」ボタン（無料相談の隣） */
+.topnav > a.nav-ai { height: auto; line-height: 1.4; padding: 7px 16px; border: 1.5px solid #073461; border-radius: 999px; color: #073461; font-weight: 700; }
+.topnav > a.nav-ai:hover, .topnav > a.nav-ai[aria-current="page"] { background: #eef3fa; text-decoration: none; }
+@media (max-width: 760px) { .topnav > a.nav-ai { margin-top: 12px; padding: 11px; text-align: center; } }
+
+/* トップページの事業計画書AI下書きのアピール枠 */
+.r-plan { position: relative; display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); align-items: stretch; background: #f4f8fd; border: 1px solid var(--line); border-left: 6px solid var(--accent); border-radius: 14px; overflow: hidden; }
+.r-plan-text { padding: 28px 32px; }
+.r-plan-kicker { display: inline-block; margin: 0 0 10px; padding: 3px 12px; border-radius: 999px; background: var(--accent); color: var(--accent-ink); font-size: .78rem; font-weight: 700; }
+.r-plan h2 { margin: 0 0 10px; font-size: clamp(1.3rem, 2.6vw, 1.7rem); color: var(--ink); }
+.r-plan-text > p { margin: 0 0 12px; line-height: 1.8; }
+.r-plan-points { list-style: none; margin: 0 0 18px; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.r-plan-points li { background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; font-size: .85rem; }
+.r-plan-points li::before { content: "✓ "; color: var(--ok); font-weight: 700; }
+.r-plan-btn { display: inline-block; padding: 12px 28px; border-radius: 999px; background: var(--accent); color: var(--accent-ink); font-weight: 700; text-decoration: none; }
+.r-plan-btn:hover { opacity: .9; color: var(--accent-ink); }
+.r-plan .r-plan-note { margin: 12px 0 0; font-size: .78rem; color: var(--mute); }
+.r-plan-art { background: url('images/banner/b07.webp') center / cover no-repeat; -webkit-mask-image: linear-gradient(to right, transparent, #000 25%); mask-image: linear-gradient(to right, transparent, #000 25%); }
+@media (max-width: 760px) { .r-plan { grid-template-columns: 1fr; } .r-plan-art { display: none; } .r-plan-text { padding: 22px 18px; } }
+/* ヘッダーのボタンが増えたため、中くらいの画面幅では折り返さないよう詰める */
+@media (min-width: 761px) { .topnav > a, .navdrop > summary { white-space: nowrap; } }
+@media (min-width: 761px) and (max-width: 1180px) { .edition { display: none; } .topnav { gap: 14px; } }
+@media (min-width: 761px) and (max-width: 960px) { .topnav { gap: 10px; font-size: 0.8rem; } .topnav > a.nav-ai, .topnav > a.nav-cta { padding: 6px 11px; } }
+@media (min-width: 761px) and (max-width: 900px) { .topnav > a[href$="guide.html"]:not(.nav-cta) { display: none; } .wordmark img { max-width: 150px; height: auto; } }

@@ -53,7 +53,7 @@ export const TOP_GROUPS = [
     ],
   },
 ];
-export const TOP_END_LINKS = [{ label: '使い方', href: 'guide.html' }, { label: '無料相談', href: 'consult.html', cls: 'nav-cta' }];
+export const TOP_END_LINKS = [{ label: '使い方', href: 'guide.html' }, { label: 'AI計画書', href: 'plan.html', cls: 'nav-ai' }, { label: '無料相談', href: 'consult.html', cls: 'nav-cta' }];
 
 // フッターの4グループ。同じページを二重に載せない（右側の列の「関連ページ」もここから作る）
 export const FOOTER_GROUPS = [
