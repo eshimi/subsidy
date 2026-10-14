@@ -1249,12 +1249,6 @@ button.r-way:focus-visible { outline: 2px solid var(--accent); outline-offset: 2
 .page-side nav[aria-label="このページの内容"] a { display: block; margin-left: -2px; padding: 7px 8px 7px 14px; border-bottom: 0; border-left: 2px solid transparent; font-size: 0.88rem; line-height: 1.5; color: #1f3353; }
 .page-side nav[aria-label="このページの内容"] a:hover { color: #c9411a; background: #f4f7fb; }
 .page-side nav[aria-label="このページの内容"] a[aria-current="location"] { border-left-color: #c9411a; color: #c9411a; font-weight: 700; background: #fff8f3; }
-/* 目次が右の列にあるページ：スクロールしても右の列が見えるように、右の列ぜんたい（目次・関連ページ・広告）をひとまとめで画面に固定する。
-   高さが画面より大きいときは、右の列の中だけがスクロールする（目次と他の項目が重ならない）。スクロールバーは見せない（パソコン幅のみ） */
-@media (min-width: 961px) {
-  .page-split:has(nav[aria-label="このページの内容"]) .page-side { position: sticky; top: 84px; max-height: calc(100vh - 108px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: none; }
-  .page-split:has(nav[aria-label="このページの内容"]) .page-side::-webkit-scrollbar { display: none; }
-}
 /* 右の列のリンクは、どのページでも、目次も関連ページも同じホバーの動きにする（位置はずらさない） */
 .page-side a { border-radius: 3px; transition: color 0.12s, background-color 0.12s, box-shadow 0.12s, border-color 0.12s; }
 .page-side .related-links:not([aria-label="このページの内容"]) a:hover,
@@ -1266,3 +1260,11 @@ button.r-way:focus-visible { outline: 2px solid var(--accent); outline-offset: 2
 .fx-prose-box p.fx-prose { margin: 0; font-size: 15px; line-height: 1.9; overflow-wrap: anywhere; }
 .fx-prose-list { margin: 0; padding-left: 1.3em; display: grid; gap: 4px; font-size: 15px; line-height: 1.85; overflow-wrap: anywhere; }
 .fx-files { list-style: disc; margin: 0; padding-left: 2.4em; font-size: 14px; line-height: 1.8; overflow-wrap: anywhere; }
+
+/* 制度ページ：コンパクトな目次（制度の概要の上。項目を横に並べ、幅が足りなければ折り返す） */
+.fx-toc-mini { margin-top: 24px; padding: 16px 20px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 16px; }
+.fx-toc-mini h2 { margin: 0; font-size: 14px; font-weight: 700; color: #0a2352; display: flex; align-items: center; gap: 8px; letter-spacing: 0; }
+.fx-toc-mini h2::before { content: ""; width: 4px; height: 1.1em; border-radius: 2px; background: #c9411a; }
+.fx-toc-mini ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 8px; flex: 1 1 300px; }
+.fx-toc-mini a { display: inline-block; padding: 4px 12px; border-radius: 999px; border: 1px solid #d5dce8; background: #f4f7fb; color: #1f3353; font-size: 13px; line-height: 1.6; text-decoration: none; }
+.fx-toc-mini a:hover, .fx-toc-mini a:focus-visible { border-color: #c9411a; color: #c9411a; background: #fff8f3; }

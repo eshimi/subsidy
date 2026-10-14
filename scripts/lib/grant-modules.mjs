@@ -81,20 +81,16 @@ const tocLinks = (g, detail) => [
   ['#faq', 'よくある質問'], ['#glossary', '用語集'], ['#sources', '最新情報の確認先'],
 ];
 
-// 右の列（パソコン幅）の先頭に置く目次。スマホ幅では、本文の先頭の目次を使う
-export function grantTocSide(g, detail = null) {
-  return `    <nav class="related-links" aria-label="このページの内容">
-      <h2>目次</h2>
-      <ul>
-${tocLinks(g, detail).map(([h, t]) => `        <li><a href="${h}">${esc(t)}</a></li>`).join('\n')}
-      </ul>
-    </nav>`;
-}
-
 export function grantBody({ g, st, detail = null, projectEndJa = '', startJa, endJa, amount, faq, tagRows, guides, jgrantsDetail, jgrantsPortal }) {
   const links = tocLinks(g, detail);
   const parts = [];
-  parts.push(fx.toc([['', 'orange', links]]).replace('<nav class="fx-toc fx-card"', '<nav class="fx-toc fx-card fx-toc--first fx-toc--m"'));
+  // 目次：制度の概要の上に、1枚のカードでコンパクトに並べる（右の列には置かない）
+  parts.push(`    <nav class="fx-card fx-toc-mini" aria-labelledby="toc">
+      <h2 id="toc">目次</h2>
+      <ol>
+${links.map(([h, t]) => `        <li><a href="${h}">${esc(t)}</a></li>`).join('\n')}
+      </ol>
+    </nav>`);
 
   parts.push(fx.section('sec-facts', 'facts', '制度の概要', `${facts([
     ['対象地域', g.area || '記載なし'],

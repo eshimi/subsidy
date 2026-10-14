@@ -4,7 +4,7 @@ import { mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync, existsSync
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { SITE, esc, shell } from './lib/site-shell.mjs';
-import { grantBody, grantTocSide, genericFaq } from './lib/grant-modules.mjs';
+import { grantBody, genericFaq } from './lib/grant-modules.mjs';
 import { bannerFor } from './lib/banners.mjs';
 import { loadCache } from './lib/jgrants-detail.mjs';
 import { PREFECTURES, PREF_SLUGS } from '../src/data/prefectures.js';
@@ -264,8 +264,6 @@ export function grantPage(g, now, detail = null) {
     <article class="fx" data-layout="feature-v2">
 ${grantBody({ g, st, detail, projectEndJa: detail?.projectEnd && /^\d{4}-\d{2}-\d{2}/.test(detail.projectEnd) ? dateJa(detail.projectEnd) : (detail?.projectEnd || ''), startJa: dateJa(g.start), endJa: dateJa(g.end), amount: amountJa(g.max), faq, tagRows: tagHtml(g), guides, jgrantsDetail: `${JGRANTS}subsidy/${encodeURIComponent(g.id)}`, jgrantsPortal: JGRANTS })}
     </article>
-
-${grantTocSide(g, detail)}
 
     <nav class="related-links" aria-label="関連ページ">
       <h2>関連ページ</h2>
