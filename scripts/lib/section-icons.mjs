@@ -37,6 +37,7 @@ const plain = (s) => s.replace(/<[^>]+>/g, '');
 
 // <div class="art-box"> の中の見出し（h2）に、アイコンを足す。prefix は public/ までの相対パス（'' か '../'）
 export function addSectionIcons(html, prefix = '') {
+  if (html.includes('data-layout="feature-v2"')) return html;
   return html.replace(/(<section class="art-sec"[^>]*>\s*)<h2([^>]*)>((?:(?!<\/h2>)[\s\S])*)<\/h2>/g, (m, open, attrs, inner) => {
     if (inner.includes('sec-icon')) return m;
     const n = iconFor(plain(inner));
@@ -49,6 +50,7 @@ export function addSectionIcons(html, prefix = '') {
 // 記事の節と節の間に、イラストの区切り（public/images/dividers/div-NN.webp）を入れる。
 // 同じ記事の中では、9種類を順番に使う（同じ絵が続かないように）。すでに入っている場合は何もしない。
 export function addSectionDividers(html, prefix = '') {
+  if (html.includes('data-layout="feature-v2"')) return html;
   let k = 0;
   return html.replace(/<\/section>(\s*)<section class="art-sec"/g, () => {
     k += 1;

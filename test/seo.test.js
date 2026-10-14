@@ -111,7 +111,8 @@ test('特集の「背景と目的」：何度入れても同じ結果。出典�
     const html = readFileSync(join(process.cwd(), 'public/feature', `${slug}.html`), 'utf-8');
     assert.match(html, /id="bg"/, slug);
     assert.equal(applyBackground(html, slug, list), html, slug);
-    assert.match(html, /出典（確認した日：/, slug);
+    // 新レイアウト（build-feature-v2.mjs）のページは、出典の見出しの形が違う
+    assert.match(html, html.includes('data-layout="feature-v2"') ? /出典（\d+件・確認日 \d{4}\/\d{2}\/\d{2}）/ : /出典（確認した日：/, slug);
     assert.ok(BACKGROUND[slug].sources.length >= 3, slug);
   }
   assert.ok(relatedFor(['省力化'], list).every((a) => a.title.includes('省力化')));

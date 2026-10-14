@@ -41,6 +41,8 @@ export function seoFor(folder, file, html) {
       if (data.updated) modified = data.updated;
     }
   }
+  const pub = html.match(/<time class="fx-pub" datetime="(\d{4}-\d{2}-\d{2})"/);
+  if (pub) published = pub[1];
   if (!published) published = modified;
   if (!modified) modified = published;
   const tags = autoTags({ folder, title: h1, headings: h2s, text, extra });

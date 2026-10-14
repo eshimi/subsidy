@@ -31,6 +31,7 @@ ${f.diff.map(([h, t]) => `        <h3>${esc(h)}</h3>\n        <p>${esc(t)}</p>`)
 export function applyFit(html, slug) {
   const f = FIT[slug];
   if (!f) return html;
+  if (html.includes('data-layout="feature-v2"')) return html; // 新レイアウト（build-feature-v2.mjs）のページは、そちらで作る
   const clean = html.replace(RE, '');
   const m = /    <section class="art-sec" aria-labelledby="[^"]*"><h2 id="[^"]*">(?:<img[^>]*>)?最新情報の確認先/.exec(clean);
   if (!m) return html;

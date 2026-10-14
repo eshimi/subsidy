@@ -88,6 +88,7 @@ ${src}
 export function applyBackground(html, slug, list, defs = BACKGROUND) {
   const def = defs[slug];
   if (!def) return html;
+  if (html.includes('data-layout="feature-v2"')) return html; // 新レイアウト（build-feature-v2.mjs）のページは、そちらで作る
   const clean = html.replace(RE, '');
   const block = bgHtml(def, relatedFor(def.keywords, list, 6, def.caseKeywords));
   const m = /^[ \t]*<!-- fit:start -->/m.exec(clean) || /^[ \t]*<section class="art-sec" aria-labelledby="[^"]*"><h2 id="[^"]*">(?:<img[^>]*>)?最新情報の確認先/m.exec(clean);

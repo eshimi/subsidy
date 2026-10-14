@@ -29,6 +29,7 @@ export function extraHtml(def) {
 export function applyExtra(html, key) {
   const def = EXTRA[key];
   if (!def) return html;
+  if (html.includes('data-layout="feature-v2"')) return html; // 新レイアウト（build-feature-v2.mjs）のページは、そちらで作る
   const clean = html.replace(RE, '');
   const m = def.at === 'first'
     ? /^[ \t]*<section class="art-sec" aria-labelledby="[^"]*">/m.exec(clean)
