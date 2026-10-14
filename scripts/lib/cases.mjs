@@ -11,7 +11,7 @@ export function illustFor(i) {
   return order[i % order.length];
 }
 
-// 制度ページ（grants/）：制度名から、同じ補助金の活用事例を探す。見つからなければ、目的のタグが近い事例を出す
+// 制度ページ（grants/）：制度名から、同じ補助金の活用事例を探す（見つからなければ出さない）
 const BY_TITLE = [
   [/IT導入|デジタル化・AI導入/, ['digital']],
   [/持続化/, ['jizokuka']],
@@ -22,14 +22,13 @@ const BY_TITLE = [
   [/キャリアアップ/, ['career']],
   [/業務改善/, ['employment']],
 ];
-const BY_PURPOSE = { digital: ['digital'], sales: ['jizokuka'], equipment: ['monodukuri', 'shoryokuka'], succession: ['shokei'], hiring: ['career', 'employment'] };
 
 export function casesForGrant(title, purposes = [], limit = 3) {
-  const exact = BY_TITLE.filter(([re]) => re.test(title)).flatMap(([, keys]) => keys);
-  const keys = exact.length ? exact : [...new Set(purposes.flatMap((p) => BY_PURPOSE[p] || []))];
+  // 制度名から補助金が特定できるときだけ出す（目的のタグから推測すると、合わない事例が出ることがあるため）
+  const keys = BY_TITLE.filter(([re]) => re.test(title)).flatMap(([, k]) => k);
   if (!keys.length) return { list: [], exact: false };
   const list = CASES.filter((c) => keys.includes(c.subsidy)).slice(0, limit);
-  return { list, exact: exact.length > 0 };
+  return { list, exact: true };
 }
 
 // 右の列に置く、活用事例のカード（イメージのイラスト＋短い要約）
