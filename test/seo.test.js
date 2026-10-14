@@ -5,6 +5,9 @@ import { join } from 'node:path';
 import { autoTags, descriptionFor } from '../scripts/lib/seo.mjs';
 import { applySeo, FOLDERS } from '../scripts/apply-seo.mjs';
 
+// 蛍光ペン（<strong class="hl">）は、別の手順（scripts/apply-highlight.mjs）で当てるので、比べるときは外す
+const unhl = (html) => html.replace(/<strong class="hl">([^<]*)<\/strong>/g, '$1');
+
 test('autoTags: 最大10個、重複なし、フォルダの標準のタグを含む', () => {
   const t = autoTags({ folder: 'basics', title: '事業計画書の書き方', headings: ['申請の前に'], text: '事業計画書 申請 採択 補助金 '.repeat(5) });
   assert.ok(t.length <= 10);
@@ -56,7 +59,7 @@ test('特集ページの独自解説（向き・不向き、近い制度との�
   for (const slug of Object.keys(FIT)) {
     const html = readFileSync(join(process.cwd(), 'public/feature', `${slug}.html`), 'utf-8');
     assert.match(html, /id="fit"/, slug);
-    assert.equal(applyFit(html, slug), html, slug);
+    assert.equal(unhl(applyFit(html, slug)), unhl(html), slug);
   }
 });
 
@@ -66,7 +69,7 @@ test('基礎知識・対象者別の独自解説は、何度入れても同じ�
   for (const key of Object.keys(EXTRA)) {
     const html = readFileSync(join(process.cwd(), 'public', key), 'utf-8');
     assert.match(html, /<!-- extra:start -->/, key);
-    assert.equal(applyExtra(html, key), html, key);
+    assert.equal(unhl(applyExtra(html, key)), unhl(html), key);
     if (EXTRA[key].sections.some((s) => s.faq)) assert.match(html, /"@type":"FAQPage"/, key);
   }
 });
@@ -110,7 +113,7 @@ test('特集の「背景と目的」：何度入れても同じ結果。出典�
   for (const slug of Object.keys(BACKGROUND)) {
     const html = readFileSync(join(process.cwd(), 'public/feature', `${slug}.html`), 'utf-8');
     assert.match(html, /id="bg"/, slug);
-    assert.equal(applyBackground(html, slug, list), html, slug);
+    assert.equal(unhl(applyBackground(html, slug, list)), unhl(html), slug);
     // 新レイアウト（build-feature-v2.mjs）のページは、出典の見出しの形が違う
     assert.match(html, html.includes('data-layout="feature-v2"') ? /出典（\d+件・確認日 \d{4}\/\d{2}\/\d{2}）/ : /出典（確認した日：/, slug);
     assert.ok(BACKGROUND[slug].sources.length >= 3, slug);
@@ -126,7 +129,7 @@ test('個人向けページの「背景と目的」：7ページすべてに入�
   for (const slug of Object.keys(PERSONAL_BACKGROUND)) {
     const html = readFileSync(join(process.cwd(), 'public/personal', `${slug}.html`), 'utf-8');
     assert.match(html, /id="bg"/, slug);
-    assert.equal(applyBackground(html, slug, list, PERSONAL_BACKGROUND), html, slug);
+    assert.equal(unhl(applyBackground(html, slug, list, PERSONAL_BACKGROUND)), unhl(html), slug);
     assert.ok(PERSONAL_BACKGROUND[slug].sources.length >= 3, slug);
   }
 });
