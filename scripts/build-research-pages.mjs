@@ -15,22 +15,23 @@ import { loadHistory } from './update-research-history.mjs';
 
 const PUBLIC = join(dirname(fileURLToPath(import.meta.url)), '..', 'public');
 const DAY = 24 * 60 * 60 * 1000;
-const jst = (now) => new Date(now + 9 * 3600e3).toISOString().slice(0, 10);
-const dateJa = (iso) => { const [y, m, d] = iso.split('-').map(Number); return `${y}年${m}月${d}日`; };
-const n = (x) => x.toLocaleString('ja-JP');
-const SECTION = ['index.html', '補助金データ'];
-const BANNER = 'b13';
+export const jst = (now) => new Date(now + 9 * 3600e3).toISOString().slice(0, 10);
+export const dateJa = (iso) => { const [y, m, d] = iso.split('-').map(Number); return `${y}年${m}月${d}日`; };
+export const n = (x) => x.toLocaleString('ja-JP');
+export const SECTION = ['index.html', '補助金データ'];
+export const BANNER = 'b13';
 
 const count = (list, f) => { const m = new Map(); for (const x of list) for (const k of [].concat(f(x))) m.set(k, (m.get(k) || 0) + 1); return m; };
 const sorted = (m) => [...m.entries()].sort((a, b) => b[1] - a[1] || String(a[0]).localeCompare(String(b[0]), 'ja'));
-const bars = (rows, unit = '件') => {
+// fmt を渡すと、値の表示を変えられる（金額など）。棒の長さは値に比例する
+export const bars = (rows, unit = '件', fmt = null) => {
   const max = Math.max(1, ...rows.map(([, v]) => v));
-  return `        <ul class="rs-list">\n${rows.map(([l, v]) => `          <li><span class="rs-l">${l}</span><span class="rs-b"><i style="width:${Math.max(2, Math.round((v / max) * 100))}%"></i></span><span class="rs-n">${n(v)}${unit}</span></li>`).join('\n')}\n        </ul>`;
+  return `        <ul class="rs-list">\n${rows.map(([l, v]) => `          <li><span class="rs-l">${l}</span><span class="rs-b"><i style="width:${Math.max(2, Math.round((v / max) * 100))}%"></i></span><span class="rs-n">${fmt ? fmt(v) : `${n(v)}${unit}`}</span></li>`).join('\n')}\n        </ul>`;
 };
-const P = (t) => `        <p>${t}</p>`;
+export const P = (t) => `        <p>${t}</p>`;
 
 // どのページにも共通で付ける「このデータについて」
-function dataBox({ source, scope, asOf, method, caution }) {
+export function dataBox({ source, scope, asOf, method, caution }) {
   return `        <dl class="rs-box">
           <dt>出典</dt><dd>${source}</dd>
           <dt>集計の対象</dt><dd>${scope}</dd>
@@ -39,9 +40,9 @@ function dataBox({ source, scope, asOf, method, caution }) {
           <dt>注意</dt><dd>${caution}</dd>
         </dl>`;
 }
-const CAUTION_COVERAGE = '数字は、<strong>当サイトが掲載している制度の集計</strong>で、全国の制度の全数ではありません。地域による差は、制度の数の違いだけでなく、当サイトの調べた範囲の違いも含みます。順位や優劣を示すものではありません。';
-const LOCAL_SOURCE = '各自治体・実施機関の公開情報（公式の案内ページ）をもとに、当サイトが整理したデータ';
-const CTA = [
+export const CAUTION_COVERAGE = '数字は、<strong>当サイトが掲載している制度の集計</strong>で、全国の制度の全数ではありません。地域による差は、制度の数の違いだけでなく、当サイトの調べた範囲の違いも含みます。順位や優劣を示すものではありません。';
+export const LOCAL_SOURCE = '各自治体・実施機関の公開情報（公式の案内ページ）をもとに、当サイトが整理したデータ';
+export const CTA = [
   ['../search.html', '条件に合う補助金を探す'],
   ['../hantei.html', 'AI補助金判定で、使えそうな制度を調べる'],
   ['../consult.html', '申請の準備・相談先を確認する（無料相談）'],
@@ -96,6 +97,9 @@ function pageIndex(asOf, ctx) {
           <li><a href="prefectures.html"><strong>都道府県別の掲載状況</strong></a>：47都道府県の、県の制度・市区町村の制度・個人向けの制度の件数を比べます。</li>
           <li><a href="programs.html"><strong>制度の種類・対象・分野の内訳</strong></a>：補助金・助成金・融資の別、創業前から事業が安定した方までの対象、個人向けの分野を集計します。</li>
           <li><a href="startup-map.html"><strong>市区町村の創業支援マップ</strong></a>：創業を考える方が使える制度の多い市区町村を、一覧で確認できます。</li>
+          <li><a href="analysis.html"><strong>補助金データ分析レポート</strong></a>：種類・目的・対象・金額・締切・地域を横断して集計した、毎日更新のレポートです。</li>
+          <li><a href="gaps.html"><strong>地域×目的の空白マップ</strong></a>：市区町村ごとに、どの目的の制度が掲載されていないかを一覧にします。</li>
+          <li><a href="monthly.html"><strong>月次レポート</strong></a>：国の制度の募集中の件数、新規掲載・募集終了の数を、月ごとにまとめます。</li>
           <li><a href="digest.html"><strong>今週の公募ダイジェスト</strong></a>：国の制度（jGrants）の、新しく始まった公募と、締切が近い公募を、毎日更新します。</li>
           <li><a href="methods.html"><strong>データの作り方・出典・更新方針</strong></a>：集計のルールと、数字の見方。</li>
         </ul>`],

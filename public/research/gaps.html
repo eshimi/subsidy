@@ -1,0 +1,826 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>地域×目的の空白マップ｜市区町村ごとに、掲載されていない補助金の目的｜補助金ネット</title>
+  <meta name="description" content="ページのある267市区町村について、創業・設備投資・人材・IT・販路・事業承継などの目的別に、市区町村の独自制度が掲載されているかを一覧にしました。掲載の空白と、探し方の手がかりを、出典と調査時点つきで公開しています。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://hojyokin.net/research/gaps.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="補助金ネット">
+  <meta property="og:title" content="地域×目的の空白マップ｜市区町村ごとに、掲載されていない補助金の目的｜補助金ネット">
+  <meta property="og:description" content="ページのある267市区町村について、創業・設備投資・人材・IT・販路・事業承継などの目的別に、市区町村の独自制度が掲載されているかを一覧にしました。掲載の空白と、探し方の手がかりを、出典と調査時点つきで公開しています。">
+  <meta property="og:url" content="https://hojyokin.net/research/gaps.html">
+  <meta property="og:image" content="https://hojyokin.net/images/og-image.png">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="地域×目的の空白マップ｜市区町村ごとに、掲載されていない補助金の目的｜補助金ネット">
+  <meta name="twitter:description" content="ページのある267市区町村について、創業・設備投資・人材・IT・販路・事業承継などの目的別に、市区町村の独自制度が掲載されているかを一覧にしました。掲載の空白と、探し方の手がかりを、出典と調査時点つきで公開しています。">
+  <meta name="twitter:image" content="https://hojyokin.net/images/og-image.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/favicon-96x96.png" type="image/png" sizes="96x96">
+  <link rel="icon" href="/favicon-192x192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <style>
+    .art-box { background: #fff; border: 1px solid #e6e8ec; border-radius: 12px; padding: 30px 36px 26px; box-shadow: 0 2px 12px rgba(10, 35, 82, 0.06); margin: 0 0 24px; }
+    .art-sec { margin: 0 0 1.8rem; scroll-margin-top: 72px; }
+    .art-sec + .art-sec { padding-top: 0; }
+    .art-sec h2 { display: flex; align-items: center; gap: 10px; font-size: 1.25rem; line-height: 1.5; letter-spacing: -0.02em; margin: 0 0 0.8rem; color: #0a2352; }
+    .art-sec h2::before { content: ""; width: 5px; height: 1.2em; border-radius: 3px; background: #073461; flex-shrink: 0; }
+    @media (max-width: 760px) { .art-box { padding: 20px 16px; } .art-sec h2 { font-size: 1.12rem; } }
+    .area-section { background: white; border: 1px solid #e6e8ec; border-radius: 8px; padding: 32px; margin-bottom: 24px; scroll-margin-top: 72px; }
+    .area-num { display: block; font-family: var(--font-mono); font-size: 0.75rem; color: var(--mute); text-transform: uppercase; margin-bottom: 8px; }
+    .area-section h2 { font-size: 1.4rem; line-height: 1.5; letter-spacing: -0.02em; margin: 0 0 16px; color: #0a2352; }
+    .area-body { max-width: 48em; line-height: 1.85; color: var(--ink); }
+    .area-body p, .area-body li { margin-bottom: 0.7rem; }
+    .area-body ul { margin: 0 0 1rem 1.5rem; padding: 0; }
+    .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
+    .area-program:first-child { border-top: 0; padding-top: 0; }
+    .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
+    .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
+    .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
+    .area-links a:hover { text-decoration: underline; }
+    .area-title-img { display: inline-block; height: 72px; width: auto; margin-left: 12px; vertical-align: middle; }
+    .area-crumb { font-size: 0.85rem; color: var(--mute); margin-bottom: 1.5rem; }
+    .area-crumb a { color: var(--mute); }
+    .area-note { font-size: 0.9rem; color: var(--mute); line-height: 1.8; border-left: 3px solid #e6e8ec; padding-left: 16px; margin: 2rem 0 0; max-width: 48em; }
+    .area-groups { display: grid; gap: 28px; }
+    .area-groups h2 { font-size: 1.2rem; margin: 0; }
+    .area-pref-head { display: flex; align-items: center; gap: 16px; margin-bottom: 12px; }
+    .area-pref-head img { width: 96px; height: auto; flex-shrink: 0; }
+    h1.display { font-size: clamp(1.4rem, 4.7vw, 3rem); overflow-wrap: anywhere; }
+    .article-hero { margin: 0 0 24px; }
+    .article-hero img { display: block; width: 100%; height: auto; border-radius: 8px; border: 1px solid #e6e8ec; }
+    .article-body h3 { font-size: 1.2rem; margin: 1.6em 0 0.7em; }
+    .article-body ol { margin: 0 0 1rem 1.5rem; padding: 0; }
+    .article-body a { color: #2b65b1; text-decoration: underline; }
+    .article-highlight { background: #f0f5ff; border-left: 3px solid #2b65b1; padding: 14px 18px; margin: 1.2rem 0; border-radius: 4px; }
+    .area-pref-link { margin: 0 0 12px; font-size: 0.9rem; }
+    .area-pref-link a { color: #2b65b1; text-decoration: none; }
+    .area-pref-link a:hover { text-decoration: underline; }
+    .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
+    .area-groups a { color: #2b65b1; text-decoration: none; }
+    .area-groups a:hover { text-decoration: underline; }
+    @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
+  
+    .feature-table { width: 100%; border-collapse: collapse; margin: 8px 0 16px; font-size: 0.92rem; }
+    .feature-table th, .feature-table td { border: 1px solid #e6e8ec; padding: 10px 12px; text-align: left; vertical-align: top; }
+    .feature-table thead th { background: #f4f6f8; }
+    .table-wrap { overflow-x: auto; }
+    .glossary dt { font-weight: 700; margin-top: 12px; }
+    .glossary dd { margin: 4px 0 0; }
+    .feature-card { display: block; padding: 20px 0; border-top: 1px solid #e6e8ec; text-decoration: none; }
+    .feature-card:first-child { border-top: 0; }
+    .feature-card h2 { font-size: 1.2rem; margin: 0 0 6px; }
+    .feature-card p { margin: 0; color: var(--mute); }
+
+  </style>
+  <meta name="google-adsense-account" content="ca-pub-7811993263471350">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7811993263471350"
+     crossorigin="anonymous"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-J5DWZQLCB0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-J5DWZQLCB0');
+  </script>
+  <!-- seo:start -->
+  <meta name="keywords" content="補助金データ,補助金の統計,市区町村,都道府県,融資,創業,事業承継,研究開発,空き店舗,起業">
+  <meta property="article:published_time" content="2026-10-14">
+  <meta property="article:modified_time" content="2026-10-14">
+  <meta property="article:tag" content="補助金データ">
+  <meta property="article:tag" content="補助金の統計">
+  <meta property="article:tag" content="市区町村">
+  <meta property="article:tag" content="都道府県">
+  <meta property="article:tag" content="融資">
+  <meta property="article:tag" content="創業">
+  <meta property="article:tag" content="事業承継">
+  <meta property="article:tag" content="研究開発">
+  <meta property="article:tag" content="空き店舗">
+  <meta property="article:tag" content="起業">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"地域×目的の空白マップ","description":"ページのある267市区町村について、創業・設備投資・人材・IT・販路・事業承継などの目的別に、市区町村の独自制度が掲載されているかを一覧にしました。掲載の空白と、探し方の手がかりを、出典と調査時点つきで公開しています。","url":"https://hojyokin.net/research/gaps.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://hojyokin.net/research/gaps.html"},"inLanguage":"ja","image":["https://hojyokin.net/images/banner/b13.webp"],"keywords":"補助金データ, 補助金の統計, 市区町村, 都道府県, 融資, 創業, 事業承継, 研究開発, 空き店舗, 起業","articleSection":"補助金データ","author":{"@type":"Organization","name":"補助金ネット","url":"https://hojyokin.net/"},"publisher":{"@type":"Organization","name":"補助金ネット","url":"https://hojyokin.net/","logo":{"@type":"ImageObject","url":"https://hojyokin.net/images/og-image.png"}},"datePublished":"2026-10-14","dateModified":"2026-10-14"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"補助金データ","item":"https://hojyokin.net/research/index.html"},{"@type":"ListItem","position":3,"name":"地域×目的の空白","item":"https://hojyokin.net/research/gaps.html"}]}</script>
+  <!-- seo:end -->
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="wordmark" href="../" aria-label="補助金ネット トップ"><img src="../images/logo-header-v5.webp" alt="補助金ネット"></a>
+      <nav class="topnav" id="topnav" aria-label="サイト内">
+        <details class="navdrop">
+          <summary>補助金を探す</summary>
+          <div class="navdrop-panel">
+            <a href="../search.html">AI・キーワードで探す</a>
+            <a href="../hantei.html">AI補助金判定（質問に答えて探す）</a>
+            <a href="../hitsuyo.html">必要なものから探す</a>
+            <a href="../grants/purposes.html">目的別の補助金</a>
+            <a href="../grants/industries.html">業種別の補助金</a>
+            <a href="../search.html?within=90&sort=end">締切が近い補助金</a>
+            <a href="../grants/prefectures.html">都道府県別の補助金</a>
+            <a href="../area/index.html">市区町村別の補助金</a>
+          </div>
+        </details>
+        <details class="navdrop">
+          <summary>ニュース・特集</summary>
+          <div class="navdrop-panel">
+            <a href="../news/index.html">補助金ニュース</a>
+            <a href="../blog/index.html">ブログ</a>
+            <a href="../background/index.html">補助金はなぜできたのか（制度の背景）</a>
+            <a href="../research/index.html">補助金データ（独自統計）</a>
+            <a href="../feature/popular.html">特に人気の5つの補助金</a>
+            <a href="../feature/index.html">主な補助金の特集</a>
+            <a href="../cases/index.html">補助金の活用事例</a>
+            <a href="../compare/index.html">比較記事</a>
+          </div>
+        </details>
+        <details class="navdrop">
+          <summary>基礎知識</summary>
+          <div class="navdrop-panel">
+            <a href="../basics/index.html">基礎知識のトップ</a>
+            <a href="../basics/flow.html">申請の流れ</a>
+            <a href="../basics/business-plan.html">事業計画書の書き方</a>
+            <a href="../plan.html">事業計画書AI下書き</a>
+            <a href="../basics/glossary.html">用語集</a>
+            <a href="../columns.html">コラム</a>
+            <a href="../real-life.html">補助金のリアル</a>
+          </div>
+        </details>
+        <details class="navdrop">
+          <summary>対象者別</summary>
+          <div class="navdrop-panel">
+            <a href="../who/sole-proprietor.html">個人事業主の方</a>
+            <a href="../who/sme.html">中小企業の方</a>
+            <a href="../who/startup.html">創業・副業を始める方</a>
+            <a href="../hantei.html?for=personal">個人の方（住まい・車・子育て）</a>
+          </div>
+        </details>
+        <a href="../guide.html">使い方</a>
+        <a href="../plan.html" class="nav-ai">AI計画書</a>
+        <a href="../consult.html" class="nav-cta">無料相談</a>
+      </nav>
+      <button type="button" class="nav-toggle" aria-controls="topnav" aria-expanded="false">メニュー</button>
+      <span class="edition">JP — FY2026</span>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">補助金データ</a> ＞ 地域×目的の空白</nav>
+
+    <div class="pb-banner" style="background-image: url('../images/banner/b13.webp')"><h1 class="pb-title">地域×目的の空白マップ</h1></div>
+    <div style="margin-bottom: 2rem;">
+      <p class="label" style="margin-bottom: 0.5rem;">補助金データ</p>
+      <p class="lead" style="margin-bottom: 0;">市区町村ごとに、どの目的の補助金・助成金が掲載されていないかを、一覧にしました。</p>
+    </div>
+
+    <div class="page-split"><div class="page-main">
+<div class="art-box">
+<section class="art-sec" aria-labelledby="s0"><h2 id="s0">このページの見方</h2>
+      <div class="area-body">
+        <p>ページのある267市区町村について、事業者向けの制度が<strong>どの目的で掲載されているか</strong>を一覧にしました。「掲載されていない」は、<strong>制度がない</strong>という意味ではありません。当サイトが調べて掲載した範囲の空白です。掲載を増やす先を決める材料として、また、制度を探すときの手がかりとして使えます。</p>
+        <p>目的は、創業・起業、空き店舗・商店街、設備投資・省エネ、人材・雇用、IT・デジタル、販路開拓・PR、事業承継、研究開発・新事業、融資・利子補給の9つです。目的が付いていない制度は、名前と説明から推定しています。</p>
+      </div>
+    </section>
+
+    <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
+
+    <section class="art-sec" aria-labelledby="s1"><h2 id="s1"><img class="sec-icon" src="../images/icons/icon-03.png" alt="" width="30" height="30" loading="lazy">目的別：どこまで掲載されているか</h2>
+      <div class="area-body">
+        <div class="table-wrap"><table class="feature-table">
+          <thead><tr><th scope="col">目的</th><th scope="col">市区町村の独自制度が掲載されている</th><th scope="col">県の制度まで含めて掲載されている</th><th scope="col">どちらも掲載されていない</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">創業・起業</th><td>159（60%）</td><td>257（96%）</td><td><strong>10（4%）</strong></td></tr>
+            <tr><th scope="row">空き店舗・商店街</th><td>93（35%）</td><td>104（39%）</td><td><strong>163（61%）</strong></td></tr>
+            <tr><th scope="row">設備投資・省エネ</th><td>82（31%）</td><td>163（61%）</td><td><strong>104（39%）</strong></td></tr>
+            <tr><th scope="row">人材・雇用</th><td>71（27%）</td><td>182（68%）</td><td><strong>85（32%）</strong></td></tr>
+            <tr><th scope="row">IT・デジタル</th><td>47（18%）</td><td>112（42%）</td><td><strong>155（58%）</strong></td></tr>
+            <tr><th scope="row">販路開拓・PR</th><td>100（37%）</td><td>164（61%）</td><td><strong>103（39%）</strong></td></tr>
+            <tr><th scope="row">事業承継</th><td>16（6%）</td><td>114（43%）</td><td><strong>153（57%）</strong></td></tr>
+            <tr><th scope="row">研究開発・新事業</th><td>57（21%）</td><td>126（47%）</td><td><strong>141（53%）</strong></td></tr>
+            <tr><th scope="row">融資・利子補給</th><td>157（59%）</td><td>246（92%）</td><td><strong>21（8%）</strong></td></tr>
+          </tbody>
+        </table></div>
+        <p>空白が大きい目的は、<strong>空き店舗・商店街</strong>（163市区町村）、<strong>IT・デジタル</strong>（155）、<strong>事業承継</strong>（153）です。市区町村の独自制度が少ない目的ほど、県や国の制度を探すことが大切になります。</p>
+      </div>
+    </section>
+
+    <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
+
+    <section class="art-sec" aria-labelledby="s2"><h2 id="s2"><img class="sec-icon" src="../images/icons/icon-12.png" alt="" width="30" height="30" loading="lazy">都道府県別：市区町村の独自制度が掲載されている数</h2>
+      <div class="area-body">
+        <p>各セルは、「その目的で、市区町村の独自制度が掲載されている市区町村の数／その県のページのある市区町村の数」です。見出しは、創業・起業、空き店舗・商店街、設備投資・省エネ、人材・雇用、IT・デジタル、販路開拓・PR、事業承継、研究開発・新事業、融資・利子補給の略称です（スマホでは、横にスクロールできます）。</p>
+        <div class="table-wrap"><table class="feature-table" style="min-width:760px">
+          <thead><tr><th scope="col" style="white-space:nowrap">都道府県</th><th scope="col" style="white-space:nowrap">市区町村</th><th scope="col" style="white-space:nowrap" title="創業・起業">創業</th><th scope="col" style="white-space:nowrap" title="空き店舗・商店街">商店街</th><th scope="col" style="white-space:nowrap" title="設備投資・省エネ">設備</th><th scope="col" style="white-space:nowrap" title="人材・雇用">人材</th><th scope="col" style="white-space:nowrap" title="IT・デジタル">IT</th><th scope="col" style="white-space:nowrap" title="販路開拓・PR">販路</th><th scope="col" style="white-space:nowrap" title="事業承継">承継</th><th scope="col" style="white-space:nowrap" title="研究開発・新事業">研究開発</th><th scope="col" style="white-space:nowrap" title="融資・利子補給">融資</th></tr></thead>
+          <tbody>
+            <tr><th scope="row" style="white-space:nowrap"><a href="../area/pref-hokkaido.html">北海道</a></th><td style="white-space:nowrap">10</td><td style="white-space:nowrap">9／10</td><td style="white-space:nowrap">4／10</td><td style="white-space:nowrap">2／10</td><td style="white-space:nowrap">2／10</td><td style="white-space:nowrap">0／10</td><td style="white-space:nowrap">4／10</td><td style="white-space:nowrap">0／10</td><td style="white-space:nowrap">3／10</td><td style="white-space:nowrap">3／10</td></tr>
+            <tr><th scope="row" style="white-space:nowrap"><a href="../area/pref-aomori.html">青森県</a></th><td style="white-space:nowrap">3</td><td style="white-space:nowrap">2／3</td><td style="white-space:nowrap">3／3</td><td style="white-space:nowrap">0／3</td><td style="white-space:nowrap">0／3</td><td style="white-space:nowrap">1／3</td><td style="white-space:nowrap">0／3</td><td style="white-space:nowrap">0／3</td><td style="white-space:nowrap">1／3</td><td style="white-space:nowrap">3／3</td></tr>
+            <tr><th scope="row" style="white-space:nowrap"><a href="../area/pref-iwate.html">岩手県</a></th><td style="white-space:nowrap">3</td><td style="white-space:nowrap">0／3</td><td style="white-space:nowrap">1／3</td><td style="white-space:nowrap">0／3</td><td style="white-space:nowrap">1／3</td><td style="white-space:nowrap">0／3</td><td style="white-space:nowrap">1／3</td><td style="white-space:nowrap">0／3</td><td style="white-space:nowrap">0／3</td><td style="white-space:nowrap">2／3</td></tr>
+            <tr><th scope="row" style="white-space:nowrap"><a href="../area/pref-miyagi.html">宮城県</a></th><td style="white-space:nowrap">2</td><td style="white-space:nowrap">1／2</td><td style="white-space:nowrap">0／2</td><td style="white-space:nowrap">1／2</td><td style="white-space:nowrap">1／2</td><td style="white-space:nowrap">1／2</td><td style="white-space:nowrap">1／2</td><td style="white-space:nowrap">0／2</td><td style="white-space:nowrap">1／2</td><td style="white-space:nowrap">1／2</td></tr>
+            <tr><th scope="row" style="white-space:nowrap"><a href="../area/pref-akita.html">秋田県</a></th><td style="white-space:nowrap">2</td><td style="white-space:nowrap">2／2</td><td style="white-space:nowrap">0／2</td><td style="white-space:nowrap">1／2</td><td style="white-space:nowrap">1／2</td><td style="white-space:nowrap">0／2</td><td style="white-space:nowrap">0／2</td><td style="white-space:nowrap">0／2</td><td style="white-space:nowrap">0／2</td><td style="white-space:nowrap">0／2</td></tr>
+            <tr><th scope="row" style="white-space:nowrap"><a href="../area/pref-yamagata.html">山形県</a></th><td style="white-space:nowrap">4</td><td style="white-space:nowrap">3／4</td><td style="white-space:nowrap">1／4</td><td style="white-space:nowrap">0／4</td><td style="white-space:nowrap">0／4</td><td style="white-space:nowrap">1／4</td><td style="white-space:nowrap">2／4</td><td style="white-space:nowrap">0／4</td><td style="white-space:nowrap">1／4</td><td style="white-space:nowrap">2／4</td></tr>
+            <tr><th scope="row" style="white-space:nowrap"><a href="../area/pref-fukushima.html">福島県</a></th><td style="white-space:nowrap">4</td><td style="white-space:nowrap">3／4</td><td style="white-space:nowrap">1／4</td><td style="white-space:nowrap">0／4</td><td style="white-space:nowrap">1／4</td><td style="white-space:nowrap">1／4</td><td style="white-space:nowrap">2／4</td><td style="white-space:nowrap">1／4</td><td style="white-space:nowrap">1／4</td><td style="white-space:nowrap">2／4</td></tr>
+            <tr><th scope="row" style="white-space:nowrap"><a href="../area/pref-ibaraki.html">茨城県</a></th><td style="white-space:nowrap">6</td><td style="white-space:nowrap">3／6</td><td style="white-space:nowrap">4／6</td><td style="white-space:nowrap">2／6</td><td style="white-space:nowrap">1／6</td><td style="white-space:nowrap">1／6</td><td style="white-space:nowrap">1／6</td><td style="white-space:nowrap">0／6</td><td style="white-space:nowrap">1／6</td><td style="white-space:nowrap">4／6</td></tr>
+            <tr><th scope="row" style="white-space:nowrap"><a href="../area/pref-tochigi.html">栃木県</a></th><td style="white-space:nowrap">3</td><td style="white-space:nowrap">1／3</td><td style="white-space:nowrap">2／3</td><td style="white-space:nowrap">1／3</td><td style="white-space:nowrap">1／3</td><td style="white-space:nowrap">0／3</td><td style="white-space:nowrap">2／3</td><td style="white-space:nowrap">0／3</td><td style="white-space:nowrap">1／3</td><td style="white-space:nowrap">1／3</td></tr>
+            <tr><th scope="row" style="white-space:nowrap"><a href="../area/pref-gunma.html">群馬県</a></th><td style="white-space:nowrap">5</td><td style="white-space:nowrap">2／5</td><td style="white-space:nowrap">4／5</td><td style="white-space:nowrap">2／5</td><td style="white-space:nowrap">1／5</td><td style="white-space:nowrap">2／5</td><td style="white-space:nowrap">5／5</td><td style="white-space:nowrap">0／5</td><td style="white-space:nowrap">0／5</td><td style="white-space:nowrap">4／5</td></tr>
+            <tr><th scope="row" style="white-space:nowrap"><a href="../area/pref-saitama.html">埼玉県</a></th><td style="white-space:nowrap">13</td><td style="white-space:nowrap">9／13</td><td style="white-space:nowrap">6／13</td><td style="white-space:nowrap">6／13</td><td style="white-space:nowrap">1／13</td><td style="white-space:nowrap">3／13</td><td style="white-space:nowrap">3／13</td><td style="white-space:nowrap">2／13</td><td style="white-space:nowrap">4／13</td><td style="white-space:nowrap">12／13</td></tr>
+            <tr><th scope="row" style="white-space:nowrap"><a href="../area/pref-chiba.html">千葉県</a></th><td style="white-space:nowrap">13</td><td style="white-space:nowrap">13／13</td><td style="white-space:nowrap">6／13</td><td style="white-space:nowrap">2／13</td><td style="white-space:nowrap">4／13</td><td style="white-space:nowrap">1／13</td><td style="white-space:nowrap">3／13</td><td style="white-space:nowrap">0／13</td><td style="white-space:nowrap">2／13</td><td style="white-space:nowrap">10／13</td></tr>
+            <tr><th scope="row" style="white-space:nowrap"><a href="../area/pref-tokyo.html">東京都</a></th><td style="white-space:nowrap">35</td><td style="white-space:nowrap">18／35</td><td style="white-space:nowrap">7／35</td><td style="white-space:nowrap">11／35</td><td style="white-space:nowrap">7／35</td><td style="white-space:nowrap">7／35</td><td style="white-space:nowrap">14／35</td><td style="white-space:nowrap">4／35</td><td style="white-space:nowrap">6／35</td><td style="white-space:nowrap">29／35</td></tr>
+            <tr><th scope="row" style="white-space:nowrap"><a href="../area/pref-kanagawa.html">神奈川県</a></th><td style="white-space:nowrap">13</td><td style="white-space:nowrap">8／13</td><td style="white-space:nowrap">6／13</td><td style="white-space:nowrap">5／13</td><td style="white-space:nowrap">3／13</td><td style="white-space:nowrap">2／13</td><td style="white-space:nowrap">6／13</td><td style="white-space:nowrap">1／13</td><td style="white-space:nowrap">3／13</td><td style="white-space:nowrap">11／13</td></tr>
+            <tr><th scope="row" style="white-space:nowrap"><a href="../area/pref-niigata.html">新潟県</a></th><td style="white-space:nowrap">3</td><td style="white-space:nowrap">2／3</td><td style="white-space:nowrap">0／3</td><td style="white-space:nowrap">1／3</td><td style="white-space:nowrap">0／3</td><td style="white-space:nowrap">1／3</td><td style="white-space:nowrap">1／3</td><td style="white-space:nowrap">0／3</td><td style="white-space:nowrap">1／3</td><td style="white-space:nowrap">3／3</td></tr>
+            <tr><th scope="row" style="white-space:nowrap"><a href="../area/pref-toyama.html">富山県</a></th><td style="white-space:nowrap">3</td><td style="white-space:nowrap">2／3</td><td style="white-space:nowrap">2／3</td><td style="white-space:nowrap">0／3</td><td style="white-space:nowrap">1／3</td><td style="white-space:nowrap">1／3</td><td style="white-space:nowrap">2／3</td><td style="white-space:nowrap">0／3</td><td style="white-space:nowrap">0／3</td><td style="white-space:nowrap">1／3</td></tr>
+            <tr><th scope="row" style="white-space:nowrap"><a href="../area/pref-ishikawa.html">石川県</a></th><td style="white-space:nowrap">2</td><td style="white-space:nowrap">1／2</td><td style="white-space:nowrap">1／2</td><td style="white-space:nowrap">0／2</td><td style="white-space:nowrap">0／2</td><td style="white-space:nowrap">1／2</td><td style="white-space:nowrap">0／2</td><td style="white-space:nowrap">0／2</td><td style="white-space:nowrap">1／2</td><td style="white-space:nowrap">2／2</td></tr>
+            <tr><th scope="row" style="white-space:nowrap"><a href="../area/pref-fukui.html">福井県</a></th><td style="white-space:nowrap">3</td><td style="white-space:nowrap">3／3</td><td style="white-space:nowrap">0／3</td><td style="white-space:nowrap">1／3</td><td style="white-space:nowrap">0／3</td><td style="white-space:nowrap">0／3</td><td style="white-space:nowrap">1／3</td><td style="white-space:nowrap">1／3</td><td style="white-space:nowrap">1／3</td><td style="white-space:nowrap">2／3</td></tr>
+            <tr><th scope="row" style="white-space:nowrap"><a href="../area/pref-yamanashi.html">山梨県</a></th><td style="white-space:nowrap">2</td><td style="white-space:nowrap">1／2</td><td style="white-space:nowrap">2／2</td><td style="white-space:nowrap">0／2</td><td style="white-space:nowrap">0／2</td><td style="white-space:nowrap">0／2</td><td style="white-space:nowrap">1／2</td><td style="white-space:nowrap">1／2</td><td style="white-space:nowrap">0／2</td><td style="white-space:nowrap">1／2</td></tr>
+            <tr><th scope="row" style="white-space:nowrap"><a href="../area/pref-nagano.html">長野県</a></th><td style="white-space:nowrap">6</td><td style="white-space:nowrap">2／6</td><td style="white-space:nowrap">4／6</td><td style="white-space:nowrap">1／6</td><td style="white-space:nowrap">4／6</td><td style="white-space:nowrap">1／6</td><td style="white-space:nowrap">2／6</td><td style="white-space:nowrap">0／6</td><td style="white-space:nowrap">2／6</td><td style="white-space:nowrap">0／6</td></tr>
+            <tr><th scope="row" style="white-space:nowrap"><a href="../area/pref-gifu.html">岐阜県</a></th><td style="white-space:nowrap">4</td><td style="white-space:nowrap">2／4</td><td style="white-space:nowrap">0／4</td><td style="white-space:nowrap">1／4</td><td style="white-space:nowrap">2／4</td><td style="white-space:nowrap">1／4</td><td style="white-space:nowrap">2／4</td><td style="white-space:nowrap">0／4</td><td style="white-space:nowrap">1／4</td><td style="white-space:nowrap">0／4</td></tr>
+            <tr><th scope="row" style="white-space:nowrap"><a href="../area/pref-shizuoka.html">静岡県</a></th><td style="white-space:nowrap">10</td><td style="white-space:nowrap">4／10</td><td style="white-space:nowrap">3／10</td><td style="white-space:nowrap">4／10</td><td style="white-space:nowrap">4／10</td><td style="white-space:nowrap">1／10</td><td style="white-space:nowrap">2／10</td><td style="white-space:nowrap">0／10</td><td style="white-space:nowrap">3／10</td><td style="white-space:nowrap">5／10</td></tr>
+            <tr><th scope="row" style="white-space:nowrap"><a href="../area/pref-aichi.html">愛知県</a></th><td style="white-space:nowrap">12</td><td style="white-space:nowrap">10／12</td><td style="white-space:nowrap">3／12</td><td style="white-space:nowrap">4／12</td><td style="white-space:nowrap">4／12</td><td style="white-space:nowrap">3／12</td><td style="white-space:nowrap">9／12</td><td style="white-space:nowrap">0／12</td><td style="white-space:nowrap">3／12</td><td style="white-space:nowrap">4／12</td></tr>
+            <tr><th scope="row" style="white-space:nowrap"><a href="../area/pref-mie.html">三重県</a></th><td style="white-space:nowrap">6</td><td style="white-space:nowrap">5／6</td><td style="white-space:nowrap">1／6</td><td style="white-space:nowrap">3／6</td><td style="white-space:nowrap">3／6</td><td style="white-space:nowrap">0／6</td><td style="white-space:nowrap">2／6</td><td style="white-space:nowrap">0／6</td><td style="white-space:nowrap">2／6</td><td style="white-space:nowrap">2／6</td></tr>
+            <tr><th scope="row" style="white-space:nowrap"><a href="../area/pref-shiga.html">滋賀県</a></th><td style="white-space:nowrap">5</td><td style="white-space:nowrap">3／5</td><td style="white-space:nowrap">1／5</td><td style="white-space:nowrap">2／5</td><td style="white-space:nowrap">0／5</td><td style="white-space:nowrap">1／5</td><td style="white-space:nowrap">1／5</td><td style="white-space:nowrap">0／5</td><td style="white-space:nowrap">0／5</td><td style="white-space:nowrap">2／5</td></tr>
+            <tr><th scope="row" style="white-space:nowrap"><a href="../area/pref-kyoto.html">京都府</a></th><td style="white-space:nowrap">5</td><td style="white-space:nowrap">4／5</td><td style="white-space:nowrap">1／5</td><td style="white-space:nowrap">3／5</td><td style="white-space:nowrap">1／5</td><td style="white-space:nowrap">1／5</td><td style="white-space:nowrap">0／5</td><td style="white-space:nowrap">0／5</td><td style="white-space:nowrap">0／5</td><td style="white-space:nowrap">1／5</td></tr>
+            <tr><th scope="row" style="white-space:nowrap"><a href="../area/pref-osaka.html">大阪府</a></th><td style="white-space:nowrap">19</td><td style="white-space:nowrap">12／19</td><td style="white-space:nowrap">3／19</td><td style="white-space:nowrap">4／19</td><td style="white-space:nowrap">6／19</td><td style="white-space:nowrap">3／19</td><td style="white-space:nowrap">5／19</td><td style="white-space:nowrap">0／19</td><td style="white-space:nowrap">5／19</td><td style="white-space:nowrap">11／19</td></tr>
+            <tr><th scope="row" style="white-space:nowrap"><a href="../area/pref-hyogo.html">兵庫県</a></th><td style="white-space:nowrap">10</td><td style="white-space:nowrap">5／10</td><td style="white-space:nowrap">8／10</td><td style="white-space:nowrap">6／10</td><td style="white-space:nowrap">0／10</td><td style="white-space:nowrap">1／10</td><td style="white-space:nowrap">3／10</td><td style="white-space:nowrap">0／10</td><td style="white-space:nowrap">4／10</td><td style="white-space:nowrap">7／10</td></tr>
+            <tr><th scope="row" style="white-space:nowrap"><a href="../area/pref-nara.html">奈良県</a></th><td style="white-space:nowrap">3</td><td style="white-space:nowrap">2／3</td><td style="white-space:nowrap">0／3</td><td style="white-space:nowrap">1／3</td><td style="white-space:nowrap">1／3</td><td style="white-space:nowrap">0／3</td><td style="white-space:nowrap">3／3</td><td style="white-space:nowrap">0／3</td><td style="white-space:nowrap">1／3</td><td style="white-space:nowrap">2／3</td></tr>
+            <tr><th scope="row" style="white-space:nowrap"><a href="../area/pref-wakayama.html">和歌山県</a></th><td style="white-space:nowrap">2</td><td style="white-space:nowrap">1／2</td><td style="white-space:nowrap">1／2</td><td style="white-space:nowrap">1／2</td><td style="white-space:nowrap">0／2</td><td style="white-space:nowrap">0／2</td><td style="white-space:nowrap">1／2</td><td style="white-space:nowrap">0／2</td><td style="white-space:nowrap">0／2</td><td style="white-space:nowrap">1／2</td></tr>
+            <tr><th scope="row" style="white-space:nowrap"><a href="../area/pref-tottori.html">鳥取県</a></th><td style="white-space:nowrap">1</td><td style="white-space:nowrap">0／1</td><td style="white-space:nowrap">0／1</td><td style="white-space:nowrap">1／1</td><td style="white-space:nowrap">1／1</td><td style="white-space:nowrap">0／1</td><td style="white-space:nowrap">0／1</td><td style="white-space:nowrap">0／1</td><td style="white-space:nowrap">0／1</td><td style="white-space:nowrap">1／1</td></tr>
+            <tr><th scope="row" style="white-space:nowrap"><a href="../area/pref-shimane.html">島根県</a></th><td style="white-space:nowrap">1</td><td style="white-space:nowrap">0／1</td><td style="white-space:nowrap">1／1</td><td style="white-space:nowrap">1／1</td><td style="white-space:nowrap">0／1</td><td style="white-space:nowrap">0／1</td><td style="white-space:nowrap">1／1</td><td style="white-space:nowrap">0／1</td><td style="white-space:nowrap">0／1</td><td style="white-space:nowrap">1／1</td></tr>
+            <tr><th scope="row" style="white-space:nowrap"><a href="../area/pref-okayama.html">岡山県</a></th><td style="white-space:nowrap">3</td><td style="white-space:nowrap">0／3</td><td style="white-space:nowrap">0／3</td><td style="white-space:nowrap">0／3</td><td style="white-space:nowrap">1／3</td><td style="white-space:nowrap">1／3</td><td style="white-space:nowrap">1／3</td><td style="white-space:nowrap">1／3</td><td style="white-space:nowrap">1／3</td><td style="white-space:nowrap">2／3</td></tr>
+            <tr><th scope="row" style="white-space:nowrap"><a href="../area/pref-hiroshima.html">広島県</a></th><td style="white-space:nowrap">6</td><td style="white-space:nowrap">3／6</td><td style="white-space:nowrap">0／6</td><td style="white-space:nowrap">2／6</td><td style="white-space:nowrap">4／6</td><td style="white-space:nowrap">0／6</td><td style="white-space:nowrap">3／6</td><td style="white-space:nowrap">0／6</td><td style="white-space:nowrap">1／6</td><td style="white-space:nowrap">3／6</td></tr>
+            <tr><th scope="row" style="white-space:nowrap"><a href="../area/pref-yamaguchi.html">山口県</a></th><td style="white-space:nowrap">5</td><td style="white-space:nowrap">3／5</td><td style="white-space:nowrap">4／5</td><td style="white-space:nowrap">0／5</td><td style="white-space:nowrap">3／5</td><td style="white-space:nowrap">2／5</td><td style="white-space:nowrap">3／5</td><td style="white-space:nowrap">0／5</td><td style="white-space:nowrap">0／5</td><td style="white-space:nowrap">2／5</td></tr>
+            <tr><th scope="row" style="white-space:nowrap"><a href="../area/pref-tokushima.html">徳島県</a></th><td style="white-space:nowrap">2</td><td style="white-space:nowrap">0／2</td><td style="white-space:nowrap">0／2</td><td style="white-space:nowrap">1／2</td><td style="white-space:nowrap">1／2</td><td style="white-space:nowrap">1／2</td><td style="white-space:nowrap">2／2</td><td style="white-space:nowrap">0／2</td><td style="white-space:nowrap">0／2</td><td style="white-space:nowrap">0／2</td></tr>
+            <tr><th scope="row" style="white-space:nowrap"><a href="../area/pref-kagawa.html">香川県</a></th><td style="white-space:nowrap">2</td><td style="white-space:nowrap">1／2</td><td style="white-space:nowrap">1／2</td><td style="white-space:nowrap">1／2</td><td style="white-space:nowrap">1／2</td><td style="white-space:nowrap">1／2</td><td style="white-space:nowrap">1／2</td><td style="white-space:nowrap">0／2</td><td style="white-space:nowrap">0／2</td><td style="white-space:nowrap">1／2</td></tr>
+            <tr><th scope="row" style="white-space:nowrap"><a href="../area/pref-ehime.html">愛媛県</a></th><td style="white-space:nowrap">4</td><td style="white-space:nowrap">3／4</td><td style="white-space:nowrap">2／4</td><td style="white-space:nowrap">2／4</td><td style="white-space:nowrap">0／4</td><td style="white-space:nowrap">2／4</td><td style="white-space:nowrap">0／4</td><td style="white-space:nowrap">1／4</td><td style="white-space:nowrap">1／4</td><td style="white-space:nowrap">3／4</td></tr>
+            <tr><th scope="row" style="white-space:nowrap"><a href="../area/pref-kochi.html">高知県</a></th><td style="white-space:nowrap">2</td><td style="white-space:nowrap">0／2</td><td style="white-space:nowrap">1／2</td><td style="white-space:nowrap">1／2</td><td style="white-space:nowrap">0／2</td><td style="white-space:nowrap">0／2</td><td style="white-space:nowrap">2／2</td><td style="white-space:nowrap">0／2</td><td style="white-space:nowrap">0／2</td><td style="white-space:nowrap">0／2</td></tr>
+            <tr><th scope="row" style="white-space:nowrap"><a href="../area/pref-fukuoka.html">福岡県</a></th><td style="white-space:nowrap">8</td><td style="white-space:nowrap">6／8</td><td style="white-space:nowrap">1／8</td><td style="white-space:nowrap">2／8</td><td style="white-space:nowrap">1／8</td><td style="white-space:nowrap">1／8</td><td style="white-space:nowrap">2／8</td><td style="white-space:nowrap">1／8</td><td style="white-space:nowrap">2／8</td><td style="white-space:nowrap">5／8</td></tr>
+            <tr><th scope="row" style="white-space:nowrap"><a href="../area/pref-saga.html">佐賀県</a></th><td style="white-space:nowrap">3</td><td style="white-space:nowrap">2／3</td><td style="white-space:nowrap">1／3</td><td style="white-space:nowrap">0／3</td><td style="white-space:nowrap">1／3</td><td style="white-space:nowrap">1／3</td><td style="white-space:nowrap">1／3</td><td style="white-space:nowrap">0／3</td><td style="white-space:nowrap">0／3</td><td style="white-space:nowrap">1／3</td></tr>
+            <tr><th scope="row" style="white-space:nowrap"><a href="../area/pref-nagasaki.html">長崎県</a></th><td style="white-space:nowrap">4</td><td style="white-space:nowrap">3／4</td><td style="white-space:nowrap">1／4</td><td style="white-space:nowrap">1／4</td><td style="white-space:nowrap">2／4</td><td style="white-space:nowrap">1／4</td><td style="white-space:nowrap">1／4</td><td style="white-space:nowrap">0／4</td><td style="white-space:nowrap">1／4</td><td style="white-space:nowrap">2／4</td></tr>
+            <tr><th scope="row" style="white-space:nowrap"><a href="../area/pref-kumamoto.html">熊本県</a></th><td style="white-space:nowrap">3</td><td style="white-space:nowrap">1／3</td><td style="white-space:nowrap">1／3</td><td style="white-space:nowrap">0／3</td><td style="white-space:nowrap">1／3</td><td style="white-space:nowrap">0／3</td><td style="white-space:nowrap">0／3</td><td style="white-space:nowrap">0／3</td><td style="white-space:nowrap">0／3</td><td style="white-space:nowrap">1／3</td></tr>
+            <tr><th scope="row" style="white-space:nowrap"><a href="../area/pref-oita.html">大分県</a></th><td style="white-space:nowrap">2</td><td style="white-space:nowrap">2／2</td><td style="white-space:nowrap">0／2</td><td style="white-space:nowrap">1／2</td><td style="white-space:nowrap">1／2</td><td style="white-space:nowrap">1／2</td><td style="white-space:nowrap">1／2</td><td style="white-space:nowrap">1／2</td><td style="white-space:nowrap">1／2</td><td style="white-space:nowrap">0／2</td></tr>
+            <tr><th scope="row" style="white-space:nowrap"><a href="../area/pref-miyazaki.html">宮崎県</a></th><td style="white-space:nowrap">3</td><td style="white-space:nowrap">0／3</td><td style="white-space:nowrap">2／3</td><td style="white-space:nowrap">2／3</td><td style="white-space:nowrap">1／3</td><td style="white-space:nowrap">0／3</td><td style="white-space:nowrap">0／3</td><td style="white-space:nowrap">2／3</td><td style="white-space:nowrap">0／3</td><td style="white-space:nowrap">2／3</td></tr>
+            <tr><th scope="row" style="white-space:nowrap"><a href="../area/pref-kagoshima.html">鹿児島県</a></th><td style="white-space:nowrap">3</td><td style="white-space:nowrap">0／3</td><td style="white-space:nowrap">2／3</td><td style="white-space:nowrap">2／3</td><td style="white-space:nowrap">1／3</td><td style="white-space:nowrap">1／3</td><td style="white-space:nowrap">1／3</td><td style="white-space:nowrap">0／3</td><td style="white-space:nowrap">2／3</td><td style="white-space:nowrap">3／3</td></tr>
+            <tr><th scope="row" style="white-space:nowrap"><a href="../area/pref-okinawa.html">沖縄県</a></th><td style="white-space:nowrap">4</td><td style="white-space:nowrap">2／4</td><td style="white-space:nowrap">1／4</td><td style="white-space:nowrap">0／4</td><td style="white-space:nowrap">2／4</td><td style="white-space:nowrap">0／4</td><td style="white-space:nowrap">2／4</td><td style="white-space:nowrap">0／4</td><td style="white-space:nowrap">0／4</td><td style="white-space:nowrap">2／4</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </section>
+
+    <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-03.webp" alt="" loading="lazy"></div>
+
+    <section class="art-sec" aria-labelledby="s3"><h2 id="s3"><img class="sec-icon" src="../images/icons/icon-12.png" alt="" width="30" height="30" loading="lazy">目的別：市区町村の独自制度が掲載されていない市区町村</h2>
+      <div class="area-body">
+        <p>県の制度が掲載されている場合も、市区町村の独自制度の掲載がなければ、ここに含まれます。目的名を開くと、都道府県ごとの一覧が出ます。</p>
+        <details><summary><strong>創業・起業</strong>：108市区町村</summary>
+          <p class="area-meta"><strong>北海道</strong>　江別市</p>
+          <p class="area-meta"><strong>青森県</strong>　青森市</p>
+          <p class="area-meta"><strong>岩手県</strong>　盛岡市、一関市、花巻市</p>
+          <p class="area-meta"><strong>宮城県</strong>　仙台市</p>
+          <p class="area-meta"><strong>山形県</strong>　山形市</p>
+          <p class="area-meta"><strong>福島県</strong>　いわき市</p>
+          <p class="area-meta"><strong>茨城県</strong>　水戸市、古河市、土浦市</p>
+          <p class="area-meta"><strong>栃木県</strong>　宇都宮市、小山市</p>
+          <p class="area-meta"><strong>群馬県</strong>　高崎市、太田市、桐生市</p>
+          <p class="area-meta"><strong>埼玉県</strong>　さいたま市、川越市、川口市、戸田市</p>
+          <p class="area-meta"><strong>東京都</strong>　中央区、港区、新宿区、文京区、台東区、墨田区、品川区、大田区、世田谷区、北区、荒川区、練馬区、足立区、葛飾区、府中市、八王子市、武蔵野市</p>
+          <p class="area-meta"><strong>神奈川県</strong>　川崎市、相模原市、小田原市、厚木市、大和市</p>
+          <p class="area-meta"><strong>新潟県</strong>　新潟市</p>
+          <p class="area-meta"><strong>富山県</strong>　富山市</p>
+          <p class="area-meta"><strong>石川県</strong>　小松市</p>
+          <p class="area-meta"><strong>山梨県</strong>　富士吉田市</p>
+          <p class="area-meta"><strong>長野県</strong>　上田市、飯田市、諏訪市、佐久市</p>
+          <p class="area-meta"><strong>岐阜県</strong>　岐阜市、各務原市</p>
+          <p class="area-meta"><strong>静岡県</strong>　静岡市、浜松市、掛川市、藤枝市、焼津市、三島市</p>
+          <p class="area-meta"><strong>愛知県</strong>　安城市、小牧市</p>
+          <p class="area-meta"><strong>三重県</strong>　松阪市</p>
+          <p class="area-meta"><strong>滋賀県</strong>　彦根市、長浜市</p>
+          <p class="area-meta"><strong>京都府</strong>　舞鶴市</p>
+          <p class="area-meta"><strong>大阪府</strong>　大阪市、堺市、東大阪市、高槻市、守口市、富田林市、泉佐野市</p>
+          <p class="area-meta"><strong>兵庫県</strong>　神戸市、明石市、加古川市、川西市、芦屋市</p>
+          <p class="area-meta"><strong>奈良県</strong>　生駒市</p>
+          <p class="area-meta"><strong>和歌山県</strong>　田辺市</p>
+          <p class="area-meta"><strong>鳥取県</strong>　鳥取市</p>
+          <p class="area-meta"><strong>島根県</strong>　松江市</p>
+          <p class="area-meta"><strong>岡山県</strong>　岡山市、倉敷市、津山市</p>
+          <p class="area-meta"><strong>広島県</strong>　広島市、福山市、呉市</p>
+          <p class="area-meta"><strong>山口県</strong>　山口市、防府市</p>
+          <p class="area-meta"><strong>徳島県</strong>　徳島市、鳴門市</p>
+          <p class="area-meta"><strong>香川県</strong>　高松市</p>
+          <p class="area-meta"><strong>愛媛県</strong>　西条市</p>
+          <p class="area-meta"><strong>高知県</strong>　高知市、南国市</p>
+          <p class="area-meta"><strong>福岡県</strong>　北九州市、糸島市</p>
+          <p class="area-meta"><strong>佐賀県</strong>　鳥栖市</p>
+          <p class="area-meta"><strong>長崎県</strong>　諫早市</p>
+          <p class="area-meta"><strong>熊本県</strong>　熊本市、八代市</p>
+          <p class="area-meta"><strong>宮崎県</strong>　宮崎市、都城市、延岡市</p>
+          <p class="area-meta"><strong>鹿児島県</strong>　鹿児島市、霧島市、鹿屋市</p>
+          <p class="area-meta"><strong>沖縄県</strong>　沖縄市、宜野湾市</p>
+        </details>
+        <details><summary><strong>空き店舗・商店街</strong>：174市区町村</summary>
+          <p class="area-meta"><strong>北海道</strong>　札幌市、函館市、帯広市、苫小牧市、小樽市、北見市</p>
+          <p class="area-meta"><strong>岩手県</strong>　盛岡市、一関市</p>
+          <p class="area-meta"><strong>宮城県</strong>　仙台市、石巻市</p>
+          <p class="area-meta"><strong>秋田県</strong>　秋田市、横手市</p>
+          <p class="area-meta"><strong>山形県</strong>　鶴岡市、酒田市、米沢市</p>
+          <p class="area-meta"><strong>福島県</strong>　郡山市、いわき市、会津若松市</p>
+          <p class="area-meta"><strong>茨城県</strong>　つくば市、日立市</p>
+          <p class="area-meta"><strong>栃木県</strong>　宇都宮市</p>
+          <p class="area-meta"><strong>群馬県</strong>　伊勢崎市</p>
+          <p class="area-meta"><strong>埼玉県</strong>　さいたま市、川越市、越谷市、草加市、上尾市、熊谷市、新座市</p>
+          <p class="area-meta"><strong>千葉県</strong>　千葉市、柏市、市川市、市原市、八千代市、成田市、習志野市</p>
+          <p class="area-meta"><strong>東京都</strong>　千代田区、中央区、港区、文京区、台東区、墨田区、江東区、品川区、目黒区、大田区、世田谷区、渋谷区、中野区、杉並区、豊島区、北区、荒川区、板橋区、練馬区、足立区、葛飾区、江戸川区、調布市、町田市、立川市、小平市、西東京市、東村山市</p>
+          <p class="area-meta"><strong>神奈川県</strong>　横浜市、川崎市、相模原市、横須賀市、茅ヶ崎市、鎌倉市、海老名市</p>
+          <p class="area-meta"><strong>新潟県</strong>　新潟市、長岡市、上越市</p>
+          <p class="area-meta"><strong>富山県</strong>　高岡市</p>
+          <p class="area-meta"><strong>石川県</strong>　金沢市</p>
+          <p class="area-meta"><strong>福井県</strong>　福井市、鯖江市、敦賀市</p>
+          <p class="area-meta"><strong>長野県</strong>　長野市、上田市</p>
+          <p class="area-meta"><strong>岐阜県</strong>　岐阜市、大垣市、多治見市、各務原市</p>
+          <p class="area-meta"><strong>静岡県</strong>　静岡市、浜松市、沼津市、磐田市、掛川市、藤枝市、島田市</p>
+          <p class="area-meta"><strong>愛知県</strong>　名古屋市、岡崎市、豊田市、春日井市、刈谷市、安城市、小牧市、豊川市、犬山市</p>
+          <p class="area-meta"><strong>三重県</strong>　津市、鈴鹿市、伊勢市、松阪市、桑名市</p>
+          <p class="area-meta"><strong>滋賀県</strong>　大津市、草津市、彦根市、近江八幡市</p>
+          <p class="area-meta"><strong>京都府</strong>　京都市、宇治市、亀岡市、福知山市</p>
+          <p class="area-meta"><strong>大阪府</strong>　大阪市、堺市、吹田市、豊中市、枚方市、茨木市、寝屋川市、岸和田市、八尾市、箕面市、守口市、門真市、大東市、和泉市、泉佐野市、摂津市</p>
+          <p class="area-meta"><strong>兵庫県</strong>　姫路市、伊丹市</p>
+          <p class="area-meta"><strong>奈良県</strong>　奈良市、橿原市、生駒市</p>
+          <p class="area-meta"><strong>和歌山県</strong>　田辺市</p>
+          <p class="area-meta"><strong>鳥取県</strong>　鳥取市</p>
+          <p class="area-meta"><strong>岡山県</strong>　岡山市、倉敷市、津山市</p>
+          <p class="area-meta"><strong>広島県</strong>　広島市、福山市、呉市、東広島市、尾道市、廿日市市</p>
+          <p class="area-meta"><strong>山口県</strong>　周南市</p>
+          <p class="area-meta"><strong>徳島県</strong>　徳島市、鳴門市</p>
+          <p class="area-meta"><strong>香川県</strong>　丸亀市</p>
+          <p class="area-meta"><strong>愛媛県</strong>　松山市、今治市</p>
+          <p class="area-meta"><strong>高知県</strong>　南国市</p>
+          <p class="area-meta"><strong>福岡県</strong>　北九州市、福岡市、大牟田市、飯塚市、春日市、大野城市、糸島市</p>
+          <p class="area-meta"><strong>佐賀県</strong>　佐賀市、唐津市</p>
+          <p class="area-meta"><strong>長崎県</strong>　長崎市、佐世保市、諫早市</p>
+          <p class="area-meta"><strong>熊本県</strong>　八代市、合志市</p>
+          <p class="area-meta"><strong>大分県</strong>　大分市、別府市</p>
+          <p class="area-meta"><strong>宮崎県</strong>　宮崎市</p>
+          <p class="area-meta"><strong>鹿児島県</strong>　鹿屋市</p>
+          <p class="area-meta"><strong>沖縄県</strong>　沖縄市、浦添市、宜野湾市</p>
+        </details>
+        <details><summary><strong>設備投資・省エネ</strong>：185市区町村</summary>
+          <p class="area-meta"><strong>北海道</strong>　札幌市、旭川市、函館市、帯広市、苫小牧市、江別市、北見市、千歳市</p>
+          <p class="area-meta"><strong>青森県</strong>　青森市、八戸市、弘前市</p>
+          <p class="area-meta"><strong>岩手県</strong>　盛岡市、一関市、花巻市</p>
+          <p class="area-meta"><strong>宮城県</strong>　石巻市</p>
+          <p class="area-meta"><strong>秋田県</strong>　秋田市</p>
+          <p class="area-meta"><strong>山形県</strong>　山形市、鶴岡市、酒田市、米沢市</p>
+          <p class="area-meta"><strong>福島県</strong>　福島市、郡山市、いわき市、会津若松市</p>
+          <p class="area-meta"><strong>茨城県</strong>　水戸市、つくば市、土浦市、取手市</p>
+          <p class="area-meta"><strong>栃木県</strong>　宇都宮市、足利市</p>
+          <p class="area-meta"><strong>群馬県</strong>　前橋市、太田市、桐生市</p>
+          <p class="area-meta"><strong>埼玉県</strong>　さいたま市、川口市、熊谷市、戸田市、朝霞市、新座市、入間市</p>
+          <p class="area-meta"><strong>千葉県</strong>　千葉市、船橋市、柏市、市原市、八千代市、成田市、習志野市、流山市、佐倉市、木更津市、野田市</p>
+          <p class="area-meta"><strong>東京都</strong>　千代田区、中央区、台東区、江東区、品川区、目黒区、大田区、世田谷区、渋谷区、中野区、杉並区、豊島区、北区、練馬区、葛飾区、江戸川区、八王子市、町田市、三鷹市、武蔵野市、小平市、日野市、東村山市、青梅市</p>
+          <p class="area-meta"><strong>神奈川県</strong>　横浜市、川崎市、藤沢市、小田原市、茅ヶ崎市、大和市、鎌倉市、秦野市</p>
+          <p class="area-meta"><strong>新潟県</strong>　新潟市、長岡市</p>
+          <p class="area-meta"><strong>富山県</strong>　富山市、高岡市、南砺市</p>
+          <p class="area-meta"><strong>石川県</strong>　金沢市、小松市</p>
+          <p class="area-meta"><strong>福井県</strong>　福井市、敦賀市</p>
+          <p class="area-meta"><strong>山梨県</strong>　甲府市、富士吉田市</p>
+          <p class="area-meta"><strong>長野県</strong>　長野市、松本市、上田市、飯田市、佐久市</p>
+          <p class="area-meta"><strong>岐阜県</strong>　岐阜市、大垣市、多治見市</p>
+          <p class="area-meta"><strong>静岡県</strong>　浜松市、沼津市、富士市、磐田市、焼津市、三島市</p>
+          <p class="area-meta"><strong>愛知県</strong>　名古屋市、岡崎市、春日井市、豊橋市、安城市、小牧市、豊川市、西尾市</p>
+          <p class="area-meta"><strong>三重県</strong>　四日市市、鈴鹿市、伊勢市</p>
+          <p class="area-meta"><strong>滋賀県</strong>　彦根市、長浜市、近江八幡市</p>
+          <p class="area-meta"><strong>京都府</strong>　亀岡市、舞鶴市</p>
+          <p class="area-meta"><strong>大阪府</strong>　大阪市、堺市、豊中市、茨木市、寝屋川市、岸和田市、八尾市、箕面市、守口市、門真市、大東市、富田林市、和泉市、泉佐野市、摂津市</p>
+          <p class="area-meta"><strong>兵庫県</strong>　姫路市、加古川市、宝塚市、川西市</p>
+          <p class="area-meta"><strong>奈良県</strong>　橿原市、生駒市</p>
+          <p class="area-meta"><strong>和歌山県</strong>　田辺市</p>
+          <p class="area-meta"><strong>岡山県</strong>　岡山市、倉敷市、津山市</p>
+          <p class="area-meta"><strong>広島県</strong>　広島市、東広島市、尾道市、廿日市市</p>
+          <p class="area-meta"><strong>山口県</strong>　下関市、山口市、宇部市、周南市、防府市</p>
+          <p class="area-meta"><strong>徳島県</strong>　鳴門市</p>
+          <p class="area-meta"><strong>香川県</strong>　丸亀市</p>
+          <p class="area-meta"><strong>愛媛県</strong>　今治市、西条市</p>
+          <p class="area-meta"><strong>高知県</strong>　高知市</p>
+          <p class="area-meta"><strong>福岡県</strong>　福岡市、大牟田市、飯塚市、春日市、大野城市、糸島市</p>
+          <p class="area-meta"><strong>佐賀県</strong>　佐賀市、唐津市、鳥栖市</p>
+          <p class="area-meta"><strong>長崎県</strong>　長崎市、諫早市、大村市</p>
+          <p class="area-meta"><strong>熊本県</strong>　熊本市、八代市、合志市</p>
+          <p class="area-meta"><strong>大分県</strong>　別府市</p>
+          <p class="area-meta"><strong>宮崎県</strong>　延岡市</p>
+          <p class="area-meta"><strong>鹿児島県</strong>　霧島市</p>
+          <p class="area-meta"><strong>沖縄県</strong>　那覇市、沖縄市、浦添市、宜野湾市</p>
+        </details>
+        <details><summary><strong>人材・雇用</strong>：196市区町村</summary>
+          <p class="area-meta"><strong>北海道</strong>　札幌市、旭川市、函館市、帯広市、釧路市、小樽市、北見市、千歳市</p>
+          <p class="area-meta"><strong>青森県</strong>　青森市、八戸市、弘前市</p>
+          <p class="area-meta"><strong>岩手県</strong>　盛岡市、花巻市</p>
+          <p class="area-meta"><strong>宮城県</strong>　仙台市</p>
+          <p class="area-meta"><strong>秋田県</strong>　横手市</p>
+          <p class="area-meta"><strong>山形県</strong>　山形市、鶴岡市、酒田市、米沢市</p>
+          <p class="area-meta"><strong>福島県</strong>　郡山市、いわき市、会津若松市</p>
+          <p class="area-meta"><strong>茨城県</strong>　水戸市、つくば市、古河市、土浦市、取手市</p>
+          <p class="area-meta"><strong>栃木県</strong>　小山市、足利市</p>
+          <p class="area-meta"><strong>群馬県</strong>　高崎市、太田市、伊勢崎市、桐生市</p>
+          <p class="area-meta"><strong>埼玉県</strong>　さいたま市、川越市、川口市、越谷市、所沢市、草加市、上尾市、春日部市、戸田市、朝霞市、新座市、入間市</p>
+          <p class="area-meta"><strong>千葉県</strong>　柏市、市川市、松戸市、市原市、成田市、流山市、佐倉市、木更津市、野田市</p>
+          <p class="area-meta"><strong>東京都</strong>　千代田区、中央区、新宿区、台東区、墨田区、江東区、目黒区、大田区、世田谷区、渋谷区、中野区、杉並区、北区、荒川区、板橋区、練馬区、調布市、府中市、八王子市、町田市、三鷹市、武蔵野市、立川市、小平市、西東京市、日野市、東村山市、青梅市</p>
+          <p class="area-meta"><strong>神奈川県</strong>　横浜市、川崎市、相模原市、藤沢市、小田原市、茅ヶ崎市、大和市、鎌倉市、海老名市、秦野市</p>
+          <p class="area-meta"><strong>新潟県</strong>　新潟市、長岡市、上越市</p>
+          <p class="area-meta"><strong>富山県</strong>　富山市、南砺市</p>
+          <p class="area-meta"><strong>石川県</strong>　金沢市、小松市</p>
+          <p class="area-meta"><strong>福井県</strong>　福井市、鯖江市、敦賀市</p>
+          <p class="area-meta"><strong>山梨県</strong>　甲府市、富士吉田市</p>
+          <p class="area-meta"><strong>長野県</strong>　諏訪市、佐久市</p>
+          <p class="area-meta"><strong>岐阜県</strong>　大垣市、多治見市</p>
+          <p class="area-meta"><strong>静岡県</strong>　浜松市、沼津市、富士市、掛川市、藤枝市、島田市</p>
+          <p class="area-meta"><strong>愛知県</strong>　名古屋市、岡崎市、一宮市、豊橋市、安城市、小牧市、豊川市、西尾市</p>
+          <p class="area-meta"><strong>三重県</strong>　鈴鹿市、伊勢市、桑名市</p>
+          <p class="area-meta"><strong>滋賀県</strong>　大津市、草津市、彦根市、長浜市、近江八幡市</p>
+          <p class="area-meta"><strong>京都府</strong>　京都市、亀岡市、福知山市、舞鶴市</p>
+          <p class="area-meta"><strong>大阪府</strong>　大阪市、堺市、東大阪市、枚方市、高槻市、茨木市、寝屋川市、岸和田市、八尾市、箕面市、守口市、和泉市、泉佐野市</p>
+          <p class="area-meta"><strong>兵庫県</strong>　神戸市、姫路市、西宮市、尼崎市、明石市、加古川市、伊丹市、宝塚市、川西市、芦屋市</p>
+          <p class="area-meta"><strong>奈良県</strong>　奈良市、橿原市</p>
+          <p class="area-meta"><strong>和歌山県</strong>　和歌山市、田辺市</p>
+          <p class="area-meta"><strong>島根県</strong>　松江市</p>
+          <p class="area-meta"><strong>岡山県</strong>　岡山市、津山市</p>
+          <p class="area-meta"><strong>広島県</strong>　尾道市、廿日市市</p>
+          <p class="area-meta"><strong>山口県</strong>　下関市、周南市</p>
+          <p class="area-meta"><strong>徳島県</strong>　鳴門市</p>
+          <p class="area-meta"><strong>香川県</strong>　高松市</p>
+          <p class="area-meta"><strong>愛媛県</strong>　松山市、今治市、新居浜市、西条市</p>
+          <p class="area-meta"><strong>高知県</strong>　高知市、南国市</p>
+          <p class="area-meta"><strong>福岡県</strong>　北九州市、福岡市、大牟田市、飯塚市、春日市、大野城市、糸島市</p>
+          <p class="area-meta"><strong>佐賀県</strong>　唐津市、鳥栖市</p>
+          <p class="area-meta"><strong>長崎県</strong>　諫早市、大村市</p>
+          <p class="area-meta"><strong>熊本県</strong>　熊本市、合志市</p>
+          <p class="area-meta"><strong>大分県</strong>　別府市</p>
+          <p class="area-meta"><strong>宮崎県</strong>　都城市、延岡市</p>
+          <p class="area-meta"><strong>鹿児島県</strong>　鹿児島市、霧島市</p>
+          <p class="area-meta"><strong>沖縄県</strong>　那覇市、宜野湾市</p>
+        </details>
+        <details><summary><strong>IT・デジタル</strong>：220市区町村</summary>
+          <p class="area-meta"><strong>北海道</strong>　札幌市、旭川市、函館市、帯広市、釧路市、苫小牧市、江別市、小樽市、北見市、千歳市</p>
+          <p class="area-meta"><strong>青森県</strong>　青森市、八戸市</p>
+          <p class="area-meta"><strong>岩手県</strong>　盛岡市、一関市、花巻市</p>
+          <p class="area-meta"><strong>宮城県</strong>　仙台市</p>
+          <p class="area-meta"><strong>秋田県</strong>　秋田市、横手市</p>
+          <p class="area-meta"><strong>山形県</strong>　鶴岡市、酒田市、米沢市</p>
+          <p class="area-meta"><strong>福島県</strong>　福島市、郡山市、会津若松市</p>
+          <p class="area-meta"><strong>茨城県</strong>　つくば市、古河市、土浦市、日立市、取手市</p>
+          <p class="area-meta"><strong>栃木県</strong>　宇都宮市、小山市、足利市</p>
+          <p class="area-meta"><strong>群馬県</strong>　高崎市、伊勢崎市、桐生市</p>
+          <p class="area-meta"><strong>埼玉県</strong>　さいたま市、川越市、越谷市、所沢市、草加市、上尾市、熊谷市、春日部市、朝霞市、入間市</p>
+          <p class="area-meta"><strong>千葉県</strong>　千葉市、船橋市、柏市、市川市、市原市、八千代市、成田市、習志野市、流山市、佐倉市、木更津市、野田市</p>
+          <p class="area-meta"><strong>東京都</strong>　千代田区、港区、新宿区、文京区、台東区、江東区、品川区、目黒区、大田区、世田谷区、渋谷区、中野区、杉並区、豊島区、北区、荒川区、板橋区、足立区、調布市、府中市、八王子市、町田市、三鷹市、武蔵野市、小平市、日野市、東村山市、青梅市</p>
+          <p class="area-meta"><strong>神奈川県</strong>　横浜市、川崎市、相模原市、藤沢市、小田原市、茅ヶ崎市、厚木市、大和市、鎌倉市、海老名市、秦野市</p>
+          <p class="area-meta"><strong>新潟県</strong>　新潟市、上越市</p>
+          <p class="area-meta"><strong>富山県</strong>　富山市、南砺市</p>
+          <p class="area-meta"><strong>石川県</strong>　小松市</p>
+          <p class="area-meta"><strong>福井県</strong>　福井市、鯖江市、敦賀市</p>
+          <p class="area-meta"><strong>山梨県</strong>　甲府市、富士吉田市</p>
+          <p class="area-meta"><strong>長野県</strong>　松本市、上田市、飯田市、諏訪市、佐久市</p>
+          <p class="area-meta"><strong>岐阜県</strong>　大垣市、多治見市、各務原市</p>
+          <p class="area-meta"><strong>静岡県</strong>　静岡市、浜松市、沼津市、磐田市、掛川市、藤枝市、焼津市、三島市、島田市</p>
+          <p class="area-meta"><strong>愛知県</strong>　名古屋市、岡崎市、豊田市、一宮市、春日井市、刈谷市、豊川市、西尾市、犬山市</p>
+          <p class="area-meta"><strong>三重県</strong>　津市、四日市市、鈴鹿市、伊勢市、松阪市、桑名市</p>
+          <p class="area-meta"><strong>滋賀県</strong>　大津市、彦根市、長浜市、近江八幡市</p>
+          <p class="area-meta"><strong>京都府</strong>　京都市、宇治市、亀岡市、福知山市</p>
+          <p class="area-meta"><strong>大阪府</strong>　大阪市、東大阪市、吹田市、枚方市、高槻市、茨木市、寝屋川市、八尾市、箕面市、守口市、門真市、大東市、富田林市、和泉市、泉佐野市、摂津市</p>
+          <p class="area-meta"><strong>兵庫県</strong>　神戸市、西宮市、尼崎市、明石市、加古川市、伊丹市、宝塚市、川西市、芦屋市</p>
+          <p class="area-meta"><strong>奈良県</strong>　奈良市、橿原市、生駒市</p>
+          <p class="area-meta"><strong>和歌山県</strong>　和歌山市、田辺市</p>
+          <p class="area-meta"><strong>鳥取県</strong>　鳥取市</p>
+          <p class="area-meta"><strong>島根県</strong>　松江市</p>
+          <p class="area-meta"><strong>岡山県</strong>　倉敷市、津山市</p>
+          <p class="area-meta"><strong>広島県</strong>　広島市、福山市、呉市、東広島市、尾道市、廿日市市</p>
+          <p class="area-meta"><strong>山口県</strong>　山口市、周南市、防府市</p>
+          <p class="area-meta"><strong>徳島県</strong>　鳴門市</p>
+          <p class="area-meta"><strong>香川県</strong>　丸亀市</p>
+          <p class="area-meta"><strong>愛媛県</strong>　新居浜市、西条市</p>
+          <p class="area-meta"><strong>高知県</strong>　高知市、南国市</p>
+          <p class="area-meta"><strong>福岡県</strong>　北九州市、福岡市、大牟田市、飯塚市、春日市、大野城市、糸島市</p>
+          <p class="area-meta"><strong>佐賀県</strong>　唐津市、鳥栖市</p>
+          <p class="area-meta"><strong>長崎県</strong>　佐世保市、諫早市、大村市</p>
+          <p class="area-meta"><strong>熊本県</strong>　熊本市、八代市、合志市</p>
+          <p class="area-meta"><strong>大分県</strong>　別府市</p>
+          <p class="area-meta"><strong>宮崎県</strong>　宮崎市、都城市、延岡市</p>
+          <p class="area-meta"><strong>鹿児島県</strong>　霧島市、鹿屋市</p>
+          <p class="area-meta"><strong>沖縄県</strong>　那覇市、沖縄市、浦添市、宜野湾市</p>
+        </details>
+        <details><summary><strong>販路開拓・PR</strong>：167市区町村</summary>
+          <p class="area-meta"><strong>北海道</strong>　札幌市、帯広市、釧路市、江別市、小樽市、千歳市</p>
+          <p class="area-meta"><strong>青森県</strong>　青森市、八戸市、弘前市</p>
+          <p class="area-meta"><strong>岩手県</strong>　盛岡市、一関市</p>
+          <p class="area-meta"><strong>宮城県</strong>　石巻市</p>
+          <p class="area-meta"><strong>秋田県</strong>　秋田市、横手市</p>
+          <p class="area-meta"><strong>山形県</strong>　山形市、鶴岡市</p>
+          <p class="area-meta"><strong>福島県</strong>　福島市、郡山市</p>
+          <p class="area-meta"><strong>茨城県</strong>　つくば市、古河市、土浦市、日立市、取手市</p>
+          <p class="area-meta"><strong>栃木県</strong>　足利市</p>
+          <p class="area-meta"><strong>埼玉県</strong>　さいたま市、川越市、越谷市、草加市、熊谷市、春日部市、戸田市、朝霞市、新座市、入間市</p>
+          <p class="area-meta"><strong>千葉県</strong>　千葉市、船橋市、柏市、市原市、八千代市、成田市、習志野市、佐倉市、木更津市、野田市</p>
+          <p class="area-meta"><strong>東京都</strong>　港区、新宿区、文京区、台東区、江東区、品川区、大田区、渋谷区、杉並区、北区、荒川区、板橋区、練馬区、足立区、江戸川区、調布市、町田市、武蔵野市、小平市、西東京市、青梅市</p>
+          <p class="area-meta"><strong>神奈川県</strong>　横浜市、相模原市、横須賀市、藤沢市、平塚市、厚木市、秦野市</p>
+          <p class="area-meta"><strong>新潟県</strong>　新潟市、上越市</p>
+          <p class="area-meta"><strong>富山県</strong>　南砺市</p>
+          <p class="area-meta"><strong>石川県</strong>　金沢市、小松市</p>
+          <p class="area-meta"><strong>福井県</strong>　福井市、敦賀市</p>
+          <p class="area-meta"><strong>山梨県</strong>　甲府市</p>
+          <p class="area-meta"><strong>長野県</strong>　松本市、上田市、飯田市、諏訪市</p>
+          <p class="area-meta"><strong>岐阜県</strong>　大垣市、多治見市</p>
+          <p class="area-meta"><strong>静岡県</strong>　静岡市、浜松市、富士市、掛川市、藤枝市、焼津市、三島市、島田市</p>
+          <p class="area-meta"><strong>愛知県</strong>　名古屋市、西尾市、犬山市</p>
+          <p class="area-meta"><strong>三重県</strong>　鈴鹿市、伊勢市、松阪市、桑名市</p>
+          <p class="area-meta"><strong>滋賀県</strong>　草津市、彦根市、長浜市、近江八幡市</p>
+          <p class="area-meta"><strong>京都府</strong>　京都市、宇治市、亀岡市、福知山市、舞鶴市</p>
+          <p class="area-meta"><strong>大阪府</strong>　大阪市、堺市、吹田市、豊中市、高槻市、茨木市、岸和田市、箕面市、門真市、大東市、富田林市、和泉市、泉佐野市、摂津市</p>
+          <p class="area-meta"><strong>兵庫県</strong>　神戸市、姫路市、西宮市、尼崎市、明石市、伊丹市、芦屋市</p>
+          <p class="area-meta"><strong>和歌山県</strong>　田辺市</p>
+          <p class="area-meta"><strong>鳥取県</strong>　鳥取市</p>
+          <p class="area-meta"><strong>岡山県</strong>　岡山市、津山市</p>
+          <p class="area-meta"><strong>広島県</strong>　広島市、東広島市、廿日市市</p>
+          <p class="area-meta"><strong>山口県</strong>　山口市、周南市</p>
+          <p class="area-meta"><strong>香川県</strong>　丸亀市</p>
+          <p class="area-meta"><strong>愛媛県</strong>　松山市、今治市、新居浜市、西条市</p>
+          <p class="area-meta"><strong>福岡県</strong>　北九州市、福岡市、久留米市、大牟田市、春日市、大野城市</p>
+          <p class="area-meta"><strong>佐賀県</strong>　唐津市、鳥栖市</p>
+          <p class="area-meta"><strong>長崎県</strong>　長崎市、諫早市、大村市</p>
+          <p class="area-meta"><strong>熊本県</strong>　熊本市、八代市、合志市</p>
+          <p class="area-meta"><strong>大分県</strong>　別府市</p>
+          <p class="area-meta"><strong>宮崎県</strong>　宮崎市、都城市、延岡市</p>
+          <p class="area-meta"><strong>鹿児島県</strong>　鹿児島市、鹿屋市</p>
+          <p class="area-meta"><strong>沖縄県</strong>　沖縄市、浦添市</p>
+        </details>
+        <details><summary><strong>事業承継</strong>：251市区町村</summary>
+          <p class="area-meta"><strong>北海道</strong>　札幌市、旭川市、函館市、帯広市、釧路市、苫小牧市、江別市、小樽市、北見市、千歳市</p>
+          <p class="area-meta"><strong>青森県</strong>　青森市、八戸市、弘前市</p>
+          <p class="area-meta"><strong>岩手県</strong>　盛岡市、一関市、花巻市</p>
+          <p class="area-meta"><strong>宮城県</strong>　仙台市、石巻市</p>
+          <p class="area-meta"><strong>秋田県</strong>　秋田市、横手市</p>
+          <p class="area-meta"><strong>山形県</strong>　山形市、鶴岡市、酒田市、米沢市</p>
+          <p class="area-meta"><strong>福島県</strong>　福島市、いわき市、会津若松市</p>
+          <p class="area-meta"><strong>茨城県</strong>　水戸市、つくば市、古河市、土浦市、日立市、取手市</p>
+          <p class="area-meta"><strong>栃木県</strong>　宇都宮市、小山市、足利市</p>
+          <p class="area-meta"><strong>群馬県</strong>　前橋市、高崎市、太田市、伊勢崎市、桐生市</p>
+          <p class="area-meta"><strong>埼玉県</strong>　さいたま市、川口市、越谷市、所沢市、草加市、上尾市、熊谷市、春日部市、戸田市、朝霞市、入間市</p>
+          <p class="area-meta"><strong>千葉県</strong>　千葉市、船橋市、柏市、市川市、松戸市、市原市、八千代市、成田市、習志野市、流山市、佐倉市、木更津市、野田市</p>
+          <p class="area-meta"><strong>東京都</strong>　千代田区、中央区、港区、新宿区、文京区、台東区、墨田区、江東区、品川区、目黒区、大田区、世田谷区、渋谷区、中野区、杉並区、豊島区、北区、荒川区、板橋区、練馬区、足立区、葛飾区、江戸川区、調布市、府中市、八王子市、三鷹市、武蔵野市、日野市、東村山市、青梅市</p>
+          <p class="area-meta"><strong>神奈川県</strong>　横浜市、川崎市、相模原市、藤沢市、平塚市、小田原市、茅ヶ崎市、厚木市、大和市、鎌倉市、海老名市、秦野市</p>
+          <p class="area-meta"><strong>新潟県</strong>　新潟市、長岡市、上越市</p>
+          <p class="area-meta"><strong>富山県</strong>　富山市、高岡市、南砺市</p>
+          <p class="area-meta"><strong>石川県</strong>　金沢市、小松市</p>
+          <p class="area-meta"><strong>福井県</strong>　鯖江市、敦賀市</p>
+          <p class="area-meta"><strong>山梨県</strong>　富士吉田市</p>
+          <p class="area-meta"><strong>長野県</strong>　長野市、松本市、上田市、飯田市、諏訪市、佐久市</p>
+          <p class="area-meta"><strong>岐阜県</strong>　岐阜市、大垣市、多治見市、各務原市</p>
+          <p class="area-meta"><strong>静岡県</strong>　静岡市、浜松市、沼津市、富士市、磐田市、掛川市、藤枝市、焼津市、三島市、島田市</p>
+          <p class="area-meta"><strong>愛知県</strong>　名古屋市、岡崎市、豊田市、一宮市、春日井市、豊橋市、刈谷市、安城市、小牧市、豊川市、西尾市、犬山市</p>
+          <p class="area-meta"><strong>三重県</strong>　津市、四日市市、鈴鹿市、伊勢市、松阪市、桑名市</p>
+          <p class="area-meta"><strong>滋賀県</strong>　大津市、草津市、彦根市、長浜市、近江八幡市</p>
+          <p class="area-meta"><strong>京都府</strong>　京都市、宇治市、亀岡市、福知山市、舞鶴市</p>
+          <p class="area-meta"><strong>大阪府</strong>　大阪市、堺市、東大阪市、吹田市、豊中市、枚方市、高槻市、茨木市、寝屋川市、岸和田市、八尾市、箕面市、守口市、門真市、大東市、富田林市、和泉市、泉佐野市、摂津市</p>
+          <p class="area-meta"><strong>兵庫県</strong>　神戸市、姫路市、西宮市、尼崎市、明石市、加古川市、伊丹市、宝塚市、川西市、芦屋市</p>
+          <p class="area-meta"><strong>奈良県</strong>　奈良市、橿原市、生駒市</p>
+          <p class="area-meta"><strong>和歌山県</strong>　和歌山市、田辺市</p>
+          <p class="area-meta"><strong>鳥取県</strong>　鳥取市</p>
+          <p class="area-meta"><strong>島根県</strong>　松江市</p>
+          <p class="area-meta"><strong>岡山県</strong>　倉敷市、津山市</p>
+          <p class="area-meta"><strong>広島県</strong>　広島市、福山市、呉市、東広島市、尾道市、廿日市市</p>
+          <p class="area-meta"><strong>山口県</strong>　下関市、山口市、宇部市、周南市、防府市</p>
+          <p class="area-meta"><strong>徳島県</strong>　徳島市、鳴門市</p>
+          <p class="area-meta"><strong>香川県</strong>　高松市、丸亀市</p>
+          <p class="area-meta"><strong>愛媛県</strong>　今治市、新居浜市、西条市</p>
+          <p class="area-meta"><strong>高知県</strong>　高知市、南国市</p>
+          <p class="area-meta"><strong>福岡県</strong>　福岡市、久留米市、大牟田市、飯塚市、春日市、大野城市、糸島市</p>
+          <p class="area-meta"><strong>佐賀県</strong>　佐賀市、唐津市、鳥栖市</p>
+          <p class="area-meta"><strong>長崎県</strong>　長崎市、佐世保市、諫早市、大村市</p>
+          <p class="area-meta"><strong>熊本県</strong>　熊本市、八代市、合志市</p>
+          <p class="area-meta"><strong>大分県</strong>　別府市</p>
+          <p class="area-meta"><strong>宮崎県</strong>　延岡市</p>
+          <p class="area-meta"><strong>鹿児島県</strong>　鹿児島市、霧島市、鹿屋市</p>
+          <p class="area-meta"><strong>沖縄県</strong>　那覇市、沖縄市、浦添市、宜野湾市</p>
+        </details>
+        <details><summary><strong>研究開発・新事業</strong>：210市区町村</summary>
+          <p class="area-meta"><strong>北海道</strong>　札幌市、旭川市、帯広市、苫小牧市、小樽市、北見市、千歳市</p>
+          <p class="area-meta"><strong>青森県</strong>　八戸市、弘前市</p>
+          <p class="area-meta"><strong>岩手県</strong>　盛岡市、一関市、花巻市</p>
+          <p class="area-meta"><strong>宮城県</strong>　石巻市</p>
+          <p class="area-meta"><strong>秋田県</strong>　秋田市、横手市</p>
+          <p class="area-meta"><strong>山形県</strong>　山形市、鶴岡市、米沢市</p>
+          <p class="area-meta"><strong>福島県</strong>　福島市、いわき市、会津若松市</p>
+          <p class="area-meta"><strong>茨城県</strong>　水戸市、古河市、土浦市、日立市、取手市</p>
+          <p class="area-meta"><strong>栃木県</strong>　小山市、足利市</p>
+          <p class="area-meta"><strong>群馬県</strong>　前橋市、高崎市、太田市、伊勢崎市、桐生市</p>
+          <p class="area-meta"><strong>埼玉県</strong>　さいたま市、川越市、川口市、所沢市、草加市、上尾市、春日部市、朝霞市、入間市</p>
+          <p class="area-meta"><strong>千葉県</strong>　千葉市、船橋市、市川市、松戸市、市原市、八千代市、成田市、習志野市、流山市、佐倉市、野田市</p>
+          <p class="area-meta"><strong>東京都</strong>　千代田区、中央区、港区、新宿区、文京区、台東区、墨田区、江東区、目黒区、大田区、世田谷区、渋谷区、中野区、杉並区、板橋区、足立区、葛飾区、江戸川区、調布市、府中市、八王子市、町田市、三鷹市、武蔵野市、立川市、小平市、西東京市、東村山市、青梅市</p>
+          <p class="area-meta"><strong>神奈川県</strong>　相模原市、横須賀市、藤沢市、平塚市、小田原市、茅ヶ崎市、大和市、鎌倉市、海老名市、秦野市</p>
+          <p class="area-meta"><strong>新潟県</strong>　長岡市、上越市</p>
+          <p class="area-meta"><strong>富山県</strong>　富山市、高岡市、南砺市</p>
+          <p class="area-meta"><strong>石川県</strong>　金沢市</p>
+          <p class="area-meta"><strong>福井県</strong>　鯖江市、敦賀市</p>
+          <p class="area-meta"><strong>山梨県</strong>　甲府市、富士吉田市</p>
+          <p class="area-meta"><strong>長野県</strong>　長野市、飯田市、諏訪市、佐久市</p>
+          <p class="area-meta"><strong>岐阜県</strong>　大垣市、多治見市、各務原市</p>
+          <p class="area-meta"><strong>静岡県</strong>　静岡市、富士市、掛川市、藤枝市、焼津市、三島市、島田市</p>
+          <p class="area-meta"><strong>愛知県</strong>　名古屋市、岡崎市、一宮市、春日井市、豊橋市、刈谷市、安城市、西尾市、犬山市</p>
+          <p class="area-meta"><strong>三重県</strong>　四日市市、伊勢市、松阪市、桑名市</p>
+          <p class="area-meta"><strong>滋賀県</strong>　大津市、草津市、彦根市、長浜市、近江八幡市</p>
+          <p class="area-meta"><strong>京都府</strong>　京都市、宇治市、亀岡市、福知山市、舞鶴市</p>
+          <p class="area-meta"><strong>大阪府</strong>　堺市、東大阪市、豊中市、枚方市、高槻市、茨木市、寝屋川市、岸和田市、箕面市、守口市、門真市、大東市、富田林市、泉佐野市</p>
+          <p class="area-meta"><strong>兵庫県</strong>　神戸市、西宮市、加古川市、伊丹市、宝塚市、芦屋市</p>
+          <p class="area-meta"><strong>奈良県</strong>　橿原市、生駒市</p>
+          <p class="area-meta"><strong>和歌山県</strong>　和歌山市、田辺市</p>
+          <p class="area-meta"><strong>鳥取県</strong>　鳥取市</p>
+          <p class="area-meta"><strong>島根県</strong>　松江市</p>
+          <p class="area-meta"><strong>岡山県</strong>　岡山市、津山市</p>
+          <p class="area-meta"><strong>広島県</strong>　福山市、呉市、東広島市、尾道市、廿日市市</p>
+          <p class="area-meta"><strong>山口県</strong>　下関市、山口市、宇部市、周南市、防府市</p>
+          <p class="area-meta"><strong>徳島県</strong>　徳島市、鳴門市</p>
+          <p class="area-meta"><strong>香川県</strong>　高松市、丸亀市</p>
+          <p class="area-meta"><strong>愛媛県</strong>　松山市、新居浜市、西条市</p>
+          <p class="area-meta"><strong>高知県</strong>　高知市、南国市</p>
+          <p class="area-meta"><strong>福岡県</strong>　北九州市、久留米市、大牟田市、飯塚市、春日市、大野城市</p>
+          <p class="area-meta"><strong>佐賀県</strong>　佐賀市、唐津市、鳥栖市</p>
+          <p class="area-meta"><strong>長崎県</strong>　佐世保市、諫早市、大村市</p>
+          <p class="area-meta"><strong>熊本県</strong>　熊本市、八代市、合志市</p>
+          <p class="area-meta"><strong>大分県</strong>　大分市</p>
+          <p class="area-meta"><strong>宮崎県</strong>　宮崎市、都城市、延岡市</p>
+          <p class="area-meta"><strong>鹿児島県</strong>　霧島市</p>
+          <p class="area-meta"><strong>沖縄県</strong>　那覇市、沖縄市、浦添市、宜野湾市</p>
+        </details>
+        <details><summary><strong>融資・利子補給</strong>：110市区町村</summary>
+          <p class="area-meta"><strong>北海道</strong>　札幌市、旭川市、釧路市、苫小牧市、江別市、小樽市、北見市</p>
+          <p class="area-meta"><strong>岩手県</strong>　花巻市</p>
+          <p class="area-meta"><strong>宮城県</strong>　仙台市</p>
+          <p class="area-meta"><strong>秋田県</strong>　秋田市、横手市</p>
+          <p class="area-meta"><strong>山形県</strong>　酒田市、米沢市</p>
+          <p class="area-meta"><strong>福島県</strong>　福島市、郡山市</p>
+          <p class="area-meta"><strong>茨城県</strong>　日立市、取手市</p>
+          <p class="area-meta"><strong>栃木県</strong>　宇都宮市、足利市</p>
+          <p class="area-meta"><strong>群馬県</strong>　前橋市</p>
+          <p class="area-meta"><strong>埼玉県</strong>　所沢市</p>
+          <p class="area-meta"><strong>千葉県</strong>　市川市、流山市、野田市</p>
+          <p class="area-meta"><strong>東京都</strong>　墨田区、江東区、葛飾区、立川市、東村山市、青梅市</p>
+          <p class="area-meta"><strong>神奈川県</strong>　川崎市、平塚市</p>
+          <p class="area-meta"><strong>富山県</strong>　高岡市、南砺市</p>
+          <p class="area-meta"><strong>福井県</strong>　鯖江市</p>
+          <p class="area-meta"><strong>山梨県</strong>　富士吉田市</p>
+          <p class="area-meta"><strong>長野県</strong>　長野市、松本市、上田市、飯田市、諏訪市、佐久市</p>
+          <p class="area-meta"><strong>岐阜県</strong>　岐阜市、大垣市、多治見市、各務原市</p>
+          <p class="area-meta"><strong>静岡県</strong>　静岡市、浜松市、焼津市、三島市、島田市</p>
+          <p class="area-meta"><strong>愛知県</strong>　名古屋市、豊田市、一宮市、豊橋市、小牧市、豊川市、西尾市、犬山市</p>
+          <p class="area-meta"><strong>三重県</strong>　津市、四日市市、鈴鹿市、松阪市</p>
+          <p class="area-meta"><strong>滋賀県</strong>　大津市、草津市、長浜市</p>
+          <p class="area-meta"><strong>京都府</strong>　宇治市、亀岡市、福知山市、舞鶴市</p>
+          <p class="area-meta"><strong>大阪府</strong>　堺市、吹田市、豊中市、枚方市、高槻市、門真市、富田林市、摂津市</p>
+          <p class="area-meta"><strong>兵庫県</strong>　神戸市、西宮市、川西市</p>
+          <p class="area-meta"><strong>奈良県</strong>　生駒市</p>
+          <p class="area-meta"><strong>和歌山県</strong>　和歌山市</p>
+          <p class="area-meta"><strong>岡山県</strong>　岡山市</p>
+          <p class="area-meta"><strong>広島県</strong>　広島市、東広島市、尾道市</p>
+          <p class="area-meta"><strong>山口県</strong>　山口市、宇部市、防府市</p>
+          <p class="area-meta"><strong>徳島県</strong>　徳島市、鳴門市</p>
+          <p class="area-meta"><strong>香川県</strong>　丸亀市</p>
+          <p class="area-meta"><strong>愛媛県</strong>　新居浜市</p>
+          <p class="area-meta"><strong>高知県</strong>　高知市、南国市</p>
+          <p class="area-meta"><strong>福岡県</strong>　北九州市、久留米市、糸島市</p>
+          <p class="area-meta"><strong>佐賀県</strong>　佐賀市、唐津市</p>
+          <p class="area-meta"><strong>長崎県</strong>　長崎市、大村市</p>
+          <p class="area-meta"><strong>熊本県</strong>　八代市、合志市</p>
+          <p class="area-meta"><strong>大分県</strong>　大分市、別府市</p>
+          <p class="area-meta"><strong>宮崎県</strong>　延岡市</p>
+          <p class="area-meta"><strong>沖縄県</strong>　浦添市、宜野湾市</p>
+        </details>
+      </div>
+    </section>
+
+    <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-04.webp" alt="" loading="lazy"></div>
+
+    <section class="art-sec" aria-labelledby="s4"><h2 id="s4">空白の使い方</h2>
+      <div class="area-body">
+        <ul>
+          <li><strong>制度を探す方</strong>：お住まいの市区町村に、その目的の独自制度が掲載されていなくても、県の制度や国の制度があります。<a href="../search.html">AI・キーワードで探す</a>で、国の制度とあわせて確認してください。</li>
+          <li><strong>掲載を増やすとき</strong>：空白が大きい目的と、掲載が少ない地域から、公式の案内を確認して追加します。</li>
+          <li>市区町村の公式サイトに、制度が載っている場合があります。公式の案内で、最新の内容を確認してください。</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-05.webp" alt="" loading="lazy"></div>
+
+    <section class="art-sec" aria-labelledby="s5"><h2 id="s5"><img class="sec-icon" src="../images/icons/icon-35.png" alt="" width="30" height="30" loading="lazy">このデータについて</h2>
+      <div class="area-body">
+        <dl class="rs-box">
+          <dt>出典</dt><dd>各自治体・実施機関の公開情報（公式の案内ページ）をもとに、当サイトが整理したデータ</dd>
+          <dt>集計の対象</dt><dd>当サイトにページのある267市区町村と、自治体の事業者向け制度</dd>
+          <dt>調査時点</dt><dd>2026年10月14日</dd>
+          <dt>算出の方法</dt><dd>制度の対象の市区町村・都道府県と、目的の分類から、市区町村ごとに目的別の掲載の有無を数えています。県の制度は、その県のすべての市区町村に当てはまるものとして数えています。</dd>
+          <dt>注意</dt><dd>数字は、<strong>当サイトが掲載している制度の集計</strong>で、全国の制度の全数ではありません。地域による差は、制度の数の違いだけでなく、当サイトの調べた範囲の違いも含みます。順位や優劣を示すものではありません。 掲載がないことは、制度がないことを意味しません。</dd>
+        </dl>
+      </div>
+    </section>
+</div>
+
+    <p class="area-note">最終更新日：2026年10月14日</p>
+<!-- tags:start -->
+<nav class="art-tags" aria-label="タグ"><span class="art-tags-label">タグ</span><ul><li><a href="index.html" rel="tag">#補助金データ</a></li><li><a href="index.html" rel="tag">#補助金の統計</a></li><li><a href="../search.html?q=%E5%B8%82%E5%8C%BA%E7%94%BA%E6%9D%91" rel="tag">#市区町村</a></li><li><a href="../search.html?q=%E9%83%BD%E9%81%93%E5%BA%9C%E7%9C%8C" rel="tag">#都道府県</a></li><li><a href="../search.html?q=%E8%9E%8D%E8%B3%87" rel="tag">#融資</a></li><li><a href="../search.html?q=%E5%89%B5%E6%A5%AD" rel="tag">#創業</a></li><li><a href="../search.html?q=%E4%BA%8B%E6%A5%AD%E6%89%BF%E7%B6%99" rel="tag">#事業承継</a></li><li><a href="../search.html?q=%E7%A0%94%E7%A9%B6%E9%96%8B%E7%99%BA" rel="tag">#研究開発</a></li><li><a href="../search.html?q=%E7%A9%BA%E3%81%8D%E5%BA%97%E8%88%97" rel="tag">#空き店舗</a></li><li><a href="../search.html?q=%E8%B5%B7%E6%A5%AD" rel="tag">#起業</a></li></ul></nav>
+<!-- tags:end -->
+</div><aside class="page-side" aria-label="関連ページ">
+    <nav class="related-links" aria-label="関連ページ">
+      <h2>関連ページ</h2>
+      <h3 class="rl-group">基礎知識・コラム・ニュース</h3>
+      <ul>
+        <li><a href="analysis.html">補助金データ分析レポート</a></li>
+        <li><a href="methods.html">このデータの作り方（出典・更新方針）</a></li>
+      </ul>
+      <h3 class="rl-group">補助金を探す・調べる</h3>
+      <ul>
+        <li><a href="../area/index.html">地域から探す</a></li>
+        <li><a href="../search.html">条件に合う補助金を探す</a></li>
+        <li><a href="../hantei.html">AI補助金判定で、使えそうな制度を調べる</a></li>
+      </ul>
+      <h3 class="rl-group">その他</h3>
+      <ul>
+        <li><a href="../consult.html">申請の準備・相談先を確認する（無料相談）</a></li>
+      </ul>
+    </nav>
+</aside></div>
+  
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-top">
+      <div class="footer-info">
+        <a class="footer-brand" href="../" aria-label="補助金ネット トップ"><img src="../images/logo-header-v5.webp" alt="補助金ネット" width="200" height="60"></a>
+        <p>目的・地域・締切から探せる、事業者向けの補助金サイト</p>
+        <p class="footer-source">募集中の補助金データ：<a href="https://www.jgrants-portal.go.jp/" target="_blank" rel="noopener">jGrants（デジタル庁）</a><br>住所検索：<a href="https://zipcloud.ibsnet.co.jp/" target="_blank" rel="noopener">zipcloud</a></p>
+        <p class="footer-contact">運営者：<a href="../policy/about.html">運営者情報</a><br>お問い合わせ：<a href="../policy/contact.html">フォーム</a></p>
+        <figure class="footer-qr">
+          <img src="../images/qr-hojyokin.png" alt="補助金ネット（hojyokin.net）へのQRコード" width="120" height="120" loading="lazy">
+          <figcaption>スマホで開く</figcaption>
+        </figure>
+      </div>
+      <nav class="footer-nav" aria-label="フッター">
+          <details class="footer-group">
+            <summary>探す</summary>
+            <ul>
+            <li><a href="../search.html">AI・キーワードで探す</a></li>
+            <li><a href="../hantei.html">AI補助金判定</a></li>
+            <li><a href="../grants/purposes.html">目的別</a></li>
+            <li><a href="../grants/industries.html">業種別</a></li>
+            <li><a href="../area/index.html">地域別</a></li>
+            <li><a href="../search.html?within=90&sort=end">締切が近い補助金</a></li>
+            </ul>
+          </details>
+          <details class="footer-group">
+            <summary>知る</summary>
+            <ul>
+            <li><a href="../news/index.html">補助金ニュース</a></li>
+            <li><a href="../basics/index.html">基礎知識</a></li>
+            <li><a href="../basics/flow.html">申請の流れ</a></li>
+            <li><a href="../cases/index.html">活用事例</a></li>
+            <li><a href="../columns.html">コラム</a></li>
+            <li><a href="../basics/glossary.html">用語集</a></li>
+            </ul>
+          </details>
+          <details class="footer-group">
+            <summary>対象者別</summary>
+            <ul>
+            <li><a href="../who/sole-proprietor.html">個人事業主</a></li>
+            <li><a href="../who/sme.html">中小企業</a></li>
+            <li><a href="../who/startup.html">創業・副業</a></li>
+            <li><a href="../hantei.html?for=personal">個人の方（住まい・車・子育て）</a></li>
+            </ul>
+          </details>
+          <details class="footer-group">
+            <summary>サイト</summary>
+            <ul>
+            <li><a href="../guide.html">使い方</a></li>
+            <li><a href="../consult.html">無料相談</a></li>
+            <li><a href="../policy/about.html">運営者情報</a></li>
+            <li><a href="../policy/contact.html">お問い合わせ</a></li>
+            <li><a href="../sitemap.html">サイトマップ</a></li>
+            </ul>
+          </details>
+        </nav>
+    </div>
+    <div class="footer-bottom">
+            <nav aria-label="補助リンク">
+        <ul>
+          <li><a href="../policy/privacy.html">プライバシーポリシー</a></li>
+          <li><a href="../policy/sources.html">出典・更新方針</a></li>
+          <li><a href="../policy/contact.html">フィードバック・バグ報告</a></li>
+          <li><a href="../sitemap.html">サイトマップ</a></li>
+        </ul>
+      </nav>
+      <p class="footer-copy">Copyright © 2026 補助金ネット. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="../site.js"></script>
+</body>
+</html>
