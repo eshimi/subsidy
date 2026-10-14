@@ -67,9 +67,16 @@ function prose(text) {
 }
 
 // 概要の項目表（fx-facts）。tagRows は「分類（参考）」の <dt><dd> の HTML（なければ空）
+// jGrants の「利用目的」「業種」は「 / 」区切りの一覧。2つ以上なら、1つずつのタグにして並べる
+function tagsOrText(v) {
+  const parts = String(v).split(/\s+\/\s+/).map((x) => x.trim()).filter(Boolean);
+  if (parts.length < 2) return v;
+  return { html: `<span class="fx-vtags">${parts.map((p) => `<span class="fx-vtag">${esc(p)}</span>`).join('')}</span>` };
+}
+
 function facts(rows, tagRows) {
   return `      <dl class="fx-card fx-facts">
-${rows.map(([t, d]) => `        <dt>${esc(t)}</dt><dd>${esc(d)}</dd>`).join('\n')}
+${rows.map(([t, d]) => `        <dt>${esc(t)}</dt><dd>${typeof d === 'object' ? d.html : esc(d)}</dd>`).join('\n')}
 ${tagRows}
       </dl>`;
 }
@@ -97,8 +104,8 @@ ${links.map(([h, t]) => `        <li><a href="${h}">${esc(t)}</a></li>`).join('\
     ['上限額', amount],
     ['対象の従業員数', g.employees || '記載なし'],
     ...(detail?.rate ? [['補助率', detail.rate]] : []),
-    ...(detail?.purpose ? [['利用目的', detail.purpose]] : []),
-    ...(detail?.industry ? [['対象の業種', detail.industry]] : []),
+    ...(detail?.purpose ? [['利用目的', tagsOrText(detail.purpose)]] : []),
+    ...(detail?.industry ? [['対象の業種', tagsOrText(detail.industry)]] : []),
     ...(detail?.areaDetail ? [['対象地域の詳細', detail.areaDetail]] : []),
     ['受付開始', startJa],
     ['受付締切', endJa],

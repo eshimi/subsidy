@@ -49,9 +49,20 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/jgrants-details.json
-          git commit -m "jGrants の制度の詳細データを更新 [skip ci]"
-          git push origin "HEAD:${GITHUB_REF_NAME}"
+          # 実行中に、ブランチに別のコミットが入ることがある。最新のブランチの上に、詳細データだけを載せ直して保存する（最大3回）
+          cp data/jgrants-details.json "$RUNNER_TEMP/jgrants-details.json"
+          saved=""
+          for i in 1 2 3; do
+            git fetch -q --depth=1 origin "${GITHUB_REF_NAME}"
+            git reset -q --hard "origin/${GITHUB_REF_NAME}"
+            cp "$RUNNER_TEMP/jgrants-details.json" data/jgrants-details.json
+            git add data/jgrants-details.json
+            git diff --cached --quiet && { echo "詳細データに変更はありません"; saved=1; break; }
+            git commit -q -m "jGrants の制度の詳細データを更新 [skip ci]"
+            if git push origin "HEAD:${GITHUB_REF_NAME}"; then saved=1; break; fi
+            sleep 5
+          done
+          [ -n "$saved" ] || { echo "::error::詳細データを保存できませんでした"; exit 1; }
           # 本番のブランチが2つに分かれているため、もう一方にも保存する（早送りできるときだけ）
           for b in claude/subsidy-finder-cloudflare-2oorwy claude/business-subsidy-finder-2v9gwr; do
             [ "$b" = "${GITHUB_REF_NAME}" ] && continue

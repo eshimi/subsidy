@@ -66,6 +66,8 @@ test('制度ページ：詳細があれば項目と説明を出す（HTMLは入�
   assert.match(html, /id="detail"/);
   assert.match(html, /<dt>補助率<\/dt><dd>2\/3以内<\/dd>/);
   assert.match(html, /<dt>利用目的<\/dt>/);
+  // 「 / 」区切りの業種は、1つずつのタグにする
+  assert.match(html, /<dt>対象の業種<\/dt><dd><span class="fx-vtags"><span class="fx-vtag">製造業<\/span><span class="fx-vtag">小売業<\/span><\/span><\/dd>/);
   assert.match(html, /事業の終了期限/);
   assert.match(html, /公募要領\.pdf/);
   assert.match(html, /class="fx-catch">キャッチX/);
