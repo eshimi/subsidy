@@ -18,7 +18,7 @@ function titleOf(html) {
 }
 
 // public/ 直下と、記事のフォルダのページ（grants/ はデプロイ時に作られるため別扱い）
-const FOLDERS = ['', 'basics', 'who', 'personal', 'feature', 'cases', 'compare', 'columns', 'guides', 'news', 'blog', 'policy', 'area', 'research'];
+const FOLDERS = ['', 'basics', 'who', 'personal', 'feature', 'cases', 'compare', 'columns', 'guides', 'news', 'blog', 'policy', 'area', 'research', 'background'];
 
 export function listPages(publicDir) {
   const pages = [];

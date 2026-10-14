@@ -7,6 +7,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { BACKGROUND } from './data/feature-background.mjs';
 import { PERSONAL_BACKGROUND } from './data/personal-background.mjs';
+import { buildAll as buildBackgroundPages } from './build-background-pages.mjs';
 
 const PUB = join(dirname(fileURLToPath(import.meta.url)), '..', 'public');
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -109,4 +110,7 @@ export function run() {
   return n;
 }
 
-if (process.argv[1] === fileURLToPath(import.meta.url)) console.log(`制度の背景と目的を更新：${run()}ページ`);
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+  console.log(`制度の背景と目的を更新：${run()}ページ`);
+  console.log(`制度の背景ガイドを生成：${buildBackgroundPages().length}ページ`);
+}

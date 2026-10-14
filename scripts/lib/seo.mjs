@@ -28,6 +28,7 @@ export const FOLDER_TAGS = {
   news: ['補助金ニュース', '公募情報'],
   blog: ['補助金ブログ'],
   research: ['補助金データ', '補助金の統計'],
+  background: ['補助金の背景', '制度の目的'],
 };
 
 const stripTags = (h) => h.replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<style[\s\S]*?<\/style>/g, ' ').replace(/<[^>]+>/g, ' ').replace(/&amp;/g, '&').replace(/&[a-z]+;/g, ' ').replace(/\s+/g, ' ').trim();

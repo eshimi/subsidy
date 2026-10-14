@@ -23,6 +23,7 @@ export const TOP_GROUPS = [
     items: [
       { label: '補助金ニュース', href: 'news/index.html' },
       { label: 'ブログ', href: 'blog/index.html' },
+      { label: '補助金はなぜできたのか（制度の背景）', href: 'background/index.html' },
       { label: '補助金データ（独自統計）', href: 'research/index.html' },
       { label: '特に人気の5つの補助金', href: 'feature/popular.html' },
       { label: '主な補助金の特集', href: 'feature/index.html' },
