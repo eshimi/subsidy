@@ -43,7 +43,7 @@ export function sitemapPaths(publicDir) {
 
 // 人間向けサイトマップのグループ。pages は個別に並べるもの、folder はそのフォルダの全ページ
 const GROUPS = [
-  { title: '補助金を探す', pages: [['', 'トップ'], ['search.html', 'AI・キーワードで探す'], ['hantei.html', 'AI補助金判定（質問に答えて探す）'], ['consult.html', '無料相談のお申し込み'], ['plan.html', '事業計画書AI下書き（無料お試し）'], ['plan-sample.html', '事業計画書AI 詳しい版のサンプル'], ['grants/purposes.html', '目的別の補助金'], ['grants/industries.html', '業種別の補助金'], ['search.html?within=90&sort=end', '締切が近い補助金'], ['grants/prefectures.html', '都道府県別の補助金'], ['area/index.html', '市区町村別の補助金']] },
+  { title: '補助金を探す', pages: [['', 'トップ'], ['search.html', 'AI・キーワードで探す'], ['hantei.html', 'AI補助金判定（質問に答えて探す）'], ['consult.html', '無料相談のお申し込み'], ['plan.html', '事業計画書AI下書き（無料お試し）'], ['plan-sample-free.html', '事業計画書AI 無料版のサンプル'], ['plan-sample.html', '事業計画書AI 詳しい版のサンプル'], ['grants/purposes.html', '目的別の補助金'], ['grants/industries.html', '業種別の補助金'], ['search.html?within=90&sort=end', '締切が近い補助金'], ['grants/prefectures.html', '都道府県別の補助金'], ['area/index.html', '市区町村別の補助金']] },
   { title: '補助金ニュース', pages: [['news/index.html', 'ニュースの一覧'], ['news/sources.html', '情報の取得元一覧']], folder: 'news', newestFirst: true },
   { title: 'ブログ', pages: [['blog/index.html', 'ブログの一覧']], folder: 'blog', newestFirst: true },
   { title: '補助金の活用事例', pages: [['cases/index.html', '活用事例の一覧']], folder: 'cases' },

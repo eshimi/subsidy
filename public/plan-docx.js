@@ -143,7 +143,7 @@
       para(run(plan.subsidy, { color: 'DCE6F5', size: 22 }), { after: 40 }),
       para(run(`作成日：${dateText}`, { color: 'DCE6F5', size: 18 }), { after: 0 }),
     ].join(''), { fill: NAVY, pad: 360 }));
-    out.push(para(run('※ AIが作成した下書きのたたき台です。そのまま提出せず、ご自身の言葉で書き直し、事実と数字を確かめてください。【　】の部分は、ご自身で書き入れてください。市場データの数値は、必ず出典で確かめてください。', { color: MUTE, size: 17 }), { before: 120, after: 60 }));
+    out.push(para(run('※ AIが作成した下書きのたたき台です。そのまま提出せず、ご自身の言葉で書き直し、事実と数字を確かめてください。【　】の部分は、ご自身で書き入れてください。' + (plan.mode === 'detailed' ? '市場データの数値は、必ず出典で確かめてください。' : ''), { color: MUTE, size: 17 }), { before: 120, after: 60 }));
     planBlocks(plan).forEach((blk, i) => {
       out.push(heading(i + 1, blk.title));
       if (blk.sub) out.push(para(run(blk.sub, { color: MUTE, size: 17 }), { after: 100, keepNext: true }));
