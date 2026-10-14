@@ -1361,3 +1361,10 @@ button.r-way:focus-visible { outline: 2px solid var(--accent); outline-offset: 2
 /* トップページ：締切・新着のリストの下の「一覧へ」 */
 .r-more { margin: 10px 0 0; font-size: .9rem; font-weight: 700; }
 .r-more a { text-underline-offset: 3px; }
+
+/* 「太字＋蛍光ペン」：コンテンツ系のページの、特に重要な部分（scripts/data/highlights.mjs → scripts/apply-highlight.mjs） */
+:root { --hl: #ffef9a; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --hl: rgba(255, 214, 10, 0.34); } }
+:root[data-theme="dark"] { --hl: rgba(255, 214, 10, 0.34); }
+.hl { font-weight: 700; color: inherit; background: linear-gradient(transparent 56%, var(--hl) 56%); padding: 0 0.1em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+@media print { .hl { background: linear-gradient(transparent 56%, #ffef9a 56%); -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
