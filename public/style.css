@@ -1255,3 +1255,7 @@ button.r-way:focus-visible { outline: 2px solid var(--accent); outline-offset: 2
   .page-split:has(nav[aria-label="このページの内容"]) .page-side { position: static; max-height: none; overflow: visible; }
   .page-side nav.related-links[aria-label="このページの内容"] { position: sticky; top: 84px; z-index: 2; }
 }
+/* 目次のある制度ページ：右の列のリンクは、目次も関連ページも、同じホバーの動きにする（位置はずらさない） */
+.page-split:has(nav[aria-label="このページの内容"]) .page-side a { border-radius: 3px; transition: color 0.12s, background-color 0.12s, box-shadow 0.12s, border-color 0.12s; }
+.page-split:has(nav[aria-label="このページの内容"]) .page-side .related-links:not([aria-label="このページの内容"]) a:hover,
+.page-split:has(nav[aria-label="このページの内容"]) .page-side .related-links:not([aria-label="このページの内容"]) a:focus-visible { color: #c9411a; border-bottom-color: #c9411a; background: #fff8f3; box-shadow: 0 0 0 4px #fff8f3; }
