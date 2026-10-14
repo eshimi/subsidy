@@ -33,7 +33,7 @@ export function applyExtra(html, key) {
   const clean = html.replace(RE, '');
   const m = def.at === 'first'
     ? /^[ \t]*<section class="art-sec" aria-labelledby="[^"]*">/m.exec(clean)
-    : /^[ \t]*<section class="art-sec" aria-labelledby="[^"]*"><h2 id="[^"]*">(?:<img[^>]*>)?最新情報の確認先/m.exec(clean);
+    : /^[ \t]*<section class="art-sec" aria-labelledby="[^"]*"><h2 id="[^"]*">(?:<img[^>]*>)?(?:この記事のまとめ|最新情報の確認先)/m.exec(clean);
   if (!m) return html;
   return `${clean.slice(0, m.index)}${extraHtml(def)}${clean.slice(m.index)}`;
 }

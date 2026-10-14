@@ -34,8 +34,8 @@ export function partHead(n, title, tone = 'orange') {
     </div>`;
 }
 
-export function conclusion(items, noteHtml, title = 'この記事の結論') {
-  return `    <section class="fx-sec fx-sec--first fx-card fx-pad-l" aria-labelledby="s0">
+export function conclusion(items, noteHtml, title = 'この記事の結論', { first = true } = {}) {
+  return `    <section class="fx-sec${first ? ' fx-sec--first' : ''} fx-card fx-pad-l" id="summary" aria-labelledby="s0">
       <div class="fx-h2"><span class="fx-bar fx-bar--orange" aria-hidden="true"></span><h2 id="s0">${esc(title)}</h2></div>
       <ol class="fx-sum">
 ${items.map(([head, body], i) => `        <li><span class="fx-num">${i + 1}</span><div><p class="fx-sum-h">${head}</p><p>${body}</p></div></li>`).join('\n')}

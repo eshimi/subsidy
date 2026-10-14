@@ -91,7 +91,7 @@ export function applyBackground(html, slug, list, defs = BACKGROUND) {
   if (html.includes('data-layout="feature-v2"')) return html; // 新レイアウト（build-feature-v2.mjs）のページは、そちらで作る
   const clean = html.replace(RE, '');
   const block = bgHtml(def, relatedFor(def.keywords, list, 6, def.caseKeywords));
-  const m = /^[ \t]*<!-- fit:start -->/m.exec(clean) || /^[ \t]*<section class="art-sec" aria-labelledby="[^"]*"><h2 id="[^"]*">(?:<img[^>]*>)?最新情報の確認先/m.exec(clean);
+  const m = /^[ \t]*<!-- fit:start -->/m.exec(clean) || /^[ \t]*<section class="art-sec" aria-labelledby="[^"]*"><h2 id="[^"]*">(?:<img[^>]*>)?(?:この記事のまとめ|最新情報の確認先)/m.exec(clean);
   if (!m) return html;
   return `${clean.slice(0, m.index)}${block}${clean.slice(m.index)}`;
 }

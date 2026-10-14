@@ -33,7 +33,7 @@ export function applyFit(html, slug) {
   if (!f) return html;
   if (html.includes('data-layout="feature-v2"')) return html; // 新レイアウト（build-feature-v2.mjs）のページは、そちらで作る
   const clean = html.replace(RE, '');
-  const m = /    <section class="art-sec" aria-labelledby="[^"]*"><h2 id="[^"]*">(?:<img[^>]*>)?最新情報の確認先/.exec(clean);
+  const m = /    <section class="art-sec" aria-labelledby="[^"]*"><h2 id="[^"]*">(?:<img[^>]*>)?(?:この記事のまとめ|最新情報の確認先)/.exec(clean);
   if (!m) return html;
   return `${clean.slice(0, m.index)}${fitHtml(f)}\n${clean.slice(m.index)}`;
 }

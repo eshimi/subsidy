@@ -19,7 +19,11 @@ const crumb = (items) => `    <nav class="area-crumb" aria-label="パンくず">
 // 記事の共通の組み立て。sections は [見出し, HTML] の並び
 const SECTION_ICON = (i) => String(i).padStart(2, '0');
 function articleOf({ kicker, title, lead, sections, related, sources, updated = UPDATED, image }) {
-  const body = sections.map(([h, html], i) => `    <article class="area-section" aria-labelledby="s${i}">
+  // 「この記事の結論」は、本文の最後に「この記事のまとめ」として置く（先に本文を読めるように）。アンカー（#s0 など）は変えない
+  const items = sections.map(([h, html], i) => ({ h, html, i }));
+  const first = items[0]?.h === 'この記事の結論' ? items.shift() : null;
+  if (first) items.push({ ...first, h: 'この記事のまとめ' });
+  const body = items.map(({ h, html, i }) => `    <article class="area-section" aria-labelledby="s${i}">
       <span class="area-num">${SECTION_ICON(i)}</span>
       <h2 id="s${i}">${esc(h)}</h2>
       <div class="area-body">
