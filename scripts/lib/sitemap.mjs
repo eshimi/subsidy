@@ -51,7 +51,7 @@ const GROUPS = [
   { title: '基礎知識・コラム', pages: [['basics/index.html', '基礎知識のトップ']], folder: 'basics', more: [['columns.html', 'コラムの一覧']], folder2: 'columns', tail: [['real-life.html', '補助金のリアル']] },
   { title: '対象者別', pages: [['who/index.html', '対象者別のトップ']], folder: 'who', more: [['hantei.html?for=personal', '個人が使える補助金・支援']], folder2: 'personal' },
   { title: '創業・副業のガイド', pages: [['roadmap.html', '創業のステップ'], ['beginner-guide.html', '副業の始め方ガイド'], ['diagnosis.html', '副業おすすめ診断'], ['chat.html', '副業壁打ちAI']], folder: 'guides' },
-  { title: 'サイトについて', pages: [['guide.html', '使い方'], ['policy/about.html', '運営者情報'], ['policy/sources.html', '出典・更新方針'], ['policy/privacy.html', 'プライバシーポリシー'], ['policy/contact.html', 'お問い合わせ'], ['resources.html', '参考リンク'], ['books.html', '参考図書']] },
+  { title: 'サイトについて', pages: [['notices.html', 'サイトからのお知らせ'], ['guide.html', '使い方'], ['policy/about.html', '運営者情報'], ['policy/sources.html', '出典・更新方針'], ['policy/privacy.html', 'プライバシーポリシー'], ['policy/contact.html', 'お問い合わせ'], ['resources.html', '参考リンク'], ['books.html', '参考図書']] },
 ];
 
 const STYLE = `
