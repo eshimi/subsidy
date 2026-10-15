@@ -92,7 +92,7 @@
   "d": "2026-10-15"
  },
  "basics/index.html": {
-  "h": "5b85d05b9a6b",
+  "h": "108ede69f240",
   "d": "2026-10-15"
  },
  "basics/not-adopted.html": {
@@ -104,7 +104,7 @@
   "d": "2026-10-15"
  },
  "basics/what-is.html": {
-  "h": "f0e5d4c471d1",
+  "h": "af1f3cce25a4",
   "d": "2026-10-15"
  },
  "who/index.html": {
@@ -1748,11 +1748,19 @@
   "d": "2026-10-15"
  },
  "basics/types.html": {
-  "h": "a7267ece6b79",
+  "h": "426486c416df",
   "d": "2026-10-15"
  },
  "personal/summary.html": {
   "h": "f33b6bcfc02c",
+  "d": "2026-10-15"
+ },
+ "basics/documents.html": {
+  "h": "2c6bc9d1a2a2",
+  "d": "2026-10-15"
+ },
+ "basics/eligibility.html": {
+  "h": "bcd4bde95f0e",
   "d": "2026-10-15"
  }
 }
