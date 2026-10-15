@@ -389,7 +389,7 @@ const CURATED_LOCAL_PROGRAMS = [
   {
     id: 'local10000',
     name: 'ローカル10,000プロジェクト（地域経済循環創造事業交付金）',
-    provider: '総務省／{city}',
+    provider: '総務省／各市区町村（実施する市区町村）',
     level: 'municipality',
     type: '補助金',
     amount: '上限5,500万円程度／補助率 1/2（要件により2/3・3/4）',
