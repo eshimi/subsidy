@@ -1,419 +1,439 @@
 {
  "": {
-  "h": "e6bbeff21b7d",
+  "h": "c9c9ffab14a0",
   "d": "2026-10-15"
  },
  "beginner-guide.html": {
-  "h": "e3d26506b433",
-  "d": "2026-10-14"
+  "h": "58d016072d54",
+  "d": "2026-10-15"
  },
  "books.html": {
-  "h": "d408da1dc2e8",
-  "d": "2026-10-14"
+  "h": "b0368f531a9d",
+  "d": "2026-10-15"
  },
  "chat.html": {
-  "h": "32aa01e83900",
-  "d": "2026-10-14"
+  "h": "11d263292383",
+  "d": "2026-10-15"
  },
  "columns.html": {
-  "h": "fe0708703156",
-  "d": "2026-10-14"
+  "h": "f7223196f877",
+  "d": "2026-10-15"
  },
  "consult.html": {
-  "h": "a07d95a88afa",
-  "d": "2026-10-14"
+  "h": "b3121a629f30",
+  "d": "2026-10-15"
  },
  "diagnosis.html": {
-  "h": "c16fafa9befa",
-  "d": "2026-10-14"
+  "h": "0128a04983c4",
+  "d": "2026-10-15"
  },
  "guide.html": {
-  "h": "4e2419464303",
-  "d": "2026-10-14"
+  "h": "770c14115ed7",
+  "d": "2026-10-15"
  },
  "hantei.html": {
-  "h": "dcbcd85406a9",
-  "d": "2026-10-14"
+  "h": "6be052e8c07e",
+  "d": "2026-10-15"
  },
  "hitsuyo.html": {
-  "h": "09f3e6ea700d",
-  "d": "2026-10-14"
+  "h": "d36bbfefe538",
+  "d": "2026-10-15"
  },
  "notices.html": {
-  "h": "c43942f168ad",
+  "h": "d57d8f5e59a2",
   "d": "2026-10-15"
  },
  "plan-sample-free.html": {
-  "h": "fec2aadfcf09",
-  "d": "2026-10-14"
+  "h": "8f2e28266d71",
+  "d": "2026-10-15"
  },
  "plan-sample.html": {
-  "h": "e3d939086a04",
-  "d": "2026-10-14"
+  "h": "b8c24d2420da",
+  "d": "2026-10-15"
  },
  "plan.html": {
-  "h": "2b8cc3d0c5a9",
-  "d": "2026-10-14"
+  "h": "7671d01738b5",
+  "d": "2026-10-15"
  },
  "real-life.html": {
-  "h": "edb7eb888aa8",
-  "d": "2026-10-14"
+  "h": "e568a47dcde2",
+  "d": "2026-10-15"
  },
  "resources.html": {
-  "h": "a220517c5b71",
-  "d": "2026-10-14"
+  "h": "a93f6f1cdcd6",
+  "d": "2026-10-15"
  },
  "roadmap.html": {
-  "h": "85bcc4859b4e",
-  "d": "2026-10-14"
+  "h": "a206377d67e1",
+  "d": "2026-10-15"
  },
  "search.html": {
-  "h": "89330bcd5285",
+  "h": "d76fb6ed2c2d",
   "d": "2026-10-15"
  },
  "sitemap.html": {
-  "h": "573bbec39581",
-  "d": "2026-10-14"
+  "h": "ac084b003b58",
+  "d": "2026-10-15"
  },
  "basics/after-adoption.html": {
-  "h": "5ce6fbe0245c",
-  "d": "2026-10-14"
+  "h": "6567b67ede1b",
+  "d": "2026-10-15"
  },
  "basics/business-plan.html": {
-  "h": "514c36f90619",
-  "d": "2026-10-14"
+  "h": "385743855ee7",
+  "d": "2026-10-15"
  },
  "basics/flow.html": {
-  "h": "9e76f85b2cab",
-  "d": "2026-10-14"
+  "h": "33cc9641f442",
+  "d": "2026-10-15"
  },
  "basics/glossary.html": {
-  "h": "53e0340610c2",
-  "d": "2026-10-14"
+  "h": "239d20e2cf80",
+  "d": "2026-10-15"
  },
  "basics/index.html": {
-  "h": "6f5259c7e86b",
-  "d": "2026-10-14"
+  "h": "6aff302f203b",
+  "d": "2026-10-15"
  },
  "basics/not-adopted.html": {
-  "h": "1ba10cb11039",
-  "d": "2026-10-14"
+  "h": "0eb63bf7a8cf",
+  "d": "2026-10-15"
  },
  "basics/tax.html": {
-  "h": "d3047e0425b9",
-  "d": "2026-10-14"
+  "h": "8f385481c8e3",
+  "d": "2026-10-15"
  },
  "who/index.html": {
-  "h": "20772979f2eb",
-  "d": "2026-10-14"
+  "h": "b47b8df76721",
+  "d": "2026-10-15"
  },
  "who/sme.html": {
-  "h": "ad6d58e6f3ba",
-  "d": "2026-10-14"
+  "h": "0eb7bde12f71",
+  "d": "2026-10-15"
  },
  "who/sole-proprietor.html": {
-  "h": "a698962d4de5",
-  "d": "2026-10-14"
+  "h": "acf9b76825f7",
+  "d": "2026-10-15"
  },
  "who/startup.html": {
-  "h": "a694306878a8",
-  "d": "2026-10-14"
+  "h": "340b46ee20be",
+  "d": "2026-10-15"
  },
  "personal/ev.html": {
-  "h": "51cecb61caf1",
-  "d": "2026-10-14"
+  "h": "8785e27cb8c4",
+  "d": "2026-10-15"
  },
  "personal/housing.html": {
-  "h": "eb49c41c8bf1",
-  "d": "2026-10-14"
+  "h": "b2a3bb7dd594",
+  "d": "2026-10-15"
  },
  "personal/kids.html": {
-  "h": "21561df8ae07",
-  "d": "2026-10-14"
+  "h": "f3c193cfbbe2",
+  "d": "2026-10-15"
  },
  "personal/learning.html": {
-  "h": "dab2a85f1cb2",
-  "d": "2026-10-14"
+  "h": "6512d2de91a2",
+  "d": "2026-10-15"
  },
  "personal/relocation.html": {
-  "h": "714d4a179558",
-  "d": "2026-10-14"
+  "h": "b4d788a0c849",
+  "d": "2026-10-15"
  },
  "personal/seismic.html": {
-  "h": "9fc16292b8e6",
-  "d": "2026-10-14"
+  "h": "8830394a7660",
+  "d": "2026-10-15"
  },
  "personal/solar.html": {
-  "h": "044b48a7f442",
-  "d": "2026-10-14"
+  "h": "4386f2bb51cd",
+  "d": "2026-10-15"
  },
  "feature/digital-subsidy.html": {
-  "h": "211b2b918db9",
-  "d": "2026-10-14"
+  "h": "5e109a451398",
+  "d": "2026-10-15"
  },
  "feature/employment.html": {
-  "h": "26e462f09b08",
-  "d": "2026-10-14"
+  "h": "6e248b617701",
+  "d": "2026-10-15"
  },
  "feature/growth.html": {
-  "h": "f02f0bacb830",
+  "h": "025bf666e88e",
   "d": "2026-10-15"
  },
  "feature/index.html": {
-  "h": "c91c55628c86",
-  "d": "2026-10-14"
+  "h": "6392fb5faac3",
+  "d": "2026-10-15"
  },
  "feature/jizokuka.html": {
-  "h": "087449afe603",
+  "h": "fa392ab2b025",
   "d": "2026-10-15"
  },
  "feature/monodukuri.html": {
-  "h": "32c01f31466f",
+  "h": "4f10e781536c",
   "d": "2026-10-15"
  },
  "feature/popular.html": {
-  "h": "388c1bbe1922",
+  "h": "4331771f1300",
   "d": "2026-10-15"
  },
  "feature/shoryokuka.html": {
-  "h": "3df9946a5bf8",
+  "h": "a1173ccc0e01",
   "d": "2026-10-15"
  },
  "feature/succession.html": {
-  "h": "967ac681d7b5",
-  "d": "2026-10-14"
+  "h": "b7bc0c0a89aa",
+  "d": "2026-10-15"
  },
  "cases/aigran-cloud-payroll.html": {
-  "h": "a0b5c0e3f820",
+  "h": "3b9d2f93acab",
   "d": "2026-10-15"
  },
  "cases/barber-visiting-service.html": {
-  "h": "9fb6953b79e1",
-  "d": "2026-10-14"
+  "h": "811a10374469",
+  "d": "2026-10-15"
  },
  "cases/fukuda-bakery-oven.html": {
-  "h": "d11e0cf163b9",
+  "h": "e510fbe8820d",
   "d": "2026-10-15"
  },
  "cases/gyomu-kaizen-seikotsuin.html": {
-  "h": "752fcc71bf54",
+  "h": "6cdd9431eb09",
   "d": "2026-10-15"
  },
  "cases/ichimaru-photo-pharmacy.html": {
-  "h": "5a787b360dea",
+  "h": "4beffa1259eb",
   "d": "2026-10-15"
  },
  "cases/iie-capsule-ec.html": {
-  "h": "2220927b4e5d",
+  "h": "bfc36527c0f6",
   "d": "2026-10-15"
  },
  "cases/index.html": {
-  "h": "9c3f5dcf9f2d",
-  "d": "2026-10-14"
+  "h": "4332f02ee998",
+  "d": "2026-10-15"
  },
  "cases/kaya-cellophane-ishikawa.html": {
-  "h": "0770e9c7e5eb",
+  "h": "402f594cb930",
   "d": "2026-10-15"
  },
  "cases/kikuhiro-chokin.html": {
-  "h": "aa8c14963d55",
+  "h": "0353b29bc1c7",
   "d": "2026-10-15"
  },
  "cases/kimise-rpa.html": {
-  "h": "ff23f4002f57",
-  "d": "2026-10-14"
+  "h": "5f9f89057385",
+  "d": "2026-10-15"
  },
  "cases/manka-rotei.html": {
-  "h": "bc5fc59015f1",
+  "h": "abefa39d51e1",
   "d": "2026-10-15"
  },
  "cases/matsumotoro-bakery.html": {
-  "h": "15528d14436a",
-  "d": "2026-10-14"
+  "h": "dec6de012675",
+  "d": "2026-10-15"
  },
  "cases/saiko-cnf-machine.html": {
-  "h": "8499297a2592",
+  "h": "f7265eb6c09f",
   "d": "2026-10-15"
  },
  "cases/shonai-edamame.html": {
-  "h": "520d948c4ac9",
+  "h": "c5be1b7de347",
   "d": "2026-10-15"
  },
  "cases/shoryokuka-restaurant-ticket.html": {
-  "h": "0568f7e850d9",
+  "h": "79c43da24788",
   "d": "2026-10-15"
  },
  "cases/soba-tanemura-matsumoto.html": {
-  "h": "da11bb219e97",
+  "h": "1faf37839ac6",
   "d": "2026-10-15"
  },
  "cases/tagami-rice.html": {
-  "h": "79025440f2a5",
-  "d": "2026-10-14"
+  "h": "321f18ea8acb",
+  "d": "2026-10-15"
  },
  "cases/takahashi-inshi.html": {
-  "h": "2263b9ce6019",
+  "h": "2b57a4caf929",
   "d": "2026-10-15"
  },
  "cases/tensense-ecopresso-osaka.html": {
-  "h": "bce982b7cdd1",
+  "h": "2d1a4e0379f8",
   "d": "2026-10-15"
  },
  "cases/yamachiku-nankan-kumamoto.html": {
-  "h": "3b986f274a23",
+  "h": "5709e72ae022",
   "d": "2026-10-15"
  },
  "compare/index.html": {
-  "h": "0094c758ff98",
-  "d": "2026-10-14"
+  "h": "1616f4d7a2ff",
+  "d": "2026-10-15"
  },
  "compare/virtual-office.html": {
-  "h": "702b449fc96b",
-  "d": "2026-10-14"
+  "h": "cab81cd0d08e",
+  "d": "2026-10-15"
  },
  "columns/free-consultation.html": {
-  "h": "c7e1a82ff8f5",
+  "h": "aa884d16127c",
   "d": "2026-10-15"
  },
  "columns/gbizid-early.html": {
-  "h": "89a730bb9bce",
-  "d": "2026-10-14"
+  "h": "9bc54cdd515c",
+  "d": "2026-10-15"
  },
  "columns/how-to-find-subsidy.html": {
-  "h": "546a0325fd84",
-  "d": "2026-10-14"
+  "h": "9bf5372a49c8",
+  "d": "2026-10-15"
  },
  "columns/subsidy-paid-after.html": {
-  "h": "9056c65ced2f",
-  "d": "2026-10-14"
+  "h": "fb21485c6bd9",
+  "d": "2026-10-15"
  },
  "columns/subsidy-vs-grant-vs-loan.html": {
-  "h": "3a6939f49557",
-  "d": "2026-10-14"
+  "h": "2819a8bd8e94",
+  "d": "2026-10-15"
  },
  "guides/first-day-checklist.html": {
-  "h": "e0facdf8d487",
-  "d": "2026-10-14"
+  "h": "41cafa9f9cff",
+  "d": "2026-10-15"
  },
  "guides/secret-side-job.html": {
-  "h": "0d4e869b333a",
-  "d": "2026-10-14"
+  "h": "fdd80b37e6fa",
+  "d": "2026-10-15"
  },
  "guides/tax-filing-basics.html": {
-  "h": "d817e899cd0d",
-  "d": "2026-10-14"
+  "h": "fa267c5f58e5",
+  "d": "2026-10-15"
  },
  "guides/time-to-first-income.html": {
-  "h": "75f59e9cfb51",
-  "d": "2026-10-14"
+  "h": "63eafe335ea4",
+  "d": "2026-10-15"
  },
  "guides/work-life-balance.html": {
-  "h": "6898ed8dcdfc",
-  "d": "2026-10-14"
+  "h": "8261cccbfda8",
+  "d": "2026-10-15"
  },
  "news/2026-09-11-shokei-15-saitaku.html": {
-  "h": "2136570b5bf4",
+  "h": "e0e8eaf0eac2",
   "d": "2026-10-15"
  },
  "news/2026-09-14-r9-gaisan.html": {
-  "h": "f79c5974569f",
+  "h": "1e1762beeba4",
   "d": "2026-10-15"
  },
  "news/2026-09-16-jizokuka-saigai.html": {
-  "h": "09ab4c165b2e",
+  "h": "2b9ce5801aad",
   "d": "2026-10-15"
  },
  "news/2026-09-18-shoryokuka-8.html": {
-  "h": "8b7f0761f870",
+  "h": "994e08eadd49",
   "d": "2026-10-15"
  },
  "news/2026-09-29-seicho-3.html": {
-  "h": "77ccd02e3d5e",
+  "h": "75f6e6fdb7ad",
   "d": "2026-10-15"
  },
  "news/2026-09-30-shinjigyo-mono-1.html": {
-  "h": "1cb04967ddb9",
+  "h": "195aeb6be73e",
   "d": "2026-10-15"
  },
  "news/2026-10-01-digital-ai-6.html": {
-  "h": "6ab9ffba89af",
+  "h": "e43a9f904a4f",
   "d": "2026-10-15"
  },
  "news/2026-10-02-shokei-16.html": {
-  "h": "6278353d77c5",
+  "h": "48ae20229341",
   "d": "2026-10-15"
  },
  "news/2026-10-05-overseas-support.html": {
-  "h": "592f13fd5b34",
+  "h": "d442ceb67695",
   "d": "2026-10-15"
  },
  "news/2026-10-07-gyomu-kaizen.html": {
-  "h": "aa0cbb2c94f4",
+  "h": "ace7c45b203d",
   "d": "2026-10-15"
  },
  "news/2026-10-09-deadlines-october.html": {
-  "h": "29c281b359ef",
+  "h": "06658af144c9",
   "d": "2026-10-15"
  },
  "news/2026-10-10-jizokuka-20.html": {
-  "h": "2e1ff4c1885c",
+  "h": "da8aa1d28383",
+  "d": "2026-10-15"
+ },
+ "news/2026-10-15-deadline-1016.html": {
+  "h": "665285620cbd",
+  "d": "2026-10-15"
+ },
+ "news/2026-10-15-digital-ai-4-kekka.html": {
+  "h": "444bd9444747",
+  "d": "2026-10-15"
+ },
+ "news/2026-10-15-shinjigyo-4-saitaku.html": {
+  "h": "75177f78c918",
   "d": "2026-10-15"
  },
  "news/index.html": {
-  "h": "9e7c55a3611e",
+  "h": "d968a1132359",
   "d": "2026-10-15"
  },
  "news/sources.html": {
-  "h": "3a86a3785b6a",
+  "h": "af12d202d398",
   "d": "2026-10-15"
  },
  "blog/2026-10-11-blog-start.html": {
-  "h": "0bd3980dd918",
+  "h": "b6ab50848932",
   "d": "2026-10-15"
  },
  "blog/2026-10-11-personal-popular-subsidies.html": {
-  "h": "a7e57d9a08ed",
+  "h": "f095037a9426",
   "d": "2026-10-15"
  },
  "blog/2026-10-12-find-subsidy-in-your-city.html": {
-  "h": "5e460267cf02",
+  "h": "5d6153618ca0",
   "d": "2026-10-15"
  },
  "blog/2026-10-13-choose-subsidy-support.html": {
-  "h": "8060246dce02",
+  "h": "29262a18f204",
   "d": "2026-10-15"
  },
  "blog/2026-10-13-popular-subsidies-application-steps-2.html": {
-  "h": "aa8a4ffa4737",
+  "h": "b5d225b57c9a",
   "d": "2026-10-15"
  },
  "blog/2026-10-13-popular-subsidies-application-steps.html": {
-  "h": "1e787c4220a6",
+  "h": "1ad4a6d3d964",
   "d": "2026-10-15"
  },
  "blog/2026-10-13-subsidy-for-website.html": {
-  "h": "0865721004cc",
+  "h": "92e43e3bdbc4",
+  "d": "2026-10-15"
+ },
+ "blog/2026-10-15-aimitsumori-estimate-tips.html": {
+  "h": "0ec6aa44c42a",
+  "d": "2026-10-15"
+ },
+ "blog/2026-10-15-application-mistakes-checklist.html": {
+  "h": "bf9fe5f9137a",
   "d": "2026-10-15"
  },
  "blog/index.html": {
-  "h": "3dcb83ccb9f1",
+  "h": "1f70b5e0d81f",
   "d": "2026-10-15"
  },
  "policy/about.html": {
-  "h": "8b702c991ff9",
-  "d": "2026-10-14"
+  "h": "577e93996583",
+  "d": "2026-10-15"
  },
  "policy/contact.html": {
-  "h": "865f3d0b664f",
-  "d": "2026-10-14"
+  "h": "b2fb8b6d16ae",
+  "d": "2026-10-15"
  },
  "policy/privacy.html": {
-  "h": "4d62fb3ecd65",
-  "d": "2026-10-14"
+  "h": "a42a3df03cc4",
+  "d": "2026-10-15"
  },
  "policy/sources.html": {
-  "h": "c3a79b94440e",
-  "d": "2026-10-14"
+  "h": "f1629376d9b2",
+  "d": "2026-10-15"
  },
  "area/adachi.html": {
   "h": "3fbd48b22b1c",
@@ -1676,67 +1696,51 @@
   "d": "2026-10-14"
  },
  "research/business.html": {
-  "h": "f580389ccd7b",
+  "h": "59752e153396",
   "d": "2026-10-15"
  },
  "research/gaps.html": {
-  "h": "e528d04439c9",
-  "d": "2026-10-14"
+  "h": "6ed83be1052e",
+  "d": "2026-10-15"
  },
  "research/index.html": {
-  "h": "4a878d778155",
-  "d": "2026-10-14"
+  "h": "d9b3a2d6d3d4",
+  "d": "2026-10-15"
  },
  "research/methods.html": {
-  "h": "220387224836",
-  "d": "2026-10-14"
+  "h": "39f43208047b",
+  "d": "2026-10-15"
  },
  "research/personal.html": {
-  "h": "1f77425796e3",
+  "h": "9a1f3130250b",
   "d": "2026-10-15"
  },
  "research/prefectures.html": {
-  "h": "7e1580145878",
-  "d": "2026-10-14"
+  "h": "650a9394629a",
+  "d": "2026-10-15"
  },
  "research/programs.html": {
-  "h": "c49b7b45430c",
-  "d": "2026-10-14"
+  "h": "3a78a0ef7160",
+  "d": "2026-10-15"
  },
  "research/startup-map.html": {
-  "h": "3c28d6c87186",
-  "d": "2026-10-14"
+  "h": "bf4394f368fc",
+  "d": "2026-10-15"
  },
  "background/decarbon.html": {
-  "h": "b860a2ead314",
+  "h": "9c4180db397b",
   "d": "2026-10-15"
  },
  "background/index.html": {
-  "h": "5202a280f80f",
+  "h": "bbe324f5d97f",
   "d": "2026-10-15"
  },
  "background/labor.html": {
-  "h": "8ccc73f88f95",
+  "h": "db3047c1d66a",
   "d": "2026-10-15"
  },
  "background/population.html": {
-  "h": "f4cd064f956a",
-  "d": "2026-10-15"
- },
- "news/2026-10-15-deadline-1016.html": {
-  "h": "0ab3ab109ffb",
-  "d": "2026-10-15"
- },
- "news/2026-10-15-digital-ai-4-kekka.html": {
-  "h": "a34bff7fed41",
-  "d": "2026-10-15"
- },
- "news/2026-10-15-shinjigyo-4-saitaku.html": {
-  "h": "acc09bdc2375",
-  "d": "2026-10-15"
- },
- "blog/2026-10-15-application-mistakes-checklist.html": {
-  "h": "61dfc2bb6376",
+  "h": "6ba6e6804e55",
   "d": "2026-10-15"
  }
 }
