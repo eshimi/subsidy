@@ -1,6 +1,6 @@
 {
  "": {
-  "h": "c229ac919f2a",
+  "h": "d593bbc5f33e",
   "d": "2026-10-15"
  },
  "beginner-guide.html": {
@@ -360,44 +360,44 @@
   "d": "2026-10-15"
  },
  "news/index.html": {
-  "h": "05a63cc131e3",
+  "h": "9e7c55a3611e",
   "d": "2026-10-15"
  },
  "news/sources.html": {
-  "h": "7ddcfeca9945",
+  "h": "3a86a3785b6a",
   "d": "2026-10-15"
  },
  "blog/2026-10-11-blog-start.html": {
-  "h": "0bd3980dd918",
-  "d": "2026-10-14"
+  "h": "1ea4ed616b44",
+  "d": "2026-10-15"
  },
  "blog/2026-10-11-personal-popular-subsidies.html": {
-  "h": "a7e57d9a08ed",
-  "d": "2026-10-14"
+  "h": "484fc06a43ce",
+  "d": "2026-10-15"
  },
  "blog/2026-10-12-find-subsidy-in-your-city.html": {
-  "h": "5e460267cf02",
-  "d": "2026-10-14"
+  "h": "4700048c6c8e",
+  "d": "2026-10-15"
  },
  "blog/2026-10-13-choose-subsidy-support.html": {
-  "h": "67dd007eb6c3",
-  "d": "2026-10-14"
+  "h": "e16fdb75244d",
+  "d": "2026-10-15"
  },
  "blog/2026-10-13-popular-subsidies-application-steps-2.html": {
-  "h": "3605c1a42471",
-  "d": "2026-10-14"
+  "h": "d58ec6ea1cda",
+  "d": "2026-10-15"
  },
  "blog/2026-10-13-popular-subsidies-application-steps.html": {
-  "h": "1e787c4220a6",
-  "d": "2026-10-14"
+  "h": "7a26da89459a",
+  "d": "2026-10-15"
  },
  "blog/2026-10-13-subsidy-for-website.html": {
-  "h": "5dfb49f461f5",
-  "d": "2026-10-14"
+  "h": "eb48836fe627",
+  "d": "2026-10-15"
  },
  "blog/index.html": {
-  "h": "c0a6d20a2ac4",
-  "d": "2026-10-14"
+  "h": "3dcb83ccb9f1",
+  "d": "2026-10-15"
  },
  "policy/about.html": {
   "h": "8b702c991ff9",
@@ -1724,15 +1724,19 @@
   "d": "2026-10-15"
  },
  "news/2026-10-15-deadline-1016.html": {
-  "h": "ebe4d220ab64",
+  "h": "2220a39303c2",
   "d": "2026-10-15"
  },
  "news/2026-10-15-digital-ai-4-kekka.html": {
-  "h": "166ffa956a6b",
+  "h": "fc5b1e582263",
   "d": "2026-10-15"
  },
  "news/2026-10-15-shinjigyo-4-saitaku.html": {
-  "h": "e2f1659e7583",
+  "h": "bb4714cb313e",
+  "d": "2026-10-15"
+ },
+ "blog/2026-10-15-application-mistakes-checklist.html": {
+  "h": "88d8e3b2d59b",
   "d": "2026-10-15"
  }
 }
