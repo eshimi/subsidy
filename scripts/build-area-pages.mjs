@@ -43,7 +43,8 @@ function programCard(p) {
     : '';
   const period = p.period ? `<p class="area-meta">期間：${esc(p.period)}</p>` : '';
   const eligibility = p.eligibility?.length ? `<p><strong>主な条件</strong></p>\n            <ul>${p.eligibility.map((e) => `<li>${esc(e)}</li>`).join('')}</ul>` : '';
-  return `          <div class="area-program">
+  // id：検索結果（search.html）の題名から、この制度の位置へ直接移動するための目印（検索データの id は、先頭に local- が付く）
+  return `          <div class="area-program"${p.id ? ` id="${esc(p.id)}"` : ''}>
             <h3>${esc(p.name)}</h3>
             <p class="area-meta">${esc(p.provider)}｜${esc(p.type)}｜${esc(p.amount)}｜${deadline}</p>
             ${period}

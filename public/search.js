@@ -214,16 +214,28 @@
     return `<span class="badge open">締切 ${esc(dateJa(d))}${g.est ? '（見込み）' : ''}</span>`;
   }
   const audBadge = (g) => (g.au === 'p' ? '<span class="badge aud-p">個人向け</span>' : g.au === 'b' ? '<span class="badge aud-b">事業者向け</span>' : '');
+  // 自治体の制度の題名のリンク：サイト内の地域ページの、その制度の位置（area/○○.html#制度のid）。
+  // 県の制度は、県のまとめページ（area/pref-○○.html）へ。行き先の地域ページがない制度だけ、公式ページ（別タブ）へ
+  function titleLink(g) {
+    const id = String(g.id).replace(/^(local|res)-/, '');
+    let page = String(g.url || '').split('#')[0];
+    if (!page || page === 'area/index.html') {
+      const slug = PREF_SLUGS[String(g.a || '').split('・')[0]];
+      page = slug ? `area/pref-${slug}.html` : '';
+    }
+    if (!page) return g.o ? `<a href="${esc(g.o)}" target="_blank" rel="noopener">${esc(g.t)}</a>` : esc(g.t);
+    return `<a href="${esc(page)}#${encodeURIComponent(id)}">${esc(g.t)}</a>`;
+  }
   function card(g, i, now) {
     const idx = String(i + 1).padStart(2, '0');
     const status = statusBadge(g, now);
     if (g.local) {
-      // 題名は、その制度の公式ページへ（公式ページがない制度だけ、その市のまとめページへ）。市のまとめページへは、下の「ページで、ほかの制度も見る」から
+      // 題名は、サイト内の地域ページの、その制度の位置へ（area/○○.html#制度のid）。公式ページへは、下の「公式ページを見る ↗」から
       const city = cityOf(g);
       const more = g.url ? `<a href="${esc(g.url)}">${city ? `${esc(city)}の` : ''}ページで、ほかの制度も見る</a>` : '';
       return `<article class="program"><div class="p-index">${idx}</div><div class="p-main">
         <div class="meta-line">${audBadge(g)}<span class="badge level">${esc(LEVEL[g.lv] || '自治体')}</span>${g.ty ? `<span class="badge type">${esc(g.ty)}</span>` : ''}${g.cat ? `<span class="badge live">${esc(g.cat)}</span>` : ''}${status}</div>
-        <h3><a href="${esc(g.o || g.url)}"${g.o ? ' target="_blank" rel="noopener"' : ''}>${esc(g.t)}</a></h3>
+        <h3>${titleLink(g)}</h3>
         <p class="provider">${esc(g.pv || g.a)}</p>
         ${g.sm ? `<p class="summary-text">${esc(g.sm)}</p>` : ''}
         ${g.el && g.el.length ? `<details><summary>主な要件</summary><ul>${g.el.map((e) => `<li>${esc(e)}</li>`).join('')}</ul><p class="checked-at"><small>⚠️ 申請の前に、必ず公式ページで最新の内容を確認してください。</small></p></details>` : ''}

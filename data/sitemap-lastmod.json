@@ -83,6 +83,14 @@
   "h": "514c36f90619",
   "d": "2026-10-15"
  },
+ "basics/documents.html": {
+  "h": "2c6bc9d1a2a2",
+  "d": "2026-10-15"
+ },
+ "basics/eligibility.html": {
+  "h": "bcd4bde95f0e",
+  "d": "2026-10-15"
+ },
  "basics/flow.html": {
   "h": "88ea066e50c0",
   "d": "2026-10-15"
@@ -101,6 +109,10 @@
  },
  "basics/tax.html": {
   "h": "d3047e0425b9",
+  "d": "2026-10-15"
+ },
+ "basics/types.html": {
+  "h": "426486c416df",
   "d": "2026-10-15"
  },
  "basics/what-is.html": {
@@ -149,6 +161,10 @@
  },
  "personal/solar.html": {
   "h": "044b48a7f442",
+  "d": "2026-10-15"
+ },
+ "personal/summary.html": {
+  "h": "f33b6bcfc02c",
   "d": "2026-10-15"
  },
  "feature/digital-subsidy.html": {
@@ -440,271 +456,271 @@
   "d": "2026-10-15"
  },
  "area/adachi.html": {
-  "h": "d53b1bed71e0",
+  "h": "1c1284c85df4",
   "d": "2026-10-15"
  },
  "area/ageo.html": {
-  "h": "8934fa322fb5",
+  "h": "3425e434ba83",
   "d": "2026-10-15"
  },
  "area/aizuwakamatsu.html": {
-  "h": "c44fca3dd17d",
+  "h": "b1c63540191c",
   "d": "2026-10-15"
  },
  "area/akashi.html": {
-  "h": "fb640d680123",
+  "h": "f550952df71f",
   "d": "2026-10-15"
  },
  "area/akita.html": {
-  "h": "2e21f3411387",
+  "h": "55b13e267596",
   "d": "2026-10-15"
  },
  "area/amagasaki.html": {
-  "h": "2e42b92c148e",
+  "h": "1dfd7d7c41d7",
   "d": "2026-10-15"
  },
  "area/anjo.html": {
-  "h": "761ef32ddfb8",
+  "h": "c35eceabc76c",
   "d": "2026-10-15"
  },
  "area/aomori.html": {
-  "h": "421c5c112633",
+  "h": "db6c5ec43d04",
   "d": "2026-10-15"
  },
  "area/arakawa.html": {
-  "h": "7e0048ae8cba",
+  "h": "ed25bfdb4e2e",
   "d": "2026-10-15"
  },
  "area/asahikawa.html": {
-  "h": "83d93f25d1a6",
+  "h": "dfca8ef31543",
   "d": "2026-10-15"
  },
  "area/asaka.html": {
-  "h": "f6841fbe675b",
+  "h": "21d4cef1e96d",
   "d": "2026-10-15"
  },
  "area/ashikaga.html": {
-  "h": "2227f56784d9",
+  "h": "11ad205a88fb",
   "d": "2026-10-15"
  },
  "area/ashiya.html": {
-  "h": "8d5d8c34c067",
+  "h": "c912b0a01cce",
   "d": "2026-10-15"
  },
  "area/atsugi.html": {
-  "h": "21cb5367d72a",
+  "h": "c35965e228b3",
   "d": "2026-10-15"
  },
  "area/beppu.html": {
-  "h": "6df64f2e4ca5",
+  "h": "583e3762e5b7",
   "d": "2026-10-15"
  },
  "area/bunkyo.html": {
-  "h": "fa467279b114",
+  "h": "b05e78560797",
   "d": "2026-10-15"
  },
  "area/chiba.html": {
-  "h": "a79dd5ccda84",
+  "h": "b1c756ab1704",
   "d": "2026-10-15"
  },
  "area/chigasaki.html": {
-  "h": "8b966b8f2f5e",
+  "h": "7d94a9f6ecfb",
   "d": "2026-10-15"
  },
  "area/chitose.html": {
-  "h": "2fa5035ba82f",
+  "h": "72e8bc916ba3",
   "d": "2026-10-15"
  },
  "area/chiyoda.html": {
-  "h": "0dc3810171a3",
+  "h": "e87979fa907a",
   "d": "2026-10-15"
  },
  "area/chofu.html": {
-  "h": "4f2fa23d9e96",
+  "h": "9c2a27068e63",
   "d": "2026-10-15"
  },
  "area/chuo.html": {
-  "h": "8135e7a53333",
+  "h": "4224053730fd",
   "d": "2026-10-15"
  },
  "area/daito.html": {
-  "h": "edf740e59302",
+  "h": "368299afe62b",
   "d": "2026-10-15"
  },
  "area/ebetsu.html": {
-  "h": "6efcc3e41b6a",
+  "h": "b0f6c0d173f4",
   "d": "2026-10-15"
  },
  "area/ebina.html": {
-  "h": "8b6c411fac74",
+  "h": "72332cb55b10",
   "d": "2026-10-15"
  },
  "area/edogawa.html": {
-  "h": "1c9158ab0715",
+  "h": "70e9b004288f",
   "d": "2026-10-15"
  },
  "area/fuchu.html": {
-  "h": "e5d9bca4e725",
+  "h": "95d351a7873a",
   "d": "2026-10-15"
  },
  "area/fuji.html": {
-  "h": "8ae6bdf9e6ef",
+  "h": "d7b61f577b8c",
   "d": "2026-10-15"
  },
  "area/fujieda.html": {
-  "h": "c75901a58b23",
+  "h": "dca1e7f88e27",
   "d": "2026-10-15"
  },
  "area/fujisawa.html": {
-  "h": "d90f115ddb5c",
+  "h": "dd44922df815",
   "d": "2026-10-15"
  },
  "area/fujiyoshida.html": {
-  "h": "a5dab37cd69f",
+  "h": "702b4451b507",
   "d": "2026-10-15"
  },
  "area/fukuchiyama.html": {
-  "h": "bef9b830afe4",
+  "h": "d20f363e4894",
   "d": "2026-10-15"
  },
  "area/fukui.html": {
-  "h": "ea4441f5d736",
+  "h": "e9ae1ee521ef",
   "d": "2026-10-15"
  },
  "area/fukuoka.html": {
-  "h": "6a6e34ac8b47",
+  "h": "a6ae31fdb44f",
   "d": "2026-10-15"
  },
  "area/fukushima.html": {
-  "h": "a8500e9b7c98",
+  "h": "a098a350d9e3",
   "d": "2026-10-15"
  },
  "area/fukuyama.html": {
-  "h": "6420c0fae4e4",
+  "h": "7185b0865a64",
   "d": "2026-10-15"
  },
  "area/funabashi.html": {
-  "h": "1b9a65c3713d",
+  "h": "6a6c3b321d57",
   "d": "2026-10-15"
  },
  "area/gifu.html": {
-  "h": "6579abb0736c",
+  "h": "abf91e4e77ce",
   "d": "2026-10-15"
  },
  "area/ginowan.html": {
-  "h": "231fbbf174c3",
+  "h": "fa04a30b1236",
   "d": "2026-10-15"
  },
  "area/hachinohe.html": {
-  "h": "09274333b604",
+  "h": "9c40d8fc46a6",
   "d": "2026-10-15"
  },
  "area/hachioji.html": {
-  "h": "39f7757d6501",
+  "h": "f4c4ac143f9f",
   "d": "2026-10-15"
  },
  "area/hadano.html": {
-  "h": "860906c37a8c",
+  "h": "6c7c52df0565",
   "d": "2026-10-15"
  },
  "area/hakodate.html": {
-  "h": "884e06a90df7",
+  "h": "f4c81eeecbc7",
   "d": "2026-10-15"
  },
  "area/hamamatsu.html": {
-  "h": "804c897ffc26",
+  "h": "5571ee35702c",
   "d": "2026-10-15"
  },
  "area/hanamaki.html": {
-  "h": "00309b62698f",
+  "h": "442ae5f54224",
   "d": "2026-10-15"
  },
  "area/hatsukaichi.html": {
-  "h": "4b19f05c110e",
+  "h": "368c8d2ca516",
   "d": "2026-10-15"
  },
  "area/higashihiroshima.html": {
-  "h": "18d00e20d158",
+  "h": "2c39f55d11c3",
   "d": "2026-10-15"
  },
  "area/higashimurayama.html": {
-  "h": "d1b54b84ba86",
+  "h": "c8c2135b9e7a",
   "d": "2026-10-15"
  },
  "area/higashiosaka.html": {
-  "h": "8337dc260811",
+  "h": "d011c17e053f",
   "d": "2026-10-15"
  },
  "area/hikone.html": {
-  "h": "5dc3cd1e324c",
+  "h": "00526ff930d7",
   "d": "2026-10-15"
  },
  "area/himeji.html": {
-  "h": "74df808f18a5",
+  "h": "ce06419cc401",
   "d": "2026-10-15"
  },
  "area/hino.html": {
-  "h": "99e4b8ace9bb",
+  "h": "8477a7a587e0",
   "d": "2026-10-15"
  },
  "area/hirakata.html": {
-  "h": "4aeb21486fbe",
+  "h": "584738be6607",
   "d": "2026-10-15"
  },
  "area/hiratsuka.html": {
-  "h": "62315d126d78",
+  "h": "1bd08c08a8cc",
   "d": "2026-10-15"
  },
  "area/hirosaki.html": {
-  "h": "f2dc58b11926",
+  "h": "77791f8fa298",
   "d": "2026-10-15"
  },
  "area/hiroshima.html": {
-  "h": "daed1799cb3c",
+  "h": "03eb3c81f02c",
   "d": "2026-10-15"
  },
  "area/hitachi.html": {
-  "h": "2c9e62a8e6e0",
+  "h": "ed79230312b4",
   "d": "2026-10-15"
  },
  "area/hofu.html": {
-  "h": "fbe39c684436",
+  "h": "734366c786bc",
   "d": "2026-10-15"
  },
  "area/ibaraki.html": {
-  "h": "b29d36f8aaab",
+  "h": "d8a9f8b179c2",
   "d": "2026-10-15"
  },
  "area/ichihara.html": {
-  "h": "24a47534519d",
+  "h": "b840b1a97edb",
   "d": "2026-10-15"
  },
  "area/ichikawa.html": {
-  "h": "6959a344edec",
+  "h": "06351a870cd2",
   "d": "2026-10-15"
  },
  "area/ichinomiya.html": {
-  "h": "6ba011b9f1a4",
+  "h": "3e001e89deee",
   "d": "2026-10-15"
  },
  "area/ichinoseki.html": {
-  "h": "38f90f08bbed",
+  "h": "b98f8644ecfc",
   "d": "2026-10-15"
  },
  "area/iida.html": {
-  "h": "385e6cd662ed",
+  "h": "4eb6a78531c6",
   "d": "2026-10-15"
  },
  "area/iizuka.html": {
-  "h": "a54bb3db04e6",
+  "h": "bc446c8bbfda",
   "d": "2026-10-15"
  },
  "area/ikoma.html": {
-  "h": "69ffc1ae03c6",
+  "h": "a9046edb87dd",
   "d": "2026-10-15"
  },
  "area/imabari.html": {
-  "h": "b8c5eaa0dd9d",
+  "h": "412b10eecd28",
   "d": "2026-10-15"
  },
  "area/index.html": {
@@ -712,991 +728,991 @@
   "d": "2026-10-14"
  },
  "area/inuyama.html": {
-  "h": "138bbdfcd905",
+  "h": "6cf4bd1f0b19",
   "d": "2026-10-15"
  },
  "area/iruma.html": {
-  "h": "f0bcaae25cf6",
+  "h": "482dab227f75",
   "d": "2026-10-15"
  },
  "area/isahaya.html": {
-  "h": "67b97d27c159",
+  "h": "d8ce1e29fa8b",
   "d": "2026-10-15"
  },
  "area/ise.html": {
-  "h": "c6b8cd7d29a6",
+  "h": "2e373e27c4d6",
   "d": "2026-10-15"
  },
  "area/isesaki.html": {
-  "h": "9c1318b4d749",
+  "h": "d91242c3f9cf",
   "d": "2026-10-15"
  },
  "area/ishinomaki.html": {
-  "h": "213db5c4b24a",
+  "h": "0e19ac30556c",
   "d": "2026-10-15"
  },
  "area/itabashi.html": {
-  "h": "bfd5066214ff",
+  "h": "5897dbb2a114",
   "d": "2026-10-15"
  },
  "area/itami.html": {
-  "h": "15fc364a9000",
+  "h": "99aea3025cf8",
   "d": "2026-10-15"
  },
  "area/itoshima.html": {
-  "h": "9e617842f700",
+  "h": "06def0314022",
   "d": "2026-10-15"
  },
  "area/iwaki.html": {
-  "h": "57d02c447f5a",
+  "h": "e8dd5095daa7",
   "d": "2026-10-15"
  },
  "area/iwata.html": {
-  "h": "1957c421f902",
+  "h": "b54975404746",
   "d": "2026-10-15"
  },
  "area/izumi.html": {
-  "h": "bff830bd056b",
+  "h": "32bd3d64e665",
   "d": "2026-10-15"
  },
  "area/izumisano.html": {
-  "h": "47677ecbae6c",
+  "h": "f7f789e383b0",
   "d": "2026-10-15"
  },
  "area/joetsu.html": {
-  "h": "7092dd57f9b4",
+  "h": "985d99d09196",
   "d": "2026-10-15"
  },
  "area/kadoma.html": {
-  "h": "c2a33c4c2273",
+  "h": "19912c5157e5",
   "d": "2026-10-15"
  },
  "area/kagoshima.html": {
-  "h": "54f6e1af6bdc",
+  "h": "127bd6d5a68d",
   "d": "2026-10-15"
  },
  "area/kakamigahara.html": {
-  "h": "23df5fed70b2",
+  "h": "5840aced902b",
   "d": "2026-10-15"
  },
  "area/kakegawa.html": {
-  "h": "e331ddff1d0b",
+  "h": "783d9b0f4821",
   "d": "2026-10-15"
  },
  "area/kakogawa.html": {
-  "h": "5a2fab599877",
+  "h": "a7906211b79e",
   "d": "2026-10-15"
  },
  "area/kamakura.html": {
-  "h": "b72face2d34e",
+  "h": "188b247ee86a",
   "d": "2026-10-15"
  },
  "area/kameoka.html": {
-  "h": "a3c92de8b7c6",
+  "h": "d57dcd84dd76",
   "d": "2026-10-15"
  },
  "area/kanazawa.html": {
-  "h": "d2aacf461bcf",
+  "h": "4490383cc41e",
   "d": "2026-10-15"
  },
  "area/kanoya.html": {
-  "h": "1e111b62b265",
+  "h": "9d45b4bb0cc0",
   "d": "2026-10-15"
  },
  "area/karatsu.html": {
-  "h": "7618eac13d9e",
+  "h": "4bd3e3682596",
   "d": "2026-10-15"
  },
  "area/kariya.html": {
-  "h": "995235915f86",
+  "h": "09b505a537fe",
   "d": "2026-10-15"
  },
  "area/kashihara.html": {
-  "h": "5fe233313aef",
+  "h": "756ee4af2439",
   "d": "2026-10-15"
  },
  "area/kashiwa.html": {
-  "h": "c47e3c8a7c9b",
+  "h": "d1629c13a6dc",
   "d": "2026-10-15"
  },
  "area/kasuga.html": {
-  "h": "291fbc889977",
+  "h": "e8fe2ab7b7b1",
   "d": "2026-10-15"
  },
  "area/kasugai.html": {
-  "h": "cb32df6ddcea",
+  "h": "4c2bb0988cba",
   "d": "2026-10-15"
  },
  "area/kasukabe.html": {
-  "h": "b5663a498a28",
+  "h": "708d5eca2780",
   "d": "2026-10-15"
  },
  "area/katsushika.html": {
-  "h": "dde163a1102e",
+  "h": "a71d011436b0",
   "d": "2026-10-15"
  },
  "area/kawagoe.html": {
-  "h": "bec4a4ecf88f",
+  "h": "af9f9e871c6f",
   "d": "2026-10-15"
  },
  "area/kawaguchi.html": {
-  "h": "7c508cd0c96c",
+  "h": "a12138de50c9",
   "d": "2026-10-15"
  },
  "area/kawanishi.html": {
-  "h": "e960e7d11a22",
+  "h": "93a7d64c4a0e",
   "d": "2026-10-15"
  },
  "area/kawasaki.html": {
-  "h": "d7c97b35da9f",
+  "h": "48520da38f47",
   "d": "2026-10-15"
  },
  "area/kirishima.html": {
-  "h": "74caa9d09cd9",
+  "h": "aa00ac7317be",
   "d": "2026-10-15"
  },
  "area/kiryu.html": {
-  "h": "9ff463d5f0ef",
+  "h": "fcf856ec413a",
   "d": "2026-10-15"
  },
  "area/kisarazu.html": {
-  "h": "ca6c192bfcbb",
+  "h": "8cbc55b5aa56",
   "d": "2026-10-15"
  },
  "area/kishiwada.html": {
-  "h": "c71836eef46b",
+  "h": "cd710902ee75",
   "d": "2026-10-15"
  },
  "area/kita.html": {
-  "h": "237fa3d4db21",
+  "h": "3c8ab2ca180d",
   "d": "2026-10-15"
  },
  "area/kitakyushu.html": {
-  "h": "f26d734a2a50",
+  "h": "363324462dea",
   "d": "2026-10-15"
  },
  "area/kitami.html": {
-  "h": "340f5ccb31e0",
+  "h": "15a862dd41f4",
   "d": "2026-10-15"
  },
  "area/kobe.html": {
-  "h": "f9d2d51f1d4a",
+  "h": "7979757bf3ec",
   "d": "2026-10-15"
  },
  "area/kochi.html": {
-  "h": "a5012ceb1860",
+  "h": "df0a28e05a5e",
   "d": "2026-10-15"
  },
  "area/kodaira.html": {
-  "h": "790410b6309b",
+  "h": "81dfad69eaa7",
   "d": "2026-10-15"
  },
  "area/kofu.html": {
-  "h": "3917a7a6ed05",
+  "h": "d59a8df29636",
   "d": "2026-10-15"
  },
  "area/koga.html": {
-  "h": "0d0ef2546984",
+  "h": "6220f52af6ef",
   "d": "2026-10-15"
  },
  "area/komaki.html": {
-  "h": "2dfecb314982",
+  "h": "d5dd3a0a9703",
   "d": "2026-10-15"
  },
  "area/komatsu.html": {
-  "h": "8a148d07545c",
+  "h": "752314cce651",
   "d": "2026-10-15"
  },
  "area/koriyama.html": {
-  "h": "cc57f1f70733",
+  "h": "ebd2d29f30fe",
   "d": "2026-10-15"
  },
  "area/koshi.html": {
-  "h": "4f2a8a29884d",
+  "h": "63596a345316",
   "d": "2026-10-15"
  },
  "area/koshigaya.html": {
-  "h": "28debd112113",
+  "h": "2b534f5ff748",
   "d": "2026-10-15"
  },
  "area/koto.html": {
-  "h": "4b89f7e33cd4",
+  "h": "12912803adb8",
   "d": "2026-10-15"
  },
  "area/kumagaya.html": {
-  "h": "b21a676d8b81",
+  "h": "30e49e15515f",
   "d": "2026-10-15"
  },
  "area/kumamoto.html": {
-  "h": "b30a1ceac01f",
+  "h": "e67b97031779",
   "d": "2026-10-15"
  },
  "area/kurashiki.html": {
-  "h": "7a3301767640",
+  "h": "107e608caddf",
   "d": "2026-10-15"
  },
  "area/kure.html": {
-  "h": "3cb24db3a1fb",
+  "h": "ca2cfc5d3dee",
   "d": "2026-10-15"
  },
  "area/kurume.html": {
-  "h": "99d6a91892a7",
+  "h": "2b71f94a8464",
   "d": "2026-10-15"
  },
  "area/kusatsu.html": {
-  "h": "71a42ee76c6c",
+  "h": "6c73e516f870",
   "d": "2026-10-15"
  },
  "area/kushiro.html": {
-  "h": "ee1efe228421",
+  "h": "994b6cb0791e",
   "d": "2026-10-15"
  },
  "area/kuwana.html": {
-  "h": "f2cd01235c58",
+  "h": "7b40f7ff0d4b",
   "d": "2026-10-15"
  },
  "area/kyoto.html": {
-  "h": "46ca76813daf",
+  "h": "dc34ca1e61e9",
   "d": "2026-10-15"
  },
  "area/machida.html": {
-  "h": "ef65905f1f4c",
+  "h": "69852a46c5d0",
   "d": "2026-10-15"
  },
  "area/maebashi.html": {
-  "h": "39f59a45ba6e",
+  "h": "d4a5d7f707a1",
   "d": "2026-10-15"
  },
  "area/maizuru.html": {
-  "h": "9aa5c9e73452",
+  "h": "85ec4516a174",
   "d": "2026-10-15"
  },
  "area/marugame.html": {
-  "h": "b74d99d1af16",
+  "h": "185daac9e5bf",
   "d": "2026-10-15"
  },
  "area/matsudo.html": {
-  "h": "49f2c6c8574e",
+  "h": "43152c09961e",
   "d": "2026-10-15"
  },
  "area/matsue.html": {
-  "h": "5e2d912b71c9",
+  "h": "509c164312dc",
   "d": "2026-10-15"
  },
  "area/matsumoto.html": {
-  "h": "9f79dc4ebaf2",
+  "h": "5735ec25f277",
   "d": "2026-10-15"
  },
  "area/matsusaka.html": {
-  "h": "b15afcdfd3ca",
+  "h": "30e0fad8938a",
   "d": "2026-10-15"
  },
  "area/matsuyama.html": {
-  "h": "3f517d0a28a3",
+  "h": "a1a81c8e9b56",
   "d": "2026-10-15"
  },
  "area/meguro.html": {
-  "h": "6c31c59e7feb",
+  "h": "461ad1e9edc8",
   "d": "2026-10-15"
  },
  "area/minato.html": {
-  "h": "4feab05e3e78",
+  "h": "767655aac9c9",
   "d": "2026-10-15"
  },
  "area/minoh.html": {
-  "h": "54d92acd4a22",
+  "h": "009348fb9eb7",
   "d": "2026-10-15"
  },
  "area/mishima.html": {
-  "h": "2babf8101377",
+  "h": "f2de07f7aca2",
   "d": "2026-10-15"
  },
  "area/mitaka.html": {
-  "h": "fdb4ac4c4cfe",
+  "h": "a2ebed5634dd",
   "d": "2026-10-15"
  },
  "area/mito.html": {
-  "h": "f3360cbe17c5",
+  "h": "d6f62c719599",
   "d": "2026-10-15"
  },
  "area/miyakonojo.html": {
-  "h": "805a40fee3b3",
+  "h": "d411c689d894",
   "d": "2026-10-15"
  },
  "area/miyazaki.html": {
-  "h": "3a5f605e2dba",
+  "h": "fb086b43ac7d",
   "d": "2026-10-15"
  },
  "area/moriguchi.html": {
-  "h": "61f84800dcae",
+  "h": "768876c67075",
   "d": "2026-10-15"
  },
  "area/morioka.html": {
-  "h": "0e906118d2b9",
+  "h": "ac4417ac1cc0",
   "d": "2026-10-15"
  },
  "area/musashino.html": {
-  "h": "0769eb66f680",
+  "h": "cb30bb2f13b3",
   "d": "2026-10-15"
  },
  "area/nagahama.html": {
-  "h": "ddec99b8b1d6",
+  "h": "662ee715a081",
   "d": "2026-10-15"
  },
  "area/nagano.html": {
-  "h": "22f9d2197eb9",
+  "h": "e31fdce142c5",
   "d": "2026-10-15"
  },
  "area/nagaoka.html": {
-  "h": "cf4486114e66",
+  "h": "1d5329e4ac7f",
   "d": "2026-10-15"
  },
  "area/nagareyama.html": {
-  "h": "5c8f59e1ada3",
+  "h": "aef12158bf70",
   "d": "2026-10-15"
  },
  "area/nagasaki.html": {
-  "h": "e453adcf8800",
+  "h": "1db9ba2d585f",
   "d": "2026-10-15"
  },
  "area/nagoya.html": {
-  "h": "547f32215856",
+  "h": "5c7967c3a8f2",
   "d": "2026-10-15"
  },
  "area/naha.html": {
-  "h": "ec738c6ebd6f",
+  "h": "7cc3af45aa9f",
   "d": "2026-10-15"
  },
  "area/nakano.html": {
-  "h": "c5f541d4edaf",
+  "h": "988bddce586d",
   "d": "2026-10-15"
  },
  "area/nankoku.html": {
-  "h": "7a2055d71700",
+  "h": "4dce828c4b6e",
   "d": "2026-10-15"
  },
  "area/nanto.html": {
-  "h": "3239b4e58418",
+  "h": "4db446fd4acc",
   "d": "2026-10-15"
  },
  "area/nara.html": {
-  "h": "663cd91bc818",
+  "h": "10d77ea0d66f",
   "d": "2026-10-15"
  },
  "area/narashino.html": {
-  "h": "30ac211df3a2",
+  "h": "031a775f805e",
   "d": "2026-10-15"
  },
  "area/narita.html": {
-  "h": "10ef9e2dbeb4",
+  "h": "b90c5292e71c",
   "d": "2026-10-15"
  },
  "area/naruto.html": {
-  "h": "776bcd45e793",
+  "h": "fc2d7f4e25dd",
   "d": "2026-10-15"
  },
  "area/nerima.html": {
-  "h": "c8d7daae40b5",
+  "h": "430d58929a10",
   "d": "2026-10-15"
  },
  "area/neyagawa.html": {
-  "h": "0b58038110f6",
+  "h": "4d7bff25de23",
   "d": "2026-10-15"
  },
  "area/niigata.html": {
-  "h": "f9aba19c07ac",
+  "h": "c35b506934a8",
   "d": "2026-10-15"
  },
  "area/niihama.html": {
-  "h": "0b0f56a4c1fa",
+  "h": "f346e8092568",
   "d": "2026-10-15"
  },
  "area/niiza.html": {
-  "h": "289f0e20169d",
+  "h": "a7688b1e41ca",
   "d": "2026-10-15"
  },
  "area/nishinomiya.html": {
-  "h": "889141f09174",
+  "h": "68c220402670",
   "d": "2026-10-15"
  },
  "area/nishio.html": {
-  "h": "e1988523ca5d",
+  "h": "b1c9ac8605f5",
   "d": "2026-10-15"
  },
  "area/nishitokyo.html": {
-  "h": "039db3af1b4b",
+  "h": "f1455e5dcbfd",
   "d": "2026-10-15"
  },
  "area/nobeoka.html": {
-  "h": "8273f86641bc",
+  "h": "df7ab29c5617",
   "d": "2026-10-15"
  },
  "area/noda.html": {
-  "h": "59c2e4084b40",
+  "h": "a67d303f8a27",
   "d": "2026-10-15"
  },
  "area/numazu.html": {
-  "h": "f2054c74b563",
+  "h": "223b85d532da",
   "d": "2026-10-15"
  },
  "area/obihiro.html": {
-  "h": "1aba2929170c",
+  "h": "bbf88758cc4a",
   "d": "2026-10-15"
  },
  "area/odawara.html": {
-  "h": "403dafcd9f66",
+  "h": "d605bddc0da2",
   "d": "2026-10-15"
  },
  "area/ogaki.html": {
-  "h": "9dbcafaf9d5e",
+  "h": "3c79aa73a7fd",
   "d": "2026-10-15"
  },
  "area/oita.html": {
-  "h": "050aded023c6",
+  "h": "5dfca089f1fc",
   "d": "2026-10-15"
  },
  "area/okayama.html": {
-  "h": "12079bfec7e7",
+  "h": "3022216c3173",
   "d": "2026-10-15"
  },
  "area/okazaki.html": {
-  "h": "6ea47d737fe7",
+  "h": "e0bf0a6e82fb",
   "d": "2026-10-15"
  },
  "area/okinawa-city.html": {
-  "h": "4190a865d55e",
+  "h": "490c5d53c179",
   "d": "2026-10-15"
  },
  "area/ome.html": {
-  "h": "5f7494e5dcd1",
+  "h": "3a4a70443c17",
   "d": "2026-10-15"
  },
  "area/omihachiman.html": {
-  "h": "42a088f22a35",
+  "h": "436911078fe0",
   "d": "2026-10-15"
  },
  "area/omura.html": {
-  "h": "e77e34f78dd4",
+  "h": "007059d51d52",
   "d": "2026-10-15"
  },
  "area/omuta.html": {
-  "h": "ba1a8af0e0cf",
+  "h": "2fe4cefecbf3",
   "d": "2026-10-15"
  },
  "area/onojo.html": {
-  "h": "13f82b6baf3c",
+  "h": "62d09fe354b6",
   "d": "2026-10-15"
  },
  "area/onomichi.html": {
-  "h": "f59a4770fa19",
+  "h": "dd4be5cc462c",
   "d": "2026-10-15"
  },
  "area/osaka.html": {
-  "h": "d847d50c2862",
+  "h": "f929f6806785",
   "d": "2026-10-15"
  },
  "area/ota-gunma.html": {
-  "h": "e9b556f58fa2",
+  "h": "fca83b467911",
   "d": "2026-10-15"
  },
  "area/ota.html": {
-  "h": "4ce6798b5bc8",
+  "h": "530ab018c1fe",
   "d": "2026-10-15"
  },
  "area/otaru.html": {
-  "h": "235846190320",
+  "h": "07c788cf7aec",
   "d": "2026-10-15"
  },
  "area/otsu.html": {
-  "h": "588ca85e89fe",
+  "h": "2f6d9b5588b7",
   "d": "2026-10-15"
  },
  "area/oyama.html": {
-  "h": "8ed950c156e9",
+  "h": "45a090e04e8d",
   "d": "2026-10-15"
  },
  "area/pref-aichi.html": {
-  "h": "b5a29aada97e",
+  "h": "850c0a268b21",
   "d": "2026-10-15"
  },
  "area/pref-akita.html": {
-  "h": "1fadaf6adf6a",
+  "h": "1fd08b93eba2",
   "d": "2026-10-15"
  },
  "area/pref-aomori.html": {
-  "h": "1ba881c0b3ab",
+  "h": "21caa0d58c30",
   "d": "2026-10-15"
  },
  "area/pref-chiba.html": {
-  "h": "ff07c0a09eb5",
+  "h": "ed4342e670ca",
   "d": "2026-10-15"
  },
  "area/pref-ehime.html": {
-  "h": "27b2b79fe2bf",
+  "h": "d1490d7345c8",
   "d": "2026-10-15"
  },
  "area/pref-fukui.html": {
-  "h": "7066a8966800",
+  "h": "38770b26de66",
   "d": "2026-10-15"
  },
  "area/pref-fukuoka.html": {
-  "h": "a521bf1b88d9",
+  "h": "9ad8bfcd7ac4",
   "d": "2026-10-15"
  },
  "area/pref-fukushima.html": {
-  "h": "fea9f6287926",
+  "h": "8c5770adefed",
   "d": "2026-10-15"
  },
  "area/pref-gifu.html": {
-  "h": "6882b760a7d6",
+  "h": "b7b9eb2b7a83",
   "d": "2026-10-15"
  },
  "area/pref-gunma.html": {
-  "h": "3464f39c4bb7",
+  "h": "08474865054d",
   "d": "2026-10-15"
  },
  "area/pref-hiroshima.html": {
-  "h": "41cca2056a05",
+  "h": "977750770f4a",
   "d": "2026-10-15"
  },
  "area/pref-hokkaido.html": {
-  "h": "70a95a27d915",
+  "h": "0283a80b1f61",
   "d": "2026-10-15"
  },
  "area/pref-hyogo.html": {
-  "h": "653add5fd638",
+  "h": "7650cd1a3198",
   "d": "2026-10-15"
  },
  "area/pref-ibaraki.html": {
-  "h": "9efea7fea14c",
+  "h": "52b54ea1b9a1",
   "d": "2026-10-15"
  },
  "area/pref-ishikawa.html": {
-  "h": "8f5ed5cd249d",
+  "h": "4d62941d786c",
   "d": "2026-10-15"
  },
  "area/pref-iwate.html": {
-  "h": "1cdfe6a38bd1",
+  "h": "df1b8ed07e2c",
   "d": "2026-10-15"
  },
  "area/pref-kagawa.html": {
-  "h": "d89e70252efe",
+  "h": "97d6f2375c3b",
   "d": "2026-10-15"
  },
  "area/pref-kagoshima.html": {
-  "h": "c2ef8f2740d0",
+  "h": "35d7a7dbda65",
   "d": "2026-10-15"
  },
  "area/pref-kanagawa.html": {
-  "h": "62085b7afdf9",
+  "h": "e8ede8a5986b",
   "d": "2026-10-15"
  },
  "area/pref-kochi.html": {
-  "h": "290f03790b17",
+  "h": "c865a0566358",
   "d": "2026-10-15"
  },
  "area/pref-kumamoto.html": {
-  "h": "5899c9967f00",
+  "h": "1bcdb8f1894d",
   "d": "2026-10-15"
  },
  "area/pref-kyoto.html": {
-  "h": "fa9cb0b0476e",
+  "h": "57e43c8413ab",
   "d": "2026-10-15"
  },
  "area/pref-mie.html": {
-  "h": "3f96cde16fab",
+  "h": "7f1f64a2e743",
   "d": "2026-10-15"
  },
  "area/pref-miyagi.html": {
-  "h": "48962c821822",
+  "h": "ec6a915a0b8b",
   "d": "2026-10-15"
  },
  "area/pref-miyazaki.html": {
-  "h": "32aed303e494",
+  "h": "3df820ff688c",
   "d": "2026-10-15"
  },
  "area/pref-nagano.html": {
-  "h": "f470322af49b",
+  "h": "cbae14fa39c0",
   "d": "2026-10-15"
  },
  "area/pref-nagasaki.html": {
-  "h": "e6d4f8c72bc8",
+  "h": "80dbaff39fad",
   "d": "2026-10-15"
  },
  "area/pref-nara.html": {
-  "h": "beada9bce21b",
+  "h": "251ce1826147",
   "d": "2026-10-15"
  },
  "area/pref-niigata.html": {
-  "h": "140008c86de6",
+  "h": "6da243475609",
   "d": "2026-10-15"
  },
  "area/pref-oita.html": {
-  "h": "f3e0720cca45",
+  "h": "f7aad81266ef",
   "d": "2026-10-15"
  },
  "area/pref-okayama.html": {
-  "h": "6fd2ca80fdbd",
+  "h": "389800b5dbbd",
   "d": "2026-10-15"
  },
  "area/pref-okinawa.html": {
-  "h": "8649f398fa19",
+  "h": "c272c1c7634f",
   "d": "2026-10-15"
  },
  "area/pref-osaka.html": {
-  "h": "211eea9a6da3",
+  "h": "469343f751e4",
   "d": "2026-10-15"
  },
  "area/pref-saga.html": {
-  "h": "3e98d7a75d05",
+  "h": "4257fb3bd4fb",
   "d": "2026-10-15"
  },
  "area/pref-saitama.html": {
-  "h": "49a733af5c87",
+  "h": "a0b498a5dbce",
   "d": "2026-10-15"
  },
  "area/pref-shiga.html": {
-  "h": "5224143c0571",
+  "h": "b2787c53db45",
   "d": "2026-10-15"
  },
  "area/pref-shimane.html": {
-  "h": "03156e8ba12d",
+  "h": "cdb57f998074",
   "d": "2026-10-15"
  },
  "area/pref-shizuoka.html": {
-  "h": "c1ebed3f8d2d",
+  "h": "aef01024c634",
   "d": "2026-10-15"
  },
  "area/pref-tochigi.html": {
-  "h": "1a215b5f9667",
+  "h": "511a6c8e9bc1",
   "d": "2026-10-15"
  },
  "area/pref-tokushima.html": {
-  "h": "20551bef90e6",
+  "h": "2af89e67ecc9",
   "d": "2026-10-15"
  },
  "area/pref-tokyo.html": {
-  "h": "6bea15c25d2e",
+  "h": "db2911528887",
   "d": "2026-10-15"
  },
  "area/pref-tottori.html": {
-  "h": "41862abad249",
+  "h": "977e0287efcb",
   "d": "2026-10-15"
  },
  "area/pref-toyama.html": {
-  "h": "79f8b9e1f8b1",
+  "h": "1e405e01e80d",
   "d": "2026-10-15"
  },
  "area/pref-wakayama.html": {
-  "h": "fb94934df29d",
+  "h": "5578ac6efe55",
   "d": "2026-10-15"
  },
  "area/pref-yamagata.html": {
-  "h": "5eb3a7963b7d",
+  "h": "5b14aaa41b3d",
   "d": "2026-10-15"
  },
  "area/pref-yamaguchi.html": {
-  "h": "47650633ada7",
+  "h": "e87e4a468e08",
   "d": "2026-10-15"
  },
  "area/pref-yamanashi.html": {
-  "h": "bf46adf919ff",
+  "h": "89be91a7b1c2",
   "d": "2026-10-15"
  },
  "area/sabae.html": {
-  "h": "55502d7e72f2",
+  "h": "c47f3aaf110c",
   "d": "2026-10-15"
  },
  "area/saga.html": {
-  "h": "b5443156f74a",
+  "h": "2893daffcdbd",
   "d": "2026-10-15"
  },
  "area/sagamihara.html": {
-  "h": "03bad03b20d1",
+  "h": "5aed1c0ae26e",
   "d": "2026-10-15"
  },
  "area/saijo.html": {
-  "h": "3e9c8667ebdc",
+  "h": "57f1f5f5fc2c",
   "d": "2026-10-15"
  },
  "area/saitama.html": {
-  "h": "0a232a5129f6",
+  "h": "9e34c1db5b75",
   "d": "2026-10-15"
  },
  "area/sakai.html": {
-  "h": "9f58052c25d6",
+  "h": "18d474beaac4",
   "d": "2026-10-15"
  },
  "area/sakata.html": {
-  "h": "10751d0b59b6",
+  "h": "f49c4ae0322b",
   "d": "2026-10-15"
  },
  "area/saku.html": {
-  "h": "436d5730d04a",
+  "h": "1e9f4ec40073",
   "d": "2026-10-15"
  },
  "area/sakura.html": {
-  "h": "8694b894d2b4",
+  "h": "47fbcc05268b",
   "d": "2026-10-15"
  },
  "area/sapporo.html": {
-  "h": "4efe8cef9ffd",
+  "h": "9aef33068a32",
   "d": "2026-10-15"
  },
  "area/sasebo.html": {
-  "h": "31f808dace2f",
+  "h": "c6c380bc4538",
   "d": "2026-10-15"
  },
  "area/sendai.html": {
-  "h": "e7e6f56e3344",
+  "h": "a5b1e24d6944",
   "d": "2026-10-15"
  },
  "area/setagaya.html": {
-  "h": "554155ae99a8",
+  "h": "58d44238b1fa",
   "d": "2026-10-15"
  },
  "area/settsu.html": {
-  "h": "593c7e58be1d",
+  "h": "4133a02bdc07",
   "d": "2026-10-15"
  },
  "area/shibuya.html": {
-  "h": "63e0206ad16b",
+  "h": "5cf24462c4c5",
   "d": "2026-10-15"
  },
  "area/shimada.html": {
-  "h": "0cf598d3b86b",
+  "h": "8df639cfa3a9",
   "d": "2026-10-15"
  },
  "area/shimonoseki.html": {
-  "h": "b15aa7c51b2d",
+  "h": "575bd58e5d98",
   "d": "2026-10-15"
  },
  "area/shinagawa.html": {
-  "h": "51a31608ccc9",
+  "h": "675ac474ff26",
   "d": "2026-10-15"
  },
  "area/shinjuku.html": {
-  "h": "51c040d2f40e",
+  "h": "9974a0882d07",
   "d": "2026-10-15"
  },
  "area/shizuoka.html": {
-  "h": "62b1fa8f217f",
+  "h": "d70ead598910",
   "d": "2026-10-15"
  },
  "area/shunan.html": {
-  "h": "5b36343986be",
+  "h": "cdbea41dbb2c",
   "d": "2026-10-15"
  },
  "area/soka.html": {
-  "h": "39a427e56025",
+  "h": "7a1315f909ed",
   "d": "2026-10-15"
  },
  "area/suginami.html": {
-  "h": "f1034784c96b",
+  "h": "ba3e51bb2c1c",
   "d": "2026-10-15"
  },
  "area/suita.html": {
-  "h": "0e9f6ebfde73",
+  "h": "a5a6f21d1345",
   "d": "2026-10-15"
  },
  "area/sumida.html": {
-  "h": "e9f57bcf6ea9",
+  "h": "3b06260c4e68",
   "d": "2026-10-15"
  },
  "area/suwa.html": {
-  "h": "eee8a8b2846d",
+  "h": "284ed075ce4b",
   "d": "2026-10-15"
  },
  "area/suzuka.html": {
-  "h": "42dfe2b767f3",
+  "h": "8f1e22b9373b",
   "d": "2026-10-15"
  },
  "area/tachikawa.html": {
-  "h": "1ad315a2f896",
+  "h": "cb610659287d",
   "d": "2026-10-15"
  },
  "area/taito.html": {
-  "h": "ad0da0a1892f",
+  "h": "4ece5d267e80",
   "d": "2026-10-15"
  },
  "area/tajimi.html": {
-  "h": "9a9c5763fd39",
+  "h": "cbab7895a04a",
   "d": "2026-10-15"
  },
  "area/takamatsu.html": {
-  "h": "f18b114e0b64",
+  "h": "53ce5a0e18aa",
   "d": "2026-10-15"
  },
  "area/takaoka.html": {
-  "h": "0d99c74a7efd",
+  "h": "e8226f8eebeb",
   "d": "2026-10-15"
  },
  "area/takarazuka.html": {
-  "h": "29f6475733b2",
+  "h": "80dc7db03cc6",
   "d": "2026-10-15"
  },
  "area/takasaki.html": {
-  "h": "325c6be8c229",
+  "h": "b43416685d9b",
   "d": "2026-10-15"
  },
  "area/takatsuki.html": {
-  "h": "2ea97ec8a68f",
+  "h": "d71a6f32bd53",
   "d": "2026-10-15"
  },
  "area/tanabe.html": {
-  "h": "586d8b58066e",
+  "h": "4c62675c9676",
   "d": "2026-10-15"
  },
  "area/toda.html": {
-  "h": "012024e10ff3",
+  "h": "7c4f6fb4cc4f",
   "d": "2026-10-15"
  },
  "area/tokorozawa.html": {
-  "h": "fec84be6d0d3",
+  "h": "999c9e3c15a6",
   "d": "2026-10-15"
  },
  "area/tokushima.html": {
-  "h": "58139386a472",
+  "h": "155d01bf031f",
   "d": "2026-10-15"
  },
  "area/tomakomai.html": {
-  "h": "0a2a8dc26452",
+  "h": "67f0ef4a18f0",
   "d": "2026-10-15"
  },
  "area/tondabayashi.html": {
-  "h": "a7206a84ed32",
+  "h": "0be58cece10f",
   "d": "2026-10-15"
  },
  "area/toride.html": {
-  "h": "101263d5e371",
+  "h": "2535114a3035",
   "d": "2026-10-15"
  },
  "area/toshima.html": {
-  "h": "556bb845d831",
+  "h": "83b6df172c4f",
   "d": "2026-10-15"
  },
  "area/tosu.html": {
-  "h": "7770cb853142",
+  "h": "c492dd28de7e",
   "d": "2026-10-15"
  },
  "area/tottori.html": {
-  "h": "4c244bc370da",
+  "h": "a800f678d62a",
   "d": "2026-10-15"
  },
  "area/toyama.html": {
-  "h": "bd6feeb3c0e2",
+  "h": "421f579812db",
   "d": "2026-10-15"
  },
  "area/toyohashi.html": {
-  "h": "12b4cfd4379b",
+  "h": "f3ded02a93ad",
   "d": "2026-10-15"
  },
  "area/toyokawa.html": {
-  "h": "f6ce1eff4a3c",
+  "h": "0bbddcb9db9f",
   "d": "2026-10-15"
  },
  "area/toyonaka.html": {
-  "h": "0d3baf23db19",
+  "h": "dc68bcb3f340",
   "d": "2026-10-15"
  },
  "area/toyota.html": {
-  "h": "64a24765c075",
+  "h": "8348a60b8de4",
   "d": "2026-10-15"
  },
  "area/tsu.html": {
-  "h": "9272a00ffd19",
+  "h": "831b597b244b",
   "d": "2026-10-15"
  },
  "area/tsuchiura.html": {
-  "h": "7880173ffe94",
+  "h": "6c8d2549e837",
   "d": "2026-10-15"
  },
  "area/tsukuba.html": {
-  "h": "34a13c04efc4",
+  "h": "1cee74a291fc",
   "d": "2026-10-15"
  },
  "area/tsuruga.html": {
-  "h": "fe69eb4c7aa6",
+  "h": "b83cc7655d10",
   "d": "2026-10-15"
  },
  "area/tsuruoka.html": {
-  "h": "3db92ed94117",
+  "h": "3d59f94ff3f3",
   "d": "2026-10-15"
  },
  "area/tsuyama.html": {
-  "h": "45e6b20f8210",
+  "h": "c7c76faf6c27",
   "d": "2026-10-15"
  },
  "area/ube.html": {
-  "h": "17f98b72eff2",
+  "h": "16cc8077300b",
   "d": "2026-10-15"
  },
  "area/ueda.html": {
-  "h": "d78f2c3e1be4",
+  "h": "7611ea7e81d7",
   "d": "2026-10-15"
  },
  "area/uji.html": {
-  "h": "f1b721211b4a",
+  "h": "a273558fe948",
   "d": "2026-10-15"
  },
  "area/urasoe.html": {
-  "h": "bb48d4709c33",
+  "h": "6ee9894f48b7",
   "d": "2026-10-15"
  },
  "area/utsunomiya.html": {
-  "h": "96e70ffc5159",
+  "h": "8b9b84142966",
   "d": "2026-10-15"
  },
  "area/wakayama.html": {
-  "h": "7f37ced792d2",
+  "h": "908e56f8db00",
   "d": "2026-10-15"
  },
  "area/yachiyo.html": {
-  "h": "846efd244d50",
+  "h": "0c3f62d12945",
   "d": "2026-10-15"
  },
  "area/yaizu.html": {
-  "h": "a4b81246064d",
+  "h": "6a47b0210dd1",
   "d": "2026-10-15"
  },
  "area/yamagata.html": {
-  "h": "579efca5f27e",
+  "h": "d7d6fc5d11d5",
   "d": "2026-10-15"
  },
  "area/yamaguchi.html": {
-  "h": "56c654eb71c8",
+  "h": "7640f2aec38e",
   "d": "2026-10-15"
  },
  "area/yamato.html": {
-  "h": "78106c13cd22",
+  "h": "dd58f5a3c916",
   "d": "2026-10-15"
  },
  "area/yao.html": {
-  "h": "2cfd028c0534",
+  "h": "0249432e4d56",
   "d": "2026-10-15"
  },
  "area/yatsushiro.html": {
-  "h": "a74c2390e1db",
+  "h": "6d2ed3aa238e",
   "d": "2026-10-15"
  },
  "area/yokkaichi.html": {
-  "h": "c34fab324694",
+  "h": "a772a8b076cd",
   "d": "2026-10-15"
  },
  "area/yokohama.html": {
-  "h": "c8b992e8d23a",
+  "h": "ab54a5434bbf",
   "d": "2026-10-15"
  },
  "area/yokosuka.html": {
-  "h": "fa06f0431721",
+  "h": "c35d71fa7f97",
   "d": "2026-10-15"
  },
  "area/yokote.html": {
-  "h": "0139bf94570b",
+  "h": "52e87a6a6911",
   "d": "2026-10-15"
  },
  "area/yonezawa.html": {
-  "h": "cd20f682018f",
+  "h": "d37e24289298",
   "d": "2026-10-15"
  },
  "research/business.html": {
@@ -1745,22 +1761,6 @@
  },
  "background/population.html": {
   "h": "f4cd064f956a",
-  "d": "2026-10-15"
- },
- "basics/types.html": {
-  "h": "426486c416df",
-  "d": "2026-10-15"
- },
- "personal/summary.html": {
-  "h": "f33b6bcfc02c",
-  "d": "2026-10-15"
- },
- "basics/documents.html": {
-  "h": "2c6bc9d1a2a2",
-  "d": "2026-10-15"
- },
- "basics/eligibility.html": {
-  "h": "bcd4bde95f0e",
   "d": "2026-10-15"
  }
 }
