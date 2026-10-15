@@ -325,6 +325,33 @@ ${PREFECTURES.filter((x) => x !== pref).map((x) => `          <li><a href="pref-
   return shell({ title, description, canonicalPath: path, body, jsonLd, robots: 'index, follow' });
 }
 
+// 日本地図（タイルマップ）：47都道府県を、おおよその位置どおりに並べた、クリックできる簡易な地図。色の濃さは、掲載している制度の件数
+// 位置は [列, 行]（北海道だけは2×2マス）。左上が (0,0)
+const MAP_POS = {
+  '北海道': [11, 0], '青森県': [11, 2], '秋田県': [10, 3], '岩手県': [11, 3], '山形県': [10, 4], '宮城県': [11, 4],
+  '石川県': [8, 5], '富山県': [9, 5], '新潟県': [10, 5], '福島県': [11, 5],
+  '福井県': [7, 6], '岐阜県': [8, 6], '長野県': [9, 6], '群馬県': [10, 6], '栃木県': [11, 6], '茨城県': [12, 6],
+  '島根県': [3, 7], '鳥取県': [4, 7], '兵庫県': [5, 7], '京都府': [6, 7], '滋賀県': [7, 7], '愛知県': [8, 7], '山梨県': [9, 7], '埼玉県': [10, 7], '東京都': [11, 7], '千葉県': [12, 7],
+  '佐賀県': [0, 8], '福岡県': [1, 8], '山口県': [2, 8], '広島県': [3, 8], '岡山県': [4, 8], '大阪府': [6, 8], '奈良県': [7, 8], '三重県': [8, 8], '静岡県': [9, 8], '神奈川県': [10, 8],
+  '長崎県': [0, 9], '熊本県': [1, 9], '大分県': [2, 9], '愛媛県': [3, 9], '香川県': [4, 9], '徳島県': [5, 9], '和歌山県': [6, 9],
+  '鹿児島県': [1, 10], '宮崎県': [2, 10], '高知県': [4, 10], '沖縄県': [0, 11],
+};
+const shortPref = (x) => (x === '北海道' ? x : x.replace(/[都府県]$/, ''));
+function prefMap() {
+  const counts = Object.fromEntries(PREFECTURES.map((x) => { const d = prefData(x); return [x, d.bizPref.length + d.bizMuni.length + d.resPref.length + d.resMuni.length]; }));
+  const max = Math.max(...Object.values(counts), 1);
+  const level = (n) => (n === 0 ? 0 : Math.min(5, 1 + Math.floor((n / max) * 5 - 1e-9)));
+  const tiles = PREFECTURES.map((x) => {
+    const [c, r] = MAP_POS[x];
+    const big = x === '北海道';
+    return `        <a class="area-tile lv${level(counts[x])}${big ? ' big' : ''}${x === '沖縄県' ? ' okinawa' : ''}${shortPref(x).length >= 3 && !big ? ' long' : ''}" style="grid-column:${c + 1}${big ? ' / span 2' : ''};grid-row:${r + 1}${big ? ' / span 2' : ''}" href="pref-${PREF_SLUGS[x]}.html" aria-label="${esc(x)}の補助金（${counts[x]}件）" title="${esc(x)}：${counts[x]}件"><span>${esc(shortPref(x))}</span><small>${counts[x]}</small></a>`;
+  }).join('\n');
+  return `      <div class="area-map" role="group" aria-label="日本地図（都道府県を選ぶ）">
+${tiles}
+      </div>
+      <p class="area-map-legend" aria-hidden="true">掲載している制度の件数：<i class="lv1"></i>少ない<i class="lv3"></i><i class="lv5"></i>多い（タイルの数字は件数）</p>`;
+}
+
 function indexPage() {
   const groups = PREFECTURES
     .map((pref) => ({ pref, cities: AREA_CITIES.filter((c) => c.pref === pref) }))
@@ -348,10 +375,14 @@ ${g.cities.map((c) => `            <li><a href="${c.slug}.html">${esc(c.name)}</
     </div>
 
     <section class="area-section" aria-labelledby="prefs">
-      <h2 id="prefs">都道府県から探す</h2>
-      <ul class="area-city-list">
-${PREFECTURES.map((x) => `        <li><a href="pref-${PREF_SLUGS[x]}.html">${esc(x)}</a></li>`).join('\n')}
-      </ul>
+      <h2 id="prefs">地図から都道府県を選ぶ</h2>
+${prefMap()}
+      <details class="area-pref-text">
+        <summary>文字の一覧で選ぶ</summary>
+        <ul class="area-city-list">
+${PREFECTURES.map((x) => `          <li><a href="pref-${PREF_SLUGS[x]}.html">${esc(x)}</a></li>`).join('\n')}
+        </ul>
+      </details>
     </section>
 
     <section class="area-section" aria-labelledby="cities">
