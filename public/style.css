@@ -1415,3 +1415,49 @@ details ul { margin: 8px 0; padding-left: 1.5em; }
 .rw4 { --rw-bg: #fde8de; --rw-bd: #f5c6ac; --rw-fg: #c2410c; }
 @media (max-width: 560px) { .rw-grid { grid-template-columns: 1fr; gap: 8px; } .rw { height: 64px; padding-left: 20px; } .rw-big svg { width: 78px; height: 78px; } }
 @media (prefers-reduced-motion: reduce) { .rw, .rw-big { transition: none; } .rw:hover { transform: none; } .rw:hover .rw-big { transform: none; } }
+
+/* トップ（HERO以下）リニューアルA案：絞って、迷わせない */
+.r-sec h2 { justify-content: flex-start; color: #0a2352; }
+.r-sec h2::before { content: ""; flex: none; width: 4px; height: 24px; border-radius: 2px; background: #f8602f; }
+.r-sec h2 a { margin-left: auto; color: #2b65b1; }
+.r-sec h2.r-bar-red::before { background: #d23a3a; }
+.r-sec h2.r-bar-green::before { background: #2e7e4b; }
+.r-sec h2.r-bar-navy::before { background: #073461; }
+.r-plan h2::before, .about h2::before { display: none; }
+.r-sec h3 { font-size: 1rem; margin: 0 0 8px; color: #0a2352; }
+/* 探し方：4枚のカード（AI相談だけネイビー） */
+.r-ways .rw-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+.r-ways .rw { flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: 12px; height: auto; min-height: 150px; padding: 22px 22px 20px; background: #fff; box-shadow: 0 2px 12px rgba(10, 35, 82, .06); }
+.r-ways .rw::before { display: none; }
+.r-ways .rw:hover { box-shadow: 0 2px 12px rgba(10, 35, 82, .06), inset 0 0 0 1px var(--rw-fg); }
+.r-ways .rw-big { position: static; opacity: 1; width: 48px; height: 48px; border-radius: 8px; display: grid; place-items: center; background: var(--rw-bg); }
+.r-ways .rw:hover .rw-big { transform: none; opacity: 1; }
+.r-ways .rw-big svg { width: 28px; height: 28px; }
+.r-ways .rw-t b { font-size: 1rem; font-weight: 700; }
+.r-ways .rw-t span { white-space: normal; font-size: .8rem; color: #56667f; }
+.r-ways .rw4 { background: #073461; --rw-fg: #fff; --rw-bg: rgba(255, 255, 255, .14); }
+.r-ways .rw4 .rw-t b { color: #fff; }
+.r-ways .rw4 .rw-t span { color: #dbe4f2; }
+.r-ways .rw4:focus-visible { outline-color: #f8602f; }
+/* 締切・新着：白いカードに行を並べる */
+.r-two { gap: 20px; }
+.r-two > div { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(10, 35, 82, .06); padding: 20px 24px; }
+.r-two .r-list { border: 0; border-radius: 0; background: none; }
+.r-two .r-list li { padding: 12px 0; }
+.r-two .r-more { margin-top: 8px; font-size: .85rem; }
+/* 人気：カードの影・角丸をそろえる */
+.r-popc, .r-who .r-whoc, .r-learnc { border: 0; border-radius: 12px; box-shadow: 0 2px 12px rgba(10, 35, 82, .06); }
+.r-popc:hover, .r-whoc:hover { box-shadow: 0 2px 12px rgba(10, 35, 82, .06), 0 0 0 1px #1f3353; }
+.r-popimg { height: 88px; }
+/* 入口 */
+.r-whoc { padding: 20px 22px; }
+.r-whoc b { color: #0a2352; }
+/* 事業計画書AI：帯 */
+.r-plan { margin-top: 48px; border: 0; border-radius: 12px; background: #fff; box-shadow: 0 2px 12px rgba(10, 35, 82, .06); }
+/* 新着・更新：3列を1枚のカードに */
+.r-lat3 { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(10, 35, 82, .06); padding: 20px 24px; gap: 28px; }
+.r-lat3 .r-list { border: 0; border-radius: 0; background: none; }
+.r-lat3 .r-list li { padding: 10px 0; }
+.r-more.r-first { margin-top: 16px; }
+@media (max-width: 960px) { .r-ways .rw-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .r-ways .rw-grid { grid-template-columns: 1fr; gap: 12px; } .r-ways .rw { min-height: 0; height: auto; padding-left: 22px; } .r-two > div, .r-lat3 { padding: 16px; } }

@@ -138,8 +138,8 @@
   </section>
 
   <main class="wrap">
-    <section class="r-sec" aria-labelledby="ways-title">
-      <h2 id="ways-title">4つの探し方</h2>
+    <section class="r-sec r-ways" aria-labelledby="ways-title">
+      <h2 id="ways-title">どこから探しますか？</h2>
       <div class="rw-grid">
         <a class="rw rw1" href="search.html"><span class="rw-big"><svg viewBox="0 0 24 24" width="92" height="92" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.5-4.5"/></svg></span><span class="rw-t"><b>キーワードで探す</b><span>キーワード・地域で絞り込み</span></span></a>
         <a class="rw rw2" href="area/index.html"><span class="rw-big"><svg viewBox="0 0 24 24" width="92" height="92" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span class="rw-t"><b>地域から探す</b><span>都道府県・市区町村から</span></span></a>
@@ -148,6 +148,42 @@
       </div>
     </section>
 
+
+
+    <section class="r-sec" aria-labelledby="soon-title">
+      <h2 id="soon-title" class="r-bar-red">いま見ておきたい補助金</h2>
+      <div class="r-two">
+      <div>
+        <h3>締切が近い補助金</h3>
+        <ul class="r-list" id="r-soon"><!-- prerender-soon:start --><li class="r-empty">読み込み中…</li><!-- prerender-soon:end --></ul>
+        <p class="r-more"><a href="search.html?within=90&amp;sort=end">締切が近い補助金を、一覧ですべて見る →</a></p>
+      </div>
+      <div>
+        <h3>新着の補助金</h3>
+        <ul class="r-list" id="r-new"><!-- prerender-new:start --><li class="r-empty">読み込み中…</li><!-- prerender-new:end --></ul>
+        <p class="r-more"><a href="search.html?sort=new">新着の補助金を、一覧ですべて見る →</a></p>
+      </div>
+      </div>
+    </section>
+
+
+    <section class="r-sec" aria-labelledby="pop-title">
+      <h2 id="pop-title">特に人気の5つの補助金 <a href="feature/popular.html">すべて見る →</a></h2>
+      <ul class="r-pop"><li><a class="r-popc" href="feature/jizokuka.html"><span class="r-popimg" style="background-image: url('images/banner/b02.webp')"></span><b>小規模事業者持続化補助金</b><span>販路開拓・ホームページ</span></a></li><li><a class="r-popc" href="feature/digital-subsidy.html"><span class="r-popimg" style="background-image: url('images/banner/b08.webp')"></span><b>デジタル化・AI導入補助金</b><span>会計・POS・業務システム</span></a></li><li><a class="r-popc" href="feature/monodukuri.html"><span class="r-popimg" style="background-image: url('images/banner/b03.webp')"></span><b>新事業進出・ものづくり商業サービス補助金</b><span>新製品・新事業・設備投資</span></a></li><li><a class="r-popc" href="feature/shoryokuka.html"><span class="r-popimg" style="background-image: url('images/banner/b04.webp')"></span><b>中小企業省力化投資補助金</b><span>人手不足・自動化</span></a></li><li><a class="r-popc" href="feature/succession.html"><span class="r-popimg" style="background-image: url('images/banner/b05.webp')"></span><b>事業承継・M&amp;A補助金</b><span>引き継ぎ・譲渡</span></a></li></ul>
+    </section>
+
+
+
+    <section class="r-sec r-who-sec" aria-labelledby="who-title">
+      <h2 id="who-title" class="r-bar-green">あなたに合った入口から</h2>
+      <div class="r-who">
+        <a class="r-whoc" href="who/sole-proprietor.html"><b>個人事業主の方</b><span>少人数でも使える制度と、申請の注意点</span></a>
+        <a class="r-whoc" href="who/startup.html"><b>創業・副業を始める方</b><span>創業のステップ、副業のガイド、AIで構想を整理</span></a>
+        <a class="r-whoc" href="who/sme.html"><b>中小企業の方</b><span>設備投資、省力化、事業承継、雇用の助成金</span></a>
+        <a class="r-whoc" href="hantei.html?for=personal"><b>個人の方（住まい・車・子育て）</b><span>省エネリフォーム、EV、子育ての支援</span></a>
+      </div>
+      <p class="r-more"><a href="hantei.html">質問に答えて、使えそうな補助金を探す（AI補助金判定） →</a></p>
+    </section>
 
     <section class="r-sec r-plan" aria-labelledby="plan-title">
       <span class="r-plan-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></span>
@@ -159,47 +195,17 @@
       <a class="r-plan-btn" href="plan.html">事業計画書AIを試す <span aria-hidden="true">→</span></a>
     </section>
 
-    <section class="r-sec r-two" aria-label="締切と新着">
-      <div>
-        <h2>締切が近い補助金</h2>
-        <ul class="r-list" id="r-soon"><!-- prerender-soon:start --><li class="r-empty">読み込み中…</li><!-- prerender-soon:end --></ul>
-        <p class="r-more"><a href="search.html?within=90&amp;sort=end">締切が近い補助金を、一覧ですべて見る →</a></p>
-      </div>
-      <div>
-        <h2>新着の補助金</h2>
-        <ul class="r-list" id="r-new"><!-- prerender-new:start --><li class="r-empty">読み込み中…</li><!-- prerender-new:end --></ul>
-        <p class="r-more"><a href="search.html?sort=new">新着の補助金を、一覧ですべて見る →</a></p>
-      </div>
-    </section>
-
     <!-- 新着・更新：ニュースとブログは scripts/update-latest.mjs が自動で入れる。サイトのお知らせは、公開・機能追加のたびに新しい順に追記（最大3件） -->
     <section class="r-sec r-latest" id="news" aria-labelledby="latest-title">
-      <h2 id="latest-title">新着・更新情報 <span class="r-upd">最終更新 <time id="r-updated" datetime="2026-10-15">2026年10月15日</time></span></h2>
+      <h2 id="latest-title" class="r-bar-navy">新着・更新情報 <span class="r-upd">最終更新 <time id="r-updated" datetime="2026-10-15">2026年10月15日</time></span></h2>
       <div class="r-lat3">
         <div><h3>補助金ニュース <a href="news/index.html">一覧 →</a></h3><!-- news-latest:start --><ul class="r-list"><li><a href="news/2026-10-10-jizokuka-20.html">小規模事業者持続化補助金、第20回（一般型 通常枠）は11月5日から受付予定</a><span class="m">2026年10月10日</span></li><li><a href="news/2026-10-09-deadlines-october.html">10月〜11月に締切が来る主な補助金まとめ（2026年10月9日時点）</a><span class="m">2026年10月9日</span></li><li><a href="news/2026-10-07-gyomu-kaizen.html">業務改善助成金（令和8年度）、東京・埼玉などは受付終了　締切は地域で異なる</a><span class="m">2026年10月7日</span></li></ul><!-- news-latest:end --></div>
         <div><h3>ブログ <a href="blog/index.html">一覧 →</a></h3><!-- blog-latest:start --><ul class="r-list"><li><a href="blog/2026-10-13-subsidy-for-website.html">ホームページ制作に使える補助金｜持続化補助金とデジタル化・AI導入補助金の違い</a><span class="m">2026年10月13日</span></li><li><a href="blog/2026-10-13-popular-subsidies-application-steps.html">【2026年版】人気補助金4選の申請手順を徹底解説</a><span class="m">2026年10月13日</span></li><li><a href="blog/2026-10-13-popular-subsidies-application-steps-2.html">【2026年版】人気補助金4選の申請手順を徹底解説（その2）省力化・事業承継・成長加速化・雇用の助成金</a><span class="m">2026年10月13日</span></li></ul><!-- blog-latest:end --></div>
         <div><h3>サイトからのお知らせ <a href="notices.html">一覧 →</a></h3><ul class="r-list r-notice"><!-- notice:start --><li><time datetime="2026-10-14">2026.10.14</time><span><a href="research/business.html">「補助金データ」に、事業向けリサーチデータ・個人向けリサーチデータ・地域×目的の空白マップ・月次レポートを追加しました。掲載している制度の種類・目的・金額・締切・地域を集計し、毎日更新します。</a></span></li><li><time datetime="2026-10-14">2026.10.14</time><span><a href="plan.html">「事業計画書AI下書き」を始めました。事業の内容とやりたいことを入力すると、持続化補助金・デジタル化・AI導入補助金の計画書の下書きをAIがまとめます（無料お試し・1日1回）。</a></span></li><li><time datetime="2026-10-10">2026.10.10</time><span><a href="cases/index.html">「補助金の活用事例」のコーナーを始めました。補助金を使って課題を乗り越えた事業者の事例を、公的機関の公開情報をもとに紹介します。</a></span></li><!-- notice:end --></ul></div>
       </div>
     </section>
+    <p class="r-more r-first"><b>はじめての方へ</b><a href="basics/flow.html">申請の流れ</a><a href="columns/subsidy-vs-grant-vs-loan.html">補助金・助成金・融資の違い</a><a href="basics/business-plan.html">事業計画書の書き方</a><a href="cases/index.html">活用事例</a><a href="basics/index.html">基礎知識をもっと見る →</a></p>
 
-    <section class="r-sec" aria-labelledby="pop-title">
-      <h2 id="pop-title">特に人気の5つの補助金 <a href="feature/popular.html">すべて見る →</a></h2>
-      <ul class="r-pop"><li><a class="r-popc" href="feature/jizokuka.html"><span class="r-popimg" style="background-image: url('images/banner/b02.webp')"></span><b>小規模事業者持続化補助金</b><span>販路開拓・ホームページ</span></a></li><li><a class="r-popc" href="feature/digital-subsidy.html"><span class="r-popimg" style="background-image: url('images/banner/b08.webp')"></span><b>デジタル化・AI導入補助金</b><span>会計・POS・業務システム</span></a></li><li><a class="r-popc" href="feature/monodukuri.html"><span class="r-popimg" style="background-image: url('images/banner/b03.webp')"></span><b>新事業進出・ものづくり商業サービス補助金</b><span>新製品・新事業・設備投資</span></a></li><li><a class="r-popc" href="feature/shoryokuka.html"><span class="r-popimg" style="background-image: url('images/banner/b04.webp')"></span><b>中小企業省力化投資補助金</b><span>人手不足・自動化</span></a></li><li><a class="r-popc" href="feature/succession.html"><span class="r-popimg" style="background-image: url('images/banner/b05.webp')"></span><b>事業承継・M&amp;A補助金</b><span>引き継ぎ・譲渡</span></a></li></ul>
-      <p class="r-more"><b>はじめての方へ</b><a href="basics/flow.html">申請の流れ</a><a href="columns/subsidy-vs-grant-vs-loan.html">補助金・助成金・融資の違い</a><a href="basics/business-plan.html">事業計画書の書き方</a><a href="cases/index.html">活用事例</a><a href="basics/index.html">基礎知識をもっと見る →</a></p>
-    </section>
-
-
-
-    <section class="r-sec" aria-labelledby="who-title">
-      <h2 id="who-title">あなたに合った入口から</h2>
-      <div class="r-who">
-        <a class="r-whoc" href="who/sole-proprietor.html"><b>個人事業主の方</b><span>少人数でも使える制度と、申請の注意点</span></a>
-        <a class="r-whoc" href="who/startup.html"><b>創業・副業を始める方</b><span>創業のステップ、副業のガイド、AIで構想を整理</span></a>
-        <a class="r-whoc" href="who/sme.html"><b>中小企業の方</b><span>設備投資、省力化、事業承継、雇用の助成金</span></a>
-        <a class="r-whoc" href="hantei.html?for=personal"><b>個人の方（住まい・車・子育て）</b><span>省エネリフォーム、EV、子育ての支援</span></a>
-      </div>
-      <p class="r-more"><a href="hantei.html">質問に答えて、使えそうな補助金を探す（AI補助金判定） →</a></p>
-    </section>
 
     <section class="r-sec r-faq" aria-labelledby="faq-title">
       <h2 id="faq-title">よくある質問</h2>
