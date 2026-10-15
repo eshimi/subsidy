@@ -275,6 +275,12 @@
     const kinds = [...new Set(all.map(kindOf))];
     if (activeKind !== 'すべて' && !kinds.includes(activeKind)) activeKind = 'すべて';
     const out = activeKind === 'すべて' ? all : all.filter((g) => kindOf(g) === activeKind);
+    // 県を指定しているときは、その県の制度を上に、県を問わない全国の制度は下の「全国の制度」にまとめる（県の制度が1件もないときは、全部を並べる）
+    // 「全国」とあるもの、10以上の地域が並ぶもの（ほぼ全国向け）は、全国の制度とみなす
+    const isRegional = (g) => { const a = String(g.a || ''); return a.includes(c.pref) && !a.includes('全国') && a.split(/\s*[\/／、,]\s*/).filter(Boolean).length < 10; };
+    const regional = c.pref ? out.filter(isRegional) : out;
+    const national = c.pref && regional.length ? out.filter((g) => !isRegional(g)) : [];
+    const main = c.pref && regional.length ? regional : out;
     const countOf = (k) => (k === 'すべて' ? all.length : all.filter((g) => kindOf(g) === k).length);
     document.getElementById('s-filters').innerHTML = ['すべて', ...kinds].map((k) => `<button type="button" class="filter" aria-pressed="${k === activeKind}" data-kind="${esc(k)}">${esc(k)}<sup>${countOf(k)}</sup></button>`).join('');
     // 分野が2つ以上あるときだけ、分野の行を出す（1つだけなら「すべて」と同じなので出さない）。件数は上の大きな数字と同じなので出さない
@@ -287,16 +293,29 @@
     const prefSlug = PREF_SLUGS[c.pref];
     const prefLink = prefSlug ? `<p class="notice s-pref-link"><a href="area/pref-${prefSlug}.html">${esc(c.pref)}の補助金まとめページを見る（県・市区町村の制度を一覧で） →</a></p>` : '';
     const note = isSentence(c.text) ? '文章から言葉を拾って、近い制度を探しています。郵便番号も入れると、AIが内容を読み取って探します。' : '';
-    count.innerHTML = out.length
-      ? `<p class="summary-count"><span class="big-num">${out.length.toLocaleString('ja-JP')}</span><span class="big-unit">件</span></p>
+    count.innerHTML = main.length
+      ? `<p class="summary-count"><span class="big-num">${main.length.toLocaleString('ja-JP')}</span><span class="big-unit">件</span></p>
          <div class="summary-body"><p class="label">検索結果</p><h2>${esc(title)}</h2>
          ${chips.length ? `<div class="tags">${chips.map((t) => `<span class="tag">${esc(t)}</span>`).join('')}</div>` : ''}
          ${c.city ? `<p class="notice">${esc(c.city)}の制度を先に表示しています。県・全国の制度も含みます。</p>` : ''}
          ${prefLink}
+         ${national.length ? `<p class="notice">${esc(c.pref)}で使える制度を先に表示しています。県を問わず使える全国の制度 ${national.length.toLocaleString('ja-JP')} 件は、下にまとめています。</p>` : ''}
          ${note ? `<p class="notice">${esc(note)}</p>` : ''}</div>`
       : `<div class="summary-body"><p class="label">検索結果</p><h2>条件に合う募集中の補助金は見つかりませんでした</h2><p class="notice">キーワードや条件を減らすか、郵便番号を入れてAIで探してみてください。</p>${prefLink}</div>`;
-    list.innerHTML = out.slice(0, shown).map((g, i) => card(g, i, now)).join('');
-    more.hidden = out.length <= shown;
+    list.innerHTML = main.slice(0, shown).map((g, i) => card(g, i, now)).join('');
+    more.hidden = main.length <= shown;
+    // 全国の制度（県を指定したときだけ）：たたんだ状態でまとめ、開くと先頭の一部を表示。すべては、県を外した検索へ
+    const natBox = document.getElementById('s-national');
+    if (natBox) {
+      if (national.length) {
+        const NAT = 20;
+        const q = new URLSearchParams(location.search);
+        q.delete('pref');
+        natBox.innerHTML = `<details class="s-national"><summary>全国で使える制度 <b>${national.length.toLocaleString('ja-JP')}</b> 件を見る（県を問わず対象になるもの）</summary>
+          <div class="list">${national.slice(0, NAT).map((g, i) => card(g, main.length + i, now)).join('')}</div>
+          ${national.length > NAT ? `<p class="s-national-more"><a href="search.html${q.toString() ? `?${q}` : ''}">全国の制度を、すべて見る（県の指定をはずして検索） →</a></p>` : ''}</details>`;
+      } else natBox.innerHTML = '';
+    }
   }
   document.getElementById('s-aud').addEventListener('click', (e) => {
     const b = e.target.closest('button[data-aud]');

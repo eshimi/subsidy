@@ -1547,3 +1547,9 @@ details ul { margin: 8px 0; padding-left: 1.5em; }
 .area-pref-text { max-width: 760px; margin: 8px auto 0; }
 .area-pref-text summary { cursor: pointer; color: #2b65b1; font-weight: 500; }
 .area-tile.long > span { font-size: 0.74em; letter-spacing: -0.04em; white-space: nowrap; }
+
+/* 検索結果：県を指定したときの「全国の制度」のまとめ */
+.s-national { margin: 18px 0 8px; border: 1px solid #d7e3f2; border-radius: 12px; background: #f7fbff; padding: 4px 16px 14px; }
+.s-national > summary { cursor: pointer; padding: 12px 0; font-weight: 700; color: #1c4f94; }
+.s-national > summary b { font-size: 1.15em; }
+.s-national-more { margin: 12px 0 0; text-align: center; }
