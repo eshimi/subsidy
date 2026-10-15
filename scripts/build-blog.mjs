@@ -5,7 +5,7 @@ import { readFileSync, writeFileSync, mkdirSync, readdirSync, rmSync, existsSync
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseFrontmatter, renderPost } from './lib/markdown.mjs';
-import { articleBody, indexBody, writeArticle } from './lib/article.mjs';
+import { articleBody, crumb, writeArticle } from './lib/article.mjs';
 import { bannerFor } from './lib/banners.mjs';
 import { SITE, esc } from './lib/site-shell.mjs';
 
@@ -13,6 +13,18 @@ const REPO = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SRC = join(REPO, 'content', 'blog');
 const OUT = join(REPO, 'public', 'blog');
 const FOLDER = 'blog';
+
+// カテゴリ（記事の先頭の設定 category: に書く）。表示の順に並べる。色は style.css の .bl-cat-○○
+export const CATEGORIES = [
+  ['申請のしかた', 'apply'],
+  ['制度の選び方', 'choose'],
+  ['サイトの使い方', 'howto'],
+  ['データ・考察', 'data'],
+  ['お知らせ', 'notice'],
+];
+const categoryClass = (name) => (CATEGORIES.find(([n]) => n === name) || [, 'etc'])[1];
+// 読了時間（分）：本文の文字数（空白を除く）÷ 500字／分。1分未満は1分
+export const readMinutes = (body) => Math.max(1, Math.round(String(body).replace(/\s+/g, '').length / 500));
 
 const dateJa = (d) => { const [y, m, day] = d.split('-').map(Number); return `${y}年${m}月${day}日`; };
 const RELATED = [
@@ -34,9 +46,101 @@ export function loadPosts(dir = SRC) {
     if (!/^\d{4}-\d{2}-\d{2}$/.test(data.date ?? '')) throw new Error(`${file}: date は YYYY-MM-DD で書いてください`);
     if (!/^\d{4}-\d{2}-\d{2}-[a-z0-9-]+$/.test(slug)) throw new Error(`${file}: ファイル名は YYYY-MM-DD-英小文字とハイフン.md にしてください`);
     const description = data.description || data.title;
-    posts.push({ slug, file: `${slug}.html`, title: data.title, date: data.date, updated: data.updated || '', description, sections: renderPost(body) });
+    const tags = Array.isArray(data.tags) ? data.tags.map(String) : [];
+    posts.push({ slug, file: `${slug}.html`, title: data.title, date: data.date, updated: data.updated || '', description, category: String(data.category || 'その他'), tags, minutes: readMinutes(body), sections: renderPost(body) });
   }
   return posts.sort((a, b) => (a.date === b.date ? b.slug.localeCompare(a.slug) : b.date.localeCompare(a.date)));
+}
+
+
+const RECOMMEND = [
+  ['../basics/flow.html', '申請の流れ'],
+  ['../columns/subsidy-vs-grant-vs-loan.html', '補助金・助成金・融資の違い'],
+  ['../basics/business-plan.html', '事業計画書の書き方'],
+  ['../cases/index.html', '活用事例'],
+];
+
+// 人気のタグ：記事の先頭の設定 tags: で、使われている数の多い順（同数は新しい記事のもの）。検索ページのキーワード検索へつなぐ
+export function popularTags(posts, limit = 8) {
+  const count = new Map();
+  for (const p of posts) for (const t of new Set(p.tags)) count.set(t, (count.get(t) || 0) + 1);
+  return [...count.entries()].sort((a, b) => b[1] - a[1]).slice(0, limit).map(([t]) => t);
+}
+
+const INDEX_SCRIPT = `<script>
+(function () {
+  var chips = [].slice.call(document.querySelectorAll('.bl-chip'));
+  var rows = [].slice.call(document.querySelectorAll('.bl-row'));
+  if (!chips.length) return;
+  function show(cat) {
+    chips.forEach(function (c) { c.setAttribute('aria-pressed', String(c.getAttribute('data-cat') === cat)); });
+    rows.forEach(function (r) { r.hidden = cat !== 'すべて' && r.getAttribute('data-cat') !== cat; });
+  }
+  chips.forEach(function (c) {
+    c.addEventListener('click', function () {
+      var cat = c.getAttribute('data-cat');
+      show(cat);
+      try { history.replaceState(null, '', cat === 'すべて' ? location.pathname : '#cat=' + encodeURIComponent(cat)); } catch (e) {}
+    });
+  });
+  function fromHash() {
+    var m = location.hash.match(/^#cat=(.+)$/);
+    var cat = m ? decodeURIComponent(m[1]) : 'すべて';
+    if (cat === 'すべて' || chips.some(function (c) { return c.getAttribute('data-cat') === cat; })) show(cat);
+  }
+  window.addEventListener('hashchange', fromHash);
+  fromHash();
+})();
+</script>`;
+
+// 一覧ページ：カテゴリのボタン＋記事の一覧（左）、案内（右）。JS がなくても、すべての記事が表示される
+export function blogIndexBody(posts, { banner, note }) {
+  const used = [...CATEGORIES.map(([n]) => n), ...new Set(posts.map((p) => p.category))].filter((n, i, a) => a.indexOf(n) === i && posts.some((p) => p.category === n));
+  const chip = (name, n, on) => `<button type="button" class="bl-chip" data-cat="${esc(name)}" aria-pressed="${on}">${esc(name)}<sup>${n}</sup></button>`;
+  const rows = posts.map((p) => `        <a class="bl-row" data-cat="${esc(p.category)}" href="${p.file}">
+          <span class="bl-d"><time datetime="${p.date}">${dateJa(p.date)}</time><br>読了 約${p.minutes}分</span>
+          <span class="bl-b"><span class="bl-cat bl-cat-${categoryClass(p.category)}">${esc(p.category)}</span><h3>${esc(p.title)}</h3><p>${esc(p.description)}</p></span>
+        </a>`).join('\n');
+  const tags = popularTags(posts).map((t) => `<a href="../search.html?q=${encodeURIComponent(t)}">${esc(t)}</a>`).join('');
+  return `${crumb([[null, 'ブログ']])}
+
+    <div class="pb-banner" style="background-image: url('../images/banner/${banner}.webp')"><h1 class="pb-title">ブログ</h1></div>
+    <div style="margin-bottom: 1.5rem;">
+      <p class="lead" style="margin-bottom: 0;">補助金の基礎知識、サイトの使い方、運営からのお知らせを載せています。</p>
+    </div>
+
+    <nav class="bl-chips" aria-label="カテゴリで絞り込む">
+      ${chip('すべて', posts.length, true)}
+${used.map((n) => `      ${chip(n, posts.filter((p) => p.category === n).length, false)}`).join('\n')}
+    </nav>
+
+    <div class="bl-layout">
+      <section class="bl-list" aria-labelledby="list">
+        <h2 id="list" class="visually-hidden">記事の一覧</h2>
+${rows}
+      </section>
+      <aside class="bl-side" aria-label="関連の案内">
+        <div class="bl-card bl-cta">
+          <h2>自分に使える補助金は？</h2>
+          <p>質問に答えるだけで、AIが使えそうな補助金を判定します。</p>
+          <a class="bl-btn" href="../hantei.html">AI補助金判定を試す <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="bl-card">
+          <h2>はじめての方へ</h2>
+          <ul class="bl-links">
+${RECOMMEND.map(([h, t]) => `            <li><a href="${h}">${esc(t)}<span aria-hidden="true">→</span></a></li>`).join('\n')}
+          </ul>
+        </div>
+${tags ? `        <div class="bl-card">
+          <h2>人気のタグ</h2>
+          <div class="bl-tags">${tags}</div>
+        </div>
+` : ''}        <p class="bl-rss"><a href="feed.xml">RSSで購読する <span aria-hidden="true">→</span></a></p>
+      </aside>
+    </div>
+
+    <p class="area-note">${note}</p>
+    ${INDEX_SCRIPT}`;
 }
 
 function feedXml(posts) {
@@ -80,12 +184,7 @@ export function build({ src = SRC, out = OUT } = {}) {
     writeArticle(out, FOLDER, p.file, { title: p.title, description: p.description, body });
   }
 
-  const cards = posts.map((p) => [p.file, p.title, p.description]);
-  const indexHtml = indexBody({
-    section: 'ブログ',
-    title: 'ブログ',
-    lead: '補助金の基礎知識、サイトの使い方、運営からのお知らせを載せています。',
-    cards,
+  const indexHtml = blogIndexBody(posts, {
     banner: bannerFor(`${FOLDER}/index.html`),
     note: `記事の内容は公開時点の情報です。制度の金額や締切は変わることがあるため、申し込みの前に公式の情報で確認してください。<a href="feed.xml">RSSで購読する</a>`,
   });

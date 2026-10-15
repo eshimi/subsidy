@@ -31,7 +31,7 @@ const STYLE = `
     .feature-card p { margin: 0; color: var(--mute); }
 `;
 
-const crumb = (items) => `    <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ ${items.map(([h, t]) => (h ? `<a href="${h}">${esc(t)}</a>` : esc(t))).join(' ＞ ')}</nav>`;
+export const crumb = (items) => `    <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ ${items.map(([h, t]) => (h ? `<a href="${h}">${esc(t)}</a>` : esc(t))).join(' ＞ ')}</nav>`;
 
 // 記事の本文（main の中身）
 export function articleBody({ section, kicker, title, lead, sections, related = [], sources = [], banner, updated, afterLead = '', sourcesHeading = '最新情報の確認先', sourcesIntro = '制度の内容は変わります。次の公式情報で、最新の内容を確認してください。' }) {

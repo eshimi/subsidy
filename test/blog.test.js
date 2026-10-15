@@ -72,3 +72,28 @@ test('ブログ：表（| で区切る書き方）を、表として出す', asy
   assert.match(html, /<strong>12月15日<\/strong>/);
   assert.match(html, /<p>本文<\/p>/);
 });
+
+test('ブログ一覧：カテゴリのボタンと件数、記事の行（カテゴリ・読了時間）、人気のタグ。JS なしでも全記事が出る', async () => {
+  const { build, readMinutes, popularTags, CATEGORIES } = await import('../scripts/build-blog.mjs');
+  const src = mkdtempSync(join(tmpdir(), 'blog-src-'));
+  const out = mkdtempSync(join(tmpdir(), 'blog-out-'));
+  const post = (slug, date, category, tags, chars) => writeFileSync(join(src, `${slug}.md`), `---\ntitle: ${slug}\ndate: ${date}\ncategory: ${category}\ntags: [${tags}]\n---\n\n${'あ'.repeat(chars)}\n`);
+  post('2026-03-01-a', '2026-03-01', '申請のしかた', 'タグ1, タグ2', 1200);
+  post('2026-03-02-b', '2026-03-02', '申請のしかた', 'タグ1', 100);
+  post('2026-03-03-c', '2026-03-03', '未登録のカテゴリ', 'タグ3', 100);
+  assert.equal(build({ src, out }), 3);
+  const html = readFileSync(join(out, 'index.html'), 'utf-8');
+  assert.match(html, /data-cat="すべて" aria-pressed="true">すべて<sup>3<\/sup>/);
+  assert.match(html, /data-cat="申請のしかた" aria-pressed="false">申請のしかた<sup>2<\/sup>/);
+  assert.match(html, /data-cat="未登録のカテゴリ"[^>]*>未登録のカテゴリ<sup>1<\/sup>/);
+  assert.equal((html.match(/class="bl-row"/g) || []).length, 3);
+  assert.ok(!/class="bl-row"[^>]*hidden/.test(html));
+  assert.match(html, /bl-cat-apply">申請のしかた/);
+  assert.match(html, /bl-cat-etc">未登録のカテゴリ/);
+  assert.match(html, /読了 約2分/);
+  assert.match(html, /<a href="\.\.\/search\.html\?q=%E3%82%BF%E3%82%B01">タグ1<\/a>/);
+  assert.equal(readMinutes('あ'.repeat(1250)), 3);
+  assert.equal(readMinutes('短い'), 1);
+  assert.deepEqual(popularTags([{ tags: ['x', 'y'] }, { tags: ['y'] }, { tags: ['z', 'z'] }]), ['y', 'x', 'z']);
+  assert.deepEqual(CATEGORIES.map(([n]) => n), ['申請のしかた', '制度の選び方', 'サイトの使い方', 'データ・考察', 'お知らせ']);
+});
