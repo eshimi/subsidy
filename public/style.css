@@ -21,38 +21,7 @@
   --max: 1280px;
   color-scheme: light;
 }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --paper: #0f0f0e;
-    --solid: #0f0f0e;
-    --topbar: #0f0f0e;
-    --surface: #171716;
-    --ink: #ededea;
-    --mute: #9a9a95;
-    --line: #ededea;
-    --line-soft: #2e2e2b;
-    --accent: #8b9bff;
-    --accent-ink: #0f0f0e;
-    --alert: #ff7a63;
-    --ok: #6fd39a;
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --paper: #0f0f0e;
-  --solid: #0f0f0e;
-  --topbar: #0f0f0e;
-  --surface: #171716;
-  --ink: #ededea;
-  --mute: #9a9a95;
-  --line: #ededea;
-  --line-soft: #2e2e2b;
-  --accent: #8b9bff;
-  --accent-ink: #0f0f0e;
-  --alert: #ff7a63;
-  --ok: #6fd39a;
-  color-scheme: dark;
-}
+/* 配色は明るい背景を前提に作っているため、ダークモードの端末でも同じ配色で表示する（背景が白で文字だけ明るくなる不具合の対策） */
 
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
@@ -70,6 +39,9 @@ body {
 }
 /* 日本語の見出しを文節で改行する（対応ブラウザのみ） */
 h1, h2, h3, .lead { word-break: auto-phrase; }
+/* リード文の最終行に短い語だけが残らないようにする（対応ブラウザのみ） */
+.lead { text-wrap: pretty; }
+.nb { white-space: nowrap; }
 a { color: inherit; text-underline-offset: 3px; text-decoration-thickness: 1px; }
 a:hover { color: var(--accent); }
 button, input, select, textarea { font: inherit; color: inherit; }
@@ -1354,8 +1326,6 @@ details ul { margin: 8px 0; padding-left: 1.5em; }
 
 /* 「太字＋蛍光ペン」：コンテンツ系のページの、特に重要な部分（scripts/data/highlights.mjs → scripts/apply-highlight.mjs） */
 :root { --hl: #ffef9a; }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --hl: rgba(255, 214, 10, 0.34); } }
-:root[data-theme="dark"] { --hl: rgba(255, 214, 10, 0.34); }
 .hl { font-weight: 700; color: inherit; background: linear-gradient(transparent 56%, var(--hl) 56%); padding: 0 0.1em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
 @media print { .hl { background: linear-gradient(transparent 56%, #ffef9a 56%); -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
 
