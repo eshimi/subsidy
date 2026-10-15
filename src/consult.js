@@ -10,6 +10,13 @@ export const OPTIONS = {
   timing: ['すぐに', '3か月以内', '半年以内', 'まだ決めていない'],
 };
 
+// 個人向けの判定（/api/judge に for:'personal' で送る）。選択式の回答だけを受け取る
+export const PERSONAL_OPTIONS = {
+  home: ['持ち家（一戸建て）', '持ち家（マンションなど）', '賃貸', 'これから購入・新築する', '空き家を持っている'],
+  family: ['子育て中（18歳未満の子がいる）', '妊娠中・これから子どもを考えている', '高齢の家族と同居・介護している', 'ひとり暮らし', 'その他'],
+  topics: ['耐震・リフォーム', '省エネ住宅・断熱', '太陽光・蓄電池', '電気自動車（EV）', 'バリアフリー・介護', '空き家・ブロック塀', '子育て', '学び直し', '地方への移住'],
+};
+
 const bad = (message) => Object.assign(new Error(message), { status: 400, expose: true });
 const str = (v) => (typeof v === 'string' ? v.trim() : '');
 
@@ -21,6 +28,23 @@ export function parseAnswers(body) {
     if (!list.includes(v)) throw bad('回答が正しくありません。もう一度やり直してください');
     out[key] = v;
   }
+  return out;
+}
+
+export function parsePersonal(body) {
+  if (!body || typeof body !== 'object') throw bad('入力が正しくありません');
+  const out = {};
+  for (const key of ['home', 'family']) {
+    const v = str(body[key]);
+    if (!PERSONAL_OPTIONS[key].includes(v)) throw bad('回答が正しくありません。もう一度やり直してください');
+    out[key] = v;
+  }
+  const pref = str(body.pref);
+  if (pref.length > 10) throw bad('回答が正しくありません。もう一度やり直してください');
+  out.pref = pref;
+  const topics = Array.isArray(body.topics) ? body.topics.filter((t) => PERSONAL_OPTIONS.topics.includes(t)) : [];
+  if (!topics.length) throw bad('使いたいことを1つ以上選んでください');
+  out.topics = [...new Set(topics)].join('、');
   return out;
 }
 

@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import worker from '../src/worker.js';
-import { parseAnswers, parseConsult, consultText } from '../src/consult.js';
+import { parseAnswers, parsePersonal, parseConsult, consultText } from '../src/consult.js';
 
 const answers = { kind: '個人事業主（フリーランスを含む）', industry: '飲食業', employees: '1〜5人', koyou: '加入している', shakai: 'わからない', topic: '販路開拓・集客', timing: '3か月以内' };
 const consult = { ...answers, company: '株式会社テスト', name: '山田 太郎', phone: '03-1234-5678', email: 'taro@example.co.jp', note: '', consent: true, candidates: ['小規模事業者持続化補助金'] };
@@ -48,4 +48,15 @@ test('parseConsult: ご相談の内容（選択式）は未選択でもよい。
   assert.equal(c.kind, '');
   assert.match(consultText(c), /業種：（未選択）/);
   assert.throws(() => parseConsult({ ...consult, topic: '何でも' }));
+});
+
+test('個人向けの判定：回答を検証し、/api/judge は for:personal でも動く', async () => {
+  const p = { for: 'personal', home: '賃貸', family: 'ひとり暮らし', pref: '京都府', topics: ['子育て', '学び直し', '何でも'] };
+  assert.deepEqual(parsePersonal(p), { home: '賃貸', family: 'ひとり暮らし', pref: '京都府', topics: '子育て、学び直し' });
+  assert.throws(() => parsePersonal({ ...p, home: 'x' }));
+  assert.throws(() => parsePersonal({ ...p, topics: [] }));
+  const res = await post('/api/judge', p);
+  assert.equal(res.status, 200);
+  assert.deepEqual(await res.json(), { ai: false, comment: null });
+  assert.equal((await post('/api/judge', { ...p, family: 'x' })).status, 400);
 });

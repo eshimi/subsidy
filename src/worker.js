@@ -9,7 +9,7 @@ import { createAssetsGrantsLoader } from './grants-assets.js';
 import { parseChatMessages, aiUnavailable } from './chat-input.js';
 import { errorPayload } from './http-error.js';
 import { parseContact, buildRawMessage, buildMail } from './contact.js';
-import { parseAnswers, parseConsult, consultText } from './consult.js';
+import { parseAnswers, parsePersonal, parseConsult, consultText } from './consult.js';
 import { parsePlanInput, planMode, createDailyLimiter, cacheStore, memoryStore } from './plan.js';
 
 const MAX_BODY_BYTES = 32 * 1024;
@@ -139,9 +139,10 @@ async function route(request, env, url) {
   if (pathname === '/api/judge') {
     allow(request, 'POST');
     const body = await readJsonBody(request);
-    const answers = parseAnswers(body);
+    const personal = body?.for === 'personal';
+    const answers = personal ? parsePersonal(body) : parseAnswers(body);
     const candidates = Array.isArray(body?.candidates) ? body.candidates.filter((c) => typeof c === 'string').map((c) => c.slice(0, 60)).slice(0, 8) : [];
-    const comment = await judgeWithClaude(answers, candidates);
+    const comment = await judgeWithClaude(answers, candidates, personal ? 'personal' : 'business');
     return { ai: comment !== null, comment };
   }
 
