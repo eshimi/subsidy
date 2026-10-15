@@ -63,7 +63,7 @@
   function showStep() {
     const s = STEPS[step];
     setProgress(step);
-    stage.innerHTML = `<div class="hj-ask"><img src="images/hantei/robot-ask.webp" alt="" width="163" height="142"><div class="hj-bubble">${s.say}</div></div>
+    stage.innerHTML = `<div class="hj-ask"><img src="images/hantei/robot-ask-biz.webp" alt="" width="163" height="142"><div class="hj-bubble">${s.say}</div></div>
       ${s.keys.map(question).join('')}
       <div class="hj-nav"><button type="button" class="hj-ghost" id="hj-back">← 戻る</button><button type="button" class="hj-primary" id="hj-next">${step === STEPS.length - 1 ? '診断する' : '次へ進む'} <span aria-hidden="true">→</span></button></div>`;
     updateNext();
@@ -142,7 +142,7 @@
   async function judge() {
     setProgress(3);
     stage.innerHTML = `<div class="hj-loading">
-        <img src="images/hantei/robot-search.webp" alt="" width="390" height="205">
+        <img src="images/hantei/robot-search-biz.webp" alt="" width="390" height="205">
         <h2>あなたの回答をもとに<br>補助金を診断しています…</h2>
         <ol class="hj-steps-list"><li>回答を各制度の条件と照らし合わせ中</li><li>候補の補助金を絞り込み中</li><li>AIがひと言アドバイスを作成中</li></ol>
         <div class="hj-bar"><span></span></div>
@@ -190,11 +190,11 @@
       <ol class="hj-rlist">${keys.map(card).join('')}</ol>
       <p class="hj-fine">金額・補助率は、2026年10月時点の公募要領などをもとにした目安です。公募回・枠・要件で変わるため、申請の前に必ず公式の公募要領で確認してください。</p>
       ${notes.length ? `<ul class="hj-notes">${notes.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}
-      <div class="hj-ai" id="hj-ai"><img src="images/hantei/robot-ask.webp" alt="" width="56" height="49"><div><b>AIのひと言</b><p style="margin:0;">回答をもとに、ひと言アドバイスを準備しています…</p></div></div>
+      <div class="hj-ai" id="hj-ai"><img src="images/hantei/robot-ask-biz.webp" alt="" width="56" height="49"><div><b>AIのひと言</b><p style="margin:0;">回答をもとに、ひと言アドバイスを準備しています…</p></div></div>
       ${ind ? `<p><a href="search.html?${new URLSearchParams({ industry: ind })}">${esc(answers.industry)}に関係しそうな、募集中の補助金を見る →</a></p>` : ''}
       <p><a href="cases/index.html">補助金を使って課題を乗り越えた事業者の活用事例を読む →</a></p>
       <div class="hj-cta-wrap">
-        <img src="images/hantei/robot-done.webp" alt="" width="195" height="183">
+        <img src="images/hantei/robot-done-biz.webp" alt="" width="195" height="183">
         <div class="hj-bubble">診断おつかれさまでした！<br>より詳しいご提案や、申請のご相談をご希望の方は、無料相談をご利用ください。</div>
         <div class="hj-cta">
           <span class="hj-free">相談は<br>完全無料</span>
@@ -277,7 +277,7 @@
       ? `${single('home', 'お住まいの形態', HOME, true)}${single('family', '世帯の状況（いちばん近いもの）', FAMILY)}
          <fieldset class="hj-q"><legend>お住まいの都道府県</legend><select id="hp-pref" style="font:inherit;padding:10px 12px;border:1px solid #c9d4e0;border-radius:10px;"><option value="">選んでください</option>${PREFS.map((p) => `<option${answers.pref === p ? ' selected' : ''}>${p}</option>`).join('')}</select></fieldset>`
       : `<fieldset class="hj-q"><legend>どんなことに補助金を使いたいですか？<small>（複数選べます）</small></legend><div class="hj-opts">${Object.entries(TOPICS).map(([k, t]) => `<button type="button" class="hj-opt" data-multi="${esc(k)}" aria-pressed="${answers.topics.includes(k)}"><i aria-hidden="true">${t.icon}</i><span>${esc(k)}</span></button>`).join('')}</div></fieldset>`;
-    stage.innerHTML = `<div class="hj-ask"><img src="images/hantei/robot-ask.webp" alt="" width="163" height="142"><div class="hj-bubble">${STEPS[step].say}</div></div>${body}
+    stage.innerHTML = `<div class="hj-ask"><img src="images/hantei/robot-ask-per.webp" alt="" width="163" height="142"><div class="hj-bubble">${STEPS[step].say}</div></div>${body}
       <div class="hj-nav"><button type="button" class="hj-ghost" id="hp-back">← 戻る</button><button type="button" class="hj-primary" id="hp-next">${step === 1 ? '診断する' : '次へ進む'} <span aria-hidden="true">→</span></button></div>`;
     updateNext();
   }
@@ -333,7 +333,7 @@
 
   async function judge() {
     setProgress(2);
-    stage.innerHTML = `<div class="hj-loading"><img src="images/hantei/robot-search.webp" alt="" width="390" height="205"><h2>あなたの回答をもとに<br>補助金を診断しています…</h2>
+    stage.innerHTML = `<div class="hj-loading"><img src="images/hantei/robot-search-per.webp" alt="" width="390" height="205"><h2>あなたの回答をもとに<br>補助金を診断しています…</h2>
       <ol class="hj-steps-list"><li>回答をもとに、分野を絞り込み中</li><li>お住まいの地域の制度を確認中</li><li>AIがひと言アドバイスを作成中</li></ol><div class="hj-bar"><span></span></div></div>`;
     top();
     const keys = topicsOf(answers);
@@ -365,7 +365,7 @@
       <p class="hj-rlead">あなたに合いそうな分野を <b>${keys.length}</b> 件ご紹介します。「国の制度」と、${esc(answers.pref)}の制度の両方を確認してみてください。</p>
       <ol class="hj-rlist">${keys.map(card).join('')}</ol>
       <ul class="hj-notes">${notesOf(answers).map((x) => `<li>${esc(x)}</li>`).join('')}</ul>
-      <div class="hj-ai" id="hp-ai"><img src="images/hantei/robot-ask.webp" alt="" width="56" height="49"><div><b>AIのひと言</b><p style="margin:0;">回答をもとに、ひと言アドバイスを準備しています…</p></div></div>
+      <div class="hj-ai" id="hp-ai"><img src="images/hantei/robot-ask-per.webp" alt="" width="56" height="49"><div><b>AIのひと言</b><p style="margin:0;">回答をもとに、ひと言アドバイスを準備しています…</p></div></div>
       <p><a href="${PREF_PAGE(answers.pref)}">${esc(answers.pref)}の補助金まとめページ（県・市区町村の制度を一覧で）を見る →</a></p>
       <p class="hj-fine">制度の内容・金額・受付期間は変わります。申請の前に、必ず公式の情報で確認してください。</p>
       <div class="hj-restart"><button type="button" id="hp-again">最初からやり直す</button></div>`;
