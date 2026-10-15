@@ -1,7 +1,7 @@
 {
  "": {
-  "h": "ce38e171bd24",
-  "d": "2026-10-14"
+  "h": "c229ac919f2a",
+  "d": "2026-10-15"
  },
  "beginner-guide.html": {
   "h": "e3d26506b433",
@@ -40,8 +40,8 @@
   "d": "2026-10-14"
  },
  "notices.html": {
-  "h": "0e92afad1147",
-  "d": "2026-10-14"
+  "h": "c43942f168ad",
+  "d": "2026-10-15"
  },
  "plan-sample-free.html": {
   "h": "fec2aadfcf09",
@@ -164,20 +164,20 @@
   "d": "2026-10-14"
  },
  "feature/jizokuka.html": {
-  "h": "57241fe3c1e2",
-  "d": "2026-10-14"
+  "h": "31befb625d7b",
+  "d": "2026-10-15"
  },
  "feature/monodukuri.html": {
-  "h": "d906122ae3c8",
-  "d": "2026-10-14"
+  "h": "29f1ee6a6a13",
+  "d": "2026-10-15"
  },
  "feature/popular.html": {
   "h": "8cb8be88448d",
   "d": "2026-10-14"
  },
  "feature/shoryokuka.html": {
-  "h": "360435aa77eb",
-  "d": "2026-10-14"
+  "h": "b8467c469a1e",
+  "d": "2026-10-15"
  },
  "feature/succession.html": {
   "h": "967ac681d7b5",
@@ -313,59 +313,59 @@
  },
  "news/2026-09-11-shokei-15-saitaku.html": {
   "h": "b8c8b6d265f8",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "news/2026-09-14-r9-gaisan.html": {
   "h": "2aae1da91695",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "news/2026-09-16-jizokuka-saigai.html": {
   "h": "b7cfc3bb5804",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "news/2026-09-18-shoryokuka-8.html": {
   "h": "af991a67abe5",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "news/2026-09-29-seicho-3.html": {
   "h": "77ccd02e3d5e",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "news/2026-09-30-shinjigyo-mono-1.html": {
   "h": "1cb04967ddb9",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "news/2026-10-01-digital-ai-6.html": {
   "h": "b7042fd24583",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "news/2026-10-02-shokei-16.html": {
   "h": "27c4b352dce9",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "news/2026-10-05-overseas-support.html": {
   "h": "592f13fd5b34",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "news/2026-10-07-gyomu-kaizen.html": {
   "h": "3c4be2b29c08",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "news/2026-10-09-deadlines-october.html": {
   "h": "29c281b359ef",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "news/2026-10-10-jizokuka-20.html": {
   "h": "b794d46e2f6b",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "news/index.html": {
-  "h": "1dec2842cd99",
-  "d": "2026-10-14"
+  "h": "c948e6167e1a",
+  "d": "2026-10-15"
  },
  "news/sources.html": {
-  "h": "b65440ffaddf",
-  "d": "2026-10-14"
+  "h": "31f5d12be685",
+  "d": "2026-10-15"
  },
  "blog/2026-10-11-blog-start.html": {
   "h": "0bd3980dd918",
@@ -1192,192 +1192,192 @@
   "d": "2026-10-14"
  },
  "area/pref-aichi.html": {
-  "h": "ae3e47902269",
-  "d": "2026-10-14"
+  "h": "b5a29aada97e",
+  "d": "2026-10-15"
  },
  "area/pref-akita.html": {
-  "h": "9710d2a6892b",
-  "d": "2026-10-14"
+  "h": "1fadaf6adf6a",
+  "d": "2026-10-15"
  },
  "area/pref-aomori.html": {
-  "h": "e755a1d84b51",
-  "d": "2026-10-14"
+  "h": "1ba881c0b3ab",
+  "d": "2026-10-15"
  },
  "area/pref-chiba.html": {
-  "h": "53368dccafc3",
-  "d": "2026-10-14"
+  "h": "ff07c0a09eb5",
+  "d": "2026-10-15"
  },
  "area/pref-ehime.html": {
-  "h": "1b58a9b4bc2f",
-  "d": "2026-10-14"
+  "h": "27b2b79fe2bf",
+  "d": "2026-10-15"
  },
  "area/pref-fukui.html": {
-  "h": "caa4b65878c1",
-  "d": "2026-10-14"
+  "h": "7066a8966800",
+  "d": "2026-10-15"
  },
  "area/pref-fukuoka.html": {
-  "h": "2b40802c6bc9",
-  "d": "2026-10-14"
+  "h": "a521bf1b88d9",
+  "d": "2026-10-15"
  },
  "area/pref-fukushima.html": {
-  "h": "147088e54cac",
-  "d": "2026-10-14"
+  "h": "fea9f6287926",
+  "d": "2026-10-15"
  },
  "area/pref-gifu.html": {
-  "h": "41324b0c1d10",
-  "d": "2026-10-14"
+  "h": "6882b760a7d6",
+  "d": "2026-10-15"
  },
  "area/pref-gunma.html": {
-  "h": "a5d5a84088cd",
-  "d": "2026-10-14"
+  "h": "3464f39c4bb7",
+  "d": "2026-10-15"
  },
  "area/pref-hiroshima.html": {
-  "h": "25c1fb0c3221",
-  "d": "2026-10-14"
+  "h": "41cca2056a05",
+  "d": "2026-10-15"
  },
  "area/pref-hokkaido.html": {
-  "h": "e60fe632dd80",
-  "d": "2026-10-14"
+  "h": "70a95a27d915",
+  "d": "2026-10-15"
  },
  "area/pref-hyogo.html": {
-  "h": "e4f8eb509111",
-  "d": "2026-10-14"
+  "h": "653add5fd638",
+  "d": "2026-10-15"
  },
  "area/pref-ibaraki.html": {
-  "h": "4d1f5612473e",
-  "d": "2026-10-14"
+  "h": "9efea7fea14c",
+  "d": "2026-10-15"
  },
  "area/pref-ishikawa.html": {
-  "h": "a4affa9c10ea",
-  "d": "2026-10-14"
+  "h": "8f5ed5cd249d",
+  "d": "2026-10-15"
  },
  "area/pref-iwate.html": {
-  "h": "462f7ad5f7bb",
-  "d": "2026-10-14"
+  "h": "1cdfe6a38bd1",
+  "d": "2026-10-15"
  },
  "area/pref-kagawa.html": {
-  "h": "5b278677c066",
-  "d": "2026-10-14"
+  "h": "d89e70252efe",
+  "d": "2026-10-15"
  },
  "area/pref-kagoshima.html": {
-  "h": "a962e2bfd29a",
-  "d": "2026-10-14"
+  "h": "c2ef8f2740d0",
+  "d": "2026-10-15"
  },
  "area/pref-kanagawa.html": {
-  "h": "b46c488fcae1",
-  "d": "2026-10-14"
+  "h": "62085b7afdf9",
+  "d": "2026-10-15"
  },
  "area/pref-kochi.html": {
-  "h": "0f4278bd2ccd",
-  "d": "2026-10-14"
+  "h": "290f03790b17",
+  "d": "2026-10-15"
  },
  "area/pref-kumamoto.html": {
-  "h": "11f95fafdf7d",
-  "d": "2026-10-14"
+  "h": "5899c9967f00",
+  "d": "2026-10-15"
  },
  "area/pref-kyoto.html": {
-  "h": "0aaaeb244647",
-  "d": "2026-10-14"
+  "h": "fa9cb0b0476e",
+  "d": "2026-10-15"
  },
  "area/pref-mie.html": {
-  "h": "8739afee409d",
-  "d": "2026-10-14"
+  "h": "3f96cde16fab",
+  "d": "2026-10-15"
  },
  "area/pref-miyagi.html": {
-  "h": "383bedde684f",
-  "d": "2026-10-14"
+  "h": "48962c821822",
+  "d": "2026-10-15"
  },
  "area/pref-miyazaki.html": {
-  "h": "213e9c1c86c4",
-  "d": "2026-10-14"
+  "h": "32aed303e494",
+  "d": "2026-10-15"
  },
  "area/pref-nagano.html": {
-  "h": "4f62145ed438",
-  "d": "2026-10-14"
+  "h": "f470322af49b",
+  "d": "2026-10-15"
  },
  "area/pref-nagasaki.html": {
-  "h": "00863d1a3c6a",
-  "d": "2026-10-14"
+  "h": "e6d4f8c72bc8",
+  "d": "2026-10-15"
  },
  "area/pref-nara.html": {
-  "h": "589e5cbec84f",
-  "d": "2026-10-14"
+  "h": "beada9bce21b",
+  "d": "2026-10-15"
  },
  "area/pref-niigata.html": {
-  "h": "645a2da37a07",
-  "d": "2026-10-14"
+  "h": "140008c86de6",
+  "d": "2026-10-15"
  },
  "area/pref-oita.html": {
-  "h": "e5cbe2ff0676",
-  "d": "2026-10-14"
+  "h": "f3e0720cca45",
+  "d": "2026-10-15"
  },
  "area/pref-okayama.html": {
-  "h": "614558f533eb",
-  "d": "2026-10-14"
+  "h": "6fd2ca80fdbd",
+  "d": "2026-10-15"
  },
  "area/pref-okinawa.html": {
-  "h": "ca6929cbf290",
-  "d": "2026-10-14"
+  "h": "8649f398fa19",
+  "d": "2026-10-15"
  },
  "area/pref-osaka.html": {
-  "h": "050d540a7d1b",
-  "d": "2026-10-14"
+  "h": "211eea9a6da3",
+  "d": "2026-10-15"
  },
  "area/pref-saga.html": {
-  "h": "c9b3a7146dc8",
-  "d": "2026-10-14"
+  "h": "3e98d7a75d05",
+  "d": "2026-10-15"
  },
  "area/pref-saitama.html": {
-  "h": "c836d91d43e5",
-  "d": "2026-10-14"
+  "h": "49a733af5c87",
+  "d": "2026-10-15"
  },
  "area/pref-shiga.html": {
-  "h": "82ea5880aef4",
-  "d": "2026-10-14"
+  "h": "5224143c0571",
+  "d": "2026-10-15"
  },
  "area/pref-shimane.html": {
-  "h": "8f9c984e63c8",
-  "d": "2026-10-14"
+  "h": "03156e8ba12d",
+  "d": "2026-10-15"
  },
  "area/pref-shizuoka.html": {
-  "h": "dcc56cc0f181",
-  "d": "2026-10-14"
+  "h": "c1ebed3f8d2d",
+  "d": "2026-10-15"
  },
  "area/pref-tochigi.html": {
-  "h": "635ff603fa4d",
-  "d": "2026-10-14"
+  "h": "1a215b5f9667",
+  "d": "2026-10-15"
  },
  "area/pref-tokushima.html": {
-  "h": "f42f5e51700b",
-  "d": "2026-10-14"
+  "h": "20551bef90e6",
+  "d": "2026-10-15"
  },
  "area/pref-tokyo.html": {
-  "h": "9a045431f141",
-  "d": "2026-10-14"
+  "h": "6bea15c25d2e",
+  "d": "2026-10-15"
  },
  "area/pref-tottori.html": {
-  "h": "9c8f859936c6",
-  "d": "2026-10-14"
+  "h": "41862abad249",
+  "d": "2026-10-15"
  },
  "area/pref-toyama.html": {
-  "h": "5358e609d5da",
-  "d": "2026-10-14"
+  "h": "79f8b9e1f8b1",
+  "d": "2026-10-15"
  },
  "area/pref-wakayama.html": {
-  "h": "12c6e0f3dd4d",
-  "d": "2026-10-14"
+  "h": "fb94934df29d",
+  "d": "2026-10-15"
  },
  "area/pref-yamagata.html": {
-  "h": "81b05f397d29",
-  "d": "2026-10-14"
+  "h": "5eb3a7963b7d",
+  "d": "2026-10-15"
  },
  "area/pref-yamaguchi.html": {
-  "h": "c7a8683cd319",
-  "d": "2026-10-14"
+  "h": "47650633ada7",
+  "d": "2026-10-15"
  },
  "area/pref-yamanashi.html": {
-  "h": "8e2f481c1804",
-  "d": "2026-10-14"
+  "h": "bf46adf919ff",
+  "d": "2026-10-15"
  },
  "area/sabae.html": {
   "h": "991776336f5f",
@@ -1708,19 +1708,31 @@
   "d": "2026-10-14"
  },
  "background/decarbon.html": {
-  "h": "25472e7aba33",
-  "d": "2026-10-14"
+  "h": "b860a2ead314",
+  "d": "2026-10-15"
  },
  "background/index.html": {
-  "h": "cf190eee19f9",
-  "d": "2026-10-14"
+  "h": "5202a280f80f",
+  "d": "2026-10-15"
  },
  "background/labor.html": {
-  "h": "1374a5ba1531",
-  "d": "2026-10-14"
+  "h": "8ccc73f88f95",
+  "d": "2026-10-15"
  },
  "background/population.html": {
-  "h": "1f9a19bcd109",
-  "d": "2026-10-14"
+  "h": "f4cd064f956a",
+  "d": "2026-10-15"
+ },
+ "news/2026-10-15-deadline-1016.html": {
+  "h": "42d70742bb8e",
+  "d": "2026-10-15"
+ },
+ "news/2026-10-15-digital-ai-4-kekka.html": {
+  "h": "a3e4925e280a",
+  "d": "2026-10-15"
+ },
+ "news/2026-10-15-shinjigyo-4-saitaku.html": {
+  "h": "d737e6dbe8f2",
+  "d": "2026-10-15"
  }
 }
