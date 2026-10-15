@@ -8,6 +8,7 @@ import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseFrontmatter } from './lib/markdown.mjs';
+import { SEO_TITLES } from './data/seo-titles.mjs';
 import { SITE, FOLDER_TAGS, padDescription, autoTags, descriptionFor, jsonLdArticle, jsonLdBreadcrumb, stripTags } from './lib/seo.mjs';
 
 const REPO = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -57,12 +58,32 @@ export function seoFor(folder, file, html) {
   return { h1, tags, description, desc0, url, published, modified, type, crumbs, imageUrl };
 }
 
+
+// <title>：検索結果では全角30〜35字ほどで省略されるため、長い題名は短くする。
+// ・scripts/data/seo-titles.mjs にあるページは、その題名を使う
+// ・それ以外は、「｜補助金ネット」を付けて42字を超えるとき、付けない（何度実行しても同じ結果）
+const SUFFIX = '｜補助金ネット';
+const TITLE_MAX = 42;
+export function titleFor(key, current) {
+  const base = SEO_TITLES[key] || current.replace(new RegExp(`${SUFFIX}$`), '');
+  return `${base}${SUFFIX}`.length <= TITLE_MAX ? `${base}${SUFFIX}` : base;
+}
+export function applyTitle(key, html) {
+  const m = html.match(/<title>([^<]*)<\/title>/);
+  if (!m) return html;
+  const cur = m[1];
+  const raw = cur.replace(/&amp;/g, '&').replace(/&quot;/g, '"');
+  const next = esc(titleFor(key, raw)).replace(/&quot;/g, '&quot;');
+  if (next === cur) return html;
+  return html.split(`<title>${cur}</title>`).join(`<title>${next}</title>`).split(`content="${cur}"`).join(`content="${next}"`);
+}
+
 const SEO_RE = /\n?[ \t]*<!-- seo:start -->[\s\S]*?<!-- seo:end -->/g;
 const TAGS_RE = /\n?[ \t]*<!-- tags:start -->[\s\S]*?<!-- tags:end -->/g;
 
 export function applySeo(folder, file, html) {
   const s = seoFor(folder, file, html);
-  let out = html.replace(SEO_RE, '').replace(TAGS_RE, '');
+  let out = applyTitle(`${folder}/${file}`, html).replace(SEO_RE, '').replace(TAGS_RE, '');
   const dEsc = esc(s.description);
   if (s.description !== s.desc0 && s.desc0) {
     const old = esc(s.desc0);

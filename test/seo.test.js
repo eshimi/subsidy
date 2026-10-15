@@ -133,3 +133,21 @@ test('個人向けページの「背景と目的」：7ページすべてに入�
     assert.ok(PERSONAL_BACKGROUND[slug].sources.length >= 3, slug);
   }
 });
+
+test('title：長い題名は「｜補助金ネット」を外し、指定のあるページは短い題名にする。何度かけても同じ', async () => {
+  const { titleFor, applyTitle } = await import('../scripts/apply-seo.mjs');
+  const { SEO_TITLES } = await import('../scripts/data/seo-titles.mjs');
+  assert.equal(titleFor('news/x.html', '短い題名｜補助金ネット'), '短い題名｜補助金ネット');
+  const long = 'あ'.repeat(40);
+  assert.equal(titleFor('news/x.html', `${long}｜補助金ネット`), long);
+  assert.equal(titleFor('news/x.html', long), long);
+  for (const [key, base] of Object.entries(SEO_TITLES)) {
+    const t = titleFor(key, `${'長'.repeat(60)}｜補助金ネット`);
+    assert.ok(t.startsWith(base), key);
+    assert.ok(t.length <= 50, key);
+  }
+  const html = `<title>${long}｜補助金ネット</title><meta property="og:title" content="${long}｜補助金ネット">`;
+  const once = applyTitle('news/x.html', html);
+  assert.equal(once, `<title>${long}</title><meta property="og:title" content="${long}">`);
+  assert.equal(applyTitle('news/x.html', once), once);
+});
