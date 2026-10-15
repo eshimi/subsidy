@@ -47,7 +47,7 @@ export function loadPosts(dir = SRC) {
     if (!/^\d{4}-\d{2}-\d{2}-[a-z0-9-]+$/.test(slug)) throw new Error(`${file}: ファイル名は YYYY-MM-DD-英小文字とハイフン.md にしてください`);
     const description = data.description || data.title;
     const tags = Array.isArray(data.tags) ? data.tags.map(String) : [];
-    posts.push({ slug, file: `${slug}.html`, title: data.title, date: data.date, updated: data.updated || '', description, category: String(data.category || 'その他'), tags, minutes: readMinutes(body), sections: renderPost(body) });
+    posts.push({ slug, file: `${slug}.html`, title: data.title, date: data.date, updated: data.updated || '', description, category: String(data.category || 'その他'), tags, points: Array.isArray(data.points) ? data.points.map(String).filter(Boolean) : [], minutes: readMinutes(body), sections: renderPost(body) });
   }
   return posts.sort((a, b) => (a.date === b.date ? b.slug.localeCompare(a.slug) : b.date.localeCompare(a.date)));
 }
@@ -58,6 +58,58 @@ export function postMeta(p) {
   const upd = p.updated && p.updated !== p.date ? `<span>更新 <time datetime="${p.updated}">${dateJa(p.updated)}</time></span>` : '';
   return `      <p class="bl-meta"><span class="bl-cat bl-cat-${categoryClass(p.category)}">${esc(p.category)}</span><span>公開 <time datetime="${p.date}">${dateJa(p.date)}</time></span>${upd}<span>読了 約${p.minutes}分</span><a href="index.html#cat=${encodeURIComponent(p.category)}">同じカテゴリの記事を見る <span aria-hidden="true">→</span></a></p>
 `;
+}
+
+// 「この記事のポイント」（記事の先頭の設定 points: に書く）。パソコンでは右の列、スマホでは本文の前に出す（どちらかだけが表示される）
+// （<section> にしないこと：右の列の分割（scripts/lib/side-layout.mjs）が、最初の <section> を本文の始まりと見るため）
+function pointsBlock(p, mobile) {
+  if (!p.points.length) return '';
+  const id = mobile ? 'bl-pt-m' : 'bl-pt';
+  return `      <div role="region" class="bl-points${mobile ? ' bl-points--m' : ''}" aria-labelledby="${id}">
+        <h2 id="${id}">この記事のポイント</h2>
+        <ol>
+${p.points.map((t) => `          <li>${esc(t)}</li>`).join('\n')}
+        </ol>
+      </div>
+`;
+}
+
+// 右の列の先頭：目次（サイトの他のページと同じ部品。いま読んでいる節の強調は site.js）、ポイント、AI判定への案内
+export function postSideTop(p) {
+  const toc = `    <nav class="related-links" aria-label="このページの内容">
+      <h2>このページの内容</h2>
+      <ul>
+${p.sections.map(([h], i) => `        <li><a href="#s${i}">${esc(h)}</a></li>`).join('\n')}
+      </ul>
+    </nav>`;
+  const cta = `      <div class="bl-side-cta">
+        <h2>自分に使える補助金は？</h2>
+        <p>質問に答えるだけで、AIが使えそうな補助金を判定します。</p>
+        <a class="bl-btn" href="../hantei.html">AI補助金判定を試す <span aria-hidden="true">→</span></a>
+      </div>`;
+  return [toc, pointsBlock(p, false).trimEnd(), cta].filter(Boolean).join('\n');
+}
+
+// 記事の下：前の記事・次の記事（または一覧へ）、同じカテゴリの記事（新しい順に3本まで）
+export function postAfterBody(p, posts) {
+  const i = posts.findIndex((x) => x.slug === p.slug);
+  const older = posts[i + 1];
+  const newer = posts[i - 1];
+  const card = (q, label) => `<a class="bl-pn-card" href="${q.file}"><small>${label}</small><b>${esc(q.title)}</b></a>`;
+  const toList = '<a class="bl-pn-card bl-pn-list" href="index.html"><small>ブログの一覧へ</small><b>記事の一覧に戻る <span aria-hidden="true">→</span></b></a>';
+  const nav = `    <nav class="bl-pn" aria-label="前後の記事">
+      ${older ? card(older, '← 前の記事') : toList}
+      ${newer ? card(newer, '次の記事 →') : (older ? toList : '')}
+    </nav>`;
+  const same = posts.filter((x) => x.category === p.category && x.slug !== p.slug).slice(0, 3);
+  const rel = same.length ? `
+    <section class="bl-rel" aria-labelledby="bl-rel">
+      <h2 id="bl-rel">同じカテゴリ「${esc(p.category)}」の記事</h2>
+      <div class="bl-rel-grid">
+${same.map((x) => `        <a class="bl-rel-card" href="${x.file}"><span class="bl-cat bl-cat-${categoryClass(x.category)}">${esc(x.category)}</span><b>${esc(x.title)}</b><span class="bl-rel-m">${dateJa(x.date)}　約${x.minutes}分</span></a>`).join('\n')}
+      </div>
+    </section>` : '';
+  return nav + rel;
 }
 
 const RECOMMEND = [
@@ -187,7 +239,9 @@ export function build({ src = SRC, out = OUT } = {}) {
       related: RELATED,
       banner: bannerFor(`${FOLDER}/${p.file}`),
       updated: dateJa(p.updated || p.date),
-      afterLead: postMeta(p),
+      afterLead: postMeta(p) + pointsBlock(p, true),
+      sideTop: postSideTop(p),
+      afterBody: postAfterBody(p, posts),
     });
     writeArticle(out, FOLDER, p.file, { title: p.title, description: p.description, body });
   }

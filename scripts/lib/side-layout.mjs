@@ -96,9 +96,13 @@ export function splitLayout(inner, current) {
   if (cut < 0) return null;
   const head = inner.slice(0, cut);
   let rest = inner.slice(cut);
+  // 右の列の先頭に置く部品（目次・ポイントなど）：<!-- side-top:start --> … <!-- side-top:end --> で囲んで渡す
+  const tops = [...rest.matchAll(/ *<!-- side-top:start -->[\s\S]*?<!-- side-top:end -->\n?/g)].map((m) => m[0]);
+  rest = rest.replace(/ *<!-- side-top:start -->[\s\S]*?<!-- side-top:end -->\n?/g, '');
   const related = [...rest.matchAll(/ *<nav class="related-links"[\s\S]*?<\/nav>\n?/g)].map((m) => m[0]);
   rest = rest.replace(/ *<nav class="related-links"[\s\S]*?<\/nav>\n?/g, '');
   let side = related.map((r) => groupRelated(r, current)).join('\n');
+  if (tops.length && side) side = `${tops.join('\n')}\n${side}`;
   if (!related.length) {
     side = groupNav(current);
     if (!side) return null;

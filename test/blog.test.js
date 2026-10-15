@@ -97,3 +97,38 @@ test('ブログ一覧：カテゴリのボタンと件数、記事の行（カ�
   assert.deepEqual(popularTags([{ tags: ['x', 'y'] }, { tags: ['y'] }, { tags: ['z', 'z'] }]), ['y', 'x', 'z']);
   assert.deepEqual(CATEGORIES.map(([n]) => n), ['申請のしかた', '制度の選び方', 'サイトの使い方', 'データ・考察', 'お知らせ']);
 });
+
+test('ブログの記事ページ：ポイント・目次・前後の記事・同じカテゴリ。右の列の先頭に、目次とポイントとAI判定が入る', async () => {
+  const { build } = await import('../scripts/build-blog.mjs');
+  const src = mkdtempSync(join(tmpdir(), 'blog-src-'));
+  const out = mkdtempSync(join(tmpdir(), 'blog-out-'));
+  const post = (slug, date, category, points) => writeFileSync(join(src, `${slug}.md`), `---\ntitle: ${slug}\ndate: ${date}\ncategory: ${category}\n${points ? `points: [${points}]\n` : ''}---\n\n本文です。\n\n## 見出し1\n\n中身1\n\n## 見出し2\n\n中身2\n`);
+  post('2026-03-01-a', '2026-03-01', '申請のしかた', '要点A1, 要点A2, 要点A3');
+  post('2026-03-02-b', '2026-03-02', '申請のしかた', '');
+  post('2026-03-03-c', '2026-03-03', '制度の選び方', '');
+  build({ src, out });
+  const a = readFileSync(join(out, '2026-03-01-a.html'), 'utf-8');
+  // ポイント：右の列用と、スマホ用（本文の前）の2つ。<section> にはしない（右の列の分割が、最初の <section> を本文の始まりと見るため）
+  assert.equal((a.match(/この記事のポイント/g) || []).length, 2);
+  assert.match(a, /role="region" class="bl-points bl-points--m"/);
+  assert.ok(!/<section class="bl-points/.test(a));
+  assert.match(a, /<li>要点A2<\/li>/);
+  // ポイントのない記事には、出さない
+  assert.ok(!readFileSync(join(out, '2026-03-02-b.html'), 'utf-8').includes('この記事のポイント'));
+  // 目次（節の見出しへのリンク）とAI判定への案内
+  assert.match(a, /aria-label="このページの内容"[\s\S]*<a href="#s0">はじめに<\/a>[\s\S]*<a href="#s1">見出し1<\/a>[\s\S]*<a href="#s2">見出し2<\/a>/);
+  assert.match(a, /class="bl-btn" href="\.\.\/hantei\.html"/);
+  // 前後の記事：いちばん古い記事は、「前の記事」の代わりに一覧へ。次の記事は新しい方
+  assert.match(a, /class="bl-pn-card" href="2026-03-02-b\.html"><small>次の記事/);
+  assert.match(a, /bl-pn-list/);
+  // 同じカテゴリの記事（自分を除く）
+  assert.match(a, /同じカテゴリ「申請のしかた」の記事/);
+  assert.match(a, /<a class="bl-rel-card" href="2026-03-02-b\.html">/);
+  assert.ok(!/class="bl-rel-card" href="2026-03-01-a\.html"/.test(a));
+  assert.ok(!readFileSync(join(out, '2026-03-03-c.html'), 'utf-8').includes('bl-rel-card'));
+  // 右の列（ビルドで分割済み）：先頭に目次・ポイント・AI判定、そのあとに関連ページが並ぶ
+  const side = a.match(/<aside class="page-side"[\s\S]*<\/aside>/)[0];
+  assert.ok(side.indexOf('このページの内容') >= 0 && side.indexOf('このページの内容') < side.indexOf('この記事のポイント'));
+  assert.ok(side.indexOf('この記事のポイント') < side.indexOf('bl-side-cta'));
+  assert.ok(side.indexOf('bl-side-cta') < side.indexOf('関連ページ</h2>'));
+});
