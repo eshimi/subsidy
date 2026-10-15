@@ -95,8 +95,8 @@ ${residentHtml}
 
 ` : '';
   const nMuni = municipal.length + resident.municipal.length;
-  const title = nMuni ? `${city.name}（${city.pref}）の補助金・助成金｜市の制度${nMuni}件・創業支援｜補助金ネット` : `${city.name}の補助金・創業支援｜補助金ネット`;
-  const description = `${city.name}（${city.pref}）で創業・副業を考える方向けの補助金の探し方と、掲載中の市・県の制度をまとめたページです。申請前の確認ポイントも載せています。`;
+  const title = nMuni ? `${city.name}（${city.pref}）の補助金・助成金一覧｜市の制度${nMuni}件（令和8年度）｜補助金ネット` : `${city.name}（${city.pref}）の補助金・助成金一覧｜創業支援｜補助金ネット`;
+  const description = nMuni ? `${city.name}（${city.pref}）で使える補助金・助成金を、市の制度${nMuni}件と県の制度などに分けて一覧にしました。創業・副業を考える方向けの探し方と、申請前の確認ポイントも載せています。` : `${city.name}（${city.pref}）で創業・副業を考える方向けの補助金の探し方と、掲載中の市・県の制度をまとめたページです。申請前の確認ポイントも載せています。`;
   const path = `/area/${city.slug}.html`;
   const jsonLd = `  <script type="application/ld+json">${JSON.stringify({
     '@context': 'https://schema.org',
@@ -111,7 +111,7 @@ ${residentHtml}
   const body = `    <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ ${esc(city.name)}</nav>
 
     <div style="margin-bottom: 2rem;">
-      <h1 class="display" style="margin-bottom: 0.5rem;">${esc(city.name)}の補助金・創業支援<img class="area-title-img" src="../images/prefectures/pref-${PREF_SLUGS[city.pref]}.webp" alt="" height="72"></h1>
+      <h1 class="display" style="margin-bottom: 0.5rem;">${esc(city.name)}の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-${PREF_SLUGS[city.pref]}.webp" alt="" height="72"></h1>
       <p class="lead" style="margin-bottom: 0;">${esc(city.pref)}・${esc(city.level)}。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 

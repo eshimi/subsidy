@@ -113,6 +113,7 @@ ${same.map((x) => `        <a class="bl-rel-card" href="${x.file}"><span class="
 }
 
 const RECOMMEND = [
+  ['../basics/what-is.html', '補助金とは'],
   ['../basics/flow.html', '申請の流れ'],
   ['../columns/subsidy-vs-grant-vs-loan.html', '補助金・助成金・融資の違い'],
   ['../basics/business-plan.html', '事業計画書の書き方'],
