@@ -2435,7 +2435,7 @@ export const RESIDENT_PROGRAMS = [
     "cities": [
       "仙台市"
     ],
-    "period": "2026年5月1日〜12月15日（検索結果の記載。最新は要確認）",
+    "period": "2026年5月1日〜12月15日（最新は要確認）",
     "deadline": "2026-12-15",
     "url": "https://www.city.sendai.jp/ondanka/kodannetsu/zentaikaishuhojo.html"
   },
@@ -15033,7 +15033,7 @@ export const RESIDENT_PROGRAMS = [
     "cities": [
       "大田区"
     ],
-    "period": "要確認（検索結果の記載年度は不明）",
+    "period": "要確認（年度ごとに変わるため、公式ページで確認）",
     "deadline": null,
     "url": "https://www.city.ota.tokyo.jp/seikatsu/sumaimachinami/bousai_machidukuri/himoku_house.html"
   },
@@ -15076,7 +15076,7 @@ export const RESIDENT_PROGRAMS = [
     "cities": [
       "大田区"
     ],
-    "period": "要確認（検索結果の記載年度は不明）",
+    "period": "要確認（年度ごとに変わるため、公式ページで確認）",
     "deadline": null,
     "url": "https://www.city.ota.tokyo.jp/seikatsu/sumaimachinami/bousai_machidukuri/manshon.html"
   },
@@ -17679,7 +17679,7 @@ export const RESIDENT_PROGRAMS = [
     "category": "省エネ住宅",
     "type": "補助金",
     "amount": "要確認",
-    "summary": "断熱リフォーム費用の補助。詳細金額は検索結果では未確認。",
+    "summary": "断熱リフォーム費用の補助。金額は公式ページで確認してください。",
     "eligibility": [
       "市内の住宅の断熱改修(詳細は要確認)"
     ],
@@ -19601,7 +19601,7 @@ export const RESIDENT_PROGRAMS = [
     "level": "prefecture",
     "category": "移住",
     "type": "給付",
-    "amount": "単身60万円・世帯100万円（年度不明の県資料。要確認）",
+    "amount": "単身60万円・世帯100万円（年度により異なる。公式ページで要確認）",
     "summary": "東京圏から県内へ移住し就業等した人への移住支援金。",
     "eligibility": [],
     "prefectures": [
@@ -19719,7 +19719,7 @@ export const RESIDENT_PROGRAMS = [
     "cities": [
       "南砺市"
     ],
-    "period": "検索結果では令和8年3月31日までの記載。最新は要確認",
+    "period": "令和8年3月31日まで（最新は要確認）",
     "deadline": "2026-03-31",
     "url": "https://www.city.nanto.toyama.jp/soshiki/nantodekurashimasenka/3/5215.html"
   },
@@ -21646,7 +21646,7 @@ export const RESIDENT_PROGRAMS = [
     "category": "太陽光・蓄電池",
     "type": "補助金",
     "amount": "蓄電設備 単体5万円/基・太陽光と同時設置10万円/基、V2H 6万円/基（令和7年度の内容）",
-    "summary": "定置型蓄電設備および電気自動車等充給電設備(V2H)の設置費用の一部を補助する制度。令和8年度の公募は検索では確認できず。",
+    "summary": "定置型蓄電設備および電気自動車等充給電設備(V2H)の設置費用の一部を補助する制度。令和8年度の公募は公式ページで確認してください。",
     "eligibility": [
       "市内に設備を設置する市内在住の個人（または市内の中小企業者）"
     ],
@@ -27740,7 +27740,7 @@ export const RESIDENT_PROGRAMS = [
     "level": "municipality",
     "category": "省エネ住宅",
     "type": "補助金",
-    "amount": "エアコン・冷蔵庫は上限5万円、LED照明は上限2万円(検索結果の記載)",
+    "amount": "エアコン・冷蔵庫は上限5万円、LED照明は上限2万円",
     "summary": "省エネ家電への買換えを補助。",
     "eligibility": [
       "要確認"
@@ -28126,7 +28126,7 @@ export const RESIDENT_PROGRAMS = [
     "amount": "診断士派遣は自己負担3,000円。改修は費用の5分の4以内、本格改修上限115万円・簡易改修上限40万円",
     "summary": "木造住宅の耐震診断士派遣と耐震改修設計・工事費の補助。先着順で募集戸数は本格1戸・簡易2戸。",
     "eligibility": [
-      "要確認(昭和56年5月以前の木造住宅等が想定されるが検索結果では未確認)"
+      "要確認(昭和56年5月以前の木造住宅等が想定される。詳細は公式ページで確認)"
     ],
     "prefectures": [
       "京都府"

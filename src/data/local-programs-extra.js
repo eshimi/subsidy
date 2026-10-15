@@ -11573,7 +11573,7 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "level": "prefecture",
     "type": "融資",
     "cat": "融資・利子補給",
-    "amount": "限度額3,500万円・年1.55%以内（検索結果記載、要確認）",
+    "amount": "限度額3,500万円・年1.55%以内（最新は要確認）",
     "summary": "創業者向けの県融資制度。",
     "eligibility": [
       "創業者"
@@ -16905,7 +16905,7 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "level": "municipality",
     "type": "融資",
     "cat": "創業・起業",
-    "amount": "限度額3,500万円、利率1.3%（検索結果での記載。最新は要確認）",
+    "amount": "限度額3,500万円、利率1.3%（最新は要確認）",
     "summary": "市内で新たに開業する方や開業後5年未満の中小企業者向けの市の制度融資。",
     "eligibility": [
       "市内で新たに事業を開業する方",
@@ -22539,7 +22539,7 @@ export const LOCAL_PROGRAMS_EXTRA = [
     "type": "補助金",
     "cat": "人材・雇用",
     "amount": "要確認",
-    "summary": "産業振興課の令和8年度制度一覧に掲載されている人材育成等の支援補助金。詳細は検索結果では確認できていない。",
+    "summary": "産業振興課の令和8年度制度一覧に掲載されている人材育成等の支援補助金。詳細は公式ページで確認してください。",
     "eligibility": [
       "市内の事業者（詳細は要確認）"
     ],

@@ -31,9 +31,28 @@ function residentFor(city) {
 // 分野ごとに見出しをつけて、制度のカードを並べる
 function residentGroups(list, residentCard) {
   return RESIDENT_CATEGORIES.map((cat) => {
-    const items = list.filter((p) => p.category === cat);
+    const items = activeFirst(list.filter((p) => p.category === cat));
     return items.length ? `          <h3 class="area-cat">${esc(cat)}</h3>\n${items.map(residentCard).join('\n')}` : '';
   }).filter(Boolean).join('\n');
+}
+
+// 受付が終了した制度か：締切日が今日より前、または期間の文に「受付終了・募集終了」とあるもの（「予算に達し次第終了」「一部の枠は終了」などの条件つきの書き方は、終了とみなさない）
+const TODAY = new Date().toISOString().slice(0, 10);
+export function isEnded(p) {
+  if (p.deadline && p.deadline < TODAY) return true;
+  const t = String(p.period || '');
+  return /(受付|募集)(は)?終了|終了済/.test(t) && !/次第|場合|分は|枠は|募集中|受付中|ことがある|予定/.test(t);
+}
+// 募集中の制度を先に、受付が終了した制度を後に並べる（並びは、それぞれの中で元の順）
+const activeFirst = (list) => [...list.filter((p) => !isEnded(p)), ...list.filter(isEnded)];
+// 制度のカードを並べる。終了した制度があれば、募集中の制度のあとに見出しをつけて分ける
+function programCards(list) {
+  const active = list.filter((p) => !isEnded(p));
+  const ended = list.filter(isEnded);
+  return [
+    active.map(programCard).join('\n'),
+    ended.length ? `          <h3 class="area-cat">受付が終了した制度（次回の公募の参考に）</h3>\n${ended.map(programCard).join('\n')}` : '',
+  ].filter(Boolean).join('\n');
 }
 
 function programCard(p) {
@@ -44,8 +63,8 @@ function programCard(p) {
   const period = p.period ? `<p class="area-meta">期間：${esc(p.period)}</p>` : '';
   const eligibility = p.eligibility?.length ? `<p><strong>主な条件</strong></p>\n            <ul>${p.eligibility.map((e) => `<li>${esc(e)}</li>`).join('')}</ul>` : '';
   // id：検索結果（search.html）の題名から、この制度の位置へ直接移動するための目印（検索データの id は、先頭に local- が付く）
-  return `          <div class="area-program"${p.id ? ` id="${esc(p.id)}"` : ''}>
-            <h3>${esc(p.name)}</h3>
+  return `          <div class="area-program${isEnded(p) ? ' is-ended' : ''}"${p.id ? ` id="${esc(p.id)}"` : ''}>
+            <h3>${esc(p.name)}${isEnded(p) ? ' <span class="area-ended-tag">受付終了</span>' : ''}</h3>
             <p class="area-meta">${esc(p.provider)}｜${esc(p.type)}｜${esc(p.amount)}｜${deadline}</p>
             ${period}
             <p>${esc(p.summary)}</p>
@@ -74,15 +93,21 @@ function cityPage(city) {
   // 個人向けの制度が下の欄に載っているときは、そこへ案内する（上の欄が空に見えないように）
   const toResident = (n) => (RESIDENT_PROGRAMS.length && n ? `個人の方向けの制度は、<a href="#resident-programs">下の「住まい・暮らしの制度」</a>に載せています。` : '');
   const municipalHtml = municipal.length
-    ? municipal.map(programCard).join('\n')
+    ? programCards(municipal)
     : `          <p>${esc(city.name)}の事業・創業の方向けの制度は、まだ掲載していません。市の公式サイトの「創業・産業振興」などのページで、最新の公募を確認してください。${toResident(resident.municipal.length)}</p>`;
+  // 県の制度は、同じ県の市のページすべてに同じ内容が並ばないように、件数と制度名のリンクだけにして、県のページへ案内する
+  const prefLinks = (list, hash) => {
+    const live = activeFirst(list);
+    const shown = live.slice(0, 5).map((p) => `<li><a href="pref-${PREF_SLUGS[city.pref]}.html#${esc(p.id || hash)}">${esc(p.name)}</a></li>`).join('');
+    return `          <ul>${shown}</ul>\n          <p><a href="pref-${PREF_SLUGS[city.pref]}.html${hash ? `#${hash}` : ''}">${esc(city.pref)}の制度${list.length}件を、県のページで見る →</a></p>`;
+  };
   const prefHtml = prefectural.length
-    ? prefectural.map(programCard).join('\n')
+    ? prefLinks(prefectural, 'pref-business')
     : `          <p>${esc(city.pref)}全体の事業・創業の方向けの制度は、県の公式サイトで確認できます。${toResident(resident.prefectural.length)}</p>`;
   const residentCard = (p) => programCard({ ...p, provider: `${p.provider}` });
   const residentHtml = [
     resident.municipal.length ? `          <p><strong>${esc(city.name)}の制度</strong></p>\n${residentGroups(resident.municipal, residentCard)}` : '',
-    resident.prefectural.length ? `          <p><strong>${esc(city.pref)}の制度</strong></p>\n${residentGroups(resident.prefectural, residentCard)}` : '',
+    resident.prefectural.length ? `          <p><strong>${esc(city.pref)}の制度</strong></p>\n${prefLinks(resident.prefectural, 'pref-resident')}` : '',
   ].filter(Boolean).join('\n') || `          <p>${esc(city.name)}・${esc(city.pref)}の、個人の方向けの制度（耐震・太陽光・EV・子育てなど）は、まだ掲載していません。市の公式サイトの「くらし・住まい」のページで確認してください。</p>`;
   // 個人向けのデータが1件もないあいだは、欄を出さない（空の案内だけが並ばないように）
   const residentSection = RESIDENT_PROGRAMS.length ? `    <section class="area-section" aria-labelledby="resident-programs">
@@ -241,7 +266,7 @@ function prefPage(pref) {
       <span class="area-num">01</span>
       <h2 id="pref-business">${esc(pref)}の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-${d.bizPref.length ? d.bizPref.map(programCard).join('\n') : `          <p>${esc(pref)}全体の事業向けの制度は、県の公式サイトで確認できます。</p>`}
+${d.bizPref.length ? programCards(d.bizPref) : `          <p>${esc(pref)}全体の事業向けの制度は、県の公式サイトで確認できます。</p>`}
       </div>
     </section>
 

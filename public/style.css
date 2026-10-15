@@ -1523,3 +1523,7 @@ details ul { margin: 8px 0; padding-left: 1.5em; }
 /* 検索結果から、地域ページの特定の制度へ直接移動したとき（#制度のid）：固定のヘッダーに隠れないようにし、その制度を強調する */
 .area-program { scroll-margin-top: 84px; }
 .area-program:target { background: #fff8f3; box-shadow: 0 0 0 6px #fff8f3, 0 0 0 7px #f0c9b3; border-radius: 6px; }
+
+/* 受付が終了した制度：募集中の制度の後ろに並べ、少し控えめに見せる */
+.area-program.is-ended { opacity: 0.82; }
+.area-ended-tag { display: inline-block; margin-left: 6px; padding: 1px 8px; border: 1px solid #c9b8a8; border-radius: 999px; font-size: 0.72rem; font-weight: 700; color: #7a5b3c; background: #fbf3ea; vertical-align: middle; }

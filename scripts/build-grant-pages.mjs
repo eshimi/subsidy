@@ -411,10 +411,11 @@ const RESIDENT_WORDS = {
 };
 // 個人向けの制度（自治体）を、検索データの形にする。リンクは地域のページへ
 const residentItems = () => RESIDENT_PROGRAMS.map((p) => {
-  // 市区町村の制度はその市のページへ。県の制度は、その県の最初の市のページ（県の制度も載っている）へ。どちらもなければ公式のページへ
-  const city = AREA_CITIES.find((c) => (p.cities || []).includes(c.name)) || AREA_CITIES.find((c) => c.pref === p.prefectures[0]);
+  // 市区町村の制度はその市のページへ。県の制度（市が決まっていないもの）は、その県のまとめページ（area/pref-○○.html）へ。どちらもなければ公式のページへ
+  const city = AREA_CITIES.find((c) => (p.cities || []).includes(c.name));
+  const prefSlug = PREF_SLUGS[(p.prefectures || [])[0]];
   const area = [...(p.prefectures || []), ...(p.cities || [])].join('・');
-  return { id: 'res-' + p.id, t: p.name, a: area, m: null, s: null, e: null, ...detailOf(p), au: 'p', url: city ? `area/${city.slug}.html#resident-programs` : p.url, local: true, resident: true, cat: p.category, guide: true, p: [], i: [], k: RESIDENT_WORDS[p.category] || [] };
+  return { id: 'res-' + p.id, t: p.name, a: area, m: null, s: null, e: null, ...detailOf(p), au: 'p', url: city ? `area/${city.slug}.html#resident-programs` : prefSlug ? `area/pref-${prefSlug}.html#resident-programs` : p.url, local: true, resident: true, cat: p.category, guide: true, p: [], i: [], k: RESIDENT_WORDS[p.category] || [] };
 });
 // jGrants 以外の国の制度を、検索データの形にする（url は公式の申し込み先）
 const extraItem = (x) => ({ au: 'p', id: x.id, t: x.title, a: x.area, m: x.max, s: x.start, e: x.end, url: x.url, est: Boolean(x.est), guide: Boolean(x.guide), p: x.p, i: x.i, k: x.k });
