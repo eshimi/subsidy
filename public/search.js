@@ -54,6 +54,8 @@
   }).observe(address, { childList: true, characterData: true, subtree: true });
 
   // 入力から、都道府県名と、探す言葉を取り出す（「東京で耐震」→ 東京都 ／ 耐震）
+  // 都道府県のまとめページ（area/pref-○○.html）。src/data/prefectures.js の PREF_SLUGS と同じ
+  const PREF_SLUGS = {"北海道":"hokkaido","青森県":"aomori","岩手県":"iwate","宮城県":"miyagi","秋田県":"akita","山形県":"yamagata","福島県":"fukushima","茨城県":"ibaraki","栃木県":"tochigi","群馬県":"gunma","埼玉県":"saitama","千葉県":"chiba","東京都":"tokyo","神奈川県":"kanagawa","新潟県":"niigata","富山県":"toyama","石川県":"ishikawa","福井県":"fukui","山梨県":"yamanashi","長野県":"nagano","岐阜県":"gifu","静岡県":"shizuoka","愛知県":"aichi","三重県":"mie","滋賀県":"shiga","京都府":"kyoto","大阪府":"osaka","兵庫県":"hyogo","奈良県":"nara","和歌山県":"wakayama","鳥取県":"tottori","島根県":"shimane","岡山県":"okayama","広島県":"hiroshima","山口県":"yamaguchi","徳島県":"tokushima","香川県":"kagawa","愛媛県":"ehime","高知県":"kochi","福岡県":"fukuoka","佐賀県":"saga","長崎県":"nagasaki","熊本県":"kumamoto","大分県":"oita","宮崎県":"miyazaki","鹿児島県":"kagoshima","沖縄県":"okinawa"};
   const prefOptions = [...field('pref').options].map((o) => o.value).filter(Boolean);
   const splitQuery = (t) => {
     let rest = t;
@@ -268,14 +270,18 @@
     const place = `${c.city || c.pref || ''}`;
     const title = place ? `${place}${c.words.length ? `の「${c.words.join('・')}」` : ''}で使えそうな補助金` : c.text && !isSentence(c.text) ? `「${c.text}」に近い補助金` : '募集中の補助金';
     const chips = [c.pref, c.city, ...c.words, c.purpose && '目的で絞り込み中', c.industry && '業種で絞り込み中'].filter(Boolean);
+    // 都道府県で探しているときは、その県のまとめページ（県・市区町村の制度の一覧）へ案内する
+    const prefSlug = PREF_SLUGS[c.pref];
+    const prefLink = prefSlug ? `<p class="notice s-pref-link"><a href="area/pref-${prefSlug}.html">${esc(c.pref)}の補助金まとめページを見る（県・市区町村の制度を一覧で） →</a></p>` : '';
     const note = isSentence(c.text) ? '文章から言葉を拾って、近い制度を探しています。郵便番号も入れると、AIが内容を読み取って探します。' : '';
     count.innerHTML = out.length
       ? `<p class="summary-count"><span class="big-num">${out.length.toLocaleString('ja-JP')}</span><span class="big-unit">件</span></p>
          <div class="summary-body"><p class="label">検索結果</p><h2>${esc(title)}</h2>
          ${chips.length ? `<div class="tags">${chips.map((t) => `<span class="tag">${esc(t)}</span>`).join('')}</div>` : ''}
          ${c.city ? `<p class="notice">${esc(c.city)}の制度を先に表示しています。県・全国の制度も含みます。</p>` : ''}
+         ${prefLink}
          ${note ? `<p class="notice">${esc(note)}</p>` : ''}</div>`
-      : `<div class="summary-body"><p class="label">検索結果</p><h2>条件に合う募集中の補助金は見つかりませんでした</h2><p class="notice">キーワードや条件を減らすか、郵便番号を入れてAIで探してみてください。</p></div>`;
+      : `<div class="summary-body"><p class="label">検索結果</p><h2>条件に合う募集中の補助金は見つかりませんでした</h2><p class="notice">キーワードや条件を減らすか、郵便番号を入れてAIで探してみてください。</p>${prefLink}</div>`;
     list.innerHTML = out.slice(0, shown).map((g, i) => card(g, i, now)).join('');
     more.hidden = out.length <= shown;
   }

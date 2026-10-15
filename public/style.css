@@ -1461,3 +1461,11 @@ details ul { margin: 8px 0; padding-left: 1.5em; }
 .r-more.r-first { margin-top: 16px; }
 @media (max-width: 960px) { .r-ways .rw-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 560px) { .r-ways .rw-grid { grid-template-columns: 1fr; gap: 12px; } .r-ways .rw { min-height: 0; height: auto; padding-left: 22px; } .r-two > div, .r-lat3 { padding: 16px; } }
+
+/* 都道府県ページ：「条件を指定して探す」をボタンで目立たせる／検索結果からのまとめページへのリンク */
+.area-search-cta { margin: 16px 0 0; }
+.area-search-btn { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 10px 22px; border-radius: 8px; background: #073461; color: #fff; font-weight: 700; font-size: .95rem; text-decoration: none; }
+.area-search-btn:hover { background: #0a4a8a; color: #fff; }
+.area-search-btn span { transition: transform .15s; }
+.area-search-btn:hover span { transform: translateX(3px); }
+.s-pref-link a { font-weight: 700; color: #2b65b1; }

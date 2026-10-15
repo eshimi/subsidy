@@ -233,7 +233,7 @@ function prefPage(pref) {
     <div style="margin-bottom: 2rem;">
       <h1 class="display" style="margin-bottom: 0.5rem;">${esc(pref)}の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-${slug}.webp" alt="" height="72"></h1>
       <p class="lead" style="margin-bottom: 0;">${esc(pref)}の県の制度と、県内の市区町村の制度を、事業者向け・個人向けに分けてまとめました。掲載は、県の制度${d.bizPref.length + d.resPref.length}件、市区町村の制度${d.bizMuni.length + d.resMuni.length}件です（令和8年度）。</p>
-      <p style="margin: 12px 0 0;"><a href="../search.html?pref=${encodeURIComponent(pref)}" style="color: #2b65b1; font-weight: 500;">${esc(pref)}で募集中の補助金を、条件を指定して探す →</a></p>
+      <p class="area-search-cta"><a class="area-search-btn" href="../search.html?pref=${encodeURIComponent(pref)}">${esc(pref)}で募集中の補助金を、条件を指定して探す<span aria-hidden="true">→</span></a></p>
     </div>
 
     <section class="area-section" aria-labelledby="pref-business">
