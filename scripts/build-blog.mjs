@@ -74,7 +74,7 @@ ${p.points.map((t) => `          <li>${esc(t)}</li>`).join('\n')}
 `;
 }
 
-// 右の列の先頭：目次（サイトの他のページと同じ部品。いま読んでいる節の強調は site.js）、ポイント、AI判定への案内
+// 右の列の先頭：目次（サイトの他のページと同じ部品。いま読んでいる節の強調は site.js）、AI判定への案内（ポイントは、右の列には出さない。スマホでは本文の前に出す）
 export function postSideTop(p) {
   const toc = `    <nav class="related-links" aria-label="このページの内容">
       <h2>このページの内容</h2>
@@ -87,7 +87,7 @@ ${p.sections.map(([h], i) => `        <li><a href="#s${i}">${esc(h)}</a></li>`).
         <p>質問に答えるだけで、AIが使えそうな補助金を判定します。</p>
         <a class="bl-btn" href="../hantei.html">AI補助金判定を試す <span aria-hidden="true">→</span></a>
       </div>`;
-  return [toc, pointsBlock(p, false).trimEnd(), cta].filter(Boolean).join('\n');
+  return [toc, cta].filter(Boolean).join('\n');
 }
 
 // 記事の下：前の記事・次の記事（または一覧へ）、同じカテゴリの記事（新しい順に3本まで）
