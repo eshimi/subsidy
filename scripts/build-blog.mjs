@@ -53,6 +53,13 @@ export function loadPosts(dir = SRC) {
 }
 
 
+// 記事ページの、リード文の下の行：カテゴリ・公開日（更新日）・読了時間・同じカテゴリの記事への案内
+export function postMeta(p) {
+  const upd = p.updated && p.updated !== p.date ? `<span>更新 <time datetime="${p.updated}">${dateJa(p.updated)}</time></span>` : '';
+  return `      <p class="bl-meta"><span class="bl-cat bl-cat-${categoryClass(p.category)}">${esc(p.category)}</span><span>公開 <time datetime="${p.date}">${dateJa(p.date)}</time></span>${upd}<span>読了 約${p.minutes}分</span><a href="index.html#cat=${encodeURIComponent(p.category)}">同じカテゴリの記事を見る <span aria-hidden="true">→</span></a></p>
+`;
+}
+
 const RECOMMEND = [
   ['../basics/flow.html', '申請の流れ'],
   ['../columns/subsidy-vs-grant-vs-loan.html', '補助金・助成金・融資の違い'],
@@ -180,6 +187,7 @@ export function build({ src = SRC, out = OUT } = {}) {
       related: RELATED,
       banner: bannerFor(`${FOLDER}/${p.file}`),
       updated: dateJa(p.updated || p.date),
+      afterLead: postMeta(p),
     });
     writeArticle(out, FOLDER, p.file, { title: p.title, description: p.description, body });
   }

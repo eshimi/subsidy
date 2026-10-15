@@ -1483,3 +1483,8 @@ details ul { margin: 8px 0; padding-left: 1.5em; }
 .bl-rss a { color: #2b65b1; font-weight: 500; }
 @media (max-width: 920px) { .bl-layout { grid-template-columns: minmax(0, 1fr); } }
 @media (max-width: 560px) { .bl-row { grid-template-columns: minmax(0, 1fr); gap: 4px; padding: 18px 16px; } .bl-d br { display: none; } .bl-d time::after { content: "　"; } }
+
+/* ブログ記事ページ：リード文の下の、カテゴリ・日付・読了時間の行 */
+.bl-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; margin: 14px 0 0; font-size: .84rem; color: #56667f; }
+.bl-meta a { margin-left: auto; color: #2b65b1; font-weight: 500; }
+@media (max-width: 560px) { .bl-meta a { margin-left: 0; width: 100%; } }
