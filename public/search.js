@@ -218,11 +218,12 @@
     const idx = String(i + 1).padStart(2, '0');
     const status = statusBadge(g, now);
     if (g.local) {
+      // 題名は、その制度の公式ページへ（公式ページがない制度だけ、その市のまとめページへ）。市のまとめページへは、下の「ページで、ほかの制度も見る」から
       const city = cityOf(g);
       const more = g.url ? `<a href="${esc(g.url)}">${city ? `${esc(city)}の` : ''}ページで、ほかの制度も見る</a>` : '';
       return `<article class="program"><div class="p-index">${idx}</div><div class="p-main">
         <div class="meta-line">${audBadge(g)}<span class="badge level">${esc(LEVEL[g.lv] || '自治体')}</span>${g.ty ? `<span class="badge type">${esc(g.ty)}</span>` : ''}${g.cat ? `<span class="badge live">${esc(g.cat)}</span>` : ''}${status}</div>
-        <h3><a href="${esc(g.url)}">${esc(g.t)}</a></h3>
+        <h3><a href="${esc(g.o || g.url)}"${g.o ? ' target="_blank" rel="noopener"' : ''}>${esc(g.t)}</a></h3>
         <p class="provider">${esc(g.pv || g.a)}</p>
         ${g.sm ? `<p class="summary-text">${esc(g.sm)}</p>` : ''}
         ${g.el && g.el.length ? `<details><summary>主な要件</summary><ul>${g.el.map((e) => `<li>${esc(e)}</li>`).join('')}</ul><p class="checked-at"><small>⚠️ 申請の前に、必ず公式ページで最新の内容を確認してください。</small></p></details>` : ''}
