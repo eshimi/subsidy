@@ -8,10 +8,13 @@
   });
 })();
 
+// 広告の表示のスイッチ。false の間は、下部の広告枠・右側の広告枠を、どのページにも出さない（再開するときは true にする）
+const SHOW_ADS = false;
+
 // A8.net アフィリエイト広告：トップページ・方針ページ以外の各ページに、2社のうち1社をランダムで1つだけ表示する
 (function () {
   const path = location.pathname.replace(/index\.html$/, '');
-  if (path === '/' || path === '' || path.indexOf('/policy/') === 0 || path === '/compare/virtual-office.html') return;
+  if (!SHOW_ADS || path === '/' || path === '' || path.indexOf('/policy/') === 0 || path === '/compare/virtual-office.html') return;
   const main = document.querySelector('main');
   if (!main) return;
   const ads = [
@@ -89,7 +92,7 @@
 // 300x250 の広告が増えたら sideAds に足す（複数あるときは、ページごとにランダムで1つ）
 (function () {
   const path = location.pathname.replace(/index\.html$/, '');
-  if (path === '/' || path === '' || path.indexOf('/policy/') === 0 || path === '/compare/virtual-office.html') return;
+  if (!SHOW_ADS || path === '/' || path === '' || path.indexOf('/policy/') === 0 || path === '/compare/virtual-office.html') return;
   const side = document.querySelector('.page-side');
   if (!side) return;
   const sideAds = [
