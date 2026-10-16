@@ -1,6 +1,6 @@
 {
  "": {
-  "h": "v2:ee33628d1139",
+  "h": "v2:0a0e3799179e",
   "d": "2026-10-15"
  },
  "beginner-guide.html": {
@@ -29,11 +29,11 @@
  },
  "guide.html": {
   "h": "v2:9b6483d36a22",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "hantei.html": {
   "h": "v2:8332bc61839a",
-  "d": "2026-10-15"
+  "d": "2026-10-16"
  },
  "hitsuyo.html": {
   "h": "v2:990f2b3f8412",
@@ -57,7 +57,7 @@
  },
  "real-life.html": {
   "h": "v2:7f1e7b291f7a",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "resources.html": {
   "h": "v2:06198280330d",
@@ -65,23 +65,23 @@
  },
  "roadmap.html": {
   "h": "v2:e7f6feff60b4",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "search.html": {
   "h": "v2:a979e34e3aa2",
   "d": "2026-10-15"
  },
  "sitemap.html": {
-  "h": "v2:c4e9bfb3de84",
+  "h": "v2:77126331b778",
   "d": "2026-10-15"
  },
  "basics/after-adoption.html": {
   "h": "v2:a7c34a684327",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "basics/business-plan.html": {
   "h": "v2:3cdd9bd28f53",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "basics/documents.html": {
   "h": "v2:2e886956a745",
@@ -93,11 +93,11 @@
  },
  "basics/flow.html": {
   "h": "v2:2b4de3e84c07",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "basics/glossary.html": {
   "h": "v2:572fc87e04d8",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "basics/index.html": {
   "h": "v2:426d3b8ae0e5",
@@ -105,11 +105,11 @@
  },
  "basics/not-adopted.html": {
   "h": "v2:a927851d182f",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "basics/tax.html": {
   "h": "v2:5856204251aa",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "basics/types.html": {
   "h": "v2:cd243169c14b",
@@ -125,43 +125,43 @@
  },
  "who/sme.html": {
   "h": "v2:fa5fa66600c0",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "who/sole-proprietor.html": {
   "h": "v2:f30deb4f841a",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "who/startup.html": {
   "h": "v2:783b8429df1d",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "personal/ev.html": {
   "h": "v2:7f354fe111d6",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "personal/housing.html": {
   "h": "v2:062c93186a57",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "personal/kids.html": {
   "h": "v2:7e634a75bdbc",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "personal/learning.html": {
   "h": "v2:9df7d9b0e31c",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "personal/relocation.html": {
   "h": "v2:e8734c3fce79",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "personal/seismic.html": {
   "h": "v2:c23f785e9cb8",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "personal/solar.html": {
   "h": "v2:51e5c3c27810",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "personal/summary.html": {
   "h": "v2:2fcbb8d85903",
@@ -169,15 +169,15 @@
  },
  "feature/digital-subsidy.html": {
   "h": "v2:fc5e9f744c0a",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "feature/employment.html": {
   "h": "v2:40f41b8a6094",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "feature/growth.html": {
   "h": "v2:3bedea5ab164",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "feature/index.html": {
   "h": "v2:75f6ebb21cc5",
@@ -193,7 +193,7 @@
  },
  "feature/popular.html": {
   "h": "v2:3a9a7062b19d",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "feature/shoryokuka.html": {
   "h": "v2:ba056ff45cc0",
@@ -201,31 +201,31 @@
  },
  "feature/succession.html": {
   "h": "v2:428480829443",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "cases/aigran-cloud-payroll.html": {
   "h": "v2:65402ba31554",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "cases/barber-visiting-service.html": {
   "h": "v2:e076a5d74c5a",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "cases/fukuda-bakery-oven.html": {
   "h": "v2:d78b9ebe7791",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "cases/gyomu-kaizen-seikotsuin.html": {
   "h": "v2:04f199f4830a",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "cases/ichimaru-photo-pharmacy.html": {
   "h": "v2:29fa24830d6f",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "cases/iie-capsule-ec.html": {
   "h": "v2:a6b4ef23b2d4",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "cases/index.html": {
   "h": "v2:b377fd693193",
@@ -233,151 +233,151 @@
  },
  "cases/kaya-cellophane-ishikawa.html": {
   "h": "v2:20fef4ee00b1",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "cases/kikuhiro-chokin.html": {
   "h": "v2:34576dd1bfea",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "cases/kimise-rpa.html": {
   "h": "v2:eebc29c6544f",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "cases/manka-rotei.html": {
   "h": "v2:d04b8345bcbc",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "cases/matsumotoro-bakery.html": {
   "h": "v2:49e3f932f7f1",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "cases/saiko-cnf-machine.html": {
   "h": "v2:6140a887d435",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "cases/shonai-edamame.html": {
   "h": "v2:8868bfd305a0",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "cases/shoryokuka-restaurant-ticket.html": {
   "h": "v2:d43c1d24ea1c",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "cases/soba-tanemura-matsumoto.html": {
   "h": "v2:2feafdae3c0c",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "cases/tagami-rice.html": {
   "h": "v2:cf85705512e7",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "cases/takahashi-inshi.html": {
   "h": "v2:bb47dbc9c8e4",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "cases/tensense-ecopresso-osaka.html": {
   "h": "v2:6c3128e30df7",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "cases/yamachiku-nankan-kumamoto.html": {
   "h": "v2:7ecd45912dc6",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "compare/index.html": {
   "h": "v2:7ae6a0f5a40f",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "compare/virtual-office.html": {
   "h": "v2:252cdbda04f8",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "columns/free-consultation.html": {
   "h": "v2:79129c0ab996",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "columns/gbizid-early.html": {
   "h": "v2:9239d9788f29",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "columns/how-to-find-subsidy.html": {
   "h": "v2:dcc7e2975972",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "columns/subsidy-paid-after.html": {
   "h": "v2:a12c3cf3153c",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "columns/subsidy-vs-grant-vs-loan.html": {
   "h": "v2:78b855418071",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "guides/first-day-checklist.html": {
   "h": "v2:9a96ff6dc9c8",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "guides/secret-side-job.html": {
   "h": "v2:c8548609c336",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "guides/tax-filing-basics.html": {
   "h": "v2:efe97d0b8a43",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "guides/time-to-first-income.html": {
   "h": "v2:0a5b45232a3f",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "guides/work-life-balance.html": {
   "h": "v2:a1a0c666f95b",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "news/2026-09-11-shokei-15-saitaku.html": {
   "h": "v2:0c63ccc5e8c7",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "news/2026-09-14-r9-gaisan.html": {
   "h": "v2:4f4f8d755b6d",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "news/2026-09-16-jizokuka-saigai.html": {
   "h": "v2:64f90eb54a29",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "news/2026-09-18-shoryokuka-8.html": {
   "h": "v2:68fe08e4fe90",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "news/2026-09-29-seicho-3.html": {
   "h": "v2:a9829f4864ce",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "news/2026-09-30-shinjigyo-mono-1.html": {
   "h": "v2:32510c1fd369",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "news/2026-10-01-digital-ai-6.html": {
   "h": "v2:2bf46aff06fa",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "news/2026-10-02-shokei-16.html": {
   "h": "v2:7b790ed8b595",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "news/2026-10-05-overseas-support.html": {
   "h": "v2:aee2ce2cb9d0",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "news/2026-10-07-gyomu-kaizen.html": {
   "h": "v2:f89a84e2814b",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "news/2026-10-09-deadlines-october.html": {
   "h": "v2:c6d1b709a927",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "news/2026-10-10-jizokuka-20.html": {
   "h": "v2:e29c7a7c14a9",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "news/2026-10-15-deadline-1016.html": {
   "h": "v2:5d5c7544a5b2",
@@ -416,11 +416,11 @@
   "d": "2026-10-15"
  },
  "blog/2026-10-13-popular-subsidies-application-steps-2.html": {
-  "h": "v2:23c5108b7f5f",
+  "h": "v2:46a62e487d74",
   "d": "2026-10-15"
  },
  "blog/2026-10-13-popular-subsidies-application-steps.html": {
-  "h": "v2:c32bae2de403",
+  "h": "v2:86f0b5d97c14",
   "d": "2026-10-15"
  },
  "blog/2026-10-13-subsidy-for-website.html": {
@@ -428,15 +428,19 @@
   "d": "2026-10-15"
  },
  "blog/2026-10-15-aimitsumori-estimate-tips.html": {
-  "h": "v2:061ed237d183",
+  "h": "v2:3aad83760470",
   "d": "2026-10-15"
  },
  "blog/2026-10-15-application-mistakes-checklist.html": {
-  "h": "v2:ec36ccfb82b5",
+  "h": "v2:697567b26b88",
+  "d": "2026-10-15"
+ },
+ "blog/2026-10-16-numerical-plan-tips.html": {
+  "h": "v2:a1d1b159b506",
   "d": "2026-10-15"
  },
  "blog/index.html": {
-  "h": "v2:fca7d76ab30a",
+  "h": "v2:e47baa5383d6",
   "d": "2026-10-15"
  },
  "policy/about.html": {
@@ -1717,39 +1721,39 @@
  },
  "research/business.html": {
   "h": "v2:6fad413c5eff",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "research/gaps.html": {
   "h": "v2:d33923207670",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "research/index.html": {
   "h": "v2:ed4ccea23b99",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "research/methods.html": {
   "h": "v2:afcc5e9da4c5",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "research/personal.html": {
   "h": "v2:b51a799e6e21",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "research/prefectures.html": {
   "h": "v2:be340e80671c",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "research/programs.html": {
   "h": "v2:75d89c32fd1e",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "research/startup-map.html": {
   "h": "v2:e10e74adac0c",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "background/decarbon.html": {
   "h": "v2:3ae349f19fcb",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "background/index.html": {
   "h": "v2:3429f58c88ac",
@@ -1757,10 +1761,10 @@
  },
  "background/labor.html": {
   "h": "v2:744b50a97649",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  },
  "background/population.html": {
   "h": "v2:f6f747ea06bb",
-  "d": "2026-10-14"
+  "d": "2026-10-15"
  }
 }
