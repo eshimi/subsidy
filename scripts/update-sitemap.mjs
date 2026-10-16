@@ -1,5 +1,5 @@
 // sitemap.xml の一覧と更新日（lastmod）を、public/ の実際のページに合わせる。
-// 中身が変わったページだけ更新日を進める。覚えておく場所は data/sitemap-lastmod.json。
+// 本文が変わったページだけ更新日（日本時間）を進める（ナビ・右の列・空白だけの変更では進めない）。覚えておく場所は data/sitemap-lastmod.json。
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';

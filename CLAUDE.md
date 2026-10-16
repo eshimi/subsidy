@@ -25,7 +25,7 @@
 - 蛍光ペン: `<strong class="hl">` を本文の p/li/dd/blockquote/td にだけ付ける（`scripts/data/highlights.mjs`、フレーズは本文中で1回だけ出るもの。冪等）。
 - 事業計画書AI: `src/ai.js`、`src/plan.js`、`public/plan.js`、`public/plan-docx.js`。無料の簡易版が標準、詳しい版は `PLAN_DETAILED` フラグの裏。
 - リサーチ（分析）: `scripts/lib/analysis.mjs`、`update-analysis.mjs`、`build-analysis-pages.mjs`（事業向け・個人向け・地域×目的の空白・月次）、`build-research-pages.mjs`。説明枠は末尾へ（`introLast`）。
-- ナビ・サイトマップ: `scripts/lib/nav.mjs`、`scripts/lib/sitemap.mjs`。sitemap.xml の更新日はページ内容のハッシュで `data/sitemap-lastmod.json` に記録。
+- ナビ・サイトマップ: `scripts/lib/nav.mjs`、`scripts/lib/sitemap.mjs`。sitemap.xml の更新日はページ**本文**（`<main>`。ナビ・右の列・空白は除く）のハッシュで `data/sitemap-lastmod.json` に記録（本文が変わったページだけ日本時間の今日に進む。ハッシュは `v2:` 付き）。
 - トップの「4つの探し方」は `.rw` 系のボタン（案E）。ラベルは「キーワードで探す」「地域から探す」「必要なものから探す」「AIに相談して探す」。
 
 ## 未対応・確認待ち

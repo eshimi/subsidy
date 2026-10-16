@@ -126,18 +126,42 @@ ${area}
 }
 
 // ---- sitemap.xml の更新日（lastmod） ----
-// ページの中身のハッシュを data/sitemap-lastmod.json に覚えておき、中身が変わったページだけ更新日を今日にする。
+// ページの「本文」のハッシュを data/sitemap-lastmod.json に覚えておき、本文が変わったページだけ更新日を今日（日本時間）にする。
+// ハッシュに入れないもの：ヘッダー・フッター・右の列（関連ページ・目次）・<head>・script/style・空白の違い。
+// → ナビや関連リンクの一括変更、空白だけの整形、ビルドのたびの再生成では、更新日は進まない。
 // （デプロイ先の git が浅い履歴でも、同じ結果になる。毎日の更新で data/ に保存される）
 import { createHash } from 'node:crypto';
 
-export function lastmodMap(publicDir, paths, prev = {}, today = new Date().toISOString().slice(0, 10)) {
+export const jstDate = (now = new Date()) => new Date(now.getTime() + 9 * 3600e3).toISOString().slice(0, 10);
+
+const HASH_VERSION = 'v2:';
+
+// 更新日の判断に使う、ページの本文（<main> の中から、右の列・script・style・コメントを除き、空白を詰めたもの）
+export function mainContent(html) {
+  const m = String(html).match(/<main[\s\S]*<\/main>/i);
+  return (m ? m[0] : String(html))
+    .replace(/<!--[\s\S]*?-->/g, '')
+    .replace(/<(script|style)[\s\S]*?<\/\1>/gi, '')
+    .replace(/<aside\b[\s\S]*?<\/aside>/gi, '')
+    .replace(/<nav class="related-links"[\s\S]*?<\/nav>/gi, '')
+    .replace(/\s+/g, ' ')
+    .replace(/> </g, '><')
+    .trim();
+}
+
+export const contentHash = (html) => HASH_VERSION + createHash('sha1').update(mainContent(html)).digest('hex').slice(0, 12);
+
+export function lastmodMap(publicDir, paths, prev = {}, today = jstDate()) {
   const next = {};
   for (const p of paths) {
     const file = join(publicDir, p === '' ? 'index.html' : p);
     if (!existsSync(file)) continue;
-    const h = createHash('sha1').update(readFileSync(file)).digest('hex').slice(0, 12);
+    const h = contentHash(readFileSync(file, 'utf-8'));
     const old = prev[p];
-    next[p] = old && old.h === h ? old : { h, d: today };
+    if (!old) next[p] = { h, d: today };
+    // 以前の数え方（ページ全体のハッシュ）の記録は、更新日をそのまま引き継いで、新しいハッシュに置き換える（一括で更新日が進まないように）
+    else if (!String(old.h).startsWith(HASH_VERSION)) next[p] = { h, d: old.d };
+    else next[p] = old.h === h ? old : { h, d: today };
   }
   return next;
 }
