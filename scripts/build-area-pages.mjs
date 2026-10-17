@@ -9,6 +9,7 @@ import { RESIDENT_PROGRAMS, RESIDENT_CATEGORIES } from '../src/data/resident-pro
 import { PREFECTURES, PREF_SLUGS } from '../src/data/prefectures.js';
 import { SITE, esc, shell } from './lib/site-shell.mjs';
 import { sitemapPaths, writeSitemapHtml, lastmodMap } from './lib/sitemap.mjs';
+import { isEnded } from './lib/ended.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = join(ROOT, 'public', 'area');
@@ -36,13 +37,6 @@ function residentGroups(list, residentCard) {
   }).filter(Boolean).join('\n');
 }
 
-// 受付が終了した制度か：締切日が今日より前、または期間の文に「受付終了・募集終了」とあるもの（「予算に達し次第終了」「一部の枠は終了」などの条件つきの書き方は、終了とみなさない）
-const TODAY = new Date().toISOString().slice(0, 10);
-export function isEnded(p) {
-  if (p.deadline && p.deadline < TODAY) return true;
-  const t = String(p.period || '');
-  return /(受付|募集)(は)?終了|終了済/.test(t) && !/次第|場合|分は|枠は|募集中|受付中|ことがある|予定/.test(t);
-}
 // 募集中の制度を先に、受付が終了した制度を後に並べる（並びは、それぞれの中で元の順）
 const activeFirst = (list) => [...list.filter((p) => !isEnded(p)), ...list.filter(isEnded)];
 // 制度のカードを並べる。終了した制度があれば、募集中の制度のあとに見出しをつけて分ける

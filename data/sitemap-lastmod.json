@@ -36,7 +36,7 @@
   "d": "2026-10-16"
  },
  "hitsuyo.html": {
-  "h": "v2:8c20732bdc53",
+  "h": "v2:64ae9c9e6e94",
   "d": "2026-10-17"
  },
  "notices.html": {
@@ -1784,7 +1784,71 @@
   "d": "2026-10-17"
  },
  "hitsuyo/store.html": {
-  "h": "v2:3038e73e3d23",
+  "h": "v2:f0296759bcde",
+  "d": "2026-10-17"
+ },
+ "hitsuyo/home-ev.html": {
+  "h": "v2:7aff2618ccb3",
+  "d": "2026-10-17"
+ },
+ "hitsuyo/home-reform.html": {
+  "h": "v2:d895a278f773",
+  "d": "2026-10-17"
+ },
+ "hitsuyo/home-solar.html": {
+  "h": "v2:fbb414e3a3ad",
+  "d": "2026-10-17"
+ },
+ "hitsuyo/home.html": {
+  "h": "v2:1321ce28a975",
+  "d": "2026-10-17"
+ },
+ "hitsuyo/it-ai.html": {
+  "h": "v2:321ceb6bdcbf",
+  "d": "2026-10-17"
+ },
+ "hitsuyo/it-software.html": {
+  "h": "v2:41b88ccc40b7",
+  "d": "2026-10-17"
+ },
+ "hitsuyo/it-website.html": {
+  "h": "v2:ce84c9bd7967",
+  "d": "2026-10-17"
+ },
+ "hitsuyo/it.html": {
+  "h": "v2:c9b43037b9a9",
+  "d": "2026-10-17"
+ },
+ "hitsuyo/people-hiring.html": {
+  "h": "v2:fa12c051691c",
+  "d": "2026-10-17"
+ },
+ "hitsuyo/people-training.html": {
+  "h": "v2:3a5516a02012",
+  "d": "2026-10-17"
+ },
+ "hitsuyo/people-wage.html": {
+  "h": "v2:1376742def5c",
+  "d": "2026-10-17"
+ },
+ "hitsuyo/people.html": {
+  "h": "v2:40b29febfda9",
+  "d": "2026-10-17"
+ },
+ "hitsuyo/startup-opening.html": {
+  "h": "v2:007881cbd49b",
+  "d": "2026-10-17"
+ },
+ "hitsuyo/startup-succession.html": {
+  "h": "v2:5e3c4ab0e85c",
+  "d": "2026-10-17"
+ },
+ "hitsuyo/startup-vacant.html": {
+  "h": "v2:89b6413e2ff0",
+  "d": "2026-10-17"
+ },
+ "hitsuyo/startup.html": {
+  "h": "v2:51b3cd09f4dc",
   "d": "2026-10-17"
  }
 }
