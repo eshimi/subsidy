@@ -216,6 +216,16 @@
   const audBadge = (g) => (g.au === 'p' ? '<span class="badge aud-p">個人向け</span>' : g.au === 'b' ? '<span class="badge aud-b">事業者向け</span>' : '');
   // 自治体の制度の題名のリンク：サイト内の地域ページの、その制度の位置（area/○○.html#制度のid）。
   // 県の制度は、県のまとめページ（area/pref-○○.html）へ。行き先の地域ページがない制度だけ、公式ページ（別タブ）へ
+  function localPage(g) {
+    const id = String(g.id).replace(/^(local|res)-/, '');
+    let page = String(g.url || '').split('#')[0];
+    if (!page || page === 'area/index.html') {
+      const slug = PREF_SLUGS[String(g.a || '').split('・')[0]];
+      page = slug ? `area/pref-${slug}.html` : '';
+    }
+    return page ? `${page}#${encodeURIComponent(id)}` : '';
+  }
+  const localUrl = (g) => localPage(g) || g.o || '';
   function titleLink(g) {
     const id = String(g.id).replace(/^(local|res)-/, '');
     let page = String(g.url || '').split('#')[0];
@@ -225,6 +235,12 @@
     }
     if (!page) return g.o ? `<a href="${esc(g.o)}" target="_blank" rel="noopener">${esc(g.t)}</a>` : esc(g.t);
     return `<a href="${esc(page)}#${encodeURIComponent(id)}">${esc(g.t)}</a>`;
+  }
+  // 「☆ 保存」ボタン（public/save-button.js が動かす）。保存する情報は data-save に JSON で入れる。保存先のリンクは、サイト内は / から始まる形にする
+  const abs = (u) => (/^https?:\/\//i.test(u) ? u : `/${String(u).replace(/^\//, '')}`);
+  function saveBtn(g, url) {
+    const info = { id: String(g.id), name: g.t, url: url ? abs(url) : '', provider: g.pv || area(g.a), amount: g.am || (g.m ? yen(g.m) : ''), deadline: deadlineOf(g) || null, period: g.pd || null };
+    return `<button type="button" class="save-btn" data-save="${esc(JSON.stringify(info))}" aria-pressed="false">☆ 保存</button>`;
   }
   function card(g, i, now) {
     const idx = String(i + 1).padStart(2, '0');
@@ -239,7 +255,7 @@
         <p class="provider">${esc(g.pv || g.a)}</p>
         ${g.sm ? `<p class="summary-text">${esc(g.sm)}</p>` : ''}
         ${g.el && g.el.length ? `<details><summary>主な要件</summary><ul>${g.el.map((e) => `<li>${esc(e)}</li>`).join('')}</ul><p class="checked-at"><small>⚠️ 申請の前に、必ず公式ページで最新の内容を確認してください。</small></p></details>` : ''}
-        <div class="link-row">${g.o ? `<a href="${esc(g.o)}" target="_blank" rel="noopener">公式ページを見る ↗</a>` : ''}${more}</div>
+        <div class="link-row">${g.o ? `<a href="${esc(g.o)}" target="_blank" rel="noopener">公式ページを見る ↗</a>` : ''}${more}${saveBtn(g, localUrl(g))}</div>
       </div><div class="p-side">${g.am ? `<p class="amount">${esc(g.am)}</p>` : ''}${g.pd ? `<p class="period">${esc(g.pd)}</p>` : ''}</div></article>`;
     }
     if (g.guide) {
@@ -247,7 +263,7 @@
         <div class="meta-line">${audBadge(g)}<span class="badge level">解説</span></div>
         <h3><a href="${esc(g.url)}">${esc(g.t)}</a></h3>
         <p class="summary-text">個人の方向けの、仕組みと申請の流れをまとめたページです。</p>
-        <div class="link-row"><a href="${esc(g.url)}">解説ページを見る</a></div>
+        <div class="link-row"><a href="${esc(g.url)}">解説ページを見る</a>${saveBtn(g, g.url)}</div>
       </div><div class="p-side"></div></article>`;
     }
     const href = g.url ? esc(g.url) : `grants/${encodeURIComponent(g.id)}.html`;
@@ -256,7 +272,7 @@
       <div class="meta-line">${audBadge(g)}<span class="badge live">${g.url ? '国' : '募集中'}</span>${status}</div>
       <h3><a href="${href}"${ext}>${esc(g.t)}</a></h3>
       <p class="provider">対象地域：${esc(area(g.a))}</p>
-      <div class="link-row"><a href="${href}"${ext}>${g.url ? '公式ページを見る ↗' : '詳細を見る'}</a></div>
+      <div class="link-row"><a href="${href}"${ext}>${g.url ? '公式ページを見る ↗' : '詳細を見る'}</a>${saveBtn(g, g.url || `grants/${g.id}.html`)}</div>
     </div><div class="p-side"><p class="amount">${esc(yen(g.m))}</p></div></article>`;
   }
 

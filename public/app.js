@@ -72,6 +72,7 @@ function loadSaved() {
 function writeSaved(saved) {
   try {
     storage.setItem(SAVED_KEY, JSON.stringify(saved));
+    document.dispatchEvent(new Event('saved-changed')); // 検索結果のカードの「保存」ボタン（save-button.js）の表示を合わせる
     return true;
   } catch {
     toast('このブラウザでは保存できませんでした');
@@ -151,6 +152,9 @@ $('#saved-ics').addEventListener('click', () => {
   const items = Object.values(loadSaved()).filter((s) => isUpcoming(s.deadline));
   downloadIcs(items, 'subsidy-deadlines.ics');
 });
+
+// 検索結果のカード（search.js）で保存・解除したときも、「保存した制度」の一覧を描き直す
+document.addEventListener('saved-changed', renderSaved);
 
 // ── 初期化 ──
 

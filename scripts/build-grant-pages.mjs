@@ -247,6 +247,9 @@ function guidesOf(g) {
   return [...new Set(t.p.filter((k) => GUIDE_FOR[k]).map((k) => GUIDE_FOR[k].join('|')))].map((v) => { const [h, l] = v.split('|'); return [h, l, '', false]; });
 }
 
+// 「☆ 保存」ボタン。動かすのは public/save-button.js（ログイン中はサーバー、そうでなければこのブラウザに保存）
+const saveButton = (g) => `<button type="button" class="save-btn" data-save="${esc(JSON.stringify({ id: String(g.id), name: g.title, url: `/grants/${g.id}.html`, provider: g.area || null, amount: g.max ? amountJa(g.max) : null, deadline: g.end || null, period: null }))}" aria-pressed="false">☆ 保存</button>`;
+
 export function grantPage(g, now, detail = null) {
   const st = statusOf(g.end, now);
   const title = `${g.title}｜補助金ネット`;
@@ -258,7 +261,7 @@ export function grantPage(g, now, detail = null) {
 
     <div class="fx-hero"><div class="pb-banner" style="background-image: url('../images/banner/${bannerFor(`grants/${g.id}.html`)}.webp')"><h1 class="pb-title">${esc(g.title)}</h1></div></div>
     <div class="fx-lead">
-      <p class="fx-meta"><span class="fx-chip fx-chip--${st.key}">${esc(st.label)}</span></p>
+      <p class="fx-meta"><span class="fx-chip fx-chip--${st.key}">${esc(st.label)}</span> ${saveButton(g)}</p>
       <p class="lead">${esc(st.label)}｜締切：${esc(dateJa(g.end))}</p>${detail?.catch ? `\n      <p class="fx-catch">${esc(detail.catch)}</p>` : ''}
     </div>
 
@@ -282,7 +285,7 @@ ${caseCards(g.title, tagsOf(g).p)}
     '@context': 'https://schema.org', '@type': 'FAQPage',
     mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
   })}</script>\n`;
-  return shell({ title, description, canonicalPath: `/grants/${g.id}.html`, body, jsonLd, robots: 'noindex, follow' }).replace('</style>', `${STYLE_EXTRA}\n  </style>`);
+  return shell({ title, description, canonicalPath: `/grants/${g.id}.html`, body, jsonLd, robots: 'noindex, follow' }).replace('</style>', `${STYLE_EXTRA}\n  </style>`).replace('</body>', '  <script type="module" src="../save-button.js"></script>\n</body>');
 }
 
 function listPage({ title, heading, lead, items, now, canonicalPath, extra = '', robots = 'index, follow' }) {
