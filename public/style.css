@@ -636,7 +636,7 @@ details ul { margin: 8px 0; padding-left: 1.5em; }
 
 /* タイトル用のバナー（イラスト＋中央の半透明の帯に見出し） */
 .pb-banner { margin: 0 0 12px; background: none !important; }
-.pb-title { margin: 0; font-weight: 900; font-size: clamp(1.6rem, 3.2vw, 2.3rem); line-height: 1.4; letter-spacing: 0; color: #14213d; text-wrap: balance; text-align: left; }
+.pb-title { margin: 0; font-weight: 900; font-size: clamp(1.3rem, 2.1vw, 1.65rem); line-height: 1.45; letter-spacing: 0; color: #14213d; text-align: left; }
 .pb-title .area-title-img { height: 44px; width: auto; margin-left: 12px; vertical-align: middle; }
 .pb-banner + div { padding-bottom: 20px; border-bottom: 1px solid #e6e8ec; }
 .pb-banner + div > .label { font-weight: 700; letter-spacing: 0.06em; color: #c9411a; }
