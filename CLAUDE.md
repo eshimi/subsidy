@@ -43,9 +43,9 @@
 ## 未対応・確認待ち
 - **会員制（第3段階）の公開前**: D1 に migrations/0002_notify.sql を適用（Console に SQL を貼る。ALTER は1度だけ）。Cloudflare の「メール サービス」で hojyokin.net の Email Sending を有効にしたら、wrangler.jsonc の NOTIFY_ENABLED を "true" に。推移グラフ（マイページの8週間の動き）は実装済み。
 - **会員制（第2段階）の公開前**（済み・動作確認待ち）: D1 の作成・マイグレーション適用・`GOOGLE_CLIENT_ID` の登録・wrangler.jsonc の d1_databases のコメント解除。Google Cloud 側で、承認済みの JavaScript 生成元に https://hojyokin.net を追加。会員向けの利用規約はまだない。
-- **制度ガイド（自治体）の続き（2026-10-17時点、再開するときはここから）**: 現在 `data/program-details.json` に 359 件（ページ公開 191 件。2026-10-18 に、上位50自治体の拡大の担当 batch-1・5・7 を統合。batch-2・3・4・6・8 は利用上限で止まり、再開待ち。材料は /tmp/prog4/ にあれば再利用、なければ `node scripts/fetch-program-pages.mjs` で取り直す。統合は `node scripts/merge-program-details.mjs out-N.json …`）。済み＝県の制度（受付中95件）、創業・起業の市区町村の制度、制度が多い上位30自治体の制度。残り：
+- **制度ガイド（自治体）の続き（2026-10-17時点、再開するときはここから）**: 現在 `data/program-details.json` に 479 件（ページ公開 248 件。2026-10-18 に、市区町村の制度が5件以上の自治体の全制度＝212件のうち、公式ページを取得できた192件を統合）。済み＝県の制度（受付中95件）、創業・起業の市区町村の制度、制度が多い上位30自治体の制度。残り：
   1. 取得できなかった制度（`data/program-unfetched.json`。404＝リンク切れは `LOCAL_PROGRAMS` の url を直す／通信エラーは別環境で再試行）。
-  2. 上位50自治体（市区町村の制度で約216件）への拡大。手順は、対象の洗い出し → 公式ページの取得（`node scripts/fetch-program-pages.mjs <一覧.json> <出力先>`。curl で取得し `/tmp` に本文化）→ 担当を分けて材料を書き起こし（本文の事実だけ・数字と引用は verify-program-details.mjs で検証・「現年度の記載がない／更新日だけ」は stale として除く）→ 統合 → build-program-pages → apply-program-links。
+  2. （2026-10-18 に、制度が5件以上の自治体は済み。次は、4件以下の自治体（約190自治体）への拡大。）手順は、対象の洗い出し → 公式ページの取得（`node scripts/fetch-program-pages.mjs <一覧.json> <出力先>`。curl で取得し `/tmp` に本文化）→ 担当を分けて材料を書き起こし（本文の事実だけ・数字と引用は verify-program-details.mjs で検証・「現年度の記載がない／更新日だけ」は stale として除く）→ 統合 → build-program-pages → apply-program-links。
   3. 本番で初回の週次確認（毎週月曜）の結果を、GitHub Actions の実行画面の概要で確認する。誤検出（公開停止・注意書き）がないか。
   4. Search Console にデータが入ったら、制度ガイドのページ群が検索に出ているか、優先する自治体・制度の見直し。
   5. 他の候補：コラム（columns.html）や個人向け・やりたいこと分野ページのヒーロー、トップの探し方の見直しなど。

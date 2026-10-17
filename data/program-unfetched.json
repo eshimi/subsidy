@@ -1,6 +1,6 @@
 {
  "version": 1,
- "note": "公式ページを取得できず、制度ガイドの材料をまだ作れていない制度（2026-10-17時点）。404はリンク切れ（LOCAL_PROGRAMSのurlの修正が必要）、0・408・403は通信エラー・遮断（別の環境で再試行）。",
+ "note": "公式ページを取得できず、制度ガイドの材料をまだ作れていない制度（2026-10-18時点）。404はリンク切れ（LOCAL_PROGRAMSのurlの修正が必要）、0・408・403は通信エラー・遮断（別の環境で再試行）。（上位50自治体の拡大で、20件を追加）",
  "items": [
   {
    "id": "fukushima-chiiki-kadai-kigyo",
@@ -187,6 +187,78 @@
    "name": "川口市展示会等出展事業補助金",
    "url": "https://www.city.kawaguchi.lg.jp/soshiki/01110/030/kougyousisaku/50873.html",
    "lastStatus": 404
+  },
+  {
+   "id": "bunkyo-ninshou-hojo",
+   "name": "文京区各種認証取得費等補助金",
+   "url": "https://www.city.bunkyo.lg.jp/b012/p005133.html",
+   "lastStatus": 0
+  },
+  {
+   "id": "suita-city-chizai",
+   "name": "吹田市知的財産権取得事業補助金",
+   "url": "https://www.city.suita.osaka.jp/home/soshiki/div-toshimiryoku/chiikikeizai/shoukougyou/kigyouhojyo/chizaihojyo.html",
+   "lastStatus": 408
+  },
+  {
+   "id": "suita-city-jinzai-ikusei",
+   "name": "吹田市中小企業人材育成支援補助金",
+   "url": "https://www.city.suita.osaka.jp/sangyo/1018028/1018029/1018030/1034178.html",
+   "lastStatus": 408
+  },
+  {
+   "id": "takarazuka-city-hosyoryo-hojo",
+   "name": "宝塚市中小企業振興資金融資補助金（保証料補助）",
+   "url": "https://www.city.takarazuka.hyogo.jp/kanko/1009616/sangyo/1042194/1042196/1020180.html",
+   "lastStatus": 404
+  },
+  {
+   "id": "nara-city-nigiwai-hojo",
+   "name": "奈良市中小商業者等にぎわい創出事業補助金",
+   "url": "https://www.city.nara.lg.jp/site/jigyosyashien/list932.html",
+   "lastStatus": 408
+  },
+  {
+   "id": "nara-city-sogyo-shien-shikin",
+   "name": "奈良市創業支援資金",
+   "url": "https://www.city.nara.lg.jp/soshiki/109/8684.html",
+   "lastStatus": 408
+  },
+  {
+   "id": "kurashiki-city-sogyosha-event-shutten",
+   "name": "高梁川流域圏創業者販売イベント出店支援補助金(倉敷市)",
+   "url": "https://www.city.kurashiki.okayama.jp/business/industry/1005503/1005506.html",
+   "lastStatus": 0
+  },
+  {
+   "id": "fukuyama-city-hanro-kaitaku",
+   "name": "福山市 販路開拓支援事業補助金(国内販路開拓)",
+   "url": "https://www.city.fukuyama.hiroshima.jp/soshiki/sangyou/42038.html",
+   "lastStatus": 404
+  },
+  {
+   "id": "shimonoseki-city-shinshohin-kaihatsu",
+   "name": "下関市 国内販路開拓事業新商品開発補助金",
+   "url": "https://www.city.shimonoseki.lg.jp/soshiki/57/132185.html",
+   "lastStatus": 404
+  },
+  {
+   "id": "matsuyama-city-setsubi-risi",
+   "name": "松山市設備投資利子補助金",
+   "url": "https://www.city.matsuyama.ehime.jp/kurashi/sangyo/chusyoukigyou/setsubitoushi.html",
+   "lastStatus": 0
+  },
+  {
+   "id": "sasebo-city-hanro-kaitaku",
+   "name": "佐世保市中小企業販路開拓支援事業",
+   "url": "https://www.city.sasebo.lg.jp/keizai/syouko/hanrokaitaku.html",
+   "lastStatus": 404
+  },
+  {
+   "id": "naha-city-koguchi-yushi",
+   "name": "那覇市小口資金融資",
+   "url": "https://city.naha.okinawa.jp/business/syoukougyou/yuusi/20191003091222209.html",
+   "lastStatus": 0
   }
  ]
 }
