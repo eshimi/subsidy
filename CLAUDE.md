@@ -45,7 +45,7 @@
 - **会員制（第2段階）の公開前**（済み・動作確認待ち）: D1 の作成・マイグレーション適用・`GOOGLE_CLIENT_ID` の登録・wrangler.jsonc の d1_databases のコメント解除。Google Cloud 側で、承認済みの JavaScript 生成元に https://hojyokin.net を追加。会員向けの利用規約はまだない。
 - **制度ガイド（自治体）の続き（2026-10-17時点、再開するときはここから）**: 現在 `data/program-details.json` に 287 件（ページ公開 163 件）。済み＝県の制度（受付中95件）、創業・起業の市区町村の制度、制度が多い上位30自治体の制度。残り：
   1. 取得できなかった制度（`data/program-unfetched.json`。404＝リンク切れは `LOCAL_PROGRAMS` の url を直す／通信エラーは別環境で再試行）。
-  2. 上位50自治体（市区町村の制度で約216件）への拡大。手順は、対象の洗い出し → 公式ページの取得（curl、`/tmp` に本文化）→ 担当を分けて材料を書き起こし（本文の事実だけ・数字と引用は verify-program-details.mjs で検証・「現年度の記載がない／更新日だけ」は stale として除く）→ 統合 → build-program-pages → apply-program-links。
+  2. 上位50自治体（市区町村の制度で約216件）への拡大。手順は、対象の洗い出し → 公式ページの取得（`node scripts/fetch-program-pages.mjs <一覧.json> <出力先>`。curl で取得し `/tmp` に本文化）→ 担当を分けて材料を書き起こし（本文の事実だけ・数字と引用は verify-program-details.mjs で検証・「現年度の記載がない／更新日だけ」は stale として除く）→ 統合 → build-program-pages → apply-program-links。
   3. 本番で初回の週次確認（毎週月曜）の結果を、GitHub Actions の実行画面の概要で確認する。誤検出（公開停止・注意書き）がないか。
   4. Search Console にデータが入ったら、制度ガイドのページ群が検索に出ているか、優先する自治体・制度の見直し。
   5. 他の候補：コラム（columns.html）や個人向け・やりたいこと分野ページのヒーロー、トップの探し方の見直しなど。
