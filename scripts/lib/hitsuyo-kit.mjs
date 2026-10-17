@@ -15,12 +15,12 @@ export const WARN = (text) => `        <div class="hp-warn" role="note"><b>⚠ �
 
 // 掲載している自治体の制度から、条件に合うものを例として並べる（データから作る。受付が終了したものは除き、都道府県が重ならないように選ぶ）
 // kind: 'biz'（事業者向け）／'res'（個人向け）。match: 制度の名前・概要に含まれる言葉の正規表現。
-export function localExamples({ kind = 'biz', match, limit = 6, category, allowLoan = false }) {
+export function localExamples({ kind = 'biz', match, limit = 6, category, allowLoan = false, nameOnly = false }) {
   const pool = (kind === 'res' ? RESIDENT_PROGRAMS : LOCAL_PROGRAMS)
     .filter((p) => !isEnded(p) && (!category || p.category === category) && (allowLoan || p.type !== '融資'));
   // まず、制度の名前に言葉が入っているものを。足りなければ、概要に言葉が入っているものも加える
   const byName = pool.filter((p) => match.test(p.name));
-  const list = byName.length >= 3 ? byName : [...byName, ...pool.filter((p) => !match.test(p.name) && match.test(p.summary || ''))];
+  const list = nameOnly || byName.length >= 3 ? byName : [...byName, ...pool.filter((p) => !match.test(p.name) && match.test(p.summary || ''))];
   const seen = new Set();
   const picked = [];
   for (const p of list) {

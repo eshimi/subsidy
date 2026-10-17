@@ -1784,7 +1784,7 @@
   "d": "2026-10-17"
  },
  "hitsuyo/store.html": {
-  "h": "v2:f0296759bcde",
+  "h": "v2:5130c51e4fa9",
   "d": "2026-10-17"
  },
  "hitsuyo/home-ev.html": {
@@ -1832,7 +1832,7 @@
   "d": "2026-10-17"
  },
  "hitsuyo/people.html": {
-  "h": "v2:40b29febfda9",
+  "h": "v2:509cd6ad27b5",
   "d": "2026-10-17"
  },
  "hitsuyo/startup-opening.html": {
@@ -1848,7 +1848,39 @@
   "d": "2026-10-17"
  },
  "hitsuyo/startup.html": {
-  "h": "v2:51b3cd09f4dc",
+  "h": "v2:7b2b924eeeb8",
+  "d": "2026-10-17"
+ },
+ "hitsuyo/people-balance.html": {
+  "h": "v2:b104650bc921",
+  "d": "2026-10-17"
+ },
+ "hitsuyo/people-workplace.html": {
+  "h": "v2:020c96ac8178",
+  "d": "2026-10-17"
+ },
+ "hitsuyo/startup-overseas.html": {
+  "h": "v2:c5c129aa2a6e",
+  "d": "2026-10-17"
+ },
+ "hitsuyo/startup-product.html": {
+  "h": "v2:0b70c8622df0",
+  "d": "2026-10-17"
+ },
+ "hitsuyo/store-machine.html": {
+  "h": "v2:7fc8fddc5063",
+  "d": "2026-10-17"
+ },
+ "hitsuyo/store-refrigeration.html": {
+  "h": "v2:0e21583ef21d",
+  "d": "2026-10-17"
+ },
+ "hitsuyo/store-renovation.html": {
+  "h": "v2:0a506725e41d",
+  "d": "2026-10-17"
+ },
+ "hitsuyo/store-robot.html": {
+  "h": "v2:f0c2714660fe",
   "d": "2026-10-17"
  }
 }
