@@ -1,4 +1,4 @@
-// トップページの数字（掲載している補助金・支援制度、自治体の独自制度、市区町村、解説記事・ガイド）を、実際のデータから更新する。
+// トップページの数字（掲載している補助金・支援制度、自治体の独自制度、市区町村、くわしい解説つきの制度、解説記事・ガイド）を、実際のデータから更新する。
 // 補助金・支援制度の数は、検索ページが使う grants/search.json の件数と同じ（検索ページの「○件」と合わせる）。
 // 使い方：node scripts/update-stats.mjs（記事を追加したとき、またはデプロイ時に実行）
 import { readdirSync, readFileSync, writeFileSync, existsSync } from 'node:fs';
@@ -18,6 +18,16 @@ export function countArticles(root = ROOT) {
     n += readdirSync(dir).filter((f) => f.endsWith('.html') && f !== 'index.html').length;
   }
   return n;
+}
+
+// くわしい解説つきの制度（制度ガイド、public/programs/ のページ。一覧の index.html は除く）の数
+export function countGuides(root = ROOT) {
+  const dir = join(root, 'programs');
+  return existsSync(dir) ? readdirSync(dir).filter((f) => f.endsWith('.html') && f !== 'index.html').length : 0;
+}
+
+export function withGuideCount(html, n) {
+  return n > 0 ? html.replace(/(<dd id="r-guides">)[\d,]+(<small>件<\/small><\/dd>)/, `$1${ja(n)}$2`) : html;
 }
 
 export function withArticleCount(html, n) {
@@ -49,7 +59,7 @@ export function withProgramStats(html, stats, municipalities = municipalityCount
     .replace(/(<span id="area-total">)[\d,]+(<\/span>)/, `$1${ja(municipalities)}$2`);
   if (stats) {
     out = out
-      .replace(/(<dd id="r-live">)[\d,]+<small>件(?:以上)?<\/small>(?:<span class="r-daily">毎日更新<\/span>)?(<\/dd>)/, `$1${ja(stats.total)}<small>件</small><span class="r-daily">毎日更新</span>$2`)
+      .replace(/(<(?:dd|b) id="r-live">)[\d,]+<small>件(?:以上)?<\/small>(?:<span class="r-daily">毎日更新<\/span>)?(<\/(?:dd|b)>)/, `$1${ja(stats.total)}<small>件</small><span class="r-daily">毎日更新</span>$2`)
       .replace(/(<dd id="r-local">)[\d,]+<small>件(?:以上)?<\/small>(<\/dd>)/, `$1${ja(stats.local)}<small>件</small>$2`)
       .replace(/(<span id="r-total">)[^<]*(<\/span>)/, `$1${ja(stats.total)}件を掲載。毎日更新。$2`);
   }
@@ -62,6 +72,6 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   const stats = countPrograms();
   const areaIndex = join(ROOT, 'area', 'index.html');
   if (existsSync(areaIndex)) writeFileSync(areaIndex, withProgramStats(readFileSync(areaIndex, 'utf-8'), null));
-  writeFileSync(file, withProgramStats(withArticleCount(readFileSync(file, 'utf-8'), n), stats));
+  writeFileSync(file, withProgramStats(withGuideCount(withArticleCount(readFileSync(file, 'utf-8'), n), countGuides()), stats));
   console.log(`解説記事・ガイド：${n} 本／補助金・支援制度：${stats ? `${stats.total} 件（自治体の独自制度 ${stats.local} 件）` : '（search.json なし）'}`);
 }

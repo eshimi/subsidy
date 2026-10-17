@@ -115,45 +115,43 @@
     <div class="r-hero-art" aria-hidden="true"></div>
     <p class="r-video-link"><button type="button" class="r-video-btn" id="hero-video-btn" hidden>▶ 紹介動画を見る</button></p>
     <div class="wrap">
-      <p class="r-eyebrow">補助金・助成金を探す｜国・都道府県・市区町村の募集中一覧｜補助金ネット</p>
-      <h1 id="hero-title">補助金を、探しやすく。<span class="r-ai" aria-label="with AI"><i aria-hidden="true">✦</i>with AI</span></h1>
-      <p class="r-sub">募集中の補助金・支援制度を、キーワード・地域・目的・締切から探せます。<span id="r-total">2,980件を掲載。毎日更新。</span></p>
+      <div class="r-hero-top">
+        <div class="r-hero-lead">
+          <h1 id="hero-title">補助金を、探しやすく。<span class="r-ai" aria-label="with AI"><i aria-hidden="true">✦</i>with AI</span></h1>
+          <p class="r-sub">国・都道府県・市区町村の募集中の制度を、毎日更新しています。</p>
+          <div class="r-seg" id="r-seg" role="radiogroup" aria-label="あなたは">
+            <button type="button" role="radio" aria-checked="true" data-aud="b">事業者の方</button>
+            <button type="button" role="radio" aria-checked="false" data-aud="p">個人の方</button>
+          </div>
+        </div>
+        <p class="r-big"><b id="r-live">2,980<small>件</small><span class="r-daily">毎日更新</span></b><span>の補助金・支援制度を掲載</span></p>
+      </div>
       <form class="r-search" action="search.html" method="get" role="search" aria-label="補助金を探す">
+        <input type="hidden" name="aud" id="r-aud" value="b">
         <label class="visually-hidden" for="r-q">キーワード</label>
-        <input id="r-q" name="q" type="search" placeholder="キーワード（例：ホームページ、設備、太陽光、子育て）" autocomplete="off">
+        <input id="r-q" name="q" type="search" placeholder="キーワードで探す（例：ホームページ、設備、雇用、創業）" autocomplete="off" data-ph-b="キーワードで探す（例：ホームページ、設備、雇用、創業）" data-ph-p="キーワードで探す（例：太陽光、子育て、EV、リフォーム）">
         <label class="visually-hidden" for="r-pref">都道府県</label>
         <select id="r-pref" name="pref"><option value="">全国・すべての都道府県</option><option value="北海道">北海道</option><option value="青森県">青森県</option><option value="岩手県">岩手県</option><option value="宮城県">宮城県</option><option value="秋田県">秋田県</option><option value="山形県">山形県</option><option value="福島県">福島県</option><option value="茨城県">茨城県</option><option value="栃木県">栃木県</option><option value="群馬県">群馬県</option><option value="埼玉県">埼玉県</option><option value="千葉県">千葉県</option><option value="東京都">東京都</option><option value="神奈川県">神奈川県</option><option value="新潟県">新潟県</option><option value="富山県">富山県</option><option value="石川県">石川県</option><option value="福井県">福井県</option><option value="山梨県">山梨県</option><option value="長野県">長野県</option><option value="岐阜県">岐阜県</option><option value="静岡県">静岡県</option><option value="愛知県">愛知県</option><option value="三重県">三重県</option><option value="滋賀県">滋賀県</option><option value="京都府">京都府</option><option value="大阪府">大阪府</option><option value="兵庫県">兵庫県</option><option value="奈良県">奈良県</option><option value="和歌山県">和歌山県</option><option value="鳥取県">鳥取県</option><option value="島根県">島根県</option><option value="岡山県">岡山県</option><option value="広島県">広島県</option><option value="山口県">山口県</option><option value="徳島県">徳島県</option><option value="香川県">香川県</option><option value="愛媛県">愛媛県</option><option value="高知県">高知県</option><option value="福岡県">福岡県</option><option value="佐賀県">佐賀県</option><option value="長崎県">長崎県</option><option value="熊本県">熊本県</option><option value="大分県">大分県</option><option value="宮崎県">宮崎県</option><option value="鹿児島県">鹿児島県</option><option value="沖縄県">沖縄県</option></select>
         <button type="submit">探す</button>
       </form>
-      <div class="r-tabs" id="r-tabs">
-        <div class="r-tablist" role="tablist" aria-label="探し方を選ぶ">
-          <button type="button" role="tab" id="rt-want" aria-controls="rp-want" aria-selected="true">やりたいこと</button>
-          <button type="button" role="tab" id="rt-buy" aria-controls="rp-buy" aria-selected="false">ほしいもの</button>
-          <button type="button" role="tab" id="rt-area" aria-controls="rp-area" aria-selected="false">地域</button>
-          <button type="button" role="tab" id="rt-ai" aria-controls="rp-ai" aria-selected="false">AIに相談</button>
+      <nav class="r-go" aria-label="探し方を選ぶ">
+        <div class="r-go-set" data-aud="b">
+          <a href="hitsuyo.html#hp-want"><b>やりたいことから</b><span>開業・設備・雇用…</span></a>
+          <a href="hitsuyo.html#hp-buy"><b>ほしいものから</b><span>POSレジ・PC・改装…</span></a>
+          <a href="area/index.html"><b>地域から</b><span>日本地図で選ぶ</span></a>
+          <a href="hantei.html"><b>AIに質問に答える</b><span>事業者向け・1分・無料</span></a>
         </div>
-        <div class="r-tabpanel" role="tabpanel" id="rp-want" aria-labelledby="rt-want">
-          <p class="r-tabnote">開業する、設備を入れる、人を雇う。やりたいことから、使えそうな制度と、始める前の確認がわかります（30の解説）。</p>
-          <nav class="r-chips" aria-label="やりたいことから探す"><a href="hitsuyo/store.html">店舗・設備投資</a><a href="hitsuyo/it.html">IT・デジタル化</a><a href="hitsuyo/home.html">住まい・エネルギー</a><a href="hitsuyo/people.html">人材・組織づくり</a><a href="hitsuyo/startup.html">創業・新事業</a><a class="r-chip-more" href="hitsuyo.html#hp-want">すべて見る →</a></nav>
-          <p class="r-tabnote r-tabsub">対象から：<a href="who/sole-proprietor.html">個人事業主</a>｜<a href="who/startup.html">創業・副業</a>｜<a href="who/sme.html">中小企業</a>｜<a href="hantei.html?for=personal">個人（住まい・車・子育て）</a>｜<a href="grants/purposes.html">目的別の一覧</a></p>
+        <div class="r-go-set" data-aud="p" hidden>
+          <a href="hitsuyo/home.html"><b>住まいから</b><span>省エネ・リフォーム</span></a>
+          <a href="personal/ev.html"><b>車・移動から</b><span>EV・購入支援</span></a>
+          <a href="personal/kids.html"><b>子育て・学びから</b><span>教育・学び直し・移住</span></a>
+          <a href="hantei.html?for=personal"><b>AIに質問に答える</b><span>個人向け・1分・無料</span></a>
         </div>
-        <div class="r-tabpanel" role="tabpanel" id="rp-buy" aria-labelledby="rt-buy">
-          <p class="r-tabnote">買うものを選ぶと、使えそうな制度・購入前の確認・契約の注意がわかります。</p>
-          <nav class="r-chips" aria-label="ほしいものから探す"><a href="hitsuyo/it-ai.html">AIツール・業務ソフト</a><a href="hitsuyo/store-pos.html">POSレジ・会計機器</a><a href="hitsuyo/store-renovation.html">店舗の改装</a><a href="hitsuyo/it-pc.html">業務用PC</a><a href="hitsuyo/store-machine.html">機械・生産設備</a><a href="hitsuyo/store-energy.html">省エネ設備</a><a href="hitsuyo/it-website.html">ホームページ・広告</a><a href="hitsuyo/people-training.html">研修・採用</a><a href="hitsuyo/startup-succession.html">事業承継・M&amp;A</a><a href="hitsuyo/it-ec.html">ネットショップ・EC</a><a href="hitsuyo/it-security.html">セキュリティ対策</a><a href="hitsuyo/store-signage.html">看板・外装</a><a class="r-chip-more" href="hitsuyo.html#hp-buy">すべて見る →</a></nav>
-        </div>
-        <div class="r-tabpanel" role="tabpanel" id="rp-area" aria-labelledby="rt-area">
-          <p class="r-tabnote">都道府県・市区町村の独自制度を、日本地図から選べます。</p>
-          <nav class="r-chips" aria-label="地域から探す"><a href="area/pref-hokkaido.html">北海道</a><a href="area/pref-tokyo.html">東京都</a><a href="area/pref-kanagawa.html">神奈川県</a><a href="area/pref-aichi.html">愛知県</a><a href="area/pref-osaka.html">大阪府</a><a href="area/pref-fukuoka.html">福岡県</a><a class="r-chip-more" href="area/index.html">日本地図から選ぶ →</a></nav>
-        </div>
-        <div class="r-tabpanel" role="tabpanel" id="rp-ai" aria-labelledby="rt-ai">
-          <p class="r-tabnote">いくつかの質問に答えるだけで、AIが使えそうな補助金を判定します。</p>
-          <nav class="r-chips" aria-label="AIに相談して探す"><a href="hantei.html">事業者向けで判定する</a><a href="hantei.html?for=personal">個人向けで判定する</a><a href="consult.html">専門家に無料相談</a></nav>
-        </div>
-      </div>
-      <dl class="r-facts" aria-label="補助金ネットの掲載状況">
-        <div><dt>掲載している補助金・支援制度</dt><dd id="r-live">2,980<small>件</small><span class="r-daily">毎日更新</span></dd></div>
+      </nav>
+      <dl class="r-nums" aria-label="補助金ネットの掲載状況">
         <div><dt>対応している市区町村</dt><dd id="r-cities">267<small>市区町村</small></dd></div>
-        <div><dt>自治体の独自制度（事業者・住民向け）</dt><dd id="r-local">2,973<small>件</small></dd></div>
+        <div><dt>自治体の独自制度</dt><dd id="r-local">2,973<small>件</small></dd></div>
+        <div><dt>くわしい解説つきの制度</dt><dd id="r-guides">248<small>件</small></dd></div>
         <div><dt>解説記事・ガイド</dt><dd id="r-articles">50<small>本以上</small></dd></div>
       </dl>
     </div>
@@ -369,6 +367,6 @@
       play(false);
     })();
   </script>
-  <script src="home-tabs.js" defer></script>
+  <script src="home-hero.js" defer></script>
 </body>
 </html>

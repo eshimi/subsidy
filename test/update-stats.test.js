@@ -78,3 +78,16 @@ test('お知らせ：data/notices.json を日付の新しい順に3件まで出�
   const { noticesArchiveHtml } = await import('../scripts/update-latest.mjs');
   assert.match(noticesArchiveHtml([{ date: '2026-10-01', text: '古い' }, { date: '2026-10-14', text: '新しい' }]), /2026年10月14日[^]*2026年10月1日/);
 });
+
+test('withGuideCount: くわしい解説つきの制度の数を差し替える（0件のときは変えない）', async () => {
+  const { withGuideCount } = await import('../scripts/update-stats.mjs');
+  const html = '<dd id="r-guides">100<small>件</small></dd>';
+  assert.equal(withGuideCount(html, 1234), '<dd id="r-guides">1,234<small>件</small></dd>');
+  assert.equal(withGuideCount(html, 0), html);
+});
+
+test('withProgramStats: トップの大きな数字（<b id="r-live">）も差し替える', async () => {
+  const { withProgramStats } = await import('../scripts/update-stats.mjs');
+  const html = '<b id="r-live">1<small>件</small><span class="r-daily">毎日更新</span></b>';
+  assert.equal(withProgramStats(html, { total: 3195, local: 1 }, 1), '<b id="r-live">3,195<small>件</small><span class="r-daily">毎日更新</span></b>');
+});
