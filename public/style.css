@@ -635,9 +635,11 @@ details ul { margin: 8px 0; padding-left: 1.5em; }
 }
 
 /* タイトル用のバナー（イラスト＋中央の半透明の帯に見出し） */
-.pb-banner { position: relative; width: 100%; aspect-ratio: 1200 / 160; min-height: 130px; border-radius: 6px; overflow: hidden; margin: 0 0 24px; background: #f6f0e4 center / cover no-repeat; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 24px rgba(20, 40, 60, 0.12); }
-.pb-title { margin: 0; width: fit-content; max-width: 70%; background: rgba(252, 249, 243, 0.72); padding: 0.45em 0.9em; border-radius: 6px; box-shadow: 0 2px 12px rgba(20, 40, 60, 0.08); text-align: center; font-weight: 900; font-size: clamp(1.25rem, 2.8vw, 2.1rem); line-height: 1.35; letter-spacing: -0.02em; color: #14213d; text-wrap: balance; }
-@media (max-width: 760px) { .pb-title { max-width: 86%; } }
+.pb-banner { margin: 0 0 12px; background: none !important; }
+.pb-title { margin: 0; font-weight: 900; font-size: clamp(1.6rem, 3.2vw, 2.3rem); line-height: 1.4; letter-spacing: 0; color: #14213d; text-wrap: balance; text-align: left; }
+.pb-title .area-title-img { height: 44px; width: auto; margin-left: 12px; vertical-align: middle; }
+.pb-banner + div { padding-bottom: 20px; border-bottom: 1px solid #e6e8ec; }
+.pb-banner + div > .label { font-weight: 700; letter-spacing: 0.06em; color: #c9411a; }
 
 /* トップの「特に人気の5つの補助金」 */
 .popular { margin-top: 64px; }
@@ -967,7 +969,6 @@ details ul { margin: 8px 0; padding-left: 1.5em; }
 .fx :focus-visible { outline: 2px solid #2b65b1; outline-offset: 2px; }
 .fx-em { color: #c9411a; }
 .fx-sub { font-size: 13px; line-height: 1.7; color: #56667f; }
-.fx-hero .pb-title { background: rgba(255, 255, 255, 0.88); }
 .fx-lead { margin: 0 0 8px; display: grid; gap: 12px; }
 .pb-banner + div > .lead { max-width: none; }
 .fx-lead .lead { max-width: none; font-size: 17px; line-height: 1.9; }

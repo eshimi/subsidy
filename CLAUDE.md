@@ -28,6 +28,8 @@
 - ナビ・サイトマップ: `scripts/lib/nav.mjs`、`scripts/lib/sitemap.mjs`。sitemap.xml の更新日はページ**本文**（`<main>`。ナビ・右の列・空白は除く）のハッシュで `data/sitemap-lastmod.json` に記録（本文が変わったページだけ日本時間の今日に進む。ハッシュは `v2:` 付き）。
 - トップの探し方は、ヒーロー（検索欄）の下のタブ（`#r-tabs`、`public/home-tabs.js`）：「やりたいこと」「ほしいもの」「地域」「AIに相談」。パネルの中身は `public/index.html` に直接書いてある（購入物のチップは scripts/data/purchases.mjs と hitsuyo/ のページに合わせる）。以前の「どこから探しますか？」の5カードと「あなたに合った入口から」は削除した（`.rw*` / `.r-who*` の CSS は未使用）。
 
+- ページ上部のバナー（`.pb-banner`／`.pb-title`）は、画像を出さず見出しだけの表示にしている（CSS のみ。マークアップは残してあり、apply-seo が og:image にバナー画像のURLを使うため消さない）。
+
 ## 未対応・確認待ち
 - 本番の初回自動更新後に確認: `data/program-history.json`（制度ごとの履歴。scripts/lib/program-history.mjs、update-research-history.mjs が毎朝更新）が保存されること、research/quality.html（品質レポート）と research/changes.html（制度変更履歴）が準備中でなく表示されること、business.html の jGrants 全件セクション、月次レポートの開始、`data/sitemap-lastmod.json` が保存されること。
 - ダークモード: 配色は明るい背景前提のため、style.css ではダーク用の配色を持たず常に明るい配色で表示する（淡い背景に淡い文字になる不具合の対策）。
