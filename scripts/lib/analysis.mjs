@@ -257,3 +257,28 @@ export function diffIds(prevIds, ids) {
   const cur = new Set(ids);
   return { added: ids.filter((id) => !prev.has(id)).length, removed: prevIds.filter((id) => !cur.has(id)).length };
 }
+
+// ── データの品質（国の制度 jGrants） ──
+// grants：取得した制度、details：data/jgrants-details.json の items（制度ごとの詳細）。公式の公募要領での確認とは別に、取得した項目がそろっているかを数える。
+export function qualityOf(grants, details, now) {
+  const listed = grants.length;
+  const open = grants.filter((g) => g.end && Date.parse(g.end) >= now);
+  const expired = grants.filter((g) => g.end && Date.parse(g.end) < now).length;
+  const det = (g) => (details || {})[g.id];
+  const rate = (k, pred) => { const c = open.filter(pred).length; return { key: k, n: c, rate: open.length ? Math.round((c / open.length) * 1000) / 10 : 0 }; };
+  const fresh = (g) => { const f = det(g)?.fetchedAt; return !!f && now - Date.parse(f) <= 30 * DAY; };
+  const norm = (t) => String(t || '').replace(/[\s　【】「」『』（）()]/g, '').toLowerCase();
+  const groups = new Map();
+  for (const g of open) { const k = norm(g.title); if (k) groups.set(k, [...(groups.get(k) || []), g.id]); }
+  const dup = [...groups.values()].filter((v) => v.length > 1);
+  const metrics = [
+    rate('end', (g) => !!g.end),
+    rate('start', (g) => !!g.start),
+    rate('max', (g) => typeof g.max === 'number'),
+    rate('detail', (g) => !!det(g)),
+    rate('rate', (g) => !!det(g)?.rate),
+    rate('purpose', (g) => !!det(g)?.purpose),
+    rate('fresh', fresh),
+  ];
+  return { listed, open: open.length, expired, expiredRate: listed ? Math.round((expired / listed) * 1000) / 10 : 0, dupGroups: dup.length, dupItems: dup.reduce((t, v) => t + v.length, 0), metrics };
+}

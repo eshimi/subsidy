@@ -131,14 +131,14 @@ test('history: ID の差で新規掲載・募集終了を数え、同じ日の�
   assert.equal(again.snapshot, next.snapshot);
 });
 
-test('analysis: 分析結果から事業向け・個人向けを含む4ページを作る（jGrants が取れない日は、前回の国の制度の結果を引き継ぐ）', () => {
+test('analysis: 分析結果から事業向け・個人向けを含む6ページを作る（jGrants が取れない日は、前回の国の制度の結果を引き継ぐ）', () => {
   const prev = { jgrants: { total: 77, national: 50, asOf: '2026-10-13', maxBand: [['100万円未満', 7]], maxMedian: 1e6, maxN: 10, spanDays: [['30日以内', 3]], spanMedian: 45, leftDays: [['14日以内', 2]], employees: [['制約なし', 5]] } };
   const a = computeAnalysis({ now: NOW, grants: null, details: {}, previous: prev });
   assert.equal(a.jgrants.total, 77);
   assert.equal(computeAnalysis({ now: NOW, grants: null, details: {}, previous: null }).jgrants, null);
   const out = mkdtempSync(join(tmpdir(), 'analysis-'));
   const files = buildAnalysisPages({ out, now: NOW, analysis: a, history: { days: [] } });
-  assert.deepEqual(files, ['business.html', 'personal.html', 'gaps.html', 'monthly.html']);
+  assert.deepEqual(files, ['business.html', 'personal.html', 'gaps.html', 'monthly.html', 'quality.html', 'changes.html']);
   const html = readFileSync(join(out, 'business.html'), 'utf-8');
   assert.match(html, /事業向けリサーチデータ/);
   assert.ok(!html.includes('住民向け'));

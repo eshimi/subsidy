@@ -29,6 +29,6 @@
 - トップの「4つの探し方」は `.rw` 系のボタン（案E）。ラベルは「キーワードで探す」「地域から探す」「必要なものから探す」「AIに相談して探す」。
 
 ## 未対応・確認待ち
-- 本番の初回自動更新後に確認: business.html の jGrants 全件セクション、月次レポートの開始、`data/sitemap-lastmod.json` が保存されること。
+- 本番の初回自動更新後に確認: `data/program-history.json`（制度ごとの履歴。scripts/lib/program-history.mjs、update-research-history.mjs が毎朝更新）が保存されること、research/quality.html（品質レポート）と research/changes.html（制度変更履歴）が準備中でなく表示されること、business.html の jGrants 全件セクション、月次レポートの開始、`data/sitemap-lastmod.json` が保存されること。
 - ダークモード: 配色は明るい背景前提のため、style.css ではダーク用の配色を持たず常に明るい配色で表示する（淡い背景に淡い文字になる不具合の対策）。
 - `build-area-pages.mjs` を実行すると area/ の新ページが sitemap.xml に入る（毎日の自動更新では増えない）。

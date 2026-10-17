@@ -2,6 +2,8 @@
 //  ・business.html：事業向けリサーチデータ（自治体の事業者向け制度と国の制度：種類・目的・対象・金額・地域・締切・データの質）
 //  ・personal.html：個人向けリサーチデータ（住まい・暮らしの制度：分野・種類・金額・地域・締切・データの質）
 //  ・gaps.html：地域×目的の空白マップ（市区町村ごとに、どの目的の制度が掲載されていないか）
+//  ・quality.html：品質レポート（取得できた項目のそろい具合・終了後の残り方・重複）
+//  ・changes.html：制度変更履歴（上限額・締切などの変更前後。毎日の記録から）
 //  ・monthly.html：月次レポート（国の制度の募集中の件数、新規掲載・募集終了の数。毎日の記録から）
 // 数字は、data/analysis-latest.json（scripts/update-analysis.mjs が作る）と、data/research-history.json から読む。
 // 使い方：node scripts/build-analysis-pages.mjs（デプロイの build:grants で実行）。何度実行しても同じ結果（同じ日なら）。
@@ -15,6 +17,7 @@ import { esc } from './lib/site-shell.mjs';
 import { bars, P, n, dateJa, dataBox, CAUTION_COVERAGE, LOCAL_SOURCE, CTA, SECTION, BANNER } from './build-research-pages.mjs';
 import { loadAnalysis, computeAnalysis } from './update-analysis.mjs';
 import { loadHistory } from './update-research-history.mjs';
+import { FIELDS } from './lib/program-history.mjs';
 import { STAGE_LABEL, STAGE_KEYS, CATS, monthlyReport, monthSum } from './lib/analysis.mjs';
 
 const PUBLIC = join(dirname(fileURLToPath(import.meta.url)), '..', 'public');
@@ -327,10 +330,92 @@ function pageMonthly(history, asOf) {
   };
 }
 
+
+const Q_LABEL = {
+  end: ['締切日がある', '募集中の制度のうち、締切日が登録されている割合'],
+  start: ['受付開始日がある', '受付開始日が登録されている割合'],
+  max: ['上限額がある', '上限額が数字で登録されている割合（定額・率のみの制度は含まれません）'],
+  detail: ['詳細を取得できた', '制度ごとの詳細（概要・目的・補助率など）を取得できた割合'],
+  rate: ['補助率がある', '詳細に、補助率の記載がある割合'],
+  purpose: ['目的の分類がある', '詳細に、目的の区分がある割合'],
+  fresh: ['30日以内に確認した', '詳細を、直近30日以内に取得した割合'],
+};
+const fmtVal = (f, v) => (v === null || v === undefined ? '（なし）' : f === 'max' ? man(v) : esc(String(v)));
+
+function pageQuality(a, asOf) {
+  const Q = a.quality;
+  const ready = !!Q && Q.open > 0;
+  const sections = ready ? [
+    ['このレポートについて', P('国の制度（jGrants）について、<strong>取得できた項目がどこまでそろっているか</strong>を毎日数えています。数字の信頼性を、読む人が判断できるようにするためのレポートです。公式の公募要領での確認とは別の、項目の「そろい具合」の指標です。')],
+    ['項目のそろい具合（募集中の制度）', [
+      KEY([[n(Q.open), '件', '募集中の制度'], [`${Q.metrics.find((m) => m.key === 'end').rate}`, '%', '締切日がある'], [`${Q.metrics.find((m) => m.key === 'max').rate}`, '%', '上限額がある'], [`${Q.metrics.find((m) => m.key === 'detail').rate}`, '%', '詳細を取得できた']]),
+      TABLE(['指標', '件数', '割合', '意味'], Q.metrics.map((m) => [esc(Q_LABEL[m.key][0]), n(m.n), `${m.rate}%`, esc(Q_LABEL[m.key][1])])),
+      bars(Q.metrics.map((m) => [Q_LABEL[m.key][0], m.rate])),
+    ].join('\n')],
+    ['終了後の残り方・重複', [
+      UL([
+        `取得した${n(Q.listed)}件のうち、締切を過ぎているものは<strong>${n(Q.expired)}件（${Q.expiredRate}%）</strong>です。集計では、これらを「募集中」に含めていません。`,
+        Q.dupGroups ? `募集中の制度に、<strong>制度名がほぼ同じものが${n(Q.dupGroups)}組（${n(Q.dupItems)}件）</strong>あります。募集回が違う別の公募のことも、同じ制度の二重登録のこともあります。` : '募集中の制度に、制度名がほぼ同じものはありません。',
+      ]),
+    ].join('\n')],
+    ['このレポートの見方', UL([
+      '割合が低い項目は、その項目を使った集計（たとえば金額の中央値）が、一部の制度だけの数字になることを意味します。',
+      '「上限額がある」の低さは、定額や補助率だけで示される制度が多いことも反映しています。データの欠陥とは限りません。',
+      '「30日以内に確認した」は、当サイトが取得し直した時期の指標で、制度の内容が最新であることの保証ではありません。',
+    ])],
+    ['このデータについて', dataBox({ source: SRC_JG, scope: 'jGrantsに掲載されている制度のうち、募集中のもの（自治体の独自制度などjGrantsにないものは含みません）', asOf: dateJa(Q.asOf || a.asOf), method: '取得した各制度の項目の有無を数え、募集中の制度に対する割合を出しています。制度名の重複は、記号・空白を除いた文字列の一致で判定しています。', caution: '項目の「そろい具合」の指標で、情報の正確さを保証するものではありません。申請の前に、必ず公式の公募要領をご確認ください。' })],
+  ] : [
+    ['準備中', P('このページは、国の制度（jGrants）のデータを取得できたあとに表示します。毎朝の自動更新で作られます。')],
+    ['このデータについて', dataBox({ source: SRC_JG, scope: 'jGrantsに掲載されている、募集中の補助金・助成金', asOf, method: '取得した各制度の項目の有無を数えます。', caution: '準備中です。' })],
+  ];
+  return {
+    file: 'quality.html',
+    title: '補助金データの品質レポート｜項目のそろい具合・終了後の残り方・重複（国の制度）',
+    description: '国の補助金・助成金（jGrants）について、締切日・上限額・補助率・詳細などの項目がどこまでそろっているか、終了後の残り方や重複を毎日集計して公開する品質レポートです。',
+    lead: '数字をどこまで信頼して使えるかを判断できるよう、取得できた項目のそろい具合を公開します。',
+    sections: introLast(sections), kicker: 'データ品質', related: [['methods.html', 'データの作り方・出典・更新方針'], ['business.html', '事業向けリサーチデータ'], ['changes.html', '制度の変更履歴'], ...CTA], noindex: !ready,
+  };
+}
+
+function pageChanges(a, asOf) {
+  const C = a.changes;
+  const ready = !!C && C.tracked > 0;
+  const g = (id) => `<a href="../grants/${esc(id)}.html">`;
+  const rows = (C?.items || []).map((i) => [esc(i.d.slice(5).replace('-', '/')), `${g(i.id)}${esc(i.title || i.id)}</a>`, esc(FIELDS[i.f]), `${fmtVal(i.f, i.from)} → ${fmtVal(i.f, i.to)}`]);
+  const since = C?.since ? dateJa(C.since) : '';
+  const sections = ready ? [
+    ['このページについて', P(`国の制度（jGrants）の掲載内容を毎日記録し、<strong>上限額・締切日・受付開始日・対象地域・制度名が変わったとき</strong>に、変更前後を残しています。記録は${esc(since)}から始まりました。制度の内容を上書きしないので、あとから「いつ、何が変わったか」を確認できます。`)],
+    [`直近${C.days}日の変更`, [
+      KEY([[n(C.tracked), '件', '記録している制度'], [n(C.programsChanged), '件', `変更があった制度（直近${C.days}日）`], [n(C.byField.end), '件', '締切日の変更'], [n(C.byField.max), '件', '上限額の変更']]),
+      C.n ? [
+        P(`直近${C.days}日に、<strong>${n(C.programsChanged)}件の制度で、合計${n(C.n)}件の変更</strong>がありました。締切日の変更のうち<strong>${n(C.extended)}件は延長</strong>です。上限額は、引き上げが${n(C.maxUp)}件、引き下げが${n(C.maxDown)}件でした。`),
+        TABLE(['日付', '制度', '項目', '変更前 → 変更後'], rows),
+        C.n > rows.length ? P(`新しい順に、${n(rows.length)}件を表示しています。`) : '',
+      ].filter(Boolean).join('\n') : P('直近の期間に、変更は記録されていません。'),
+    ].join('\n')],
+    ['このページの見方', UL([
+      'ここに出る変更は、jGrantsの掲載値が変わったことを示します。公式の公募要領の改定と、必ず一致するとは限りません。',
+      '同じ制度が、募集回ごとに別のIDで登録されることがあります。その場合は、変更ではなく新規掲載として扱われます。',
+      '申請の前に、必ず公式の公募要領で最新の条件をご確認ください。',
+    ])],
+    ['このデータについて', dataBox({ source: SRC_JG, scope: 'jGrantsに掲載されている制度（自治体の独自制度などjGrantsにないものは含みません）', asOf: dateJa(C.asOf || a.asOf), method: '毎朝の取得結果を前日の記録と比べ、制度名・受付開始日・締切日・上限額・対象地域が変わった制度に、変更前後と日付を記録しています。最初に見えた制度は、変更として扱いません。', caution: '掲載値の変化の記録で、公式の変更の確認ではありません。記録を始めた日より前の変更は含みません。' })],
+  ] : [
+    ['準備中', P('このページは、国の制度（jGrants）の毎日の記録が始まったあとに表示します。毎朝の自動更新で作られます。')],
+    ['このデータについて', dataBox({ source: SRC_JG, scope: 'jGrantsに掲載されている、補助金・助成金', asOf, method: '毎朝の取得結果を前日と比べ、変更前後を記録します。', caution: '準備中です。' })],
+  ];
+  return {
+    file: 'changes.html',
+    title: '補助金の制度変更履歴｜上限額・締切日・受付期間の変更を記録（国の制度）',
+    description: '国の補助金・助成金（jGrants）の、上限額・締切日・受付開始日・対象地域・制度名の変更を、毎日の記録から変更前後つきで公開します。締切の延長や上限額の変更を確認できます。',
+    lead: '制度の上限額や締切が、いつ、どう変わったかを、毎日の記録から公開します。',
+    sections: introLast(sections), kicker: '制度変更履歴', related: [['monthly.html', '月次レポート'], ['quality.html', '品質レポート'], ['digest.html', '今週の公募ダイジェスト'], ...CTA], noindex: !ready,
+  };
+}
+
 export function buildAnalysisPages({ out = join(PUBLIC, 'research'), now = Date.now(), analysis, history = loadHistory() } = {}) {
   const a = analysis || loadAnalysis() || computeAnalysis({ now });
   const asOf = dateJa(a.asOf);
-  const pages = [pageBusiness(a, asOf), pagePersonal(a, asOf), pageGaps(a, asOf), pageMonthly(history, asOf)];
+  const pages = [pageBusiness(a, asOf), pagePersonal(a, asOf), pageGaps(a, asOf), pageMonthly(history, asOf), pageQuality(a, asOf), pageChanges(a, asOf)];
   mkdirSync(out, { recursive: true });
   for (const p of pages) {
     const body = articleBody({ section: SECTION, kicker: p.kicker, title: p.title.split('｜')[0], lead: p.lead, sections: p.sections, related: p.related, banner: BANNER, updated: asOf });

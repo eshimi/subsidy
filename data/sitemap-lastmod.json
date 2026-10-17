@@ -1724,36 +1724,36 @@
   "d": "2026-10-15"
  },
  "research/business.html": {
-  "h": "v2:6fad413c5eff",
-  "d": "2026-10-15"
+  "h": "v2:7314f20bfd87",
+  "d": "2026-10-17"
  },
  "research/gaps.html": {
-  "h": "v2:d33923207670",
-  "d": "2026-10-15"
+  "h": "v2:bc29364dd5f1",
+  "d": "2026-10-17"
  },
  "research/index.html": {
-  "h": "v2:ed4ccea23b99",
-  "d": "2026-10-15"
+  "h": "v2:0fbdcddd138f",
+  "d": "2026-10-17"
  },
  "research/methods.html": {
-  "h": "v2:afcc5e9da4c5",
-  "d": "2026-10-15"
+  "h": "v2:e7429aab4f19",
+  "d": "2026-10-17"
  },
  "research/personal.html": {
-  "h": "v2:b51a799e6e21",
-  "d": "2026-10-15"
+  "h": "v2:fac709732b38",
+  "d": "2026-10-17"
  },
  "research/prefectures.html": {
-  "h": "v2:be340e80671c",
-  "d": "2026-10-15"
+  "h": "v2:ff13ea8038ac",
+  "d": "2026-10-17"
  },
  "research/programs.html": {
-  "h": "v2:75d89c32fd1e",
-  "d": "2026-10-15"
+  "h": "v2:0dafe1371159",
+  "d": "2026-10-17"
  },
  "research/startup-map.html": {
-  "h": "v2:e10e74adac0c",
-  "d": "2026-10-15"
+  "h": "v2:a4ceffdb6955",
+  "d": "2026-10-17"
  },
  "background/decarbon.html": {
   "h": "v2:3ae349f19fcb",
@@ -1909,6 +1909,10 @@
  },
  "hitsuyo/store-signage.html": {
   "h": "v2:1a6eec51e48e",
+  "d": "2026-10-17"
+ },
+ "research/monthly.html": {
+  "h": "v2:f54ba759a046",
   "d": "2026-10-17"
  }
 }

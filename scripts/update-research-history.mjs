@@ -7,8 +7,10 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadGrants, statusOf } from './build-grant-pages.mjs';
 import { diffIds } from './lib/analysis.mjs';
+import { updateProgramHistory, emptyProgramHistory } from './lib/program-history.mjs';
 
 export const HISTORY_FILE = join(dirname(fileURLToPath(import.meta.url)), '..', 'data', 'research-history.json');
+export const PROGRAM_FILE = join(dirname(fileURLToPath(import.meta.url)), '..', 'data', 'program-history.json');
 export const IDS_FILE = join(dirname(fileURLToPath(import.meta.url)), '..', 'data', 'jgrants-ids.json');
 const DAY = 86400000;
 const jst = (t) => new Date(t + 9 * 3600e3).toISOString().slice(0, 10);
@@ -30,6 +32,10 @@ export function recordFor(grants, now) {
     soon30: open.filter((g) => g.end && Date.parse(g.end) - now <= 30 * DAY).length,
     fresh7: open.filter((g) => g.start && now - Date.parse(g.start) <= 7 * DAY && Date.parse(g.start) <= now).length,
   };
+}
+
+export function loadProgramHistory(file = PROGRAM_FILE) {
+  try { return existsSync(file) ? JSON.parse(readFileSync(file, 'utf-8')) : emptyProgramHistory(); } catch { return emptyProgramHistory(); }
 }
 
 export function loadIds(file = IDS_FILE) {
@@ -64,5 +70,8 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   mkdirSync(dirname(HISTORY_FILE), { recursive: true });
   writeFileSync(IDS_FILE, `${JSON.stringify(snapshot)}\n`);
   writeFileSync(HISTORY_FILE, `${JSON.stringify(next, null, 0).replace(/},\{/g, '},\n{')}\n`);
+  const programs = updateProgramHistory(loadProgramHistory(), grants, now);
+  writeFileSync(PROGRAM_FILE, `${JSON.stringify(programs)}\n`);
+  console.log(`制度ごとの履歴を記録：${Object.keys(programs.programs).length}件（${programs.since}から）`);
   console.log(`履歴を記録：${JSON.stringify(rec)}（${next.days.length}日分）`);
 }

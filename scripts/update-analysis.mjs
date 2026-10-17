@@ -10,7 +10,9 @@ import { RESIDENT_PROGRAMS } from '../src/data/resident-programs.js';
 import { AREA_CITIES } from '../src/data/area-cities.js';
 import { PREFECTURES } from '../src/data/prefectures.js';
 import { loadGrants } from './build-grant-pages.mjs';
-import { analyzeLocal, analyzeResident, analyzeDetails, analyzeJgrants, gapAnalysis, prefectureCounts } from './lib/analysis.mjs';
+import { analyzeLocal, analyzeResident, analyzeDetails, analyzeJgrants, gapAnalysis, prefectureCounts, qualityOf } from './lib/analysis.mjs';
+import { recentChanges } from './lib/program-history.mjs';
+import { loadProgramHistory } from './update-research-history.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 export const ANALYSIS_FILE = join(ROOT, 'data', 'analysis-latest.json');
@@ -21,7 +23,7 @@ export function loadAnalysis(file = ANALYSIS_FILE) {
   try { return existsSync(file) ? JSON.parse(readFileSync(file, 'utf-8')) : null; } catch { return null; }
 }
 
-export function computeAnalysis({ now = Date.now(), grants = null, details = {}, previous = null } = {}) {
+export function computeAnalysis({ now = Date.now(), grants = null, details = {}, previous = null, programHistory = null } = {}) {
   const local = analyzeLocal(LOCAL_PROGRAMS, now);
   local.pref = prefectureCounts(LOCAL_PROGRAMS, PREFECTURES);
   const resident = analyzeResident(RESIDENT_PROGRAMS, now);
@@ -34,6 +36,8 @@ export function computeAnalysis({ now = Date.now(), grants = null, details = {},
     resident,
     details: analyzeDetails(details),
     jgrants,
+    quality: grants ? { ...qualityOf(grants, details, now), asOf: jst(now) } : (previous?.quality ?? null),
+    changes: programHistory ? { ...recentChanges(programHistory, now), asOf: jst(now) } : (previous?.changes ?? null),
     gaps: gapAnalysis(LOCAL_PROGRAMS, AREA_CITIES, PREFECTURES),
   };
 }
@@ -41,7 +45,7 @@ export function computeAnalysis({ now = Date.now(), grants = null, details = {},
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const details = existsSync(DETAILS_FILE) ? JSON.parse(readFileSync(DETAILS_FILE, 'utf-8')).items : {};
   const grants = loadGrants();
-  const snapshot = computeAnalysis({ grants, details, previous: loadAnalysis() });
+  const snapshot = computeAnalysis({ grants, details, previous: loadAnalysis(), programHistory: loadProgramHistory() });
   mkdirSync(dirname(ANALYSIS_FILE), { recursive: true });
   writeFileSync(ANALYSIS_FILE, `${JSON.stringify(snapshot)}\n`);
   console.log(`分析結果を保存：事業者向け${snapshot.local.n}件、住民向け${snapshot.resident.n}件、詳細${snapshot.details.n}件、国の制度の全件${snapshot.jgrants ? `${snapshot.jgrants.total}件（${snapshot.jgrants.asOf}）` : '（未取得）'}`);
