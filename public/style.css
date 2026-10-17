@@ -1570,14 +1570,3 @@ details ul { margin: 8px 0; padding-left: 1.5em; }
 .hp-warn { margin: 18px 0 4px; padding: 14px 16px; border-radius: 12px; background: #fff4e8; border-left: 4px solid #c9411a; }
 .hp-warn b { color: #9a3412; }
 .hp-warn p { margin: 6px 0 0; line-height: 1.8; }
-/* 入口（hitsuyo.html）のカテゴリ */
-.hp-cats { list-style: none; margin: 10px 0 26px; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
-.hp-cats li > a, .hp-cats li > span { display: grid; gap: 4px; height: 100%; padding: 16px; border: 1px solid #e6e8ec; border-radius: 14px; background: #fff; text-decoration: none; color: inherit; }
-.hp-cats li > a:hover { border-color: #073461; box-shadow: 0 4px 14px rgba(7, 52, 97, 0.12); }
-.hp-cats li > span { background: #f7f8fa; color: #7a8693; }
-.hp-cats .hp-ic { font-size: 1.6rem; }
-.hp-cats b { color: #073461; }
-.hp-cats li > span b { color: #66727f; }
-.hp-cats small { line-height: 1.5; }
-.hp-cats em { font-style: normal; font-size: 0.78rem; font-weight: 700; color: #1565d8; }
-.hp-cats li > span em { color: #8a95a1; }

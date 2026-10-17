@@ -286,3 +286,33 @@ ARTICLES.push(
     sources: [L.sii, L.jgrants, L.chusho, L.jnet],
     related: [['store.html', '店舗・設備投資の補助金'], ['store-aircon.html', '業務用エアコンの補助金'], ['store-refrigeration.html', '冷蔵・冷凍設備の補助金'], ['home-solar.html', '太陽光・蓄電池の補助金'], ['../grants/purposes.html', '目的別の補助金（省エネ）'], ...REL_COMMON] },
 );
+
+// 入口の「棚」に出す、解説ごとのひとこと（キーは「カテゴリ-slug」）
+export const BLURBS = {
+  'store-kitchen': '機器だけの制度は多くない。何の取り組みの一部か、で探す',
+  'store-aircon': '国の省エネ補助と、自治体の助成',
+  'store-pos': 'ソフトとハードで、制度が分かれる',
+  'store-refrigeration': '省エネ性能の高い設備への更新が候補',
+  'store-machine': '同じ機械への入れ替えは、対象になりにくい',
+  'store-robot': 'カタログ注文型と、一般型の違い',
+  'store-renovation': '販路開拓の取り組みの一部として',
+  'store-energy': 'LED・空調・給湯器など、設備ごとの入口',
+  'it-website': '集客などの取り組みの一部として補助される',
+  'it-ai': '導入するもので、使える制度が分かれる',
+  'it-software': '登録されたITツールだけが対象',
+  'it-pc': 'ソフトとセットで考える',
+  'it-promotion': '販路開拓の補助金の中心的な使い道',
+  'home-solar': '都道府県・市区町村の制度が中心',
+  'home-ev': '車は国の補助、設備は国と自治体',
+  'home-reform': '工事の内容で、探す先が変わる',
+  'people-hiring': '補助金より先に、厚生労働省の助成金を確認',
+  'people-wage': '助成金の対象にも、補助金の要件にもなる',
+  'people-training': '事業主向けと、個人向けで制度が分かれる',
+  'people-balance': '休業・復帰を支える、制度の整備に',
+  'people-workplace': '働き方の見直しと、設備の両面から',
+  'startup-opening': '補助金・融資・創業支援の違いを知る',
+  'startup-vacant': '市区町村の空き店舗対策が中心',
+  'startup-succession': '4つの枠から、自社に合うものを',
+  'startup-product': '「新しさ」を、事業計画で説明できるかが鍵',
+  'startup-overseas': '補助金と、相談・支援プログラムを組み合わせる',
+};
