@@ -14,7 +14,7 @@ const SHOW_ADS = true;
 // A8.net アフィリエイト広告：トップページ・方針ページ以外の各ページに、2社のうち1社をランダムで1つだけ表示する
 (function () {
   const path = location.pathname.replace(/index\.html$/, '');
-  if (!SHOW_ADS || path === '/' || path === '' || path.indexOf('/policy/') === 0 || path === '/compare/virtual-office.html') return;
+  if (!SHOW_ADS || path === '/' || path === '' || path.indexOf('/policy/') === 0 || path === '/mypage.html' || path === '/compare/virtual-office.html') return;
   const main = document.querySelector('main');
   if (!main) return;
   const ads = [
@@ -171,4 +171,25 @@ document.querySelectorAll('.footer-group').forEach((d) => { d.open = true; });
     window.addEventListener('resize', fit);
     if ('ResizeObserver' in window) new ResizeObserver(fit).observe(side);
   } catch (e) { /* 動かなくても、右の列はふつうに表示される */ }
+})();
+
+// マイページの「最近見た制度」：制度・特集・地域・事例のページを開いたとき、このブラウザにだけ記録する（最大30件）。
+// 保存の形は public/mypage-store.js の addHistory と同じ
+(function () {
+  const path = location.pathname;
+  const kind = (path.match(/^\/(programs|feature|area|cases|grants)\/([^/]+)\.html$/) || [])[1];
+  if (!kind) return;
+  const name = path.split('/').pop();
+  if (/^(index|prefectures|purposes|industries|search)\.html$|^(pref|purpose|industry)-/.test(name)) return;
+  const label = { programs: '制度ガイド', feature: '特集', area: '地域', cases: '活用事例', grants: '補助金' }[kind];
+  try {
+    const title = document.title.replace(/\s*[｜|]\s*補助金ネット\s*$/, '').trim();
+    if (!title) return;
+    const KEY = 'subsidy-finder:history';
+    let h = JSON.parse(localStorage.getItem(KEY));
+    if (!Array.isArray(h)) h = [];
+    h = h.filter((x) => x && x.u !== path);
+    h.unshift({ u: path, t: title.slice(0, 120), k: label, at: Date.now() });
+    localStorage.setItem(KEY, JSON.stringify(h.slice(0, 30)));
+  } catch { /* 保存できない環境では何もしない */ }
 })();

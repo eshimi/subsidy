@@ -63,7 +63,7 @@ const FOLDER_HINT = {
   background: 'background/index.html',
   programs: 'programs/index.html',
 };
-const EXCLUDE = ['index.html', 'sitemap.html', 'search.html', 'shindan.html', 'ai.html', 'hantei.html', 'consult.html', 'hitsuyo.html'];
+const EXCLUDE = ['index.html', 'sitemap.html', 'search.html', 'shindan.html', 'ai.html', 'hantei.html', 'consult.html', 'hitsuyo.html', 'mypage.html'];
 
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 
