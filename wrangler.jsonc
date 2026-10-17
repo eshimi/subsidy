@@ -29,7 +29,7 @@
   "triggers": { "crons": ["0 22 * * *"] },
   "vars": {
     // 締切のメール通知。Cloudflare のメール送信（Email Service）で hojyokin.net を有効にしてから "true" にする。"false" の間は、マイページに通知の設定が出ない
-    "NOTIFY_ENABLED": "false",
+    "NOTIFY_ENABLED": "true",
     // 使用するモデル。ダッシュボードで変数を足す場合は、デプロイで消えないよう Secret として登録する
     "CLAUDE_MODEL": "claude-opus-5-5"
   }
