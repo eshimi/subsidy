@@ -54,6 +54,10 @@
 .mp-btn2 { font: inherit; font-size: .85rem; padding: 5px 12px; border-radius: 5px; border: 1px solid var(--mp-navy); background: #fff; color: var(--mp-navy); cursor: pointer; }
 .mp-btn2.p { background: var(--mp-navy); color: #fff; }
 .mp-empty { color: var(--mp-mute); font-size: .9rem; margin: 0; line-height: 1.8; }
+.mp-chg { display: block; margin: 4px 0 0; font-size: .8rem; color: #8a4b00; background: #fff3e0; border-left: 3px solid #ff9800; padding: 3px 8px; border-radius: 3px; line-height: 1.5; }
+.mp-chg small { display: block; color: #5d4a2a; font-size: .76rem; }
+.mp-notify-row { display: flex; gap: 8px; align-items: flex-start; font-size: .92rem; line-height: 1.7; cursor: pointer; }
+.mp-notify-row input { margin-top: .45em; }
 .mp-hist-note { font-size: .78rem; color: var(--mp-mute); margin: 8px 0 0; }
 @media (max-width: 960px) {
   .mp-grid { grid-template-columns: minmax(0, 1fr); }

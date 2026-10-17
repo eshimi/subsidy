@@ -25,7 +25,11 @@
   // 3) Secret GOOGLE_CLIENT_ID を登録（Google Cloud の OAuth クライアントID。承認済みの JavaScript 生成元に https://hojyokin.net を追加）
   // DB のバインディングがない間は、会員機能は自動でオフになり、マイページはこのブラウザの保存だけで動く。
   "d1_databases": [{ "binding": "DB", "database_name": "subsidy-members", "database_id": "3f7bc4d5-1aaa-4ac4-99ee-987ef9121955", "migrations_dir": "migrations" }],
+  // 毎朝 7:00（日本時間）に、締切のメール通知を送る（会員が通知をオンにした場合だけ）
+  "triggers": { "crons": ["0 22 * * *"] },
   "vars": {
+    // 締切のメール通知。Cloudflare のメール送信（Email Service）で hojyokin.net を有効にしてから "true" にする。"false" の間は、マイページに通知の設定が出ない
+    "NOTIFY_ENABLED": "false",
     // 使用するモデル。ダッシュボードで変数を足す場合は、デプロイで消えないよう Secret として登録する
     "CLAUDE_MODEL": "claude-opus-5-5"
   }

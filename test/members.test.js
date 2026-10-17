@@ -9,7 +9,7 @@ import { MAX_SAVED } from '../src/members.js';
 // D1 と同じ使い方（prepare / bind / run / first / all / batch）を、node:sqlite で再現する
 function d1() {
   const db = new DatabaseSync(':memory:');
-  db.exec(readFileSync(new URL('../migrations/0001_init.sql', import.meta.url), 'utf8'));
+  for (const f of ['0001_init.sql', '0002_notify.sql']) db.exec(readFileSync(new URL(`../migrations/${f}`, import.meta.url), 'utf8'));
   const stmt = (sql, args = []) => ({
     bind: (...a) => stmt(sql, a),
     run: async () => { db.prepare(sql).run(...args); return {}; },

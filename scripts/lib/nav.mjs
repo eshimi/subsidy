@@ -157,6 +157,7 @@ export const FOOTER_SHORT = [
 // フッター最下部の補助リンク
 export const BOTTOM_LINKS = [
   { label: 'プライバシーポリシー', href: 'policy/privacy.html' },
+  { label: '利用規約', href: 'policy/terms.html' },
   { label: '出典・更新方針', href: 'policy/sources.html' },
   { label: 'フィードバック・バグ報告', href: 'policy/contact.html' },
   { label: 'サイトマップ', href: 'sitemap.html' },

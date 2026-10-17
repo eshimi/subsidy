@@ -32,9 +32,17 @@ const daysBadge = (n) => {
 };
 const statusSelect = (it) => `<select data-status="${esc(it.id)}" aria-label="状態">${STATUSES.map((s) => `<option value="${s.key}"${s.key === it.status ? ' selected' : ''}>${s.label}</option>`).join('')}</select>`;
 const resultSelect = (it) => `<select data-result="${esc(it.id)}" aria-label="結果">${RESULTS.map((s) => `<option value="${s.key}"${s.key === it.result ? ' selected' : ''}>${s.label}</option>`).join('')}</select>`;
+// 保存したあとに更新があった制度に、印と変更の中身を出す
+function changeHtml(it) {
+  const c = changes[it.id];
+  if (!c || !it.savedAt || c.d < toJstDate(new Date(it.savedAt).toISOString()).replace(/^(\d{4})(\d{2})(\d{2})$/, '$1-$2-$3')) return '';
+  const [, m, d] = c.d.split('-');
+  return `<span class="mp-chg"><b>更新あり</b>（${+m}月${+d}日）<small>${c.notes.map(esc).join('<br>')}</small></span>`;
+}
 const link = (it) => (it.url ? `<a href="${esc(it.url)}" target="_blank" rel="noopener">${esc(it.name)}</a>` : esc(it.name));
 
 let calMonth = null; // 'YYYYMM'
+let changes = {}; // grants/changes.json：保存した制度の、公式の情報の更新（制度の変更の印）
 let candidates = null; // search.json から作る（取得できなかったら null）
 
 function render() {
@@ -55,7 +63,7 @@ function render() {
   });
   $('#mp-rows').innerHTML = sorted.map((it) => {
     const n = daysLeft(it.deadline);
-    return `<tr><td>${link(it)}<br><input type="text" data-memo="${esc(it.id)}" value="${esc(it.memo)}" placeholder="メモ" maxlength="500" aria-label="メモ"></td>
+    return `<tr><td>${link(it)}${changeHtml(it)}<br><input type="text" data-memo="${esc(it.id)}" value="${esc(it.memo)}" placeholder="メモ" maxlength="500" aria-label="メモ"></td>
       <td>${it.deadline ? esc(dateJa(it.deadline)) : esc(it.period || '—')}</td><td>${daysBadge(n)}</td>
       <td>${statusSelect(it)}</td><td><button type="button" class="mp-link" data-remove="${esc(it.id)}">削除</button></td></tr>`;
   }).join('');
@@ -66,7 +74,7 @@ function render() {
   // 進み具合のボード
   $('#mp-board').innerHTML = STATUSES.map((st) => {
     const col = items.filter((s) => s.status === st.key);
-    return `<div class="mp-col"><h3>${st.label}<i>${col.length}</i></h3>${col.map((it) => `<div class="mp-k">${link(it)}<small>${it.deadline ? '締切 ' + esc(dateJa(it.deadline)) : esc(it.period || '')}</small>${st.key === 'result' ? resultSelect(it) : ''}${statusSelect(it)}</div>`).join('')}</div>`;
+    return `<div class="mp-col"><h3>${st.label}<i>${col.length}</i></h3>${col.map((it) => `<div class="mp-k">${link(it)}${changeHtml(it)}<small>${it.deadline ? '締切 ' + esc(dateJa(it.deadline)) : esc(it.period || '')}</small>${st.key === 'result' ? resultSelect(it) : ''}${statusSelect(it)}</div>`).join('')}</div>`;
   }).join('');
   $('#mp-board-wrap').hidden = !hasItems;
 
@@ -230,7 +238,7 @@ function renderAccount() {
   box.hidden = false;
   if (!acct.user) {
     note.hidden = false;
-    box.innerHTML = '<h2>ログイン（無料）</h2><p class="mp-empty">Google アカウントでログインすると、保存した制度を<b>ほかのパソコンやスマホでも</b>見られます。ログインしなくても、これまでどおり使えます。</p><div id="mp-gbtn" style="margin-top:10px"></div><p class="mp-hist-note" id="mp-login-msg" role="alert"></p>';
+    box.innerHTML = '<h2>ログイン（無料）</h2><p class="mp-empty">Google アカウントでログインすると、保存した制度を<b>ほかのパソコンやスマホでも</b>見られます。ログインしなくても、これまでどおり使えます。</p><p class="mp-hist-note">ログインすると、<a href="policy/terms.html">利用規約</a>と<a href="policy/privacy.html">プライバシーポリシー</a>に同意したものとみなします。</p><div id="mp-gbtn" style="margin-top:10px"></div><p class="mp-hist-note" id="mp-login-msg" role="alert"></p>';
     const g = $('#mp-gbtn');
     g.addEventListener('login-error', (e) => { $('#mp-login-msg').textContent = e.detail; });
     renderLoginButton(g).catch(() => { $('#mp-login-msg').textContent = 'ログインの部品を読み込めませんでした。時間をおいて、もう一度お試しください。'; });
@@ -245,6 +253,30 @@ function renderAccount() {
     try { await deleteAccount(); } catch { toastMsg('削除できませんでした。時間をおいて、もう一度お試しください。'); }
   });
   offerMigration();
+  loadNotify();
+}
+// 締切のメール通知（サーバーで有効なときだけ、設定欄を出す）
+async function loadNotify() {
+  try {
+    const r = await fetch('/api/notify', { credentials: 'same-origin' });
+    const d = await r.json();
+    if (!r.ok || !d.available) return;
+    const box = $('#mp-notify');
+    box.hidden = false;
+    box.innerHTML = `<h2>締切のメール通知</h2><label class="mp-notify-row"><input type="checkbox" id="mp-notify-on"${d.notify ? ' checked' : ''}> 保存した制度の締切が近づいたら、メールで知らせる（7日前と前日）</label>
+      <p class="mp-hist-note">送り先：${esc(d.email)}（Google アカウントのメールアドレス）。申請済み・結果の制度には送りません。メールの中のリンクから、いつでも停止できます。</p><p class="mp-hist-note" id="mp-notify-msg" role="status"></p>`;
+    $('#mp-notify-on').addEventListener('change', async (ev) => {
+      const on = ev.target.checked;
+      try {
+        const res = await fetch('/api/notify', { method: 'POST', credentials: 'same-origin', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ on }) });
+        if (!res.ok) throw new Error();
+        $('#mp-notify-msg').textContent = on ? '通知をオンにしました。' : '通知をオフにしました。';
+      } catch {
+        ev.target.checked = !on;
+        $('#mp-notify-msg').textContent = '設定を変えられませんでした。時間をおいて、もう一度お試しください。';
+      }
+    });
+  } catch { /* 通知の設定が取れないときは、欄を出さない */ }
 }
 function toastMsg(m) { $('#mp-import-msg').textContent = m; }
 
@@ -274,6 +306,10 @@ function offerMigration() {
 
 renderAccount();
 render();
+fetch('grants/changes.json')
+  .then((r) => (r.ok ? r.json() : null))
+  .then((d) => { if (d && d.items) { changes = d.items; render(); } })
+  .catch(() => {});
 fetch('grants/search.json')
   .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
   .then((d) => { candidates = d.items || []; renderCandidates(store.list()); })

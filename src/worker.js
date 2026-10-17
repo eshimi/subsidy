@@ -11,6 +11,7 @@ import { errorPayload } from './http-error.js';
 import { parseContact, buildRawMessage, buildMail } from './contact.js';
 import { parseAnswers, parsePersonal, parseConsult, consultText } from './consult.js';
 import { verifyGoogleIdToken, readCookie, sessionCookie, cookieName, sameOrigin } from './auth.js';
+import { getNotify, setNotify, unsubscribe, runReminders } from './notify.js';
 import { upsertUser, createSession, userBySession, deleteSession, loadData, applyOps, deleteUser } from './members.js';
 import { parsePlanInput, planMode, createDailyLimiter, cacheStore, memoryStore } from './plan.js';
 
@@ -248,6 +249,23 @@ async function memberRoute(request, env, url) {
     const body = await readJsonBody(request);
     return { ok: true, applied: await applyOps(env.DB, user.id, body?.ops) };
   }
+  if (pathname === '/api/notify') {
+    const available = Boolean(env.NOTIFY_ENABLED === 'true' && (env.MAIL || env.CONTACT_EMAIL));
+    const user = await requireUser(request, env, url);
+    if (request.method === 'GET') return { available, notify: available ? await getNotify(env.DB, user.id) : false, email: user.email };
+    allow(request, 'POST');
+    requireSameOrigin(request);
+    if (!available) throw httpError(503, 'メールの通知は、まだ利用できません');
+    const body = await readJsonBody(request);
+    return { available, notify: await setNotify(env.DB, user.id, body?.on === true), email: user.email };
+  }
+  if (pathname === '/api/notify/unsubscribe') {
+    // メールのリンク（GET）と、メールソフトのワンクリック解除（POST）。ログインなしで、本人だけが知る鍵で解除する
+    if (!membersEnabled(env)) throw httpError(503, '会員機能は、まだ利用できません');
+    const ok = await unsubscribe(env.DB, url.searchParams.get('u'), url.searchParams.get('t'));
+    const msg = ok ? '締切のメール通知を、停止しました。再開するときは、マイページで設定してください。' : 'このリンクは無効です。マイページから、通知の設定を変えてください。';
+    return new Response(`<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>メール通知の停止｜補助金ネット</title><body style="font-family:sans-serif;max-width:32em;margin:3em auto;padding:0 1em;line-height:1.8"><h1 style="font-size:1.2rem">メール通知の停止</h1><p>${msg}</p><p><a href="/mypage.html">マイページへ</a></p>`, { status: ok ? 200 : 400, headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store', ...SECURITY_HEADERS } });
+  }
   if (pathname === '/api/account/delete') {
     allow(request, 'POST');
     requireSameOrigin(request);
@@ -259,6 +277,11 @@ async function memberRoute(request, env, url) {
 }
 
 export default {
+  // 毎朝（wrangler.jsonc の triggers.crons）、締切のメール通知を送る
+  async scheduled(_event, env, ctx) {
+    applyEnv(env);
+    if (membersEnabled(env)) ctx.waitUntil(runReminders(env).then((r) => console.log('reminders', JSON.stringify(r))).catch((e) => console.error(e)));
+  },
   async fetch(request, env, ctx) {
     applyEnv(env);
     const url = new URL(request.url);
@@ -267,7 +290,7 @@ export default {
     if (!url.pathname.startsWith('/api/')) return env.ASSETS.fetch(request);
     try {
       if (url.pathname === '/api/plan') return await planResponse(request, env, ctx);
-      if (url.pathname === '/api/me' || url.pathname.startsWith('/api/auth/') || url.pathname.startsWith('/api/mypage') || url.pathname === '/api/account/delete') {
+      if (url.pathname === '/api/me' || url.pathname.startsWith('/api/auth/') || url.pathname.startsWith('/api/mypage') || url.pathname === '/api/account/delete' || url.pathname.startsWith('/api/notify')) {
         const r = await memberRoute(request, env, url);
         if (r instanceof Response) return r;
         if (r !== null) return json(r);

@@ -3,7 +3,13 @@
 import { mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { SITE, esc, shell } from './lib/site-shell.mjs';
+import { SITE, esc, shell as baseShell } from './lib/site-shell.mjs';
+
+// 「☆ 保存」ボタンのあるページには、動かすスクリプト（public/save-button.js）を足す。grants/ のページは、すべて1階層の深さ
+const shell = (opts) => {
+  const html = baseShell(opts);
+  return html.includes('data-save=') && !html.includes('save-button.js') ? html.replace('</body>', '  <script type="module" src="../save-button.js"></script>\n</body>') : html;
+};
 import { grantBody, genericFaq } from './lib/grant-modules.mjs';
 import { bannerFor } from './lib/banners.mjs';
 import { loadCache } from './lib/jgrants-detail.mjs';
@@ -112,7 +118,7 @@ export function grantListHtml(items, now, { showArea = true, empty = '現在、�
     const t = tagsOf(g);
     const labels = PURPOSES.filter((x) => t.p.includes(x.slug)).map((x) => `<span class="gl-tag">${esc(x.label)}</span>`).join('');
     const meta = [`<span class="gl-st gl-${st.key}">${esc(st.label)}</span>`, `締切 ${esc(dateJa(g.end))}`, g.max ? `上限 ${esc(yenJa(g.max))}` : '上限は公募要領で確認', g.start ? `受付開始 ${esc(dateJa(g.start))}` : '', showArea ? esc(g.area || '記載なし') : ''].filter(Boolean).join('｜');
-    return `        <li data-end="${esc(g.end || '')}" data-start="${esc(g.start || '')}" data-max="${g.max || 0}" data-p="${t.p.join(' ')}" data-i="${t.i.join(' ')}" data-t="${esc(g.title)}"><a href="${g.id}.html">${esc(g.title)}</a><p class="grant-meta">${meta}</p>${labels ? `<p class="gl-tags">${labels}</p>` : ''}</li>`;
+    return `        <li data-end="${esc(g.end || '')}" data-start="${esc(g.start || '')}" data-max="${g.max || 0}" data-p="${t.p.join(' ')}" data-i="${t.i.join(' ')}" data-t="${esc(g.title)}"><a href="${g.id}.html">${esc(g.title)}</a><p class="grant-meta">${meta}</p>${labels ? `<p class="gl-tags">${labels}</p>` : ''}<p class="gl-save">${saveButton(g)}</p></li>`;
   }).join('\n');
   return `      <form class="gl-tools" data-grant-list aria-label="一覧の並べ替えと絞り込み" onsubmit="return false">
         <label class="gl-q">キーワード<input type="search" name="q" placeholder="制度名で絞り込み"></label>
@@ -193,6 +199,7 @@ const STYLE_EXTRA = `
     .gl-tools label { display: grid; gap: 4px; font-size: 0.78rem; color: var(--mute); font-weight: 600; }
     .gl-tools input, .gl-tools select { width: 100%; padding: 8px 10px; border: 1px solid #e6e8ec; border-radius: 8px; background: #fff; font: inherit; font-size: 0.9rem; color: #1f3353; }
     .gl-count { margin: 0 0 10px; font-weight: 700; }
+    .gl-save { margin: 8px 0 0; }
     .gl-tags { margin: 6px 0 0; display: flex; flex-wrap: wrap; gap: 4px; }
     .gl-tag { padding: 1px 8px; border-radius: 999px; background: #eaf3fd; color: #073461; font-size: 0.75rem; font-weight: 600; }
     .gl-st { font-weight: 700; }
@@ -285,7 +292,7 @@ ${caseCards(g.title, tagsOf(g).p)}
     '@context': 'https://schema.org', '@type': 'FAQPage',
     mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
   })}</script>\n`;
-  return shell({ title, description, canonicalPath: `/grants/${g.id}.html`, body, jsonLd, robots: 'noindex, follow' }).replace('</style>', `${STYLE_EXTRA}\n  </style>`).replace('</body>', '  <script type="module" src="../save-button.js"></script>\n</body>');
+  return shell({ title, description, canonicalPath: `/grants/${g.id}.html`, body, jsonLd, robots: 'noindex, follow' }).replace('</style>', `${STYLE_EXTRA}\n  </style>`);
 }
 
 function listPage({ title, heading, lead, items, now, canonicalPath, extra = '', robots = 'index, follow' }) {
