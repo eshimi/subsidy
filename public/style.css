@@ -657,7 +657,7 @@ details ul { margin: 8px 0; padding-left: 1.5em; }
 /* ── トップページ（ポータル） ── */
 .r-hero { --hero-img: url('images/121.webp'); --hero-rgb: 28, 79, 114; background: rgb(var(--hero-rgb)); color: #fff; padding: 56px 0 48px; }
 /* 写真は帯の高さいっぱいに、右寄せで置く。左端は帯の色のグラデーションでつなぐ（境目を作らない） */
-.r-hero-art { position: absolute; top: 0; right: 0; bottom: 0; left: 36%; z-index: -3; pointer-events: none; background-image: var(--hero-img); background-repeat: no-repeat; background-position: right center; background-size: auto 100%; -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 45%); mask-image: linear-gradient(to right, transparent 0%, #000 45%); }
+.r-hero-art { position: absolute; top: 0; right: 0; bottom: 0; left: auto; width: auto; max-width: 78%; aspect-ratio: var(--hero-ar, 16 / 9); z-index: -3; pointer-events: none; background-image: var(--hero-img); background-repeat: no-repeat; background-position: right center; background-size: cover; /* 写真の左端は、帯の色にとけこませる（写真の幅は、高さと縦横比で決まるので、写真そのものの左端が、なめらかに消える） */ -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.35) 18%, rgba(0, 0, 0, 0.8) 42%, #000 62%); mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.35) 18%, rgba(0, 0, 0, 0.8) 42%, #000 62%); }
 .r-hero .wrap { display: grid; gap: 18px; }
 .r-eyebrow { font-size: 0.85rem; letter-spacing: 0.12em; opacity: 0.85; margin: 0; }
 .r-hero h1 { font-size: clamp(2rem, 4.4vw, 3.2rem); font-weight: 900; margin: 0; line-height: 1.25; letter-spacing: -0.02em; }
@@ -1637,3 +1637,13 @@ details ul { margin: 8px 0; padding-left: 1.5em; }
   .r-go-set { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .r-nums { gap: 4px 18px; }
 }
+
+/* ヒーロー右側（写真の上）の文字を読みやすくする：大きな数字・入口・数字の行 */
+.r-hero::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(to top, rgba(var(--hero-rgb), 0.6) 0%, rgba(var(--hero-rgb), 0) 38%); }
+.r-big, .r-nums { text-shadow: 0 1px 12px rgba(0, 0, 0, 0.55); }
+.r-go a { background: rgba(var(--hero-rgb), 0.55); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.r-go a:hover { background: rgba(var(--hero-rgb), 0.78); }
+
+/* 大きな数字は、写真の上でも読めるよう、数字のまわりに、帯の色のぼかしを敷く */
+.r-big { position: relative; }
+.r-big::before { content: ""; position: absolute; z-index: -1; inset: -14px -22px -10px -40px; border-radius: 24px; filter: blur(8px); background: radial-gradient(ellipse at 60% 50%, rgba(var(--hero-rgb), 0.72) 0%, rgba(var(--hero-rgb), 0.45) 55%, rgba(var(--hero-rgb), 0) 100%); }

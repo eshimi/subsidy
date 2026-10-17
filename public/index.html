@@ -295,11 +295,11 @@
     (function () {
       var KEY = 'subsidy-finder:hero-bg';
       var IMAGES = [
-        { img: "url('images/121.webp')", rgb: '28, 79, 114' },
-        { img: "url('images/hero-alt.webp')", rgb: '31, 81, 80' },
-        { img: "url('images/hero-03.webp')", rgb: '38, 62, 58' },
-        { img: "url('images/hero-04.webp')", rgb: '46, 70, 56' },
-        { img: "url('images/hero-05.webp')", rgb: '31, 54, 84' }
+        { img: "url('images/121.webp')", rgb: '28, 79, 114', ar: '2.667' },
+        { img: "url('images/hero-alt.webp')", rgb: '31, 81, 80', ar: '1.778' },
+        { img: "url('images/hero-03.webp')", rgb: '38, 62, 58', ar: '1.778' },
+        { img: "url('images/hero-04.webp')", rgb: '46, 70, 56', ar: '1.778' },
+        { img: "url('images/hero-05.webp')", rgb: '31, 54, 84', ar: '1.778' }
       ];
       var hero = document.querySelector('.r-hero');
       if (!hero) return;
@@ -308,6 +308,7 @@
       var next = isNaN(last) ? 0 : (last + 1) % IMAGES.length;
       hero.style.setProperty('--hero-img', IMAGES[next].img);
       hero.style.setProperty('--hero-rgb', IMAGES[next].rgb);
+      hero.style.setProperty('--hero-ar', IMAGES[next].ar);
       try { localStorage.setItem(KEY, String(next)); } catch (e) { /* 保存できなくても表示は変わる */ }
     })();
 
