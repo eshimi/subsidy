@@ -1594,3 +1594,47 @@ details ul { margin: 8px 0; padding-left: 1.5em; }
 .r-hero .r-facts small { font-size: 0.75rem; margin-left: 2px; }
 .r-hero .r-facts .r-daily { display: none; }
 @media (max-width: 640px) { .r-tablist button { flex: 1 1 calc(50% - 6px); padding: 0 10px; } }
+
+/* ランディングページ化したページ（scripts/apply-lp.mjs）：コンパクトな写真つきヒーロー・要点の帯・近道・末尾の呼びかけ */
+.lp-hero { position: relative; width: 100vw; margin: 4px 0 0 calc(50% - 50vw); height: 168px; background: #f5f1e9; overflow: hidden; }
+.lp-art { position: absolute; top: 0; bottom: 0; right: -260px; width: min(100vw, 1600px); background: center 40% / cover no-repeat; }
+.lp-hero::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, #f5f1e9 0%, #f5f1e9 48%, rgba(245, 241, 233, 0.8) 55%, rgba(245, 241, 233, 0) 68%); }
+.lp-in { position: relative; z-index: 2; max-width: var(--max, 1100px); margin: 0 auto; padding: 0 var(--gutter, 24px); height: 100%; display: flex; flex-direction: column; justify-content: center; }
+.lp-k { margin: 0; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em; color: #c9411a; }
+.lp-hero .pb-banner { margin: 0 0 2px; }
+.lp-hero .pb-title { font-size: clamp(1.25rem, 2.1vw, 1.65rem); max-width: 34em; }
+.lp-s { margin: 0 0 10px; font-size: 0.85rem; line-height: 1.6; max-width: 40em; }
+.lp-btns { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.lp-btn { display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 0 18px; border-radius: 8px; font-size: 0.9rem; font-weight: 700; text-decoration: none; }
+.lp-btn.p { background: #f8602f; color: #fff; }
+.lp-btn.s { background: #fff; color: #073461; box-shadow: inset 0 0 0 1.5px #073461; }
+.lp-btn.w { background: #fff; color: #073461; }
+.lp-btn.s2 { color: #fff; box-shadow: inset 0 0 0 1.5px #fff; }
+.lp-btn:focus-visible { outline: 3px solid #f8602f; outline-offset: 2px; }
+.lp-facts { width: 100vw; margin-left: calc(50% - 50vw); background: #fff; border-bottom: 1px solid #e6e8ec; }
+.lp-fi { max-width: var(--max, 1100px); margin: 0 auto; padding: 0 var(--gutter, 24px); display: grid; grid-template-columns: 1.7fr 1.1fr 1.2fr 1fr; }
+.lp-fi div { display: flex; gap: 8px; align-items: baseline; padding: 10px 14px; border-left: 1px solid #e6e8ec; min-width: 0; }
+.lp-fi div:first-child { border-left: 0; padding-left: 0; }
+.lp-fi dt { margin: 0; flex: none; font-size: 0.75rem; color: #56667f; }
+.lp-fi dd { margin: 0; font-size: 0.85rem; font-weight: 700; color: #073461; line-height: 1.5; }
+.lp-next { display: grid; gap: 10px; margin: 18px 0 8px; padding: 16px 18px; background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(10, 35, 82, 0.06); }
+.lp-row { display: flex; gap: 12px; align-items: baseline; }
+.lp-rl { flex: none; width: 9em; font-size: 0.8rem; font-weight: 700; color: #56667f; }
+.lp-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.lp-chips a { display: inline-flex; align-items: center; min-height: 34px; padding: 0 14px; border-radius: 999px; background: #f7f6f3; font-size: 0.85rem; color: #0a2352; text-decoration: none; }
+.lp-chips a:hover { background: #e4edf8; }
+.lp-chips a.more { background: #fff; color: #073461; font-weight: 700; box-shadow: inset 0 0 0 1px #c3cbd8; }
+.lp-news { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; font-size: 0.85rem; min-width: 0; }
+.lp-news time { color: #56667f; margin-right: 10px; }
+.lp-news a { color: #0a2352; }
+.lp-news .more a { font-weight: 700; color: #073461; }
+.lp-cta { margin: 28px 0 0; padding: 22px 28px; border-radius: 12px; background: #073461; color: #fff; display: flex; gap: 20px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+.lp-ct { margin: 0 0 4px; font-size: 1.15rem; font-weight: 700; }
+.lp-cd { margin: 0; font-size: 0.9rem; opacity: 0.92; }
+@media (max-width: 860px) {
+  .lp-art { right: -40%; width: 140vw; opacity: 0.35; }
+  .lp-hero { height: auto; padding: 14px 0 16px; }
+  .lp-fi { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .lp-fi div:nth-child(3) { border-left: 0; padding-left: 0; }
+  .lp-row { flex-direction: column; gap: 6px; }
+}
