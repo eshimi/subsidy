@@ -1,0 +1,192 @@
+{
+ "version": 1,
+ "note": "公式ページを取得できず、制度ガイドの材料をまだ作れていない制度（2026-10-17時点）。404はリンク切れ（LOCAL_PROGRAMSのurlの修正が必要）、0・408・403は通信エラー・遮断（別の環境で再試行）。",
+ "items": [
+  {
+   "id": "fukushima-chiiki-kadai-kigyo",
+   "name": "地域課題解決型起業支援事業補助金",
+   "url": "https://www.pref.fukushima.lg.jp/sec/32021b/sougyohozyokinn2026.html",
+   "lastStatus": 404
+  },
+  {
+   "id": "ibaraki-digital-skill-hojo",
+   "name": "デジタルスキル習得支援事業補助金",
+   "url": "https://www.pref.ibaraki.jp/shokorodo/sansei/kikaku/documents/sangyo_260916.pdf",
+   "lastStatus": 404
+  },
+  {
+   "id": "nara-jigyo-shokei-enkatsu",
+   "name": "奈良県事業承継円滑化支援補助金",
+   "url": "https://www.pref.nara.jp/31935.htm",
+   "lastStatus": 0
+  },
+  {
+   "id": "nara-kigyoka-shien",
+   "name": "奈良県 起業家支援事業",
+   "url": "https://www.pref.nara.jp/68792.htm",
+   "lastStatus": 0
+  },
+  {
+   "id": "nara-senior-kigyo",
+   "name": "奈良県 シニア起業支援事業",
+   "url": "https://www.pref.nara.jp/68894.htm",
+   "lastStatus": 0
+  },
+  {
+   "id": "nara-shoryokuka-setsubi",
+   "name": "奈良県 中小企業省力化・生産性向上設備投資支援補助金",
+   "url": "https://www.pref.nara.jp/69203.htm",
+   "lastStatus": 0
+  },
+  {
+   "id": "oita-shoryokuka-seisansei",
+   "name": "大分県省力化・生産性向上支援補助金",
+   "url": "https://www.pref.oita.jp/site/tyusyodx/dxhojyo.html",
+   "lastStatus": 404
+  },
+  {
+   "id": "tsuruoka-city-shinki-sogyo-shien",
+   "name": "鶴岡市新規創業等支援補助金（新規創業・移住開業型／事業構想等事業化型）",
+   "url": "https://www.city.tsuruoka.yamagata.jp/sangyo/index.html",
+   "lastStatus": 0
+  },
+  {
+   "id": "ichihara-city-koko-sogyo-riko",
+   "name": "市原市 日本政策金融公庫の創業融資に対する利子補給",
+   "url": "https://www.city.ichihara.chiba.jp/reiki_int/reiki_honbun/g020RG00000742.html",
+   "lastStatus": 403
+  },
+  {
+   "id": "kodaira-city-shinki-kaisha-setsuritsu-oenkin",
+   "name": "小平市新規会社設立応援金",
+   "url": "https://www.city.kodaira.tokyo.jp/kurashi/104/104491.html",
+   "lastStatus": 404
+  },
+  {
+   "id": "mitaka-city-sogyo-shien-hojokin",
+   "name": "三鷹市創業等支援補助金",
+   "url": "https://www.city.mitaka.lg.jp/c_service/111/111083.html",
+   "lastStatus": 404
+  },
+  {
+   "id": "tsuruga-city-machinaka-sogyo-sokushin",
+   "name": "敦賀市まちなか創業等促進支援事業",
+   "url": "https://www.city.tsuruga.lg.jp/about_city/business/kigyo/machisougyou.html",
+   "lastStatus": 404
+  },
+  {
+   "id": "kameoka-city-sogyo-shien-joseikin",
+   "name": "亀岡市創業支援助成金",
+   "url": "https://www.city.kameoka.kyoto.jp/soshiki/29/3591.html",
+   "lastStatus": 404
+  },
+  {
+   "id": "daito-city-yume-kigyo-ouen-hojo",
+   "name": "夢をかなえる起業応援補助金",
+   "url": "https://www.city.daito.lg.jp/site/iju/1794.html",
+   "lastStatus": 408
+  },
+  {
+   "id": "ibaraki-city-sogyo-sokushin-hojo",
+   "name": "茨木市創業促進事業補助",
+   "url": "https://www.city.ibaraki.osaka.jp/kikou/sangyo/shoukou/menu/shokoshinko/shokogyo/kigyo/sogyosokushin.html",
+   "lastStatus": 404
+  },
+  {
+   "id": "kishiwada-city-ganbaru-kigyo-keiei-sogyo",
+   "name": "「がんばる岸和田」企業経営支援補助金（創業・起業区分）",
+   "url": "https://www.city.kishiwada.osaka.jp/soshiki/43/hanrokaitaku.html",
+   "lastStatus": 0
+  },
+  {
+   "id": "neyagawa-city-sogyo-shotengai-shutten",
+   "name": "寝屋川市創業・商店街等出店応援事業補助金",
+   "url": "https://www.city.neyagawa.osaka.jp/organization_list/toshidesign/toshiikka/syoukougyou/establishment/20704.html",
+   "lastStatus": 404
+  },
+  {
+   "id": "suita-city-sogyo-chinshaku",
+   "name": "吹田市創業支援型事業所賃借料補助金",
+   "url": "https://www.city.suita.osaka.jp/sangyo/1018028/1018029/1018030/1023431.html",
+   "lastStatus": 408
+  },
+  {
+   "id": "saga-city-sogyo-shikin-risoku",
+   "name": "佐賀市創業資金利子助成補助金",
+   "url": "https://www.city.saga.lg.jp/main/48227.html",
+   "lastStatus": 404
+  },
+  {
+   "id": "atsugi-city-sdgs-suishin-hojokin",
+   "name": "厚木市中小企業等SDGs推進事業補助金",
+   "url": "https://www.city.atsugi.kanagawa.jp/soshiki/sangyoshinkoka/9/2/37030.html",
+   "lastStatus": 404
+  },
+  {
+   "id": "matsue-city-challenge-shop",
+   "name": "松江市 チャレンジショップ事業費補助金(島根県・松江市補助)",
+   "url": "https://www1.city.matsue.shimane.jp/jigyousha/sangyou/shoukou/challenge.html",
+   "lastStatus": 0
+  },
+  {
+   "id": "matsue-city-hanro-kaitaku",
+   "name": "松江市 販路開拓支援事業補助金",
+   "url": "https://www1.city.matsue.shimane.jp/jigyousha/sangyou/kigyou/index/hanrokaitaku.html",
+   "lastStatus": 0
+  },
+  {
+   "id": "matsue-city-hoshoryo-josei",
+   "name": "松江市 信用保証料の助成",
+   "url": "https://www1.city.matsue.shimane.jp/jigyousha/sangyou/shoukou/hoshoryo.html",
+   "lastStatus": 0
+  },
+  {
+   "id": "matsue-city-setsubi-shien",
+   "name": "松江市 設備導入支援事業補助金",
+   "url": "https://www1.city.matsue.shimane.jp/jigyousha/sangyou/kigyou/index/setsubi.html",
+   "lastStatus": 0
+  },
+  {
+   "id": "matsue-city-shokibo-kigyosha",
+   "name": "松江市 小規模企業者支援事業補助金",
+   "url": "https://www1.city.matsue.shimane.jp/jigyousha/sangyou/kigyou/index/syokibo.html",
+   "lastStatus": 0
+  },
+  {
+   "id": "sumida-ondanka-setsubi",
+   "name": "地球温暖化防止設備導入助成制度（令和8年度）",
+   "url": "https://www.city.sumida.lg.jp/kurashi/kankyou_hozen/jyoseikin/ecojyoseiseido.html",
+   "lastStatus": 0
+  },
+  {
+   "id": "utsunomiya-city-hanro-kaitaku",
+   "name": "宇都宮市販路開拓支援事業補助制度",
+   "url": "https://www.city.utsunomiya.tochigi.jp/sangyo/1031142/1031594/1031610.html",
+   "lastStatus": 0
+  },
+  {
+   "id": "utsunomiya-city-shinsangyo-sosyutsu",
+   "name": "宇都宮市新産業創出支援補助制度",
+   "url": "https://www.city.utsunomiya.tochigi.jp/sangyo/kigyo/venture/1006894.html",
+   "lastStatus": 0
+  },
+  {
+   "id": "utsunomiya-city-shogakukin-henkan",
+   "name": "宇都宮市奨学金返還支援補助金（協力企業制度）",
+   "url": "https://www.city.utsunomiya.tochigi.jp/sangyo/sangyo/1031666.html",
+   "lastStatus": 0
+  },
+  {
+   "id": "utsunomiya-city-taishokukin-kyosai",
+   "name": "宇都宮市中小企業退職金共済制度加入促進補助",
+   "url": "https://www.city.utsunomiya.tochigi.jp/sangyo/sangyo/chushokigyo/1006823.html",
+   "lastStatus": 0
+  },
+  {
+   "id": "kawaguchi-city-tenjikai-shuppin",
+   "name": "川口市展示会等出展事業補助金",
+   "url": "https://www.city.kawaguchi.lg.jp/soshiki/01110/030/kougyousisaku/50873.html",
+   "lastStatus": 404
+  }
+ ]
+}
