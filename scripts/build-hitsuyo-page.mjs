@@ -6,8 +6,14 @@ import { fileURLToPath } from 'node:url';
 import { PURCHASES } from './data/purchases.mjs';
 import { esc, shell } from './lib/site-shell.mjs';
 import { bannerFor } from './lib/banners.mjs';
+import { CATEGORIES } from './data/hitsuyo-articles.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', 'public');
+
+// カテゴリ（やりたいことから探す）。解説のあるカテゴリはリンク、準備中のものは名前だけ
+const cats = CATEGORIES.map((c) => c.ready
+  ? `        <li><a href="hitsuyo/${esc(c.id)}.html"><span class="hp-ic" aria-hidden="true">${c.icon}</span><b>${esc(c.label)}</b><small>${esc(c.examples)}</small><em>解説を見る →</em></a></li>`
+  : `        <li><span><span class="hp-ic" aria-hidden="true">${c.icon}</span><b>${esc(c.label)}</b><small>${esc(c.examples)}</small><em>準備中</em></span></li>`).join('\n');
 
 const chips = PURCHASES.map((p) => `        <button type="button" class="kp-chip" data-id="${esc(p.id)}" data-purposes="${esc(p.purposes.join(' '))}" aria-pressed="false"><span aria-hidden="true">${p.icon}</span>${esc(p.label)}</button>`).join('\n');
 
@@ -66,8 +72,15 @@ const body = `    <nav class="area-crumb" aria-label="パンくず"><a href="./"
       <p class="lead" style="margin-bottom: 0;">「POSレジが必要」「店舗を改装したい」など、必要な買い物や投資の内容から、関係しそうな補助金を探せます。制度名がわからなくても使えます。</p>
     </div>
 
+    <section aria-labelledby="kp-cats">
+      <h2 id="kp-cats" class="kp-h3" style="margin-top: 0;">やりたいことのカテゴリから探す</h2>
+      <ul class="hp-cats">
+${cats}
+      </ul>
+    </section>
+
     <section aria-labelledby="kp-pick">
-      <h2 id="kp-pick" class="kp-h3" style="margin-top: 0;">必要なものを選んでください</h2>
+      <h2 id="kp-pick" class="kp-h3" style="margin-top: 0;">購入するものを選んで、かんたんに調べる</h2>
       <div class="kp-chips" role="group" aria-label="必要なもの">
 ${chips}
       </div>

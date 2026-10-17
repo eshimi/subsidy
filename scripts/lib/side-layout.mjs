@@ -20,7 +20,7 @@ export function relatedKind(href, current) {
   const top = stack[0] || '';
   if (top === 'cases') return 'cases';
   if (top === 'feature' || top === 'compare') return 'feature';
-  if (top === 'research') return 'find';
+  if (top === 'research' || top === 'hitsuyo') return 'find';
   if (['basics', 'columns', 'blog', 'news', 'guides', 'background'].includes(top) || ['columns.html', 'real-life.html', 'beginner-guide.html', 'roadmap.html', 'plan.html', 'books.html', 'resources.html'].includes(path)) return 'know';
   if (top === 'who' || top === 'personal') return 'who';
   if (['grants', 'area'].includes(top) || ['search.html', 'hantei.html', 'hitsuyo.html', 'diagnosis.html', 'chat.html', ''].includes(path) || path === 'index.html') return 'find';
@@ -55,6 +55,7 @@ const FOLDER_HINT = {
   grants: 'search.html',
   policy: 'policy/about.html',
   basics: 'basics/index.html',
+  hitsuyo: 'hitsuyo.html',
   news: 'news/index.html',
   who: 'who/sme.html',
   personal: 'hantei.html?for=personal',

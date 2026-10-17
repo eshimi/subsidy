@@ -36,8 +36,8 @@
   "d": "2026-10-16"
  },
  "hitsuyo.html": {
-  "h": "v2:990f2b3f8412",
-  "d": "2026-10-14"
+  "h": "v2:8c20732bdc53",
+  "d": "2026-10-17"
  },
  "notices.html": {
   "h": "v2:039e2c605ba9",
@@ -1766,5 +1766,21 @@
  "background/population.html": {
   "h": "v2:f6f747ea06bb",
   "d": "2026-10-15"
+ },
+ "hitsuyo/store-aircon.html": {
+  "h": "v2:e6b76cd999dd",
+  "d": "2026-10-17"
+ },
+ "hitsuyo/store-kitchen.html": {
+  "h": "v2:38f0e66e990a",
+  "d": "2026-10-17"
+ },
+ "hitsuyo/store-pos.html": {
+  "h": "v2:8dfc710100f8",
+  "d": "2026-10-17"
+ },
+ "hitsuyo/store.html": {
+  "h": "v2:3038e73e3d23",
+  "d": "2026-10-17"
  }
 }

@@ -13,7 +13,7 @@ import { SITE, FOLDER_TAGS, padDescription, autoTags, descriptionFor, jsonLdArti
 
 const REPO = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PUB = join(REPO, 'public');
-export const FOLDERS = ['feature', 'basics', 'who', 'personal', 'cases', 'columns', 'guides', 'compare', 'news', 'blog', 'research', 'background'];
+export const FOLDERS = ['feature', 'basics', 'who', 'personal', 'cases', 'columns', 'guides', 'compare', 'news', 'blog', 'research', 'background', 'hitsuyo'];
 const SECTION = { feature: '特集', basics: '基礎知識', who: '対象者別', personal: '個人向け', cases: '活用事例', columns: 'コラム', guides: '副業ガイド', compare: '比較', news: 'ニュース', blog: 'ブログ', research: '補助金データ', background: '制度の背景ガイド' };
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const iso = (y, m, d) => `${y}-${String(m).padStart(2, '0')}-${String(d).padStart(2, '0')}`;

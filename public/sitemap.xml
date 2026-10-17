@@ -38,7 +38,7 @@
   </url>
   <url>
     <loc>https://hojyokin.net/hitsuyo.html</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-17</lastmod>
   </url>
   <url>
     <loc>https://hojyokin.net/notices.html</loc>
@@ -1767,5 +1767,21 @@
   <url>
     <loc>https://hojyokin.net/background/population.html</loc>
     <lastmod>2026-10-15</lastmod>
+  </url>
+  <url>
+    <loc>https://hojyokin.net/hitsuyo/store-aircon.html</loc>
+    <lastmod>2026-10-17</lastmod>
+  </url>
+  <url>
+    <loc>https://hojyokin.net/hitsuyo/store-kitchen.html</loc>
+    <lastmod>2026-10-17</lastmod>
+  </url>
+  <url>
+    <loc>https://hojyokin.net/hitsuyo/store-pos.html</loc>
+    <lastmod>2026-10-17</lastmod>
+  </url>
+  <url>
+    <loc>https://hojyokin.net/hitsuyo/store.html</loc>
+    <lastmod>2026-10-17</lastmod>
   </url>
 </urlset>

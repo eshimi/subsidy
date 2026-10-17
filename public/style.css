@@ -1553,3 +1553,31 @@ details ul { margin: 8px 0; padding-left: 1.5em; }
 .s-national > summary { cursor: pointer; padding: 12px 0; font-weight: 700; color: #1c4f94; }
 .s-national > summary b { font-size: 1.15em; }
 .s-national-more { margin: 12px 0 0; text-align: center; }
+
+/* やりたいことから探す（hitsuyo/）：購入物のカード、募集中の補助金、契約・発注の注意 */
+.hp-cards { list-style: none; margin: 12px 0 8px; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; }
+.hp-cards a { display: grid; gap: 4px; height: 100%; padding: 16px 16px 14px; border: 1px solid #e6e8ec; border-radius: 12px; background: #fff; text-decoration: none; color: inherit; }
+.hp-cards a:hover { border-color: #073461; box-shadow: 0 4px 14px rgba(7, 52, 97, 0.12); }
+.hp-cards .hp-ic { font-size: 1.5rem; }
+.hp-cards b { color: #073461; font-size: 1.02rem; }
+.hp-cards small { color: #66727f; line-height: 1.5; }
+.hp-open ul { list-style: none; margin: 0; padding: 0; }
+.hp-open li { padding: 10px 0; border-top: 1px solid #e6e8ec; }
+.hp-open li:first-child { border-top: 0; }
+.hp-open a { font-weight: 600; color: #2b65b1; }
+.hp-open p { margin: 2px 0 0; font-size: 0.86rem; color: #66727f; }
+.hp-loading { color: #66727f; font-size: 0.92rem; }
+.hp-warn { margin: 18px 0 4px; padding: 14px 16px; border-radius: 12px; background: #fff4e8; border-left: 4px solid #c9411a; }
+.hp-warn b { color: #9a3412; }
+.hp-warn p { margin: 6px 0 0; line-height: 1.8; }
+/* 入口（hitsuyo.html）のカテゴリ */
+.hp-cats { list-style: none; margin: 10px 0 26px; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+.hp-cats li > a, .hp-cats li > span { display: grid; gap: 4px; height: 100%; padding: 16px; border: 1px solid #e6e8ec; border-radius: 14px; background: #fff; text-decoration: none; color: inherit; }
+.hp-cats li > a:hover { border-color: #073461; box-shadow: 0 4px 14px rgba(7, 52, 97, 0.12); }
+.hp-cats li > span { background: #f7f8fa; color: #7a8693; }
+.hp-cats .hp-ic { font-size: 1.6rem; }
+.hp-cats b { color: #073461; }
+.hp-cats li > span b { color: #66727f; }
+.hp-cats small { line-height: 1.5; }
+.hp-cats em { font-style: normal; font-size: 0.78rem; font-weight: 700; color: #1565d8; }
+.hp-cats li > span em { color: #8a95a1; }
