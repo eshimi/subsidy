@@ -30,7 +30,7 @@ const dateJa = (d) => { const [y, m, day] = d.split('-').map(Number); return `${
 const RELATED = [
   ['index.html', 'ブログの一覧'],
   ['../hantei.html', 'AI補助金判定（質問に答えて探す）'],
-  ['../hitsuyo.html', '必要なものから探す'],
+  ['../hitsuyo.html', 'やりたいこと・ほしいものから探す'],
   ['../consult.html', '無料相談のお申し込み'],
 ];
 

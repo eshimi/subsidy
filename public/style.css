@@ -1382,6 +1382,7 @@ details ul { margin: 8px 0; padding-left: 1.5em; }
 .rw1 { --rw-bg: #e9f0fb; --rw-bd: #cddcf2; --rw-fg: #2b65b1; }
 .rw2 { --rw-bg: #e5f3ec; --rw-bd: #c4e0d1; --rw-fg: #0b7a55; }
 .rw3 { --rw-bg: #fcf0de; --rw-bd: #f0d9b3; --rw-fg: #b5700f; }
+.rw5 { --rw-bg: #efe9fa; --rw-bd: #d9cdf0; --rw-fg: #6b46b8; }
 .rw4 { --rw-bg: #fde8de; --rw-bd: #f5c6ac; --rw-fg: #c2410c; }
 @media (max-width: 560px) { .rw-grid { grid-template-columns: 1fr; gap: 8px; } .rw { height: 64px; padding-left: 20px; } .rw-big svg { width: 78px; height: 78px; } }
 @media (prefers-reduced-motion: reduce) { .rw, .rw-big { transition: none; } .rw:hover { transform: none; } .rw:hover .rw-big { transform: none; } }
@@ -1396,7 +1397,7 @@ details ul { margin: 8px 0; padding-left: 1.5em; }
 .r-plan h2::before, .about h2::before { display: none; }
 .r-sec h3 { font-size: 1rem; margin: 0 0 8px; color: #0a2352; }
 /* 探し方：4枚のカード（AI相談だけネイビー） */
-.r-ways .rw-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+.r-ways .rw-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
 .r-ways .rw { flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: 12px; height: auto; min-height: 150px; padding: 22px 22px 20px; background: #fff; box-shadow: 0 2px 12px rgba(10, 35, 82, .06); }
 .r-ways .rw::before { display: none; }
 .r-ways .rw:hover { box-shadow: 0 2px 12px rgba(10, 35, 82, .06), inset 0 0 0 1px var(--rw-fg); }
@@ -1429,7 +1430,7 @@ details ul { margin: 8px 0; padding-left: 1.5em; }
 .r-lat3 .r-list { border: 0; border-radius: 0; background: none; }
 .r-lat3 .r-list li { padding: 10px 0; }
 .r-more.r-first { margin-top: 16px; }
-@media (max-width: 960px) { .r-ways .rw-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 960px) { .r-ways .rw-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .r-ways .rw4 { grid-column: 1 / -1; min-height: 0; } }
 @media (max-width: 560px) { .r-ways .rw-grid { grid-template-columns: 1fr; gap: 12px; } .r-ways .rw { min-height: 0; height: auto; padding-left: 22px; } .r-two > div, .r-lat3 { padding: 16px; } }
 
 /* 都道府県ページ：「条件を指定して探す」をボタンで目立たせる／検索結果からのまとめページへのリンク */

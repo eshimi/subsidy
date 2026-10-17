@@ -52,7 +52,7 @@ function categoryPage(cat) {
       ].join('\n')],
     ],
     sources: [['中小企業庁', 'https://www.chusho.meti.go.jp/'], ['jGrants（デジタル庁）', 'https://www.jgrants-portal.go.jp/'], ['ミラサポplus（中小企業向けの補助金・支援の情報）', 'https://mirasapo-plus.go.jp/']],
-    related: [['../hitsuyo.html', '必要なものから探す'], ...items.map((a) => [`${cat.id}-${a.slug}.html`, a.label + 'の補助金']), ['../feature/index.html', '主な補助金の特集'], ['../hantei.html', 'AI補助金判定'], ['../area/index.html', '地域別の補助金'], ['../consult.html', '無料相談']],
+    related: [['../hitsuyo.html', 'やりたいこと・ほしいものから探す'], ...items.map((a) => [`${cat.id}-${a.slug}.html`, a.label + 'の補助金']), ['../feature/index.html', '主な補助金の特集'], ['../hantei.html', 'AI補助金判定'], ['../area/index.html', '地域別の補助金'], ['../consult.html', '無料相談']],
   });
 }
 
@@ -69,7 +69,7 @@ for (const cat of CATEGORIES.filter((c) => c.ready)) {
     writeArticle(OUT, 'hitsuyo', `${cat.id}-${a.slug}.html`, {
       title: a.title, description: a.summary,
       body: withScript(articleBody({ ...a, section: SECTION, kicker: a.kicker, sections: SECTIONS_BY_CAT[cat.id][a.slug](), updated: UPDATED, sourcesHeading: '最新情報の確認先（公式）',
-        related: [['../hitsuyo.html', '必要なものから探す'], [`${cat.id}.html`, `${cat.label}の補助金`], ...a.related.filter(([h]) => !['../hitsuyo.html', `${cat.id}.html`].includes(h))] })),
+        related: [['../hitsuyo.html', 'やりたいこと・ほしいものから探す'], [`${cat.id}.html`, `${cat.label}の補助金`], ...a.related.filter(([h]) => !['../hitsuyo.html', `${cat.id}.html`].includes(h))] })),
     });
   }
 }
