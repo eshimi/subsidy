@@ -1657,3 +1657,10 @@ details ul { margin: 8px 0; padding-left: 1.5em; }
   .footer-info .footer-qr figcaption { display: block; margin-top: 4px; font-size: 0.7rem; color: var(--mute); }
   .footer-top .footer-nav { padding-right: 116px; }
 }
+
+/* ヒーローの数字の行：ラベルを、それぞれの入口へのリンクにする（数字も含めて、押せる） */
+.r-nums div { position: relative; }
+.r-nums dt a { color: inherit; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(255, 255, 255, 0.55); }
+.r-nums dt a::after { content: ""; position: absolute; inset: -4px -8px; }
+.r-nums dt a:hover { text-decoration-color: #fff; }
+.r-nums dt a:focus-visible { outline: 3px solid #f8602f; outline-offset: 3px; border-radius: 4px; }
