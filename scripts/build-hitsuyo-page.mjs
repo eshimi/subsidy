@@ -52,7 +52,7 @@ const HREF = {
   'security': 'hitsuyo/it-security.html',
   'signage': 'hitsuyo/store-signage.html',
 };
-const chips = PURCHASES.map((p) => `        <a class="hp-chip" href="${esc(HREF[p.id])}">${esc(p.label)}</a>`).join('\n');
+const chips = PURCHASES.map((p) => `        <a class="hp-want" href="${esc(HREF[p.id])}"><span class="ic" aria-hidden="true">${p.icon}</span><b>${esc(p.label)}</b><small>${esc(p.examples)}</small></a>`).join('\n');
 
 const style = `
     .hp-hero { position: relative; background: #f5f1e9; overflow: hidden; width: 100vw; margin-left: calc(50% - 50vw); margin-top: 8px; }
@@ -99,6 +99,24 @@ const style = `
     .hp-mi b { font-size: 14px; line-height: 21px; color: #0a2352; }
     .hp-mi:hover b { color: #c9411a; }
     .hp-mi small { font-size: 12px; color: #56667f; line-height: 1.6; }
+    .hp-two { margin-top: 22px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .hp-door { display: flex; align-items: center; gap: 16px; padding: 18px 22px; border-radius: 12px; background: #fff; box-shadow: 0 2px 12px rgba(10, 35, 82, 0.08); text-decoration: none; color: inherit; border-top: 5px solid #f8602f; }
+    .hp-door.w { border-top-color: #2b65b1; }
+    .hp-door:hover { box-shadow: 0 8px 24px rgba(10, 35, 82, 0.16); }
+    .hp-door .ic { flex: none; width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; background: #fce9dd; }
+    .hp-door.w .ic { background: #e4edf8; }
+    .hp-door b { display: block; font-family: var(--font-display); font-size: 20px; line-height: 1.4; color: #0a2352; }
+    .hp-door small { display: block; font-size: 13px; line-height: 1.6; color: #56667f; }
+    .hp-door .go { margin-left: auto; flex: none; font-weight: 700; color: #c9411a; white-space: nowrap; }
+    .hp-sec.w::before { background: #2b65b1; }
+    .hp-sub { margin: 4px 0 0; color: #56667f; font-size: 14px; }
+    .hp-wants { margin-top: 18px; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; }
+    .hp-want { display: flex; flex-direction: column; gap: 4px; padding: 16px 18px; border-radius: 12px; background: #fff; box-shadow: 0 2px 12px rgba(10, 35, 82, 0.06); text-decoration: none; color: inherit; }
+    .hp-want:hover { box-shadow: 0 6px 20px rgba(10, 35, 82, 0.14); }
+    .hp-want .ic { font-size: 1.6rem; line-height: 1; }
+    .hp-want b { font-size: 15px; line-height: 22px; color: #0a2352; }
+    .hp-want:hover b { color: #c9411a; }
+    .hp-want small { font-size: 12px; line-height: 1.6; color: #56667f; }
     .hp-chips { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 10px; }
     .hp-chip { display: inline-flex; align-items: center; min-height: 44px; box-sizing: border-box; padding: 6px 18px; border-radius: 999px; background: #fff; box-shadow: 0 2px 12px rgba(10, 35, 82, 0.08); font-weight: 500; color: #0a2352; text-decoration: none; }
     .hp-chip:hover { color: #c9411a; }
@@ -125,6 +143,7 @@ const style = `
       .hp-feats { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; }
       .hp-feat, .hp-feat.big { grid-row: auto; min-height: 118px; }
       .hp-shelf { grid-template-columns: minmax(0, 1fr); }
+      .hp-two { grid-template-columns: minmax(0, 1fr); }
       .hp-flow { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 22px; }
     }
     @media (max-width: 560px) { .hp-flow { grid-template-columns: minmax(0, 1fr); } .hp-h1 { font-size: 32px; } .hp-flow-card, .hp-cta { padding: 22px 18px; } }
@@ -164,9 +183,9 @@ const body = `    <nav class="area-crumb" aria-label="パンくず"><a href="./"
     <section class="hp-hero" aria-labelledby="hp-h1">
       <div class="hp-hero-in">
         <div class="hp-hero-txt">
-          <p class="hp-script">やりたいことから、見つかる。</p>
-          <h1 class="hp-h1" id="hp-h1">${total}の「やりたいこと」を、<br><em>一冊の本のように。</em></h1>
-          <p class="hp-lead">特集から読んでも、分野の棚から探してもOK。どの解説にも、検討したい制度・始める前の確認・契約の注意がそろっています。</p>
+          <p class="hp-script">やりたいことも、ほしいものも。</p>
+          <h1 class="hp-h1" id="hp-h1">補助金は、<br><em>やりたいこと・ほしいものから。</em></h1>
+          <p class="hp-lead">制度の名前は知らなくて大丈夫。やりたいことからも、買いたいものからも探せます。どの解説にも、検討したい制度・始める前の確認・契約の注意がそろっています。</p>
           <div class="hp-seg" role="group" aria-label="対象">
             <button type="button" data-aud="all" aria-pressed="true">すべて</button>
             <button type="button" data-aud="biz" aria-pressed="false">お店・会社</button>
@@ -177,7 +196,17 @@ const body = `    <nav class="area-crumb" aria-label="パンくず"><a href="./"
       </div>
     </section>
 
-    <section class="hp-block" aria-labelledby="hp-feat">
+    <nav class="hp-two" aria-label="2つの探し方">
+      <a class="hp-door" href="#hp-want"><span class="ic" aria-hidden="true">🎯</span><span><b>やりたいことから探す</b><small>開業する、人を雇う、IT化する…。${total}の解説</small></span><span class="go">読む ↓</span></a>
+      <a class="hp-door w" href="#hp-buy"><span class="ic" aria-hidden="true">🛒</span><span><b>ほしいものから探す</b><small>レジ、PC、看板、空調…。${PURCHASES.length}の購入物</small></span><span class="go">選ぶ ↓</span></a>
+    </nav>
+
+    <section class="hp-block" aria-labelledby="hp-want">
+      <h2 class="hp-sec" id="hp-want">やりたいことから探す</h2>
+      <p class="hp-sub">特集から読んでも、分野の棚から探してもOK。</p>
+    </section>
+
+    <section class="hp-block" aria-labelledby="hp-feat" style="margin-top: 22px">
       <h2 class="hp-sec" id="hp-feat">まず読みたい、3つの特集</h2>
       <div class="hp-feats">
 ${features}
@@ -192,8 +221,9 @@ ${shelves}
     </section>
 
     <section class="hp-block" aria-labelledby="hp-buy">
-      <h2 class="hp-sec" id="hp-buy">購入するものから、かんたんに調べる</h2>
-      <div class="hp-chips" role="group" aria-label="購入するもの">
+      <h2 class="hp-sec w" id="hp-buy">ほしいものから探す</h2>
+      <p class="hp-sub">買うものを選ぶと、使えそうな制度・購入前の確認・契約の注意がわかります。</p>
+      <div class="hp-wants" role="group" aria-label="ほしいもの">
 ${chips}
       </div>
     </section>
@@ -224,8 +254,8 @@ ${chips}
     <script src="hitsuyo-index.js" defer></script>`;
 
 const html = shell({
-  title: 'やりたいことから探す｜設備・IT・住まい・人材・創業の補助金｜補助金ネット',
-  description: '厨房機器、エアコン、ホームページ、AI、太陽光、採用、開業など、やりたいことから、関係しそうな補助金・助成金を探せます。検討したい制度、始める前の確認、契約・発注の注意を解説。',
+  title: 'やりたいこと・ほしいものから探す｜設備・IT・住まい・人材・創業の補助金｜補助金ネット',
+  description: '厨房機器、エアコン、ホームページ、AI、太陽光、採用、開業など、やりたいことからも、ほしいもの（購入するもの）からも、関係しそうな補助金・助成金を探せます。検討したい制度、始める前の確認、契約・発注の注意を解説。',
   canonicalPath: '/hitsuyo.html',
   body,
 }).replace('</style>', `${style}\n  </style>`);
