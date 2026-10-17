@@ -1,7 +1,7 @@
 {
  "": {
-  "h": "v2:0a0e3799179e",
-  "d": "2026-10-16"
+  "h": "v2:d339b810bce6",
+  "d": "2026-10-17"
  },
  "beginner-guide.html": {
   "h": "v2:e59ff0b557b8",
@@ -72,8 +72,8 @@
   "d": "2026-10-15"
  },
  "sitemap.html": {
-  "h": "v2:77126331b778",
-  "d": "2026-10-16"
+  "h": "v2:1d413d8f6af3",
+  "d": "2026-10-17"
  },
  "basics/after-adoption.html": {
   "h": "v2:a7c34a684327",
@@ -400,39 +400,39 @@
   "d": "2026-10-15"
  },
  "blog/2026-10-11-blog-start.html": {
-  "h": "v2:bea7b3c8f9d0",
+  "h": "v2:bdd804048fb6",
   "d": "2026-10-17"
  },
  "blog/2026-10-11-personal-popular-subsidies.html": {
-  "h": "v2:0743427f12f0",
+  "h": "v2:b76b38f4579a",
   "d": "2026-10-17"
  },
  "blog/2026-10-12-find-subsidy-in-your-city.html": {
-  "h": "v2:027cf2ce4401",
+  "h": "v2:03a614d84ce1",
   "d": "2026-10-17"
  },
  "blog/2026-10-13-choose-subsidy-support.html": {
-  "h": "v2:bfbd4581aacd",
+  "h": "v2:5c9d1c752347",
   "d": "2026-10-17"
  },
  "blog/2026-10-13-popular-subsidies-application-steps-2.html": {
-  "h": "v2:493af45b3d44",
+  "h": "v2:b0acf644ebd6",
   "d": "2026-10-17"
  },
  "blog/2026-10-13-popular-subsidies-application-steps.html": {
-  "h": "v2:2aec1db7b51e",
+  "h": "v2:447174f557ab",
   "d": "2026-10-17"
  },
  "blog/2026-10-13-subsidy-for-website.html": {
-  "h": "v2:7620016ccd1b",
+  "h": "v2:b7cf68cd3e80",
   "d": "2026-10-17"
  },
  "blog/2026-10-15-aimitsumori-estimate-tips.html": {
-  "h": "v2:4a3b611b9ffd",
+  "h": "v2:a6b42f225bb6",
   "d": "2026-10-17"
  },
  "blog/2026-10-15-application-mistakes-checklist.html": {
-  "h": "v2:1b974f6d72ef",
+  "h": "v2:b94900e58d9e",
   "d": "2026-10-17"
  },
  "blog/2026-10-16-numerical-plan-tips.html": {
@@ -1180,7 +1180,7 @@
   "d": "2026-10-15"
  },
  "area/okayama.html": {
-  "h": "v2:323ea093dfe6",
+  "h": "v2:efe7db4e4144",
   "d": "2026-10-17"
  },
  "area/okazaki.html": {
