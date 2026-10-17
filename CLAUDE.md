@@ -26,7 +26,7 @@
 - 事業計画書AI: `src/ai.js`、`src/plan.js`、`public/plan.js`、`public/plan-docx.js`。無料の簡易版が標準、詳しい版は `PLAN_DETAILED` フラグの裏。
 - リサーチ（分析）: `scripts/lib/analysis.mjs`、`update-analysis.mjs`、`build-analysis-pages.mjs`（事業向け・個人向け・地域×目的の空白・月次）、`build-research-pages.mjs`。説明枠は末尾へ（`introLast`）。
 - ナビ・サイトマップ: `scripts/lib/nav.mjs`、`scripts/lib/sitemap.mjs`。sitemap.xml の更新日はページ**本文**（`<main>`。ナビ・右の列・空白は除く）のハッシュで `data/sitemap-lastmod.json` に記録（本文が変わったページだけ日本時間の今日に進む。ハッシュは `v2:` 付き）。
-- トップの「4つの探し方」は `.rw` 系のボタン（案E）。ラベルは「キーワードで探す」「地域から探す」「必要なものから探す」「AIに相談して探す」。
+- トップの探し方は、ヒーロー（検索欄）の下のタブ（`#r-tabs`、`public/home-tabs.js`）：「やりたいこと」「ほしいもの」「地域」「AIに相談」。パネルの中身は `public/index.html` に直接書いてある（購入物のチップは scripts/data/purchases.mjs と hitsuyo/ のページに合わせる）。以前の「どこから探しますか？」の5カードと「あなたに合った入口から」は削除した（`.rw*` / `.r-who*` の CSS は未使用）。
 
 ## 未対応・確認待ち
 - 本番の初回自動更新後に確認: `data/program-history.json`（制度ごとの履歴。scripts/lib/program-history.mjs、update-research-history.mjs が毎朝更新）が保存されること、research/quality.html（品質レポート）と research/changes.html（制度変更履歴）が準備中でなく表示されること、business.html の jGrants 全件セクション、月次レポートの開始、`data/sitemap-lastmod.json` が保存されること。

@@ -1571,3 +1571,25 @@ details ul { margin: 8px 0; padding-left: 1.5em; }
 .hp-warn { margin: 18px 0 4px; padding: 14px 16px; border-radius: 12px; background: #fff4e8; border-left: 4px solid #c9411a; }
 .hp-warn b { color: #9a3412; }
 .hp-warn p { margin: 6px 0 0; line-height: 1.8; }
+
+/* トップ：検索欄の下の探し方タブ（やりたいこと／ほしいもの／地域／AIに相談） */
+.r-tabs { display: grid; gap: 10px; }
+.r-tablist { display: flex; flex-wrap: wrap; gap: 6px; }
+.r-tablist button { min-height: 44px; padding: 0 20px; border: 1px solid rgba(255, 255, 255, 0.35); border-radius: 999px; background: rgba(255, 255, 255, 0.12); color: #fff; font: inherit; font-size: 0.95rem; font-weight: 700; cursor: pointer; }
+.r-tablist button:hover { background: rgba(255, 255, 255, 0.24); }
+.r-tablist button[aria-selected="true"] { background: #fff; border-color: #fff; color: #073461; }
+.r-tablist button:focus-visible { outline: 3px solid #f8602f; outline-offset: 2px; }
+.r-tabpanel { display: grid; gap: 10px; padding: 14px 16px; border-radius: 12px; background: rgba(255, 255, 255, 0.12); border: 1px solid rgba(255, 255, 255, 0.25); }
+.r-tabpanel[hidden] { display: none; }
+.r-tabnote { margin: 0; font-size: 0.9rem; line-height: 1.7; color: #eaf1fb; }
+.r-tabsub { font-size: 0.8rem; opacity: 0.92; }
+.r-tabsub a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+.r-chips a.r-chip-more { background: #fff; color: #073461; border-color: #fff; font-weight: 700; }
+.r-hero .r-facts { margin-top: 2px; background: none; border: 0; border-radius: 0; }
+.r-hero .r-facts div { padding: 4px 14px 4px 0; border: 0; display: inline-flex; gap: 6px; align-items: baseline; }
+.r-hero .r-facts { display: flex; flex-wrap: wrap; gap: 2px 18px; }
+.r-hero .r-facts dt { font-size: 0.78rem; white-space: normal; }
+.r-hero .r-facts dd { font-size: 1.05rem; }
+.r-hero .r-facts small { font-size: 0.75rem; margin-left: 2px; }
+.r-hero .r-facts .r-daily { display: none; }
+@media (max-width: 640px) { .r-tablist button { flex: 1 1 calc(50% - 6px); padding: 0 10px; } }
