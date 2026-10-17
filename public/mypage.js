@@ -79,6 +79,7 @@ function render() {
   $('#mp-board-wrap').hidden = !hasItems;
 
   renderCalendar(items);
+  renderActivity(items);
   renderHistory();
   renderPrefs();
   renderCandidates(items);
@@ -110,6 +111,39 @@ function renderCalendar(items) {
   $('#mp-cal').innerHTML = html + '</tr>';
   const evts = Object.keys(byDay).sort().flatMap((d) => byDay[d].map((s) => `<li><span>${link(s)}</span><span>${+d.slice(4, 6)}月${+d.slice(6, 8)}日</span></li>`));
   $('#mp-evts').innerHTML = evts.join('') || '<li style="color:#5d6b82">この月に締切のある保存済みの制度はありません。</li>';
+}
+
+// この8週間の動き：保存した数と、見たページの数を、週ごとに数える（週は月曜はじまり、日本時間）
+const WEEK = 7 * DAY;
+function weekStarts(n = 8) {
+  const today = ymdToUtc(todayJst());
+  const dow = (new Date(today).getUTCDay() + 6) % 7; // 月曜=0
+  const thisMon = today - dow * DAY;
+  return Array.from({ length: n }, (_, i) => thisMon - (n - 1 - i) * WEEK);
+}
+function perWeek(stamps, starts) {
+  const counts = starts.map(() => 0);
+  for (const t of stamps) {
+    const d = ymdToUtc(toJstDate(new Date(t).toISOString()));
+    const i = starts.findIndex((s) => d >= s && d < s + WEEK);
+    if (i >= 0) counts[i] += 1;
+  }
+  return counts;
+}
+function bars(title, note, counts, starts) {
+  const max = Math.max(1, ...counts);
+  const lab = (t) => { const d = new Date(t); return `${d.getUTCMonth() + 1}/${d.getUTCDate()}`; };
+  const summary = counts.map((c, i) => `${lab(starts[i])}の週：${c}`).join('、');
+  return `<div class="mp-bars"><h3>${title}<small>${note}</small></h3><div class="mp-bar-row" role="img" aria-label="${esc(title)}。${esc(summary)}">${counts.map((c, i) => `<div class="mp-bar"><b>${c || ''}</b><i style="height:${Math.round((c / max) * 100)}%"></i><span>${lab(starts[i])}</span></div>`).join('')}</div></div>`;
+}
+function renderActivity(items) {
+  const starts = weekStarts();
+  const saved = perWeek(items.map((s) => s.savedAt).filter(Boolean), starts);
+  const viewed = perWeek(store.history().map((h) => h.at).filter(Boolean), starts);
+  const any = saved.some(Boolean) || viewed.some(Boolean);
+  $('#mp-activity-body').innerHTML = any
+    ? bars('保存した制度の数', '週ごと（いま保存している制度）', saved, starts) + bars('見たページの数', '週ごと（履歴は、最新の30件まで）', viewed, starts)
+    : '<p class="mp-empty">制度を保存したり、制度のページを見たりすると、ここに週ごとの動きが出ます。</p>';
 }
 
 function renderHistory() {
