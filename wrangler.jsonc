@@ -19,12 +19,12 @@
   "observability": { "enabled": true },
   // お問い合わせフォームのメール送信（Cloudflare Email Routing が有効なドメインで利用できる）
   "send_email": [{ "name": "CONTACT_EMAIL" }],
-  // 会員（Google ログイン）とマイページのデータ。次の手順を終えてから、下の2行のコメントを外す。
+  // 会員（Google ログイン）とマイページのデータ。次の手順を終えて、下の行のコメントを外した（D1 の作成と GOOGLE_CLIENT_ID の登録は済み）。
   // 1) npx wrangler d1 create subsidy-members  → 表示された database_id を下に書く
   // 2) npx wrangler d1 migrations apply subsidy-members --remote
   // 3) Secret GOOGLE_CLIENT_ID を登録（Google Cloud の OAuth クライアントID。承認済みの JavaScript 生成元に https://hojyokin.net を追加）
   // DB のバインディングがない間は、会員機能は自動でオフになり、マイページはこのブラウザの保存だけで動く。
-  // "d1_databases": [{ "binding": "DB", "database_name": "subsidy-members", "database_id": "（create で表示された ID）", "migrations_dir": "migrations" }],
+  "d1_databases": [{ "binding": "DB", "database_name": "subsidy-members", "database_id": "3f7bc4d5-1aaa-4ac4-99ee-987ef9121955", "migrations_dir": "migrations" }],
   "vars": {
     // 使用するモデル。ダッシュボードで変数を足す場合は、デプロイで消えないよう Secret として登録する
     "CLAUDE_MODEL": "claude-opus-5-5"
