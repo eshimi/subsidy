@@ -10,6 +10,8 @@ import { parseChatMessages, aiUnavailable } from './chat-input.js';
 import { errorPayload } from './http-error.js';
 import { parseContact, buildRawMessage, buildMail } from './contact.js';
 import { parseAnswers, parsePersonal, parseConsult, consultText } from './consult.js';
+import { verifyGoogleIdToken, readCookie, sessionCookie, cookieName, sameOrigin } from './auth.js';
+import { upsertUser, createSession, userBySession, deleteSession, loadData, applyOps, deleteUser } from './members.js';
 import { parsePlanInput, planMode, createDailyLimiter, cacheStore, memoryStore } from './plan.js';
 
 const MAX_BODY_BYTES = 32 * 1024;
@@ -184,6 +186,78 @@ async function route(request, env, url) {
   throw httpError(404, '見つかりません');
 }
 
+
+// ── 会員（Google ログイン）。D1 のバインディング DB と GOOGLE_CLIENT_ID の両方があるときだけ有効 ──
+const membersEnabled = (env) => Boolean(env.DB && env.GOOGLE_CLIENT_ID);
+const isSecure = (url) => url.protocol === 'https:';
+const noStore = { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store', ...SECURITY_HEADERS };
+
+async function currentUser(request, env, url) {
+  if (!membersEnabled(env)) return null;
+  return userBySession(env.DB, readCookie(request, cookieName(isSecure(url))));
+}
+const requireUser = async (request, env, url) => {
+  if (!membersEnabled(env)) throw httpError(503, '会員機能は、まだ利用できません');
+  const user = await currentUser(request, env, url);
+  if (!user) throw httpError(401, 'ログインしてください');
+  return user;
+};
+const requireSameOrigin = (request) => {
+  if (!sameOrigin(request)) throw httpError(403, '不正なリクエストです');
+};
+
+// 戻り値が Response のときは、そのまま返す（Cookie を付けるため）
+async function memberRoute(request, env, url) {
+  const { pathname } = url;
+  if (pathname === '/api/me') {
+    allow(request, 'GET');
+    if (!membersEnabled(env)) return { enabled: false, user: null };
+    const user = await currentUser(request, env, url);
+    return { enabled: true, user: user ? { email: user.email, name: user.name } : null };
+  }
+  if (pathname === '/api/auth/google') {
+    allow(request, 'POST');
+    requireSameOrigin(request);
+    if (!membersEnabled(env)) throw httpError(503, '会員機能は、まだ利用できません');
+    const body = await readJsonBody(request);
+    let profile;
+    try {
+      profile = await verifyGoogleIdToken(body?.credential, env.GOOGLE_CLIENT_ID);
+    } catch {
+      throw httpError(401, 'ログインできませんでした。もう一度お試しください。');
+    }
+    const user = await upsertUser(env.DB, profile);
+    const token = await createSession(env.DB, user.id);
+    return new Response(JSON.stringify({ enabled: true, user: { email: user.email, name: user.name } }), { status: 200, headers: { ...noStore, 'set-cookie': sessionCookie(token, isSecure(url)) } });
+  }
+  if (pathname === '/api/auth/logout') {
+    allow(request, 'POST');
+    requireSameOrigin(request);
+    if (membersEnabled(env)) await deleteSession(env.DB, readCookie(request, cookieName(isSecure(url))));
+    return new Response(JSON.stringify({ ok: true }), { status: 200, headers: { ...noStore, 'set-cookie': sessionCookie('', isSecure(url), 0) } });
+  }
+  if (pathname === '/api/mypage') {
+    allow(request, 'GET');
+    const user = await requireUser(request, env, url);
+    return loadData(env.DB, user.id);
+  }
+  if (pathname === '/api/mypage/ops') {
+    allow(request, 'POST');
+    requireSameOrigin(request);
+    const user = await requireUser(request, env, url);
+    const body = await readJsonBody(request);
+    return { ok: true, applied: await applyOps(env.DB, user.id, body?.ops) };
+  }
+  if (pathname === '/api/account/delete') {
+    allow(request, 'POST');
+    requireSameOrigin(request);
+    const user = await requireUser(request, env, url);
+    await deleteUser(env.DB, user.id);
+    return new Response(JSON.stringify({ ok: true }), { status: 200, headers: { ...noStore, 'set-cookie': sessionCookie('', isSecure(url), 0) } });
+  }
+  return null;
+}
+
 export default {
   async fetch(request, env, ctx) {
     applyEnv(env);
@@ -193,6 +267,11 @@ export default {
     if (!url.pathname.startsWith('/api/')) return env.ASSETS.fetch(request);
     try {
       if (url.pathname === '/api/plan') return await planResponse(request, env, ctx);
+      if (url.pathname === '/api/me' || url.pathname.startsWith('/api/auth/') || url.pathname.startsWith('/api/mypage') || url.pathname === '/api/account/delete') {
+        const r = await memberRoute(request, env, url);
+        if (r instanceof Response) return r;
+        if (r !== null) return json(r);
+      }
       return json(await route(request, env, url));
     } catch (e) {
       const { status, error } = errorPayload(e);

@@ -10,7 +10,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="style.css">
-  <script src="https://accounts.google.com/gsi/client" async defer></script>
   <style>
     .u-form { display: grid; gap: 18px; margin: 0 0 28px; padding: 24px; background: #fff; border: 1px solid #e6e8ec; border-radius: 18px; box-shadow: 0 6px 24px rgba(21, 101, 216, 0.08); }
     .u-label { display: block; font-weight: 700; font-size: 1rem; margin-bottom: 8px; }
@@ -341,7 +340,7 @@
         <button type="button" class="text-button" id="saved-ics" hidden>締切をまとめてカレンダーに追加（.ics）</button>
       </div>
       <ul id="saved-list" class="saved-list"></ul>
-      <p class="hint">保存した内容はこのブラウザだけに記録されます。</p>
+      <p class="hint">保存した内容は、このブラウザに記録されます（ログインしている場合は、アカウントにも）。<a href="mypage.html">マイページで、締切や進み具合を管理する →</a></p>
     </section>
 
     <!-- toolfaq:start -->
@@ -359,21 +358,6 @@
     <!-- toolfaq:end -->
     <p class="area-note">募集中の補助金は jGrants（デジタル庁）の公開データをもとに、毎日自動で更新しています。目的・業種は制度名のキーワードで分けた参考の分類です。対象や要件は、必ず各制度の公式情報で確認してください。質問に答えて使えそうな補助金を知りたいときは <a href="hantei.html">AI補助金判定</a> をご利用ください。</p>
   </main>
-  <!-- Google Sign-In Login Modal -->
-  <div id="login-modal" class="modal" hidden>
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2>検索結果を保存</h2>
-        <button type="button" class="modal-close" aria-label="閉じる">&times;</button>
-      </div>
-      <div class="modal-body">
-        <p>検索結果の保存にはログインが必要です。Google アカウントでログインしてください。</p>
-        <div id="google-signin-button"></div>
-        <p class="privacy-note"><small>ログイン情報はこのブラウザに保存され、検索結果の保存にのみ使用されます。</small></p>
-      </div>
-    </div>
-  </div>
-
 
   <footer class="footer">
     <div class="wrap footer-top">

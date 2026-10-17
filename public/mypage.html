@@ -105,8 +105,10 @@
 
   <main class="wrap mp">
     <div class="pb-banner" style="background-image: url('images/banner/b10.webp')"><h1 class="pb-title">マイページ</h1></div>
-    <p class="lead" style="margin: 0 0 1.2rem;">保存した制度の締切と進み具合を、ひとつの画面で。登録は要りません。</p>
-    <p class="mp-note">保存した内容は、<b>このブラウザにだけ</b>入っています。ブラウザを変えたり、履歴を消したりすると消えます。念のため、下の「バックアップ」でファイルに書き出しておくと、あとで読み込めます。</p>
+    <p class="lead" style="margin: 0 0 1.2rem;">保存した制度の締切と進み具合を、ひとつの画面で。ログインしなくても使えます。</p>
+    <section class="mp-card" id="mp-account" hidden></section>
+    <section class="mp-card" id="mp-migrate" hidden></section>
+    <p class="mp-note" id="mp-note">保存した内容は、<b>このブラウザにだけ</b>入っています。ブラウザを変えたり、履歴を消したりすると消えます。念のため、下の「バックアップ」でファイルに書き出しておくと、あとで読み込めます。</p>
 
     <div class="mp-kpi">
       <div><b id="mp-k-saved">0</b><span>保存した制度</span></div>

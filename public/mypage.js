@@ -1,8 +1,11 @@
 // マイページ：保存した制度の締切・進み具合・カレンダー、最近見たページ、条件に合う制度を、このブラウザのデータから表示する
 import { createStore, STATUSES, RESULTS } from './mypage-store.js';
 import { buildIcs, toJstDate } from './calendar.js';
+import { accountReady, renderLoginButton, logout, deleteAccount } from './account.js';
 
-const store = createStore();
+const acct = await accountReady;
+const store = createStore(acct.storage);
+const localStore = createStore(globalThis.localStorage); // このブラウザの、ログインなしの保存
 const $ = (s) => document.querySelector(s);
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 const DAY = 24 * 60 * 60 * 1000;
@@ -216,6 +219,60 @@ $('#mp-import').addEventListener('change', async (ev) => {
   }
 });
 
+// ── アカウント（ログイン） ──
+const MIGRATED_KEY = 'subsidy-finder:migrated'; // { メールアドレス: 'done' | 'skipped' }
+const migrated = () => { try { return JSON.parse(localStorage.getItem(MIGRATED_KEY)) || {}; } catch { return {}; } };
+const setMigrated = (email, v) => { try { localStorage.setItem(MIGRATED_KEY, JSON.stringify({ ...migrated(), [email]: v })); } catch { /* 記録できなくても続ける */ } };
+
+function renderAccount() {
+  const box = $('#mp-account'), note = $('#mp-note');
+  if (!acct.enabled) { box.hidden = true; return; }
+  box.hidden = false;
+  if (!acct.user) {
+    note.hidden = false;
+    box.innerHTML = '<h2>ログイン（無料）</h2><p class="mp-empty">Google アカウントでログインすると、保存した制度を<b>ほかのパソコンやスマホでも</b>見られます。ログインしなくても、これまでどおり使えます。</p><div id="mp-gbtn" style="margin-top:10px"></div><p class="mp-hist-note" id="mp-login-msg" role="alert"></p>';
+    const g = $('#mp-gbtn');
+    g.addEventListener('login-error', (e) => { $('#mp-login-msg').textContent = e.detail; });
+    renderLoginButton(g).catch(() => { $('#mp-login-msg').textContent = 'ログインの部品を読み込めませんでした。時間をおいて、もう一度お試しください。'; });
+    return;
+  }
+  note.hidden = true;
+  box.innerHTML = `<h2>ログイン中</h2><p class="mp-empty"><b>${esc(acct.user.name || acct.user.email)}</b>（${esc(acct.user.email)}）でログインしています。保存した内容は、アカウントに保存されます。</p>
+    <p class="mp-actions"><button type="button" class="mp-btn2" id="mp-logout">ログアウト</button><button type="button" class="mp-link" id="mp-delete">アカウントとデータを削除する</button></p>`;
+  $('#mp-logout').addEventListener('click', () => logout());
+  $('#mp-delete').addEventListener('click', async () => {
+    if (!confirm('アカウントと、保存した制度・メモ・履歴をすべて削除します。元に戻せません。よろしいですか。')) return;
+    try { await deleteAccount(); } catch { toastMsg('削除できませんでした。時間をおいて、もう一度お試しください。'); }
+  });
+  offerMigration();
+}
+function toastMsg(m) { $('#mp-import-msg').textContent = m; }
+
+// ログインしたとき、このブラウザの保存内容があれば、引き継ぐか選んでもらう
+function offerMigration() {
+  const local = localStore.list();
+  const state = migrated()[acct.user.email];
+  const box = $('#mp-migrate');
+  if (!local.length || state) { box.hidden = true; return; }
+  box.hidden = false;
+  box.innerHTML = `<h2>このブラウザの保存内容を、アカウントに引き継ぎますか？</h2><p class="mp-empty">ログインする前に、このブラウザへ保存した制度が <b>${local.length}件</b> あります。引き継ぐと、アカウントの保存に追加されます（同じ制度は、このブラウザの内容で更新します）。</p>
+    <p class="mp-actions"><button type="button" class="mp-btn2 p" id="mp-mig-yes">引き継ぐ</button><button type="button" class="mp-btn2" id="mp-mig-no">引き継がない</button></p>
+    <p class="mp-hist-note">どちらを選んでも、このブラウザの保存内容は消えません。ログアウトすると、また見られます。</p>`;
+  $('#mp-mig-yes').addEventListener('click', () => {
+    store.importAll(localStore.exportAll());
+    if (!store.prefs().pref && !store.prefs().purposes.length && !store.prefs().industry) {
+      const p = localStore.prefs();
+      if (p.pref || p.purposes.length || p.industry) store.setPrefs(p);
+    }
+    setMigrated(acct.user.email, 'done');
+    box.hidden = true;
+    fillForm();
+    render();
+  });
+  $('#mp-mig-no').addEventListener('click', () => { setMigrated(acct.user.email, 'skipped'); box.hidden = true; });
+}
+
+renderAccount();
 render();
 fetch('grants/search.json')
   .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
