@@ -110,7 +110,7 @@ export const ARTICLES = [
     lead: 'オーブン、冷蔵庫、フライヤー、食洗機などの厨房機器を買う前に、補助金が使えるかを調べる手順をまとめました。厨房機器だけを対象にする制度は多くないため、「何の取り組みの一部として申請するか」を考えるのがコツです。',
     summary: '飲食店が厨房機器を購入するときに、検討したい補助金（持続化補助金・省力化投資補助金・新事業進出補助金・自治体の制度）と、購入前の確認事項、契約・発注の注意を解説します。',
     sources: [L.chusho, L.jgrants, L.mirasapo, L.jnet],
-    related: [['../hitsuyo.html', '必要なものから探す'], ['store.html', '店舗・設備投資の補助金'], ['store-pos.html', 'POSレジ・券売機・注文端末に使える補助金'], ['../feature/jizokuka.html', '小規模事業者持続化補助金とは'], ['../feature/shoryokuka.html', '省力化投資補助金とは'], ['../feature/monodukuri.html', '新事業進出・ものづくり商業サービス補助金とは'], ['../basics/documents.html', '補助金の申請に必要な書類'], ['../columns/subsidy-paid-after.html', '補助金は後払いの仕組み'], ['../cases/shoryokuka-restaurant-ticket.html', '活用事例：飲食店が券売機を入れた例'], ['../hantei.html', 'AI補助金判定'], ['../area/index.html', '地域別の補助金']],
+    related: [['../hitsuyo.html', 'やりたいこと・ほしいものから探す'], ['store.html', '店舗・設備投資の補助金'], ['store-pos.html', 'POSレジ・券売機・注文端末に使える補助金'], ['../feature/jizokuka.html', '小規模事業者持続化補助金とは'], ['../feature/shoryokuka.html', '省力化投資補助金とは'], ['../feature/monodukuri.html', '新事業進出・ものづくり商業サービス補助金とは'], ['../basics/documents.html', '補助金の申請に必要な書類'], ['../columns/subsidy-paid-after.html', '補助金は後払いの仕組み'], ['../cases/shoryokuka-restaurant-ticket.html', '活用事例：飲食店が券売機を入れた例'], ['../hantei.html', 'AI補助金判定'], ['../area/index.html', '地域別の補助金']],
   },
   {
     cat: 'store', slug: 'aircon', banner: 'b12', icon: '❄️', purposes: ['green', 'equipment'],
@@ -119,7 +119,7 @@ export const ARTICLES = [
     lead: '店舗・事務所・工場の業務用エアコンを入れ替えるときに、検討したい補助金の種類と、調べる順番をまとめました。国の省エネ補助は公募回ごとに変わり、自治体の助成は地域で大きく違います。',
     summary: '業務用エアコン（高効率空調）の入れ替えで検討したい、国の省エネ補助金と自治体の助成の探し方、購入前の確認事項、着工・契約の前に申請が必要なことを解説します。',
     sources: [L.sii, L.jgrants, L.chusho, L.jnet],
-    related: [['../hitsuyo.html', '必要なものから探す'], ['store.html', '店舗・設備投資の補助金'], ['store-kitchen.html', '厨房機器を購入するときに調べたい補助金'], ['../grants/purposes.html', '目的別の補助金（省エネ）'], ['../basics/documents.html', '補助金の申請に必要な書類'], ['../columns/subsidy-paid-after.html', '補助金は後払いの仕組み'], ['../hantei.html', 'AI補助金判定'], ['../area/index.html', '地域別の補助金'], ['../area/minato.html', '東京都港区の補助金（高効率空調の助成の例）']],
+    related: [['../hitsuyo.html', 'やりたいこと・ほしいものから探す'], ['store.html', '店舗・設備投資の補助金'], ['store-kitchen.html', '厨房機器を購入するときに調べたい補助金'], ['../grants/purposes.html', '目的別の補助金（省エネ）'], ['../basics/documents.html', '補助金の申請に必要な書類'], ['../columns/subsidy-paid-after.html', '補助金は後払いの仕組み'], ['../hantei.html', 'AI補助金判定'], ['../area/index.html', '地域別の補助金'], ['../area/minato.html', '東京都港区の補助金（高効率空調の助成の例）']],
   },
   {
     cat: 'store', slug: 'pos', banner: 'b05', icon: '🧾', purposes: ['digital', 'equipment'],
@@ -128,11 +128,11 @@ export const ARTICLES = [
     lead: 'POSレジ、券売機、タブレット注文端末、自動釣銭機を入れるときに検討したい補助金を、購入前の確認事項とあわせてまとめました。ソフトとハードで、使える制度が分かれる点に注意が必要です。',
     summary: 'POSレジ・券売機・タブレット注文端末・自動釣銭機の導入で検討したい、デジタル化・AI導入補助金、省力化投資補助金（カタログ注文型）などと、購入前の確認事項、契約・発注の注意を解説します。',
     sources: [L.jgrants, L.chusho, L.mirasapo, L.jnet],
-    related: [['../hitsuyo.html', '必要なものから探す'], ['store.html', '店舗・設備投資の補助金'], ['store-kitchen.html', '厨房機器を購入するときに調べたい補助金'], ['../feature/digital-subsidy.html', 'デジタル化・AI導入補助金とは'], ['../feature/shoryokuka.html', '省力化投資補助金とは'], ['../cases/shoryokuka-restaurant-ticket.html', '活用事例：飲食店が券売機を入れた例'], ['../basics/documents.html', '補助金の申請に必要な書類'], ['../columns/subsidy-paid-after.html', '補助金は後払いの仕組み'], ['../hantei.html', 'AI補助金判定'], ['../area/index.html', '地域別の補助金']],
+    related: [['../hitsuyo.html', 'やりたいこと・ほしいものから探す'], ['store.html', '店舗・設備投資の補助金'], ['store-kitchen.html', '厨房機器を購入するときに調べたい補助金'], ['../feature/digital-subsidy.html', 'デジタル化・AI導入補助金とは'], ['../feature/shoryokuka.html', '省力化投資補助金とは'], ['../cases/shoryokuka-restaurant-ticket.html', '活用事例：飲食店が券売機を入れた例'], ['../basics/documents.html', '補助金の申請に必要な書類'], ['../columns/subsidy-paid-after.html', '補助金は後払いの仕組み'], ['../hantei.html', 'AI補助金判定'], ['../area/index.html', '地域別の補助金']],
   },
 ];
 
-const REL_COMMON = [['../hitsuyo.html', '必要なものから探す'], ['../basics/documents.html', '補助金の申請に必要な書類'], ['../columns/subsidy-paid-after.html', '補助金は後払いの仕組み'], ['../hantei.html', 'AI補助金判定'], ['../area/index.html', '地域別の補助金'], ['../consult.html', '無料相談']];
+const REL_COMMON = [['../hitsuyo.html', 'やりたいこと・ほしいものから探す'], ['../basics/documents.html', '補助金の申請に必要な書類'], ['../columns/subsidy-paid-after.html', '補助金は後払いの仕組み'], ['../hantei.html', 'AI補助金判定'], ['../area/index.html', '地域別の補助金'], ['../consult.html', '無料相談']];
 const OFF = { jgrants: L.jgrants, mirasapo: L.mirasapo, chusho: L.chusho, jnet: L.jnet, mhlw: ['厚生労働省（雇用関係の助成金・教育訓練給付）', 'https://www.mhlw.go.jp/'], hellowork: ['ハローワークインターネットサービス', 'https://www.hellowork.mhlw.go.jp/'], meti: ['経済産業省（クリーンエネルギー自動車などの支援）', 'https://www.meti.go.jp/'], mlit: ['国土交通省（住宅の省エネ・リフォームの支援）', 'https://www.mlit.go.jp/'], env: ['環境省（住宅・省エネの支援）', 'https://www.env.go.jp/'], jfc: ['日本政策金融公庫（創業融資）', 'https://www.jfc.go.jp/'], nta: ['国税庁（税の取り扱い）', 'https://www.nta.go.jp/'] };
 
 ARTICLES.push(
@@ -219,51 +219,51 @@ ARTICLES.push(
     lead: '業務用の冷蔵庫・冷凍庫・ショーケースなどを入れ替えるときに、検討したい補助金と、購入前の確認事項をまとめました。省エネ性能の高い設備への更新が、まず候補になります。',
     summary: '業務用の冷蔵・冷凍設備の入れ替えで検討したい補助金（国の省エネ関連の補助金・自治体の助成・持続化補助金）と、購入前の確認事項、購入・着工前に申請が必要なことを解説します。',
     sources: [L.sii, L.jgrants, L.chusho, L.jnet],
-    related: [['store.html', '店舗・設備投資の補助金'], ['store-aircon.html', '業務用エアコンの補助金'], ['store-kitchen.html', '厨房機器の補助金'], ['../grants/purposes.html', '目的別の補助金（省エネ）'], ['../hitsuyo.html', '必要なものから探す'], ['../basics/documents.html', '補助金の申請に必要な書類'], ['../columns/subsidy-paid-after.html', '補助金は後払いの仕組み'], ['../hantei.html', 'AI補助金判定'], ['../area/index.html', '地域別の補助金']] },
+    related: [['store.html', '店舗・設備投資の補助金'], ['store-aircon.html', '業務用エアコンの補助金'], ['store-kitchen.html', '厨房機器の補助金'], ['../grants/purposes.html', '目的別の補助金（省エネ）'], ['../hitsuyo.html', 'やりたいこと・ほしいものから探す'], ['../basics/documents.html', '補助金の申請に必要な書類'], ['../columns/subsidy-paid-after.html', '補助金は後払いの仕組み'], ['../hantei.html', 'AI補助金判定'], ['../area/index.html', '地域別の補助金']] },
   { cat: 'store', slug: 'machine', banner: 'b16', icon: '⚙️', purposes: ['equipment', 'research'], label: '工作機械・生産設備の更新', kicker: '工作機械・生産設備',
     title: '古い機械の更新に使える補助金｜工作機械・生産設備の入れ替えで調べること',
     lead: '加工機、成形機、検査装置などの生産設備を導入・更新するときに、検討したい補助金と、確認することをまとめました。同じ機械への単なる入れ替えは、補助の対象になりにくい制度が多い点に注意が必要です。',
     summary: '工作機械・生産設備の導入・更新で検討したい補助金（新事業進出・ものづくり補助金・省力化投資補助金・持続化補助金・自治体の設備投資の補助）と、購入前の確認事項、契約・発注の注意を解説します。',
     sources: [L.chusho, L.jgrants, L.mirasapo, L.jnet],
-    related: [['store.html', '店舗・設備投資の補助金'], ['store-robot.html', 'ロボット・自動化装置の補助金'], ['../feature/monodukuri.html', '新事業進出・ものづくり商業サービス補助金とは'], ['../feature/shoryokuka.html', '省力化投資補助金とは'], ['../hitsuyo.html', '必要なものから探す'], ['../basics/documents.html', '補助金の申請に必要な書類'], ['../columns/subsidy-paid-after.html', '補助金は後払いの仕組み'], ['../hantei.html', 'AI補助金判定'], ['../area/index.html', '地域別の補助金']] },
+    related: [['store.html', '店舗・設備投資の補助金'], ['store-robot.html', 'ロボット・自動化装置の補助金'], ['../feature/monodukuri.html', '新事業進出・ものづくり商業サービス補助金とは'], ['../feature/shoryokuka.html', '省力化投資補助金とは'], ['../hitsuyo.html', 'やりたいこと・ほしいものから探す'], ['../basics/documents.html', '補助金の申請に必要な書類'], ['../columns/subsidy-paid-after.html', '補助金は後払いの仕組み'], ['../hantei.html', 'AI補助金判定'], ['../area/index.html', '地域別の補助金']] },
   { cat: 'store', slug: 'robot', banner: 'b07', icon: '🦾', purposes: ['equipment', 'digital', 'research'], label: 'ロボット・自動化装置', kicker: 'ロボット・自動化装置',
     title: 'ロボット・自動化装置を導入するときに調べたい補助金｜省力化投資補助金を中心に',
     lead: '配膳ロボット、清掃ロボット、検品・搬送の自動化装置など、人手不足を補う機器を導入するときに、検討したい補助金をまとめました。省力化投資補助金のカタログ注文型と一般型の違いが、ポイントです。',
     summary: 'ロボット・自動化装置の導入で検討したい補助金（省力化投資補助金のカタログ注文型・一般型、新事業進出・ものづくり補助金、自治体の制度）と、導入前の確認事項、契約・発注の注意を解説します。',
     sources: [L.chusho, L.jgrants, L.mirasapo, L.jnet],
-    related: [['store.html', '店舗・設備投資の補助金'], ['store-machine.html', '工作機械・生産設備の更新の補助金'], ['store-pos.html', 'POSレジ・券売機の補助金'], ['../feature/shoryokuka.html', '省力化投資補助金とは'], ['../cases/shoryokuka-restaurant-ticket.html', '活用事例：飲食店が券売機を入れた例'], ['../hitsuyo.html', '必要なものから探す'], ['../basics/documents.html', '補助金の申請に必要な書類'], ['../hantei.html', 'AI補助金判定'], ['../area/index.html', '地域別の補助金']] },
+    related: [['store.html', '店舗・設備投資の補助金'], ['store-machine.html', '工作機械・生産設備の更新の補助金'], ['store-pos.html', 'POSレジ・券売機の補助金'], ['../feature/shoryokuka.html', '省力化投資補助金とは'], ['../cases/shoryokuka-restaurant-ticket.html', '活用事例：飲食店が券売機を入れた例'], ['../hitsuyo.html', 'やりたいこと・ほしいものから探す'], ['../basics/documents.html', '補助金の申請に必要な書類'], ['../hantei.html', 'AI補助金判定'], ['../area/index.html', '地域別の補助金']] },
   { cat: 'store', slug: 'renovation', banner: 'b11', icon: '🛠️', purposes: ['equipment', 'sales'], label: '店舗の内装・改装', kicker: '店舗の内装・改装',
     title: '店舗の内装・改装に使える補助金｜工事を頼む前に調べること',
     lead: '店舗の内装工事、看板、外装の改修、客席の増設などを行う前に、補助金が使えるかを調べる手順をまとめました。改装は、販路開拓などの取り組みの一部として補助される形が中心です。',
     summary: '店舗の内装・改装で検討したい補助金（持続化補助金・新事業進出補助金・自治体の制度）と、工事の前の確認事項、契約・着工の前に申請が必要なことを解説します。',
     sources: [L.chusho, L.jgrants, L.mirasapo, L.jnet],
-    related: [['store.html', '店舗・設備投資の補助金'], ['store-kitchen.html', '厨房機器の補助金'], ['startup-vacant.html', '空き店舗で開業する場合の支援策'], ['startup-opening.html', '開業前に調べたい補助金・融資・創業支援'], ['../feature/jizokuka.html', '小規模事業者持続化補助金とは'], ['../hitsuyo.html', '必要なものから探す'], ['../basics/documents.html', '補助金の申請に必要な書類'], ['../hantei.html', 'AI補助金判定'], ['../area/index.html', '地域別の補助金']] },
+    related: [['store.html', '店舗・設備投資の補助金'], ['store-kitchen.html', '厨房機器の補助金'], ['startup-vacant.html', '空き店舗で開業する場合の支援策'], ['startup-opening.html', '開業前に調べたい補助金・融資・創業支援'], ['../feature/jizokuka.html', '小規模事業者持続化補助金とは'], ['../hitsuyo.html', 'やりたいこと・ほしいものから探す'], ['../basics/documents.html', '補助金の申請に必要な書類'], ['../hantei.html', 'AI補助金判定'], ['../area/index.html', '地域別の補助金']] },
 
   { cat: 'people', slug: 'balance', banner: 'b09', icon: '👶', purposes: ['hiring'], label: '育児・介護との両立', kicker: '育児・介護との両立',
     title: '育児・介護との両立を支える助成金｜両立支援等助成金などの探し方',
     lead: '従業員が、育児や介護と仕事を両立できるように、休業制度や職場の環境を整えるときに、検討したい助成金と、取り組みの前の確認事項をまとめました。',
     summary: '育児・介護と仕事の両立の支援で検討したい両立支援等助成金などの探し方、取り組みの前に確認すること、届け出・申請の時期の注意を解説します。',
     sources: [L.mhlwx, L.hw, L.mirasapo],
-    related: [['people.html', '人材・組織づくりの助成金'], ['people-workplace.html', '職場環境の改善に使える助成金'], ['people-hiring.html', '正社員化・採用に使える助成金'], ['../feature/employment.html', '雇用関係の助成金とは'], ['../hitsuyo.html', '必要なものから探す'], ['../columns/subsidy-vs-grant-vs-loan.html', '補助金・助成金・融資の違い'], ['../hantei.html', 'AI補助金判定'], ['../area/index.html', '地域別の補助金']] },
+    related: [['people.html', '人材・組織づくりの助成金'], ['people-workplace.html', '職場環境の改善に使える助成金'], ['people-hiring.html', '正社員化・採用に使える助成金'], ['../feature/employment.html', '雇用関係の助成金とは'], ['../hitsuyo.html', 'やりたいこと・ほしいものから探す'], ['../columns/subsidy-vs-grant-vs-loan.html', '補助金・助成金・融資の違い'], ['../hantei.html', 'AI補助金判定'], ['../area/index.html', '地域別の補助金']] },
   { cat: 'people', slug: 'workplace', banner: 'b05', icon: '🏢', purposes: ['hiring', 'equipment'], label: '職場環境の改善', kicker: '職場環境の改善',
     title: '職場環境の改善に使える助成金・補助金｜働き方の見直しと設備の両面から',
     lead: '働きやすい職場づくり（労働時間の短縮、休暇制度、雇用管理の整備、作業負担の軽減）に取り組むときに、検討したい助成金と補助金の探し方をまとめました。',
     summary: '職場環境の改善で検討したい厚生労働省の助成金、業務改善助成金、省力化投資補助金などの探し方と、取り組みの前の確認事項、届け出の時期の注意を解説します。',
     sources: [L.mhlwx, L.hw, L.mirasapo],
-    related: [['people.html', '人材・組織づくりの助成金'], ['people-balance.html', '育児・介護との両立を支える助成金'], ['people-wage.html', '賃上げに使える助成金・補助金'], ['../feature/employment.html', '雇用関係の助成金とは'], ['../feature/shoryokuka.html', '省力化投資補助金とは'], ['../hitsuyo.html', '必要なものから探す'], ['../hantei.html', 'AI補助金判定'], ['../area/index.html', '地域別の補助金']] },
+    related: [['people.html', '人材・組織づくりの助成金'], ['people-balance.html', '育児・介護との両立を支える助成金'], ['people-wage.html', '賃上げに使える助成金・補助金'], ['../feature/employment.html', '雇用関係の助成金とは'], ['../feature/shoryokuka.html', '省力化投資補助金とは'], ['../hitsuyo.html', 'やりたいこと・ほしいものから探す'], ['../hantei.html', 'AI補助金判定'], ['../area/index.html', '地域別の補助金']] },
 
   { cat: 'startup', slug: 'product', banner: 'b02', icon: '🧪', purposes: ['research', 'equipment', 'sales'], label: '新商品の開発', kicker: '新商品の開発',
     title: '新商品・新サービスの開発に使える補助金｜開発・試作・設備投資の探し方',
     lead: '新しい商品・サービスを開発するときに、検討したい補助金の種類と、開発を始める前の確認事項をまとめました。「新しさ」を、事業計画で説明できることが、ポイントです。',
     summary: '新商品・新サービスの開発で検討したい補助金（新事業進出・ものづくり商業サービス補助金・持続化補助金・自治体の制度）と、開発前の確認事項、発注の注意を解説します。',
     sources: [L.chusho, L.jgrants, L.mirasapo, L.jnet],
-    related: [['startup.html', '創業・新事業の補助金'], ['startup-overseas.html', '海外展開・輸出の支援'], ['store-machine.html', '工作機械・生産設備の更新の補助金'], ['../feature/monodukuri.html', '新事業進出・ものづくり商業サービス補助金とは'], ['../feature/jizokuka.html', '小規模事業者持続化補助金とは'], ['../basics/business-plan.html', '事業計画書の書き方'], ['../hitsuyo.html', '必要なものから探す'], ['../hantei.html', 'AI補助金判定'], ['../area/index.html', '地域別の補助金']] },
+    related: [['startup.html', '創業・新事業の補助金'], ['startup-overseas.html', '海外展開・輸出の支援'], ['store-machine.html', '工作機械・生産設備の更新の補助金'], ['../feature/monodukuri.html', '新事業進出・ものづくり商業サービス補助金とは'], ['../feature/jizokuka.html', '小規模事業者持続化補助金とは'], ['../basics/business-plan.html', '事業計画書の書き方'], ['../hitsuyo.html', 'やりたいこと・ほしいものから探す'], ['../hantei.html', 'AI補助金判定'], ['../area/index.html', '地域別の補助金']] },
   { cat: 'startup', slug: 'overseas', banner: 'b14', icon: '🌏', purposes: ['sales', 'equipment', 'research'], label: '海外展開・新市場参入', kicker: '海外展開・輸出',
     title: '海外展開・輸出を目指す事業者の支援策｜補助金と相談の探し方',
     lead: '海外の市場を開拓する、新しい市場に参入するときに、検討したい補助金と、輸出の準備を支える相談・支援プログラムをまとめました。',
     summary: '海外展開・輸出で検討したい新事業進出・ものづくり商業サービス補助金（グローバル枠）、JETROの新規輸出1万者支援プログラム、自治体の制度と、準備の前の確認事項を解説します。',
     sources: [['日本貿易振興機構（JETRO）', 'https://www.jetro.go.jp/'], L.chusho, L.jgrants, L.mirasapo],
-    related: [['startup.html', '創業・新事業の補助金'], ['startup-product.html', '新商品の開発に使える補助金'], ['../news/2026-10-05-overseas-support.html', 'ニュース：海外展開・輸出を目指す中小企業の支援策まとめ'], ['../feature/monodukuri.html', '新事業進出・ものづくり商業サービス補助金とは'], ['../hitsuyo.html', '必要なものから探す'], ['../basics/business-plan.html', '事業計画書の書き方'], ['../hantei.html', 'AI補助金判定'], ['../area/index.html', '地域別の補助金']] },
+    related: [['startup.html', '創業・新事業の補助金'], ['startup-product.html', '新商品の開発に使える補助金'], ['../news/2026-10-05-overseas-support.html', 'ニュース：海外展開・輸出を目指す中小企業の支援策まとめ'], ['../feature/monodukuri.html', '新事業進出・ものづくり商業サービス補助金とは'], ['../hitsuyo.html', 'やりたいこと・ほしいものから探す'], ['../basics/business-plan.html', '事業計画書の書き方'], ['../hantei.html', 'AI補助金判定'], ['../area/index.html', '地域別の補助金']] },
 );
 
 ARTICLES.push(
