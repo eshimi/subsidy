@@ -61,6 +61,7 @@ const FOLDER_HINT = {
   personal: 'hantei.html?for=personal',
   research: 'research/index.html',
   background: 'background/index.html',
+  programs: 'programs/index.html',
 };
 const EXCLUDE = ['index.html', 'sitemap.html', 'search.html', 'shindan.html', 'ai.html', 'hantei.html', 'consult.html', 'hitsuyo.html'];
 

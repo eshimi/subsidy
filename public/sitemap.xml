@@ -1246,7 +1246,7 @@
   </url>
   <url>
     <loc>https://hojyokin.net/area/pref-akita.html</loc>
-    <lastmod>2026-10-15</lastmod>
+    <lastmod>2026-10-17</lastmod>
   </url>
   <url>
     <loc>https://hojyokin.net/area/pref-aomori.html</loc>
@@ -1914,6 +1914,14 @@
   </url>
   <url>
     <loc>https://hojyokin.net/research/monthly.html</loc>
+    <lastmod>2026-10-17</lastmod>
+  </url>
+  <url>
+    <loc>https://hojyokin.net/programs/akita-ma-shien.html</loc>
+    <lastmod>2026-10-17</lastmod>
+  </url>
+  <url>
+    <loc>https://hojyokin.net/programs/index.html</loc>
     <lastmod>2026-10-17</lastmod>
   </url>
 </urlset>

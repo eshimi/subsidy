@@ -30,6 +30,7 @@
 
 - ページ上部のバナー（`.pb-banner`／`.pb-title`）は、画像を出さず見出しだけの表示にしている（CSS のみ。マークアップは残してあり、apply-seo が og:image にバナー画像のURLを使うため消さない）。
 - ランディングページ化: `scripts/apply-lp.mjs`（PAGES に追加したページの上部を、写真つきコンパクトなヒーロー＋要点の帯＋近道＋末尾の相談の呼びかけに差し替える。冪等。build:grants には入れず、実行して生成物をコミットする）。CSS は style.css の `.lp-*`。現在は feature/ の jizokuka・digital-subsidy・shoryokuka・monodukuri・growth・succession・employment・popular。各コーナーのトップ（basics・blog・feature・cases・news・who・background・compare・research の index.html）は `hub` 設定でヒーローだけ入れる（コラム columns.html は別テンプレートのため対象外）。挿絵は public/images/lp/（切り抜き）。要点の帯の数字は、そのページ本文に書いてあるものだけを使う。
+- 制度ガイド（自治体）: `data/program-details.json`（公式ページの本文から読み取った事実。数字と引用は `scripts/verify-program-details.mjs` で、取得した本文と突き合わせて検証する）→ `scripts/build-program-pages.mjs` が `public/programs/` を生成 → `scripts/apply-program-links.mjs` が area/ のカードにリンクを入れる。ページにするのは中身がそろった制度（`pageable`）だけ。材料は公式の本文にある事実だけ（推測・一般論は書かない）。
 
 ## 未対応・確認待ち
 - 本番の初回自動更新後に確認: `data/program-history.json`（制度ごとの履歴。scripts/lib/program-history.mjs、update-research-history.mjs が毎朝更新）が保存されること、research/quality.html（品質レポート）と research/changes.html（制度変更履歴）が準備中でなく表示されること、business.html の jGrants 全件セクション、月次レポートの開始、`data/sitemap-lastmod.json` が保存されること。

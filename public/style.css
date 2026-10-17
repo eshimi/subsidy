@@ -1639,3 +1639,7 @@ details ul { margin: 8px 0; padding-left: 1.5em; }
   .lp-fi div:nth-child(3) { border-left: 0; padding-left: 0; }
   .lp-row { flex-direction: column; gap: 6px; }
 }
+
+/* 地域ページの制度カード：制度の詳しいページへのリンク */
+.area-more { margin: 8px 0 0; font-size: 0.9rem; }
+.area-more a { font-weight: 700; color: #2b65b1; }

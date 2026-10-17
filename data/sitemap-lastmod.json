@@ -1244,8 +1244,8 @@
   "d": "2026-10-15"
  },
  "area/pref-akita.html": {
-  "h": "v2:c0887ae488ea",
-  "d": "2026-10-15"
+  "h": "v2:91fd160e4337",
+  "d": "2026-10-17"
  },
  "area/pref-aomori.html": {
   "h": "v2:700f6edd0a9d",
@@ -1913,6 +1913,14 @@
  },
  "research/monthly.html": {
   "h": "v2:f54ba759a046",
+  "d": "2026-10-17"
+ },
+ "programs/akita-ma-shien.html": {
+  "h": "v2:1288fb0303e4",
+  "d": "2026-10-17"
+ },
+ "programs/index.html": {
+  "h": "v2:33dc2aeb8bda",
   "d": "2026-10-17"
  }
 }
