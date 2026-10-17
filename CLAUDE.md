@@ -25,7 +25,7 @@
 - 蛍光ペン: `<strong class="hl">` を本文の p/li/dd/blockquote/td にだけ付ける（`scripts/data/highlights.mjs`、フレーズは本文中で1回だけ出るもの。冪等）。
 - 事業計画書AI: `src/ai.js`、`src/plan.js`、`public/plan.js`、`public/plan-docx.js`。無料の簡易版が標準、詳しい版は `PLAN_DETAILED` フラグの裏。
 - リサーチ（分析）: `scripts/lib/analysis.mjs`、`update-analysis.mjs`、`build-analysis-pages.mjs`（事業向け・個人向け・地域×目的の空白・月次）、`build-research-pages.mjs`。説明枠は末尾へ（`introLast`）。
-- ナビ・サイトマップ: `scripts/lib/nav.mjs`、`scripts/lib/sitemap.mjs`。sitemap.xml の更新日はページ**本文**（`<main>`。ナビ・右の列・空白は除く）のハッシュで `data/sitemap-lastmod.json` に記録（本文が変わったページだけ日本時間の今日に進む。ハッシュは `v2:` 付き）。
+- ナビ・サイトマップ（2026-10-18 に、GrantWatch のフッターの考え方で、「探す→調べる・管理する→学ぶ・読む→サイトについて」の4グループに整理）: `scripts/lib/nav.mjs`（TOP_GROUPS＝ヘッダー、FOOTER_GROUPS＝右の列・分類用の全リンク、FOOTER_SHORT＝フッターの4行、BOTTOM_LINKS）、フッターのQRコードは、広い画面では4行の右の空きに置く（style.css の末尾、狭い画面ではロゴの右）、`scripts/lib/sitemap.mjs`。sitemap.xml の更新日はページ**本文**（`<main>`。ナビ・右の列・空白は除く）のハッシュで `data/sitemap-lastmod.json` に記録（本文が変わったページだけ日本時間の今日に進む。ハッシュは `v2:` 付き）。
 - トップのヒーロー（2026-10-18 に作り直し、案C）: 見出しの下の「事業者の方／個人の方」の切り替え（`#r-seg`、`public/home-hero.js`。選んだ内容は localStorage の `subsidy-finder:aud` に覚え、`?aud=p` でも指定できる）が、検索欄の例（data-ph-b / data-ph-p）、検索に付ける `aud`（search.html の「個人向け／事業者向け」の絞り込みと同じ）、検索の下の4つの入口（`.r-go-set`、事業者向けと個人向け）を切り替える。右上の大きな数字は `<b id="r-live">`、下の数字は `dl.r-nums`（`r-cities` `r-local` `r-guides`＝制度ガイドのページ数 `r-articles`）。数字は scripts/update-stats.mjs が更新する（`r-guides` は public/programs/ のページ数）。以前のタブ（`#r-tabs`、home-tabs.js）・「どこから探しますか？」の5カード・「あなたに合った入口から」は削除した。
 
 - ページ上部のバナー（`.pb-banner`／`.pb-title`）は、画像を出さず見出しだけの表示にしている（CSS のみ。マークアップは残してあり、apply-seo が og:image にバナー画像のURLを使うため消さない）。

@@ -58,7 +58,7 @@ const FOLDER_HINT = {
   hitsuyo: 'hitsuyo.html',
   news: 'news/index.html',
   who: 'who/sme.html',
-  personal: 'hantei.html?for=personal',
+  personal: 'personal/summary.html',
   research: 'research/index.html',
   background: 'background/index.html',
   programs: 'programs/index.html',

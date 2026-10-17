@@ -129,7 +129,7 @@ ${boxSections(splitLayout(applyBanner(body, current), current) ?? applyBanner(bo
     <div class="wrap footer-top">
       <div class="footer-info">
         <a class="footer-brand" href="../" aria-label="補助金ネット トップ"><img src="../images/logo-header-v5.webp" alt="補助金ネット" width="200" height="60"></a>
-        <p>目的・地域・締切から探せる、事業者向けの補助金サイト</p>
+        <p>事業者・個人のための補助金サイト</p>
         <p class="footer-source">募集中の補助金データ：<a href="https://www.jgrants-portal.go.jp/" target="_blank" rel="noopener">jGrants（デジタル庁）</a><br>住所検索：<a href="https://zipcloud.ibsnet.co.jp/" target="_blank" rel="noopener">zipcloud</a></p>
         <p class="footer-contact">運営者：<a href="../policy/about.html">運営者情報</a><br>お問い合わせ：<a href="../policy/contact.html">フォーム</a></p>
         <figure class="footer-qr">
