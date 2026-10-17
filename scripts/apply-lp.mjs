@@ -20,6 +20,24 @@ export const PAGES = {
     newsKey: 'jizokuka',
     searchQ: '持続化補助金',
   },
+  'feature/digital-subsidy.html': {
+    kicker: '特集｜デジタル化・AI導入補助金',
+    image: 'hero-05.webp', pos: 'center 30%',
+    facts: [['対象', '登録されたITツール（クラウド利用料を含む）'], ['申請', 'IT導入支援事業者と一緒に（8ステップ）'], ['事前準備', 'gBizIDプライムの取得'], ['対象者', '個人事業主・法人']],
+    jump: [['デジタル補助金の主な種類', '主な種類'], ['対象になるもの・ならないもの', '対象になるもの'], ['申請の流れ（8ステップ）', '申請の流れ'], ['よくある失敗', 'よくある失敗'], ['よくある質問', 'よくある質問']],
+    buy: [['it-ai', 'AIツール'], ['it-software', '会計・予約・顧客管理ソフト'], ['it-pc', '業務用PC'], ['it-ec', 'ネットショップ・EC'], ['it-security', 'セキュリティ対策'], ['store-pos', 'POSレジ・会計機器']],
+    newsKey: 'digital-ai',
+    searchQ: 'デジタル化・AI導入補助金',
+  },
+  'feature/shoryokuka.html': {
+    kicker: '特集｜中小企業省力化投資補助金',
+    image: 'hero-03.webp', pos: 'center 40%',
+    facts: [['仕組み', '製品をカタログから選ぶ（カタログ注文型）'], ['目的', '人手不足を、機械・ロボットで補う'], ['対象', '中小企業・小規模事業者'], ['金額', '公式の最新情報で確認']],
+    jump: [['制度の概要', '概要'], ['対象になる人', '対象になる人'], ['申請の流れ（一般的な例）', '申請の流れ'], ['よくある失敗', 'よくある失敗'], ['よくある質問', 'よくある質問']],
+    buy: [['store-robot', 'ロボット・自動化装置'], ['store-machine', '機械・生産設備'], ['store-kitchen', '厨房機器'], ['store-refrigeration', '冷蔵・冷凍設備'], ['store-pos', 'POSレジ・券売機'], ['store-energy', '省エネ設備']],
+    newsKey: 'shoryokuka',
+    searchQ: '省力化投資補助金',
+  },
 };
 
 const attr = (s) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
@@ -40,9 +58,10 @@ export function heroHtml(html, cfg) {
   const ids = Object.fromEntries([...html.matchAll(/<h2 id="(s\d+)"[^>]*>([\s\S]*?)<\/h2>/g)].map((m) => [strip(m[2]), m[1]]));
   const jump = cfg.jump.filter(([h]) => ids[h]).map(([h, label]) => `<a href="#${ids[h]}">${label}</a>`).join('');
   const news = newsOf(cfg.newsKey);
+  const meta = (html.match(/<p class="fx-meta"[\s\S]*?<\/p>/) || [''])[0];
   return `${HERO[0]}
     <section class="lp-hero" aria-labelledby="lp-title">
-      <div class="lp-art" style="background-image: url('../images/${cfg.image}')" aria-hidden="true"></div>
+      <div class="lp-art" style="background-image: url('../images/${cfg.image}')${cfg.pos ? `; background-position: ${cfg.pos}` : ''}" aria-hidden="true"></div>
       <div class="lp-in">
         <p class="lp-k">${cfg.kicker}</p>
         <div class="pb-banner" style="${attr(bannerStyle)}"><h1 class="pb-title" id="lp-title">${title}</h1></div>
@@ -50,7 +69,7 @@ export function heroHtml(html, cfg) {
         <div class="lp-btns"><a class="lp-btn p" href="../hantei.html">対象になるか、AIで確かめる <span aria-hidden="true">→</span></a><a class="lp-btn s" href="../consult.html">無料で相談する</a></div>
       </div>
     </section>
-    <div class="lp-facts"><dl class="lp-fi">${cfg.facts.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl></div>
+    <div class="lp-facts"><dl class="lp-fi">${cfg.facts.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl></div>${meta ? `\n    ${meta}` : ''}
     <section class="lp-next" aria-label="このページの使い方">
       <div class="lp-row"><span class="lp-rl">このページで知る</span><nav class="lp-chips" aria-label="ページ内の節">${jump}</nav></div>
       <div class="lp-row"><span class="lp-rl">何に使いたい？</span><nav class="lp-chips" aria-label="買うものから探す">${cfg.buy.map(([f, t]) => `<a href="${f.startsWith('it-') ? '../hitsuyo/' : '../hitsuyo/'}${f}.html">${t}</a>`).join('')}<a class="more" href="../hitsuyo.html#hp-buy">すべて見る →</a></nav></div>
@@ -76,7 +95,7 @@ export function apply(html, cfg) {
     const block = heroHtml(out.replace(/<!-- lp-hero -->[\s\S]*?<!-- \/lp-hero -->/, (m) => m), cfg);
     out = out.replace(/<!-- lp-hero -->[\s\S]*?<!-- \/lp-hero -->/, block);
   } else {
-    const re = /<div class="pb-banner"[^>]*><h1 class="pb-title">[\s\S]*?<\/h1><\/div>\s*<div style="margin-bottom: 2rem;">[\s\S]*?<\/div>/;
+    const re = /(?:<div class="fx-hero">\s*)?<div class="pb-banner"[^>]*><h1 class="pb-title">[\s\S]*?<\/h1><\/div>(?:\s*<\/div>\s*<div class="fx-lead">[\s\S]*?<\/p>\s*<p class="lead">[\s\S]*?<\/p>\s*<\/div>|\s*<div style="margin-bottom: 2rem;">[\s\S]*?<\/div>)/;
     if (!re.test(out)) throw new Error('ページ上部のバナーが見つかりません');
     out = out.replace(re, () => heroHtml(out, cfg));
   }
