@@ -52,7 +52,7 @@ const HREF = {
   'security': 'hitsuyo/it-security.html',
   'signage': 'hitsuyo/store-signage.html',
 };
-const chips = PURCHASES.map((p) => `        <a class="hp-want" href="${esc(HREF[p.id])}"><span class="ic" aria-hidden="true">${p.icon}</span><b>${esc(p.label)}</b><small>${esc(p.examples)}</small></a>`).join('\n');
+const chips = PURCHASES.map((p) => `        <a class="hp-want" href="${esc(HREF[p.id])}"><span class="ic" aria-hidden="true">${p.icon}</span><span class="tx"><b>${esc(p.label)}</b><small>${esc(p.examples)}</small></span><span class="go" aria-hidden="true">→</span></a>`).join('\n');
 
 const style = `
     .hp-hero { position: relative; background: #f5f1e9; overflow: hidden; width: 100vw; margin-left: calc(50% - 50vw); margin-top: 8px; }
@@ -110,13 +110,19 @@ const style = `
     .hp-door .go { margin-left: auto; flex: none; font-weight: 700; color: #c9411a; white-space: nowrap; }
     .hp-sec.w::before { background: #2b65b1; }
     .hp-sub { margin: 4px 0 0; color: #56667f; font-size: 14px; }
-    .hp-wants { margin-top: 18px; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; }
-    .hp-want { display: flex; flex-direction: column; gap: 4px; padding: 16px 18px; border-radius: 12px; background: #fff; box-shadow: 0 2px 12px rgba(10, 35, 82, 0.06); text-decoration: none; color: inherit; }
-    .hp-want:hover { box-shadow: 0 6px 20px rgba(10, 35, 82, 0.14); }
-    .hp-want .ic { font-size: 1.6rem; line-height: 1; }
+    .hp-buyband { position: relative; width: 100vw; margin: 40px 0 0 calc(50% - 50vw); background: #e4edf8; padding: 34px 0 38px; }
+    .hp-buyband-in { max-width: var(--max, 1100px); margin: 0 auto; padding: 0 var(--gutter, 24px); }
+    .hp-buyband .hp-sec { font-size: 28px; line-height: 40px; }
+    .hp-buyband .hp-sub { font-size: 15px; }
+    .hp-wants { margin-top: 20px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+    .hp-want { position: relative; display: flex; align-items: center; gap: 14px; min-height: 96px; box-sizing: border-box; padding: 14px 44px 14px 16px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); text-decoration: none; color: inherit; border-bottom: 3px solid #2b65b1; transition: transform 0.15s, box-shadow 0.15s; }
+    .hp-want:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(10, 35, 82, 0.2); }
+    .hp-want .ic { flex: none; width: 56px; height: 56px; border-radius: 12px; background: #e4edf8; display: flex; align-items: center; justify-content: center; font-size: 1.9rem; line-height: 1; }
+    .hp-want .tx { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
     .hp-want b { font-size: 15px; line-height: 22px; color: #0a2352; }
     .hp-want:hover b { color: #c9411a; }
-    .hp-want small { font-size: 12px; line-height: 1.6; color: #56667f; }
+    .hp-want small { font-size: 12px; line-height: 1.6; color: #56667f; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .hp-want .go { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); width: 26px; height: 26px; border-radius: 50%; background: #073461; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; }
     .hp-chips { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 10px; }
     .hp-chip { display: inline-flex; align-items: center; min-height: 44px; box-sizing: border-box; padding: 6px 18px; border-radius: 999px; background: #fff; box-shadow: 0 2px 12px rgba(10, 35, 82, 0.08); font-weight: 500; color: #0a2352; text-decoration: none; }
     .hp-chip:hover { color: #c9411a; }
@@ -144,9 +150,10 @@ const style = `
       .hp-feat, .hp-feat.big { grid-row: auto; min-height: 118px; }
       .hp-shelf { grid-template-columns: minmax(0, 1fr); }
       .hp-two { grid-template-columns: minmax(0, 1fr); }
+      .hp-wants { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .hp-flow { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 22px; }
     }
-    @media (max-width: 560px) { .hp-flow { grid-template-columns: minmax(0, 1fr); } .hp-h1 { font-size: 32px; } .hp-flow-card, .hp-cta { padding: 22px 18px; } }
+    @media (max-width: 560px) { .hp-wants { grid-template-columns: minmax(0, 1fr); } .hp-flow { grid-template-columns: minmax(0, 1fr); } .hp-h1 { font-size: 32px; } .hp-flow-card, .hp-cta { padding: 22px 18px; } }
 `;
 
 const svg = `<svg viewBox="0 0 520 220" role="img" aria-label="お店、パソコン、植物、歯車のイラスト">
@@ -220,13 +227,13 @@ ${shelves}
       </div>
     </section>
 
-    <section class="hp-block" aria-labelledby="hp-buy">
+    <section class="hp-buyband" aria-labelledby="hp-buy"><div class="hp-buyband-in">
       <h2 class="hp-sec w" id="hp-buy">ほしいものから探す</h2>
       <p class="hp-sub">買うものを選ぶと、使えそうな制度・購入前の確認・契約の注意がわかります。</p>
       <div class="hp-wants" role="group" aria-label="ほしいもの">
 ${chips}
       </div>
-    </section>
+    </div></section>
 
     <section class="hp-flow-card" aria-labelledby="hp-flow">
       <h2 id="hp-flow">どの解説も、同じ順番で読めます。</h2>
