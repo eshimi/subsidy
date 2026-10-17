@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://hojyokin.net/</loc>
-    <lastmod>2026-10-17</lastmod>
+    <lastmod>2026-10-18</lastmod>
   </url>
   <url>
     <loc>https://hojyokin.net/beginner-guide.html</loc>
@@ -30,7 +30,7 @@
   </url>
   <url>
     <loc>https://hojyokin.net/guide.html</loc>
-    <lastmod>2026-10-17</lastmod>
+    <lastmod>2026-10-18</lastmod>
   </url>
   <url>
     <loc>https://hojyokin.net/hantei.html</loc>
@@ -70,7 +70,7 @@
   </url>
   <url>
     <loc>https://hojyokin.net/search.html</loc>
-    <lastmod>2026-10-15</lastmod>
+    <lastmod>2026-10-18</lastmod>
   </url>
   <url>
     <loc>https://hojyokin.net/sitemap.html</loc>
@@ -458,7 +458,7 @@
   </url>
   <url>
     <loc>https://hojyokin.net/policy/privacy.html</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-18</lastmod>
   </url>
   <url>
     <loc>https://hojyokin.net/policy/sources.html</loc>
@@ -2571,5 +2571,9 @@
   <url>
     <loc>https://hojyokin.net/programs/tsukuba-city-sogyo-hosyoryo-hojo.html</loc>
     <lastmod>2026-10-17</lastmod>
+  </url>
+  <url>
+    <loc>https://hojyokin.net/policy/terms.html</loc>
+    <lastmod>2026-10-18</lastmod>
   </url>
 </urlset>
