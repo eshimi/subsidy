@@ -9,11 +9,11 @@ const ROOT = join(import.meta.dirname, '..', 'public');
 const HERO = ['<!-- lp-hero -->', '<!-- /lp-hero -->'];
 const END = ['<!-- lp-end -->', '<!-- /lp-end -->'];
 
-// ページごとの設定。facts：要点の帯（ページ内の記述にあるものだけ）、jump：ページ内の節（見出しの文字で探す）、buy：買うものの解説、newsKey：最新ニュースのファイル名に含まれる語
+// ページごとの設定。pic：ヒーロー右の小さな挿絵（public/images/lp/、切り抜き）、bg：その挿絵の背景色。facts：要点の帯（ページ内の記述にあるものだけ）、jump：ページ内の節（見出しの文字で探す）、buy：買うものの解説、newsKey：最新ニュースのファイル名に含まれる語
 export const PAGES = {
   'feature/jizokuka.html': {
     kicker: '特集｜小規模事業者持続化補助金',
-    image: 'hero-04.webp',
+    pic: 'lp-jizokuka.webp', bg: '#f9f5f0',
     facts: [['補助上限', '通常枠 50万円（第20回）／創業型 最大250万円'], ['窓口', '地元の商工会・商工会議所'], ['お金の流れ', '経費を先に払い、後から受け取る'], ['主な使い道', '広告・HP・看板・設備など']],
     jump: [['制度の概要', '概要'], ['対象になる人', '対象になる人'], ['申請の流れ（一般的な例）', '申請の流れ'], ['よくある失敗', 'よくある失敗'], ['よくある質問', 'よくある質問']],
     buy: [['it-website', 'ホームページ・広告'], ['store-signage', '看板・外装'], ['store-renovation', '店舗の改装'], ['it-ec', 'ネットショップ・EC'], ['store-pos', 'POSレジ・会計機器'], ['it-promotion', '広告・チラシ・販促物']],
@@ -22,7 +22,7 @@ export const PAGES = {
   },
   'feature/digital-subsidy.html': {
     kicker: '特集｜デジタル化・AI導入補助金',
-    image: 'hero-05.webp', pos: 'center 30%',
+    pic: 'lp-digital.webp', bg: '#fbf4e6',
     facts: [['対象', '登録されたITツール（クラウド利用料を含む）'], ['申請', 'IT導入支援事業者と一緒に（8ステップ）'], ['事前準備', 'gBizIDプライムの取得'], ['対象者', '個人事業主・法人']],
     jump: [['デジタル補助金の主な種類', '主な種類'], ['対象になるもの・ならないもの', '対象になるもの'], ['申請の流れ（8ステップ）', '申請の流れ'], ['よくある失敗', 'よくある失敗'], ['よくある質問', 'よくある質問']],
     buy: [['it-ai', 'AIツール'], ['it-software', '会計・予約・顧客管理ソフト'], ['it-pc', '業務用PC'], ['it-ec', 'ネットショップ・EC'], ['it-security', 'セキュリティ対策'], ['store-pos', 'POSレジ・会計機器']],
@@ -31,7 +31,7 @@ export const PAGES = {
   },
   'feature/shoryokuka.html': {
     kicker: '特集｜中小企業省力化投資補助金',
-    image: 'hero-03.webp', pos: 'center 40%',
+    pic: 'lp-shoryokuka.webp', bg: '#faf8f1',
     facts: [['仕組み', '製品をカタログから選ぶ（カタログ注文型）'], ['目的', '人手不足を、機械・ロボットで補う'], ['対象', '中小企業・小規模事業者'], ['金額', '公式の最新情報で確認']],
     jump: [['制度の概要', '概要'], ['対象になる人', '対象になる人'], ['申請の流れ（一般的な例）', '申請の流れ'], ['よくある失敗', 'よくある失敗'], ['よくある質問', 'よくある質問']],
     buy: [['store-robot', 'ロボット・自動化装置'], ['store-machine', '機械・生産設備'], ['store-kitchen', '厨房機器'], ['store-refrigeration', '冷蔵・冷凍設備'], ['store-pos', 'POSレジ・券売機'], ['store-energy', '省エネ設備']],
@@ -60,8 +60,8 @@ export function heroHtml(html, cfg) {
   const news = newsOf(cfg.newsKey);
   const meta = (html.match(/<p class="fx-meta"[\s\S]*?<\/p>/) || [''])[0];
   return `${HERO[0]}
-    <section class="lp-hero" aria-labelledby="lp-title">
-      <div class="lp-art" style="background-image: url('../images/${cfg.image}')${cfg.pos ? `; background-position: ${cfg.pos}` : ''}" aria-hidden="true"></div>
+    <section class="lp-hero" aria-labelledby="lp-title" style="background-color: ${cfg.bg}">
+      <img class="lp-pic" src="../images/lp/${cfg.pic}" alt="" width="500" height="190" loading="lazy">
       <div class="lp-in">
         <p class="lp-k">${cfg.kicker}</p>
         <div class="pb-banner" style="${attr(bannerStyle)}"><h1 class="pb-title" id="lp-title">${title}</h1></div>
