@@ -38,6 +38,46 @@ export const PAGES = {
     newsKey: 'shoryokuka',
     searchQ: '省力化投資補助金',
   },
+  'feature/monodukuri.html': {
+    kicker: '特集｜新事業進出・ものづくり商業サービス補助金',
+    pic: 'lp-monodukuri.webp', bg: '#fbf3e8',
+    facts: [['制度', '新事業進出・ものづくり商業サービス補助金'], ['向く投資', '新しい製品・サービス、新事業への設備投資'], ['申請', '電子申請（gBizIDプライムが必要）'], ['金額', '枠・公募回ごと。公式で確認']],
+    jump: [['制度の名称の移り変わり', '名称の移り変わり'], ['枠の考え方', '枠の考え方'], ['対象になる人', '対象になる人'], ['申請の流れ（一般的な例）', '申請の流れ'], ['よくある失敗', 'よくある失敗'], ['よくある質問', 'よくある質問']],
+    buy: [['store-machine', '機械・生産設備'], ['store-robot', 'ロボット・自動化装置'], ['store-renovation', '店舗の改装'], ['startup-product', '新商品の開発'], ['startup-overseas', '海外展開'], ['store-energy', '省エネ設備']],
+    newsKey: 'shinjigyo', searchQ: 'ものづくり補助金',
+  },
+  'feature/growth.html': {
+    kicker: '特集｜中小企業成長加速化補助金',
+    pic: 'lp-growth.webp', bg: '#faf7f1',
+    facts: [['対象', '売上高10億円以上100億円未満の中小企業'], ['補助上限', '5億円（補助率1/2）'], ['投資額', '1億円以上'], ['事業期間', '交付決定から24か月以内']],
+    jump: [['どんな企業向けか', 'どんな企業向けか'], ['対象になりやすい投資（例）', '対象になりやすい投資'], ['申請の前に確認すること', '申請の前に'], ['よくある質問', 'よくある質問']],
+    buy: [['store-machine', '機械・生産設備'], ['store-robot', 'ロボット・自動化装置'], ['store-energy', '省エネ設備'], ['startup-overseas', '海外展開'], ['startup-product', '新商品の開発'], ['store-renovation', '店舗の改装']],
+    newsKey: 'seicho', searchQ: '成長加速化補助金',
+  },
+  'feature/succession.html': {
+    kicker: '特集｜事業承継・M&A補助金',
+    pic: 'lp-succession.webp', bg: '#faf3e6',
+    facts: [['対象', '中小企業・小規模事業者（引継ぎやM&Aの当事者）'], ['名称', '事業承継・M&A補助金'], ['枠', '承継・M&A・廃業など、段階ごとに分かれる'], ['金額', '枠と回で異なる。公式で確認']],
+    jump: [['制度の概要', '概要'], ['対象になる人', '対象になる人'], ['補助の対象になりやすい費用（例）', '対象になりやすい費用'], ['申請の流れ（一般的な例）', '申請の流れ'], ['よくある失敗', 'よくある失敗'], ['よくある質問', 'よくある質問']],
+    buy: [['startup-succession', '事業承継・M&Aの解説'], ['store-machine', '設備の更新'], ['it-software', '会計・予約・顧客管理ソフト'], ['people-hiring', '正社員化・採用'], ['people-training', '研修・リスキリング']],
+    newsKey: '', searchQ: '事業承継',
+  },
+  'feature/employment.html': {
+    kicker: '特集｜雇用関係の助成金',
+    pic: 'lp-employment.webp', bg: '#faf3e5',
+    facts: [['所管', '厚生労働省の助成金'], ['特徴', '要件を満たせば受け取れるものが多い'], ['主な助成金', 'キャリアアップ・人材開発・業務改善など'], ['金額', '助成金ごとに違う。公式で確認']],
+    jump: [['主な助成金', '主な助成金'], ['受け取るための基本的な条件', '基本的な条件'], ['申請の流れ（一般的な例）', '申請の流れ'], ['よくある質問', 'よくある質問']],
+    buy: [['people-hiring', '正社員化・採用'], ['people-wage', '賃上げ'], ['people-training', '研修・リスキリング'], ['people-balance', '育児・介護との両立'], ['people-workplace', '職場環境の改善'], ['people-safety', '安全衛生']],
+    newsKey: 'gyomu-kaizen', searchQ: '雇用 助成金',
+  },
+  'feature/popular.html': {
+    kicker: '特集｜特に人気の5つの補助金',
+    pic: 'lp-popular.webp', bg: '#fcf5ea',
+    facts: [['販路開拓', '小規模事業者持続化補助金'], ['IT・AI', 'デジタル化・AI導入補助金'], ['新事業・設備', '新事業進出・ものづくり補助金'], ['省力化・承継', '省力化投資補助金／事業承継・M&amp;A補助金']],
+    jump: [['1. 小規模事業者持続化補助金', '持続化補助金'], ['2. IT導入補助金（デジタル化・AI導入補助金）', 'デジタル化・AI導入'], ['3. 新事業進出・ものづくり商業サービス補助金', '新事業進出・ものづくり'], ['4. 中小企業省力化投資補助金', '省力化投資'], ['5. 事業承継・M&amp;A補助金', '事業承継・M&amp;A']],
+    buy: [['it-website', 'ホームページ・広告'], ['it-ai', 'AIツール'], ['store-machine', '機械・生産設備'], ['store-robot', 'ロボット・自動化装置'], ['startup-succession', '事業承継・M&amp;A'], ['store-pos', 'POSレジ・会計機器']],
+    newsKey: 'deadline', searchQ: '補助金',
+  },
 };
 
 const attr = (s) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
@@ -45,7 +85,7 @@ const strip = (h) => h.replace(/<[^>]+>/g, '').trim();
 
 function newsOf(key) {
   const dir = join(ROOT, 'news');
-  return readdirSync(dir).filter((f) => f.endsWith('.html') && f.includes(key)).sort().reverse().slice(0, 3).map((f) => {
+  return !key ? [] : readdirSync(dir).filter((f) => f.endsWith('.html') && f.includes(key)).sort().reverse().slice(0, 3).map((f) => {
     const t = (readFileSync(join(dir, f), 'utf-8').match(/<title>([^<]*)<\/title>/) || [])[1] || f;
     return { href: `../news/${f}`, date: f.slice(5, 10).replace('-', '/'), title: t.replace(/｜補助金ネット$/, '') };
   });

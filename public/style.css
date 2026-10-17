@@ -1596,12 +1596,13 @@ details ul { margin: 8px 0; padding-left: 1.5em; }
 @media (max-width: 640px) { .r-tablist button { flex: 1 1 calc(50% - 6px); padding: 0 10px; } }
 
 /* ランディングページ化したページ（scripts/apply-lp.mjs）：コンパクトな写真つきヒーロー・要点の帯・近道・末尾の呼びかけ */
-.lp-hero { position: relative; width: 100vw; margin: 4px 0 0 calc(50% - 50vw); height: 168px; background: #f9f5f0; overflow: hidden; }
-.lp-pic { position: absolute; right: max(var(--gutter, 24px), calc((100vw - var(--max, 1100px)) / 2 + var(--gutter, 24px))); bottom: 0; height: 100%; width: auto; max-width: 46vw; object-fit: contain; object-position: right bottom; -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 14%, #000 86%, transparent 100%); mask-image: linear-gradient(90deg, transparent 0, #000 14%, #000 86%, transparent 100%); }
-.lp-in { position: relative; z-index: 2; max-width: var(--max, 1100px); margin: 0 auto; padding: 0 var(--gutter, 24px); height: 100%; display: flex; flex-direction: column; justify-content: center; }
+.lp-hero { position: relative; width: 100vw; margin: 4px 0 0 calc(50% - 50vw); min-height: 168px; padding: 16px 0; box-sizing: border-box; background: #f9f5f0; overflow: hidden; }
+.lp-pic { position: absolute; right: max(var(--gutter, 24px), calc((100vw - var(--max, 1100px)) / 2 + var(--gutter, 24px))); bottom: 0; height: 168px; width: auto; max-width: 46vw; object-fit: contain; object-position: right bottom; -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 14%, #000 86%, transparent 100%); mask-image: linear-gradient(90deg, transparent 0, #000 14%, #000 86%, transparent 100%); }
+.lp-in { position: relative; z-index: 2; max-width: var(--max, 1100px); margin: 0 auto; padding: 0 var(--gutter, 24px); display: flex; flex-direction: column; justify-content: center; }
+.lp-in > .pb-banner, .lp-in > .lp-s { max-width: 640px; }
 .lp-k { margin: 0; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em; color: #c9411a; }
 .lp-hero .pb-banner { margin: 0 0 2px; }
-.lp-hero .pb-title { font-size: clamp(1.25rem, 2.1vw, 1.65rem); max-width: 34em; }
+.lp-hero .pb-title { font-size: clamp(1.25rem, 2.1vw, 1.65rem); max-width: none; }
 .lp-s { margin: 0 0 10px; font-size: 0.85rem; line-height: 1.6; max-width: 40em; }
 .lp-btns { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
 .lp-btn { display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 0 18px; border-radius: 8px; font-size: 0.9rem; font-weight: 700; text-decoration: none; }
@@ -1632,7 +1633,8 @@ details ul { margin: 8px 0; padding-left: 1.5em; }
 .lp-cd { margin: 0; font-size: 0.9rem; opacity: 0.92; }
 @media (max-width: 860px) {
   .lp-pic { display: none; }
-  .lp-hero { height: auto; padding: 14px 0 16px; }
+  .lp-hero { padding: 14px 0 16px; }
+  .lp-in > .pb-banner, .lp-in > .lp-s { max-width: none; }
   .lp-fi { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .lp-fi div:nth-child(3) { border-left: 0; padding-left: 0; }
   .lp-row { flex-direction: column; gap: 6px; }

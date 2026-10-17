@@ -29,7 +29,7 @@
 - トップの探し方は、ヒーロー（検索欄）の下のタブ（`#r-tabs`、`public/home-tabs.js`）：「やりたいこと」「ほしいもの」「地域」「AIに相談」。パネルの中身は `public/index.html` に直接書いてある（購入物のチップは scripts/data/purchases.mjs と hitsuyo/ のページに合わせる）。以前の「どこから探しますか？」の5カードと「あなたに合った入口から」は削除した（`.rw*` / `.r-who*` の CSS は未使用）。
 
 - ページ上部のバナー（`.pb-banner`／`.pb-title`）は、画像を出さず見出しだけの表示にしている（CSS のみ。マークアップは残してあり、apply-seo が og:image にバナー画像のURLを使うため消さない）。
-- ランディングページ化: `scripts/apply-lp.mjs`（PAGES に追加したページの上部を、写真つきコンパクトなヒーロー＋要点の帯＋近道＋末尾の相談の呼びかけに差し替える。冪等。build:grants には入れず、実行して生成物をコミットする）。CSS は style.css の `.lp-*`。現在は feature/jizokuka.html・digital-subsidy.html・shoryokuka.html。要点の帯の数字は、そのページ本文に書いてあるものだけを使う。
+- ランディングページ化: `scripts/apply-lp.mjs`（PAGES に追加したページの上部を、写真つきコンパクトなヒーロー＋要点の帯＋近道＋末尾の相談の呼びかけに差し替える。冪等。build:grants には入れず、実行して生成物をコミットする）。CSS は style.css の `.lp-*`。現在は feature/ の jizokuka・digital-subsidy・shoryokuka・monodukuri・growth・succession・employment・popular（特集の一覧 index.html は対象外）。挿絵は public/images/lp/（切り抜き）。要点の帯の数字は、そのページ本文に書いてあるものだけを使う。
 
 ## 未対応・確認待ち
 - 本番の初回自動更新後に確認: `data/program-history.json`（制度ごとの履歴。scripts/lib/program-history.mjs、update-research-history.mjs が毎朝更新）が保存されること、research/quality.html（品質レポート）と research/changes.html（制度変更履歴）が準備中でなく表示されること、business.html の jGrants 全件セクション、月次レポートの開始、`data/sitemap-lastmod.json` が保存されること。
