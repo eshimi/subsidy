@@ -80,6 +80,21 @@ export const PAGES = {
   },
 };
 
+// 各コーナーのトップ（一覧）のページ：ヒーローだけ入れる（要点の帯・近道・末尾の呼びかけは入れない）
+const HUB_BTNS = [['補助金を探す', '../search.html', 'p'], ['AIで確かめる', '../hantei.html', 's']];
+const hub = (kicker, pic, bg) => ({ hub: true, kicker, pic, bg });
+Object.assign(PAGES, {
+  'basics/index.html': hub('基礎知識', 'lp-employment.webp', '#faf3e5'),
+  'blog/index.html': hub('ブログ', 'lp-growth.webp', '#faf7f1'),
+  'feature/index.html': hub('特集', 'lp-shoryokuka.webp', '#faf8f1'),
+  'cases/index.html': hub('活用事例', 'lp-succession.webp', '#faf3e6'),
+  'news/index.html': hub('補助金ニュース', 'lp-jizokuka.webp', '#f9f5f0'),
+  'who/index.html': hub('対象者別', 'lp-popular.webp', '#fcf5ea'),
+  'background/index.html': hub('制度の背景ガイド', 'lp-thread.webp', '#faf4e7'),
+  'compare/index.html': hub('比較記事', 'lp-monodukuri.webp', '#fbf3e8'),
+  'research/index.html': hub('補助金データ', 'lp-digital.webp', '#fbf4e6'),
+});
+
 const attr = (s) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
 const strip = (h) => h.replace(/<[^>]+>/g, '').trim();
 
@@ -92,11 +107,11 @@ function newsOf(key) {
 }
 
 export function heroHtml(html, cfg) {
-  const title = strip((html.match(/<h1 class="pb-title"[^>]*>([\s\S]*?)<\/h1>/) || [])[1] || '');
+  const title = strip((html.match(/<h1 class="pb-title"[^>]*>([\s\S]*?)<\/h1>/) || html.match(/<h1 class="display"[^>]*>([\s\S]*?)<\/h1>/) || [])[1] || '');
   const bannerStyle = (html.match(/<div class="pb-banner" style="([^"]*)"/) || [])[1] || '';
   const lead = strip((html.match(/<p class="lp-s">([\s\S]*?)<\/p>/) || html.match(/<p class="lead"[^>]*>([\s\S]*?)<\/p>/) || [])[1] || '');
   const ids = Object.fromEntries([...html.matchAll(/<h2 id="(s\d+)"[^>]*>([\s\S]*?)<\/h2>/g)].map((m) => [strip(m[2]), m[1]]));
-  const jump = cfg.jump.filter(([h]) => ids[h]).map(([h, label]) => `<a href="#${ids[h]}">${label}</a>`).join('');
+  const jump = (cfg.jump || []).filter(([h]) => ids[h]).map(([h, label]) => `<a href="#${ids[h]}">${label}</a>`).join('');
   const news = newsOf(cfg.newsKey);
   const meta = (html.match(/<p class="fx-meta"[\s\S]*?<\/p>/) || [''])[0];
   return `${HERO[0]}
@@ -104,19 +119,28 @@ export function heroHtml(html, cfg) {
       <img class="lp-pic" src="../images/lp/${cfg.pic}" alt="" width="500" height="190" loading="lazy">
       <div class="lp-in">
         <p class="lp-k">${cfg.kicker}</p>
-        <div class="pb-banner" style="${attr(bannerStyle)}"><h1 class="pb-title" id="lp-title">${title}</h1></div>
+        <div class="pb-banner"${bannerStyle ? ` style="${attr(bannerStyle)}"` : ''}><h1 class="pb-title" id="lp-title">${title}</h1></div>
         <p class="lp-s">${lead}</p>
-        <div class="lp-btns"><a class="lp-btn p" href="../hantei.html">対象になるか、AIで確かめる <span aria-hidden="true">→</span></a><a class="lp-btn s" href="../consult.html">無料で相談する</a></div>
+        ${btnsHtml(cfg)}
       </div>
-    </section>
+    </section>${cfg.hub ? '' : lpBody(cfg, jump, news, meta)}
+    ${HERO[1]}`;
+}
+
+function lpBody(cfg, jump, news, meta) {
+  return `
     <div class="lp-facts"><dl class="lp-fi">${cfg.facts.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl></div>${meta ? `\n    ${meta}` : ''}
     <section class="lp-next" aria-label="このページの使い方">
       <div class="lp-row"><span class="lp-rl">このページで知る</span><nav class="lp-chips" aria-label="ページ内の節">${jump}</nav></div>
       <div class="lp-row"><span class="lp-rl">何に使いたい？</span><nav class="lp-chips" aria-label="買うものから探す">${cfg.buy.map(([f, t]) => `<a href="${f.startsWith('it-') ? '../hitsuyo/' : '../hitsuyo/'}${f}.html">${t}</a>`).join('')}<a class="more" href="../hitsuyo.html#hp-buy">すべて見る →</a></nav></div>
       <div class="lp-row"><span class="lp-rl">最新のニュース</span><ul class="lp-news">${news.map((n) => `<li><time>${n.date}</time><a href="${n.href}">${n.title}</a></li>`).join('')}<li class="more"><a href="../search.html?q=${encodeURIComponent(cfg.searchQ)}">募集中の公募を探す →</a></li></ul></div>
-    </section>
-    ${HERO[1]}`;
+    </section>`;
 }
+
+const btnsHtml = (cfg) => {
+  const b = cfg.hub ? HUB_BTNS : [['対象になるか、AIで確かめる', '../hantei.html', 'p'], ['無料で相談する', '../consult.html', 's']];
+  return `<div class="lp-btns">${b.map(([t, h, c]) => `<a class="lp-btn ${c}" href="${h}">${t}${c === 'p' ? ' <span aria-hidden="true">→</span>' : ''}</a>`).join('')}</div>`;
+};
 
 export function endHtml() {
   return `${END[0]}
@@ -135,11 +159,14 @@ export function apply(html, cfg) {
     const block = heroHtml(out.replace(/<!-- lp-hero -->[\s\S]*?<!-- \/lp-hero -->/, (m) => m), cfg);
     out = out.replace(/<!-- lp-hero -->[\s\S]*?<!-- \/lp-hero -->/, block);
   } else {
-    const re = /(?:<div class="fx-hero">\s*)?<div class="pb-banner"[^>]*><h1 class="pb-title">[\s\S]*?<\/h1><\/div>(?:\s*<\/div>\s*<div class="fx-lead">[\s\S]*?<\/p>\s*<p class="lead">[\s\S]*?<\/p>\s*<\/div>|\s*<div style="margin-bottom: 2rem;">[\s\S]*?<\/div>)/;
-    if (!re.test(out)) throw new Error('ページ上部のバナーが見つかりません');
-    out = out.replace(re, () => heroHtml(out, cfg));
+    const re = /(?:<div class="fx-hero">\s*)?<div class="pb-banner"[^>]*><h1 class="pb-title">[\s\S]*?<\/h1><\/div>(?:\s*<\/div>\s*<div class="fx-lead">[\s\S]*?<\/p>\s*<p class="lead">[\s\S]*?<\/p>\s*<\/div>|\s*<div style="margin-bottom: [\d.]+rem;">[\s\S]*?<\/div>)/;
+    const re2 = /<div style="margin-bottom: [\d.]+rem;">\s*<h1 class="display"[^>]*>[\s\S]*?<\/h1>\s*<p class="lead"[^>]*>[\s\S]*?<\/p>\s*<\/div>/;
+    const target = re.test(out) ? re : re2;
+    if (!target.test(out)) throw new Error('ページ上部のバナーが見つかりません');
+    out = out.replace(target, () => heroHtml(out, cfg));
   }
   out = strip2(out, END);
+  if (cfg.hub) return out;
   if (out.includes('<!-- /plan-cta -->')) out = out.replace('<!-- /plan-cta -->', `<!-- /plan-cta -->\n    ${endHtml()}`);
   else out = out.replace('</main>', `${endHtml()}\n  </main>`);
   return out;

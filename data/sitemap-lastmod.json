@@ -100,8 +100,8 @@
   "d": "2026-10-15"
  },
  "basics/index.html": {
-  "h": "v2:426d3b8ae0e5",
-  "d": "2026-10-15"
+  "h": "v2:57c9c033a7a3",
+  "d": "2026-10-17"
  },
  "basics/not-adopted.html": {
   "h": "v2:a927851d182f",
@@ -120,8 +120,8 @@
   "d": "2026-10-17"
  },
  "who/index.html": {
-  "h": "v2:1f8cde9ef920",
-  "d": "2026-10-14"
+  "h": "v2:0b8ce0268c60",
+  "d": "2026-10-17"
  },
  "who/sme.html": {
   "h": "v2:fa5fa66600c0",
@@ -180,8 +180,8 @@
   "d": "2026-10-17"
  },
  "feature/index.html": {
-  "h": "v2:75f6ebb21cc5",
-  "d": "2026-10-14"
+  "h": "v2:cc2080148d27",
+  "d": "2026-10-17"
  },
  "feature/jizokuka.html": {
   "h": "v2:771f8f73a39b",
@@ -228,8 +228,8 @@
   "d": "2026-10-15"
  },
  "cases/index.html": {
-  "h": "v2:b377fd693193",
-  "d": "2026-10-14"
+  "h": "v2:aeb0cd38fafc",
+  "d": "2026-10-17"
  },
  "cases/kaya-cellophane-ishikawa.html": {
   "h": "v2:20fef4ee00b1",
@@ -284,8 +284,8 @@
   "d": "2026-10-15"
  },
  "compare/index.html": {
-  "h": "v2:7ae6a0f5a40f",
-  "d": "2026-10-15"
+  "h": "v2:0792b1d407a9",
+  "d": "2026-10-17"
  },
  "compare/virtual-office.html": {
   "h": "v2:252cdbda04f8",
@@ -392,15 +392,15 @@
   "d": "2026-10-15"
  },
  "news/index.html": {
-  "h": "v2:f8aeaf4977bb",
-  "d": "2026-10-15"
+  "h": "v2:c81b19ae093b",
+  "d": "2026-10-17"
  },
  "news/sources.html": {
   "h": "v2:8ff9ebec8ab1",
   "d": "2026-10-15"
  },
  "blog/2026-10-11-blog-start.html": {
-  "h": "v2:73b268191cde",
+  "h": "v2:bdd804048fb6",
   "d": "2026-10-17"
  },
  "blog/2026-10-11-personal-popular-subsidies.html": {
@@ -424,7 +424,7 @@
   "d": "2026-10-17"
  },
  "blog/2026-10-13-subsidy-for-website.html": {
-  "h": "v2:734d8b00cfb8",
+  "h": "v2:b7cf68cd3e80",
   "d": "2026-10-17"
  },
  "blog/2026-10-15-aimitsumori-estimate-tips.html": {
@@ -444,7 +444,7 @@
   "d": "2026-10-17"
  },
  "blog/index.html": {
-  "h": "v2:67841e2893a6",
+  "h": "v2:1fe876e35592",
   "d": "2026-10-17"
  },
  "policy/about.html": {
@@ -1732,7 +1732,7 @@
   "d": "2026-10-17"
  },
  "research/index.html": {
-  "h": "v2:0fbdcddd138f",
+  "h": "v2:adb7959c177f",
   "d": "2026-10-17"
  },
  "research/methods.html": {
@@ -1760,8 +1760,8 @@
   "d": "2026-10-15"
  },
  "background/index.html": {
-  "h": "v2:3429f58c88ac",
-  "d": "2026-10-14"
+  "h": "v2:a30443be7729",
+  "d": "2026-10-17"
  },
  "background/labor.html": {
   "h": "v2:744b50a97649",
