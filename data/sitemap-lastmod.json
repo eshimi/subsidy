@@ -516,8 +516,8 @@
   "d": "2026-10-15"
  },
  "area/atsugi.html": {
-  "h": "v2:d55680cc77e4",
-  "d": "2026-10-15"
+  "h": "v2:b19e67c3ee98",
+  "d": "2026-10-17"
  },
  "area/beppu.html": {
   "h": "v2:6283d2ced5c1",
@@ -564,8 +564,8 @@
   "d": "2026-10-15"
  },
  "area/edogawa.html": {
-  "h": "v2:50e61f389db4",
-  "d": "2026-10-15"
+  "h": "v2:9ccd56c93ef7",
+  "d": "2026-10-17"
  },
  "area/fuchu.html": {
   "h": "v2:cf4c7fa96a09",
@@ -708,7 +708,7 @@
   "d": "2026-10-17"
  },
  "area/ichinomiya.html": {
-  "h": "v2:9180dadf5cc8",
+  "h": "v2:248b61f9cef4",
   "d": "2026-10-17"
  },
  "area/ichinoseki.html": {
@@ -988,8 +988,8 @@
   "d": "2026-10-15"
  },
  "area/maebashi.html": {
-  "h": "v2:cf8ad662c0ec",
-  "d": "2026-10-15"
+  "h": "v2:372de788db75",
+  "d": "2026-10-17"
  },
  "area/maizuru.html": {
   "h": "v2:f35e75ad60a5",
@@ -1000,7 +1000,7 @@
   "d": "2026-10-15"
  },
  "area/matsudo.html": {
-  "h": "v2:6d0ed19a77e1",
+  "h": "v2:8e8599691451",
   "d": "2026-10-17"
  },
  "area/matsue.html": {
@@ -1008,8 +1008,8 @@
   "d": "2026-10-15"
  },
  "area/matsumoto.html": {
-  "h": "v2:4f4f6011ee54",
-  "d": "2026-10-15"
+  "h": "v2:89408f90fcf3",
+  "d": "2026-10-17"
  },
  "area/matsusaka.html": {
   "h": "v2:e48562e33b37",
@@ -1176,8 +1176,8 @@
   "d": "2026-10-17"
  },
  "area/oita.html": {
-  "h": "v2:5228be6c321e",
-  "d": "2026-10-15"
+  "h": "v2:8c9c336aba27",
+  "d": "2026-10-17"
  },
  "area/okayama.html": {
   "h": "v2:efe7db4e4144",
@@ -1596,8 +1596,8 @@
   "d": "2026-10-17"
  },
  "area/toshima.html": {
-  "h": "v2:23b4d112b71c",
-  "d": "2026-10-15"
+  "h": "v2:8f28d1e51737",
+  "d": "2026-10-17"
  },
  "area/tosu.html": {
   "h": "v2:fd9ce8b1fe9e",
@@ -1712,7 +1712,7 @@
   "d": "2026-10-15"
  },
  "area/yokosuka.html": {
-  "h": "v2:6a4504541006",
+  "h": "v2:fb82f7a519e4",
   "d": "2026-10-17"
  },
  "area/yokote.html": {
@@ -1920,7 +1920,7 @@
   "d": "2026-10-17"
  },
  "programs/index.html": {
-  "h": "v2:729229eac9af",
+  "h": "v2:ae479e764de6",
   "d": "2026-10-17"
  },
  "programs/ageo-city-sogyo-ouen.html": {
@@ -2253,6 +2253,126 @@
  },
  "programs/yonezawa-city-sogyo-shien-hojo.html": {
   "h": "v2:575569b51764",
+  "d": "2026-10-17"
+ },
+ "programs/atsugi-city-akitenpo-shuten-shien.html": {
+  "h": "v2:8170aadc8c8f",
+  "d": "2026-10-17"
+ },
+ "programs/atsugi-city-seisansei-chinage-oen.html": {
+  "h": "v2:44b330facf05",
+  "d": "2026-10-17"
+ },
+ "programs/atsugi-city-setsubi-toshi-sokushin.html": {
+  "h": "v2:cef97a1d644b",
+  "d": "2026-10-17"
+ },
+ "programs/edogawa-dx-donyu.html": {
+  "h": "v2:dd3ed326554f",
+  "d": "2026-10-17"
+ },
+ "programs/edogawa-hanrokakudai.html": {
+  "h": "v2:fa7687559945",
+  "d": "2026-10-17"
+ },
+ "programs/edogawa-jinzai-kakuho.html": {
+  "h": "v2:d93db187d223",
+  "d": "2026-10-17"
+ },
+ "programs/edogawa-rodo-kankyo.html": {
+  "h": "v2:af1357c75aeb",
+  "d": "2026-10-17"
+ },
+ "programs/ichinomiya-city-akitenpo.html": {
+  "h": "v2:e6dc513b9ab8",
+  "d": "2026-10-17"
+ },
+ "programs/ichinomiya-city-boeki-shinko.html": {
+  "h": "v2:40a8566e7e69",
+  "d": "2026-10-17"
+ },
+ "programs/ichinomiya-city-sdgs-shien.html": {
+  "h": "v2:a5db53fced2a",
+  "d": "2026-10-17"
+ },
+ "programs/maebashi-city-jinzai-skillup.html": {
+  "h": "v2:764c22c92aaf",
+  "d": "2026-10-17"
+ },
+ "programs/maebashi-city-machinaka-kaigyo.html": {
+  "h": "v2:6305e1676e61",
+  "d": "2026-10-17"
+ },
+ "programs/matsudo-city-digital-challenge.html": {
+  "h": "v2:b8974c4e7d64",
+  "d": "2026-10-17"
+ },
+ "programs/matsudo-city-tenjikai-hojo.html": {
+  "h": "v2:21c31ebc0156",
+  "d": "2026-10-17"
+ },
+ "programs/matsumoto-city-akitenpo-kaiso.html": {
+  "h": "v2:5741bcfcc629",
+  "d": "2026-10-17"
+ },
+ "programs/matsumoto-city-seizogyo-katsseika.html": {
+  "h": "v2:f0daa44c7e19",
+  "d": "2026-10-17"
+ },
+ "programs/oita-city-chinage-shoreikin.html": {
+  "h": "v2:5ab393b00491",
+  "d": "2026-10-17"
+ },
+ "programs/oita-city-hanro-challenge.html": {
+  "h": "v2:ca653b6d64f0",
+  "d": "2026-10-17"
+ },
+ "programs/oita-city-jigyo-shokei.html": {
+  "h": "v2:2efa528883db",
+  "d": "2026-10-17"
+ },
+ "programs/oita-city-setsubi-toshi.html": {
+  "h": "v2:986e29e0ad7c",
+  "d": "2026-10-17"
+ },
+ "programs/oita-city-sogyosha-ouen.html": {
+  "h": "v2:6f0ee6b189cc",
+  "d": "2026-10-17"
+ },
+ "programs/toshima-chingin.html": {
+  "h": "v2:7a6cf5a3696e",
+  "d": "2026-10-17"
+ },
+ "programs/toshima-collab.html": {
+  "h": "v2:78854ecfb706",
+  "d": "2026-10-17"
+ },
+ "programs/toshima-kaigyo.html": {
+  "h": "v2:4fdeb5bf21ad",
+  "d": "2026-10-17"
+ },
+ "programs/toshima-keiei.html": {
+  "h": "v2:a56c45fe252f",
+  "d": "2026-10-17"
+ },
+ "programs/toshima-tenji.html": {
+  "h": "v2:e53f67777a26",
+  "d": "2026-10-17"
+ },
+ "programs/yokosuka-city-chusho-hosyoryo-hojo.html": {
+  "h": "v2:3900fce902dc",
+  "d": "2026-10-17"
+ },
+ "programs/yokosuka-city-saiyoryoku-koujo-hojo.html": {
+  "h": "v2:f7341e79171d",
+  "d": "2026-10-17"
+ },
+ "programs/yokosuka-city-shoene-seisansei-hojo.html": {
+  "h": "v2:86c824622c7b",
+  "d": "2026-10-17"
+ },
+ "programs/yokosuka-city-shokibo-ict-shien.html": {
+  "h": "v2:e3d59d53f9cc",
   "d": "2026-10-17"
  }
 }
