@@ -36,7 +36,7 @@
   "d": "2026-10-16"
  },
  "hitsuyo.html": {
-  "h": "v2:c88317b91b31",
+  "h": "v2:037678bd5482",
   "d": "2026-10-17"
  },
  "notices.html": {
@@ -1784,7 +1784,7 @@
   "d": "2026-10-17"
  },
  "hitsuyo/store.html": {
-  "h": "v2:b3b1bcee48af",
+  "h": "v2:8d1b3e2e9e1f",
   "d": "2026-10-17"
  },
  "hitsuyo/home-ev.html": {
@@ -1816,7 +1816,7 @@
   "d": "2026-10-17"
  },
  "hitsuyo/it.html": {
-  "h": "v2:7389f034141e",
+  "h": "v2:05babdcc7dc5",
   "d": "2026-10-17"
  },
  "hitsuyo/people-hiring.html": {
@@ -1832,7 +1832,7 @@
   "d": "2026-10-17"
  },
  "hitsuyo/people.html": {
-  "h": "v2:509cd6ad27b5",
+  "h": "v2:b414b5b9e4b5",
   "d": "2026-10-17"
  },
  "hitsuyo/startup-opening.html": {
@@ -1893,6 +1893,22 @@
  },
  "hitsuyo/store-energy.html": {
   "h": "v2:50c7bc0f1ac1",
+  "d": "2026-10-17"
+ },
+ "hitsuyo/it-ec.html": {
+  "h": "v2:bce0c4ebfc3b",
+  "d": "2026-10-17"
+ },
+ "hitsuyo/it-security.html": {
+  "h": "v2:a6fe341fc57c",
+  "d": "2026-10-17"
+ },
+ "hitsuyo/people-safety.html": {
+  "h": "v2:1ff9fa34c0c1",
+  "d": "2026-10-17"
+ },
+ "hitsuyo/store-signage.html": {
+  "h": "v2:1a6eec51e48e",
   "d": "2026-10-17"
  }
 }

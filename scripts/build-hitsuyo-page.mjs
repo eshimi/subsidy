@@ -1,5 +1,5 @@
 // 「やりたいことから探す」の入口（public/hitsuyo.html）を生成する: node scripts/build-hitsuyo-page.mjs
-// 構成：低めのヒーロー（イラスト）→ まず読みたい特集 → 分野ごとの棚（解説26本）→ 購入するものから調べる → 読み方の流れ → 次の一歩
+// 構成：低めのヒーロー（イラスト）→ まず読みたい特集 → 分野ごとの棚（解説の本数は自動）→ 購入するものから調べる → 読み方の流れ → 次の一歩
 // データは scripts/data/hitsuyo-articles.mjs（分野・解説）と scripts/data/purchases.mjs（購入するもの）。解説のページは build-hitsuyo-articles.mjs が生成する。
 // 「お店・会社／個人の住まい」の切り替えは public/hitsuyo-index.js。
 import { writeFileSync } from 'node:fs';
@@ -48,6 +48,9 @@ const HREF = {
   'website-ads': 'hitsuyo/it-website.html',
   'training-hiring': 'hitsuyo/people-training.html',
   'succession-buyout': 'hitsuyo/startup-succession.html',
+  'online-shop': 'hitsuyo/it-ec.html',
+  'security': 'hitsuyo/it-security.html',
+  'signage': 'hitsuyo/store-signage.html',
 };
 const chips = PURCHASES.map((p) => `        <a class="hp-chip" href="${esc(HREF[p.id])}">${esc(p.label)}</a>`).join('\n');
 

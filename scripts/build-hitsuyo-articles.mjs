@@ -10,6 +10,7 @@ import { SECTIONS as IT } from './data/hitsuyo/it.mjs';
 import { SECTIONS as HOME } from './data/hitsuyo/home.mjs';
 import { SECTIONS as PEOPLE } from './data/hitsuyo/people.mjs';
 import { SECTIONS as STARTUP } from './data/hitsuyo/startup.mjs';
+import { SECTIONS as EXTRA } from './data/hitsuyo/extra.mjs';
 import { esc } from './lib/site-shell.mjs';
 import { CATEGORIES, ARTICLES, UPDATED } from './data/hitsuyo-articles.mjs';
 
@@ -18,7 +19,8 @@ const OUT = join(ROOT, 'hitsuyo');
 const SECTION = ['../hitsuyo.html', 'やりたいことから探す'];
 const NOTE = '金額・補助率・対象経費は、制度・枠・公募回ごとに決まり、変わります。ここでは考え方と調べ方を説明します。申請や契約の前に、必ず公式の公募要領で確認してください。補助金の採択や受給を保証するものではありません。';
 
-const SECTIONS_BY_CAT = { store: STORE(kit), it: IT(kit), home: HOME(kit), people: PEOPLE(kit), startup: STARTUP(kit) };
+const EX = EXTRA(kit);
+const SECTIONS_BY_CAT = { store: { ...STORE(kit), ...EX.store }, it: { ...IT(kit), ...EX.it }, home: HOME(kit), people: { ...PEOPLE(kit), ...EX.people }, startup: STARTUP(kit) };
 
 // カテゴリのページ
 function categoryPage(cat) {

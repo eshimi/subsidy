@@ -154,4 +154,41 @@ export const PURCHASES = [
     ],
     warning: 'M&Aの仲介契約や、専門家との契約を先に結ぶと、補助の対象外になる場合があります。',
   },
+  {
+    id: 'online-shop',
+    label: 'ネットショップ・ECサイトを作りたい',
+    icon: '🛒',
+    examples: 'ネットショップの構築、ECサイトの改修、決済・在庫管理のシステム',
+    purposes: ['digital', 'sales'],
+    national: [
+      { name: '小規模事業者持続化補助金', href: 'feature/jizokuka.html', max: '最大250万円（特例の上乗せを含む）', note: 'サイトの制作・改修が、販路開拓の経費に入る場合があります。' },
+      { name: 'デジタル化・AI導入補助金', href: 'feature/digital-subsidy.html', max: '通常枠 最大450万円', note: '登録されたITツールの契約が対象です。' },
+    ],
+    checks: ['サイトの制作と、ITツールの契約のどちらが対象か', '月額の利用料の扱い', '見積書の内訳'],
+    warning: '制作・契約・支払いは、交付決定の後にしてください。',
+  },
+  {
+    id: 'security',
+    label: 'セキュリティ対策を入れたい',
+    icon: '🛡️',
+    examples: 'ウイルス対策、不正アクセスの監視、バックアップ',
+    purposes: ['digital'],
+    national: [
+      { name: 'デジタル化・AI導入補助金', href: 'feature/digital-subsidy.html', max: '公募回の枠ごとに上限あり', note: 'セキュリティ対策の枠が設けられる公募回があります。' },
+    ],
+    checks: ['登録されたサービスか', 'SECURITY ACTIONの宣言が必要か'],
+    warning: '契約・支払いは、交付決定の後にしてください。',
+  },
+  {
+    id: 'signage',
+    label: '看板・外装を整えたい',
+    icon: '🪧',
+    examples: '看板の設置、のぼり、外装の塗り替え',
+    purposes: ['sales', 'equipment'],
+    national: [
+      { name: '小規模事業者持続化補助金', href: 'feature/jizokuka.html', max: '最大250万円（特例の上乗せを含む）', note: '看板の設置・改修が、販路開拓の経費の例に挙げられています。' },
+    ],
+    checks: ['屋外広告物の手続き', '貸主の承諾'],
+    warning: '製作の発注・着工は、交付決定の後にしてください。',
+  },
 ];
