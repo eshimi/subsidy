@@ -37,7 +37,7 @@
 - 制度の変更の印: `scripts/build-changes-feed.mjs`（`scripts/lib/changes-feed.mjs`）が `public/grants/changes.json` を作る（build:grants の build-redirects のあと）。国の制度は data/program-history.json の直近60日の変更、自治体の制度は data/program-source-state.json の要確認。マイページ（mypage.js）が、保存したあとに更新があった制度に「更新あり」を出す。
 - マイページの「この8週間の動き」: 保存した制度の数（savedAt）と、見たページの数（履歴は最新30件まで）を、週ごと（月曜はじまり・日本時間）の棒グラフで出す（mypage.js の renderActivity）。履歴が残らないもの（解除した保存など）は数えない。
 - 締切のメール通知（第3段階）: `src/notify.js`（毎朝 7:00 JST の cron＝wrangler.jsonc の triggers.crons → worker.js の scheduled → runReminders）。会員が /api/notify でオンにした場合だけ、保存した制度の締切の7日前・前日（申請済み・結果は除く）を1通にまとめて送る。送信済みは notify_log（migrations/0002_notify.sql）。配信停止は /api/notify/unsubscribe?u=&t=（メールのリンク・ワンクリック解除）。送信は Cloudflare Email Service の send_email バインディング（`MAIL`、なければ `CONTACT_EMAIL`）。**vars の NOTIFY_ENABLED が "true" のときだけ有効**（2026-10-18 に一度 true にしたが、ユーザーが停止したため false に戻した。再開するときは true に）。
-- 利用規約: `public/policy/terms.html`（ひな形。公開前に専門家の確認が望ましい）。フッター（nav.mjs の BOTTOM_LINKS）・プライバシーポリシー・マイページのログイン欄からリンク。
+- 利用規約: `public/policy/terms.html`（2026-10-18 に専門家の確認が済み。文面を変えるときは、再確認が望ましい）。フッター（nav.mjs の BOTTOM_LINKS）・プライバシーポリシー・マイページのログイン欄からリンク。
 - apply-nav を実行すると、`<nav aria-label="補助リンク">` の行のインデントが増える既知の癖がある。実行後は、その行だけの差分を元に戻す。
 
 ## 未対応・確認待ち
