@@ -265,3 +265,24 @@ ARTICLES.push(
     sources: [['日本貿易振興機構（JETRO）', 'https://www.jetro.go.jp/'], L.chusho, L.jgrants, L.mirasapo],
     related: [['startup.html', '創業・新事業の補助金'], ['startup-product.html', '新商品の開発に使える補助金'], ['../news/2026-10-05-overseas-support.html', 'ニュース：海外展開・輸出を目指す中小企業の支援策まとめ'], ['../feature/monodukuri.html', '新事業進出・ものづくり商業サービス補助金とは'], ['../hitsuyo.html', '必要なものから探す'], ['../basics/business-plan.html', '事業計画書の書き方'], ['../hantei.html', 'AI補助金判定'], ['../area/index.html', '地域別の補助金']] },
 );
+
+ARTICLES.push(
+  { cat: 'it', slug: 'pc', banner: 'b15', icon: '💻', purposes: ['digital', 'equipment'], label: '業務用PC・タブレット', kicker: '業務用PC',
+    title: '業務用パソコン・タブレットを導入するときに調べたい補助金',
+    lead: '業務用のパソコン、タブレット、周辺機器を導入する前に、補助金が使えるかを調べる手順をまとめました。機器だけでは対象になりにくく、ソフトとセットで考えるのがポイントです。',
+    summary: '業務用PC・タブレットの導入で検討したい補助金（デジタル化・AI導入補助金・持続化補助金・自治体の制度）と、購入前の確認事項、購入の前に申請が必要なことを解説します。',
+    sources: [L.jgrants, L.chusho, L.mirasapo, L.jnet],
+    related: [['it.html', 'IT・デジタル化の補助金'], ['it-software.html', '会計・予約・顧客管理ソフトの補助金'], ['it-ai.html', 'AI導入の補助金の選び方'], ['../feature/digital-subsidy.html', 'デジタル化・AI導入補助金とは'], ...REL_COMMON] },
+  { cat: 'it', slug: 'promotion', banner: 'b10', icon: '📣', purposes: ['sales'], label: '広告・チラシ・販促物', kicker: '広告・チラシ',
+    title: '広告・チラシ・看板・展示会に使える補助金｜販路開拓の補助金の探し方',
+    lead: 'チラシ、パンフレット、広告、看板、展示会への出展などの費用を出す前に、補助金が使えるかを調べる手順をまとめました。販路開拓の補助金が、中心的な使い道です。',
+    summary: '広告・チラシ・看板・展示会で検討したい補助金（小規模事業者持続化補助金・自治体の販路開拓の助成など）と、始める前の確認事項、発注・契約の注意を解説します。',
+    sources: [L.chusho, L.jgrants, L.mirasapo, L.jnet],
+    related: [['it.html', 'IT・デジタル化の補助金'], ['it-website.html', 'ホームページ制作に使える補助金'], ['store-renovation.html', '店舗の内装・改装の補助金'], ['../feature/jizokuka.html', '小規模事業者持続化補助金とは'], ...REL_COMMON] },
+  { cat: 'store', slug: 'energy', banner: 'b04', icon: '💡', purposes: ['green', 'equipment'], label: '省エネ設備（LED・空調など）', kicker: '省エネ設備',
+    title: '省エネ設備（LED・空調・給湯器など）を入れるときに調べたい補助金',
+    lead: 'LED照明、高効率の空調、給湯器、冷凍冷蔵設備などの省エネ設備を入れる前に、国と自治体の補助金を調べる手順をまとめました。設備ごとの解説への案内もあります。',
+    summary: '省エネ設備（LED・高効率空調・給湯器・冷凍冷蔵設備）の導入で検討したい国の省エネ補助金と自治体の助成の探し方、購入前の確認事項、着工・購入前に申請が必要なことを解説します。',
+    sources: [L.sii, L.jgrants, L.chusho, L.jnet],
+    related: [['store.html', '店舗・設備投資の補助金'], ['store-aircon.html', '業務用エアコンの補助金'], ['store-refrigeration.html', '冷蔵・冷凍設備の補助金'], ['home-solar.html', '太陽光・蓄電池の補助金'], ['../grants/purposes.html', '目的別の補助金（省エネ）'], ...REL_COMMON] },
+);

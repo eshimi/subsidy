@@ -36,7 +36,7 @@
   "d": "2026-10-16"
  },
  "hitsuyo.html": {
-  "h": "v2:64ae9c9e6e94",
+  "h": "v2:7c0d9958e98f",
   "d": "2026-10-17"
  },
  "notices.html": {
@@ -1784,7 +1784,7 @@
   "d": "2026-10-17"
  },
  "hitsuyo/store.html": {
-  "h": "v2:5130c51e4fa9",
+  "h": "v2:b3b1bcee48af",
   "d": "2026-10-17"
  },
  "hitsuyo/home-ev.html": {
@@ -1816,7 +1816,7 @@
   "d": "2026-10-17"
  },
  "hitsuyo/it.html": {
-  "h": "v2:c9b43037b9a9",
+  "h": "v2:7389f034141e",
   "d": "2026-10-17"
  },
  "hitsuyo/people-hiring.html": {
@@ -1881,6 +1881,18 @@
  },
  "hitsuyo/store-robot.html": {
   "h": "v2:f0c2714660fe",
+  "d": "2026-10-17"
+ },
+ "hitsuyo/it-pc.html": {
+  "h": "v2:03a6e464b18c",
+  "d": "2026-10-17"
+ },
+ "hitsuyo/it-promotion.html": {
+  "h": "v2:6732241620f8",
+  "d": "2026-10-17"
+ },
+ "hitsuyo/store-energy.html": {
+  "h": "v2:50c7bc0f1ac1",
   "d": "2026-10-17"
  }
 }

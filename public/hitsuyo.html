@@ -70,33 +70,15 @@
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   
     .kp-chips { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 18px; }
-    .kp-chip { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border: 1.5px solid #e6e8ec; border-radius: 999px; background: #fff; font: inherit; font-weight: 600; color: #1f3353; cursor: pointer; }
+    .kp-chip { text-decoration: none; display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border: 1.5px solid #e6e8ec; border-radius: 999px; background: #fff; font: inherit; font-weight: 600; color: #1f3353; cursor: pointer; }
     .kp-chip:hover { border-color: #073461; }
     .kp-chip[aria-pressed="true"] { border-color: #073461; background: #eef5ff; box-shadow: 0 0 0 3px rgba(21, 101, 216, 0.12); }
-    .kp-amount { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 0 0 22px; }
-    .kp-amount input { width: 180px; padding: 10px 12px; border: 1.5px solid #e6e8ec; border-radius: 10px; font: inherit; }
-    .kp-panel { background: #fff; border: 1px solid #e6e8ec; border-radius: 16px; padding: 26px 30px; box-shadow: 0 4px 18px rgba(29, 42, 58, 0.05); }
-    .kp-h { font-size: 1.3rem; margin: 0 0 6px; }
     .kp-h3 { font-size: 1.02rem; margin: 22px 0 10px; padding-left: 10px; border-left: 4px solid #073461; }
-    .kp-ex { margin: 0 0 4px; color: var(--mute); font-size: 0.92rem; }
-    .kp-cards { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
-    .kp-cards a { display: grid; gap: 4px; padding: 14px 16px; border: 1px solid #e6e8ec; border-radius: 12px; text-decoration: none; color: inherit; }
-    .kp-cards a:hover { border-color: #073461; }
-    .kp-cards b { color: #073461; }
-    .kp-max { font-weight: 600; font-size: 0.9rem; }
-    .kp-note { font-size: 0.88rem; color: var(--mute); }
-    .kp-open ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
-    .kp-open li { padding: 10px 0; border-top: 1px solid #e6e8ec; }
-    .kp-open a { font-weight: 600; color: #2b65b1; }
-    .kp-open p { margin: 2px 0 0; font-size: 0.86rem; color: var(--mute); }
-    .kp-checks { margin: 0; padding-left: 1.3em; line-height: 1.8; }
-    .kp-warn { margin-top: 20px; padding: 16px 18px; border-radius: 12px; background: #fff4e8; border-left: 4px solid #c9411a; }
-    .kp-warn b { color: #9a3412; }
-    .kp-warn p { margin: 6px 0 0; line-height: 1.8; }
     .kp-next { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 10px; }
     .kp-next a { padding: 10px 18px; border-radius: 999px; background: #073461; color: #fff; font-weight: 700; text-decoration: none; }
     .kp-next a.ghost { background: #fff; color: #073461; border: 1px solid #9cc0ee; }
     .kp-hint { margin: 0 0 18px; color: var(--mute); font-size: 0.92rem; }
+
 
   </style>
   <meta name="google-adsense-account" content="ca-pub-7811993263471350">
@@ -194,203 +176,18 @@
     </section>
 
     <section aria-labelledby="kp-pick">
-      <h2 id="kp-pick" class="kp-h3" style="margin-top: 0;">購入するものを選んで、かんたんに調べる</h2>
-      <div class="kp-chips" role="group" aria-label="必要なもの">
-        <button type="button" class="kp-chip" data-id="ai-software" data-purposes="digital" aria-pressed="false"><span aria-hidden="true">🤖</span>AIツール・業務ソフトを契約したい</button>
-        <button type="button" class="kp-chip" data-id="pos-register" data-purposes="digital equipment" aria-pressed="false"><span aria-hidden="true">🧾</span>POSレジ・会計機器が必要</button>
-        <button type="button" class="kp-chip" data-id="store-renovation" data-purposes="equipment sales" aria-pressed="false"><span aria-hidden="true">🏪</span>店舗を改装したい</button>
-        <button type="button" class="kp-chip" data-id="pc-equipment" data-purposes="digital equipment" aria-pressed="false"><span aria-hidden="true">💻</span>業務用PCを導入したい</button>
-        <button type="button" class="kp-chip" data-id="machine-equipment" data-purposes="equipment research" aria-pressed="false"><span aria-hidden="true">⚙️</span>機械・生産設備を導入したい</button>
-        <button type="button" class="kp-chip" data-id="energy-saving" data-purposes="green" aria-pressed="false"><span aria-hidden="true">💡</span>省エネ設備（LED・空調など）を入れたい</button>
-        <button type="button" class="kp-chip" data-id="website-ads" data-purposes="sales" aria-pressed="false"><span aria-hidden="true">📣</span>ホームページ・広告・チラシを作りたい</button>
-        <button type="button" class="kp-chip" data-id="training-hiring" data-purposes="hiring" aria-pressed="false"><span aria-hidden="true">🎓</span>従業員の研修・資格取得・採用をしたい</button>
-        <button type="button" class="kp-chip" data-id="succession-buyout" data-purposes="succession" aria-pressed="false"><span aria-hidden="true">🤝</span>事業を引き継ぐ・M&amp;Aをしたい</button>
-      </div>
-      <div class="kp-amount">
-        <label for="kp-amount-input">購入予定の金額（任意）</label>
-        <input id="kp-amount-input" type="number" inputmode="numeric" min="0" step="10000" placeholder="例：300000">
-        <span>円</span>
-      </div>
-      <p class="kp-hint">金額を入れると、補助額の目安の考え方を表示します。補助率や上限は、制度・枠・公募回で変わります。</p>
-    </section>
-
-    <section id="kp-result" aria-live="polite" hidden>
-      <div class="kp-panel" id="kp-ai-software" data-id="ai-software" hidden>
-        <h2 class="kp-h">AIツール・業務ソフトを契約したい</h2>
-        <p class="kp-ex">対象になりそうなもの：会計ソフト、予約システム、受発注システム、生成AIツールの月額契約</p>
-        <h3 class="kp-h3">関係しそうな国の制度</h3>
-        <ul class="kp-cards">
-          <li><a href="feature/digital-subsidy.html"><b>デジタル化・AI導入補助金</b><span class="kp-max">上限の目安：通常枠 最大450万円</span><span class="kp-note">IT導入支援事業者が登録したツールが対象です。</span></a></li>
-          <li><a href="feature/jizokuka.html"><b>小規模事業者持続化補助金</b><span class="kp-max">上限の目安：最大250万円（特例の上乗せを含む）</span><span class="kp-note">ホームページやチラシなど、販路開拓の経費と組み合わせる場合に検討します。</span></a></li>
-        </ul>
-        <div class="kp-open" data-open>
-          <h3 class="kp-h3">募集中の補助金（この必要なものに関係しそうなもの）</h3>
-          <p class="kp-loading">読み込み中…</p>
-        </div>
-        <h3 class="kp-h3">購入の前に確認すること</h3>
-        <ul class="kp-checks">
-          <li>導入したいツールが、補助対象として登録されているか（IT導入支援事業者に確認）</li>
-          <li>契約や支払いは、交付決定の後にする（交付決定前は対象外）</li>
-          <li>月額の利用料が対象になるか、対象期間はいつまでか（公募要領で確認）</li>
-          <li>gBizIDプライムなどの電子申請用のアカウントを取得しているか</li>
-        </ul>
-        <div class="kp-warn" role="note"><b>⚠ 契約・発注の注意</b><p>交付決定の前に契約・発注・支払いをしたものは、補助の対象になりません。先に契約してから申請すると、対象外になる可能性があります。</p></div>
-      </div>
-      <div class="kp-panel" id="kp-pos-register" data-id="pos-register" hidden>
-        <h2 class="kp-h">POSレジ・会計機器が必要</h2>
-        <p class="kp-ex">対象になりそうなもの：POSレジ、券売機、タブレット注文端末、自動釣銭機</p>
-        <h3 class="kp-h3">関係しそうな国の制度</h3>
-        <ul class="kp-cards">
-          <li><a href="feature/digital-subsidy.html"><b>デジタル化・AI導入補助金</b><span class="kp-max">上限の目安：通常枠 最大450万円（ハードウェアは枠ごとに上限あり）</span><span class="kp-note">レジ・券売機などのハードウェアは、ソフトと一緒に登録される場合があります。</span></a></li>
-          <li><a href="feature/shoryokuka.html"><b>中小企業省力化投資補助金（カタログ注文型）</b><span class="kp-max">上限の目安：5人以下 200万円（賃上げで300万円）など</span><span class="kp-note">人手不足の解消につながる機器（券売機など）が、カタログに登録されている場合があります。</span></a></li>
-        </ul>
-        <div class="kp-open" data-open>
-          <h3 class="kp-h3">募集中の補助金（この必要なものに関係しそうなもの）</h3>
-          <p class="kp-loading">読み込み中…</p>
-        </div>
-        <h3 class="kp-h3">購入の前に確認すること</h3>
-        <ul class="kp-checks">
-          <li>機器がどの補助金の対象か（ハードウェアかソフトか、登録の有無）</li>
-          <li>本体・設置工事・月額利用料のどこまでが対象か</li>
-          <li>注文・会計の作業がどれだけ減るか（省力化の計画として説明できるか）</li>
-        </ul>
-        <div class="kp-warn" role="note"><b>⚠ 契約・発注の注意</b><p>機器の発注と支払いは、交付決定の後に行ってください。店頭の機器を先に入れ替えると、対象外になることがあります。</p></div>
-      </div>
-      <div class="kp-panel" id="kp-store-renovation" data-id="store-renovation" hidden>
-        <h2 class="kp-h">店舗を改装したい</h2>
-        <p class="kp-ex">対象になりそうなもの：内装工事、看板、外装の改修、客席の増設、厨房の改修</p>
-        <h3 class="kp-h3">関係しそうな国の制度</h3>
-        <ul class="kp-cards">
-          <li><a href="feature/jizokuka.html"><b>小規模事業者持続化補助金</b><span class="kp-max">上限の目安：最大250万円（特例の上乗せを含む）</span><span class="kp-note">店舗の改装が、販路開拓の取り組みとして計画に含まれる場合です。</span></a></li>
-          <li><a href="feature/monodukuri.html"><b>新事業進出・ものづくり商業サービス補助金</b><span class="kp-max">上限の目安：従業員数により最大9,000万円</span><span class="kp-note">新しい事業に進出するための設備投資の一部として、店舗の改修が含まれる場合があります。</span></a></li>
-        </ul>
-        <div class="kp-open" data-open>
-          <h3 class="kp-h3">募集中の補助金（この必要なものに関係しそうなもの）</h3>
-          <p class="kp-loading">読み込み中…</p>
-        </div>
-        <h3 class="kp-h3">購入の前に確認すること</h3>
-        <ul class="kp-checks">
-          <li>工事が、事業計画の中でどの取り組みに当たるか（販路開拓・新事業など）</li>
-          <li>借りている店舗の場合、貸主の承諾が必要か</li>
-          <li>工事の見積もりを、申請の前に複数社から取っているか</li>
-          <li>補助対象外の経費（家具・消耗品・借地料など）が混ざっていないか</li>
-        </ul>
-        <div class="kp-warn" role="note"><b>⚠ 契約・発注の注意</b><p>工事の契約と着工は、交付決定の前に行わないでください。着工してから申請すると、補助の対象外になります。</p></div>
-      </div>
-      <div class="kp-panel" id="kp-pc-equipment" data-id="pc-equipment" hidden>
-        <h2 class="kp-h">業務用PCを導入したい</h2>
-        <p class="kp-ex">対象になりそうなもの：業務用パソコン、タブレット、周辺機器、サーバー</p>
-        <h3 class="kp-h3">関係しそうな国の制度</h3>
-        <ul class="kp-cards">
-          <li><a href="feature/digital-subsidy.html"><b>デジタル化・AI導入補助金（インボイス枠など）</b><span class="kp-max">上限の目安：PC・タブレットは補助上限10万円まで（枠による）</span><span class="kp-note">PCは単独では対象にならず、登録されたソフトとセットで対象になるのが基本です。</span></a></li>
-        </ul>
-        <div class="kp-open" data-open>
-          <h3 class="kp-h3">募集中の補助金（この必要なものに関係しそうなもの）</h3>
-          <p class="kp-loading">読み込み中…</p>
-        </div>
-        <h3 class="kp-h3">購入の前に確認すること</h3>
-        <ul class="kp-checks">
-          <li>PCだけが対象になるか、ソフトとのセットが必要か（枠と公募要領で確認）</li>
-          <li>台数と単価が、補助の上限に合っているか</li>
-          <li>中古品や、事業と関係の薄い用途のものは対象外になりやすいことを確認</li>
-        </ul>
-        <div class="kp-warn" role="note"><b>⚠ 契約・発注の注意</b><p>PCを先に購入すると、補助の対象外になります。購入は交付決定の後にしてください。</p></div>
-      </div>
-      <div class="kp-panel" id="kp-machine-equipment" data-id="machine-equipment" hidden>
-        <h2 class="kp-h">機械・生産設備を導入したい</h2>
-        <p class="kp-ex">対象になりそうなもの：加工機、ロボット、搬送機、検査装置、製造ライン</p>
-        <h3 class="kp-h3">関係しそうな国の制度</h3>
-        <ul class="kp-cards">
-          <li><a href="feature/shoryokuka.html"><b>中小企業省力化投資補助金</b><span class="kp-max">上限の目安：一般型 従業員規模により最大8,000万円</span><span class="kp-note">人手不足の解消や省力化につながる設備が対象です。</span></a></li>
-          <li><a href="feature/monodukuri.html"><b>新事業進出・ものづくり商業サービス補助金</b><span class="kp-max">上限の目安：従業員数により最大9,000万円（特例を含む）</span><span class="kp-note">新しい製品・サービスを作るための設備投資が対象です。</span></a></li>
-        </ul>
-        <div class="kp-open" data-open>
-          <h3 class="kp-h3">募集中の補助金（この必要なものに関係しそうなもの）</h3>
-          <p class="kp-loading">読み込み中…</p>
-        </div>
-        <h3 class="kp-h3">購入の前に確認すること</h3>
-        <ul class="kp-checks">
-          <li>設備が、省力化・新製品開発のどちらの計画に当たるか</li>
-          <li>設備の設置・据付工事の費用が、対象経費に含まれるか</li>
-          <li>賃上げの要件（事業計画期間中の給与の伸びなど）を満たせるか</li>
-        </ul>
-        <div class="kp-warn" role="note"><b>⚠ 契約・発注の注意</b><p>設備の発注は交付決定の後にしてください。見積もりだけなら問題ありませんが、発注書や契約書は交付決定の後に作成してください。</p></div>
-      </div>
-      <div class="kp-panel" id="kp-energy-saving" data-id="energy-saving" hidden>
-        <h2 class="kp-h">省エネ設備（LED・空調など）を入れたい</h2>
-        <p class="kp-ex">対象になりそうなもの：LED照明、高効率空調、冷蔵設備、太陽光発電、蓄電池</p>
-        <h3 class="kp-h3">関係しそうな国の制度</h3>
-        <ul class="kp-cards">
-          <li><a href="grants/purposes.html"><b>省エネ・非化石転換の補助金（国の制度）</b><span class="kp-max">上限の目安：制度により異なる</span><span class="kp-note">国の省エネ補助金は公募回ごとに変わるため、募集中の制度を確認してください。</span></a></li>
-        </ul>
-        <div class="kp-open" data-open>
-          <h3 class="kp-h3">募集中の補助金（この必要なものに関係しそうなもの）</h3>
-          <p class="kp-loading">読み込み中…</p>
-        </div>
-        <h3 class="kp-h3">購入の前に確認すること</h3>
-        <ul class="kp-checks">
-          <li>機器が、補助の対象設備として登録されているか</li>
-          <li>工事後の省エネ効果を、見積もりや計算書で示せるか</li>
-          <li>自治体の省エネ補助金（都道府県・市区町村）も併せて確認したか</li>
-        </ul>
-        <div class="kp-warn" role="note"><b>⚠ 契約・発注の注意</b><p>工事の着工や機器の購入の前に申請が必要な制度が多くあります。先に工事を始めないでください。</p></div>
-      </div>
-      <div class="kp-panel" id="kp-website-ads" data-id="website-ads" hidden>
-        <h2 class="kp-h">ホームページ・広告・チラシを作りたい</h2>
-        <p class="kp-ex">対象になりそうなもの：ホームページ制作、ネット広告、チラシ・パンフレット、看板、展示会の出展</p>
-        <h3 class="kp-h3">関係しそうな国の制度</h3>
-        <ul class="kp-cards">
-          <li><a href="feature/jizokuka.html"><b>小規模事業者持続化補助金</b><span class="kp-max">上限の目安：最大250万円（特例の上乗せを含む）</span><span class="kp-note">ホームページ・広告・チラシなど、販路開拓の経費が中心の補助金です。</span></a></li>
-        </ul>
-        <div class="kp-open" data-open>
-          <h3 class="kp-h3">募集中の補助金（この必要なものに関係しそうなもの）</h3>
-          <p class="kp-loading">読み込み中…</p>
-        </div>
-        <h3 class="kp-h3">購入の前に確認すること</h3>
-        <ul class="kp-checks">
-          <li>ホームページや広告が、販路開拓の計画の一部として説明できるか</li>
-          <li>広告の運用費（掲載料）と、制作費のどちらが対象か</li>
-          <li>補助の対象期間の中で、実施と支払いが終わるか</li>
-        </ul>
-        <div class="kp-warn" role="note"><b>⚠ 契約・発注の注意</b><p>制作会社との契約は、交付決定の後にしてください。先に契約すると、補助の対象外になることがあります。</p></div>
-      </div>
-      <div class="kp-panel" id="kp-training-hiring" data-id="training-hiring" hidden>
-        <h2 class="kp-h">従業員の研修・資格取得・採用をしたい</h2>
-        <p class="kp-ex">対象になりそうなもの：資格取得の講座、社内研修、リスキリング、採用活動、正社員化</p>
-        <h3 class="kp-h3">関係しそうな国の制度</h3>
-        <ul class="kp-cards">
-          <li><a href="feature/employment.html"><b>雇用関係の助成金（キャリアアップ・人材開発支援など）</b><span class="kp-max">上限の目安：制度により異なる（業務改善助成金は最大600万円）</span><span class="kp-note">雇用保険の適用事業所であることが、多くの助成金の条件になります。</span></a></li>
-        </ul>
-        <div class="kp-open" data-open>
-          <h3 class="kp-h3">募集中の補助金（この必要なものに関係しそうなもの）</h3>
-          <p class="kp-loading">読み込み中…</p>
-        </div>
-        <h3 class="kp-h3">購入の前に確認すること</h3>
-        <ul class="kp-checks">
-          <li>研修・講座を受ける前に、計画届などの手続きが必要か</li>
-          <li>対象になる従業員（雇用形態・雇用期間）の条件を満たしているか</li>
-          <li>受講料の支払いは、いつからの分が対象か</li>
-        </ul>
-        <div class="kp-warn" role="note"><b>⚠ 契約・発注の注意</b><p>助成金の多くは、研修を始める前や、講座を申し込む前に手続きが必要です。受講を済ませてからでは対象外になることがあります。</p></div>
-      </div>
-      <div class="kp-panel" id="kp-succession-buyout" data-id="succession-buyout" hidden>
-        <h2 class="kp-h">事業を引き継ぐ・M&amp;Aをしたい</h2>
-        <p class="kp-ex">対象になりそうなもの：事業承継に伴う設備投資、M&amp;Aの仲介・FA費用、専門家への相談費用</p>
-        <h3 class="kp-h3">関係しそうな国の制度</h3>
-        <ul class="kp-cards">
-          <li><a href="feature/succession.html"><b>事業承継・M&amp;A補助金</b><span class="kp-max">上限の目安：枠により異なる（専門家活用枠など）</span><span class="kp-note">仲介やFAの費用、引き継ぎ後の設備投資などが対象になる枠があります。</span></a></li>
-        </ul>
-        <div class="kp-open" data-open>
-          <h3 class="kp-h3">募集中の補助金（この必要なものに関係しそうなもの）</h3>
-          <p class="kp-loading">読み込み中…</p>
-        </div>
-        <h3 class="kp-h3">購入の前に確認すること</h3>
-        <ul class="kp-checks">
-          <li>事業承継計画の作成や、認定支援機関の確認が必要か</li>
-          <li>仲介・FAとの契約は、交付決定の後か</li>
-          <li>引き継ぎの形（親族内・従業員・M&amp;A）によって、使える枠が違う</li>
-        </ul>
-        <div class="kp-warn" role="note"><b>⚠ 契約・発注の注意</b><p>M&amp;Aの仲介契約や、専門家との契約を先に結ぶと、補助の対象外になる場合があります。</p></div>
+      <h2 id="kp-pick" class="kp-h3" style="margin-top: 0;">購入するものから、かんたんに調べる</h2>
+      <p class="kp-hint">買うものを選ぶと、検討したい制度・始める前の確認・契約の注意をまとめた解説に進めます。</p>
+      <div class="kp-chips" role="group" aria-label="購入するもの">
+        <a class="kp-chip" href="hitsuyo/it-ai.html"><span aria-hidden="true">🤖</span>AIツール・業務ソフトを契約したい</a>
+        <a class="kp-chip" href="hitsuyo/store-pos.html"><span aria-hidden="true">🧾</span>POSレジ・会計機器が必要</a>
+        <a class="kp-chip" href="hitsuyo/store-renovation.html"><span aria-hidden="true">🏪</span>店舗を改装したい</a>
+        <a class="kp-chip" href="hitsuyo/it-pc.html"><span aria-hidden="true">💻</span>業務用PCを導入したい</a>
+        <a class="kp-chip" href="hitsuyo/store-machine.html"><span aria-hidden="true">⚙️</span>機械・生産設備を導入したい</a>
+        <a class="kp-chip" href="hitsuyo/store-energy.html"><span aria-hidden="true">💡</span>省エネ設備（LED・空調など）を入れたい</a>
+        <a class="kp-chip" href="hitsuyo/it-website.html"><span aria-hidden="true">📣</span>ホームページ・広告・チラシを作りたい</a>
+        <a class="kp-chip" href="hitsuyo/people-training.html"><span aria-hidden="true">🎓</span>従業員の研修・資格取得・採用をしたい</a>
+        <a class="kp-chip" href="hitsuyo/startup-succession.html"><span aria-hidden="true">🤝</span>事業を引き継ぐ・M&amp;Aをしたい</a>
       </div>
       <div class="kp-next">
         <a href="hantei.html">AI補助金判定で、条件から調べる</a>
@@ -400,7 +197,6 @@
     </section>
 
     <p class="area-note">掲載の金額・補助率・対象は目安です。制度は年度や公募回で変わるため、申請や契約の前に必ず公式の公募要領で確認してください。募集中の補助金は jGrants（デジタル庁）の公開データをもとに毎日更新しています。</p>
-    <script src="hitsuyo.js" defer></script>
 </div><aside class="page-side" aria-label="関連ページ">
     <nav class="related-links" aria-label="補助金を探す" data-group>
       <h2>補助金を探す</h2>
