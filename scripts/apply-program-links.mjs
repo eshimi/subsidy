@@ -3,6 +3,7 @@
 import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { pageable } from './lib/program-detail.mjs';
+import { loadState, liveIds } from './lib/program-source.mjs';
 
 const ROOT = join(import.meta.dirname, '..');
 const AREA = join(ROOT, 'public', 'area');
@@ -19,7 +20,7 @@ export function applyLinks(html, ids) {
 if (process.argv[1] === import.meta.filename) {
   const file = join(ROOT, 'data', 'program-details.json');
   const items = existsSync(file) ? JSON.parse(readFileSync(file, 'utf-8')).items : {};
-  const ids = new Set(Object.entries(items).filter(([, d]) => pageable(d)).map(([id]) => id));
+  const ids = liveIds(items, loadState(), pageable, new Date(Date.now() + 9 * 3600e3).toISOString().slice(0, 10));
   let changed = 0, linked = 0;
   for (const f of readdirSync(AREA).filter((x) => x.endsWith('.html'))) {
     const p = join(AREA, f);

@@ -10,6 +10,7 @@ import { LOCAL_PROGRAMS } from '../src/data/local-programs.js';
 import { AREA_CITIES } from '../src/data/area-cities.js';
 import { PREF_SLUGS } from '../src/data/prefectures.js';
 import { pageable } from './lib/program-detail.mjs';
+import { loadState, isHidden, needsReview } from './lib/program-source.mjs';
 
 const ROOT = join(import.meta.dirname, '..');
 const OUT = join(ROOT, 'public', 'programs');
@@ -28,7 +29,7 @@ function areaOf(p) {
   return city ? { href: `../area/${city.slug}.html#${p.id}`, label: `${city.name}の補助金・助成金一覧`, place: `${city.pref}${city.name}`, pref: city.pref } : null;
 }
 
-export function programPage(p, d, checkedAt) {
+export function programPage(p, d, checkedAt, review = false) {
   const area = areaOf(p);
   const rows = (d.facts || []).map(([k, v]) => [esc(k), esc(v)]);
   const sections = [
@@ -56,6 +57,7 @@ export function programPage(p, d, checkedAt) {
     body: articleBody({
       section: SECTION, kicker: p.name, title: p.name, lead: d.lead, sections, related,
       banner: bannerFor(`programs/${p.id}.html`), updated: ja(checkedAt),
+      afterLead: review ? `\n    <p class="area-note" role="note"><strong>ご注意：</strong>公式ページの内容が、この解説の確認時（${ja(checkedAt)}）から変わっている可能性があります。最新の条件は、必ず公式ページでご確認ください。</p>` : '',
       sources: [[`公式の案内ページ（${p.provider || area?.place || '実施団体'}）`, p.url]], sourcesHeading: '最新情報の確認先（公式）',
     }),
   };
@@ -66,11 +68,13 @@ export function build() {
   const byId = new Map(LOCAL_PROGRAMS.map((p) => [p.id, p]));
   mkdirSync(OUT, { recursive: true });
   for (const f of readdirSync(OUT)) if (f.endsWith('.html')) rmSync(join(OUT, f));
+  const state = loadState();
+  const today = new Date(Date.now() + 9 * 3600e3).toISOString().slice(0, 10);
   const made = [];
   for (const [id, d] of Object.entries(details.items)) {
     const p = byId.get(id);
-    if (!p || !pageable(d)) continue;
-    const { title, description, body } = programPage(p, d, d.checkedAt || details.checkedAt);
+    if (!p || !pageable(d) || isHidden(state.items?.[id], d, today)) continue;
+    const { title, description, body } = programPage(p, d, d.checkedAt || details.checkedAt, needsReview(state.items?.[id]));
     writeArticle(OUT, 'programs', `${id}.html`, { title, description, body });
     made.push({ p, d });
   }

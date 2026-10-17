@@ -40,6 +40,8 @@ jobs:
           node scripts/update-jgrants-details.mjs
           node scripts/update-research-history.mjs
           node scripts/update-analysis.mjs
+          # 制度ガイド（自治体）の公式ページの確認：毎週月曜と、手動実行のとき（終了・取得できない制度は、公開を止める）
+          if [ "$(date -u +%u)" = "7" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then node scripts/check-program-sources.mjs; fi
       # 更新した詳細データをリポジトリに保存する。Cloudflare の Git 連携のビルドは、これを読むだけにする。
       # [skip ci] でビルドの二重起動を避ける（このあとのデプロイが、更新したデータを使う）
       - name: 詳細データをリポジトリに保存
@@ -52,7 +54,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           # 実行中に、ブランチに別のコミットが入ることがある。最新のブランチの上に、詳細データだけを載せ直して保存する（最大3回）
-          files="jgrants-details.json research-history.json jgrants-ids.json analysis-latest.json sitemap-lastmod.json"
+          files="jgrants-details.json research-history.json jgrants-ids.json analysis-latest.json sitemap-lastmod.json program-history.json program-source-state.json"
           for f in $files; do [ -f "data/$f" ] && cp "data/$f" "$RUNNER_TEMP/"; done
           saved=""
           for i in 1 2 3; do

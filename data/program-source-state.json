@@ -1,0 +1,1473 @@
+{
+ "version": 1,
+ "items": {
+  "akita-ma-shien": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 5,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "akita-digital-donyu-hojokin": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 3,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "saitama-dx-donyu-hojo": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 3,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "hiroshima-chinage-kankyo": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "tokyo-seihin-chakushu": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "toyama-jigyo-keizoku": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "hirosaki-city-startup-sosyutsu": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "nagano-city-iju-kigyo-shienkin": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "kumamoto-jigyo-shokei-atotsugi": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "tsukuba-city-shinki-sogyo-sokushin": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "nagaoka-city-gakusei-kigyoka": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "hiroshima-pro-jinzai": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "tsukuba-city-startup-ricchi-shorei": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "ichinomiya-city-sogyo-shikin-joseikin": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "tokushima-seicho-ma": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "okazaki-city-sogyo-risokyu": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "ishinomaki-city-sogyo-shien": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "higashihiroshima-city-iju-sogyo-shokei": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "ome-city-sogyosha-oen-hojo": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "ichikawa-city-venture-hoshoryo": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "himeji-city-green-family": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "ogaki-city-startup-shien-hojo": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "nagano-startup-yuchi-sosyutsu": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "aichi-startup-sogyo": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "ashikaga-city-sogyosha-stepup-hojo": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "onomichi-city-kaigyo-shien-hojo": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "kashiwa-city-sogyosha-ouen-hojokin": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "matsuyama-city-sogyo-risi": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 19,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "tottori-ichinengo-shienkin": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "kariya-city-sogyosha-shien": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "onomichi-city-sogyo-shien-hojo": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "takaoka-city-sogyo-jigyoshokei": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "kasukabe-city-hojin-setsuritsu": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "nagasaki-chinage-kinkyu-shienkin": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "niihama-city-sogyo-sokushin-hojo": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "himeji-city-sogyosha-oen": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "tottori-startup-kakusoku": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "ishikawa-jigyoshokei-enkatsu": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "koriyama-city-sogyo-startup": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "hirakata-city-takeoff-hojo": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 1,
+   "lastStatus": 408,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "hiroshima-shogakukin-hensai": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "yokote-city-kigyo-sogyo-shien-hojo": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "osaka-datsutanso-jishu": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "miyazaki-fukugyo-jinzai": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 1,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "hitachi-city-tenpo-office-kaisetsu-shien": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "kumagaya-city-sogyosha-ouen": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "ehime-dx-hajime": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "fukui-city-startup-sosyutsu": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "matsudo-city-kaisha-setsuritsu-hojo": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "kamakura-city-kigyo-ritchi-seibihi": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "isesaki-city-sogyo-jigyoshokei-support": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "toyota-city-sogyo-hosyoryo": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "kasugai-city-sogyo-jigyo-hojo": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "settsu-city-kigyosha-yushi-hojo": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "tokyo-jigyoshokei-josei": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 2,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "niigata-kigyo-renkei": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "yamaguchi-dx-tool": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "shiga-jigyo-shokei-seicho": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "tomakomai-city-sogyo-support": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "ishikawa-noto-kigyo-sokushin": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "itami-city-sogyo-shien-hojokin": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "sakata-city-kaigyo-shien-hojo": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "numazu-city-it-office-shinshutsu": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "toride-city-challenge-shien-hojo": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "yokosuka-city-shinai-sogyosha-rishi-hokyu": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "tokyo-kadai-kaiketsu-gijutsu": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "sabae-city-startup-shien-hojo": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "niiza-city-sogyo-shien-hojo": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "gunma-seicho-ma-hojo": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "ise-city-sogyo-iten-sokushin": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "kagoshima-jigyo-shokei-kasokuka": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 1,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "suita-city-kaigyo-risokyu": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 5,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "toride-city-incubation-office-hojo": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "yonezawa-city-sogyo-shien-hojo": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "toyama-datsutanso-model": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "fukui-hito-toushi": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "hachinohe-city-kaisha-setsuritsu": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "soka-city-keiei-kakushin-sogyo": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "ageo-city-sogyo-ouen": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "yokosuka-city-chusho-hosyoryo-hojo": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "yokosuka-city-saiyoryoku-koujo-hojo": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "joetsu-city-startup-shien-hojo": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "yokosuka-city-shokibo-ict-shien": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "okazaki-city-sogyo-hosyoryo": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "suzuka-city-sogyo-sokushin-hojo": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "toyonaka-city-touroku-menkyozei": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "nagasaki-city-sogyosha-seicho": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "oita-city-hanro-challenge": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "oita-city-sogyosha-ouen": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "oita-city-setsubi-toshi": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "toshima-keiei": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "toshima-collab": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "matsumoto-city-seizogyo-katsseika": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "edogawa-rodo-kankyo": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "edogawa-jinzai-kakuho": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "maebashi-city-jinzai-skillup": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "yokosuka-city-shoene-seisansei-hojo": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "maebashi-city-machinaka-kaigyo": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "oita-city-chinage-shoreikin": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "atsugi-city-seisansei-chinage-oen": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "ichinomiya-city-boeki-shinko": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "oita-city-jigyo-shokei": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "toshima-kaigyo": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "toshima-tenji": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "matsudo-city-digital-challenge": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "edogawa-dx-donyu": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "edogawa-hanrokakudai": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "matsudo-city-tenjikai-hojo": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "atsugi-city-akitenpo-shuten-shien": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "matsumoto-city-akitenpo-kaiso": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "ichinomiya-city-akitenpo": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "toshima-chingin": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "ichinomiya-city-sdgs-shien": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "atsugi-city-setsubi-toshi-sokushin": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "takamatsu-city-shinshijo-hanro": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 1,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "tokushima-city-tenant-mokushitsu": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "tokushima-city-digital-sokushin": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "shinagawa-keiei-kaizen": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "katsushika-jinzai-kakuho": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "hitachi-city-datsutanso-setsubi-hojo": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "tsukuba-city-sogyo-hosyoryo-hojo": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "ebina-city-chusho-shinko-shien": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 1,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "tokushima-city-ec-sannyu": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "kawaguchi-city-dx-suishin": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "hiratsuka-city-chinage-shoreikin": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "shinagawa-jinzai-shokuba": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "katsushika-digital-shien": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "takamatsu-city-tokusanhin-hanbai": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "takaoka-city-shinjidai-hanro": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "takamatsu-city-chuo-shotengai-sogyo": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "kawaguchi-city-tenpo-kaishu": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "hirosaki-city-akitenpo-taisaku": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "hachioji-city-keiei-kyoka-hanro": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "hitachi-city-jinteki-shihon-keiei-hojo": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "takamatsu-city-datsutanso-finance": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "nagaoka-city-seidoyushi-hoshoryo": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "katsushika-hp-sakusei": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "fukui-city-jigyoshokei-hojo": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "tokushima-city-hanro-kakudai": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "hitachi-city-kyosoryoku-kyoka-hojo": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "ageo-city-hanro-kaitaku": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "kumagaya-city-haremachi-kaihatsu": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 1,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "hachioji-city-sogyosha-hanro": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "sumida-hanrokakudai": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "fukui-city-ma-kasokuka": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "sumida-led": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "takaoka-city-jinzai-ikusei": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "tokushima-city-jinzai-kakuho": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "koshi-city-sogyo-shien-hojo": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "takamatsu-city-jigyo-koudoka": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 2,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "hiratsuka-city-dx-hojo": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "sumida-digital": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "katsushika-mihonichi": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "saga-city-hatarakigai-kigyoryoku": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "tsukuba-city-business-kakudai": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "kumagaya-city-okugai-genba-keigen": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "hachioji-city-yushi-shienkin": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "ebina-city-shinyo-hoshoryo-hojo": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 1,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "takaoka-city-sangyo-smart": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "shinagawa-jinzai-skillup": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "kanazawa-city-wakamono-kigyoka-shien": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "izumi-city-sogyo-shien-hojo": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  },
+  "nagaoka-city-hanro-expert": {
+   "checkedAt": "2026-10-17",
+   "lastOk": "2026-10-17",
+   "fail": 0,
+   "lastStatus": 200,
+   "endedBase": 0,
+   "endedSuspect": false,
+   "problems": []
+  }
+ },
+ "checkedAt": "2026-10-17"
+}
