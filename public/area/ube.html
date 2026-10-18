@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">山口県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（宇部市）<b>5件（うち受付終了2件）</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（山口県）<b>5件（うち受付終了2件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>6件</b></a><span class="area-toc-cats"><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-7">移住 2</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">宇部市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="ube-city-chushin-renovation">
             <h3>宇部市中心市街地建物リノベーション事業補助金</h3>
-            <p class="area-meta">宇部市 産業政策課｜補助金｜改修費は1/2（上限100万円）、賃借料は1/2（月3万円・合計30万円まで、最長12か月）｜締切：公募要領で確認</p>
+            <p class="area-meta">宇部市 産業政策課｜補助金｜改修費は1/2（上限100万円）、賃借料は1/2（月3万円・合計30万円まで、最長12か月）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>中心市街地の建物を改修して出店する事業者の改修費と賃借料を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -179,7 +197,7 @@
           </div>
           <div class="area-program" id="ube-city-jinzai-kakuho-shien">
             <h3>宇部市人材確保支援事業費補助金</h3>
-            <p class="area-meta">宇部市 産業政策課｜補助金｜上限10万円（補助率は要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">宇部市 産業政策課｜補助金｜上限10万円（補助率は要確認）</p>
             <p class="area-meta">期間：令和7年度は6月20日〜10月31日。令和8年度は最新は要確認</p>
             <p>求人サイト掲載、県外合同説明会参加、採用ホームページ作成、採用PR動画制作などの経費を支援する。</p>
             <p><strong>主な条件</strong></p>
@@ -189,7 +207,7 @@
           </div>
           <div class="area-program" id="ube-city-wakamono-kigyoka-challenge">
             <h3>宇部市若者起業家チャレンジ補助金</h3>
-            <p class="area-meta">宇部市 産業政策課｜補助金｜補助対象経費の9/10以内、上限150万円｜締切：公募要領で確認</p>
+            <p class="area-meta">宇部市 産業政策課｜補助金｜補助対象経費の9/10以内、上限150万円</p>
             <p class="area-meta">期間：令和8年度は月ごと締切（第5回は令和8年9月30日で終了、以降の回は要確認）</p>
             <p>若い起業家の創業経費を支援する補助金。令和8年度は月ごと締切制で、第5回（9月）は9月30日に締切済み。</p>
             <p><strong>主な条件</strong></p>
@@ -233,27 +251,27 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>宇部市の制度</strong></p>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="ube-saiene">
             <h3>再生可能エネルギー設備導入支援補助金</h3>
-            <p class="area-meta">山口県宇部市｜補助金｜太陽光のみ10万円(定額)、太陽光と蓄電池30万円(定額)｜締切：公募要領で確認</p>
+            <p class="area-meta">山口県宇部市｜補助金｜太陽光のみ10万円(定額)、太陽光と蓄電池30万円(定額)</p>
             <p class="area-meta">期間：最新は要確認(予算に達し次第終了)</p>
             <p>住宅への太陽光発電と蓄電池導入を補助。予算750万円に達し次第終了。蓄電池単独は対象外とみられる。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>最低申請額の要件あり(太陽光+蓄電池は100万円(税抜)以上)</li><li>詳細は要確認</li></ul>
             <p><a href="https://www.city.ube.yamaguchi.jp/kurashi/kankyouhozen/shouene/1002690/1018608.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program" id="ube-reform">
             <h3>健康・省エネ住宅リフォーム助成</h3>
-            <p class="area-meta">山口県宇部市｜助成金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">山口県宇部市｜助成金｜金額は公式で確認</p>
             <p class="area-meta">期間：令和8年5月11日午前9時から受付開始(終了時期は要確認)</p>
             <p>バリアフリー化(段差解消・手すり等)や省エネ改修を含む住宅リフォームを助成。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>対象工事・世帯要件は要確認</li></ul>
             <p><a href="https://www.city.ube.yamaguchi.jp/shisei/hojyojyosei/hojyojyosei_kojin/1009208.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="ube-akiya-atochi">
             <h3>空家等跡地活用促進事業補助金</h3>
             <p class="area-meta">山口県宇部市｜補助金｜補助対象経費の1/2、上限50万円(予算の範囲内)｜締切：2026-11-30</p>
@@ -272,10 +290,10 @@
             <ul><li>倒壊の危険性が高いブロック塀等の所有者</li></ul>
             <p><a href="https://www.city.ube.yamaguchi.jp/shisei/hojyojyosei/hojyojyosei_kojin/1009207.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="ube-iju-tokyo">
             <h3>移住支援事業(東京圏等向け)補助金</h3>
-            <p class="area-meta">山口県宇部市｜補助金｜東京圏からの移住は2人以上世帯100万円(18歳未満1人につき100万円加算)、単身60万円。東京圏以外は世帯50万円・単身30万円｜締切：公募要領で確認</p>
+            <p class="area-meta">山口県宇部市｜補助金｜東京圏からの移住は2人以上世帯100万円(18歳未満1人につき100万円加算)、単身60万円。東京圏以外は世帯50万円・単身30万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>東京圏等からの移住者への支援金。</p>
             <p><strong>主な条件</strong></p>
@@ -284,7 +302,7 @@
           </div>
           <div class="area-program" id="ube-uij">
             <h3>UIJターン奨励助成金</h3>
-            <p class="area-meta">山口県宇部市｜助成金｜住宅購入助成に加え、39歳以下の世帯員がいる場合は上限10万円加算、子育て支援助成は中学生以下1人5万円｜締切：公募要領で確認</p>
+            <p class="area-meta">山口県宇部市｜助成金｜住宅購入助成に加え、39歳以下の世帯員がいる場合は上限10万円加算、子育て支援助成は中学生以下1人5万円</p>
             <p class="area-meta">期間：令和8年度の新規受付は再開(期限は要確認)</p>
             <p>県外からの転入に必要な経費の一部を助成。</p>
             <p><strong>主な条件</strong></p>

@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">東京都・特別区。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（練馬区）<b>5件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（東京都）<b>6件（うち受付終了1件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>7件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-5">バリアフリー・介護 2</a><a href="#res-cat-6">子育て 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">練馬区の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="nerima-sangyo-yushi-assen">
             <h3>産業融資あっせん（練馬区産業融資制度）</h3>
-            <p class="area-meta">練馬区 産業経済部 経済課 融資係｜融資｜利用者負担金利0.9%以下（区が利子の一部を負担）。融資限度額は貸付種類ごとに要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">練馬区 産業経済部 経済課 融資係｜融資｜利用者負担金利0.9%以下（区が利子の一部を負担）。融資限度額は貸付種類ごとに要確認</p>
             <p class="area-meta">期間：令和8年度（通年の申込受付。詳細は要確認）</p>
             <p>区が金融機関に融資をあっせんし、区内中小企業の事業資金を低利で借りられるようにする制度です。普通貸付、創業支援貸付、景気対策特別貸付、災害貸付などがあります。</p>
             <p><strong>主な条件</strong></p>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="nerima-sogyo-tokubetsu-yushi">
             <h3>創業支援特別貸付</h3>
-            <p class="area-meta">練馬区 産業経済部 経済課 融資係｜融資｜要確認（限度額は公式ページで確認が必要）｜締切：公募要領で確認</p>
+            <p class="area-meta">練馬区 産業経済部 経済課 融資係｜融資｜要確認（限度額は公式ページで確認が必要）</p>
             <p class="area-meta">期間：令和8年度（受付期間は要確認）</p>
             <p>区の産業融資あっせんの一種で、創業する事業者の事業資金を低利で融資します。</p>
             <p><strong>主な条件</strong></p>
@@ -187,7 +205,7 @@
           </div>
           <div class="area-program" id="nerima-marukei-rishi-hojo">
             <h3>小規模事業者経営改善資金（マル経融資）利子補助金</h3>
-            <p class="area-meta">練馬区 産業経済部 経済課｜融資｜支払利子の40％を補助（要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">練馬区 産業経済部 経済課｜融資｜支払利子の40％を補助（要確認）</p>
             <p class="area-meta">期間：令和8年度（受付期間は要確認）</p>
             <p>東京商工会議所練馬支部の推薦を受けて日本政策金融公庫のマル経融資を利用した小規模事業者の支払利子の一部を区が補助します。</p>
             <p><strong>主な条件</strong></p>
@@ -196,7 +214,7 @@
           </div>
           <div class="area-program" id="nerima-bizi-challe">
             <h3>新規ビジネスチャレンジ補助金</h3>
-            <p class="area-meta">練馬区 産業経済部 経済課｜補助金｜補助率・上限額は公式ページで確認できず（要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">練馬区 産業経済部 経済課｜補助金｜補助率・上限額は公式ページで確認できず（要確認）</p>
             <p class="area-meta">期間：令和8年度（受付期間は要確認）</p>
             <p>新市場への参入や新商品・新サービスの開発に取り組む区内中小企業者等の経費の一部を補助し、事業計画の作成と実行を伴走支援します。</p>
             <p><strong>主な条件</strong></p>
@@ -205,7 +223,7 @@
           </div>
           <div class="area-program" id="nerima-homepage-hojo">
             <h3>ホームページ作成補助金</h3>
-            <p class="area-meta">練馬区 産業経済部 経済課｜補助金｜委託費の2分の1以内、上限5万円｜締切：公募要領で確認</p>
+            <p class="area-meta">練馬区 産業経済部 経済課｜補助金｜委託費の2分の1以内、上限5万円</p>
             <p class="area-meta">期間：令和8年度（受付期間は要確認）</p>
             <p>区内中小企業者が専門業者へホームページ作成を委託する費用の一部を補助します。</p>
             <p><strong>主な条件</strong></p>
@@ -230,31 +248,31 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>練馬区の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="nerima-taishin-kaishu">
             <h3>住宅の耐震改修工事等の助成</h3>
-            <p class="area-meta">練馬区 防災まちづくり課｜補助金｜助成率4分の3。上限は耐震改修工事130万円（総合支援170万円）、障害者手帳等のある方がいる住宅は200万円（総合支援240万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">練馬区 防災まちづくり課｜補助金｜助成率4分の3。上限は耐震改修工事130万円（総合支援170万円）、障害者手帳等のある方がいる住宅は200万円（総合支援240万円）</p>
             <p class="area-meta">期間：令和7年度に拡充と案内（令和8年度の期間は要確認）</p>
             <p>昭和56年5月31日以前の建築物と、昭和56年6月〜平成12年5月31日の木造住宅の耐震改修工事等を助成。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>木造は耐震診断の評点（Iw値）が1.0相当未満</li><li>業者契約・診断等は交付決定後</li></ul>
             <p><a href="https://www.city.nerima.tokyo.jp/kurashi/sumai/takuchi/taishin/kodate.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program" id="nerima-carbon-neutral">
             <h3>令和8年度練馬区カーボンニュートラル化設備設置補助金</h3>
-            <p class="area-meta">練馬区 環境課｜補助金｜要確認｜締切：2027-03-31</p>
+            <p class="area-meta">練馬区 環境課｜補助金｜金額は公式で確認｜締切：2027-03-31</p>
             <p class="area-meta">期間：申請受付：令和8年4月15日〜令和9年3月31日</p>
             <p>太陽光、エネファーム、エコキュート、高断熱窓・ドア、LED照明の設置費用を補助。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>令和8年4月1日〜令和9年3月31日に設置完了した設備</li></ul>
             <p><a href="https://www.city.nerima.tokyo.jp/kurashi/shigoto/kankyo/hojo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="nerima-akiya-chiikikoken">
             <h3>練馬区空き家地域貢献事業</h3>
-            <p class="area-meta">東京都練馬区｜補助金｜要確認｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">東京都練馬区｜補助金｜金額は公式で確認</p>
+            
             <p>空き家を地域交流など公益的な目的で活用する場合に、アドバイザー派遣や改修等の初期整備費用の補助などの支援を行う。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>登録や補助金には要件あり（詳細は要確認）</li></ul>
@@ -269,11 +287,11 @@
             <ul><li>対象ブロック塀の所有者またはマンション管理組合</li><li>撤去工事の契約前に申請すること</li><li>道路に面する塀は高さ60cm以下に撤去すること</li></ul>
             <p><a href="https://www.city.nerima.tokyo.jp/kurashi/bosai/jishinsonae/burokkubeitekyyo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program" id="nerima-jiritsu-jutaku-setsubi">
             <h3>自立支援住宅改修給付（設備改修）</h3>
-            <p class="area-meta">東京都練馬区｜給付｜要確認（利用者負担は限度額内の費用の1割。生活保護世帯などは負担なし）｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">東京都練馬区｜給付｜要確認（利用者負担は限度額内の費用の1割。生活保護世帯などは負担なし）</p>
+            
             <p>既存の浴槽や便器などの使用が困難な高齢者の、設備改修費用（浴槽・便器の洋式化など）を給付する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>65歳以上で要支援1・2または要介護1〜5の認定を受けた方</li><li>既存設備の使用が困難な方</li></ul>
@@ -281,17 +299,17 @@
           </div>
           <div class="area-program" id="nerima-jiritsu-jutaku-yobo">
             <h3>自立支援住宅改修給付（予防給付）</h3>
-            <p class="area-meta">東京都練馬区｜給付｜要確認（利用者負担は限度額内の費用の1割）｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">東京都練馬区｜給付｜要確認（利用者負担は限度額内の費用の1割）</p>
+            
             <p>要介護・要支援の認定で非該当となった高齢者の、介護予防のための住宅改修費用を給付する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>65歳以上で要介護・要支援認定の結果が非該当の方</li><li>身体状況などに関する一定の要件を満たすこと</li></ul>
             <p><a href="https://www.city.nerima.tokyo.jp/hokenfukushi/koreisha/jutaku/yobo_kaishu.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">子育て</h3>
+          <h3 class="area-cat" id="res-cat-6">子育て</h3>
           <div class="area-program" id="nerima-hitorioya-tentaku">
             <h3>ひとり親家庭転宅支援給付金</h3>
-            <p class="area-meta">東京都練馬区｜給付｜上限40万円（敷金・礼金などの契約費用と引越し費用）｜締切：公募要領で確認</p>
+            <p class="area-meta">東京都練馬区｜給付｜上限40万円（敷金・礼金などの契約費用と引越し費用）</p>
             <p class="area-meta">期間：確認できた年度：令和7年度（最新は要確認）</p>
             <p>今より家賃の安い住宅へ転宅するひとり親家庭の、契約費用と引越し費用を助成する。</p>
             <p><strong>主な条件</strong></p>

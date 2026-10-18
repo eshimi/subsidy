@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">大阪府・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（門真市）<b>2件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（大阪府）<b>4件</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>4件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 3</a><a href="#res-cat-4">空き家・ブロック塀 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">門真市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="kadoma-city-kigyo-miryoku-up-hojo">
             <h3>職住近接のまち実現のための企業魅力アップ事業補助金</h3>
-            <p class="area-meta">門真市 市民文化部 産業振興課｜補助金｜補助率1/2〜2/3（カドマイスター認定企業は2/3〜3/4）、魅力向上・発信（一般）の限度額20万円、インターンシップ受入れは1人1日8,000円｜締切：公募要領で確認</p>
+            <p class="area-meta">門真市 市民文化部 産業振興課｜補助金｜補助率1/2〜2/3（カドマイスター認定企業は2/3〜3/4）、魅力向上・発信（一般）の限度額20万円、インターンシップ受入れは1人1日8,000円</p>
             <p class="area-meta">期間：令和8年度の申請受付中（詳細は市ページで要確認）</p>
             <p>市内の中小ものづくり企業が人材の確保・定着のため、労働環境整備や職場の魅力向上・発信、カーボンニュートラル等に取り組む費用を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="kadoma-city-sogyo-shien">
             <h3>門真市 創業支援（特定創業支援等事業・創業塾）</h3>
-            <p class="area-meta">門真市 市民文化部 産業振興課／門真市中小企業サポートセンター｜専門家支援｜要確認（創業塾受講料2,000円／5日分。特定創業支援の証明で創業関連保証や小規模事業者持続化補助金＜創業型＞の申請が可能）｜締切：公募要領で確認</p>
+            <p class="area-meta">門真市 市民文化部 産業振興課／門真市中小企業サポートセンター｜専門家支援｜要確認（創業塾受講料2,000円／5日分。特定創業支援の証明で創業関連保証や小規模事業者持続化補助金＜創業型＞の申請が可能）</p>
             <p class="area-meta">期間：創業塾2026は定員60名の先着順（詳細は要確認）</p>
             <p>創業相談や守口門真商工会議所の創業塾など特定創業支援等事業を行い、修了者に市が証明書を発行する。</p>
             <p><strong>主な条件</strong></p>
@@ -203,10 +221,10 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>門真市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="kadoma-mokuzo-jokyaku">
             <h3>門真市 木造住宅除却補助</h3>
-            <p class="area-meta">大阪府門真市｜補助金｜除却費用の23%（一戸建て上限30万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">大阪府門真市｜補助金｜除却費用の23%（一戸建て上限30万円）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>耐震性が低い昭和56年5月31日以前の木造住宅の除却費用を補助。</p>
             <p><strong>主な条件</strong></p>
@@ -215,7 +233,7 @@
           </div>
           <div class="area-program" id="kadoma-taishin-sekkei-kaishu">
             <h3>門真市 木造住宅耐震化促進補助（設計・改修）</h3>
-            <p class="area-meta">大阪府門真市｜補助金｜改修費用の8割、1戸あたり上限95万円（所得により107.5万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">大阪府門真市｜補助金｜改修費用の8割、1戸あたり上限95万円（所得により107.5万円）</p>
             <p class="area-meta">期間：令和8年度分の案内あり（受付期間は要確認）</p>
             <p>昭和56年5月31日以前の木造住宅の耐震設計と改修をセットで補助。耐震シェルター設置も対象。</p>
             <p><strong>主な条件</strong></p>
@@ -224,17 +242,17 @@
           </div>
           <div class="area-program" id="kadoma-taishin-shindan">
             <h3>門真市 建築物耐震診断補助</h3>
-            <p class="area-meta">大阪府門真市｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">大阪府門真市｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>建築物の耐震診断に対する補助。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>昭和56年5月31日以前の建築物など（詳細は要確認）</li></ul>
             <p><a href="https://www.city.kadoma.osaka.jp/machizukuri_rodo/kenchiku/7/hozyoseido/taisinnhojo/4970.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="kadoma-akiya-kosodate">
             <h3>門真市 子育て世帯等空き家利活用補助</h3>
-            <p class="area-meta">大阪府門真市｜補助金｜リフォーム費用の2/3（市外居住者は上限100万円）、市内居住者は1/2（上限50万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">大阪府門真市｜補助金｜リフォーム費用の2/3（市外居住者は上限100万円）、市内居住者は1/2（上限50万円）</p>
             <p class="area-meta">期間：令和7年度から令和9年度まで（各年度の受付は要確認）</p>
             <p>子育て世帯・若者世帯が市内の戸建て空き家を取得しリフォームする費用を補助。予算超過で受付終了の場合あり。</p>
             <p><strong>主な条件</strong></p>

@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">千葉県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（市原市）<b>2件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（千葉県）<b>5件（うち受付終了3件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>4件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 2</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-2">EV・充電 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">市原市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="ichihara-city-chusho-shikin-riko">
             <h3>市原市 中小企業資金融資の利子補給</h3>
-            <p class="area-meta">市原市（産業振興担当課）／市原商工会議所｜融資｜信用保証協会関連の事業資金は年3.0%以内、設備近代化資金・経営安定化資金は年4.0%以内の利子補給（規則上）｜締切：公募要領で確認</p>
+            <p class="area-meta">市原市（産業振興担当課）／市原商工会議所｜融資｜信用保証協会関連の事業資金は年3.0%以内、設備近代化資金・経営安定化資金は年4.0%以内の利子補給（規則上）</p>
             <p class="area-meta">期間：最新は要確認（規則の条文のみ確認）</p>
             <p>市の中小企業資金融資を利用した人に、予算の範囲内で償還利子の一部を補給する。</p>
             <p><strong>主な条件</strong></p>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="ichihara-city-koko-sogyo-riko">
             <h3>市原市 日本政策金融公庫の創業融資に対する利子補給</h3>
-            <p class="area-meta">市原市（産業振興担当課）／市原商工会議所｜補助金｜年0.5%または約定利率の1/2のいずれか低い率（最長5年、融資額2,000万円以下）｜締切：公募要領で確認</p>
+            <p class="area-meta">市原市（産業振興担当課）／市原商工会議所｜補助金｜年0.5%または約定利率の1/2のいずれか低い率（最長5年、融資額2,000万円以下）</p>
             <p class="area-meta">期間：最新は要確認（規則の条文のみ確認）</p>
             <p>日本政策金融公庫の新規開業資金等を利用した創業者に、償還利子の一部を補給する。</p>
             <p><strong>主な条件</strong></p>
@@ -203,10 +221,10 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>市原市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="ichihara-taishin-kaishu">
             <h3>市原市木造住宅耐震改修事業補助金</h3>
-            <p class="area-meta">千葉県市原市｜補助金｜補助対象経費の5分の4（上限100万円。一定の条件で10万円加算）｜締切：公募要領で確認</p>
+            <p class="area-meta">千葉県市原市｜補助金｜補助対象経費の5分の4（上限100万円。一定の条件で10万円加算）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>木造住宅の耐震改修工事費を補助する。工事前の事前協議と協議会の計画適正評価が必要。</p>
             <p><strong>主な条件</strong></p>
@@ -215,27 +233,27 @@
           </div>
           <div class="area-program" id="ichihara-taishin-shindan">
             <h3>市原市木造住宅耐震診断事業</h3>
-            <p class="area-meta">千葉県市原市｜助成金｜市が協議会に委託して実施。利用者負担は調査費5,000円｜締切：公募要領で確認</p>
+            <p class="area-meta">千葉県市原市｜助成金｜市が協議会に委託して実施。利用者負担は調査費5,000円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>市内の木造住宅所有者・居住者を対象に、耐震診断を市が実施する事業。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>市内に住所を有し、木造住宅を所有して居住</li><li>事前に市の簡易な耐震相談会等で指摘を受けていること</li></ul>
             <p><a href="https://www.city.ichihara.chiba.jp/reiki_int/reiki_honbun/g020RG00000797.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="ichihara-datsutanso-battery">
             <h3>市原市住宅用設備等脱炭素化促進補助金（蓄電システム）</h3>
-            <p class="area-meta">千葉県市原市｜補助金｜定置用リチウムイオン蓄電システム 上限7万円（令和8年度の額は要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">千葉県市原市｜補助金｜定置用リチウムイオン蓄電システム 上限7万円（令和8年度の額は要確認）</p>
             <p class="area-meta">期間：最新は要確認（着工・完了は当該年度4月1日から翌年2月末日）</p>
             <p>市内の住宅に未使用の住宅用設備を導入する場合に予算の範囲内で補助する。蓄電システムは太陽光発電の設置済み・同時設置が条件。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>市内に住所があり市税を滞納していない</li><li>住宅用太陽光発電が設置済みまたは同時設置</li></ul>
             <p><a href="https://www.city.ichihara.chiba.jp/reiki_int/reiki_honbun/g020RG00001195.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">EV・充電</h3>
+          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
           <div class="area-program" id="ichihara-datsutanso-ev-v2h">
             <h3>市原市住宅用設備等脱炭素化促進補助金（EV・V2H）</h3>
-            <p class="area-meta">千葉県市原市｜補助金｜要綱上、V2H充放電設備は本体購入費の5分の1（上限50万円）、電気自動車はV2H併設で上限30万円・非併設で上限20万円（令和8年度の額は要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">千葉県市原市｜補助金｜要綱上、V2H充放電設備は本体購入費の5分の1（上限50万円）、電気自動車はV2H併設で上限30万円・非併設で上限20万円（令和8年度の額は要確認）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>住宅用のV2H充放電設備や電気自動車の導入に対する補助。要綱は令和4年改正までの版で、最新額は要確認。</p>
             <p><strong>主な条件</strong></p>

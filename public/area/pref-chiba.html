@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -179,7 +186,7 @@
           </div>
           <div class="area-program" id="chiba-chusho-shinko-shikin">
             <h3>千葉県 中小企業振興資金</h3>
-            <p class="area-meta">千葉県 産業振興課｜融資｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">千葉県 産業振興課｜融資｜金額は公式で確認</p>
             <p class="area-meta">期間：通年</p>
             <p>千葉県の中小企業向け制度融資。創業等のメニューは公式ページで要確認。</p>
             <p><strong>主な条件</strong></p>
@@ -198,7 +205,7 @@
           </div>
           <div class="area-program is-ended" id="chiba-seicho-sokushin-hojo">
             <h3>中小企業成長促進補助金（第4弾） <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">千葉県 経済政策課｜補助金｜中小企業者枠 上限3,000万円（補助率は要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">千葉県 経済政策課｜補助金｜中小企業者枠 上限3,000万円（補助率は要確認）</p>
             <p class="area-meta">期間：令和8年8月21日で受付終了。次回は最新は要確認</p>
             <p>積極的な賃上げや設備投資に取り組む意欲ある中小企業を支援する。</p>
             <p><strong>主な条件</strong></p>
@@ -314,7 +321,7 @@
     <section class="art-sec" aria-labelledby="pref-resident"><h2 id="pref-resident"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">個人の方向けの制度（住まい・暮らし）</h2>
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。市区町村の個人向けの制度（82件）は、下の「県内の市区町村のページ」から確認できます。</p>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="chiba-pref-jutaku-lease-ppa">
             <h3>千葉県住宅用太陽光発電設備等に係るリース等導入促進事業補助金</h3>
             <p class="area-meta">千葉県｜補助金｜太陽光：出力1kWあたり7万円（10kW未満）、蓄電池：一律12万円｜締切：2026-12-18</p>
@@ -324,20 +331,20 @@
             <ul><li>居住用家屋への設置</li><li>太陽光は10kW未満</li></ul>
             <p><a href="https://www.pref.chiba.lg.jp/ontai/hojo/solarpowerhojo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program" id="chiba-pref-zeh">
             <h3>令和8年度千葉県ネット・ゼロ・エネルギー・ハウス導入促進事業補助金</h3>
-            <p class="area-meta">千葉県｜補助金｜ZEH：50万円、ZEH+：100万円｜締切：公募要領で確認</p>
+            <p class="area-meta">千葉県｜補助金｜ZEH：50万円、ZEH+：100万円</p>
             <p class="area-meta">期間：令和8年度（申請額が予算の50%に到達：8月31日時点）</p>
             <p>県内の中小工務店が施工したZEH認定の県内住宅を取得する県民への補助。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>県内中小工務店が施工したZEH認定の県内住宅の取得</li></ul>
             <p><a href="https://www.pref.chiba.lg.jp/ontai/hojo/zehpromotion.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="chiba-pref-iju-shienkin">
             <h3>千葉県移住支援金（UIJターン）</h3>
-            <p class="area-meta">千葉県｜給付｜2人以上世帯100万円・単身60万円（18歳未満の子1人につき100万円加算）｜締切：公募要領で確認</p>
+            <p class="area-meta">千葉県｜給付｜2人以上世帯100万円・単身60万円（18歳未満の子1人につき100万円加算）</p>
             <p class="area-meta">期間：確認できたのは令和7年4月更新ページ。最新は要確認</p>
             <p>東京23区から県内の対象市町へ移住し、中小企業等に就業した人に支給する。</p>
             <p><strong>主な条件</strong></p>

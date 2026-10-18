@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">福井県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（福井市）<b>5件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（福井県）<b>5件（うち受付終了3件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>6件</b></a><span class="area-toc-cats"><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-5">バリアフリー・介護 2</a><a href="#res-cat-7">移住 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">福井市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="fukui-city-chusho-yushi">
             <h3>福井市中小企業者等融資制度（創業支援資金ほか）</h3>
-            <p class="area-meta">福井市 商工労政課｜融資｜要確認（令和8年度手引き参照）｜締切：公募要領で確認</p>
+            <p class="area-meta">福井市 商工労政課｜融資｜要確認（令和8年度手引き参照）</p>
             <p class="area-meta">期間：令和8年度（随時、詳細は手引き参照）</p>
             <p>若者・女性等向け創業支援資金を含む市の制度融資。</p>
             <p><strong>主な条件</strong></p>
@@ -188,7 +206,7 @@
           </div>
           <div class="area-program" id="fukui-city-ma-kasokuka">
             <h3>福井市M&amp;A加速化支援補助金</h3>
-            <p class="area-meta">福井市 商工労政課｜補助金｜限度額5万円｜締切：公募要領で確認</p>
+            <p class="area-meta">福井市 商工労政課｜補助金｜限度額5万円</p>
             <p class="area-meta">期間：令和8年度（最新は要確認）</p>
             <p>M&amp;Aの活用に係る経費の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -198,7 +216,7 @@
           </div>
           <div class="area-program" id="fukui-city-shinseihin-kaihatsu">
             <h3>福井市新製品・新技術開発支援補助金</h3>
-            <p class="area-meta">福井市 商工労政課｜補助金｜限度額 産学連携枠400万円・単独企業枠200万円、補助率2/3以内｜締切：公募要領で確認</p>
+            <p class="area-meta">福井市 商工労政課｜補助金｜限度額 産学連携枠400万円・単独企業枠200万円、補助率2/3以内</p>
             <p class="area-meta">期間：令和8年度分は募集終了（来年度は要確認）</p>
             <p>実用化の見込みがある新製品・新技術・新サービスの開発費（広告宣伝・展示会出展費含む）を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -207,7 +225,7 @@
           </div>
           <div class="area-program" id="fukui-city-startup-sosyutsu">
             <h3>福井市スタートアップ創出補助金</h3>
-            <p class="area-meta">福井市 商工労政課｜補助金｜上限20万円、補助率1/2以内（在学中は2/3以内）｜締切：公募要領で確認</p>
+            <p class="area-meta">福井市 商工労政課｜補助金｜上限20万円、補助率1/2以内（在学中は2/3以内）</p>
             <p class="area-meta">期間：令和8年4月1日～（予算額に達し次第終了）</p>
             <p>市内での創業初期費用（改装・設備・広告宣伝・会社設立等）を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -233,7 +251,7 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>福井市の制度</strong></p>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="fukui-city-solar-chikuden">
             <h3>福井市住宅の太陽光・蓄電池設備導入促進事業</h3>
             <p class="area-meta">福井県福井市｜補助金｜要確認（蓄電池は1kWhあたり12.5万円超の場合は書類必要）｜締切：2026-10-30</p>
@@ -243,10 +261,10 @@
             <ul><li>市内の自己所有・居住住宅</li><li>発電量の30%以上を自家消費、FIT/FIP認定を受けない</li><li>他の国・自治体補助金と併用不可</li></ul>
             <p><a href="https://www.city.fukui.lg.jp/kurasi/kankyo/hojyo/p070164.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="fukui-city-block-josyaku">
             <h3>福井市危険ブロック塀除却事業補助金</h3>
-            <p class="area-meta">福井県福井市｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">福井県福井市｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>通学路に面し地震等で倒壊の危険があるブロック塀の除却・建替えを補助。要綱は令和8年4月1日施行。</p>
             <p><strong>主な条件</strong></p>
@@ -262,10 +280,10 @@
             <ul><li>現地確認で対象と判断された老朽危険空き家の所有者</li></ul>
             <p><a href="https://www.city.fukui.lg.jp/kurasi/jutaku/akiyataisaku/akiya_elimination.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program" id="fukui-city-sumai-kankyo-seibi">
             <h3>福井市 住まい環境整備支援事業（住宅改修費助成）</h3>
-            <p class="area-meta">福井県福井市｜補助金｜生活保護・市民税非課税9/10（上限80万円）、所得320万円未満1/2（上限40万円）、600万円未満1/4（上限20万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">福井県福井市｜補助金｜生活保護・市民税非課税9/10（上限80万円）、所得320万円未満1/2（上限40万円）、600万円未満1/4（上限20万円）</p>
             <p class="area-meta">期間：予算の範囲内。最新は要確認</p>
             <p>要介護高齢者の在宅生活のための住宅改修費を所得区分に応じ助成する。</p>
             <p><strong>主な条件</strong></p>
@@ -274,17 +292,17 @@
           </div>
           <div class="area-program" id="fukui-city-tasedai-doukyo-reform">
             <h3>福井市多世帯同居リフォーム支援事業</h3>
-            <p class="area-meta">福井県福井市｜補助金｜基礎額30万円（居住誘導区域内）・20万円（区域外）｜締切：公募要領で確認</p>
+            <p class="area-meta">福井県福井市｜補助金｜基礎額30万円（居住誘導区域内）・20万円（区域外）</p>
             <p class="area-meta">期間：令和8年度は終了表示（最新は要確認）</p>
             <p>バリアフリー改修（手すり設置・段差解消・廊下幅拡張）を含む多世帯同居リフォームを支援。市の一覧では終了表示。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>多世帯同居のためリフォームを行う世帯</li></ul>
             <p><a href="https://www.city.fukui.lg.jp/sisei/hojyo/kurasi/doukyo_reform31.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="fukui-city-akiya-shutoku">
             <h3>福井市空き家取得支援事業</h3>
-            <p class="area-meta">福井県福井市｜補助金｜60万円または30万円（区域・耐震性で異なる。令和8年度基準は要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">福井県福井市｜補助金｜60万円または30万円（区域・耐震性で異なる。令和8年度基準は要確認）</p>
             <p class="area-meta">期間：令和8年度は終了表示（最新は要確認）</p>
             <p>空き家情報バンク登録物件の購入を支援（新婚・子育て・UIターン等）。市の一覧では終了表示。</p>
             <p><strong>主な条件</strong></p>

@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -170,7 +177,7 @@
       <div class="area-body">
           <div class="area-program" id="niigata-kigyo-renkei">
             <h3>企業連携プロジェクト創出事業</h3>
-            <p class="area-meta">新潟県 地域振興局｜補助金｜補助率1/2以内・上限100万円/件｜締切：公募要領で確認</p>
+            <p class="area-meta">新潟県 地域振興局｜補助金｜補助率1/2以内・上限100万円/件</p>
             <p class="area-meta">期間：令和8年度事業提案募集（期間は要確認）</p>
             <p>地場産業の企業グループによる販路開拓等の連携プロジェクトを支援する。</p>
             <p><strong>主な条件</strong></p>
@@ -180,7 +187,7 @@
           </div>
           <div class="area-program" id="niigata-sogyo-shien-shikin">
             <h3>中小企業創業等支援資金（制度融資）</h3>
-            <p class="area-meta">新潟県 産業労働部・新潟県信用保証協会｜融資｜創業枠は限度額3,500万円（2,000万円超は自己資金と同額が上限）。第二創業枠1億円、再チャレンジ枠2,000万円｜締切：公募要領で確認</p>
+            <p class="area-meta">新潟県 産業労働部・新潟県信用保証協会｜融資｜創業枠は限度額3,500万円（2,000万円超は自己資金と同額が上限）。第二創業枠1億円、再チャレンジ枠2,000万円</p>
             <p class="area-meta">期間：通年（利率等は要確認）</p>
             <p>創業者や第二創業、再チャレンジ向けの県制度融資。</p>
             <p><strong>主な条件</strong></p>
@@ -190,7 +197,7 @@
           <h3 class="area-cat">受付が終了した制度（次回の公募の参考に）</h3>
           <div class="area-program is-ended" id="niigata-kaseguchikara">
             <h3>にいがた稼ぐ力強化支援事業補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">新潟県 産業労働部｜補助金｜補助率2/3・上限2,500万円（100億宣言枠）／1,500万円（一般枠）｜締切：公募要領で確認</p>
+            <p class="area-meta">新潟県 産業労働部｜補助金｜補助率2/3・上限2,500万円（100億宣言枠）／1,500万円（一般枠）</p>
             <p class="area-meta">期間：第2回 令和8年8月19日〜9月25日（受付終了）。次回は最新は要確認</p>
             <p>持続的な賃上げに向けた設備投資や商品開発等の取組を支援する。</p>
             <p><strong>主な条件</strong></p>
@@ -199,7 +206,7 @@
           </div>
           <div class="area-program is-ended" id="niigata-shoene-setsubi">
             <h3>県内中小企業等省エネルギー設備導入支援 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">新潟県｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">新潟県｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：令和8年4月14日〜6月26日（受付終了）。次回は最新は要確認</p>
             <p>省エネルギー設備の導入を支援する。</p>
             <p><strong>主な条件</strong></p>
@@ -242,39 +249,39 @@
     <section class="art-sec" aria-labelledby="pref-resident"><h2 id="pref-resident"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">個人の方向けの制度（住まい・暮らし）</h2>
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。市区町村の個人向けの制度（18件）は、下の「県内の市区町村のページ」から確認できます。</p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="niigata-taishin-sumaizukuri">
             <h3>耐震すまいづくり支援事業</h3>
-            <p class="area-meta">新潟県｜補助金｜補助額は各市町村の要綱による（要確認）｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">新潟県｜補助金｜補助額は各市町村の要綱による（要確認）</p>
+            
             <p>市町村と協調して、木造住宅の耐震診断・耐震改修、高齢者等のいる世帯の部分耐震改修・シェルター設置等を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>昭和56年5月31日以前に建築された木造住宅</li><li>申請は市町村を通じて行う</li></ul>
             <p><a href="https://www.pref.niigata.lg.jp/sec/jutaku/1356787010851.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program is-ended" id="niigata-yukiguni-zeh">
             <h3>新潟県雪国型ZEH等導入促進補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">新潟県｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">新潟県｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：確認できた年度：令和7年度（申請受付終了。最新は要確認）</p>
             <p>雪国型ZEH等の導入を促進する補助金。</p>
             
             <p><a href="https://www.pref.niigata.lg.jp/sec/kankyoseisaku/0583945.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="niigata-akiya-riyo">
             <h3>空き家利活用支援事業</h3>
-            <p class="area-meta">新潟県（市町村と連携）｜補助金｜要確認｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">新潟県（市町村と連携）｜補助金｜金額は公式で確認</p>
+            
             <p>子育て世帯や県外からの移住者が空き家を取得・改修する際の費用を、県が市町村と連携して支援する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>子育て世帯または県外からの移住者</li><li>実施市町村の空き家であること（要確認）</li></ul>
             <p><a href="https://www.pref.niigata.lg.jp/sec/jutaku/akiyarikatuyou.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="niigata-iju-shienkin">
             <h3>移住支援金（東京圏からの移住）</h3>
-            <p class="area-meta">新潟県｜給付｜最大100万円＋α（単身は最大60万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">新潟県｜給付｜最大100万円＋α（単身は最大60万円）</p>
             <p class="area-meta">期間：確認できた年度：不明（最新は要確認）</p>
             <p>東京圏（条件不利地域を除く）から県内へ移住し、就業等した人に支給する。</p>
             <p><strong>主な条件</strong></p>
@@ -283,7 +290,7 @@
           </div>
           <div class="area-program" id="niigata-kosodate-iju-shienkin">
             <h3>子育て世帯移住支援金</h3>
-            <p class="area-meta">新潟県｜給付｜最大50万円｜締切：公募要領で確認</p>
+            <p class="area-meta">新潟県｜給付｜最大50万円</p>
             <p class="area-meta">期間：確認できた年度：令和6年度（最新は要確認）</p>
             <p>東京圏（条件不利地域を除く）から県内へ移住し、就業等した子育て世帯に支給する。</p>
             <p><strong>主な条件</strong></p>

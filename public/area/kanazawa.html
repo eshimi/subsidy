@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">石川県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（金沢市）<b>3件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（石川県）<b>4件</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>3件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-5">バリアフリー・介護 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">金沢市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="kanazawa-city-ai-dx-suishin-hojo">
             <h3>金沢市AI・DX推進支援事業補助金</h3>
-            <p class="area-meta">金沢市 経済局｜補助金｜1年目（計画策定）3分の2・上限150万円／2年目（導入、令和9年度予定）2分の1（小規模3分の2）・上限200万円｜締切：公募要領で確認</p>
+            <p class="area-meta">金沢市 経済局｜補助金｜1年目（計画策定）3分の2・上限150万円／2年目（導入、令和9年度予定）2分の1（小規模3分の2）・上限200万円</p>
             <p class="area-meta">期間：令和8年度の1年目募集は3月16日〜5月22日で終了。次回は要確認</p>
             <p>システム導入計画の策定と導入を2年間で支援する。</p>
             <p><strong>主な条件</strong></p>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="kanazawa-city-chusho-yushi-sogyosha-shikin">
             <h3>金沢市 中小企業創業者支援資金（制度融資）</h3>
-            <p class="area-meta">金沢市 経済局 産業政策課｜融資｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">金沢市 経済局 産業政策課｜融資｜金額は公式で確認</p>
             <p class="area-meta">期間：随時（最新は要確認）</p>
             <p>創業しようとする方や創業1年未満の方向けの市の制度融資。40歳未満・女性は重点支援分あり。</p>
             <p><strong>主な条件</strong></p>
@@ -187,7 +205,7 @@
           </div>
           <div class="area-program" id="kanazawa-city-wakamono-kigyoka-shien">
             <h3>金沢市 地域連携若者起業家支援事業</h3>
-            <p class="area-meta">金沢市 経済局 産業政策課｜補助金｜開業奨励金は上限100万円、継続奨励金は1年目・2年目各上限50万円｜締切：公募要領で確認</p>
+            <p class="area-meta">金沢市 経済局 産業政策課｜補助金｜開業奨励金は上限100万円、継続奨励金は1年目・2年目各上限50万円</p>
             <p class="area-meta">期間：令和8年度上期は4月1日受付開始（下期は要確認）</p>
             <p>市内で起業を志す若者の開業前後の運転資金を助成し、アドバイザー派遣も行う。</p>
             <p><strong>主な条件</strong></p>
@@ -213,30 +231,30 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>金沢市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="kanazawa-taishin-mokuzo">
             <h3>既存建築物耐震改修工事費等補助制度（木造住宅）</h3>
-            <p class="area-meta">金沢市｜補助金｜一戸建て木造の改修補助限度額280万円（令和7年7月に増額）｜締切：公募要領で確認</p>
+            <p class="area-meta">金沢市｜補助金｜一戸建て木造の改修補助限度額280万円（令和7年7月に増額）</p>
             <p class="area-meta">期間：令和8年度（数値は案内ページで表記差あり、要確認）</p>
             <p>昭和56年5月31日以前の木造住宅の耐震診断・設計・改修工事費の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>昭和56年5月31日以前に建築された木造住宅（地上3階以下）</li><li>工事前に交付申請</li></ul>
             <p><a href="https://www4.city.kanazawa.lg.jp/soshikikarasagasu/kenchikushidoka/yokuarushitsumon/3107.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="kanazawa-soene-shoene-setsubi">
             <h3>創エネ・省エネ・蓄エネ設備設置費補助</h3>
-            <p class="area-meta">金沢市｜補助金｜太陽光5万円（HEMS設置が条件）、蓄電システム10万円（太陽光と同時で合計15万円）、エネファーム5万円、ハイブリッド給湯器4万円｜締切：公募要領で確認</p>
+            <p class="area-meta">金沢市｜補助金｜太陽光5万円（HEMS設置が条件）、蓄電システム10万円（太陽光と同時で合計15万円）、エネファーム5万円、ハイブリッド給湯器4万円</p>
             <p class="area-meta">期間：令和8年度（保証開始日から30日以内または3月31日のいずれか早い日）</p>
             <p>住宅への太陽光、蓄電システム、エネファーム、ハイブリッド給湯器等の設置費を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>蓄電システムは蓄電容量2kWh以上</li></ul>
             <p><a href="https://www4.city.kanazawa.lg.jp/soshikikarasagasu/zeroc/ondankataisaku/ippankateimukehojokin/7434.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program" id="kanazawa-city-yokaigo-sumai-zukuri">
             <h3>金沢市 要介護高齢者等の生活自立のための住まいづくり助成</h3>
-            <p class="area-meta">石川県金沢市｜補助金｜生活保護世帯100%・上限100万円、非課税世帯90%・上限70万円、所得税5万円以下70%・上限50万円（箇所別上限あり）｜締切：公募要領で確認</p>
+            <p class="area-meta">石川県金沢市｜補助金｜生活保護世帯100%・上限100万円、非課税世帯90%・上限70万円、所得税5万円以下70%・上限50万円（箇所別上限あり）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>要介護高齢者等の住宅改修費を世帯区分に応じて助成する。</p>
             <p><strong>主な条件</strong></p>

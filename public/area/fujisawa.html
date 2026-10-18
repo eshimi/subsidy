@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">神奈川県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（藤沢市）<b>3件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（神奈川県）<b>5件（うち受付終了2件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>6件（うち受付終了2件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-2">EV・充電 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-7">移住 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">藤沢市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="fujisawa-city-community-business">
             <h3>藤沢市コミュニティビジネス支援補助金</h3>
-            <p class="area-meta">藤沢市 産業労働課｜補助金｜対象事業費の40％以内（女性・シニア世代は45％以内）、予算の範囲内｜締切：公募要領で確認</p>
+            <p class="area-meta">藤沢市 産業労働課｜補助金｜対象事業費の40％以内（女性・シニア世代は45％以内）、予算の範囲内</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>空き店舗などの賃借料と改装工事費の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="fujisawa-city-tokutei-sogyo">
             <h3>藤沢市 特定創業支援等事業（創業スタートアップ支援）</h3>
-            <p class="area-meta">藤沢市 産業労働課｜専門家支援｜要確認（支援は無料または要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">藤沢市 産業労働課｜専門家支援｜要確認（支援は無料または要確認）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>創業セミナー・相談など1か月以上・4回以上の継続支援を受け、証明書で登録免許税軽減や融資の金利優遇等を受けられる。</p>
             <p><strong>主な条件</strong></p>
@@ -187,7 +205,7 @@
           </div>
           <div class="area-program" id="fujisawa-city-yushi-hoshoryo-riko">
             <h3>藤沢市制度融資 信用保証料補助・利子補給</h3>
-            <p class="area-meta">藤沢市 産業労働課（融資窓口：湘南産業振興財団）｜融資｜保証料の90％（上限20万円）補助。利子補給は年2.2％以内（2年間、女性・若者・シニア起業家は3年間）｜締切：公募要領で確認</p>
+            <p class="area-meta">藤沢市 産業労働課（融資窓口：湘南産業振興財団）｜融資｜保証料の90％（上限20万円）補助。利子補給は年2.2％以内（2年間、女性・若者・シニア起業家は3年間）</p>
             <p class="area-meta">期間：令和8年度分は藤沢市公式ページで確認（最新は要確認）</p>
             <p>創業支援融資・キュンとするスタートアップ等の市制度融資の利用者へ、保証料補助と利子補給を行う。</p>
             <p><strong>主な条件</strong></p>
@@ -212,40 +230,40 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>藤沢市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="fujisawa-taishin">
             <h3>藤沢市木造住宅耐震診断・改修等補助</h3>
-            <p class="area-meta">神奈川県藤沢市｜補助金｜要確認（耐震診断・改修・耐震シェルター設置を補助）｜締切：公募要領で確認</p>
+            <p class="area-meta">神奈川県藤沢市｜補助金｜要確認（耐震診断・改修・耐震シェルター設置を補助）</p>
             <p class="area-meta">期間：令和8年度（再開分。最新は要確認）</p>
             <p>木造住宅の耐震診断・改修工事等・耐震シェルター設置の費用を補助する。令和8年度改修分はキャンセル待ちから一部再開された。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>改修工事が2027年1月中に完了見込みであること等</li></ul>
             <p><a href="https://www.city.fujisawa.kanagawa.jp/jutaku/machizukuri/sumai/taishin/hojo/jigyoichiran.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program is-ended" id="fujisawa-taiyoko-jikasyohi">
             <h3>藤沢市住宅用太陽光発電システム（自家消費型）等設置費補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">神奈川県藤沢市｜補助金｜太陽光 7万円/kW、定置用蓄電池 補助対象経費の1/3、HEMS 2/3（上限20万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">神奈川県藤沢市｜補助金｜太陽光 7万円/kW、定置用蓄電池 補助対象経費の1/3、HEMS 2/3（上限20万円）</p>
             <p class="area-meta">期間：令和8年度の募集は終了（次回は要確認）</p>
             <p>太陽光・蓄電池・HEMSを同時設置する場合の費用を補助する。令和8年度の募集は終了。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>市内の住宅に同時設置すること</li><li>交付決定前の着工は原則不可</li></ul>
             <p><a href="https://www.city.fujisawa.kanagawa.jp/zeroc/machizukuri/kankyo/hojo/taiyoko_jikasyouhi.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">EV・充電</h3>
+          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
           <div class="area-program is-ended" id="fujisawa-nextgen-car">
             <h3>藤沢市次世代自動車導入補助金（EV） <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">神奈川県藤沢市｜補助金｜EV 1件5万円｜締切：公募要領で確認</p>
+            <p class="area-meta">神奈川県藤沢市｜補助金｜EV 1件5万円</p>
             <p class="area-meta">期間：令和8年度は受付終了</p>
             <p>電気自動車の導入費を補助する。令和8年度は予定件数に達し受付終了。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>市内在住等（詳細は要確認）</li></ul>
             <p><a href="https://www.city.fujisawa.kanagawa.jp/zeroc/machizukuri/kankyo/hojo/jidousya2.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="fujisawa-akiya-riyo">
             <h3>藤沢市空家利活用事業補助金</h3>
-            <p class="area-meta">神奈川県藤沢市｜補助金｜大規模改修型：対象経費の2/3（上限100万円）、小規模改修型：1/2（上限50万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">神奈川県藤沢市｜補助金｜大規模改修型：対象経費の2/3（上限100万円）、小規模改修型：1/2（上限50万円）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>空き家を地域活動の場として再生する際の初期経費を補助する。小規模改修型は個人も対象。</p>
             <p><strong>主な条件</strong></p>
@@ -254,17 +272,17 @@
           </div>
           <div class="area-program" id="fujisawa-block">
             <h3>藤沢市ブロック塀等安全対策工事費補助</h3>
-            <p class="area-meta">神奈川県藤沢市｜補助金｜工事費の1/2（上限30万円）。津波避難路沿いは3/4（上限45万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">神奈川県藤沢市｜補助金｜工事費の1/2（上限30万円）。津波避難路沿いは3/4（上限45万円）</p>
             <p class="area-meta">期間：掲載は令和7年度情報。令和8年度は要確認</p>
             <p>道路に面した危険なブロック塀等の撤去・改修費を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>市内の戸建住宅の所有者かつ居住者等</li><li>市税の滞納がないこと</li></ul>
             <p><a href="https://www.city.fujisawa.kanagawa.jp/bousai/bosai/bosai/taisaku/burokkubei.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="fujisawa-teiju-rishi">
             <h3>藤沢市勤労者住宅資金利子補助制度</h3>
-            <p class="area-meta">神奈川県藤沢市｜補助金｜住宅ローン利子の一部（補助期間4年、対象限度額600万円等）｜締切：公募要領で確認</p>
+            <p class="area-meta">神奈川県藤沢市｜補助金｜住宅ローン利子の一部（補助期間4年、対象限度額600万円等）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>市外から転入して住宅を購入・建築する勤労者に、住宅ローン利子の一部を補助する。</p>
             <p><strong>主な条件</strong></p>

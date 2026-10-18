@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -170,7 +177,7 @@
       <div class="area-body">
           <div class="area-program" id="kochi-kigyoka-ikusei">
             <h3>高知県起業家育成事業費補助金</h3>
-            <p class="area-meta">高知県 産業イノベーション課｜補助金｜上限700万円（令和7年度版ページの記載）｜締切：公募要領で確認</p>
+            <p class="area-meta">高知県 産業イノベーション課｜補助金｜上限700万円（令和7年度版ページの記載）</p>
             <p class="area-meta">期間：令和8年度の詳細は要確認</p>
             <p>学生向け起業家教育や起業家向けアクセラレータープログラムなど、次世代の起業家育成の取組を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -180,7 +187,7 @@
           <h3 class="area-cat">受付が終了した制度（次回の公募の参考に）</h3>
           <div class="area-program is-ended" id="kochi-shinjigyo-sozo">
             <h3>高知県新事業創出支援事業費補助金（実証等支援・製品開発支援） <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">高知県 産業イノベーション課｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">高知県 産業イノベーション課｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：令和8年5月21日公募開始、現在は受付終了（来年度は要確認）</p>
             <p>新事業の実証や製品開発に取り組む事業者を支援する補助金。令和8年度は5月21日に公募を開始した。</p>
             <p><strong>主な条件</strong></p>
@@ -198,7 +205,7 @@
           </div>
           <div class="area-program is-ended" id="kochi-shotoku-koujou">
             <h3>所得向上推進企業等総合支援事業費補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">高知県 産業振興部｜補助金｜要確認｜締切：2026-05-20</p>
+            <p class="area-meta">高知県 産業振興部｜補助金｜金額は公式で確認｜締切：2026-05-20</p>
             <p class="area-meta">期間：令和8年度1次公募は5/20に終了（以降は要確認）</p>
             <p>付加価値向上や賃金向上を目指す企業の商品高度化・生産能力拡大・販路拡大・人材育成などを補助する。賃金・付加価値の3年計画が必要。</p>
             <p><strong>主な条件</strong></p>
@@ -231,27 +238,27 @@
     <section class="art-sec" aria-labelledby="pref-resident"><h2 id="pref-resident"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">個人の方向けの制度（住まい・暮らし）</h2>
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。市区町村の個人向けの制度（7件）は、下の「県内の市区町村のページ」から確認できます。</p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="kochi-jutaku-taishin">
             <h3>高知県住宅耐震化促進事業</h3>
-            <p class="area-meta">高知県 住宅課｜補助金｜耐震診断は自己負担3,000円以内、耐震改修設計は最大44.2万円、耐震改修工事は最大165万円（市町村により異なる）｜締切：公募要領で確認</p>
+            <p class="area-meta">高知県 住宅課｜補助金｜耐震診断は自己負担3,000円以内、耐震改修設計は最大44.2万円、耐震改修工事は最大165万円（市町村により異なる）</p>
             <p class="area-meta">期間：要確認（交付要綱は2025年3月改正）</p>
             <p>昭和56年5月31日以前の住宅の耐震診断・設計・改修を市町村と協力して補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>改修前の上部構造評点が1.0未満で改修後1.0以上</li><li>県登録の設計事務所・工務店が施工</li></ul>
             <p><a href="https://www.pref.kochi.lg.jp/doc/naiyou/" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="kochi-jutaku-solar-chikuden">
             <h3>高知県住宅用太陽光発電設備等導入推進事業費補助金</h3>
-            <p class="area-meta">高知県｜補助金｜要確認（市町村が補助する場合に県が一部を補助）｜締切：公募要領で確認</p>
+            <p class="area-meta">高知県｜補助金｜要確認（市町村が補助する場合に県が一部を補助）</p>
             <p class="area-meta">期間：令和8年度実施分（期間は要確認）</p>
             <p>住宅に太陽光発電と蓄電池（またはV2H）を設置する人への市町村補助を県が支援する。申込窓口は市町村。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>太陽光と蓄電池（またはV2H）の両方を導入</li></ul>
             <p><a href="https://www.pref.kochi.lg.jp/doc/2025033100099/" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">EV・充電</h3>
+          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
           <div class="area-program" id="kochi-ev-kounyu">
             <h3>高知県電気自動車等導入促進事業費補助金</h3>
             <p class="area-meta">高知県｜補助金｜EV（普通車）20万円、EV（軽自動車）30万円など｜締切：2027-01-31</p>
@@ -261,21 +268,21 @@
             <ul><li>県内在住の個人等</li></ul>
             <p><a href="https://www.pref.kochi.lg.jp/doc/2026033000518/" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program" id="kochi-jutaku-dannetsu">
             <h3>高知県 住宅断熱改修費補助金</h3>
-            <p class="area-meta">高知県｜補助金｜補助対象経費の1/3（上限1戸120万円）｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">高知県｜補助金｜補助対象経費の1/3（上限1戸120万円）</p>
+            
             <p>既存戸建て住宅の断熱改修を補助する。耐震改修補助との併用が可能。窓口は市町村。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>既存の戸建て住宅の所有者等</li></ul>
             <p><a href="https://www.pref.kochi.lg.jp/doc/2023082700024/" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="kochi-ijyu-shienkin">
             <h3>高知県 移住支援金</h3>
-            <p class="area-meta">高知県｜給付｜2人以上の世帯で最大100万円、単身で最大60万円（子育て世帯は市町村ごとの加算あり）｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">高知県｜給付｜2人以上の世帯で最大100万円、単身で最大60万円（子育て世帯は市町村ごとの加算あり）</p>
+            
             <p>東京23区在住者などが県内市町村へ移住し、要件を満たした場合に支給する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>東京圏からの移住</li></ul>

@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">静岡県・政令指定都市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（浜松市）<b>2件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（静岡県）<b>5件（うち受付終了2件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>9件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-2">EV・充電 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-5">バリアフリー・介護 1</a><a href="#res-cat-6">子育て 1</a><a href="#res-cat-7">移住 2</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">浜松市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="hamamatsu-shinjigyo-chosen">
             <h3>浜松市新事業挑戦事業費補助金</h3>
-            <p class="area-meta">浜松市｜補助金｜上限100万円／補助率 1/2｜締切：公募要領で確認</p>
+            <p class="area-meta">浜松市｜補助金｜上限100万円／補助率 1/2</p>
             <p class="area-meta">期間：令和8年度は複数回公募（3次募集 7月7日〜8月7日）</p>
             <p>製品開発の一次試作にかかる費用の一部を補助し、新たな事業化への挑戦を後押しします。年度内に複数回公募されます。</p>
             <p><strong>主な条件</strong></p>
@@ -203,17 +221,17 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>浜松市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="hamamatsu-taishin-hokyo">
             <h3>木造住宅耐震補強助成事業</h3>
-            <p class="area-meta">浜松市｜補助金｜上限115万円（掲載時期が古く令和8年度の金額は要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">浜松市｜補助金｜上限115万円（掲載時期が古く令和8年度の金額は要確認）</p>
             <p class="area-meta">期間：確認できた年度：不明（最新は要確認）</p>
             <p>昭和56年5月31日以前の木造住宅の耐震補強計画の策定と耐震改修工事を助成する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>昭和56年5月31日以前に建てられた木造住宅</li><li>1敷地につき1棟</li><li>市の施工事業者名簿登録業者に依頼</li></ul>
             <p><a href="https://www.city.hamamatsu.shizuoka.jp/kensido/home_tochi/home/kensido/taisin/jigyou_03.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="hamamatsu-smarthouse-chikuden">
             <h3>創エネ・省エネ・蓄エネ型住宅推進事業費補助金（家庭用蓄電池ほか）</h3>
             <p class="area-meta">浜松市｜補助金｜家庭用蓄電池は上限8万円（他の機器の額は要確認）｜締切：2027-03-15</p>
@@ -223,27 +241,27 @@
             <ul><li>市内の戸建住宅に居住する個人（賃貸は除く）</li><li>未使用の機器を新たに購入・設置</li><li>市税を完納</li></ul>
             <p><a href="https://www.city.hamamatsu.shizuoka.jp/shin-ene/smart_hojyo/hojokin.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">EV・充電</h3>
+          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
           <div class="area-program" id="hamamatsu-zeh-jizedai-jidosha">
             <h3>浜松市 スマートハウス・次世代自動車補助金（ZEH・EV）</h3>
-            <p class="area-meta">静岡県浜松市｜補助金｜ZEH上限20万円（断熱等級6以上が条件）、新車EVは蓄電池容量×1,000円/kWhで上限6万円｜締切：公募要領で確認</p>
+            <p class="area-meta">静岡県浜松市｜補助金｜ZEH上限20万円（断熱等級6以上が条件）、新車EVは蓄電池容量×1,000円/kWhで上限6万円</p>
             <p class="area-meta">期間：令和8年度受付中（期限は要確認）</p>
             <p>令和8年度のスマートハウス・次世代自動車補助金。ZEH住宅とEV・FCVの購入が対象。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>EVは国のCEV補助金対象車であること</li><li>ZEHは令和8年度から断熱等性能等級6以上が対象</li></ul>
             <p><a href="https://www.city.hamamatsu.shizuoka.jp/shin-ene/smart_hojyo/hojokin.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program" id="hamamatsu-shoene-aircon">
             <h3>浜松市 家庭用省エネエアコン導入支援事業費補助金</h3>
-            <p class="area-meta">静岡県浜松市｜補助金｜冷房能力2.5kW以上3万円、2.5kW未満1.5万円（定額）｜締切：公募要領で確認</p>
+            <p class="area-meta">静岡県浜松市｜補助金｜冷房能力2.5kW以上3万円、2.5kW未満1.5万円（定額）</p>
             <p class="area-meta">期間：令和8年度受付中（詳細期間は要確認）</p>
             <p>省エネエアコンの購入・設置費を定額で補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>令和8年4月1日以降に購入したエアコン</li><li>持ち家に設置すること（賃貸住宅は対象外）</li></ul>
             <p><a href="https://www.city.hamamatsu.shizuoka.jp/shin-ene/hojokin/eirconhojo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="hamamatsu-akiya-kaitai">
             <h3>浜松市空家等除却促進事業費補助金（空き家解体補助金）</h3>
             <p class="area-meta">静岡県浜松市｜補助金｜解体費の1/3、上限50万円｜締切：2026-12-25</p>
@@ -253,27 +271,27 @@
             <ul><li>昭和56年5月31日以前に建築された空き家の個人所有者</li></ul>
             <p><a href="https://www.city.hamamatsu.shizuoka.jp/simink/akiya/akiyahozixyo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program" id="hamamatsu-koreisha-jutaku-kaizo">
             <h3>浜松市 高齢者住宅改造費補助金</h3>
-            <p class="area-meta">静岡県浜松市｜補助金｜対象経費の1/2－他制度補助額、限度額75万円（厚労大臣指定地域は100万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">静岡県浜松市｜補助金｜対象経費の1/2－他制度補助額、限度額75万円（厚労大臣指定地域は100万円）</p>
             <p class="area-meta">期間：予算上限に達し次第終了。最新は要確認</p>
             <p>高齢者の心身状況に応じた住宅改造の費用を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>60歳以上で介護保険の要支援・要介護認定を受けていること</li><li>市・県民税非課税世帯に属する人など</li><li>着工前の申請が必要</li></ul>
             <p><a href="https://www.city.hamamatsu.shizuoka.jp/kourei/welfare/elderly/zaitaku/kaizou.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">子育て</h3>
+          <h3 class="area-cat" id="res-cat-6">子育て</h3>
           <div class="area-program" id="hamamatsu-matinaka-kosodate">
             <h3>浜松市 まちなか定住促進・子育て応援環境づくり補助金</h3>
-            <p class="area-meta">静岡県浜松市｜補助金｜基本額30万円、3世代同居加算50万円（ハマライフ補助は対象経費1/2まで、結婚新生活支援は10/10まで）｜締切：公募要領で確認</p>
+            <p class="area-meta">静岡県浜松市｜補助金｜基本額30万円、3世代同居加算50万円（ハマライフ補助は対象経費1/2まで、結婚新生活支援は10/10まで）</p>
             <p class="area-meta">期間：先着順、予算に達し次第終了。最新は要確認</p>
             <p>居住誘導区域内に移り住む世帯などの住宅の新築・取得・増築・改修費を上乗せ補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>ハマライフ住宅取得費等助成または結婚新生活支援事業補助金の交付決定を受けていること</li><li>まちなかに新たに住む、または多世帯で住むこと</li></ul>
             <p><a href="https://www.city.hamamatsu.shizuoka.jp/jutaku/matinaka_kosodate.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="hamamatsu-hamalife-ijushienkin">
             <h3>浜松市はじめようハマライフ助成事業費補助金（移住・就業支援金）</h3>
             <p class="area-meta">静岡県浜松市｜給付｜最大100万円｜締切：2027-01-15</p>

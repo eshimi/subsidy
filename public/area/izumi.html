@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">大阪府・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（和泉市）<b>3件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（大阪府）<b>4件</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>6件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 2</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-5">バリアフリー・介護 1</a><a href="#res-cat-7">移住 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">和泉市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="izumi-city-chusho-shinko-taisaku-hojo">
             <h3>和泉市中小企業振興対策事業補助金</h3>
-            <p class="area-meta">和泉市 産業振興プラザ（産業振興室）｜補助金｜対象経費の1/2以内、同一年度あたり上限20万円（研究・開発支援、人材育成支援、工業所有権取得促進の各事業）｜締切：公募要領で確認</p>
+            <p class="area-meta">和泉市 産業振興プラザ（産業振興室）｜補助金｜対象経費の1/2以内、同一年度あたり上限20万円（研究・開発支援、人材育成支援、工業所有権取得促進の各事業）</p>
             <p class="area-meta">期間：要確認（予算に限りあり）</p>
             <p>市内中小企業の研究・開発、人材育成（研修受講料等）、特許等の工業所有権取得費用の一部を補助する制度。</p>
             <p><strong>主な条件</strong></p>
@@ -178,8 +196,8 @@
           </div>
           <div class="area-program" id="izumi-city-chusho-yushi">
             <h3>和泉市中小企業融資制度</h3>
-            <p class="area-meta">和泉市 産業振興室（商工観光担当）｜融資｜要確認｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">和泉市 産業振興室（商工観光担当）｜融資｜金額は公式で確認</p>
+            
             <p>市内中小企業の資金調達を支援する市の融資制度。融資限度額・利率・保証料補助等の詳細は市の公式ページで確認が必要。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>和泉市内で事業を営む中小企業者</li><li>要件の詳細は要確認</li></ul>
@@ -187,7 +205,7 @@
           </div>
           <div class="area-program" id="izumi-city-sogyo-shien-hojo">
             <h3>和泉市創業等支援補助金</h3>
-            <p class="area-meta">和泉市 産業振興室（商工観光担当）｜補助金｜対象経費の1/2以内、家賃・広告宣伝費は月5万円上限、1者あたり合計30万円上限｜締切：公募要領で確認</p>
+            <p class="area-meta">和泉市 産業振興室（商工観光担当）｜補助金｜対象経費の1/2以内、家賃・広告宣伝費は月5万円上限、1者あたり合計30万円上限</p>
             <p class="area-meta">期間：令和8年度の募集期間は要確認（予算に限りあり）</p>
             <p>市内で創業する人の家賃・改装費・広告宣伝費の一部を補助する制度。申請前に特定創業支援等事業の支援を受けた証明が必要。</p>
             <p><strong>主な条件</strong></p>
@@ -213,26 +231,26 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>和泉市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="izumi-mokuzo-jokyaku">
             <h3>和泉市木造住宅の除却工事費補助</h3>
-            <p class="area-meta">大阪府和泉市｜補助金｜除却工事費の80％（最大20万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">大阪府和泉市｜補助金｜除却工事費の80％（最大20万円）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>耐震性が不足する木造住宅の除却工事費を補助する。門・塀・樹木等の除却費は対象外。</p>
             <p><strong>主な条件</strong></p>
-            <ul><li>耐震性が不足する木造住宅</li><li>要確認</li></ul>
+            <ul><li>耐震性が不足する木造住宅</li></ul>
             <p><a href="https://www.city.osaka-izumi.lg.jp/kakukano/dezainbu/kentikukaihatu/osirase/12470.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
           <div class="area-program" id="izumi-taishin">
             <h3>和泉市木造住宅の耐震改修補助制度</h3>
-            <p class="area-meta">大阪府和泉市｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">大阪府和泉市｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>耐震診断の結果、耐震性が不足する木造住宅の耐震改修工事費の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>耐震診断で耐震性不足と判定された木造住宅</li><li>昭和56年5月31日以前の工事着手（診断補助）</li></ul>
             <p><a href="https://www.city.osaka-izumi.lg.jp/kurasitetu/sumai/taishin/1324364263336.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="izumi-solar-battery">
             <h3>和泉市再エネ・省エネ機器設置促進事業補助金（個人・太陽光・蓄電池）</h3>
             <p class="area-meta">大阪府和泉市｜補助金｜太陽光1kWあたり7万円（上限70万円）、蓄電池1kWhあたり4万円（上限40万円）｜締切：2027-02-01</p>
@@ -242,7 +260,7 @@
             <ul><li>市内の住宅に設置する個人</li><li>FIT・FIPを申請しないこと</li><li>蓄電池は太陽光とセット購入</li></ul>
             <p><a href="https://www.city.osaka-izumi.lg.jp/kakukano/sangyoubu/hozenka/osirase/decarbonization/23215.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="izumi-akiya-jokyaku">
             <h3>和泉市老朽危険空家等除却補助金</h3>
             <p class="area-meta">大阪府和泉市｜補助金｜除却費の80％（最大40万円）｜締切：2027-02-01</p>
@@ -252,20 +270,20 @@
             <ul><li>令和7年分課税所得507万円未満</li><li>市税の滞納がないこと</li><li>交付決定後に工事契約</li></ul>
             <p><a href="https://www.city.osaka-izumi.lg.jp/kakukano/dezainbu/kentikukaihatu/gyoumu_jutakuseisaku/akiya/23175.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program" id="izumi-smile-reform">
             <h3>いずみ安心住まいる（スマイル）事業（介護予防住まい改修支援）</h3>
-            <p class="area-meta">大阪府和泉市｜助成金｜対象改修費の9割（上限45,000円）｜締切：公募要領で確認</p>
+            <p class="area-meta">大阪府和泉市｜助成金｜対象改修費の9割（上限45,000円）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>介護予防が必要な65歳以上の在宅の方の、事故防止のための住まい改修を助成する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>65歳以上で在宅</li><li>介護予防が必要な方</li></ul>
             <p><a href="https://www.city.osaka-izumi.lg.jp/kakukano/fukusibu/koureikaigo/osirase/sumaikaisyuu.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="izumi-nanbu-teiju">
             <h3>和泉市南部地域等移住定住支援補助金</h3>
-            <p class="area-meta">大阪府和泉市｜補助金｜新築100万円、リフォームは費用の3分の1（上限100万円）、移住支援30万円、中学生以下の子1人につき25万円加算｜締切：公募要領で確認</p>
+            <p class="area-meta">大阪府和泉市｜補助金｜新築100万円、リフォームは費用の3分の1（上限100万円）、移住支援30万円、中学生以下の子1人につき25万円加算</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>南部エリア（市街化調整区域の一部）に移住・定住した若年世帯・子育て世帯を支援する。</p>
             <p><strong>主な条件</strong></p>

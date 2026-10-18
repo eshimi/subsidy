@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">静岡県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（掛川市）<b>2件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（静岡県）<b>5件（うち受付終了2件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>6件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-6">子育て 1</a><a href="#res-cat-7">移住 2</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">掛川市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="kakegawa-city-koguchi-shikin-yushi">
             <h3>中小企業支援策(小口資金)</h3>
-            <p class="area-meta">掛川市 産業労働政策課｜融資｜融資限度額1企業700万円以内(掲載時点。利率等は要確認)｜締切：公募要領で確認</p>
+            <p class="area-meta">掛川市 産業労働政策課｜融資｜融資限度額1企業700万円以内(掲載時点。利率等は要確認)</p>
             <p class="area-meta">期間：通年(要確認)</p>
             <p>小規模事業者向けの市の融資制度。運転・設備資金に利用できる。</p>
             <p><strong>主な条件</strong></p>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="kakegawa-city-shoene-setsubi-hojo">
             <h3>中小企業等省エネ設備導入事業費補助金</h3>
-            <p class="area-meta">掛川市 環境政策課｜補助金｜補助率3分の1以内・上限50万円(令和7年度の公表内容。令和8年度は要確認)｜締切：公募要領で確認</p>
+            <p class="area-meta">掛川市 環境政策課｜補助金｜補助率3分の1以内・上限50万円(令和7年度の公表内容。令和8年度は要確認)</p>
             <p class="area-meta">期間：令和8年度の受付期間は要確認</p>
             <p>市内事業者が空調・給湯・換気・照明などを省エネ設備へ更新する費用を補助する。温室効果ガス排出量を5%以上削減できる設備が対象。</p>
             <p><strong>主な条件</strong></p>
@@ -203,20 +221,20 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>掛川市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="kakegawa-taishin-josei">
             <h3>掛川市 木造住宅耐震補強工事(補強計画一体型)</h3>
-            <p class="area-meta">静岡県掛川市｜補助金｜耐震改修工事費の4/5、上限115万円(旧ページの情報)｜締切：公募要領で確認</p>
+            <p class="area-meta">静岡県掛川市｜補助金｜耐震改修工事費の4/5、上限115万円(旧ページの情報)</p>
             <p class="area-meta">期間：令和7年度で終了の可能性あり(最新は要確認)</p>
             <p>木造住宅の耐震補強の補助。市広報では令和7年度で終了とされており、令和8年度の実施は要確認。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>旧耐震の木造住宅(詳細は要確認)</li></ul>
             <p><a href="https://www.city.kakegawa.shizuoka.jp/gyosei/docs/64734.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="kakegawa-akiya-josyaku">
             <h3>掛川市空き家除却事業費補助金</h3>
-            <p class="area-meta">静岡県掛川市｜補助金｜補助対象経費の2分の1以内、同一敷地につき上限30万円｜締切：公募要領で確認</p>
+            <p class="area-meta">静岡県掛川市｜補助金｜補助対象経費の2分の1以内、同一敷地につき上限30万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>老朽空き家の解体費用を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -225,14 +243,14 @@
           </div>
           <div class="area-program" id="kakegawa-block">
             <h3>掛川市危険ブロック塀の除却・建替え補助事業</h3>
-            <p class="area-meta">静岡県掛川市｜補助金｜一般道は2分の1(上限20万円)、避難路沿道等は3分の2(上限なし)｜締切：公募要領で確認</p>
+            <p class="area-meta">静岡県掛川市｜補助金｜一般道は2分の1(上限20万円)、避難路沿道等は3分の2(上限なし)</p>
             <p class="area-meta">期間：令和8年度の受付期間は要確認</p>
             <p>危険なブロック塀の除却・建替えに補助する。年度内(2月末)完了が必要。建替えは避難路沿道等が対象。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>地震時に倒壊のおそれがあるブロック塀等</li></ul>
             <p><a href="https://www.city.kakegawa.shizuoka.jp/gyosei/docs/83258.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">子育て</h3>
+          <h3 class="area-cat" id="res-cat-6">子育て</h3>
           <div class="area-program" id="kakegawa-shinkon">
             <h3>掛川市新婚住宅取得等事業費補助金</h3>
             <p class="area-meta">静岡県掛川市｜補助金｜夫婦とも29歳以下の世帯60万円、夫婦いずれかが39歳以下の世帯30万円(上限)｜締切：2027-03-12</p>
@@ -242,10 +260,10 @@
             <ul><li>新婚世帯(年齢要件あり)</li><li>同居開始日から令和9年3月31日までが対象期間</li></ul>
             <p><a href="https://www.city.kakegawa.shizuoka.jp/kakekko/docs/303942.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="kakegawa-akiya-ryutsu">
             <h3>掛川市ようこそ掛川空き家流通応援補助金</h3>
-            <p class="area-meta">静岡県掛川市｜補助金｜基本30万円。市外かつ県内からの移住10万円、県外から20万円を加算。最大50万円、改修費は2分の1以内｜締切：公募要領で確認</p>
+            <p class="area-meta">静岡県掛川市｜補助金｜基本30万円。市外かつ県内からの移住10万円、県外から20万円を加算。最大50万円、改修費は2分の1以内</p>
             <p class="area-meta">期間：令和8年度(受付期間は要確認)</p>
             <p>空き家の購入、または取得した空き家の改修に補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -254,7 +272,7 @@
           </div>
           <div class="area-program" id="kakegawa-ijuu-shuugyou">
             <h3>掛川市 移住・就業支援金</h3>
-            <p class="area-meta">静岡県掛川市｜給付｜100万円(単身の場合は60万円)｜締切：公募要領で確認</p>
+            <p class="area-meta">静岡県掛川市｜給付｜100万円(単身の場合は60万円)</p>
             <p class="area-meta">期間：掲載の申請期限は令和8年1月30日。最新は要確認</p>
             <p>東京23区在住者等が掛川市へ移住し、静岡県が選定した中小企業等に就業または起業した場合に支給。</p>
             <p><strong>主な条件</strong></p>

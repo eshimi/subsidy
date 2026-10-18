@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">愛媛県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（西条市）<b>2件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（愛媛県）<b>4件（うち受付終了1件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>6件（うち受付終了1件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 2</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-7">移住 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">西条市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="saijo-city-akitenpo-hojo">
             <h3>西条市地域産業競争力強化事業 商店街空き店舗活用事業費補助金</h3>
-            <p class="area-meta">西条市 産業振興課｜補助金｜要確認（公募要領参照）｜締切：公募要領で確認</p>
+            <p class="area-meta">西条市 産業振興課｜補助金｜要確認（公募要領参照）</p>
             <p class="area-meta">期間：随時募集（令和8年4月公募要領）</p>
             <p>商店街の空き店舗を活用して出店する事業者の経費の一部を補助する制度。令和8年4月版の公募要領で随時募集とされている。</p>
             <p><strong>主な条件</strong></p>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="saijo-city-chushokigyo-shikin-yushi">
             <h3>西条市中小企業資金融資制度</h3>
-            <p class="area-meta">西条市 産業振興課｜融資｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">西条市 産業振興課｜融資｜金額は公式で確認</p>
             <p class="area-meta">期間：通年（要確認）</p>
             <p>市内中小企業の事業資金調達を支援する市の融資制度。</p>
             <p><strong>主な条件</strong></p>
@@ -203,20 +221,20 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>西条市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="saijo-taishin">
             <h3>西条市木造住宅耐震改修事業</h3>
-            <p class="area-meta">愛媛県西条市｜補助金｜設計・工事それぞれ4/5以内(上限20万円・115万円)※令和7年度版の記載｜締切：公募要領で確認</p>
+            <p class="area-meta">愛媛県西条市｜補助金｜設計・工事それぞれ4/5以内(上限20万円・115万円)※令和7年度版の記載</p>
             <p class="area-meta">期間：令和8年度版は最新は要確認</p>
             <p>昭和56年5月31日以前着工の木造住宅で評点1.0未満のものの耐震改修を補助する。令和8年度版の詳細は要確認。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>昭和56年5月31日以前着工の木造住宅</li><li>評点1.0未満</li></ul>
             <p><a href="https://www.city.saijo.ehime.jp/soshiki/kenchiku/taishinkaisyuu.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="saijo-newenergy">
             <h3>西条市新エネルギー等関連設備導入促進事業補助金</h3>
-            <p class="area-meta">愛媛県西条市｜補助金｜蓄電池は1/10(上限5万円)、エネファーム1/10(上限10万円)、ZEH定額20万円｜締切：公募要領で確認</p>
+            <p class="area-meta">愛媛県西条市｜補助金｜蓄電池は1/10(上限5万円)、エネファーム1/10(上限10万円)、ZEH定額20万円</p>
             <p class="area-meta">期間：令和8年4月1日から(予算がなくなり次第終了)</p>
             <p>蓄電池・エネファーム・ZEH等の導入を補助する。先着順で、2026年9月30日時点の執行率は77.0%。</p>
             <p><strong>主な条件</strong></p>
@@ -225,34 +243,33 @@
           </div>
           <div class="area-program is-ended" id="saijo-datsutanso-solar">
             <h3>西条市脱炭素重点対策加速化事業補助金(太陽光・蓄電池) <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">愛媛県西条市｜補助金｜要確認｜締切：2026-08-17</p>
+            <p class="area-meta">愛媛県西条市｜補助金｜金額は公式で確認｜締切：2026-08-17</p>
             <p class="area-meta">期間：個人向けは8月17日に受付終了(令和8年度)</p>
             <p>太陽光発電と蓄電池の同時導入を補助する。個人向けは予算上限到達で受付終了。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>太陽光との同時導入が条件</li><li>個人向けは受付終了</li></ul>
             <p><a href="https://www.city.saijo.ehime.jp/soshiki/kankyo/datsutansojyuutentaisaku-taiyoukouhojo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program" id="saijo-shouene-kaden">
             <h3>西条市省エネ家電製品購入促進事業</h3>
-            <p class="area-meta">愛媛県西条市｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">愛媛県西条市｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：最新は要確認(ページに【受付中】の表示)</p>
             <p>省エネ家電の購入を促進する補助事業。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>要確認</li></ul>
+            
             <p><a href="https://www.city.saijo.ehime.jp/soshiki/kankyo/shouene-hojo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="saijo-block">
             <h3>西条市ブロック塀等安全対策事業</h3>
-            <p class="area-meta">愛媛県西条市｜補助金｜対象経費(1mあたり8万円まで)の2/3以内、上限30万円(令和6年度版の記載)｜締切：公募要領で確認</p>
+            <p class="area-meta">愛媛県西条市｜補助金｜対象経費(1mあたり8万円まで)の2/3以内、上限30万円(令和6年度版の記載)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>通学路等に面した危険なブロック塀の撤去等を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>通学路等に面した危険なブロック塀</li><li>市内業者の点検結果が必要</li></ul>
             <p><a href="https://www.city.saijo.ehime.jp/soshiki/kenchiku/blockanzen.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="saijo-iju-kaishu">
             <h3>西条市移住者住宅改修支援事業費補助金</h3>
             <p class="area-meta">愛媛県西条市｜補助金｜補助率2/3、上限 働き手世帯100万円・子育て世帯400万円、家財搬出は別枠20万円｜締切：2026-12-01</p>

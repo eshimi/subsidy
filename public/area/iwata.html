@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">静岡県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（磐田市）<b>5件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（静岡県）<b>5件（うち受付終了2件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>7件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 2</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-6">子育て 1</a><a href="#res-cat-7">移住 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">磐田市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="iwata-city-fukugyo-kengyo-jinzai">
             <h3>磐田市副業・兼業人材活用促進事業費補助金</h3>
-            <p class="area-meta">磐田市 経済産業部 産業政策課｜補助金｜対象経費の2分の1以内、1人あたり上限24万円（年度内2人まで）｜締切：公募要領で確認</p>
+            <p class="area-meta">磐田市 経済産業部 産業政策課｜補助金｜対象経費の2分の1以内、1人あたり上限24万円（年度内2人まで）</p>
             <p class="area-meta">期間：最新は要確認（確認できたページの対象期間は令和7年度）</p>
             <p>副業・兼業の専門人材を活用する市内中小企業の経費を補助する。静岡県プロフェッショナル人材戦略拠点の利用等が必要。</p>
             <p><strong>主な条件</strong></p>
@@ -179,7 +197,7 @@
           </div>
           <div class="area-program" id="iwata-city-hanro-kaitaku-shien">
             <h3>販路開拓支援補助金</h3>
-            <p class="area-meta">磐田市 経済産業部 産業政策課｜補助金｜販路開拓事業は3分の1以内・上限30万円、展示会等出展は国内10万円・国外30万円｜締切：公募要領で確認</p>
+            <p class="area-meta">磐田市 経済産業部 産業政策課｜補助金｜販路開拓事業は3分の1以内・上限30万円、展示会等出展は国内10万円・国外30万円</p>
             <p class="area-meta">期間：最新は要確認（確認できた交付要領は令和7年度版）</p>
             <p>市内中小企業者の新たな販売先確保の取組経費の一部を補助する。補助対象経費10万円以上が条件。</p>
             <p><strong>主な条件</strong></p>
@@ -189,7 +207,7 @@
           </div>
           <div class="area-program" id="iwata-city-kaigyo-power-up-riko">
             <h3>開業パワーアップ支援資金利子補給金</h3>
-            <p class="area-meta">磐田市 経済産業部 産業政策課｜融資｜利子補給率 年1.5%、補給期間1年以内｜締切：公募要領で確認</p>
+            <p class="area-meta">磐田市 経済産業部 産業政策課｜融資｜利子補給率 年1.5%、補給期間1年以内</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>創業者や市内で創業しようとする人が制度融資を利用した際の利子の一部を市が補給する。</p>
             <p><strong>主な条件</strong></p>
@@ -198,7 +216,7 @@
           </div>
           <div class="area-program" id="iwata-city-keizai-hendo-riko">
             <h3>経済変動対策貸付資金利子補給金制度</h3>
-            <p class="area-meta">磐田市 経済産業部 産業政策課｜融資｜補給率0.45%（特別措置期間中は1.4%以内）、補給期間2年以内（特別措置中は3年以内）｜締切：公募要領で確認</p>
+            <p class="area-meta">磐田市 経済産業部 産業政策課｜融資｜補給率0.45%（特別措置期間中は1.4%以内）、補給期間2年以内（特別措置中は3年以内）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>静岡県の制度融資を借りた市内事業者に、市が利子の一部を補給する。設備資金・運転資金が対象。特別措置は経済情勢により終了する場合がある。</p>
             <p><strong>主な条件</strong></p>
@@ -208,7 +226,7 @@
           </div>
           <div class="area-program" id="iwata-city-startup-kyososhi">
             <h3>磐田市スタートアップ共創型事業補助金</h3>
-            <p class="area-meta">磐田市 経済産業部 産業政策課｜補助金｜補助率2分の1以内、上限100万円｜締切：公募要領で確認</p>
+            <p class="area-meta">磐田市 経済産業部 産業政策課｜補助金｜補助率2分の1以内、上限100万円</p>
             <p class="area-meta">期間：令和8年度公募は終了（5/12〜6/19）。次回公募は要確認</p>
             <p>市内中小企業がスタートアップと協業して新事業に取り組む経費を補助する。令和8年度は5月12日募集開始、6月19日提出期限。</p>
             <p><strong>主な条件</strong></p>
@@ -233,10 +251,10 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>磐田市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="iwata-shelter">
             <h3>耐震シェルター整備助成</h3>
-            <p class="area-meta">静岡県磐田市｜助成金｜補助率2/3、限度額40万円(その他の世帯)｜締切：公募要領で確認</p>
+            <p class="area-meta">静岡県磐田市｜助成金｜補助率2/3、限度額40万円(その他の世帯)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>木造住宅への耐震シェルター整備費を助成。</p>
             <p><strong>主な条件</strong></p>
@@ -245,14 +263,14 @@
           </div>
           <div class="area-program" id="iwata-taishin-hokyo">
             <h3>木造住宅耐震補強工事(補強計画一体型)助成</h3>
-            <p class="area-meta">静岡県磐田市｜助成金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">静岡県磐田市｜助成金｜金額は公式で確認</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>旧耐震の木造住宅の補強計画作成と耐震補強工事の費用を助成。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>昭和56年5月31日以前の基準で建築された木造住宅</li><li>耐震評点1.0未満</li></ul>
             <p><a href="https://www.city.iwata.shizuoka.jp/bousai_anzen/bousai/jishin_tsunami_sonae/taishin/1009366.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="iwata-shinenergy">
             <h3>新エネルギー及び省エネルギー設備普及促進奨励金</h3>
             <p class="area-meta">静岡県磐田市｜助成金｜住宅用太陽光(10kW未満)・家庭用蓄電池 各2万円｜締切：2027-03-31</p>
@@ -262,10 +280,10 @@
             <ul><li>原則としてJ-クレジット「そらいろラボ」に参加</li><li>市内の住宅に設置</li></ul>
             <p><a href="https://www.city.iwata.shizuoka.jp/kurashi_tetsuzuki/kankyou_hozen/kankyou/1001493.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="iwata-block">
             <h3>ブロック塀等の撤去・建替え助成</h3>
-            <p class="area-meta">静岡県磐田市｜助成金｜要確認(避難路・通学路・緊急輸送路沿道で基準額・補助率が異なる)｜締切：公募要領で確認</p>
+            <p class="area-meta">静岡県磐田市｜助成金｜要確認(避難路・通学路・緊急輸送路沿道で基準額・補助率が異なる)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>倒壊の危険があるブロック塀等の撤去・建替え費用を助成。</p>
             <p><strong>主な条件</strong></p>
@@ -274,14 +292,14 @@
           </div>
           <div class="area-program" id="iwata-kiken-akiya">
             <h3>危険空き家等除却事業費補助</h3>
-            <p class="area-meta">静岡県磐田市｜補助金｜工事費の1/2以内(上限50万円)｜締切：公募要領で確認</p>
+            <p class="area-meta">静岡県磐田市｜補助金｜工事費の1/2以内(上限50万円)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>危険な空き家等の除却費用を補助。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>危険な空き家等の所有者</li></ul>
             <p><a href="https://www.city.iwata.shizuoka.jp/kurashi_tetsuzuki/juutaku_pet_seikatsu/1010112/1001515.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">子育て</h3>
+          <h3 class="area-cat" id="res-cat-6">子育て</h3>
           <div class="area-program" id="iwata-shinkon">
             <h3>結婚新生活支援事業助成金</h3>
             <p class="area-meta">静岡県磐田市｜助成金｜1世帯30万円(夫婦とも29歳以下は60万円)｜締切：2027-02-28</p>
@@ -291,10 +309,10 @@
             <ul><li>令和8年1月1日以降に結婚した夫婦ともに39歳以下の世帯</li></ul>
             <p><a href="https://www.city.iwata.shizuoka.jp/kurashi_tetsuzuki/1010694/1010696.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="iwata-kizon-jutaku">
             <h3>既存住宅取得等事業費補助金</h3>
-            <p class="area-meta">静岡県磐田市｜補助金｜若者・子育て世帯で市外から転居は上限150万円、市内転居は上限100万円、その他世帯はリフォーム費の1/2(上限50万円)｜締切：公募要領で確認</p>
+            <p class="area-meta">静岡県磐田市｜補助金｜若者・子育て世帯で市外から転居は上限150万円、市内転居は上限100万円、その他世帯はリフォーム費の1/2(上限50万円)</p>
             <p class="area-meta">期間：令和8年度(4月1日〜3月31日、最新は要確認)</p>
             <p>市内の既存住宅を取得しリフォームして居住する世帯を補助。</p>
             <p><strong>主な条件</strong></p>

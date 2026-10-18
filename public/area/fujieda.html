@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,14 +170,25 @@
       <p class="lead" style="margin-bottom: 0;">静岡県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（藤枝市）<b>3件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（静岡県）<b>5件（うち受付終了2件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>8件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 2</a><a href="#res-cat-1">太陽光・蓄電池 2</a><a href="#res-cat-2">EV・充電 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-7">移住 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">藤枝市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="fujieda-city-chushokigyo-yushi-hokyukin">
             <h3>中小企業融資補給金(創業支援資金保証料補給・設備投資資金利子補給等)</h3>
-            <p class="area-meta">藤枝市 産業政策課｜融資｜創業支援資金の保証料補給:一括払い時は保証料総額の45%。設備投資資金利子補給等の率は要確認｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">藤枝市 産業政策課｜融資｜創業支援資金の保証料補給:一括払い時は保証料総額の45%。設備投資資金利子補給等の率は要確認</p>
+            
             <p>県の創業支援資金融資を利用した創業者への信用保証料補給や、設備投資資金・小口資金の利子補給を行う。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>市内の中小企業者(創業支援資金は県の創業支援資金融資を利用した市内の創業者)</li><li>設備投資資金利子補給は市内で1年以上同一事業を営む中小企業者</li></ul>
@@ -178,8 +196,8 @@
           </div>
           <div class="area-program" id="fujieda-city-office-ritchi-hojo">
             <h3>藤枝市オフィス等立地推進事業費補助金</h3>
-            <p class="area-meta">藤枝市 産業振興課(企業立地)｜補助金｜上限1,500万円(補助率等は要確認)｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">藤枝市 産業振興課(企業立地)｜補助金｜上限1,500万円(補助率等は要確認)</p>
+            
             <p>本社機能や情報通信業などが市内に新たにオフィス等を設ける際の改修費・賃借料・設備費などを補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>市内に新たにオフィス等を設ける企業</li><li>新設オフィス等に従業員を2人以上配置すること</li><li>事前相談が必要</li></ul>
@@ -212,10 +230,10 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>藤枝市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="fujieda-rebuild">
             <h3>藤枝市木造住宅建替事業費補助金</h3>
-            <p class="area-meta">静岡県藤枝市｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">静岡県藤枝市｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>旧耐震で耐震性のない木造住宅を建て替える費用を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -224,14 +242,14 @@
           </div>
           <div class="area-program" id="fujieda-shelter">
             <h3>藤枝市耐震シェルター整備事業費補助金</h3>
-            <p class="area-meta">静岡県藤枝市｜補助金｜上限50万円(65歳以上の方等は上限60万円)｜締切：公募要領で確認</p>
+            <p class="area-meta">静岡県藤枝市｜補助金｜上限50万円(65歳以上の方等は上限60万円)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>旧耐震の木造住宅1階に耐震シェルターを設置する費用を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>昭和56年5月31日以前に建てられた耐震性のない木造住宅</li></ul>
             <p><a href="https://www.city.fujieda.shizuoka.jp/soshiki/toshikensetsu/kenchikujutaku/gyomu/hojyo/jishintaisaku/21461.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="fujieda-battery">
             <h3>藤枝市家庭用蓄電池設置費補助金</h3>
             <p class="area-meta">静岡県藤枝市｜補助金｜蓄電容量1kWhあたり2万円(上限6万円)｜締切：2027-02-26</p>
@@ -243,14 +261,14 @@
           </div>
           <div class="area-program" id="fujieda-portable-battery">
             <h3>藤枝市家庭用ポータブル蓄電池等購入費補助金</h3>
-            <p class="area-meta">静岡県藤枝市｜補助金｜購入費(税抜)の1/3、上限1万円｜締切：公募要領で確認</p>
+            <p class="area-meta">静岡県藤枝市｜補助金｜購入費(税抜)の1/3、上限1万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>災害時の停電対策として、太陽電池で充電できる可搬型蓄電池等の購入費を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>太陽電池で充電できる可搬型機器であること</li><li>事前申請が原則</li></ul>
             <p><a href="https://www.city.fujieda.shizuoka.jp/soshiki/kankyosuido/kankyoseisaku/gyomu/2/kakushuhojokin0/16931.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">EV・充電</h3>
+          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
           <div class="area-program" id="fujieda-v2h">
             <h3>藤枝市V2H充放電設備設置費補助金</h3>
             <p class="area-meta">静岡県藤枝市｜補助金｜対象経費の1/3、上限8万円｜締切：2027-02-26</p>
@@ -260,7 +278,7 @@
             <ul><li>市内住宅へのV2H設置(詳細は要確認)</li></ul>
             <p><a href="https://www.city.fujieda.shizuoka.jp/toshi/kankyo/kakushuhojokin2/25070.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program" id="fujieda-shoene">
             <h3>藤枝市省エネルギー住宅整備費補助金</h3>
             <p class="area-meta">静岡県藤枝市｜補助金｜一律8万円｜締切：2027-03-31</p>
@@ -270,20 +288,20 @@
             <ul><li>補助対象経費が100万円を超えること</li></ul>
             <p><a href="https://www.city.fujieda.shizuoka.jp/soshiki/kankyosuido/kankyoseisaku/gyomu/2/kakushuhojokin0/16929.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="fujieda-block">
             <h3>藤枝市ブロック塀等耐震改修促進事業費補助金</h3>
-            <p class="area-meta">静岡県藤枝市｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">静岡県藤枝市｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>道路に面するブロック塀の撤去や改善費用の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>道路に面するブロック塀等</li></ul>
             <p><a href="https://www.city.fujieda.shizuoka.jp/soshiki/toshikensetsu/kenchikujutaku/gyomu/hojyo/jishintaisaku/21472.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="fujieda-kosodate-iju">
             <h3>藤枝市子育てファミリー移住定住促進事業費補助金</h3>
-            <p class="area-meta">静岡県藤枝市｜補助金｜補助率1/2。取得:市内30万円/市外50万円上限、移転:県内他市町5万円/県外20万円上限、改修(中古のみ)上限50万円。同居・近居で+10万円｜締切：公募要領で確認</p>
+            <p class="area-meta">静岡県藤枝市｜補助金｜補助率1/2。取得:市内30万円/市外50万円上限、移転:県内他市町5万円/県外20万円上限、改修(中古のみ)上限50万円。同居・近居で+10万円</p>
             <p class="area-meta">期間：令和8年度継続(予算に達し次第終了)</p>
             <p>子育て世帯の市内新築・中古住宅の取得、引越し、改修費用を補助する。令和8年度も継続。</p>
             <p><strong>主な条件</strong></p>

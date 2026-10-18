@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">福井県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（鯖江市）<b>3件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（福井県）<b>5件（うち受付終了3件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>11件（うち受付終了1件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 3</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 3</a><a href="#res-cat-6">子育て 1</a><a href="#res-cat-7">移住 2</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">鯖江市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="sabae-city-seisansei-setsubi-hojo">
             <h3>鯖江市生産性向上設備等導入支援補助金</h3>
-            <p class="area-meta">鯖江市 商工政策課（産業環境部）｜補助金｜補助率2/3以内、上限100万円（期間中1回限り）｜締切：公募要領で確認</p>
+            <p class="area-meta">鯖江市 商工政策課（産業環境部）｜補助金｜補助率2/3以内、上限100万円（期間中1回限り）</p>
             <p class="area-meta">期間：令和8年2月2日から予算額に達し次第終了</p>
             <p>先端設備等導入計画の認定を受けた市内事業者の生産性向上設備の導入費用を補助する。国の重点支援地方交付金が財源。</p>
             <p><strong>主な条件</strong></p>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="sabae-city-startup-shien-hojo">
             <h3>鯖江市創業スタートアップ支援事業補助金</h3>
-            <p class="area-meta">鯖江市 商工政策課（産業環境部）｜補助金｜補助率1/2以内、上限30万円｜締切：公募要領で確認</p>
+            <p class="area-meta">鯖江市 商工政策課（産業環境部）｜補助金｜補助率1/2以内、上限30万円</p>
             <p class="area-meta">期間：令和8年度（募集期間は市ページで要確認）</p>
             <p>市内で創業・第二創業する中小企業の初期投資（設備購入費・工事費など）の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -213,10 +231,10 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>鯖江市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="sabae-dento-minka">
             <h3>伝統木造住宅の耐震改修補助</h3>
-            <p class="area-meta">福井県鯖江市｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">福井県鯖江市｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：当該年度の募集は締切済みと記載</p>
             <p>伝統木造住宅の耐震改修工事費用の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -225,7 +243,7 @@
           </div>
           <div class="area-program" id="sabae-taishin-kaishu">
             <h3>木造住宅耐震改修工事・除却工事費用補助</h3>
-            <p class="area-meta">福井県鯖江市｜補助金｜耐震改修は上限140万円(高齢者世帯175万円)、除却は上限30万円｜締切：公募要領で確認</p>
+            <p class="area-meta">福井県鯖江市｜補助金｜耐震改修は上限140万円(高齢者世帯175万円)、除却は上限30万円</p>
             <p class="area-meta">期間：随時受付(予算に達し次第終了)・工事完了は令和9年2月末が多い</p>
             <p>旧耐震木造住宅の耐震改修工事・除却工事の費用の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -234,37 +252,37 @@
           </div>
           <div class="area-program" id="sabae-taishin-shindan">
             <h3>木造住宅耐震診断・補強プラン作成支援</h3>
-            <p class="area-meta">福井県鯖江市｜補助金｜個人負担1万円｜締切：公募要領で確認</p>
+            <p class="area-meta">福井県鯖江市｜補助金｜個人負担1万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>木造住宅の耐震診断・補強プラン作成費用を市が支援する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>木造住宅(詳細要件は要確認)</li></ul>
             <p><a href="https://www.city.sabae.fukui.jp/kurashi_tetsuduki/tochi/jutaku_hojokin/jutaku_hojokin/mokuzo-taishin-shien.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program is-ended" id="sabae-taiyoko">
             <h3>住宅の太陽光・蓄電池設備導入支援 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">福井県鯖江市｜補助金｜太陽光+蓄電池は1kWあたり7万円(上限35万円)、太陽光のみ1kWあたり5万円(上限25万円)、蓄電池は費用の3分の1(上限25.5万円)｜締切：公募要領で確認</p>
+            <p class="area-meta">福井県鯖江市｜補助金｜太陽光+蓄電池は1kWあたり7万円(上限35万円)、太陽光のみ1kWあたり5万円(上限25万円)、蓄電池は費用の3分の1(上限25.5万円)</p>
             <p class="area-meta">期間：令和8年5月1日〜10月31日(予算上限に達し受付終了)</p>
             <p>自家消費型の住宅用太陽光発電・蓄電池の導入費用を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>市内の住宅</li><li>交付決定後に着手</li></ul>
             <p><a href="https://www.city.sabae.fukui.jp/kurashi_tetsuduki/sizen/hojokin/Kankyo01202404.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program" id="sabae-led">
             <h3>家庭向けLED照明器具への取替え助成</h3>
-            <p class="area-meta">福井県鯖江市｜助成金｜費用の3分の1、上限2万円｜締切：公募要領で確認</p>
+            <p class="area-meta">福井県鯖江市｜助成金｜費用の3分の1、上限2万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>戸建住宅の白熱灯・蛍光灯をLED照明に替える費用の一部を助成する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>市内の戸建住宅</li></ul>
             <p><a href="https://www.city.sabae.fukui.jp/kurashi_tetsuduki/sizen/hojokin/30921151509731.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="sabae-akiya-jokyaku">
             <h3>老朽危険空き家除却費用補助</h3>
-            <p class="area-meta">福井県鯖江市｜補助金｜対象工事費の2分の1、通常上限50万円｜締切：公募要領で確認</p>
+            <p class="area-meta">福井県鯖江市｜補助金｜対象工事費の2分の1、通常上限50万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>老朽化し危険な空き家の解体費用の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -273,7 +291,7 @@
           </div>
           <div class="area-program" id="sabae-akiya-reform">
             <h3>空き家リフォーム支援(子育て世帯・移住者等)</h3>
-            <p class="area-meta">福井県鯖江市｜補助金｜最大90万円(要確認)｜締切：公募要領で確認</p>
+            <p class="area-meta">福井県鯖江市｜補助金｜最大90万円(要確認)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>子育て世帯や移住者等が空き家バンク登録の空き家をリフォームする費用を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -282,27 +300,27 @@
           </div>
           <div class="area-program" id="sabae-block">
             <h3>危険ブロック塀等除却支援</h3>
-            <p class="area-meta">福井県鯖江市｜補助金｜除却工事上限20万円、県産材での建替えは上限40万円｜締切：公募要領で確認</p>
+            <p class="area-meta">福井県鯖江市｜補助金｜除却工事上限20万円、県産材での建替えは上限40万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>通学路・避難路に面する危険なブロック塀等の除却費用を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>高さ80cm以上で危険と判定されたもの</li><li>通学路または避難路に面すること</li></ul>
             <p><a href="https://www.city.sabae.fukui.jp/kurashi_tetsuduki/tochi/jutaku_hojokin/jutaku_hojokin/blockbei-hiyo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">子育て</h3>
+          <h3 class="area-cat" id="res-cat-6">子育て</h3>
           <div class="area-program" id="sabae-kateiikuji">
             <h3>家庭育児応援手当</h3>
-            <p class="area-meta">福井県鯖江市｜給付｜対象児童1人あたり月額1万円｜締切：公募要領で確認</p>
+            <p class="area-meta">福井県鯖江市｜給付｜対象児童1人あたり月額1万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>自宅で第2子以降の0〜2歳児を育てる市民に手当を支給する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>第2子以降の0〜2歳児を在宅で育児</li><li>所得制限なし</li></ul>
             <p><a href="https://www.city.sabae.fukui.jp/kosodate_kyoiku/ninshin_shussan/shienseido_teate/zaitakuikuji.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="sabae-akiya-kounyu">
             <h3>空き家購入支援(子育て世帯・移住者等)</h3>
-            <p class="area-meta">福井県鯖江市｜補助金｜最大90万円(要確認)｜締切：公募要領で確認</p>
+            <p class="area-meta">福井県鯖江市｜補助金｜最大90万円(要確認)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>子育て世帯や移住者等がふくい空き家バンク登録の空き家を購入する費用を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -311,7 +329,7 @@
           </div>
           <div class="area-program" id="sabae-iju-shienkin">
             <h3>移住支援金(全国型・東京圏型)</h3>
-            <p class="area-meta">福井県鯖江市｜給付｜全国型は世帯最大25万円+子育て加算、東京圏型は世帯最大100万円+子育て加算｜締切：公募要領で確認</p>
+            <p class="area-meta">福井県鯖江市｜給付｜全国型は世帯最大25万円+子育て加算、東京圏型は世帯最大100万円+子育て加算</p>
             <p class="area-meta">期間：令和7年度情報。令和8年度は要確認</p>
             <p>県外等から移住する若者・子育て世帯等に移住支援金を支給する。</p>
             <p><strong>主な条件</strong></p>

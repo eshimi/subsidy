@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">茨城県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（水戸市）<b>5件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（茨城県）<b>6件</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>6件（うち受付終了1件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-2">EV・充電 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-6">子育て 1</a><a href="#res-cat-7">移住 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">水戸市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="mito-city-chusho-shinko-shien">
             <h3>水戸市中小企業振興支援補助金</h3>
-            <p class="area-meta">水戸市 商工課｜補助金｜デジタルツール導入は1/2以内・上限100万円、人材確保・育成と販路拡大は1/2以内・上限20万円｜締切：公募要領で確認</p>
+            <p class="area-meta">水戸市 商工課｜補助金｜デジタルツール導入は1/2以内・上限100万円、人材確保・育成と販路拡大は1/2以内・上限20万円</p>
             <p class="area-meta">期間：掲載の販路拡大は令和8年3月13日まで。最新は要確認</p>
             <p>物価高騰・人材不足・DX等に対応する5種の補助事業（デジタルツール導入、人材確保・育成、販路拡大など）。事前申請制。</p>
             <p><strong>主な条件</strong></p>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="mito-city-machinaka-akitenpo">
             <h3>水戸市まちなか空き店舗対策補助制度</h3>
-            <p class="area-meta">水戸市 商工課｜補助金｜改装費の補助率1/2以内｜締切：公募要領で確認</p>
+            <p class="area-meta">水戸市 商工課｜補助金｜改装費の補助率1/2以内</p>
             <p class="area-meta">期間：令和7年度は受付期限あり。最新は要確認</p>
             <p>まちなかの空き店舗を借りて営業を始める創業者等に店舗改装費の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -187,7 +205,7 @@
           </div>
           <div class="area-program" id="mito-city-maruke-risihokyu">
             <h3>水戸市マル経融資利子補給制度</h3>
-            <p class="area-meta">水戸市 商工課｜融資｜利率1%分以内を3年間補給（融資限度額1,000万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">水戸市 商工課｜融資｜利率1%分以内を3年間補給（融資限度額1,000万円）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>小規模事業者経営改善資金（マル経融資）の利子の一部を補給する。</p>
             <p><strong>主な条件</strong></p>
@@ -196,7 +214,7 @@
           </div>
           <div class="area-program" id="mito-city-sogyo-risihokyu">
             <h3>水戸市創業支援利子補給制度</h3>
-            <p class="area-meta">水戸市 商工課｜融資｜利率1%分を融資実行から3年間補給｜締切：公募要領で確認</p>
+            <p class="area-meta">水戸市 商工課｜融資｜利率1%分を融資実行から3年間補給</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>創業のための融資を受けた事業者に利子の一部を補給する。</p>
             <p><strong>主な条件</strong></p>
@@ -205,7 +223,7 @@
           </div>
           <div class="area-program" id="mito-city-sogyoki-shien">
             <h3>水戸市創業期支援補助金</h3>
-            <p class="area-meta">水戸市 商工課｜補助金｜補助率1/2、上限20万円｜締切：公募要領で確認</p>
+            <p class="area-meta">水戸市 商工課｜補助金｜補助率1/2、上限20万円</p>
             <p class="area-meta">期間：令和8年度以降の申請が対象。予算がなくなり次第終了。最新は要確認</p>
             <p>創業予定者・創業後3年未満の事業者のHP作成、広告掲載、展示会参加等の費用を補助する。事前申請制。</p>
             <p><strong>主な条件</strong></p>
@@ -231,7 +249,7 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>水戸市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="mito-mokuzo-taishin-kaishu">
             <h3>水戸市木造住宅耐震改修費補助</h3>
             <p class="area-meta">水戸市｜補助金｜設計費の1/2（上限10万円）、工事費の23%（上限50万円）、設計と工事を一体で行う場合は工事費の4/5（上限115万円）｜締切：2026-11-30</p>
@@ -240,26 +258,26 @@
             
             <p><a href="https://www.city.mito.lg.jp/page/47264.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="mito-jutaku-taiyoko">
             <h3>令和8年度住宅用太陽光発電システム設置補助制度</h3>
-            <p class="area-meta">水戸市｜補助金｜最大5万円｜締切：公募要領で確認</p>
+            <p class="area-meta">水戸市｜補助金｜最大5万円</p>
             <p class="area-meta">期間：令和8年度</p>
             <p>住宅への太陽光発電システム設置の補助。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>パワーコンディショナー出力が10kW未満</li></ul>
             <p><a href="https://www.city.mito.lg.jp/site/ondanka/69504.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">EV・充電</h3>
+          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
           <div class="area-program is-ended" id="mito-v2h">
             <h3>令和8年度水戸市電気自動車等充給電設備（V2Hシステム）設置補助制度 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">水戸市｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">水戸市｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：受付終了（令和8年度）</p>
             <p>V2Hシステム設置の補助。予算上限に達し受付終了。</p>
             
             <p><a href="https://www.city.mito.lg.jp/site/ondanka/96177.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="mito-block">
             <h3>危険なブロック塀等撤去費補助</h3>
             <p class="area-meta">茨城県水戸市｜補助金｜工事費の3分の2、1mあたり14,000円の3分の2、上限20万円のうち最も低い額｜締切：2026-11-30</p>
@@ -269,20 +287,20 @@
             <ul><li>通学路・災害時の主要道路に面し倒壊の危険があると市長が認める塀</li><li>交付決定通知後に契約すること</li></ul>
             <p><a href="https://www.city.mito.lg.jp/page/47266.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">子育て</h3>
+          <h3 class="area-cat" id="res-cat-6">子育て</h3>
           <div class="area-program" id="mito-kosodate-machinaka">
             <h3>水戸市子育てまちなか住宅取得補助金</h3>
-            <p class="area-meta">茨城県水戸市｜補助金｜住宅・土地取得費の2%（上限30万円）、多子・空き家中古取得・市外転入で各10万円加算｜締切：公募要領で確認</p>
+            <p class="area-meta">茨城県水戸市｜補助金｜住宅・土地取得費の2%（上限30万円）、多子・空き家中古取得・市外転入で各10万円加算</p>
             <p class="area-meta">期間：掲載ページは令和7年度分（4/1〜11/28）。最新は要確認</p>
             <p>対象区域内で住宅を取得する子育て世帯への補助金。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>契約日に15歳到達後最初の3月31日までの子がいる世帯</li><li>対象区域内の住宅取得</li></ul>
             <p><a href="https://www.city.mito.lg.jp/page/4153.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="mito-iju-shienkin">
             <h3>水戸市移住支援事業（移住支援金）</h3>
-            <p class="area-meta">茨城県水戸市｜給付｜単身60万円・2人以上世帯100万円（18歳未満の子1人につき100万円加算）｜締切：公募要領で確認</p>
+            <p class="area-meta">茨城県水戸市｜給付｜単身60万円・2人以上世帯100万円（18歳未満の子1人につき100万円加算）</p>
             <p class="area-meta">期間：令和8年度</p>
             <p>東京23区等から移住し、対象企業に就職または起業した人に支給する。</p>
             <p><strong>主な条件</strong></p>

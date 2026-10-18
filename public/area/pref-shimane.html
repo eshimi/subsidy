@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -170,7 +177,7 @@
       <div class="area-body">
           <div class="area-program" id="shimane-saiyo-branding">
             <h3>新卒採用ブランディング支援補助金</h3>
-            <p class="area-meta">島根県 商工労働部 雇用政策課｜補助金｜補助率1/2、上限75万円｜締切：公募要領で確認</p>
+            <p class="area-meta">島根県 商工労働部 雇用政策課｜補助金｜補助率1/2、上限75万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>中小企業の採用力向上のためのブランディング取組を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -179,7 +186,7 @@
           </div>
           <div class="area-program" id="shimane-sogyo-seido-yushi">
             <h3>島根県中小企業制度融資（創業者向け）</h3>
-            <p class="area-meta">島根県 商工労働部 中小企業課｜融資｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">島根県 商工労働部 中小企業課｜融資｜金額は公式で確認</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>創業計画段階から開業後5年未満の中小企業者等向けの県制度融資。</p>
             <p><strong>主な条件</strong></p>
@@ -238,7 +245,7 @@
     <section class="art-sec" aria-labelledby="pref-resident"><h2 id="pref-resident"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">個人の方向けの制度（住まい・暮らし）</h2>
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。市区町村の個人向けの制度（6件）は、下の「県内の市区町村のページ」から確認できます。</p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="shimane-chojyu-kosodate-reform">
             <h3>しまね長寿・子育て安心住宅リフォーム助成事業</h3>
             <p class="area-meta">島根県 建築住宅課｜補助金｜部分的耐震改修は対象工事費の1/4（子育て世帯の同居・近居などで加算あり。上限額は要確認）｜締切：2027-02-15</p>
@@ -248,17 +255,17 @@
             <ul><li>昭和56年5月31日以前に着手された階数2以下の一戸建て木造住宅</li><li>改修前の上部構造評点が1.0未満など</li></ul>
             <p><a href="https://www.pref.shimane.lg.jp/infra/build/jutaku/shien/shimane_tyojunosumai_reform_jyosei.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="shimane-shoene-saine-package">
             <h3>しまね省エネ住宅・再エネ設備パッケージ補助金</h3>
-            <p class="area-meta">島根県｜補助金｜太陽光発電設備は最大63万円、蓄電池は最大47万円（FIT認定不可など条件あり）｜締切：公募要領で確認</p>
+            <p class="area-meta">島根県｜補助金｜太陽光発電設備は最大63万円、蓄電池は最大47万円（FIT認定不可など条件あり）</p>
             <p class="area-meta">期間：令和8年度の受付が開始（期間は要確認）</p>
             <p>県産木材を使った省エネ住宅の建設と、太陽光・蓄電池の導入を支援する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>県産木材を使った省エネ住宅の建設</li></ul>
             <p><a href="https://www.pref.shimane.lg.jp/infra/kankyo/kankyo/datsutanso/zeh_hojyo_r8.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program" id="shimane-chouju-kosodate-reform">
             <h3>しまね長寿・子育て安心住宅リフォーム助成事業</h3>
             <p class="area-meta">島根県｜助成金｜対象工事費の1/4以内（空き家バンク登録住宅を購入して改修する場合は10万円加算）。上限額は要確認｜締切：2027-02-15</p>
@@ -268,11 +275,11 @@
             <ul><li>昭和56年6月1日以降に着工された県内の既存住宅（それ以前は耐震診断が必要）</li><li>賃貸住宅は対象外</li></ul>
             <p><a href="https://www.pref.shimane.lg.jp/infra/build/jutaku/shien/shimane_tyojunosumai_reform_jyosei.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="shimane-wakuwaku-seikatsu">
             <h3>わくわく島根生活実現支援事業（移住支援金）</h3>
-            <p class="area-meta">島根県｜給付｜単身60万円、世帯100万円｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">島根県｜給付｜単身60万円、世帯100万円</p>
+            
             <p>東京圏から島根へ移住し、県内の対象法人に就業した人に支給する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>東京圏からの移住</li><li>県内の対象法人に就業</li></ul>

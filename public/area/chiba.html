@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,6 +170,17 @@
       <p class="lead" style="margin-bottom: 0;">千葉県・政令指定都市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（千葉市）<b>4件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（千葉県）<b>5件（うち受付終了3件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>7件（うち受付終了1件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 2</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-2">EV・充電 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-5">バリアフリー・介護 1</a><a href="#res-cat-6">子育て 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">千葉市の制度（事業・創業の方向け）</h2>
@@ -187,7 +205,7 @@
           </div>
           <div class="area-program" id="chiba-chushokigyo-shikin-yushi">
             <h3>千葉市中小企業資金融資制度</h3>
-            <p class="area-meta">千葉市 経済農政局 経済部 産業支援課｜融資｜要確認（資金ごとの限度額は令和8年4月版リーフレットで確認）。振興資金・小規模事業資金・経営安定資金は利子補給あり｜締切：公募要領で確認</p>
+            <p class="area-meta">千葉市 経済農政局 経済部 産業支援課｜融資｜要確認（資金ごとの限度額は令和8年4月版リーフレットで確認）。振興資金・小規模事業資金・経営安定資金は利子補給あり</p>
             <p class="area-meta">期間：令和8年度（通年）</p>
             <p>市内中小企業の運転・設備資金等を融資する制度です。令和8年度はモニタリング強化資金が創設されました。</p>
             <p><strong>主な条件</strong></p>
@@ -196,7 +214,7 @@
           </div>
           <div class="area-program" id="chiba-jinzai-ikusei-hojo">
             <h3>千葉市中小企業人材育成・能力開発推進支援補助金</h3>
-            <p class="area-meta">千葉市 経済農政局 経済部 産業支援課｜補助金｜上限10万円（研修計画策定済）／上限5万円（未策定）（令和8年度の詳細は要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">千葉市 経済農政局 経済部 産業支援課｜補助金｜上限10万円（研修計画策定済）／上限5万円（未策定）（令和8年度の詳細は要確認）</p>
             <p class="area-meta">期間：令和8年度（募集期間は要確認）</p>
             <p>中小企業者が行う従業員の研修・能力開発の経費の一部を市が補助します。</p>
             <p><strong>主な条件</strong></p>
@@ -221,10 +239,10 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>千葉市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="chiba-city-jutaku-taishin">
             <h3>千葉市住宅の耐震診断・耐震改修補助制度</h3>
-            <p class="area-meta">千葉市｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">千葉市｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：令和8年5月1日～5月29日</p>
             <p>木造住宅の耐震診断・耐震改修費の補助。令和8年度の募集予定は診断7戸、工事27戸。</p>
             
@@ -232,23 +250,23 @@
           </div>
           <div class="area-program is-ended" id="chiba-city-jutaku-jokyaku">
             <h3>千葉市住宅の除却費補助制度 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">千葉市｜補助金｜要確認｜締切：2026-08-31</p>
+            <p class="area-meta">千葉市｜補助金｜金額は公式で確認｜締切：2026-08-31</p>
             <p class="area-meta">期間：令和8年5月1日～8月31日（予算の限り）</p>
             <p>耐震性の低い住宅の除却費の補助。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>昭和56年5月31日以前の建物で上部構造評点等の基準を満たすもの</li></ul>
             <p><a href="https://www.city.chiba.jp/toshi/kenchiku/shido/jutaku_jokyaku.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="chiba-city-jutaku-datsutanso">
             <h3>千葉市住宅用設備等脱炭素化促進事業補助金（住宅向け）</h3>
-            <p class="area-meta">千葉市｜補助金｜定置用リチウムイオン蓄電システム：7万円（他の設備は要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">千葉市｜補助金｜定置用リチウムイオン蓄電システム：7万円（他の設備は要確認）</p>
             <p class="area-meta">期間：令和8年度受付期間は要確認</p>
             <p>住宅用の再エネ・省エネ設備導入費用の補助。</p>
             
             <p><a href="https://www.city.chiba.jp/kankyo/kankyohozen/datsutanso/renewable-energy-hojo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">EV・充電</h3>
+          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
           <div class="area-program" id="chiba-city-ev-v2h">
             <h3>千葉市電気自動車・プラグインハイブリッド自動車・V2H導入補助金</h3>
             <p class="area-meta">千葉市｜補助金｜EV・PHV：太陽光併設10万円、太陽光とV2H併設15万円。V2H単体は経費の1/10（最大25万円）｜締切：2027-01-29</p>
@@ -258,27 +276,27 @@
             <ul><li>住宅用太陽光発電設備の併設</li></ul>
             <p><a href="https://www.city.chiba.jp/kankyo/kankyohozen/datsutanso/ev_hojo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="chiba-city-block">
             <h3>千葉市危険ブロック塀等改善補助事業</h3>
-            <p class="area-meta">千葉県千葉市｜補助金｜要確認（補助率・限度額は地区により異なる）｜締切：公募要領で確認</p>
+            <p class="area-meta">千葉県千葉市｜補助金｜要確認（補助率・限度額は地区により異なる）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>通学路等に面した倒壊の危険性が高いブロック塀の撤去や軽量フェンス等への改善費用を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>個人・町内自治会・マンション管理組合が所有する危険なブロック塀等</li><li>調査で撤去が必要と判定されたもの</li></ul>
             <p><a href="https://www.city.chiba.jp/toshi/kenchiku/shido/blockhojo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program" id="chiba-city-korei-jutaku-kaishu">
             <h3>高齢者住宅改修費支援サービス事業</h3>
-            <p class="area-meta">千葉県千葉市｜補助金｜実工事費と70万円の少ない方から利用者負担分を引いた額に、世帯の市民税所得割額に応じた割合を乗じた額｜締切：公募要領で確認</p>
+            <p class="area-meta">千葉県千葉市｜補助金｜実工事費と70万円の少ない方から利用者負担分を引いた額に、世帯の市民税所得割額に応じた割合を乗じた額</p>
             <p class="area-meta">期間：随時受付（要確認）</p>
             <p>要介護・要支援の高齢者の住宅の手すり設置・段差解消などの工事費を一部補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>市内在住の65歳以上で要介護・要支援認定を受けていること</li><li>着手前に区保健福祉センターへ申出</li></ul>
             <p><a href="https://www.city.chiba.jp/hokenfukushi/koreishogai/korei/jyuutakukaisyuu.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">子育て</h3>
+          <h3 class="area-cat" id="res-cat-6">子育て</h3>
           <div class="area-program" id="chiba-city-danchi-sumikae-kosodate">
             <h3>団地住替え支援事業（子育て世帯）</h3>
             <p class="area-meta">千葉県千葉市｜補助金｜最大30万円｜締切：2027-02-28</p>

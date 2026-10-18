@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">徳島県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（鳴門市）<b>1件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（徳島県）<b>4件（うち受付終了2件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>8件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 2</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-6">子育て 1</a><a href="#res-cat-7">移住 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">鳴門市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="naruto-city-hanro-kaitaku-shien-hojo">
             <h3>鳴門市販路開拓支援事業補助金（国内外販路開拓支援事業）</h3>
-            <p class="area-meta">鳴門市 商工政策課｜補助金｜補助率1/2：国内・オンライン展示会は上限20万円、海外展示会・海外展開は上限40万円、クラウドファンディングは上限20万円｜締切：公募要領で確認</p>
+            <p class="area-meta">鳴門市 商工政策課｜補助金｜補助率1/2：国内・オンライン展示会は上限20万円、海外展示会・海外展開は上限40万円、クラウドファンディングは上限20万円</p>
             <p class="area-meta">期間：要確認（予算の範囲内。事業実施日の7日前まで申請）</p>
             <p>国内外の展示会出展、海外展開、クラウドファンディングを活用した販路開拓の経費の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -194,7 +212,7 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>鳴門市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="naruto-sumikae">
             <h3>鳴門市住宅の住替え支援事業</h3>
             <p class="area-meta">徳島県鳴門市｜補助金｜限度額30万円｜締切：2026-12-11</p>
@@ -206,37 +224,36 @@
           </div>
           <div class="area-program" id="naruto-taishin-kaishu">
             <h3>鳴門市木造住宅耐震改修支援事業</h3>
-            <p class="area-meta">徳島県鳴門市｜補助金｜工事費の5分の4以内、上限135万円(感震ブレーカー設置で10万円加算可)｜締切：公募要領で確認</p>
+            <p class="area-meta">徳島県鳴門市｜補助金｜工事費の5分の4以内、上限135万円(感震ブレーカー設置で10万円加算可)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>一定水準以上の木造住宅の耐震補強工事費を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>要確認(空き家は誓約書が必要)</li></ul>
             <p><a href="https://city.naruto.tokushima.jp/kurashi/sumai/joho/sumai/kaishu.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="naruto-renewable">
             <h3>鳴門市再生可能エネルギー設備等普及促進事業補助金</h3>
-            <p class="area-meta">徳島県鳴門市｜補助金｜太陽光上限5万円、蓄電池上限10万円、V2H上限10万円、同時設置で5万円加算(最大30万円)(令和7年度ページの記載)｜締切：公募要領で確認</p>
+            <p class="area-meta">徳島県鳴門市｜補助金｜太陽光上限5万円、蓄電池上限10万円、V2H上限10万円、同時設置で5万円加算(最大30万円)(令和7年度ページの記載)</p>
             <p class="area-meta">期間：令和7年度の情報。令和8年度は最新は要確認</p>
             <p>住宅用太陽光、家庭用蓄電池、V2H等の設置費を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>市内の耐震性を有する住宅に設置する個人</li></ul>
             <p><a href="https://www.city.naruto.tokushima.jp/kurashi/kyodo/kankyo/renewable_energy/setsubifukyusokushin_hojokin.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program" id="naruto-anshin-reform">
             <h3>鳴門市住宅安心リフォーム支援事業</h3>
-            <p class="area-meta">徳島県鳴門市｜補助金｜最大15万円｜締切：公募要領で確認</p>
+            <p class="area-meta">徳島県鳴門市｜補助金｜最大15万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>住宅のリフォーム費用を支援する。耐震改修と工事内容が重複しなければ併用可。太陽光・蓄電池設置は対象外。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>要確認</li></ul>
+            
             <p><a href="https://www.city.naruto.tokushima.jp/kurashi/sumai/joho/sumai/anshin.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="naruto-block">
             <h3>鳴門市ブロック塀等安全対策支援事業</h3>
-            <p class="area-meta">徳島県鳴門市｜補助金｜撤去工事費の5分の4、上限8万円(居住誘導区域内10万円)｜締切：公募要領で確認</p>
+            <p class="area-meta">徳島県鳴門市｜補助金｜撤去工事費の5分の4、上限8万円(居住誘導区域内10万円)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>地震で倒れるおそれのあるブロック塀の撤去等の費用を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -245,27 +262,27 @@
           </div>
           <div class="area-program" id="naruto-rokyu-akiya">
             <h3>鳴門市老朽危険空き家除却支援事業</h3>
-            <p class="area-meta">徳島県鳴門市｜補助金｜前面道路をふさぐおそれがある場合は対象経費の3分の2で上限60万円(居住誘導区域内は5分の4で上限80万円)、隣地に影響するおそれは上限30万円｜締切：公募要領で確認</p>
+            <p class="area-meta">徳島県鳴門市｜補助金｜前面道路をふさぐおそれがある場合は対象経費の3分の2で上限60万円(居住誘導区域内は5分の4で上限80万円)、隣地に影響するおそれは上限30万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>老朽危険空き家の除却費用を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>市内の許可業者が施工</li><li>建物を全て取り壊し基礎等も残さない</li></ul>
             <p><a href="https://www.city.naruto.tokushima.jp/kurashi/sumai/joho/sumai/rokyu.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">子育て</h3>
+          <h3 class="area-cat" id="res-cat-6">子育て</h3>
           <div class="area-program" id="naruto-shinseikatsu">
             <h3>なると結婚新生活スタート支援補助金</h3>
-            <p class="area-meta">徳島県鳴門市｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">徳島県鳴門市｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：令和7年度の情報。令和8年度は最新は要確認</p>
             <p>新婚世帯の住宅費用・引越し費用・リフォーム費用・家賃を支援する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>新生活を鳴門市で始める世帯(所得等の要件は要確認)</li></ul>
             <p><a href="https://www.city.naruto.tokushima.jp/kurashi/kodomo/package/kekkon.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="naruto-teiju-jutaku">
             <h3>なると定住促進住宅取得補助金</h3>
-            <p class="area-meta">徳島県鳴門市｜補助金｜最大100万円(基本額30万円+子の人数・市内業者・転入・近居同居等の加算)｜締切：公募要領で確認</p>
+            <p class="area-meta">徳島県鳴門市｜補助金｜最大100万円(基本額30万円+子の人数・市内業者・転入・近居同居等の加算)</p>
             <p class="area-meta">期間：令和7年度は令和7年4月1日~令和8年3月31日。令和8年度は最新は要確認</p>
             <p>若者の定住促進のため、市内に住宅を建築・購入した世帯を支援する。</p>
             <p><strong>主な条件</strong></p>

@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,6 +170,17 @@
       <p class="lead" style="margin-bottom: 0;">東京都・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（三鷹市）<b>4件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（東京都）<b>6件（うち受付終了1件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>6件（うち受付終了1件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 2</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-5">バリアフリー・介護 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">三鷹市の制度（事業・創業の方向け）</h2>
@@ -187,7 +205,7 @@
           </div>
           <div class="area-program" id="mitaka-city-sogyo-shien-hojokin">
             <h3>三鷹市創業等支援補助金</h3>
-            <p class="area-meta">三鷹市 生活環境部 生活経済課｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">三鷹市 生活環境部 生活経済課｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：最新は要確認（令和6年度採択結果のみ確認）</p>
             <p>市の創業支援を受けて市内で創業した方の創業経費の一部を補助。令和6年度は6者を採択。</p>
             <p><strong>主な条件</strong></p>
@@ -196,7 +214,7 @@
           </div>
           <div class="area-program" id="mitaka-city-sogyo-yushi-assen">
             <h3>三鷹市 創業資金融資あっせん制度</h3>
-            <p class="area-meta">三鷹市 生活環境部 生活経済課｜融資｜運転資金・設備資金とも各1,000万円まで。利率年0.5%（市が1.875%を利子補給）｜締切：公募要領で確認</p>
+            <p class="area-meta">三鷹市 生活環境部 生活経済課｜融資｜運転資金・設備資金とも各1,000万円まで。利率年0.5%（市が1.875%を利子補給）</p>
             <p class="area-meta">期間：随時（最新は要確認）</p>
             <p>市内で創業しようとする方・創業1年未満の方向けの融資あっせん。利子の一部を市が補給する。</p>
             <p><strong>主な条件</strong></p>
@@ -221,11 +239,11 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>三鷹市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="mitaka-taishin-kaishu">
             <h3>木造住宅耐震改修工事等助成制度</h3>
-            <p class="area-meta">三鷹市｜助成金｜費用の3分の1（障がい者世帯・高齢者世帯は2分の1）、耐震改修工事は上限50万円｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">三鷹市｜助成金｜費用の3分の1（障がい者世帯・高齢者世帯は2分の1）、耐震改修工事は上限50万円</p>
+            
             <p>耐震診断で「倒壊する可能性がある」以上と判定された木造住宅の耐震改修工事等を助成。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>診断結果が倒壊する可能性ありと判定</li></ul>
@@ -233,46 +251,46 @@
           </div>
           <div class="area-program" id="mitaka-taishin-shindan">
             <h3>木造住宅耐震診断等助成制度</h3>
-            <p class="area-meta">三鷹市｜助成金｜診断費用の3分の2、上限10万円｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">三鷹市｜助成金｜診断費用の3分の2、上限10万円</p>
+            
             <p>木造住宅の耐震診断費用を助成。</p>
             
             <p><a href="https://www.city.mitaka.lg.jp/c_service/001/001354.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program is-ended" id="mitaka-shinene">
             <h3>新エネルギー・省エネルギー設備設置助成金（太陽光・蓄電池） <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">三鷹市｜助成金｜太陽光は1kWあたり1万円（上限10万円）、蓄電池は5万円｜締切：公募要領で確認</p>
+            <p class="area-meta">三鷹市｜助成金｜太陽光は1kWあたり1万円（上限10万円）、蓄電池は5万円</p>
             <p class="area-meta">期間：令和8年度（予算上限に達し受付終了。来年度は要確認）</p>
             <p>太陽光発電設備、蓄電池の設置費用を助成。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>蓄電池は太陽光発電設備があり、環境共創イニシアチブ登録機種であること</li><li>設置から12か月未満に申請</li></ul>
             <p><a href="https://www.city.mitaka.lg.jp/c_service/118/118378.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program" id="mitaka-zero-energy-town">
             <h3>三鷹市ゼロエネルギータウン奨励事業</h3>
-            <p class="area-meta">東京都三鷹市｜補助金｜設備ごとのポイント制(1ポイント=1万円)で算出｜締切：公募要領で確認</p>
+            <p class="area-meta">東京都三鷹市｜補助金｜設備ごとのポイント制(1ポイント=1万円)で算出</p>
             <p class="area-meta">期間：令和8年度(詳細は要確認)</p>
             <p>市内の開発事業による戸建新築住宅などで、太陽光・蓄電池・高効率給湯・EV充電設備・V2H等を導入した場合に奨励金を交付する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>三鷹市まちづくり条例に定める開発事業の戸建新築住宅等</li><li>対象設備の導入</li></ul>
             <p><a href="https://www.city.mitaka.lg.jp/c_service/110/110668.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="mitaka-block-tekkyo">
             <h3>ブロック塀等撤去助成制度</h3>
-            <p class="area-meta">三鷹市｜助成金｜撤去1mあたり1万円まで（撤去延長30mまで、実費が上限）｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">三鷹市｜助成金｜撤去1mあたり1万円まで（撤去延長30mまで、実費が上限）</p>
+            
             <p>道路に接するブロック塀等の撤去費用の一部を助成する。改修は対象外で、基礎を含め全て撤去する必要がある。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>道路に接する高さ1.2m以上、対象部分の合計延長2m以上</li><li>市長が地震時の倒壊危険性を認めたもの</li><li>交付決定前に着工しないこと</li></ul>
             <p><a href="https://www.city.mitaka.lg.jp/c_service/087/087422.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program" id="mitaka-koreisha-jiritsu-shien-kaishu">
             <h3>三鷹市 高齢者自立支援住宅改修給付事業</h3>
-            <p class="area-meta">東京都三鷹市｜給付｜課税世帯は費用の7割、非課税世帯は9割を給付(予防給付の上限20万円)｜締切：公募要領で確認</p>
+            <p class="area-meta">東京都三鷹市｜給付｜課税世帯は費用の7割、非課税世帯は9割を給付(予防給付の上限20万円)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>手すり取付け・段差解消や浴槽・洗面台・便器の改修などの住宅改修費を給付する。</p>
             <p><strong>主な条件</strong></p>

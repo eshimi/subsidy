@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">京都府・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（宇治市）<b>4件（うち受付終了1件）</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（京都府）<b>4件</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>8件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 2</a><a href="#res-cat-2">EV・充電 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-5">バリアフリー・介護 2</a><a href="#res-cat-6">子育て 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">宇治市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="uji-city-jinzai-ikusei-shien">
             <h3>宇治市中小企業人材育成支援事業（令和8年度）</h3>
-            <p class="area-meta">宇治市 産業振興課（宇治NEXT）｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">宇治市 産業振興課（宇治NEXT）｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：令和8年度事業（受付期間は要確認）</p>
             <p>市内中小企業の人材育成に関する取り組みを支援する事業。</p>
             <p><strong>主な条件</strong></p>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="uji-city-jinzai-teichaku-hojo">
             <h3>宇治市 中小企業人材定着支援事業補助金</h3>
-            <p class="area-meta">宇治市 産業振興課（宇治NEXT）｜補助金｜要確認｜締切：2027-01-29</p>
+            <p class="area-meta">宇治市 産業振興課（宇治NEXT）｜補助金｜金額は公式で確認｜締切：2027-01-29</p>
             <p class="area-meta">期間：宇治NEXTの一覧では令和9年1月29日まで受付と掲載（要確認）</p>
             <p>中小企業の人材定着の取り組みに要する経費を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -187,7 +205,7 @@
           </div>
           <div class="area-program" id="uji-city-sentan-setsubi-hojo">
             <h3>宇治市先端設備等導入支援補助金</h3>
-            <p class="area-meta">宇治市 産業振興課（宇治NEXT）｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">宇治市 産業振興課（宇治NEXT）｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：最新は要確認（詳細ページは令和8年1月30日で公募終了、一覧では令和9年1月29日受付と掲載）</p>
             <p>先端設備等導入計画の認定を受けて設備を導入する事業者に補助金を交付する。</p>
             <p><strong>主な条件</strong></p>
@@ -197,7 +215,7 @@
           <h3 class="area-cat">受付が終了した制度（次回の公募の参考に）</h3>
           <div class="area-program is-ended" id="uji-city-sogyo-shien-hojo">
             <h3>宇治市創業支援補助金（令和8年度） <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">宇治市 産業観光部 産業振興課（宇治NEXT）｜補助金｜過去年度は最大180万円（基礎分100万円＋加算分80万円）。令和8年度は要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">宇治市 産業観光部 産業振興課（宇治NEXT）｜補助金｜過去年度は最大180万円（基礎分100万円＋加算分80万円）。令和8年度は要確認</p>
             <p class="area-meta">期間：令和8年度の募集は令和8年9月30日必着で受付終了（来年度は要確認）</p>
             <p>市内で新規創業または第二創業を行う方に創業経費を補助する。審査は書類とプレゼンテーション。</p>
             <p><strong>主な条件</strong></p>
@@ -222,20 +240,20 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>宇治市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="uji-taishin">
             <h3>木造住宅の耐震改修等工事の補助</h3>
-            <p class="area-meta">京都府宇治市｜補助金｜耐震化重点エリア内の改修は上限172.5万円、その他の耐震改修Bは上限100万円、簡易耐震改修は上限40万円｜締切：公募要領で確認</p>
+            <p class="area-meta">京都府宇治市｜補助金｜耐震化重点エリア内の改修は上限172.5万円、その他の耐震改修Bは上限100万円、簡易耐震改修は上限40万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>旧耐震の木造住宅の耐震改修等工事を補助する。工事着手前の申請が必要。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>昭和56年5月31日以前着工の木造住宅</li><li>工事着手前に申請</li></ul>
             <p><a href="https://www.city.uji.kyoto.jp/site/ijuteiju/38475.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="uji-jiritsu">
             <h3>家庭向け自立型再生可能エネルギー導入事業費補助金(FIT売電可)</h3>
-            <p class="area-meta">京都府宇治市｜補助金｜太陽光1kWあたり1万円(上限4万円)、蓄電設備1kWhあたり1.6万円(上限8万円)｜締切：公募要領で確認</p>
+            <p class="area-meta">京都府宇治市｜補助金｜太陽光1kWあたり1万円(上限4万円)、蓄電設備1kWhあたり1.6万円(上限8万円)</p>
             <p class="area-meta">期間：令和8年度(詳細は要確認)</p>
             <p>FIT認定を受ける住宅の太陽光・蓄電池導入を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -244,37 +262,37 @@
           </div>
           <div class="area-program" id="uji-zerocarbon">
             <h3>宇治市ゼロカーボン設備導入事業費補助金</h3>
-            <p class="area-meta">京都府宇治市｜補助金｜太陽光1kWあたり4万円(上限16万円)、蓄電設備1kWhあたり4.5万円(上限27万円)、補助対象経費の1/2が上限｜締切：公募要領で確認</p>
+            <p class="area-meta">京都府宇治市｜補助金｜太陽光1kWあたり4万円(上限16万円)、蓄電設備1kWhあたり4.5万円(上限27万円)、補助対象経費の1/2が上限</p>
             <p class="area-meta">期間：令和8年6月3日受付開始(終了日は要確認)</p>
             <p>FITを利用しない住宅の太陽光・蓄電池同時設置を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>太陽光と蓄電設備の同時設置</li><li>据置型蓄電設備</li></ul>
             <p><a href="https://www.city.uji.kyoto.jp/soshiki/21/81824.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">EV・充電</h3>
+          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
           <div class="area-program" id="uji-zev">
             <h3>宇治市ZEV普及促進事業費補助金</h3>
-            <p class="area-meta">京都府宇治市｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">京都府宇治市｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：令和8年度(詳細は要確認)</p>
             <p>電気自動車等の導入を補助する令和8年度の制度。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>市内居住者等(詳細は要確認)</li></ul>
             <p><a href="https://www.city.uji.kyoto.jp/soshiki/21/75670.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="uji-akiya">
             <h3>令和8年度 空き家関連補助金</h3>
-            <p class="area-meta">京都府宇治市｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">京都府宇治市｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：令和8年度(詳細は要確認)</p>
             <p>空き家の利活用・除却等に関する市の補助金。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>市内の空き家(詳細は要確認)</li></ul>
             <p><a href="https://www.city.uji.kyoto.jp/soshiki/48/78118.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program" id="uji-kaigo-yobo">
             <h3>宇治市介護予防安心住まい推進事業</h3>
-            <p class="area-meta">京都府宇治市｜補助金｜工事費の2/3または16万円のいずれか低い額｜締切：公募要領で確認</p>
+            <p class="area-meta">京都府宇治市｜補助金｜工事費の2/3または16万円のいずれか低い額</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>介護認定を受けていない65歳以上の高齢者の住宅改修費を助成する。</p>
             <p><strong>主な条件</strong></p>
@@ -283,17 +301,17 @@
           </div>
           <div class="area-program" id="uji-kaizo">
             <h3>要介護者等の住宅改造費の助成</h3>
-            <p class="area-meta">京都府宇治市｜補助金｜工事費の1/2(上限30万円)｜締切：公募要領で確認</p>
+            <p class="area-meta">京都府宇治市｜補助金｜工事費の1/2(上限30万円)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>介助を要する高齢者等の住宅改造費を助成する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>介助を要する高齢者等(詳細は要確認)</li></ul>
             <p><a href="https://www.city.uji.kyoto.jp/soshiki/29/91315.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">子育て</h3>
+          <h3 class="area-cat" id="res-cat-6">子育て</h3>
           <div class="area-program" id="uji-kosodate-jutaku">
             <h3>子育て世帯住宅確保おうえん事業補助金</h3>
-            <p class="area-meta">京都府宇治市｜補助金｜経費の1/2(1子世帯上限10万円、2子世帯20万円、多子世帯30万円)｜締切：公募要領で確認</p>
+            <p class="area-meta">京都府宇治市｜補助金｜経費の1/2(1子世帯上限10万円、2子世帯20万円、多子世帯30万円)</p>
             <p class="area-meta">期間：令和8年度募集(終了日は要確認)</p>
             <p>子育て世帯のリビング・台所・浴室・こども部屋の改修費を補助する。</p>
             <p><strong>主な条件</strong></p>

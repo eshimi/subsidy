@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">兵庫県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（宝塚市）<b>5件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（兵庫県）<b>4件（うち受付終了1件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>3件（うち受付終了1件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-5">バリアフリー・介護 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">宝塚市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="takarazuka-city-hosyoryo-hojo">
             <h3>宝塚市中小企業振興資金融資補助金（保証料補助）</h3>
-            <p class="area-meta">宝塚市 商工勤労課｜補助金｜貸付額500万円以下の信用保証料の一部、上限10万円｜締切：公募要領で確認</p>
+            <p class="area-meta">宝塚市 商工勤労課｜補助金｜貸付額500万円以下の信用保証料の一部、上限10万円</p>
             <p class="area-meta">期間：最新は要確認（ページ更新が古い可能性）</p>
             <p>小規模企業振興資金を利用した場合の信用保証料を一部補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="takarazuka-city-kigyo-yushi-riko-hokyu">
             <h3>宝塚市起業融資活用者利子補給金</h3>
-            <p class="area-meta">宝塚市 商工勤労課｜補助金｜当初借入額1,000万円以下に係る利子を最大3年間補給｜締切：公募要領で確認</p>
+            <p class="area-meta">宝塚市 商工勤労課｜補助金｜当初借入額1,000万円以下に係る利子を最大3年間補給</p>
             <p class="area-meta">期間：令和8年度分は受付終了（来年度申請の案内あり）</p>
             <p>起業融資を利用した人の利子を補給する。令和8年度分は予算上限により受付終了。</p>
             <p><strong>主な条件</strong></p>
@@ -187,7 +205,7 @@
           </div>
           <div class="area-program" id="takarazuka-city-kigyoka-shien-shikin">
             <h3>宝塚市中小企業振興資金（起業家等支援資金）融資あっせん</h3>
-            <p class="area-meta">宝塚市 商工勤労課｜融資｜限度額500万円、年0.6%、返済5年以内｜締切：公募要領で確認</p>
+            <p class="area-meta">宝塚市 商工勤労課｜融資｜限度額500万円、年0.6%、返済5年以内</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>市内で起業する人などへの融資あっせん制度。運転資金・設備資金に利用できる。</p>
             <p><strong>主な条件</strong></p>
@@ -196,7 +214,7 @@
           </div>
           <div class="area-program" id="takarazuka-city-shinki-shutten-challenge">
             <h3>宝塚市新規出店改装チャレンジ応援補助金（出店促進型）</h3>
-            <p class="area-meta">宝塚市 商工勤労課｜補助金｜改装費等の1/2以内、上限120万円（一部エリアは135万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">宝塚市 商工勤労課｜補助金｜改装費等の1/2以内、上限120万円（一部エリアは135万円）</p>
             <p class="area-meta">期間：令和8年度は事業計画書提出期間 8/20〜9/30、2次募集の案内あり（最新は要確認）</p>
             <p>市内に新規出店する事業者の改装工事費の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -205,7 +223,7 @@
           </div>
           <div class="area-program" id="takarazuka-city-store-renovation">
             <h3>宝塚市新規出店改装チャレンジ応援補助金（店舗等リノベーション型）</h3>
-            <p class="area-meta">宝塚市 商工勤労課｜補助金｜改装費等の1/2以内、上限20万円｜締切：公募要領で確認</p>
+            <p class="area-meta">宝塚市 商工勤労課｜補助金｜改装費等の1/2以内、上限20万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>店舗の改装（照明・給湯設備の設置取替など）にかかる費用の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -230,30 +248,30 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>宝塚市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program is-ended" id="takarazuka-taishin">
             <h3>宝塚市 住宅耐震化促進事業 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">兵庫県宝塚市｜補助金｜戸建て耐震改修工事費の5分の4以内、上限115万円｜締切：公募要領で確認</p>
+            <p class="area-meta">兵庫県宝塚市｜補助金｜戸建て耐震改修工事費の5分の4以内、上限115万円</p>
             <p class="area-meta">期間：令和8年度は受付終了(次回は要確認)</p>
             <p>昭和56年5月31日以前着工の住宅の耐震改修を補助。令和8年度は2026年8月3日で受付終了。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>昭和56年5月31日以前に着工された住宅</li></ul>
             <p><a href="https://www.city.takarazuka.hyogo.jp/1060678/1060691/1061537/1010169/1000400.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="takarazuka-solar-battery">
             <h3>宝塚市 地域脱炭素移行・再エネ推進助成金(住宅向け)</h3>
-            <p class="area-meta">兵庫県宝塚市｜助成金｜太陽光1kWあたり7万円、蓄電池は対象経費の3分の1(上限100万円)｜締切：公募要領で確認</p>
+            <p class="area-meta">兵庫県宝塚市｜助成金｜太陽光1kWあたり7万円、蓄電池は対象経費の3分の1(上限100万円)</p>
             <p class="area-meta">期間：令和8年度は補欠受付中(最新は要確認)</p>
             <p>令和8年度は予算上限に達し補欠受付中。蓄電池は太陽光とのセット導入が条件。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>住宅に太陽光発電設備を導入する個人</li><li>蓄電池は太陽光とのセット導入が必須</li></ul>
             <p><a href="https://www.city.takarazuka.hyogo.jp/1060685/1060714/1061609/energy/1014263/1052998.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program" id="takarazuka-jutaku-kaizo">
             <h3>宝塚市 住宅改造制度(高齢者向けバリアフリー改造)</h3>
-            <p class="area-meta">兵庫県宝塚市｜助成金｜要確認(工事費の一部を助成)｜締切：公募要領で確認</p>
+            <p class="area-meta">兵庫県宝塚市｜助成金｜要確認(工事費の一部を助成)</p>
             <p class="area-meta">期間：最新は要確認(令和7年度は4月1日受付開始)</p>
             <p>高齢者が住む住宅のバリアフリー改造工事費の一部を助成。</p>
             <p><strong>主な条件</strong></p>

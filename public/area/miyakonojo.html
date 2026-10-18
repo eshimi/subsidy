@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">宮崎県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（都城市）<b>4件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（宮崎県）<b>5件（うち受付終了2件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>4件（うち受付終了1件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-7">移住 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">都城市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="miyakonojo-city-chusankan-shuten-shien-hojo">
             <h3>都城市中山間地域等出店支援事業費補助金</h3>
-            <p class="area-meta">都城市 商工政策課ほか｜補助金｜補助率1/2以内など、上限額は費目により異なる（詳細は要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">都城市 商工政策課ほか｜補助金｜補助率1/2以内など、上限額は費目により異なる（詳細は要確認）</p>
             <p class="area-meta">期間：年度ごとに設定（最新の公募は要確認）</p>
             <p>中山間地域等の空店舗のリノベーションや解体などの経費の一部を補助し、新規出店を支援する。市ページは令和7年度版、令和8年度の公募状況は要確認。</p>
             <p><strong>主な条件</strong></p>
@@ -178,8 +196,8 @@
           </div>
           <div class="area-program" id="miyakonojo-city-chusho-tokubetsu-yushi">
             <h3>都城市中小企業特別融資制度</h3>
-            <p class="area-meta">都城市 商工政策課｜融資｜融資限度額1,000万円（利率等は要確認）｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">都城市 商工政策課｜融資｜融資限度額1,000万円（利率等は要確認）</p>
+            
             <p>市内の中小企業者・小規模企業者向けの市の融資制度。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>市内の中小企業者・小規模企業者</li></ul>
@@ -187,8 +205,8 @@
           </div>
           <div class="area-program" id="miyakonojo-city-jigyo-shokei-ma-hojo">
             <h3>都城市事業承継及びM&amp;A支援事業補助金</h3>
-            <p class="area-meta">都城市 商工政策課｜補助金｜補助率2/3以内、上限60万円（1回限り）｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">都城市 商工政策課｜補助金｜補助率2/3以内、上限60万円（1回限り）</p>
+            
             <p>M&amp;Aや役員・従業員承継を予定する市内中小企業者の着手段階の費用の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>市内の中小企業者</li><li>M&amp;Aまたは役員・従業員承継を予定していること</li></ul>
@@ -196,7 +214,7 @@
           </div>
           <div class="area-program" id="miyakonojo-city-shoko-shoene-setsubi-hojo">
             <h3>都城市商工業者等省エネルギー設備導入支援事業費補助金</h3>
-            <p class="area-meta">都城市 商工政策課｜補助金｜対象経費の1/2以内、上限100万円（対象経費合計は税抜10万円以上）｜締切：公募要領で確認</p>
+            <p class="area-meta">都城市 商工政策課｜補助金｜対象経費の1/2以内、上限100万円（対象経費合計は税抜10万円以上）</p>
             <p class="area-meta">期間：年度ごとに設定（令和8年10月1日から複数回申請可能となったとの掲載あり、最新は要確認）</p>
             <p>省エネルギー設備の導入でコスト削減に取り組む市内の商工業者へ設備費の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -221,40 +239,40 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>都城市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program is-ended" id="miyakonojo-taishin-block">
             <h3>都城市 木造住宅・危険ブロック塀等の耐震関係補助 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">宮崎県都城市｜補助金｜要確認(耐震診断・改修・除却・建替え等)｜締切：公募要領で確認</p>
+            <p class="area-meta">宮崎県都城市｜補助金｜要確認(耐震診断・改修・除却・建替え等)</p>
             <p class="area-meta">期間：令和8年度受付終了(耐震相談は随時)</p>
             <p>昭和56年以前の木造住宅の耐震診断・改修等や危険ブロック塀(通学路沿い、高さ1.2m以上)の補助。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>昭和56年以前の木造住宅</li><li>ブロック塀は小学校通学路に面し高さ1.2m以上</li></ul>
             <p><a href="https://www.city.miyakonojo.miyazaki.jp/soshiki/101/73059.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program" id="miyakonojo-reform">
             <h3>都城市住宅リフォーム促進事業(太陽光・蓄電池含む)</h3>
-            <p class="area-meta">宮崎県都城市｜補助金｜工事費の10%(上限10万円)｜締切：公募要領で確認</p>
+            <p class="area-meta">宮崎県都城市｜補助金｜工事費の10%(上限10万円)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>住宅リフォーム工事(太陽光発電・家庭用蓄電池設置工事も対象)の費用を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>市内の住宅リフォーム工事(詳細は要確認)</li></ul>
             <p><a href="https://www.city.miyakonojo.miyazaki.jp/soshiki/77/63088.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="miyakonojo-akiya-jokyaku">
             <h3>都城市不良空き家の解体工事費補助</h3>
-            <p class="area-meta">宮崎県都城市｜補助金｜解体費(税抜)の1/2、最大75万円｜締切：公募要領で確認</p>
+            <p class="area-meta">宮崎県都城市｜補助金｜解体費(税抜)の1/2、最大75万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>居住誘導区域内の不良空き家の解体費用を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>居住誘導区域内の不良空き家</li></ul>
             <p><a href="https://www.city.miyakonojo.miyazaki.jp/soshiki/101/53500.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="miyakonojo-ijuokyuu">
             <h3>都城市移住応援給付金</h3>
-            <p class="area-meta">宮崎県都城市｜給付｜令和7年度制度:単身60万円、世帯100万円、子ども加算1人100万円(最大300万円)。令和8年度は要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">宮崎県都城市｜給付｜令和7年度制度:単身60万円、世帯100万円、子ども加算1人100万円(最大300万円)。令和8年度は要確認</p>
             <p class="area-meta">期間：最新は要確認(令和7年度制度の情報)</p>
             <p>都城広域定住自立圏外から移住した人に給付する。</p>
             <p><strong>主な条件</strong></p>

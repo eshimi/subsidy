@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,6 +170,17 @@
       <p class="lead" style="margin-bottom: 0;">滋賀県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（大津市）<b>3件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（滋賀県）<b>4件</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>5件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 2</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-7">移住 2</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">大津市の制度（事業・創業の方向け）</h2>
@@ -187,7 +205,7 @@
           </div>
           <div class="area-program" id="otsu-city-sogyo-sokushin">
             <h3>大津市創業促進事業費補助金</h3>
-            <p class="area-meta">大津市 商工労働政策課｜補助金｜補助率1/2、上限50万円（35歳以下は100万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">大津市 商工労働政策課｜補助金｜補助率1/2、上限50万円（35歳以下は100万円）</p>
             <p class="area-meta">期間：令和8年度2次募集は8/3～8/31で終了（来年度は要確認）</p>
             <p>創業に要する経費を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -212,10 +230,10 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>大津市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="otsu-taishin-kaishu">
             <h3>大津市木造住宅耐震改修等事業補助制度</h3>
-            <p class="area-meta">大津市｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">大津市｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：令和8年度受付中（工事は2月28日までに完了・実績報告）</p>
             <p>昭和56年5月31日以前に着工された木造住宅の所有者が行う耐震改修工事（建替えに伴う除却工事を含む）の費用を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -224,24 +242,24 @@
           </div>
           <div class="area-program" id="otsu-taishin-shelter">
             <h3>大津市個人木造住宅耐震シェルター等設置補助制度</h3>
-            <p class="area-meta">大津市｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">大津市｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：令和8年度受付中</p>
             <p>昭和56年5月31日以前に建築された木造住宅に住み、耐震診断の評点が0.7未満の居住者が耐震シェルター等を設置する費用を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>昭和56年5月31日以前に建築された木造住宅の居住者</li><li>耐震診断で構造評点0.7未満</li><li>市税の滞納がなく、耐震改修等事業の補助を受けていないこと</li></ul>
             <p><a href="https://www.city.otsu.lg.jp/soshiki/035/1309/g/reform/taisinkaisyu/21054.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="otsu-block-tekkyo">
             <h3>大津市ブロック塀等の撤去等促進事業費補助</h3>
-            <p class="area-meta">滋賀県大津市｜補助金｜補助対象経費の3分の2（上限10万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">滋賀県大津市｜補助金｜補助対象経費の3分の2（上限10万円）</p>
             <p class="area-meta">期間：令和8年度は5月に受付（事前相談5/7〜5/15、受付5/18〜5/27）。最新は要確認</p>
             <p>地震時の倒壊を防ぐため、危険なブロック塀等の撤去・改修（軽量フェンス設置等）の費用の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>避難路沿道などにあるブロック塀等であること</li><li>交付決定前に契約・着工していないこと（事前相談が必要）</li></ul>
             <p><a href="https://www.city.otsu.lg.jp/soshiki/035/1309/g/hojo/40476.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="otsu-kekkon-shinseikatsu">
             <h3>大津市結婚新生活支援事業補助金</h3>
             <p class="area-meta">滋賀県大津市｜補助金｜夫婦とも29歳以下は上限60万円、39歳以下は上限30万円｜締切：2027-03-01</p>
@@ -253,7 +271,7 @@
           </div>
           <div class="area-program" id="otsu-teijusokushin-reform">
             <h3>大津市定住促進リフォーム補助金</h3>
-            <p class="area-meta">大津市｜補助金｜要確認（工事費の合計20万円以上が対象）｜締切：公募要領で確認</p>
+            <p class="area-meta">大津市｜補助金｜要確認（工事費の合計20万円以上が対象）</p>
             <p class="area-meta">期間：予算の範囲内で年度ごとに受付（令和8年度の期間は要確認）</p>
             <p>市外から転入する世帯、または市外の子・孫世帯が市内の親世帯と同居するために転入する世帯が、建築後1年以上の住宅を改修する費用の一部を補助する。</p>
             <p><strong>主な条件</strong></p>

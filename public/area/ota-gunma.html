@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">群馬県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（太田市）<b>5件（うち受付終了2件）</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（群馬県）<b>5件</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>5件（うち受付終了1件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-5">バリアフリー・介護 1</a><a href="#res-cat-7">移住 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">太田市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="ota-gunma-city-chusho-yushi">
             <h3>太田市中小企業者向け融資制度</h3>
-            <p class="area-meta">太田市 産業ミライ推進課｜融資｜要確認（限度額・利率は資金の種類ごとに異なる）｜締切：公募要領で確認</p>
+            <p class="area-meta">太田市 産業ミライ推進課｜融資｜要確認（限度額・利率は資金の種類ごとに異なる）</p>
             <p class="area-meta">期間：通年（最新は要確認）</p>
             <p>市が金融機関に融資原資の一部を預託し、低利の固定金利で融資する制度融資。小口資金・設備資金・経営安定資金などがある。</p>
             <p><strong>主な条件</strong></p>
@@ -188,7 +206,7 @@
           </div>
           <div class="area-program" id="ota-gunma-city-jisha-seihin-hanro">
             <h3>自社製品販路開拓事業助成金</h3>
-            <p class="area-meta">太田市 産業ミライ推進課｜助成金｜出展料の3分の2以内、上限30万円｜締切：公募要領で確認</p>
+            <p class="area-meta">太田市 産業ミライ推進課｜助成金｜出展料の3分の2以内、上限30万円</p>
             <p class="area-meta">期間：令和8年度は随時受付（予算額に達し次第終了）</p>
             <p>中小企業者が販路開拓のため見本市・展示会に出展する際の出展料の一部を助成する。令和8年度分は随時受付で、予算額に達し次第終了。</p>
             <p><strong>主な条件</strong></p>
@@ -199,7 +217,7 @@
           <h3 class="area-cat">受付が終了した制度（次回の公募の参考に）</h3>
           <div class="area-program is-ended" id="ota-gunma-city-akiten-reform">
             <h3>空き店舗対策リフォーム支援事業補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">太田市 産業ミライ推進課｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">太田市 産業ミライ推進課｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：令和8年度の受付は終了（来年度は要確認）</p>
             <p>空き店舗を活用して出店する際のリフォーム費用を補助する制度。令和8年度の受付は終了。</p>
             <p><strong>主な条件</strong></p>
@@ -208,7 +226,7 @@
           </div>
           <div class="area-program is-ended" id="ota-gunma-city-shoten-reform">
             <h3>商店リフォーム支援事業補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">太田市 産業ミライ推進課｜補助金｜対象工事費の2分の1以内、上限100万円｜締切：公募要領で確認</p>
+            <p class="area-meta">太田市 産業ミライ推進課｜補助金｜対象工事費の2分の1以内、上限100万円</p>
             <p class="area-meta">期間：令和8年度は6月1日〜9月30日（受付終了。来年度は要確認）</p>
             <p>市内商店の店舗改修工事費を補助する。令和8年度の申請期間は6月1日から9月30日。</p>
             <p><strong>主な条件</strong></p>
@@ -233,7 +251,7 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>太田市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="ota-gunma-taishin-kaishu">
             <h3>木造住宅耐震改修補助金</h3>
             <p class="area-meta">群馬県太田市｜補助金｜全部改修:費用の4/5以内(上限100万円)、耐震シェルター等:1/2以内(上限60万円)｜締切：2026-10-30</p>
@@ -243,7 +261,7 @@
             <ul><li>昭和56年5月31日以前に着工した木造住宅で耐震診断により倒壊のおそれありとされたもの</li><li>所有者または3親等以内の親族で改修後に居住する人</li></ul>
             <p><a href="https://www.city.ota.gunma.jp/page/1045527.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="ota-gunma-reene">
             <h3>住宅用再エネ機器導入報奨金</h3>
             <p class="area-meta">群馬県太田市｜給付｜太陽光:2kW以上7kW未満5万円/7kW以上7万円、蓄電システム:5万円(太田市デジタル金券OTACO)｜締切：2027-03-31</p>
@@ -253,7 +271,7 @@
             <ul><li>令和8年度中に市内の自己居住住宅へ設置</li><li>太陽光は出力2kW以上、蓄電は4kWh以上で太陽光に常時接続し製品登録のあるもの</li></ul>
             <p><a href="https://www.city.ota.gunma.jp/page/1021934.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program is-ended" id="ota-gunma-akiya-jokyaku">
             <h3>空家除却補助金 <span class="area-ended-tag">受付終了</span></h3>
             <p class="area-meta">群馬県太田市｜補助金｜除却費用の1/2(上限50万円)｜締切：2026-10-13</p>
@@ -263,20 +281,20 @@
             <ul><li>対象要件の詳細は要確認</li></ul>
             <p><a href="https://www.city.ota.gunma.jp/page/1151.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program" id="ota-gunma-jukaizou">
             <h3>重度身体障がい者(児)住宅改造費補助</h3>
-            <p class="area-meta">群馬県太田市｜補助金｜改造費の6分の5(最大50万円)｜締切：公募要領で確認</p>
+            <p class="area-meta">群馬県太田市｜補助金｜改造費の6分の5(最大50万円)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>重度の身体障がい者(児)の住宅改造費を補助する。工事前の申請が必要。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>手帳の等級など対象の障がいがあること</li><li>世帯の市民税所得割額16万円未満</li></ul>
             <p><a href="https://www.city.ota.gunma.jp/005gyosei/0070-005kenko-fukushi/karada/juutakukaizou.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="ota-gunma-iju-shienkin">
             <h3>太田市移住支援金</h3>
-            <p class="area-meta">群馬県太田市｜給付｜単身60万円、世帯100万円、18歳未満の帯同者1人につき100万円加算(最大3人分)｜締切：公募要領で確認</p>
+            <p class="area-meta">群馬県太田市｜給付｜単身60万円、世帯100万円、18歳未満の帯同者1人につき100万円加算(最大3人分)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>東京圏からの移住者に支援金を交付する。</p>
             <p><strong>主な条件</strong></p>

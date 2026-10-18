@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">兵庫県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（尼崎市）<b>5件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（兵庫県）<b>4件（うち受付終了1件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>9件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-4">空き家・ブロック塀 3</a><a href="#res-cat-5">バリアフリー・介護 2</a><a href="#res-cat-6">子育て 2</a><a href="#res-cat-7">移住 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">尼崎市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="amagasaki-city-akitenpo-katsuyo">
             <h3>尼崎市空店舗活用支援事業（創業者向け）</h3>
-            <p class="area-meta">尼崎市 商業観光課｜補助金｜補助率2/3以内（限度額 1年目75万円・2年目50万円・3年目25万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">尼崎市 商業観光課｜補助金｜補助率2/3以内（限度額 1年目75万円・2年目50万円・3年目25万円）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>市場・商店街の空き店舗で新たに開業する創業者を支援。</p>
             <p><strong>主な条件</strong></p>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="amagasaki-city-gijutsu-support-yushi">
             <h3>あまがさき技術サポート融資（利子補給）</h3>
-            <p class="area-meta">尼崎市／尼崎商工会議所｜融資｜利息の1/2以内（借入日から2年以内）｜締切：公募要領で確認</p>
+            <p class="area-meta">尼崎市／尼崎商工会議所｜融資｜利息の1/2以内（借入日から2年以内）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>新技術・新製品の事業化を目指す中小企業向けの無担保融資に対し利子を補助。</p>
             <p><strong>主な条件</strong></p>
@@ -187,7 +205,7 @@
           </div>
           <div class="area-program" id="amagasaki-city-hoshoryo-hojo">
             <h3>令和8年度尼崎市信用保証料補助金</h3>
-            <p class="area-meta">尼崎市 産業振興課｜融資｜保証料の1/4以内（協調支援型長期資金）、1/2以内（経営円滑化貸付）｜締切：公募要領で確認</p>
+            <p class="area-meta">尼崎市 産業振興課｜融資｜保証料の1/4以内（協調支援型長期資金）、1/2以内（経営円滑化貸付）</p>
             <p class="area-meta">期間：令和8年度（対象者確認後に保証申込み）</p>
             <p>兵庫県の融資制度を利用する中小企業の信用保証料の一部を補助。</p>
             <p><strong>主な条件</strong></p>
@@ -197,7 +215,7 @@
           </div>
           <div class="area-program" id="amagasaki-city-shoryokuka-setsubi">
             <h3>尼崎市省力化・生産性向上設備導入支援補助金2026</h3>
-            <p class="area-meta">公益財団法人尼崎地域産業活性化機構｜補助金｜通常枠上限 製造業200万円・その他100万円、拡充枠最大500万円｜締切：公募要領で確認</p>
+            <p class="area-meta">公益財団法人尼崎地域産業活性化機構｜補助金｜通常枠上限 製造業200万円・その他100万円、拡充枠最大500万円</p>
             <p class="area-meta">期間：令和8年度（受付期間は要確認）</p>
             <p>設備導入費用の一部を補助。</p>
             <p><strong>主な条件</strong></p>
@@ -206,7 +224,7 @@
           </div>
           <div class="area-program" id="amagasaki-city-sogyo-anteika">
             <h3>尼崎市創業安定化支援（インキュベーション施設の賃料補助）</h3>
-            <p class="area-meta">尼崎市／株式会社エーリック｜補助金｜月額賃料の1/2以内（上限月額48,000円）｜締切：公募要領で確認</p>
+            <p class="area-meta">尼崎市／株式会社エーリック｜補助金｜月額賃料の1/2以内（上限月額48,000円）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>尼崎リサーチ・インキュベーションセンター入居の創業者に賃料を補助。経営相談員の派遣もあり。</p>
             <p><strong>主な条件</strong></p>
@@ -231,20 +249,20 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>尼崎市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="amagasaki-taishin">
             <h3>尼崎市住宅耐震改修促進事業補助金（簡易耐震改修工事費補助を含む）</h3>
-            <p class="area-meta">尼崎市｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">尼崎市｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：令和8年度（受付期間は要確認）</p>
             <p>昭和56年5月以前に建築された市内の住宅の耐震改修等にかかる費用を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>昭和56年5月以前に建築された住宅</li><li>市内全域が対象</li><li>建築基準法上の是正命令を受けている住宅などは対象外</li></ul>
             <p><a href="https://www.city.amagasaki.hyogo.jp/_res/projects/default_project/_page_/001/002/264/R8_youkou.pdf" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="amagasaki-akiya-kaishu">
             <h3>尼崎市空家改修費補助事業</h3>
-            <p class="area-meta">兵庫県尼崎市｜補助金｜工事費等の2分の1相当の範囲（住宅延べ面積×4万円との低い方の2/3、戸建上限100万円）。詳細は要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">兵庫県尼崎市｜補助金｜工事費等の2分の1相当の範囲（住宅延べ面積×4万円との低い方の2/3、戸建上限100万円）。詳細は要確認</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>築20年以上で2年以上使用されていない空き家を自己居住用に改修する費用の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -262,17 +280,17 @@
           </div>
           <div class="area-program" id="amagasaki-tokushu-akiya-jokyaku">
             <h3>特殊空家に係る除却費補助金</h3>
-            <p class="area-meta">尼崎市｜補助金｜補助対象工事費の2/3（1戸あたり上限50万円。切り離しが必要な長屋は70万円。長屋を複数戸除却する場合は1戸50万円・上限150万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">尼崎市｜補助金｜補助対象工事費の2/3（1戸あたり上限50万円。切り離しが必要な長屋は70万円。長屋を複数戸除却する場合は1戸50万円・上限150万円）</p>
             <p class="area-meta">期間：確認できた資料は2025年9月版（最新は要確認）</p>
             <p>借地上の長屋住宅や無接道敷地の住宅の空き家を除却する個人の所有者等に、除却費用の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>他人が所有する土地の長屋住宅の所有者、または無接道敷地の住宅の所有者・土地所有者</li><li>個人であること</li><li>ほかにも要件あり</li></ul>
             <p><a href="https://www.city.amagasaki.hyogo.jp/_res/projects/default_project/_page_/001/024/803/akiyataisaku_tokusyu_youkou_202509.pdf" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program" id="amagasaki-jutaku-kaizo">
             <h3>尼崎市住宅改造費の助成</h3>
-            <p class="area-meta">兵庫県尼崎市｜助成金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">兵庫県尼崎市｜助成金｜金額は公式で確認</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>要介護・要支援認定者や障害者手帳等の所持者がいる世帯の住宅改造費の一部を助成する（尼崎市社会福祉協議会が窓口）。</p>
             <p><strong>主な条件</strong></p>
@@ -281,14 +299,14 @@
           </div>
           <div class="area-program" id="amagasaki-kaigo-jutaku-kaishu">
             <h3>尼崎市介護保険 住宅改修費の支給</h3>
-            <p class="area-meta">兵庫県尼崎市｜給付｜改修費の上限20万円（自己負担1〜3割）｜締切：公募要領で確認</p>
+            <p class="area-meta">兵庫県尼崎市｜給付｜改修費の上限20万円（自己負担1〜3割）</p>
             <p class="area-meta">期間：通年（最新は要確認）</p>
             <p>要支援・要介護認定を受けた在宅の被保険者の手すり設置・段差解消等の改修費を支給する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>要支援1〜要介護5の認定を受け在宅で生活していること</li><li>事前申請を経て工事を行うこと</li></ul>
             <p><a href="https://www.city.amagasaki.hyogo.jp/kurashi/koreisya/1032914/k_syurui/044jutaku.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">子育て</h3>
+          <h3 class="area-cat" id="res-cat-6">子育て</h3>
           <div class="area-program" id="amagasaki-kosodate-jutaku-shutoku">
             <h3>尼崎市子育て世帯等の新築・中古戸建住宅取得補助</h3>
             <p class="area-meta">兵庫県尼崎市｜補助金｜新築200万円、中古60万円｜締切：2026-12-28</p>
@@ -300,14 +318,14 @@
           </div>
           <div class="area-program" id="amagasaki-kosodate-shinkon-akiya">
             <h3>尼崎市子育てファミリー世帯及び新婚世帯向け空家改修費補助事業</h3>
-            <p class="area-meta">兵庫県尼崎市｜補助金｜対象工事費の2分の1（上限50万円、要件により加算あり）｜締切：公募要領で確認</p>
+            <p class="area-meta">兵庫県尼崎市｜補助金｜対象工事費の2分の1（上限50万円、要件により加算あり）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>子育て世帯や新婚世帯が市内の一戸建て空家を取得して改修する費用の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>18歳未満の子または妊婦がいる世帯、または結婚5年以内で夫婦合計80歳未満</li><li>市内の一戸建て空家を取得して改修すること</li></ul>
             <p><a href="https://www.city.amagasaki.hyogo.jp/kurashi/sumai/konyu/1011582/1011583.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="amagasaki-chintai-sumikae">
             <h3>尼崎市民間賃貸住宅住替え補助</h3>
             <p class="area-meta">兵庫県尼崎市｜補助金｜25万円（先着240世帯）｜締切：2026-12-28</p>

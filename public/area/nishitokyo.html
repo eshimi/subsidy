@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">東京都・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（西東京市）<b>5件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（東京都）<b>6件（うち受付終了1件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>7件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 3</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-5">バリアフリー・介護 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">西東京市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="nishitokyo-city-chusho-jigyo-shikin-assen">
             <h3>西東京市 中小企業事業資金融資あっせん制度</h3>
-            <p class="area-meta">西東京市 産業振興課｜融資｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">西東京市 産業振興課｜融資｜金額は公式で確認</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>市内中小企業の事業資金について融資をあっせんする市の制度融資。利子・保証料の補助内容は公式ページで確認する。</p>
             <p><strong>主な条件</strong></p>
@@ -189,7 +207,7 @@
           </div>
           <div class="area-program" id="nishitokyo-city-jigyo-shokei-soudankai">
             <h3>西東京市 事業承継個別相談会</h3>
-            <p class="area-meta">西東京市 産業振興課｜専門家支援｜無料｜締切：公募要領で確認</p>
+            <p class="area-meta">西東京市 産業振興課｜専門家支援｜無料</p>
             <p class="area-meta">期間：毎月第4水曜日（予約制）</p>
             <p>毎月第4水曜日に開催される完全予約制の無料個別相談会。事業承継や承継による創業の相談ができる。</p>
             <p><strong>主な条件</strong></p>
@@ -234,10 +252,10 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>西東京市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="nishitokyo-shelter">
             <h3>木造住宅耐震シェルター等設置助成</h3>
-            <p class="area-meta">東京都西東京市｜助成金｜設置費(税抜)の9/10以内(上限30万円)｜締切：公募要領で確認</p>
+            <p class="area-meta">東京都西東京市｜助成金｜設置費(税抜)の9/10以内(上限30万円)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>木造住宅への耐震シェルター等の設置費を助成。</p>
             <p><strong>主な条件</strong></p>
@@ -246,7 +264,7 @@
           </div>
           <div class="area-program" id="nishitokyo-taishin-kaishu">
             <h3>木造住宅耐震改修等助成</h3>
-            <p class="area-meta">東京都西東京市｜助成金｜改修費の1/2以内(上限150万円)、除却は1/3以内(上限50万円)｜締切：公募要領で確認</p>
+            <p class="area-meta">東京都西東京市｜助成金｜改修費の1/2以内(上限150万円)、除却は1/3以内(上限50万円)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>旧耐震等の木造住宅の耐震改修・除却費用を助成。</p>
             <p><strong>主な条件</strong></p>
@@ -255,14 +273,14 @@
           </div>
           <div class="area-program" id="nishitokyo-taishin-shindan">
             <h3>木造住宅耐震診断助成</h3>
-            <p class="area-meta">東京都西東京市｜助成金｜診断費用の2/3以内(上限15万円)｜締切：公募要領で確認</p>
+            <p class="area-meta">東京都西東京市｜助成金｜診断費用の2/3以内(上限15万円)</p>
             <p class="area-meta">期間：令和8年度(最新は要確認)</p>
             <p>木造住宅の耐震診断費用を助成。令和8年度から要件・上限額が拡充される旨の案内あり。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>対象木造住宅の所有者(詳細は要確認)</li></ul>
             <p><a href="https://www.city.nishitokyo.lg.jp/kurasi/jutaku/taishin/shoyusha/josei_haken/mokuzo/taisin_sindan.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program" id="nishitokyo-aircon">
             <h3>省エネ家電(エアコン)買い換え助成金</h3>
             <p class="area-meta">東京都西東京市｜助成金｜1台1万円(上限3台・3万円)｜締切：2026-11-30</p>
@@ -272,10 +290,10 @@
             <ul><li>市内店舗で購入すること</li></ul>
             <p><a href="https://www.city.nishitokyo.lg.jp/kurasi/kankyo/ondanka/josei/hozyo/R8airconditioner.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="nishitokyo-block">
             <h3>ブロック塀等安全対策促進助成</h3>
-            <p class="area-meta">東京都西東京市｜助成金｜費用(税抜)の2/3、ブロック塀1mあたり8万円上限｜締切：公募要領で確認</p>
+            <p class="area-meta">東京都西東京市｜助成金｜費用(税抜)の2/3、ブロック塀1mあたり8万円上限</p>
             <p class="area-meta">期間：令和8年度(最新は要確認)</p>
             <p>避難路に面するブロック塀等の診断・除却・建替え・耐震改修費を助成。</p>
             <p><strong>主な条件</strong></p>
@@ -284,17 +302,17 @@
           </div>
           <div class="area-program" id="nishitokyo-ikegaki">
             <h3>緑と花の沿道推進事業補助</h3>
-            <p class="area-meta">東京都西東京市｜補助金｜ブロック塀等撤去は1mあたり1万円(上限20m)｜締切：公募要領で確認</p>
+            <p class="area-meta">東京都西東京市｜補助金｜ブロック塀等撤去は1mあたり1万円(上限20m)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>道路沿いのブロック塀等を撤去して生垣・花壇・フェンス緑化を行う場合の補助。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>市内の宅地の所有者など個人</li></ul>
             <p><a href="https://www.city.nishitokyo.lg.jp/kurasi/koen/ikegaki.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program" id="nishitokyo-koreisha-kaizo">
             <h3>高齢者住宅改造費給付サービス</h3>
-            <p class="area-meta">東京都西東京市｜給付｜浴槽取替の給付限度額37.9万円、流し・洗面台取替15.6万円(消費税含む)｜締切：公募要領で確認</p>
+            <p class="area-meta">東京都西東京市｜給付｜浴槽取替の給付限度額37.9万円、流し・洗面台取替15.6万円(消費税含む)</p>
             <p class="area-meta">期間：令和7年度は2026年2月13日まで。令和8年度は要確認</p>
             <p>介護保険の対象にならない住宅改造費を給付。</p>
             <p><strong>主な条件</strong></p>

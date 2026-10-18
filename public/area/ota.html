@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,6 +170,17 @@
       <p class="lead" style="margin-bottom: 0;">東京都・特別区。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（大田区）<b>2件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（東京都）<b>6件（うち受付終了1件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>7件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 3</a><a href="#res-cat-3">省エネ住宅 2</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-5">バリアフリー・介護 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">大田区の制度（事業・創業の方向け）</h2>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="ota-chusho-yushi-assen">
             <h3>大田区中小企業融資あっせん制度</h3>
-            <p class="area-meta">大田区 産業経済部 産業経済課 融資係｜融資｜区が支払利子の一部又は全部を補給（利率・限度額は資金ごとに要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">大田区 産業経済部 産業経済課 融資係｜融資｜区が支払利子の一部又は全部を補給（利率・限度額は資金ごとに要確認）</p>
             <p class="area-meta">期間：令和8年度（令和8年4月1日時点の内容）</p>
             <p>区が低利の融資を取扱金融機関にあっせんし、融資実行後の支払利子の一部または全部を区が補給します。</p>
             <p><strong>主な条件</strong></p>
@@ -203,10 +221,10 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>大田区の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="ota-hi-mokuzo-taishin">
             <h3>非木造住宅の耐震診断・改修の費用の助成</h3>
-            <p class="area-meta">大田区 防災まちづくり課｜補助金｜改修工事：費用の3分の2、限度額200万円（住宅の場合）｜締切：公募要領で確認</p>
+            <p class="area-meta">大田区 防災まちづくり課｜補助金｜改修工事：費用の3分の2、限度額200万円（住宅の場合）</p>
             <p class="area-meta">期間：要確認（年度ごとに変わるため、公式ページで確認）</p>
             <p>非木造住宅の耐震診断・改修の費用を助成する。</p>
             
@@ -214,7 +232,7 @@
           </div>
           <div class="area-program" id="ota-manshon-taishin">
             <h3>マンションの耐震診断・改修の費用の助成</h3>
-            <p class="area-meta">大田区 防災まちづくり課｜補助金｜改修工事：費用の2分の1、限度額4,000万円。設計：費用の3分の2、上限300万円｜締切：公募要領で確認</p>
+            <p class="area-meta">大田区 防災まちづくり課｜補助金｜改修工事：費用の2分の1、限度額4,000万円。設計：費用の3分の2、上限300万円</p>
             <p class="area-meta">期間：要確認（年度ごとに変わるため、公式ページで確認）</p>
             <p>分譲マンションの耐震診断・設計・改修の費用を助成する。</p>
             
@@ -222,14 +240,14 @@
           </div>
           <div class="area-program" id="ota-mokuzo-taishin">
             <h3>木造住宅の耐震診断・改修・除却の費用助成</h3>
-            <p class="area-meta">大田区 防災まちづくり課｜補助金｜改修工事の助成限度額150万円（旧耐震の建物には75万円の枠もあるが令和7年度までの制度）。診断・除却の額は要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">大田区 防災まちづくり課｜補助金｜改修工事の助成限度額150万円（旧耐震の建物には75万円の枠もあるが令和7年度までの制度）。診断・除却の額は要確認</p>
             <p class="area-meta">期間：確認できた年度：令和7年度までの記載あり（令和8年度の期間は要確認）</p>
             <p>木造住宅の耐震診断・改修・除却の費用を段階ごとに助成する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>契約は区の交付決定通知の後に行うこと</li></ul>
             <p><a href="https://www.city.ota.tokyo.jp/seikatsu/sumaimachinami/bousai_machidukuri/mokudou.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program" id="ota-enefarm">
             <h3>家庭用燃料電池（エネファーム）の設置助成</h3>
             <p class="area-meta">大田区 環境対策課｜補助金｜新規設置20万円、更新設置10万円｜締切：2027-03-31</p>
@@ -240,14 +258,14 @@
           </div>
           <div class="area-program" id="ota-reform-josei">
             <h3>住宅リフォーム助成事業</h3>
-            <p class="area-meta">大田区 住宅担当｜補助金｜要確認（令和5年度資料では工事区分ごとに助成対象額の10%、上限20万円などの記載。最新は要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">大田区 住宅担当｜補助金｜要確認（令和5年度資料では工事区分ごとに助成対象額の10%、上限20万円などの記載。最新は要確認）</p>
             <p class="area-meta">期間：確認できた年度：令和5年度（最新は要確認）</p>
             <p>区内中小事業者が施工するリフォームの費用の一部を助成する。窓や壁の断熱改修、太陽光発電設備、蓄電池など環境配慮のリフォームも対象。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>区内中小事業者の施工であること</li></ul>
             <p><a href="https://www.city.ota.tokyo.jp/seikatsu/sumaimachinami/sumai/r_josei/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="ota-block-kaishu">
             <h3>ブロック塀等改修助成事業</h3>
             <p class="area-meta">大田区｜助成金｜撤去費用の3/4または塀の長さ1mあたり30,000円のいずれか低い額、上限30万円（フェンス新設も上限30万円）。区の別ページでは上限16万円の記載もあり要確認｜締切：2027-01-15</p>
@@ -257,10 +275,10 @@
             <ul><li>区内のブロック塀を所有・管理する個人または法人</li><li>通学路・特定緊急輸送道路に面するもの（別ページの記載と相違あり、要確認）</li><li>区内中小企業との直接契約、住民税の滞納がないこと</li></ul>
             <p><a href="https://www.city.ota.tokyo.jp/seikatsu/sumaimachinami/bousai_machidukuri/annai.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program" id="ota-koreisha-jiritsu-jutaku-kaishu">
             <h3>大田区 高齢者自立支援住宅改修助成事業</h3>
-            <p class="area-meta">東京都大田区｜助成金｜限度額：浴槽取替379,000円、流し・洗面台取替156,000円、便器洋式化106,000円（自己負担は介護保険負担割合に準じ1〜3割）｜締切：公募要領で確認</p>
+            <p class="area-meta">東京都大田区｜助成金｜限度額：浴槽取替379,000円、流し・洗面台取替156,000円、便器洋式化106,000円（自己負担は介護保険負担割合に準じ1〜3割）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>要支援・要介護認定を受けた65歳以上の高齢者の住宅改修費を助成。同一工事での介護保険住宅改修との併給は不可。</p>
             <p><strong>主な条件</strong></p>

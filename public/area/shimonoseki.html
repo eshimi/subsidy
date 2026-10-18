@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">山口県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（下関市）<b>5件（うち受付終了1件）</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（山口県）<b>5件（うち受付終了2件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>5件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-7">移住 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">下関市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="shimonoseki-city-akibukken-business">
             <h3>下関市 空き物件活用ビジネス支援事業費補助金</h3>
-            <p class="area-meta">下関市 産業振興課｜補助金｜改装費・設備費の1/2(最大100万円、特定創業支援等事業修了者は最大120万円)+店舗賃借料補助｜締切：公募要領で確認</p>
+            <p class="area-meta">下関市 産業振興課｜補助金｜改装費・設備費の1/2(最大100万円、特定創業支援等事業修了者は最大120万円)+店舗賃借料補助</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>空き物件で小売・飲食・サービス業を開業する際の店舗賃貸料・改装費・設備費を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="shimonoseki-city-dx-banso">
             <h3>下関市 中小企業DX伴走支援事業</h3>
-            <p class="area-meta">下関市 産業振興課｜専門家支援｜要確認(4か月程度の伴走支援)｜締切：公募要領で確認</p>
+            <p class="area-meta">下関市 産業振興課｜専門家支援｜要確認(4か月程度の伴走支援)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>DXセミナーや訪問調査を行い、選ばれた事業者に集中的な伴走支援を行う。</p>
             <p><strong>主な条件</strong></p>
@@ -187,7 +205,7 @@
           </div>
           <div class="area-program" id="shimonoseki-city-seido-yushi">
             <h3>下関市 中小企業制度融資・保証料補給</h3>
-            <p class="area-meta">下関市 産業振興課｜融資｜要確認(起業資金融資は創業支援認定者に金利0.2%優遇、保証料は全額または一部補助)｜締切：公募要領で確認</p>
+            <p class="area-meta">下関市 産業振興課｜融資｜要確認(起業資金融資は創業支援認定者に金利0.2%優遇、保証料は全額または一部補助)</p>
             <p class="area-meta">期間：随時(最新は要確認)</p>
             <p>一般貸付・小規模企業サポート貸付・起業資金融資などの市制度融資と、信用保証料の補給。</p>
             <p><strong>主な条件</strong></p>
@@ -197,7 +215,7 @@
           </div>
           <div class="area-program" id="shimonoseki-city-sogyosha-hanro">
             <h3>下関市 創業者販路開拓等補助金</h3>
-            <p class="area-meta">下関市 産業振興課｜補助金｜補助対象経費の1/2・上限10万円｜締切：公募要領で確認</p>
+            <p class="area-meta">下関市 産業振興課｜補助金｜補助対象経費の1/2・上限10万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>創業者の経営相談費用・PR経費・研修経費などを補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -207,7 +225,7 @@
           <h3 class="area-cat">受付が終了した制度（次回の公募の参考に）</h3>
           <div class="area-program is-ended" id="shimonoseki-city-shinshohin-kaihatsu">
             <h3>下関市 国内販路開拓事業新商品開発補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">下関市 産業振興課｜補助金｜補助対象経費の1/2・上限100万円｜締切：公募要領で確認</p>
+            <p class="area-meta">下関市 産業振興課｜補助金｜補助対象経費の1/2・上限100万円</p>
             <p class="area-meta">期間：令和8年度:6/1〜7/6(受付終了)</p>
             <p>食料品・飲料を製造する中小企業の新商品開発経費を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -232,7 +250,7 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>下関市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="shimonoseki-taishin-kaishu">
             <h3>下関市 木造住宅耐震改修費補助</h3>
             <p class="area-meta">山口県下関市｜補助金｜改修費の4/5（上限115万円）｜締切：2026-10-30</p>
@@ -242,19 +260,19 @@
             <ul><li>昭和56年5月31日以前に建てられた木造住宅</li><li>募集は4件程度・先着順</li></ul>
             <p><a href="https://www.city.shimonoseki.lg.jp/soshiki/77/2585.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="shimonoseki-smarthouse">
             <h3>下関市スマートハウス普及促進補助金（令和8年度）</h3>
-            <p class="area-meta">下関市｜補助金｜蓄電システムは対象経費の1/5か1kWhあたり2万円のいずれか少ない方（上限20万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">下関市｜補助金｜蓄電システムは対象経費の1/5か1kWhあたり2万円のいずれか少ない方（上限20万円）</p>
             <p class="area-meta">期間：令和8年度前期申請（期間は要確認）</p>
             <p>定置用リチウムイオン蓄電システムの設置を補助する。V2Hは今年度対象外。</p>
             
             <p><a href="https://www.city.shimonoseki.lg.jp/soshiki/53/87039.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="shimonoseki-block-tsuen">
             <h3>下関市 通園路等に面した危険ブロック塀等の撤去費用助成</h3>
-            <p class="area-meta">山口県下関市｜補助金｜上限10万円｜締切：公募要領で確認</p>
+            <p class="area-meta">山口県下関市｜補助金｜上限10万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>通園路等に面した組積造の塀・門柱の撤去費用を助成する。申請前に建築指導課へ相談が必要。</p>
             <p><strong>主な条件</strong></p>
@@ -263,17 +281,17 @@
           </div>
           <div class="area-program" id="shimonoseki-kiken-akiya">
             <h3>下関市 危険家屋（危険空き家）解体費補助</h3>
-            <p class="area-meta">山口県下関市｜補助金｜対象経費の1/2（上限40万円、重点対象地区は60万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">山口県下関市｜補助金｜対象経費の1/2（上限40万円、重点対象地区は60万円）</p>
             <p class="area-meta">期間：令和8年度の募集（9月1日～18日）は終了。次回は要確認</p>
             <p>危険な空き家の解体費用の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>危険空き家であること</li><li>塀・樹木等の付属物の撤去費は対象外</li></ul>
             <p><a href="https://www.city.shimonoseki.lg.jp/soshiki/70/2600.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="shimonoseki-iju-shienkin">
             <h3>下関市 移住支援事業（東京圏からの移住）</h3>
-            <p class="area-meta">山口県下関市｜給付｜世帯100万円、単身60万円（18歳未満の帯同者1人につき100万円加算）｜締切：公募要領で確認</p>
+            <p class="area-meta">山口県下関市｜給付｜世帯100万円、単身60万円（18歳未満の帯同者1人につき100万円加算）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>東京23区在住・通勤者が下関市へ移住した場合に支給する。</p>
             <p><strong>主な条件</strong></p>

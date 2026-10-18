@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">千葉県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（松戸市）<b>7件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（千葉県）<b>5件（うち受付終了3件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>6件（うち受付終了1件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-2">EV・充電 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">松戸市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="matsudo-city-akitenpo">
             <h3>松戸市商店街商業事業者誘致促進事業補助金（空き店舗出店）</h3>
-            <p class="area-meta">松戸市 商工振興課｜補助金｜改修費：1/2以内・上限50万円、賃借料補助あり（詳細は要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">松戸市 商工振興課｜補助金｜改修費：1/2以内・上限50万円、賃借料補助あり（詳細は要確認）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>商店会エリアの空き店舗に出店する商業事業者の店舗改修費と賃借料の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="matsudo-city-chusho-risihokyu">
             <h3>松戸市中小企業振興資金利子補給制度</h3>
-            <p class="area-meta">松戸市 商工振興課｜融資｜年1.0％以内等の利子補給（創業後5年未満の融資や事業承継資金など。率は融資種別により要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">松戸市 商工振興課｜融資｜年1.0％以内等の利子補給（創業後5年未満の融資や事業承継資金など。率は融資種別により要確認）</p>
             <p class="area-meta">期間：令和8年度の実施有無は令和8年4月に公表とされる。最新は要確認</p>
             <p>千葉県制度融資の利用者に対し市が利子の一部を補給する。毎年度の予算措置で、3年間の補給を約束するものではない。</p>
             <p><strong>主な条件</strong></p>
@@ -198,7 +216,7 @@
           </div>
           <div class="area-program" id="matsudo-city-kaisha-setsuritsu-hojo">
             <h3>松戸市新規会社設立登録免許税補助金</h3>
-            <p class="area-meta">松戸市 商工振興課｜補助金｜登録免許税（株式会社75,000円・合同会社30,000円まで）＋定款認証手数料（5万円まで）、合算上限125,000円｜締切：公募要領で確認</p>
+            <p class="area-meta">松戸市 商工振興課｜補助金｜登録免許税（株式会社75,000円・合同会社30,000円まで）＋定款認証手数料（5万円まで）、合算上限125,000円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>株式会社・合同会社の設立にかかる登録免許税等の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -208,7 +226,7 @@
           </div>
           <div class="area-program" id="matsudo-city-setsubi-toushi">
             <h3>松戸市中小企業設備投資補助金</h3>
-            <p class="area-meta">松戸市 商工振興課｜補助金｜一般型：1/10以内・上限50万円、生産性向上型：1/3以内・上限250万円（賃上げありの場合）｜締切：公募要領で確認</p>
+            <p class="area-meta">松戸市 商工振興課｜補助金｜一般型：1/10以内・上限50万円、生産性向上型：1/3以内・上限250万円（賃上げありの場合）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>製造業者が税抜300万円以上の生産機械等を購入した費用の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -217,7 +235,7 @@
           </div>
           <div class="area-program" id="matsudo-city-sogyosha-hoshoryo">
             <h3>松戸市創業者保証料補助金</h3>
-            <p class="area-meta">松戸市 商工振興課｜補助金｜千葉県制度融資「創業資金 一般枠」で支払った保証料を補助（上限額は要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">松戸市 商工振興課｜補助金｜千葉県制度融資「創業資金 一般枠」で支払った保証料を補助（上限額は要確認）</p>
             <p class="area-meta">期間：令和8年度の申請受付は令和8年11月中下旬にページで案内予定</p>
             <p>市内で創業し千葉県制度融資の創業資金を借りた際の信用保証料を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -226,7 +244,7 @@
           </div>
           <div class="area-program" id="matsudo-city-tenjikai-hojo">
             <h3>松戸市展示会・見本市等出展補助</h3>
-            <p class="area-meta">松戸市 商工振興課｜補助金｜国内展示会：経費の1/2以内・上限10万円（海外は要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">松戸市 商工振興課｜補助金｜国内展示会：経費の1/2以内・上限10万円（海外は要確認）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>自社製品を国内外の展示会・見本市に出展する際の出展費用の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -252,7 +270,7 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>松戸市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="matsudo-taishin">
             <h3>松戸市木造住宅耐震改修費補助金</h3>
             <p class="area-meta">千葉県松戸市｜補助金｜設計費・工事費等の4/5（上限100万円）。リフォーム費用の1/10（上限30万円）の別助成あり｜締切：2026-11-13</p>
@@ -262,40 +280,40 @@
             <ul><li>平成12年5月31日以前に建築・着工の木造一戸建て等</li><li>契約前に建築指導課との事前協議が必要</li></ul>
             <p><a href="https://www.city.matsudo.chiba.jp/kurashi/sumai/taisin/taisinnkaishuhojokin.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="matsudo-shoene-pv">
             <h3>松戸市住宅用省エネルギー設備等設置費補助金（太陽光・蓄電）</h3>
-            <p class="area-meta">千葉県松戸市｜補助金｜太陽光 2万円/kW（上限6万円）、蓄電システム 上限7万円｜締切：公募要領で確認</p>
+            <p class="area-meta">千葉県松戸市｜補助金｜太陽光 2万円/kW（上限6万円）、蓄電システム 上限7万円</p>
             <p class="area-meta">期間：令和8年度（予算の範囲内）</p>
             <p>住宅用の太陽光発電や蓄電システム等の設置費を補助する。千葉県の補助と併用可。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>市内の住宅に設置する個人</li><li>予算残額あり（2026年時点の一覧）</li></ul>
             <p><a href="https://www.city.matsudo.chiba.jp/kurashi/kankyou/tikyuuondanka/hojokin/shoene.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">EV・充電</h3>
+          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
           <div class="area-program" id="matsudo-ev-v2h">
             <h3>松戸市住宅用省エネルギー設備等設置費補助金（EV・V2H）</h3>
-            <p class="area-meta">千葉県松戸市｜補助金｜EV 単体3万円、太陽光併設10万円、太陽光＋V2H併設15万円（上限）。V2H設備は対象経費の1/10（上限25万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">千葉県松戸市｜補助金｜EV 単体3万円、太陽光併設10万円、太陽光＋V2H併設15万円（上限）。V2H設備は対象経費の1/10（上限25万円）</p>
             <p class="area-meta">期間：令和8年度（予算の範囲内）</p>
             <p>電気自動車とV2H充放電設備の導入費を補助する。旧EV充電設備補助は統合された。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>市内の住宅等に設置する個人</li><li>一部区分は残りわずか</li></ul>
             <p><a href="https://www.city.matsudo.chiba.jp/kurashi/kankyou/tikyuuondanka/hojokin/shoene.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program" id="matsudo-shoene-housing">
             <h3>松戸市省エネルギー住宅普及促進事業費補助金</h3>
-            <p class="area-meta">千葉県松戸市｜補助金｜最大50万円（上限）｜締切：公募要領で確認</p>
+            <p class="area-meta">千葉県松戸市｜補助金｜最大50万円（上限）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>省エネ住宅の新築・購入・改修に補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>市内の住宅（詳細は要確認）</li></ul>
             <p><a href="https://www.city.matsudo.chiba.jp/kurashi/kankyou/tikyuuondanka/hojokin/shoenej.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="matsudo-block">
             <h3>松戸市危険コンクリートブロック塀等対策（除却）事業補助金</h3>
-            <p class="area-meta">千葉県松戸市｜補助金｜限度額20万円（工事費と長さに応じた額の少ない方）｜締切：公募要領で確認</p>
+            <p class="area-meta">千葉県松戸市｜補助金｜限度額20万円（工事費と長さに応じた額の少ない方）</p>
             <p class="area-meta">期間：令和8年度（最新は要確認）</p>
             <p>地震時に倒壊のおそれのある危険なブロック塀の撤去費を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -304,7 +322,7 @@
           </div>
           <div class="area-program is-ended" id="matsudo-akiya-jokyaku">
             <h3>松戸市老朽空家等除却費用補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">千葉県松戸市｜補助金｜除却費用の1/3以内（上限60万円）、予定15戸程度｜締切：公募要領で確認</p>
+            <p class="area-meta">千葉県松戸市｜補助金｜除却費用の1/3以内（上限60万円）、予定15戸程度</p>
             <p class="area-meta">期間：令和8年度の事前調査申請は受付終了</p>
             <p>倒壊のおそれのある老朽空家の除却費を補助する。令和8年度の事前調査申請は受付終了。</p>
             <p><strong>主な条件</strong></p>

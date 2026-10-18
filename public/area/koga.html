@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">茨城県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（古河市）<b>3件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（茨城県）<b>6件</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>6件（うち受付終了1件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-7">移住 2</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">古河市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="koga-city-chushokigyo-jigyo-shikin-yushi">
             <h3>古河市中小企業事業資金融資</h3>
-            <p class="area-meta">古河市 産業戦略課｜融資｜限度額 設備・運転とも1,000万円、返済10年以内。利子補給は年0.5%上限で1年間、保証料補給は年1%上限｜締切：公募要領で確認</p>
+            <p class="area-meta">古河市 産業戦略課｜融資｜限度額 設備・運転とも1,000万円、返済10年以内。利子補給は年0.5%上限で1年間、保証料補給は年1%上限</p>
             <p class="area-meta">期間：通年（要確認）</p>
             <p>中小企業者に事業資金の融資をあっ旋し、保証料および利子の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="koga-city-shoene-shindan-hojo">
             <h3>古河市中小企業向け省エネ診断等促進補助金</h3>
-            <p class="area-meta">古河市 企画課｜補助金｜事業所ごとに1年度あたり各上限3万円｜締切：公募要領で確認</p>
+            <p class="area-meta">古河市 企画課｜補助金｜事業所ごとに1年度あたり各上限3万円</p>
             <p class="area-meta">期間：事業の実施前後・実施中のいつでも申請可（予算の範囲内）</p>
             <p>国の省エネ診断・省エネ支援等を活用した市内中小企業・個人事業主に補助金を交付する。</p>
             <p><strong>主な条件</strong></p>
@@ -187,7 +205,7 @@
           </div>
           <div class="area-program" id="koga-city-shotengai-akitenpo-hojo">
             <h3>古河市商店街空き店舗等対策事業補助金</h3>
-            <p class="area-meta">古河市 産業戦略課｜補助金｜改造費・賃借料の一部（補助率・上限額は要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">古河市 産業戦略課｜補助金｜改造費・賃借料の一部（補助率・上限額は要確認）</p>
             <p class="area-meta">期間：予算額に達するまで</p>
             <p>商店街区域内の空き店舗を活用して新規出店する場合の改造費・賃借料に補助金を交付する。</p>
             <p><strong>主な条件</strong></p>
@@ -212,30 +230,30 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>古河市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="koga-taishin">
             <h3>古河市耐震改修促進事業</h3>
-            <p class="area-meta">茨城県古河市｜補助金｜経費の4/5・上限115万円｜締切：公募要領で確認</p>
+            <p class="area-meta">茨城県古河市｜補助金｜経費の4/5・上限115万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>耐震診断で上部構造評点1.0未満の木造一戸建ての耐震改修工事費を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>上部構造評点が1.0未満の木造一戸建て</li></ul>
             <p><a href="https://www.city.ibaraki-koga.lg.jp/soshiki/kenchiku/1/658.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="koga-jiritsu-bunsan">
             <h3>古河市自立・分散型エネルギー設備導入補助(蓄電システム)</h3>
-            <p class="area-meta">茨城県古河市｜補助金｜蓄電システム1基につき5万円｜締切：公募要領で確認</p>
+            <p class="area-meta">茨城県古河市｜補助金｜蓄電システム1基につき5万円</p>
             <p class="area-meta">期間：令和8年6月25日午前8時30分から受付(予算上限に達し次第終了)</p>
             <p>発電出力10kW未満の住宅用太陽光と連携する蓄電システムを購入する個人への補助。国の補助との併用可。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>令和8年12月中に引渡しを受ける人</li><li>住宅用太陽光発電と連携</li></ul>
             <p><a href="https://www.city.ibaraki-koga.lg.jp/soshiki/kankyo/7/20000.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="koga-akiya-kaitai">
             <h3>古河市老朽空き家解体補助</h3>
-            <p class="area-meta">茨城県古河市｜補助金｜解体工事費の1/2・上限50万円｜締切：公募要領で確認</p>
+            <p class="area-meta">茨城県古河市｜補助金｜解体工事費の1/2・上限50万円</p>
             <p class="area-meta">期間：最新は要確認(ページ更新2026年4月1日)</p>
             <p>老朽化し周辺の生活環境に影響を及ぼす空き家の解体費を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -244,17 +262,17 @@
           </div>
           <div class="area-program is-ended" id="koga-block">
             <h3>古河市危険ブロック塀等撤去補助 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">茨城県古河市｜補助金｜対象経費の2/3、延長に応じた額、10万円のうち最も低い額｜締切：公募要領で確認</p>
+            <p class="area-meta">茨城県古河市｜補助金｜対象経費の2/3、延長に応じた額、10万円のうち最も低い額</p>
             <p class="area-meta">期間：令和8年度は受付終了</p>
             <p>通学路等に面する危険ブロック塀等の撤去費用を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>通学路等に面する危険ブロック塀</li></ul>
             <p><a href="https://www.city.ibaraki-koga.lg.jp/soshiki/kenchiku/1/14825.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="koga-akiya-bank-reform">
             <h3>古河市空き家バンクリフォーム補助金</h3>
-            <p class="area-meta">茨城県古河市｜補助金｜リフォーム費の1/2・上限100万円(令和7年度)｜締切：公募要領で確認</p>
+            <p class="area-meta">茨城県古河市｜補助金｜リフォーム費の1/2・上限100万円(令和7年度)</p>
             <p class="area-meta">期間：令和8年度は最新は要確認</p>
             <p>空き家バンク登録物件のリフォーム費を補助する。</p>
             <p><strong>主な条件</strong></p>

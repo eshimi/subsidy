@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">埼玉県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（越谷市）<b>4件（うち受付終了2件）</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（埼玉県）<b>5件</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>5件（うち受付終了2件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-2">EV・充電 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">越谷市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="koshigaya-city-business-powerup">
             <h3>越谷市ビジネスパワーアップ補助金</h3>
-            <p class="area-meta">越谷市 経済振興課｜補助金｜令和7年度は補助率2分の1以内・上限100万円（令和8年度は要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">越谷市 経済振興課｜補助金｜令和7年度は補助率2分の1以内・上限100万円（令和8年度は要確認）</p>
             <p class="area-meta">期間：令和8年度の申請期間は要確認</p>
             <p>新商品・新サービス開発、販路開拓、人材育成、多様な働き方推進、DX推進、事業承継推進の取組を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="koshigaya-city-chusho-yushi-risi">
             <h3>越谷市中小企業資金融資（利子助成）</h3>
-            <p class="area-meta">越谷市 経済振興課｜融資｜金融機関に支払った普通利子の一部を助成（助成率は小口・中口資金40％、起業家育成資金35％、年度ごとに見直し）｜締切：公募要領で確認</p>
+            <p class="area-meta">越谷市 経済振興課｜融資｜金融機関に支払った普通利子の一部を助成（助成率は小口・中口資金40％、起業家育成資金35％、年度ごとに見直し）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>市の制度融資で、支払利子の一部を助成する。起業家育成資金は商工会議所会員などで保証料率が0.1％割引。</p>
             <p><strong>主な条件</strong></p>
@@ -222,17 +240,17 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>越谷市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="koshigaya-taishin">
             <h3>越谷市木造住宅耐震診断・耐震改修補助</h3>
-            <p class="area-meta">埼玉県越谷市｜補助金｜診断：費用の2/3（上限7万円）、改修：費用の23%（上限50万円、平成12年5月31日以前の基準の住宅は上限35万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">埼玉県越谷市｜補助金｜診断：費用の2/3（上限7万円）、改修：費用の23%（上限50万円、平成12年5月31日以前の基準の住宅は上限35万円）</p>
             <p class="area-meta">期間：令和8年度は4月6日から受付（予算がなくなり次第終了）。最新は要確認</p>
             <p>旧耐震の木造住宅の耐震診断・改修費の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>昭和56年5月31日以前の木造戸建て</li><li>市の簡易診断の総合評価が1.0未満</li><li>適合通知前の契約・着工は対象外</li></ul>
             <p><a href="https://www.city.koshigaya.saitama.jp/kurashi_shisei/kurashi/sumai/taisinsindasn/taishintorikumi_jose/taisinsindankaisyuunohojyo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program is-ended" id="koshigaya-zerocarbon-home">
             <h3>越谷市家庭用ゼロカーボン推進補助金（太陽光・蓄電池・ZEH） <span class="area-ended-tag">受付終了</span></h3>
             <p class="area-meta">埼玉県越谷市｜補助金｜太陽光1kWあたり2万円（戸建上限8万円、市内事業者契約で上限10万円）、蓄電池5万円/件、ZEH20万円/件（太陽光との併用不可）｜締切：2026-10-16</p>
@@ -242,7 +260,7 @@
             <ul><li>市内居住者または申請年度内に越谷市へ居住予定の方</li><li>対象設備を令和9年3月15日までに設置すること</li></ul>
             <p><a href="https://www.city.koshigaya.saitama.jp/kurashi_shisei/kurashi/kankyo/kankyoseisaku/zerocarbon.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">EV・充電</h3>
+          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
           <div class="area-program is-ended" id="koshigaya-zerocarbon-ev">
             <h3>越谷市ゼロカーボン推進補助金（EV・PHEV・V2H） <span class="area-ended-tag">受付終了</span></h3>
             <p class="area-meta">埼玉県越谷市｜補助金｜EV/PHEV 5万円/件、V2H 5万円/件｜締切：2026-10-16</p>
@@ -252,19 +270,18 @@
             <ul><li>市内居住者または申請年度内に越谷市へ居住予定の方</li><li>EV/PHEVは外部給電機能を有する車両に限る</li></ul>
             <p><a href="https://www.city.koshigaya.saitama.jp/net/kankyoseisakuka/zerocarbon_katei_shinsei_r7zenki.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="koshigaya-akiya">
             <h3>越谷市空家の改修・除却費補助</h3>
-            <p class="area-meta">埼玉県越谷市｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">埼玉県越谷市｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>空家の改修・除却費用の一部を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>要確認</li></ul>
+            
             <p><a href="https://www.city.koshigaya.saitama.jp/kurashi_shisei/kurashi/sumai/akiya/koshigaya_contents_akiyakaisyuu.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
           <div class="area-program" id="koshigaya-reform">
             <h3>越谷市住宅・店舗改修促進補助金（ブロック塀・外構含む）</h3>
-            <p class="area-meta">埼玉県越谷市｜補助金｜工事費の20%（上限10万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">埼玉県越谷市｜補助金｜工事費の20%（上限10万円）</p>
             <p class="area-meta">期間：令和8年度第1期は抽選終了。第2期は2026年11月予定（最新は要確認）</p>
             <p>市内施工業者による住宅改修等の費用を補助する。外構のブロック塀・フェンス・門扉の改修・撤去も対象。</p>
             <p><strong>主な条件</strong></p>

@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,6 +170,17 @@
       <p class="lead" style="margin-bottom: 0;">富山県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（南砺市）<b>2件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（富山県）<b>4件（うち受付終了1件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>4件（うち受付終了1件）</b></a><span class="area-toc-cats"><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-7">移住 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">南砺市の制度（事業・創業の方向け）</h2>
@@ -203,20 +221,20 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>南砺市の制度</strong></p>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="nanto-solar">
             <h3>住宅用太陽光発電システム設置補助金</h3>
-            <p class="area-meta">富山県南砺市｜補助金｜1件5万円｜締切：公募要領で確認</p>
+            <p class="area-meta">富山県南砺市｜補助金｜1件5万円</p>
             <p class="area-meta">期間：令和8年度受付開始(終了日は要確認。予算到達で終了)</p>
             <p>市内建物の屋根に設置する2kW以上の未使用太陽光発電の設置費を補助。同一建物1回限り。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>市内建物の屋根に設置</li><li>発電容量2kW以上</li><li>未使用品</li></ul>
             <p><a href="https://www.city.nanto.toyama.jp/soshiki/shiminkyodo/2/1/765.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="nanto-akiya-jokyaku">
             <h3>老朽危険空き家の除却補助</h3>
-            <p class="area-meta">富山県南砺市｜補助金｜補助率1/2で上限50万円、または補助率1/3で上限30万円｜締切：公募要領で確認</p>
+            <p class="area-meta">富山県南砺市｜補助金｜補助率1/2で上限50万円、または補助率1/3で上限30万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>老朽化して危険と判断された空き家の解体費を補助。</p>
             <p><strong>主な条件</strong></p>
@@ -225,14 +243,14 @@
           </div>
           <div class="area-program" id="nanto-akiya-riyo">
             <h3>空き家利活用事業費補助金（空き家バンク活用・相続空き家リフォーム）</h3>
-            <p class="area-meta">富山県南砺市｜補助金｜補助率1/2。空き家バンク物件の購入者改修は市内業者施工で上限150万円、市外業者50万円｜締切：公募要領で確認</p>
+            <p class="area-meta">富山県南砺市｜補助金｜補助率1/2。空き家バンク物件の購入者改修は市内業者施工で上限150万円、市外業者50万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>空き家バンク登録物件の購入・改修や相続空き家の居住用リフォームを補助。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>空き家バンク登録物件等</li><li>契約日により限度額が異なる</li></ul>
             <p><a href="https://www.city.nanto.toyama.jp/soshiki/toshi/2_1/5992.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program is-ended" id="nanto-teiju">
             <h3>南砺市定住奨励金（新築・購入・リフォーム） <span class="area-ended-tag">受付終了</span></h3>
             <p class="area-meta">富山県南砺市｜補助金｜リフォーム奨励金は補助率1/5、限度額60万円｜締切：2026-03-31</p>

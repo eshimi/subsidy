@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">長崎県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（大村市）<b>2件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（長崎県）<b>5件（うち受付終了2件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>6件（うち受付終了2件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-5">バリアフリー・介護 1</a><a href="#res-cat-6">子育て 1</a><a href="#res-cat-7">移住 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">大村市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="omura-city-chushin-shotengai-tenant-mix-hojo">
             <h3>大村市中心商店街テナントミックス事業費補助金（空き店舗対策補助）</h3>
-            <p class="area-meta">大村市 商工振興課（申請窓口は大村商工会議所）｜補助金｜家賃の1/2以内・月額5万円限度、補助期間12か月｜締切：公募要領で確認</p>
+            <p class="area-meta">大村市 商工振興課（申請窓口は大村商工会議所）｜補助金｜家賃の1/2以内・月額5万円限度、補助期間12か月</p>
             <p class="area-meta">期間：要確認（市の補助金一覧は令和8年4月1日現在で掲載）</p>
             <p>中心商店街の空き店舗に出店する方の家賃の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="omura-city-chusho-sogyo-shikin-yushi">
             <h3>大村市中小企業創業資金融資制度</h3>
-            <p class="area-meta">大村市 商工振興課｜融資｜融資限度額1,000万円・年1.50％（掲載時点。保証料は市が全額補給。最新条件は要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">大村市 商工振興課｜融資｜融資限度額1,000万円・年1.50％（掲載時点。保証料は市が全額補給。最新条件は要確認）</p>
             <p class="area-meta">期間：通年（要確認）</p>
             <p>これから創業する方や設立1年以内の事業者向けに、創業資金を低金利で融資し保証料を市が補給する制度。</p>
             <p><strong>主な条件</strong></p>
@@ -203,17 +221,17 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>大村市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="omura-taishin">
             <h3>大村市安全・安心住まいづくり支援事業(耐震診断・改修)</h3>
-            <p class="area-meta">長崎県大村市｜補助金｜診断:市助成11.3万円(診断費13.6万円、自己負担2.3万円)/改修:工事費の1/2(上限60万円)｜締切：公募要領で確認</p>
+            <p class="area-meta">長崎県大村市｜補助金｜診断:市助成11.3万円(診断費13.6万円、自己負担2.3万円)/改修:工事費の1/2(上限60万円)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>昭和56年5月31日以前着工の木造戸建て住宅等の耐震診断・耐震改修費用を助成する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>昭和56年5月31日以前に着工した木造戸建て住宅等</li></ul>
             <p><a href="https://www.city.omura.nagasaki.jp/kenchikushidou/kurashi/sumai/jutaku/anzenanshin.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program is-ended" id="omura-solar-battery">
             <h3>大村市 太陽光発電設備・蓄電池設備導入費補助 <span class="area-ended-tag">受付終了</span></h3>
             <p class="area-meta">長崎県大村市｜補助金｜太陽光:1kWあたり7万円(定額)、蓄電池:価格の1/3、1件上限100万円｜締切：2026-10-30</p>
@@ -223,37 +241,37 @@
             <ul><li>リース・PPA、中古設備、FIT/FIP認定を受ける場合は対象外</li></ul>
             <p><a href="https://www.city.omura.nagasaki.jp/kankyouseisaku/kurashi/kankyo/ondanka/taiyokohojo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program" id="omura-reform">
             <h3>大村市住宅性能向上リフォーム支援事業</h3>
-            <p class="area-meta">長崎県大村市｜補助金｜10万円(補助対象経費50万円以上の場合)｜締切：公募要領で確認</p>
+            <p class="area-meta">長崎県大村市｜補助金｜10万円(補助対象経費50万円以上の場合)</p>
             <p class="area-meta">期間：受付終了(予算がなくなり次第終了とされていた。最新は要確認)</p>
             <p>市内業者施工の住宅性能向上リフォーム工事に対し補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>工事費50万円以上</li><li>市内業者が施工</li></ul>
             <p><a href="https://www.city.omura.nagasaki.jp/kenchikushidou/kurashi/sumai/jutaku/jyuutakuseinoukoujou.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program" id="omura-jiritsu">
             <h3>大村市 高齢者自立支援住宅改修助成</h3>
-            <p class="area-meta">長崎県大村市｜助成金｜工事費の9/10(上限9万円)｜締切：公募要領で確認</p>
+            <p class="area-meta">長崎県大村市｜助成金｜工事費の9/10(上限9万円)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>要介護認定で非該当となった65歳以上でも、ケアプランで改修が必要と認められれば住宅改修費を助成する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>65歳以上で要介護認定非該当</li><li>ケアプランで改修が必要と認められること</li></ul>
             <p><a href="https://www.city.omura.nagasaki.jp/choujukyuufu/kenko/nenkin/kaigohoken/zaitakuservice/jutakukaishuhi.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">子育て</h3>
+          <h3 class="area-cat" id="res-cat-6">子育て</h3>
           <div class="area-program is-ended" id="omura-3sedai">
             <h3>大村市3世代同居・近居促進事業 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">長崎県大村市｜補助金｜対象経費の1/5(上限40万円)｜締切：公募要領で確認</p>
+            <p class="area-meta">長崎県大村市｜補助金｜対象経費の1/5(上限40万円)</p>
             <p class="area-meta">期間：受付終了(予算額に達したため)</p>
             <p>子育て世帯等の3世代同居・近居のための新築・取得・改修費用を助成する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>3世代同居・近居をする世帯</li></ul>
             <p><a href="https://www.city.omura.nagasaki.jp/kenchikushidou/kurashi/sumai/jutaku/sannsedaidoukyokinnkyo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="omura-ijushienkin">
             <h3>大村市移住支援金</h3>
             <p class="area-meta">長崎県大村市｜給付｜2人以上世帯100万円、単身60万円、18歳未満の子1人につき100万円加算｜締切：2027-02-12</p>

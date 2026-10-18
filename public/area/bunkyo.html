@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">東京都・特別区。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（文京区）<b>5件（うち受付終了1件）</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（東京都）<b>6件（うち受付終了1件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>5件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 2</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-5">バリアフリー・介護 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">文京区の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="bunkyo-reskilling-hojo">
             <h3>文京区中小企業人材強化支援事業補助金（リスキリング）</h3>
-            <p class="area-meta">文京区 経済課｜補助金｜補助率：2分の1。上限：1社あたり10万円｜締切：公募要領で確認</p>
+            <p class="area-meta">文京区 経済課｜補助金｜補助率：2分の1。上限：1社あたり10万円</p>
             <p class="area-meta">期間：令和8年度（申請件数が予算額に達するまで随時受付）</p>
             <p>従業員の講座受講や資格取得費用を補助します。令和8年度から代表者・役員も対象になりました。</p>
             <p><strong>主な条件</strong></p>
@@ -189,7 +207,7 @@
           </div>
           <div class="area-program" id="bunkyo-yushi-assen">
             <h3>文京区中小企業向け融資あっせん制度（令和8年度）</h3>
-            <p class="area-meta">文京区 経済課｜融資｜一般運転資金：融資限度額1,500万円以内、利率1.9%（区の案内パンフレットによる）｜締切：公募要領で確認</p>
+            <p class="area-meta">文京区 経済課｜融資｜一般運転資金：融資限度額1,500万円以内、利率1.9%（区の案内パンフレットによる）</p>
             <p class="area-meta">期間：令和8年度</p>
             <p>区が金融機関に融資をあっせんし、利子補給により低利で事業資金を提供します。窓口相談は事前予約制です。</p>
             <p><strong>主な条件</strong></p>
@@ -198,7 +216,7 @@
           </div>
           <div class="area-program" id="bunkyo-ninshou-hojo">
             <h3>文京区各種認証取得費等補助金</h3>
-            <p class="area-meta">文京区 経済課｜補助金｜要確認（ISO・Pマーク等の認証取得・更新費用の一部を補助。補助率・上限額は公式ページで確認が必要）｜締切：公募要領で確認</p>
+            <p class="area-meta">文京区 経済課｜補助金｜要確認（ISO・Pマーク等の認証取得・更新費用の一部を補助。補助率・上限額は公式ページで確認が必要）</p>
             <p class="area-meta">期間：令和8年度（要確認）</p>
             <p>ISOやPマークなどの認証取得・更新にかかる費用の一部を補助します。</p>
             <p><strong>主な条件</strong></p>
@@ -233,7 +251,7 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>文京区の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="bunkyo-taishin-kaishu">
             <h3>耐震改修工事助成</h3>
             <p class="area-meta">文京区｜助成金｜要確認（令和8年4月から限度額等が拡充）｜締切：2026-12-04</p>
@@ -245,36 +263,36 @@
           </div>
           <div class="area-program" id="bunkyo-taishin-sekkei">
             <h3>耐震設計助成</h3>
-            <p class="area-meta">文京区｜助成金｜要確認｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">文京区｜助成金｜金額は公式で確認</p>
+            
             <p>文京区耐震化促進事業の一つとして、耐震設計に要する費用を助成する。</p>
             
             <p><a href="https://www.city.bunkyo.lg.jp/b031/p004725.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="bunkyo-shinene-setsubi">
             <h3>新エネルギー・省エネルギー設備設置費助成</h3>
-            <p class="area-meta">文京区｜助成金｜要確認（設備ごとに上限あり）｜締切：公募要領で確認</p>
+            <p class="area-meta">文京区｜助成金｜要確認（設備ごとに上限あり）</p>
             <p class="area-meta">期間：令和8年度（5月1日受付開始、予算がなくなり次第終了）</p>
             <p>個人が住宅用太陽光発電システム、家庭用蓄電システム、エネファーム、雨水タンク、断熱窓、エコキュート等を設置する経費の一部を助成する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>同一住宅につき年度内1回</li><li>申請日までに対象経費を全額支払い済みであること</li></ul>
             <p><a href="https://www.city.bunkyo.lg.jp/b037/p004969.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="bunkyo-block">
             <h3>ブロック塀等改修工事費助成</h3>
-            <p class="area-meta">東京都文京区｜助成金｜撤去は1mあたり15,000円、新設は高さにより1mあたり15,000円または30,000円（実費が少ない場合は実費）｜締切：公募要領で確認</p>
+            <p class="area-meta">東京都文京区｜助成金｜撤去は1mあたり15,000円、新設は高さにより1mあたり15,000円または30,000円（実費が少ない場合は実費）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>道路に面したブロック塀等の撤去・新設工事費を助成する。交付決定前の契約・着手は対象外。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>道路に面した塀であること</li><li>不動産業者が業として行う工事等は対象外</li></ul>
             <p><a href="https://www.city.bunkyo.lg.jp/b031/p004801.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program" id="bunkyo-korei-jutaku-shuchiku">
             <h3>高齢者等住宅修築資金助成</h3>
-            <p class="area-meta">東京都文京区｜助成金｜税抜工事費の10%（上限20万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">東京都文京区｜助成金｜税抜工事費の10%（上限20万円）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>高齢者または障害者を含む世帯が自宅を改修する際の手すり取付け・段差解消などの工事費を助成する。</p>
             <p><strong>主な条件</strong></p>

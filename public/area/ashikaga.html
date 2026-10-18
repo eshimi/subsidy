@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">栃木県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（足利市）<b>2件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（栃木県）<b>4件</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>6件（うち受付終了1件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-6">子育て 1</a><a href="#res-cat-7">移住 2</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">足利市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="ashikaga-city-akitenpo-shuten-ouen-hojo">
             <h3>足利市空き店舗等出店応援事業費補助金</h3>
-            <p class="area-meta">足利市 産業観光部 商業にぎわい課｜補助金｜要確認（出店にかかる費用の一部）｜締切：公募要領で確認</p>
+            <p class="area-meta">足利市 産業観光部 商業にぎわい課｜補助金｜要確認（出店にかかる費用の一部）</p>
             <p class="area-meta">期間：要確認（公式ページ参照）</p>
             <p>空き家・空き店舗・空き倉庫を活用して新たに店舗を出店する個人・法人に、出店費用の一部を補助する。審査あり。</p>
             <p><strong>主な条件</strong></p>
@@ -204,50 +222,50 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>足利市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="ashikaga-taishin">
             <h3>足利市木造住宅耐震診断・総合耐震改修・建替え支援</h3>
-            <p class="area-meta">栃木県足利市｜補助金｜総合耐震改修: 費用の4/5以下・上限115万円｜締切：公募要領で確認</p>
+            <p class="area-meta">栃木県足利市｜補助金｜総合耐震改修: 費用の4/5以下・上限115万円</p>
             <p class="area-meta">期間：令和8年度は4月22日から仮受付(受付可能件数は未定)</p>
             <p>旧耐震基準の木造住宅の耐震診断・改修・建替えを支援する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>昭和56年5月31日以前に建築された木造住宅など</li></ul>
             <p><a href="https://www.city.ashikaga.tochigi.jp/urban/000068/000374/000757/p002958.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="ashikaga-zerocarbon">
             <h3>足利市家庭向けゼロカーボン推進補助金</h3>
-            <p class="area-meta">栃木県足利市｜補助金｜太陽光・蓄電池・V2Hそれぞれ3万円｜締切：公募要領で確認</p>
+            <p class="area-meta">栃木県足利市｜補助金｜太陽光・蓄電池・V2Hそれぞれ3万円</p>
             <p class="area-meta">期間：令和8年5月7日から(予算300件程度、達し次第終了)</p>
             <p>自ら居住する住宅に太陽光発電、家庭用蓄電池(1kWh以上、太陽光連携)、V2H等を設置した人への補助。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>市内の自ら居住する住宅に設置</li></ul>
             <p><a href="https://www.city.ashikaga.tochigi.jp/environment/000071/000392/000787/p006898.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program is-ended" id="ashikaga-block-tsugakuro">
             <h3>足利市通学路に面する危険ブロック塀等の撤去補助 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">栃木県足利市｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">栃木県足利市｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：令和7年度は受付終了。令和8年度は実施未確認</p>
             <p>通学路に面する危険ブロック塀の撤去費用を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>通学路に面する危険ブロック塀等</li></ul>
             <p><a href="https://www.city.ashikaga.tochigi.jp/urban/000068/000368/p004815.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">子育て</h3>
+          <h3 class="area-cat" id="res-cat-6">子育て</h3>
           <div class="area-program" id="ashikaga-kosodate-akiya-reform">
             <h3>足利市子育て世帯等空き家バンクリフォーム費補助金</h3>
-            <p class="area-meta">栃木県足利市｜補助金｜工事費の2/3・上限100万円｜締切：公募要領で確認</p>
+            <p class="area-meta">栃木県足利市｜補助金｜工事費の2/3・上限100万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>栃木県の空き家バンクで空き家を購入した子育て世帯等のリフォーム費を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>18歳未満の子と同居する世帯、または若者夫婦世帯(いずれかが39歳以下)</li></ul>
             <p><a href="https://www.city.ashikaga.tochigi.jp/urban/000068/000376/000761/p008325.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="ashikaga-akiya-bank-kaishu">
             <h3>足利市空き家バンク改修費補助金</h3>
-            <p class="area-meta">栃木県足利市｜補助金｜工事費の1/2・上限50万円｜締切：公募要領で確認</p>
+            <p class="area-meta">栃木県足利市｜補助金｜工事費の1/2・上限50万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>空き家・空き地バンクで購入した市外からの移住者の空き家改修費を補助する。</p>
             <p><strong>主な条件</strong></p>

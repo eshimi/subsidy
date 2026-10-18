@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">岡山県・政令指定都市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（岡山市）<b>2件（うち受付終了1件）</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（岡山県）<b>3件（うち受付終了1件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>5件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-5">バリアフリー・介護 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">岡山市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="okayama-jigyo-shokei-shien">
             <h3>岡山市事業承継支援補助金</h3>
-            <p class="area-meta">岡山市 産業振興課｜補助金｜補助率3分の2以内、補助限度額100万円｜締切：公募要領で確認</p>
+            <p class="area-meta">岡山市 産業振興課｜補助金｜補助率3分の2以内、補助限度額100万円</p>
             <p class="area-meta">期間：令和8年度（受付中との記載あり。受付期限は未確認）</p>
             <p>事業承継に取り組む市内中小企業者の経費の一部を補助します。</p>
             <p><strong>主な条件</strong></p>
@@ -204,7 +222,7 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>岡山市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="okayama-shi-mokuzo-taishin">
             <h3>岡山市 木造住宅の耐震診断・耐震改修補助</h3>
             <p class="area-meta">岡山市 建築指導課｜補助金｜診断費9万円のうち8万円を補助。全体改修は補助率4/5（上限115万円）、部分改修・シェルター・防災ベッドは1/2（上限80万円、65歳以上世帯等は4/5）｜締切：2026-11-30</p>
@@ -214,7 +232,7 @@
             <ul><li>昭和56年5月31日以前に着工</li><li>地上階数2以下</li></ul>
             <p><a href="https://www.city.okayama.jp/jigyosha/0000006054.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="okayama-shi-jutaku-smart-energy">
             <h3>岡山市住宅用スマートエネルギー導入促進補助事業</h3>
             <p class="area-meta">岡山市｜補助金｜要確認（太陽光・蓄電池は今年度補助率・上限額を引き上げ）｜締切：2027-02-28</p>
@@ -224,7 +242,7 @@
             <ul><li>太陽光・蓄電池は「あっ晴れ岡山エコクラブ」への入会が条件</li></ul>
             <p><a href="https://www.city.okayama.jp/ondankataisaku/0000042045.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="okayama-shi-akiya-reform">
             <h3>岡山市 空家等適正管理支援事業（リフォーム）</h3>
             <p class="area-meta">岡山県岡山市｜補助金｜工事費の1/3（上限60万円、子育て世帯は上限70万円だが令和8年度分は終了）｜締切：2026-12-18</p>
@@ -243,14 +261,13 @@
             <ul><li>避難道路に面している</li><li>危険なブロック塀等</li></ul>
             <p><a href="https://www.city.okayama.jp/jigyosha/0000005983.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program" id="okayama-shi-sukoyaka-reform">
             <h3>岡山市 すこやか住宅リフォーム助成事業</h3>
-            <p class="area-meta">岡山県岡山市｜補助金｜要確認（介護保険の負担割合等により助成率が異なる）｜締切：公募要領で確認</p>
+            <p class="area-meta">岡山県岡山市｜補助金｜要確認（介護保険の負担割合等により助成率が異なる）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>日常生活に介助を要する高齢者・障害者が自宅で暮らしやすくするための住宅改造費を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>要確認</li></ul>
+            
             <p><a href="https://www.city.okayama.jp/kurashi/0000012387.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
           <p><strong>岡山県の制度</strong></p>

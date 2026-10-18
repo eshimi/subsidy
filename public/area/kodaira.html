@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,6 +170,17 @@
       <p class="lead" style="margin-bottom: 0;">東京都・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（小平市）<b>4件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（東京都）<b>6件（うち受付終了1件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>6件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 2</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-5">バリアフリー・介護 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">小平市の制度（事業・創業の方向け）</h2>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="kodaira-city-koshasha-ikusei-shikin">
             <h3>小平市 商工業後継者育成資金あっせん事業</h3>
-            <p class="area-meta">小平市 産業振興課・小平商工会｜融資｜借入期間全体の利子の80%を補助（融資限度額2,000万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">小平市 産業振興課・小平商工会｜融資｜借入期間全体の利子の80%を補助（融資限度額2,000万円）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>事業承継した方や承継予定の方が小平商工会のマル経融資を利用する場合に、利子の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -187,7 +205,7 @@
           </div>
           <div class="area-program" id="kodaira-city-shinki-kaisha-setsuritsu-oenkin">
             <h3>小平市新規会社設立応援金</h3>
-            <p class="area-meta">小平市 産業振興課｜給付金｜株式会社10万円、合同会社など持分会社5万円｜締切：公募要領で確認</p>
+            <p class="area-meta">小平市 産業振興課｜給付金｜株式会社10万円、合同会社など持分会社5万円</p>
             <p class="area-meta">期間：最新は要確認（ページ更新は令和6年度）</p>
             <p>特定創業支援等事業を受けて市の証明を受けた方が市内に会社を設立した場合に応援金を支給する。設立から90日以内に申請。</p>
             <p><strong>主な条件</strong></p>
@@ -196,7 +214,7 @@
           </div>
           <div class="area-program" id="kodaira-city-sogyo-shikin-assen">
             <h3>小平市 小口事業資金・小口零細企業資金融資あっせん（創業資金）</h3>
-            <p class="area-meta">小平市 産業振興課｜融資｜融資限度額1,000万円（利子と信用保証料の一部を市が補助）｜締切：公募要領で確認</p>
+            <p class="area-meta">小平市 産業振興課｜融資｜融資限度額1,000万円（利子と信用保証料の一部を市が補助）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>市内で創業予定の方や創業したばかりの方に、市が指定金融機関の融資をあっせんし、利子と保証料の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -221,10 +239,10 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>小平市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="kodaira-taishin-kaishu">
             <h3>木造住宅耐震改修等費用補助</h3>
-            <p class="area-meta">東京都小平市｜補助金｜改修費(税抜)の1/2(上限120万円)｜締切：公募要領で確認</p>
+            <p class="area-meta">東京都小平市｜補助金｜改修費(税抜)の1/2(上限120万円)</p>
             <p class="area-meta">期間：令和8年度の新規受付は予算上限に達し停止中(再開時は市が公表)</p>
             <p>木造住宅の耐震改修費用を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -233,14 +251,14 @@
           </div>
           <div class="area-program" id="kodaira-taishin-shindan">
             <h3>木造住宅耐震診断費用補助</h3>
-            <p class="area-meta">東京都小平市｜補助金｜診断費用の3/4(上限15万円)｜締切：公募要領で確認</p>
+            <p class="area-meta">東京都小平市｜補助金｜診断費用の3/4(上限15万円)</p>
             <p class="area-meta">期間：令和8年4月16日から受付(予算に限りあり)</p>
             <p>旧耐震基準等の木造住宅の耐震診断費用を補助する。契約前の申請が必要。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>昭和56年5月31日以前着工の木造住宅など(新耐震は在来軸組の平家・2階建のみ)</li><li>契約前に申請すること</li></ul>
             <p><a href="https://www.city.kodaira.tokyo.jp/kurashi/032/032273.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="kodaira-energy-monitor">
             <h3>省・創・蓄エネルギー機器等設置モニター助成</h3>
             <p class="area-meta">東京都小平市｜助成金｜太陽光・蓄電池・V2H各5万円、断熱窓は設置費の1/5(上限5万円)｜締切：2027-03-31</p>
@@ -250,10 +268,10 @@
             <ul><li>Web・アプリ版小平市環境家計簿に登録</li><li>新品の機器(リース・無料設置・新築住宅は対象外)</li><li>蓄電池は太陽光が設置済みであること</li></ul>
             <p><a href="https://www.city.kodaira.tokyo.jp/kurashi/126/126663.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="kodaira-block">
             <h3>ブロック塀等の改善事業補助</h3>
-            <p class="area-meta">東京都小平市｜補助金｜撤去は1mあたり1.5万円と費用の9割の低い方、フェンス設置は1mあたり3万円基準(いずれも上限30万円)｜締切：公募要領で確認</p>
+            <p class="area-meta">東京都小平市｜補助金｜撤去は1mあたり1.5万円と費用の9割の低い方、フェンス設置は1mあたり3万円基準(いずれも上限30万円)</p>
             <p class="area-meta">期間：令和8年4月16日から受付</p>
             <p>危険なブロック塀の撤去や軽量フェンス設置の費用を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -262,17 +280,17 @@
           </div>
           <div class="area-program" id="kodaira-ikegaki">
             <h3>生垣造成助成</h3>
-            <p class="area-meta">東京都小平市｜助成金｜工事費の9割以内、1mあたり1.4万円、1件上限28万円｜締切：公募要領で確認</p>
+            <p class="area-meta">東京都小平市｜助成金｜工事費の9割以内、1mあたり1.4万円、1件上限28万円</p>
             <p class="area-meta">期間：通年受付</p>
             <p>道路に面した生垣の新設工事費を助成。ブロック塀撤去に伴う撤去費の助成もある。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>生垣の総延長が2m以上</li></ul>
             <p><a href="https://www.city.kodaira.tokyo.jp/faq/005/005866.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program" id="kodaira-jiritsu-kaishu">
             <h3>高齢者自立支援住宅改修給付</h3>
-            <p class="area-meta">東京都小平市｜給付｜手すり取付・段差解消等は限度額20万円(自己負担は要確認)｜締切：公募要領で確認</p>
+            <p class="area-meta">東京都小平市｜給付｜手すり取付・段差解消等は限度額20万円(自己負担は要確認)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>身体機能が低下した高齢者の手すり設置・段差解消などの住宅改修費を給付。浴槽・便器等の設備改修給付も別にある。</p>
             <p><strong>主な条件</strong></p>

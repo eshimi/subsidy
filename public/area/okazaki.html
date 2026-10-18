@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">愛知県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（岡崎市）<b>4件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（愛知県）<b>5件</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>6件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-2">EV・充電 1</a><a href="#res-cat-4">空き家・ブロック塀 3</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">岡崎市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="okazaki-city-chusho-hosyoryo">
             <h3>岡崎市中小企業事業資金保証料補助金</h3>
-            <p class="area-meta">岡崎市 産業労働部 商工労政課｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">岡崎市 産業労働部 商工労政課｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>マル岡・振・振小などの市融資あっせん制度を利用した場合の信用保証料を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="okazaki-city-monozukuri-shien">
             <h3>岡崎ものづくり支援補助金（見本市出展・共同研究・知財取得等）</h3>
-            <p class="area-meta">岡崎市 商工労政課ものづくり支援係／岡崎ものづくり推進協議会｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">岡崎市 商工労政課ものづくり支援係／岡崎ものづくり推進協議会｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>共同研究・依頼試験、見本市出展、専門家派遣、知的財産権取得などの費用を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -187,7 +205,7 @@
           </div>
           <div class="area-program" id="okazaki-city-sogyo-hosyoryo">
             <h3>岡崎市創業資金保証料補助金</h3>
-            <p class="area-meta">岡崎市 産業労働部 商工労政課｜補助金｜保証料の45%（上限20万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">岡崎市 産業労働部 商工労政課｜補助金｜保証料の45%（上限20万円）</p>
             <p class="area-meta">期間：融資実行日から60日以内に申請（令和8年度要綱あり）</p>
             <p>愛知県経済環境適応資金（創業等支援資金）で創業した方の信用保証料を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -197,7 +215,7 @@
           </div>
           <div class="area-program" id="okazaki-city-sogyo-risokyu">
             <h3>岡崎市創業資金利子補給補助金</h3>
-            <p class="area-meta">岡崎市 産業労働部 商工労政課｜補助金｜返済2〜7回目の利子の45%（上限20万円）、ウィズ認証取得で60%｜締切：公募要領で確認</p>
+            <p class="area-meta">岡崎市 産業労働部 商工労政課｜補助金｜返済2〜7回目の利子の45%（上限20万円）、ウィズ認証取得で60%</p>
             <p class="area-meta">期間：2回目の利子支払日までに申請</p>
             <p>日本政策金融公庫の創業融資を受けた方に利子の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -223,37 +241,37 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>岡崎市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="okazaki-juutaku-jokyaku">
             <h3>岡崎市 倒壊のおそれのある住宅の除却費補助</h3>
-            <p class="area-meta">愛知県岡崎市｜補助金｜除却費用の23%（上限10万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">愛知県岡崎市｜補助金｜除却費用の23%（上限10万円）</p>
             <p class="area-meta">期間：令和8年度（最新は要確認）</p>
             <p>昭和56年5月以前の耐震性のない住宅の除却費を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>昭和56年5月以前に建築された耐震性のない住宅</li></ul>
             <p><a href="https://www.city.okazaki.lg.jp/kurashi/bosai/1012542/1002798/1002809.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="okazaki-ondanka-setsubi">
             <h3>岡崎市地球温暖化対策設備設置費補助金</h3>
-            <p class="area-meta">岡崎市｜補助金｜住宅用太陽光は上限63万円、蓄電システムは上限35万円（重点対策加速化事業活用型）・15万円（岡崎産再エネ電気活用型）・2万円（一般型）｜締切：公募要領で確認</p>
+            <p class="area-meta">岡崎市｜補助金｜住宅用太陽光は上限63万円、蓄電システムは上限35万円（重点対策加速化事業活用型）・15万円（岡崎産再エネ電気活用型）・2万円（一般型）</p>
             <p class="area-meta">期間：令和8年度（予算残額は要確認）</p>
             <p>住宅への太陽光発電や蓄電システムなど地球温暖化対策設備の設置費用を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>太陽光は発電量の30％以上を自家消費</li><li>発電量の記録を3年間提出</li></ul>
             <p><a href="https://www.city.okazaki.lg.jp/1100/1108/1156/p043395.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">EV・充電</h3>
+          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
           <div class="area-program" id="okazaki-jisedai-jidosha">
             <h3>次世代自動車の購入費補助</h3>
-            <p class="area-meta">岡崎市｜補助金｜BEVまたはPHEV 35万円｜締切：公募要領で確認</p>
+            <p class="area-meta">岡崎市｜補助金｜BEVまたはPHEV 35万円</p>
             <p class="area-meta">期間：令和8年度（詳細は要確認）</p>
             <p>電気自動車・プラグインハイブリッド車の購入費を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>個人は市内に180日以上居住などの要件あり</li></ul>
             <p><a href="https://www.city.okazaki.lg.jp/kurashi/gomi/1002338/1002481/1011421.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="okazaki-akiya-jokyaku">
             <h3>岡崎市 空き家の除却に関する補助制度</h3>
             <p class="area-meta">愛知県岡崎市｜補助金｜危険空き家は上限10万円、無接道等の危険空き家は上限60万円｜締切：2026-12-28</p>
@@ -265,7 +283,7 @@
           </div>
           <div class="area-program" id="okazaki-akiya-kaishu">
             <h3>岡崎市 空き家の改修に関する補助制度</h3>
-            <p class="area-meta">愛知県岡崎市｜補助金｜上限50万円｜締切：公募要領で確認</p>
+            <p class="area-meta">愛知県岡崎市｜補助金｜上限50万円</p>
             <p class="area-meta">期間：令和8年度は受付終了。令和9年度は4月中旬開始予定</p>
             <p>地域コミュニティの維持・再生等に活用する空き家の改修費を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -274,7 +292,7 @@
           </div>
           <div class="area-program" id="okazaki-block-tekkyo">
             <h3>岡崎市 転倒のおそれのあるブロック塀等の撤去費補助</h3>
-            <p class="area-meta">愛知県岡崎市｜補助金｜撤去費用と長さ×1万円の低い方の1/2（避難路に面する場合2/3）、上限10万円｜締切：公募要領で確認</p>
+            <p class="area-meta">愛知県岡崎市｜補助金｜撤去費用と長さ×1万円の低い方の1/2（避難路に面する場合2/3）、上限10万円</p>
             <p class="area-meta">期間：令和8年度（最新は要確認）</p>
             <p>道路沿いで転倒のおそれのあるブロック塀の撤去費を補助する。事前相談と現地調査が必要。</p>
             <p><strong>主な条件</strong></p>

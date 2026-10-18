@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -170,7 +177,7 @@
       <div class="area-body">
           <div class="area-program" id="toyama-sogyo-yushi">
             <h3>富山県の創業者向け融資</h3>
-            <p class="area-meta">富山県｜融資｜限度額3,500万円・年1.55%以内（最新は要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">富山県｜融資｜限度額3,500万円・年1.55%以内（最新は要確認）</p>
             <p class="area-meta">期間：通年（最新は要確認）</p>
             <p>創業者向けの県融資制度。</p>
             <p><strong>主な条件</strong></p>
@@ -200,7 +207,7 @@
           <h3 class="area-cat">受付が終了した制度（次回の公募の参考に）</h3>
           <div class="area-program is-ended" id="toyama-kigyo-toyama">
             <h3>起業なら富山！創業・移住支援事業（起業支援金） <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">富山県 商工労働部・富山県新世紀産業機構｜補助金｜経費の1/2・上限80万円（県内在住者）／180万円（移住者）。中山間地域は100万円／200万円｜締切：公募要領で確認</p>
+            <p class="area-meta">富山県 商工労働部・富山県新世紀産業機構｜補助金｜経費の1/2・上限80万円（県内在住者）／180万円（移住者）。中山間地域は100万円／200万円</p>
             <p class="area-meta">期間：令和8年度は募集終了（申込締切2026年6月17日）。次回は最新は要確認</p>
             <p>県内で創業する人や移住して起業する人の経費を支援する。</p>
             <p><strong>主な条件</strong></p>
@@ -241,20 +248,20 @@
     <section class="art-sec" aria-labelledby="pref-resident"><h2 id="pref-resident"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">個人の方向けの制度（住まい・暮らし）</h2>
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。市区町村の個人向けの制度（14件）は、下の「県内の市区町村のページ」から確認できます。</p>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program" id="toyama-koseino-jutaku">
             <h3>富山型高性能住宅推進事業費補助金</h3>
-            <p class="area-meta">富山県｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">富山県｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：確認できた年度：令和7年度（最新は要確認）</p>
             <p>高性能住宅の新築等への補助。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>新築は令和7年4月15日以降の着手が対象</li></ul>
             <p><a href="https://www.pref.toyama.jp/1507/kurashi/seikatsu/sumai/shoene/kouseinou.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="toyama-iju-shienkin">
             <h3>移住支援金</h3>
-            <p class="area-meta">富山県｜給付｜単身60万円・世帯100万円（年度により異なる。公式ページで要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">富山県｜給付｜単身60万円・世帯100万円（年度により異なる。公式ページで要確認）</p>
             <p class="area-meta">期間：確認できた年度：不明（最新は要確認）</p>
             <p>東京圏から県内へ移住し就業等した人への移住支援金。</p>
             

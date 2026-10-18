@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">埼玉県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（草加市）<b>4件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（埼玉県）<b>5件</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>3件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">草加市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="soka-city-chiiki-keizai-setsubi">
             <h3>草加地域経済活性化事業補助金（市内事業所等設備投資支援事業）</h3>
-            <p class="area-meta">草加地域経済活性化事業実行委員会（事務局：草加商工会議所）｜補助金｜対象経費の20%（上限100万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">草加地域経済活性化事業実行委員会（事務局：草加商工会議所）｜補助金｜対象経費の20%（上限100万円）</p>
             <p class="area-meta">期間：最新は要確認（補助事業ごとに申請期間が異なる）</p>
             <p>市内に設置する設備の新設・更新費用の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="soka-city-keiei-kakushin-sogyo">
             <h3>経営革新チャレンジ支援事業補助金（創業関連枠）</h3>
-            <p class="area-meta">草加市 自治文化部 産業振興課｜補助金｜創業関連枠：1事業者5万円（事業継続力強化計画の認定ありで10万円）。経営革新計画の取組は1事業者20万円｜締切：公募要領で確認</p>
+            <p class="area-meta">草加市 自治文化部 産業振興課｜補助金｜創業関連枠：1事業者5万円（事業継続力強化計画の認定ありで10万円）。経営革新計画の取組は1事業者20万円</p>
             <p class="area-meta">期間：令和8年度（創業日の期限は2027年3月、日付は要確認）</p>
             <p>草加商工会議所の助言を受けて創業計画を策定・見直した創業者や、経営革新計画に取り組む市内中小企業を支援する。</p>
             <p><strong>主な条件</strong></p>
@@ -188,7 +206,7 @@
           </div>
           <div class="area-program" id="soka-city-sangyo-seicho-yushi-hojo">
             <h3>草加市産業新成長戦略支援融資制度補助金</h3>
-            <p class="area-meta">草加市 自治文化部 産業振興課｜補助金｜支払った約定利子の1/2以内（最長60か月）｜締切：公募要領で確認</p>
+            <p class="area-meta">草加市 自治文化部 産業振興課｜補助金｜支払った約定利子の1/2以内（最長60か月）</p>
             <p class="area-meta">期間：通年（詳細は要確認）</p>
             <p>市内で新たに創業する人が創業時に借りた融資の利子の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -197,7 +215,7 @@
           </div>
           <div class="area-program" id="soka-city-seido-yushi-riko">
             <h3>草加市 制度融資（商工業経営合理化資金融資）と利子補給</h3>
-            <p class="area-meta">草加市 自治文化部 産業振興課｜融資｜融資限度額5,000万円、保証料0.50～1.76%、年間支払利子の20%を市が補助｜締切：公募要領で確認</p>
+            <p class="area-meta">草加市 自治文化部 産業振興課｜融資｜融資限度額5,000万円、保証料0.50～1.76%、年間支払利子の20%を市が補助</p>
             <p class="area-meta">期間：通年（詳細は要確認）</p>
             <p>市の制度融資を利用する中小企業者に、年間の支払利子の20%を市が補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -222,17 +240,17 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>草加市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="soka-taishin-kaishu">
             <h3>草加市 既存住宅耐震改修の補助</h3>
-            <p class="area-meta">埼玉県草加市｜補助金｜改修費の23%（一般改修は上限30万円、65歳以上等の加算で最大55万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">埼玉県草加市｜補助金｜改修費の23%（一般改修は上限30万円、65歳以上等の加算で最大55万円）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>耐震診断で上部構造評点1.0未満と判定された木造住宅の耐震改修費の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>平成12年5月31日以前に建築確認を受けた木造在来工法2階建て以下の一戸建て・併用住宅・長屋</li><li>耐震診断の結果、上部構造評点が1.0未満</li><li>所有者が1年以上居住していること</li></ul>
             <p><a href="https://www.city.soka.saitama.jp/cont/s1804/020/010/010/a01_03.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="soka-ondanka-pv">
             <h3>令和8年度草加市地球温暖化防止活動補助金（太陽光発電・蓄電池等）</h3>
             <p class="area-meta">埼玉県草加市｜補助金｜太陽光発電システム5万円（蓄電池等の額は要確認）｜締切：2027-03-10</p>
@@ -242,10 +260,10 @@
             <ul><li>太陽光は1kW以上10kW未満などの要件あり</li><li>令和9年3月10日までに購入・設置を完了すること</li></ul>
             <p><a href="https://www.city.soka.saitama.jp/cont/s1701/020/020/010/PAGE000000000000051694.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="soka-block">
             <h3>草加市 危険ブロック塀等の撤去費補助</h3>
-            <p class="area-meta">埼玉県草加市｜補助金｜撤去費用の3分の2（上限40万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">埼玉県草加市｜補助金｜撤去費用の3分の2（上限40万円）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>道路等に面した危険なブロック塀の撤去費用の一部を補助する。</p>
             <p><strong>主な条件</strong></p>

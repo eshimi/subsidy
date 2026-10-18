@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">茨城県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（取手市）<b>3件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（茨城県）<b>6件</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>6件（うち受付終了1件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 2</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-7">移住 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">取手市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="toride-city-akitenpo-katsuyo-hojo">
             <h3>取手市空き店舗活用補助金</h3>
-            <p class="area-meta">取手市 産業振興課｜補助金｜店舗家賃の1/2、上限月額5万円、1年間｜締切：公募要領で確認</p>
+            <p class="area-meta">取手市 産業振興課｜補助金｜店舗家賃の1/2、上限月額5万円、1年間</p>
             <p class="area-meta">期間：要確認（令和8年度の公募状況は未確認）</p>
             <p>市内の空き店舗に出店する人の家賃を補助する制度（令和6年4月の要綱改正で家賃補助のみ）。</p>
             <p><strong>主な条件</strong></p>
@@ -178,8 +196,8 @@
           </div>
           <div class="area-program" id="toride-city-challenge-shien-hojo">
             <h3>取手市産業振興チャレンジ支援事業補助金（起業初期費用補助）</h3>
-            <p class="area-meta">取手市 産業振興課｜補助金｜上限1万円｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">取手市 産業振興課｜補助金｜上限1万円</p>
+            
             <p>市内で起業する際の初期費用を補助する制度。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>市内で起業する人</li><li>一般社団法人とりで起業家支援ネットワーク（Matchとりで）に起業家登録していること</li></ul>
@@ -188,8 +206,8 @@
           </div>
           <div class="area-program" id="toride-city-incubation-office-hojo">
             <h3>取手市市民事業活動促進補助金（インキュベーションオフィス等利用料補助）</h3>
-            <p class="area-meta">取手市 産業振興課｜補助金｜予算の範囲内（補助率・上限は要確認）｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">取手市 産業振興課｜補助金｜予算の範囲内（補助率・上限は要確認）</p>
+            
             <p>事業活動支援を主目的に設置されたインキュベーションオフィス等の利用料金を補助する制度。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>市内に本店または主たる事業所がある法人・個人事業主</li><li>インキュベーションオフィス等を利用していること</li></ul>
@@ -214,20 +232,20 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>取手市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="toride-taishin-r8">
             <h3>木造住宅耐震改修費または耐震建替費の補助（令和8年度）</h3>
-            <p class="area-meta">茨城県取手市｜補助金｜工事費の5分の4または115万円のいずれか少ない額｜締切：公募要領で確認</p>
+            <p class="area-meta">茨城県取手市｜補助金｜工事費の5分の4または115万円のいずれか少ない額</p>
             <p class="area-meta">期間：令和8年度分は受付終了</p>
             <p>木造住宅の耐震改修・耐震建替費を補助。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>昭和56年5月31日以前に建築確認を受けた木造住宅等</li></ul>
             <p><a href="https://www.city.toride.ibaraki.jp/kenchiku/kurashi/sumai/sumai/hojosedo/taishinhojo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="toride-solar-r8">
             <h3>住宅用太陽光発電システム補助金（令和8年度）</h3>
-            <p class="area-meta">茨城県取手市｜補助金｜1kWあたり1万円、上限3kW分(3万円)｜締切：公募要領で確認</p>
+            <p class="area-meta">茨城県取手市｜補助金｜1kWあたり1万円、上限3kW分(3万円)</p>
             <p class="area-meta">期間：令和8年度。受付期間は要確認</p>
             <p>最大出力10kW未満で逆潮流ありの未使用太陽光発電システムの設置費を補助。</p>
             <p><strong>主な条件</strong></p>
@@ -236,14 +254,14 @@
           </div>
           <div class="area-program is-ended" id="toride-storage">
             <h3>自立・分散型エネルギー設備導入事業費補助金（蓄電システム） <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">茨城県取手市｜補助金｜令和7年度は1基5万円(30基)。令和8年度額は要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">茨城県取手市｜補助金｜令和7年度は1基5万円(30基)。令和8年度額は要確認</p>
             <p class="area-meta">期間：令和7年度は受付終了。令和8年度版は最新は要確認</p>
             <p>住宅用蓄電システム設置への補助。令和7年度分は予算到達により受付終了。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>自ら居住する住宅に設置</li><li>市税の滞納がない</li><li>着工前に申請</li></ul>
             <p><a href="https://www.city.toride.ibaraki.jp/kankyo/kurashi/kankyo/sekatsu/chikuden.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program" id="toride-renovation">
             <h3>住宅リノベーション補助金</h3>
             <p class="area-meta">茨城県取手市｜補助金｜工事費の10%、上限30万円(加算含め最大55万円)｜締切：2028-03-31</p>
@@ -253,20 +271,20 @@
             <ul><li>自己居住用の中古住宅</li><li>市街化区域内</li><li>着工前に認定申請</li></ul>
             <p><a href="https://www.city.toride.ibaraki.jp/toshikeikaku/kurashi/sumai/sumai/hojosedo/jutakurenovation.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="toride-sema-block">
             <h3>狭あい道路拡幅整備促進補助（ブロック塀撤去等）</h3>
-            <p class="area-meta">茨城県取手市｜補助金｜撤去1平方メートルあたり5,000円、一路線あたり上限5万円｜締切：公募要領で確認</p>
+            <p class="area-meta">茨城県取手市｜補助金｜撤去1平方メートルあたり5,000円、一路線あたり上限5万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>建築基準法に基づき道路拡幅のため既存ブロック塀等を撤去・再築造する費用を補助。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>狭あい道路拡幅整備に伴う撤去</li></ul>
             <p><a href="https://reiki.city.toride.ibaraki.jp/reiki_honbun/e016RG00000538.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="toride-jutaku-shutoku">
             <h3>定住化促進住宅補助（住宅取得補助金・とりで住ま入る支援プラン）</h3>
-            <p class="area-meta">茨城県取手市｜補助金｜最大65万円(令和8年4月1日以降の認定申請分。従前50万円)｜締切：公募要領で確認</p>
+            <p class="area-meta">茨城県取手市｜補助金｜最大65万円(令和8年4月1日以降の認定申請分。従前50万円)</p>
             <p class="area-meta">期間：令和8年度。受付期間は要確認</p>
             <p>定住化促進のための住宅取得補助。</p>
             <p><strong>主な条件</strong></p>

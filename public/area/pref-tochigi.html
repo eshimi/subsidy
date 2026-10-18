@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -170,7 +177,7 @@
       <div class="area-body">
           <div class="area-program" id="tochigi-shuekiryoku-program">
             <h3>とちぎ中小企業 収益力向上プログラム</h3>
-            <p class="area-meta">栃木県 産業労働観光部｜専門家支援｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">栃木県 産業労働観光部｜専門家支援｜金額は公式で確認</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>令和8年度の参加企業を募集する中小企業の収益力向上支援プログラム。</p>
             <p><strong>主な条件</strong></p>
@@ -179,7 +186,7 @@
           </div>
           <div class="area-program" id="tochigi-chiiki-kadai-sogyo">
             <h3>地域課題解決型創業支援補助金</h3>
-            <p class="area-meta">栃木県 産業労働観光部／栃木県産業振興センター｜補助金｜補助率1/2以内、上限200万円｜締切：公募要領で確認</p>
+            <p class="area-meta">栃木県 産業労働観光部／栃木県産業振興センター｜補助金｜補助率1/2以内、上限200万円</p>
             <p class="area-meta">期間：令和8年度は1次(4/2〜4/30)・2次(6/16〜7/8)とも終了。次回は要確認</p>
             <p>地域課題の解決に取り組む創業者の人件費・店舗等借入費・設備費などを補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -188,7 +195,7 @@
           </div>
           <div class="area-program" id="tochigi-shokibo-kigyo-shikin">
             <h3>栃木県制度融資 小規模企業資金</h3>
-            <p class="area-meta">栃木県 産業労働観光部｜融資｜一般貸付3,000万円、小口零細貸付2,000万円まで｜締切：公募要領で確認</p>
+            <p class="area-meta">栃木県 産業労働観光部｜融資｜一般貸付3,000万円、小口零細貸付2,000万円まで</p>
             <p class="area-meta">期間：通年</p>
             <p>小規模企業者が一般的な事業資金を借り入れる県制度融資。</p>
             <p><strong>主な条件</strong></p>
@@ -197,7 +204,7 @@
           </div>
           <div class="area-program" id="tochigi-sogyo-shien-shikin">
             <h3>栃木県制度融資 創業支援資金</h3>
-            <p class="area-meta">栃木県 産業労働観光部｜融資｜別表1は運転2,000万円・設備3,000万円、別表2・4は3,500万円、別表3(女性・若者・シニア)は2,000万円。利率は令和8年4月改定で要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">栃木県 産業労働観光部｜融資｜別表1は運転2,000万円・設備3,000万円、別表2・4は3,500万円、別表3(女性・若者・シニア)は2,000万円。利率は令和8年4月改定で要確認</p>
             <p class="area-meta">期間：通年</p>
             <p>創業前または創業後5年未満の方向け制度融資。信用保証協会の保証付き。</p>
             <p><strong>主な条件</strong></p>
@@ -239,7 +246,7 @@
     <section class="art-sec" aria-labelledby="pref-resident"><h2 id="pref-resident"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">個人の方向けの制度（住まい・暮らし）</h2>
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。市区町村の個人向けの制度（18件）は、下の「県内の市区町村のページ」から確認できます。</p>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="tochigi-kojin-taiyoko-chikudenchi">
             <h3>個人住宅用太陽光発電設備等導入支援事業</h3>
             <p class="area-meta">栃木県｜補助金｜太陽光：7万円/kW（上限28万円）、蓄電池：補助対象経費の1/3（上限25万8千円）｜締切：2026-10-30</p>
@@ -249,7 +256,7 @@
             <ul><li>太陽光と蓄電池を新たに一体で導入する個人</li><li>蓄電池のみの導入は対象外</li></ul>
             <p><a href="https://www.pref.tochigi.lg.jp/d02/kouhou/kozinzyutakutaiyoukouhozyo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program" id="tochigi-kosodate-dannetsu">
             <h3>子育て世帯等住宅断熱化支援事業</h3>
             <p class="area-meta">栃木県｜補助金｜ZEH水準の新築は1戸30万円、既存住宅の断熱改修は国補助額の2分の1か10万円のいずれか低い額｜締切：2027-01-29</p>
@@ -261,25 +268,25 @@
           </div>
           <div class="area-program" id="tochigi-zero-energy-house">
             <h3>ゼロエネルギー住宅導入支援事業</h3>
-            <p class="area-meta">栃木県｜補助金｜要確認｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">栃木県｜補助金｜金額は公式で確認</p>
+            
             <p>ゼロエネルギー住宅（ZEH）の導入を支援する県の事業。</p>
             
             <p><a href="https://www.pref.tochigi.lg.jp/d02/kouhou/zero-energy-house-subsidy.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="tochigi-kosodate-akiya-reform">
             <h3>子育て世帯等空き家リフォーム支援事業</h3>
-            <p class="area-meta">栃木県｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">栃木県｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：令和8年度（運用開始日：令和8年4月1日）。詳細は要確認</p>
             <p>子育て世帯等が空き家をリフォームする費用を支援する県の事業。令和8年4月1日開始。</p>
             
             <p><a href="https://www.pref.tochigi.lg.jp/h11/akiya/kosodatesienn.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="tochigi-iju-shienkin">
             <h3>栃木県移住支援事業（移住支援金）</h3>
-            <p class="area-meta">栃木県｜給付｜世帯100万円・単身60万円（18歳未満の子がいる世帯は子育て加算）｜締切：公募要領で確認</p>
+            <p class="area-meta">栃木県｜給付｜世帯100万円・単身60万円（18歳未満の子がいる世帯は子育て加算）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>東京23区在住者等が県内市町へ移住し、就業・起業した場合に市町から支給。</p>
             <p><strong>主な条件</strong></p>

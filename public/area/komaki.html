@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">愛知県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（小牧市）<b>4件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（愛知県）<b>5件</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>4件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 2</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">小牧市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="komaki-city-digital-shien">
             <h3>小牧市中小企業デジタル化支援補助金</h3>
-            <p class="area-meta">小牧市 商工振興課｜補助金｜補助率1/2、上限100万円｜締切：公募要領で確認</p>
+            <p class="area-meta">小牧市 商工振興課｜補助金｜補助率1/2、上限100万円</p>
             <p class="area-meta">期間：要確認（予算がなくなり次第終了の可能性あり）</p>
             <p>生産性向上や企業秘密の保護のため、デジタル技術やサイバーセキュリティ対策を導入する経費の一部を補助する。ウェブサイト・ECサイト導入費は対象外。</p>
             <p><strong>主な条件</strong></p>
@@ -178,8 +196,8 @@
           </div>
           <div class="area-program" id="komaki-city-ec-site-donyu">
             <h3>小牧市中小企業ECサイト導入支援補助金</h3>
-            <p class="area-meta">小牧市 商工振興課｜補助金｜上限20万円（補助率は要確認）｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">小牧市 商工振興課｜補助金｜上限20万円（補助率は要確認）</p>
+            
             <p>自社ECサイトの開設や改修に係る外部委託費の一部を補助する。モール型ECサイトへの登録は対象外。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>市内の中小企業者</li><li>自社ECサイトを新規開設または改修すること</li></ul>
@@ -187,8 +205,8 @@
           </div>
           <div class="area-program" id="komaki-city-hanro-kaitaku">
             <h3>小牧市中小企業販路開拓支援補助金</h3>
-            <p class="area-meta">小牧市 商工振興課｜補助金｜小間料の1/2、上限50万円｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">小牧市 商工振興課｜補助金｜小間料の1/2、上限50万円</p>
+            
             <p>技術・製品の販路拡大と新規需要開拓のため、展示会等に出展する事業者の経費の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>市内の中小企業者・小規模事業者</li><li>展示会等へ出展すること</li></ul>
@@ -196,7 +214,7 @@
           </div>
           <div class="area-program" id="komaki-city-jiba-sanpin-sosyutsu">
             <h3>小牧市中小企業地場産品創出支援補助金</h3>
-            <p class="area-meta">小牧市 商工振興課｜補助金｜補助率1/2、上限100万円｜締切：公募要領で確認</p>
+            <p class="area-meta">小牧市 商工振興課｜補助金｜補助率1/2、上限100万円</p>
             <p class="area-meta">期間：要確認（予算がなくなり次第終了の可能性あり）</p>
             <p>市内での新たな商品開発・製造と、EC市場・ふるさと納税市場への進出に向けた設備導入経費の一部を補助する。認定申請後に設備を導入する流れ。</p>
             <p><strong>主な条件</strong></p>
@@ -221,10 +239,10 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>小牧市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="komaki-shelter">
             <h3>小牧市木造住宅耐震シェルター等設置費補助金</h3>
-            <p class="area-meta">愛知県小牧市｜補助金｜1戸あたり限度額30万円｜締切：公募要領で確認</p>
+            <p class="area-meta">愛知県小牧市｜補助金｜1戸あたり限度額30万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>木造住宅への耐震シェルター・防災ベッド設置費を補助する。先着順。</p>
             <p><strong>主な条件</strong></p>
@@ -233,14 +251,14 @@
           </div>
           <div class="area-program" id="komaki-taishin">
             <h3>小牧市木造住宅耐震改修補助金</h3>
-            <p class="area-meta">愛知県小牧市｜補助金｜最大115万円(精密診断法による設計の場合最大135万円)｜締切：公募要領で確認</p>
+            <p class="area-meta">愛知県小牧市｜補助金｜最大115万円(精密診断法による設計の場合最大135万円)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>旧耐震の木造住宅の耐震改修費を補助する。先着順。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>昭和56年5月31日以前に着工された木造住宅</li><li>市の無料耐震診断を受けていること</li></ul>
             <p><a href="https://www.city.komaki.aichi.jp/admin/soshiki/kensetsubu/kenchiku/2/3/3708.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="komaki-warming">
             <h3>小牧市住宅用地球温暖化対策設備設置費補助金</h3>
             <p class="area-meta">愛知県小牧市｜補助金｜蓄電池15万円、燃料電池10万円、HEMS1万円、V2H5万円。太陽光・HEMS・蓄電池の一体導入は上限28万円｜締切：2027-03-15</p>
@@ -250,7 +268,7 @@
             <ul><li>太陽光・蓄電池・燃料電池は実績報告時に「くらしカーボンニュートラルクラブ」への入会が必要</li><li>着工10営業日前までに申請</li></ul>
             <p><a href="https://www.city.komaki.aichi.jp/admin/soshiki/shiminseikatsu/carbonneutral/1/1/4/6/25350.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="komaki-block">
             <h3>小牧市民間建築物ブロック塀等撤去費補助</h3>
             <p class="area-meta">愛知県小牧市｜補助金｜工事費の2/3、1mあたり1万円の2/3、20万円のうち最も低い額｜締切：2027-03-31</p>

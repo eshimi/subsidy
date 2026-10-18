@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">愛知県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（安城市）<b>3件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（愛知県）<b>5件</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>7件（うち受付終了1件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 3</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-2">EV・充電 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">安城市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="anjo-city-ganbaru-chusho-ouen">
             <h3>がんばる中小企業応援事業補助金</h3>
-            <p class="area-meta">安城市 商工課（安城ビジネスコンシェルジュ）｜補助金｜補助率1/2（創業支援事業は2/3）、区分ごとに上限あり（人材育成15万円、展示会出展・特許・販売促進等20万円、現場改善相談・BCP策定40万円、創業支援50万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">安城市 商工課（安城ビジネスコンシェルジュ）｜補助金｜補助率1/2（創業支援事業は2/3）、区分ごとに上限あり（人材育成15万円、展示会出展・特許・販売促進等20万円、現場改善相談・BCP策定40万円、創業支援50万円）</p>
             <p class="area-meta">期間：要確認（年度ごとに公式ページで確認）</p>
             <p>中小企業者の人材育成、人材確保、展示会出展、特許申請、販売促進、新規事業展開などの経費の一部を補助する。創業2年以内で特定創業支援等事業の証明を受けた新規開業者向けの区分もある。</p>
             <p><strong>主な条件</strong></p>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="anjo-city-monodukuri-digital">
             <h3>安城市ものづくりデジタル化推進事業補助金</h3>
-            <p class="area-meta">安城市 商工課｜補助金｜補助率1/2、上限100万円｜締切：公募要領で確認</p>
+            <p class="area-meta">安城市 商工課｜補助金｜補助率1/2、上限100万円</p>
             <p class="area-meta">期間：要確認（令和8年度の募集期間は確認できず）</p>
             <p>製造業者の機器購入、システム構築、付属品購入、設置・改修などデジタル化の経費の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -187,8 +205,8 @@
           </div>
           <div class="area-program" id="anjo-city-shinyohosho-hojo">
             <h3>信用保証料補助制度</h3>
-            <p class="area-meta">安城市 商工課｜融資｜要確認（融資種別ごとに年度上限あり）｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">安城市 商工課｜融資｜要確認（融資種別ごとに年度上限あり）</p>
+            
             <p>愛知県信用保証協会の保証で融資を受けた中小企業者が支払った信用保証料の一部を補助する。創業等支援資金なども対象に含まれる。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>市内の中小企業者</li><li>愛知県信用保証協会の保証付き融資を利用した人</li><li>対象融資の詳細は要確認</li></ul>
@@ -212,10 +230,10 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>安城市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="anjo-kanshin">
             <h3>安城市感震ブレーカー設置補助金</h3>
-            <p class="area-meta">愛知県安城市｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">愛知県安城市｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：令和8年度(先着順)</p>
             <p>感震ブレーカーの設置費を補助する。令和8年度予算額250万円、先着順。住宅1戸につき1回限り。</p>
             <p><strong>主な条件</strong></p>
@@ -224,23 +242,22 @@
           </div>
           <div class="area-program" id="anjo-shelter">
             <h3>安城市木造住宅耐震シェルター等整備費補助制度</h3>
-            <p class="area-meta">愛知県安城市｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">愛知県安城市｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>木造住宅への耐震シェルター等の整備費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>要確認</li></ul>
+            
             <p><a href="https://www.city.anjo.aichi.jp/kurasu/sumai/taishin-sheruta.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
           <div class="area-program is-ended" id="anjo-mokuzo-taishin">
             <h3>安城市木造住宅耐震改修費補助制度 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">愛知県安城市｜補助金｜令和7年度:一般型135万円/155万円上限、段階型1段階目60万円/80万円+2段階目60万円、簡易型30万円上限｜締切：公募要領で確認</p>
+            <p class="area-meta">愛知県安城市｜補助金｜令和7年度:一般型135万円/155万円上限、段階型1段階目60万円/80万円+2段階目60万円、簡易型30万円上限</p>
             <p class="area-meta">期間：令和7年度受付終了、最新は要確認</p>
             <p>旧耐震の木造住宅の耐震改修費を補助する。金額は令和7年度分で、令和8年度は要確認。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>昭和56年5月31日以前の木造住宅</li><li>耐震診断を受けること</li></ul>
             <p><a href="https://www.city.anjo.aichi.jp/kurasu/bosaibohan/shitorikumi/mokuzo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="anjo-smarthouse">
             <h3>安城市スマートハウス普及促進補助金</h3>
             <p class="area-meta">愛知県安城市｜補助金｜太陽光+蓄電池+HEMS一体導入21万円、蓄電池のみ15万円｜締切：2027-02-18</p>
@@ -250,30 +267,29 @@
             <ul><li>工事着手予定日の15日以上前までに申請すること</li><li>詳細な対象条件は要確認</li></ul>
             <p><a href="https://www.city.anjo.aichi.jp/kurasu/bika/202004smarthouse.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">EV・充電</h3>
+          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
           <div class="area-program" id="anjo-ev-apartment">
             <h3>安城市集合住宅向け電気自動車等充電設備普及促進補助金</h3>
-            <p class="area-meta">愛知県安城市｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">愛知県安城市｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>集合住宅への電気自動車等充電設備の設置を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>集合住宅への設置(対象者の詳細は要確認)</li></ul>
             <p><a href="https://www.city.anjo.aichi.jp/kurasu/bika/syugozyutakuevhozyokin.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program" id="anjo-shoene-kaishu">
             <h3>安城市住宅省エネ改修促進補助金</h3>
-            <p class="area-meta">愛知県安城市｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">愛知県安城市｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：令和8年度分は受付終了</p>
             <p>住宅の省エネ改修費を補助する。令和8年度分は7月1日申請分で予算に達し受付終了。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>要確認</li></ul>
+            
             <p><a href="https://www.city.anjo.aichi.jp/kurasu/bika/zyuutakusyouene.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="anjo-block">
             <h3>安城市ブロック塀等撤去費補助</h3>
-            <p class="area-meta">愛知県安城市｜補助金｜公共施設・道路に面するもの:撤去費の1/2、1mあたり5,000円で上限10万円(令和8年度の金額は要確認)｜締切：公募要領で確認</p>
+            <p class="area-meta">愛知県安城市｜補助金｜公共施設・道路に面するもの:撤去費の1/2、1mあたり5,000円で上限10万円(令和8年度の金額は要確認)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>高さ1m以上の組積造の塀の撤去費を補助する。</p>
             <p><strong>主な条件</strong></p>

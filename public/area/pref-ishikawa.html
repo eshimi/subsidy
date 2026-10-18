@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -170,7 +177,7 @@
       <div class="area-body">
           <div class="area-program" id="ishikawa-iju-kigyo-shienkin">
             <h3>移住・起業支援金</h3>
-            <p class="area-meta">石川県 商工労働部｜補助金｜上限200万円（補助率1/2以内）｜締切：公募要領で確認</p>
+            <p class="area-meta">石川県 商工労働部｜補助金｜上限200万円（補助率1/2以内）</p>
             <p class="area-meta">期間：募集期間は6月15日に終了。最新は要確認</p>
             <p>東京23区から県内に移住して起業する人を支援する。</p>
             <p><strong>主な条件</strong></p>
@@ -234,30 +241,30 @@
     <section class="art-sec" aria-labelledby="pref-resident"><h2 id="pref-resident"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">個人の方向けの制度（住まい・暮らし）</h2>
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。市区町村の個人向けの制度（11件）は、下の「県内の市区町村のページ」から確認できます。</p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="ishikawa-jutaku-taishinka">
             <h3>石川県住宅耐震化促進事業</h3>
-            <p class="area-meta">石川県｜補助金｜耐震改修補助費（補強計画を含む）定額210万円（令和7年7月から）｜締切：公募要領で確認</p>
+            <p class="area-meta">石川県｜補助金｜耐震改修補助費（補強計画を含む）定額210万円（令和7年7月から）</p>
             <p class="area-meta">期間：確認できた年度：令和7年度〜（令和8年度の要件は要確認）</p>
             <p>昭和56年以前の住宅の耐震改修を県と市町で補助する。能登半島地震の被災住宅も対象。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>1981（昭和56）年以前に建てられた住宅</li></ul>
             <p><a href="https://www.pref.ishikawa.lg.jp/kenju/taishinportal/taishin_hojo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program" id="ishikawa-sumai-shoene">
             <h3>住まいの省エネ促進事業費補助金</h3>
-            <p class="area-meta">石川県｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">石川県｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：令和8年度</p>
             <p>省エネ住宅の新築に対する補助。子育て・若年夫婦世帯への加算がある。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>子育て・若年夫婦世帯は加算</li></ul>
             <p><a href="https://www.pref.ishikawa.lg.jp/ontai/pp/zehhojyo8.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="ishikawa-iju-shien">
             <h3>いしかわ移住支援事業</h3>
-            <p class="area-meta">石川県｜給付｜世帯100万円、単身60万円｜締切：公募要領で確認</p>
+            <p class="area-meta">石川県｜給付｜世帯100万円、単身60万円</p>
             <p class="area-meta">期間：令和8年度（予算上限に達すると期限前に終了）</p>
             <p>東京23区に5年以上在住または通勤した人が県内に移住し、対象法人に就業した場合などに支給する。</p>
             <p><strong>主な条件</strong></p>

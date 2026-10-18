@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">愛知県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（豊田市）<b>5件（うち受付終了1件）</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（愛知県）<b>5件</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>7件（うち受付終了1件）</b></a><span class="area-toc-cats"><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-2">EV・充電 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-7">移住 2</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">豊田市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="toyota-city-jinzai-katsuyaku">
             <h3>豊田市人材活躍支援補助金</h3>
-            <p class="area-meta">豊田市 産業部｜補助金｜要確認（事業ごとに異なる）｜締切：公募要領で確認</p>
+            <p class="area-meta">豊田市 産業部｜補助金｜要確認（事業ごとに異なる）</p>
             <p class="area-meta">期間：令和8年度：4〜9月開始分は4/1〜8/31受付。以降分は要確認</p>
             <p>人材育成・人材確保・副業人材活用・事業承継/M&amp;Aの4事業を支援する。</p>
             <p><strong>主な条件</strong></p>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="toyota-city-keieiryoku-kyoka">
             <h3>豊田市経営力強化支援補助金</h3>
-            <p class="area-meta">豊田市 産業部｜補助金｜要確認｜締切：2027-02-28</p>
+            <p class="area-meta">豊田市 産業部｜補助金｜金額は公式で確認｜締切：2027-02-28</p>
             <p class="area-meta">期間：令和8年4月1日〜令和9年2月28日</p>
             <p>販路拡大、BCP策定、サイバーセキュリティ診断の費用を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -198,7 +216,7 @@
           </div>
           <div class="area-program" id="toyota-city-sogyo-hosyoryo">
             <h3>豊田市 市内創業者資金繰り支援制度（環創 信用保証料補助）</h3>
-            <p class="area-meta">豊田市 産業部｜補助金｜保証料の75%以内（上限50万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">豊田市 産業部｜補助金｜保証料の75%以内（上限50万円）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>愛知県経済環境適応資金（創業等支援資金）の信用保証料を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -209,7 +227,7 @@
           <h3 class="area-cat">受付が終了した制度（次回の公募の参考に）</h3>
           <div class="area-program is-ended" id="toyota-city-sangyo-powerup">
             <h3>豊田市産業パワーアップ支援補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">豊田市 産業部 産業振興課｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">豊田市 産業部 産業振興課｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：令和8年度：一次公募4月、二次公募8月（受付終了の可能性、最新は要確認）</p>
             <p>売上向上につながる事業転換・事業拡大・業務効率化の取組を支援する。</p>
             <p><strong>主な条件</strong></p>
@@ -234,58 +252,57 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>豊田市の制度</strong></p>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="toyota-eco-family">
             <h3>豊田市エコファミリー支援補助金</h3>
-            <p class="area-meta">豊田市｜補助金｜要確認｜締切：2027-03-01</p>
+            <p class="area-meta">豊田市｜補助金｜金額は公式で確認｜締切：2027-03-01</p>
             <p class="area-meta">期間：令和8年度（住宅編：2026年4月1日〜2027年3月1日）</p>
             <p>太陽光、蓄電池またはV2H、HEMSの一体導入のほか、蓄電池・燃料電池の単独導入、外部給電対応の次世代自動車購入に補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>太陽光とHEMSだけの単独申請は不可</li><li>燃料電池は「とよたゼロカーボンバンク」等への入会が必要</li></ul>
             <p><a href="https://www.city.toyota.aichi.jp/kurashi/kankyou/hojokin/1023875.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">EV・充電</h3>
+          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
           <div class="area-program" id="toyota-zerocarbon-drive">
             <h3>とよた・ゼロカーボンドライブ補助金</h3>
-            <p class="area-meta">愛知県豊田市｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">愛知県豊田市｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：V2H枠は受付終了の記載あり。最新は要確認</p>
             <p>再エネ由来の電気で給電できる次世代自動車およびV2H・充電設備を導入する市民への補助。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>自宅に太陽光発電設備を設置していること</li></ul>
             <p><a href="https://www.city.toyota.aichi.jp/kurashi/kankyou/hojokin/1065455/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program is-ended" id="toyota-jutaku-shoene-kaishu">
             <h3>住宅省エネ改修補助制度 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">豊田市｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">豊田市｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：確認できた年度：不明（受付終了）</p>
             <p>既存住宅の断熱改修への補助。予算上限に達して受付終了と案内されている。</p>
             
             <p><a href="https://www.city.toyota.aichi.jp/kurashi/kankyou/hojokin/1058157.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="toyota-akiya-kaitai">
             <h3>豊田市 空家解体促進費補助金</h3>
-            <p class="area-meta">愛知県豊田市｜補助金｜解体費の1/2（上限52万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">愛知県豊田市｜補助金｜解体費の1/2（上限52万円）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>空き家の解体費用を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>要確認</li></ul>
+            
             <p><a href="https://www.city.toyota.aichi.jp/kurashi/sumai/teiju/1036825.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
           <div class="area-program" id="toyota-block-tekkyo">
             <h3>豊田市 ブロック塀等撤去奨励補助事業</h3>
-            <p class="area-meta">愛知県豊田市｜補助金｜撤去・処分費の2/3と延長1mあたり1万円のいずれか少ない方（上限20万円、通学路に面する塀は上限なし）｜締切：公募要領で確認</p>
+            <p class="area-meta">愛知県豊田市｜補助金｜撤去・処分費の2/3と延長1mあたり1万円のいずれか少ない方（上限20万円、通学路に面する塀は上限なし）</p>
             <p class="area-meta">期間：申請は1月下旬まで（年度は要確認）</p>
             <p>避難路沿道等の危険なブロック塀等の撤去費を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>道路面から高さ1m以上の危険なブロック塀等を全て撤去</li><li>交付決定前の着工は対象外</li></ul>
             <p><a href="https://www.city.toyota.aichi.jp/kurashi/bousaibouhan/bousaishien/1013899/1003650.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="toyota-akiya-kaishu-sanson">
             <h3>豊田市 空き家情報バンク登録物件の改修費補助</h3>
-            <p class="area-meta">愛知県豊田市｜補助金｜改修費の8/10（上限100万円、居住促進地区は上限150万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">愛知県豊田市｜補助金｜改修費の8/10（上限100万円、居住促進地区は上限150万円）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>山村地域の空き家情報バンクで契約成立した空き家の改修費を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -294,7 +311,7 @@
           </div>
           <div class="area-program" id="toyota-sanson-teiju-ouen">
             <h3>豊田市 山村地域等定住応援補助金</h3>
-            <p class="area-meta">愛知県豊田市｜補助金｜要確認（子の同居または40歳未満で限度額が上がる）｜締切：公募要領で確認</p>
+            <p class="area-meta">愛知県豊田市｜補助金｜要確認（子の同居または40歳未満で限度額が上がる）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>山村地域へ定住するための住宅取得費の一部を補助する。</p>
             <p><strong>主な条件</strong></p>

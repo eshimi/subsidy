@@ -31,9 +31,9 @@ function residentFor(city) {
 
 // 分野ごとに見出しをつけて、制度のカードを並べる
 function residentGroups(list, residentCard) {
-  return RESIDENT_CATEGORIES.map((cat) => {
+  return RESIDENT_CATEGORIES.map((cat, i) => {
     const items = activeFirst(list.filter((p) => p.category === cat));
-    return items.length ? `          <h3 class="area-cat">${esc(cat)}</h3>\n${items.map(residentCard).join('\n')}` : '';
+    return items.length ? `          <h3 class="area-cat" id="res-cat-${i}">${esc(cat)}</h3>\n${items.map(residentCard).join('\n')}` : '';
   }).filter(Boolean).join('\n');
 }
 
@@ -49,22 +49,47 @@ function programCards(list) {
   ].filter(Boolean).join('\n');
 }
 
+// 「要確認」だけで、中身のない項目は、見せない（読む人にとって情報にならないため）
+const unknown = (v) => !v || /^\s*要確認\s*$/.test(String(v));
+
 function programCard(p) {
-  const deadline = p.deadline ? `締切：${esc(p.deadline)}` : '締切：公募要領で確認';
+  // 締切が分からないときは、「公募要領で確認」と書かない（全件に並ぶだけで、情報にならない）
+  const meta = [p.provider, p.type, unknown(p.amount) ? '金額は公式で確認' : p.amount, p.deadline ? `締切：${p.deadline}` : ''].filter(Boolean).map(esc).join('｜');
   const link = p.url
     ? `<p><a href="${esc(p.url)}" target="_blank" rel="noopener">公式の案内を見る →</a></p>`
     : '';
-  const period = p.period ? `<p class="area-meta">期間：${esc(p.period)}</p>` : '';
-  const eligibility = p.eligibility?.length ? `<p><strong>主な条件</strong></p>\n            <ul>${p.eligibility.map((e) => `<li>${esc(e)}</li>`).join('')}</ul>` : '';
+  const period = !unknown(p.period) ? `<p class="area-meta">期間：${esc(p.period)}</p>` : '';
+  const conds = (p.eligibility || []).filter((e) => !unknown(e));
+  const eligibility = conds.length ? `<p><strong>主な条件</strong></p>\n            <ul>${conds.map((e) => `<li>${esc(e)}</li>`).join('')}</ul>` : '';
   // id：検索結果（search.html）の題名から、この制度の位置へ直接移動するための目印（検索データの id は、先頭に local- が付く）
   return `          <div class="area-program${isEnded(p) ? ' is-ended' : ''}"${p.id ? ` id="${esc(p.id)}"` : ''}>
             <h3>${esc(p.name)}${isEnded(p) ? ' <span class="area-ended-tag">受付終了</span>' : ''}</h3>
-            <p class="area-meta">${esc(p.provider)}｜${esc(p.type)}｜${esc(p.amount)}｜${deadline}</p>
+            <p class="area-meta">${meta}</p>
             ${period}
             <p>${esc(p.summary)}</p>
             ${eligibility}
             ${link}
           </div>`;
+}
+
+// ページ先頭の「このページの内容」：件数と、各欄・分野へのジャンプ
+function toc(city, municipal, prefectural, resident) {
+  const n = (list) => `${list.length}件${list.some(isEnded) ? `（うち受付終了${list.filter(isEnded).length}件）` : ''}`;
+  const cats = RESIDENT_CATEGORIES.map((cat, i) => ({ cat, i, k: resident.municipal.filter((p) => p.category === cat).length })).filter((x) => x.k);
+  const rows = [
+    `<li><a href="#city-programs">事業・創業の方向け（${esc(city.name)}）<b>${municipal.length ? n(municipal) : 'なし'}</b></a></li>`,
+    `<li><a href="#pref-programs">事業・創業の方向け（${esc(city.pref)}）<b>${prefectural.length ? n(prefectural) : 'なし'}</b></a></li>`,
+    RESIDENT_PROGRAMS.length ? `<li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>${resident.municipal.length ? n(resident.municipal) : 'なし'}</b></a>${cats.length ? `<span class="area-toc-cats">${cats.map((x) => `<a href="#res-cat-${x.i}">${esc(x.cat)} ${x.k}</a>`).join('')}</span>` : ''}</li>` : '',
+    '<li><a href="#national">国の制度・全国から探す</a></li>',
+    '<li><a href="#checklist">申請前に確認したいこと</a></li>',
+  ].filter(Boolean).join('\n        ');
+  return `    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        ${rows}
+      </ul>
+    </nav>
+`;
 }
 
 // 関連ページ：同じ都道府県の他の市区と、一覧・コラムへの導線
@@ -135,6 +160,7 @@ ${residentHtml}
       <p class="lead" style="margin-bottom: 0;">${esc(city.pref)}・${esc(city.level)}。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+${toc(city, municipal, prefectural, resident)}
     <section class="area-section" aria-labelledby="city-programs">
       <span class="area-num">01</span>
       <h2 id="city-programs">${esc(city.name)}の制度（事業・創業の方向け）</h2>

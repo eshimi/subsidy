@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">岩手県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（花巻市）<b>2件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（岩手県）<b>4件</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>5件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-7">移住 2</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">花巻市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="hanamaki-city-kigyo-kyosoryoku-kyoka">
             <h3>企業競争力強化支援事業補助金</h3>
-            <p class="area-meta">花巻市 商工労政課｜補助金｜補助率は原則1/2以内（上限額はメニューにより異なる。要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">花巻市 商工労政課｜補助金｜補助率は原則1/2以内（上限額はメニューにより異なる。要確認）</p>
             <p class="area-meta">期間：要確認（予算がなくなり次第終了）</p>
             <p>市内中小企業者の付加価値創造・販路開拓として、共同研究開発、展示会出展、人材確保、リスキリング、ブランド化、省力化投資などの取組を支援する。</p>
             <p><strong>主な条件</strong></p>
@@ -178,8 +196,8 @@
           </div>
           <div class="area-program" id="hanamaki-city-machinaka-sogyo-shien">
             <h3>まちなか創業支援補助金</h3>
-            <p class="area-meta">花巻市 商工労政課 商業係｜補助金｜上限50万円（補助率は要確認）｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">花巻市 商工労政課 商業係｜補助金｜上限50万円（補助率は要確認）</p>
+            
             <p>中心市街地の空き店舗で新たに創業する中小企業者の改装費・広告宣伝費の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>中心市街地の空き店舗で新たに創業する中小企業者</li><li>事業着手日の2週間前までに交付申請すること</li></ul>
@@ -203,20 +221,20 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>花巻市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="hanamaki-taishin-hokyo">
             <h3>花巻市木造住宅耐震補強工事等助成事業</h3>
-            <p class="area-meta">岩手県花巻市｜補助金｜補助率4/5・上限100万円(簡易補強は1/2・上限30万円)。市の別ページでは最大115万円の記載もあり要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">岩手県花巻市｜補助金｜補助率4/5・上限100万円(簡易補強は1/2・上限30万円)。市の別ページでは最大115万円の記載もあり要確認</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>木造住宅の耐震補強工事費の一部を助成する制度。耐震診断事業(自己負担3,000円)もある。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>耐震診断の結果等の要件あり(詳細は要確認)</li></ul>
             <p><a href="https://www.city.hanamaki.iwate.jp/kurashi/sumai_seikatsu/kenchiku_jyutaku/1001159/1001161.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="hanamaki-akiya-kaitai">
             <h3>花巻市空家等解体活用補助金</h3>
-            <p class="area-meta">岩手県花巻市｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">岩手県花巻市｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>市内の空家(空き店舗等含む)を解体し、新たに建築物を新築する人に解体工事費の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -225,17 +243,17 @@
           </div>
           <div class="area-program" id="hanamaki-rokyu-kiken-jutaku">
             <h3>花巻市老朽危険住宅除却費補助金</h3>
-            <p class="area-meta">岩手県花巻市｜補助金｜上限50万円｜締切：公募要領で確認</p>
+            <p class="area-meta">岩手県花巻市｜補助金｜上限50万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>老朽危険住宅の除却費の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>老朽危険住宅の所有者等(詳細は要確認)</li></ul>
             <p><a href="https://www.city.hanamaki.iwate.jp/kurashi/kenchiku_jyutaku/1001152/1001156.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="hanamaki-teiju-jutaku">
             <h3>花巻市定住促進住宅取得等補助金</h3>
-            <p class="area-meta">岩手県花巻市｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">岩手県花巻市｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>移住者の住宅取得およびリフォーム費用などを支援する。</p>
             <p><strong>主な条件</strong></p>
@@ -244,7 +262,7 @@
           </div>
           <div class="area-program" id="hanamaki-wakamono-akiya">
             <h3>花巻市若者世代等空き家取得奨励金等</h3>
-            <p class="area-meta">岩手県花巻市｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">岩手県花巻市｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>空き家を取得し居住した39歳以下または県外からの移住者に奨励金及び補助金を交付する。</p>
             <p><strong>主な条件</strong></p>

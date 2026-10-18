@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,14 +170,25 @@
       <p class="lead" style="margin-bottom: 0;">三重県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（桑名市）<b>3件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（三重県）<b>5件（うち受付終了3件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>6件（うち受付終了1件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-6">子育て 1</a><a href="#res-cat-7">移住 2</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">桑名市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="kuwana-city-kigyo-ricchi-shorei">
             <h3>桑名市企業立地奨励制度（立地奨励金・定住促進奨励金）</h3>
-            <p class="area-meta">桑名市 商工課｜補助金｜立地奨励金：固定資産税相当額の1年目100%・2年目75%・3年目50%（年間限度1億円）。定住促進奨励金：新規雇用の市内在住従業員1人あたり30万円（要確認）｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">桑名市 商工課｜補助金｜立地奨励金：固定資産税相当額の1年目100%・2年目75%・3年目50%（年間限度1億円）。定住促進奨励金：新規雇用の市内在住従業員1人あたり30万円（要確認）</p>
+            
             <p>市内に製造業の工場等を新設・増設・移転する事業者に奨励金を交付する。指定企業は新規雇用者に対する定住促進奨励金も受けられる。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>製造業の新設・増設・移転であること</li><li>投下固定資産額が中小企業で1億円以上など条例の要件を満たすこと</li><li>市の指定を受けること</li></ul>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="kuwana-city-risihokyu-seido">
             <h3>桑名市利子補給制度</h3>
-            <p class="area-meta">桑名市 商工課｜融資｜利子補給率：償還利子の約定年率の2分の1または年1.0%のいずれか低い率｜締切：公募要領で確認</p>
+            <p class="area-meta">桑名市 商工課｜融資｜利子補給率：償還利子の約定年率の2分の1または年1.0%のいずれか低い率</p>
             <p class="area-meta">期間：毎年1月から2月に申請受付予定（年度ごとに要確認）</p>
             <p>小規模事業資金、創業・再挑戦アシスト資金、マル経、衛経などの融資を受けた市内事業者に、融資利子の一部を補給する。</p>
             <p><strong>主な条件</strong></p>
@@ -187,7 +205,7 @@
           </div>
           <div class="area-program" id="kuwana-city-sogyo-shien-jigyo-keikaku">
             <h3>桑名市創業支援事業計画（くわな創業支援ゆめはまねっと）</h3>
-            <p class="area-meta">桑名市 商工課・桑名商工会議所｜専門家支援｜要確認（特定創業支援等事業を受けた方は会社設立時の登録免許税が50%軽減、創業関連保証の枠拡充）｜締切：公募要領で確認</p>
+            <p class="area-meta">桑名市 商工課・桑名商工会議所｜専門家支援｜要確認（特定創業支援等事業を受けた方は会社設立時の登録免許税が50%軽減、創業関連保証の枠拡充）</p>
             <p class="area-meta">期間：通年（要確認）</p>
             <p>市・商工会議所・金融機関等が連携し、創業相談や創業塾などを提供する。特定創業支援等事業の証明で登録免許税の軽減等を受けられる。</p>
             <p><strong>主な条件</strong></p>
@@ -212,7 +230,7 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>桑名市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program is-ended" id="kuwana-taishin">
             <h3>桑名市 耐震補助制度（診断・設計・補強・除却） <span class="area-ended-tag">受付終了</span></h3>
             <p class="area-meta">三重県桑名市｜補助金｜除却工事は費用の23％（上限20.7万円）、その他は要確認｜締切：2026-11-30</p>
@@ -222,17 +240,17 @@
             <ul><li>昭和56年5月31日以前着工の木造住宅</li><li>除却は評点0.7未満</li></ul>
             <p><a href="https://www.city.kuwana.lg.jp/toshiseibi/kurashi/machidukuri/28-57351-321-329.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="kuwana-taiyoko">
             <h3>桑名市 太陽光発電設備等設置費補助金</h3>
-            <p class="area-meta">三重県桑名市｜補助金｜要確認（蓄電池は設置費用の3分の1が基準とされる）｜締切：公募要領で確認</p>
+            <p class="area-meta">三重県桑名市｜補助金｜要確認（蓄電池は設置費用の3分の1が基準とされる）</p>
             <p class="area-meta">期間：令和8年度分は受付終了（令和9年度以降は未定）</p>
             <p>太陽光発電設備等の設置を補助する。蓄電池のみは対象外。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>太陽光発電設備の設置が前提</li></ul>
             <p><a href="https://www.city.kuwana.lg.jp/kankyo/kurashi/kankyou/taiyoukouhojyokinn.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="kuwana-tokutei-akiya">
             <h3>桑名市 特定空家等除却補助金</h3>
             <p class="area-meta">三重県桑名市｜補助金｜除却費用の一部、上限30万円｜締切：2027-12-25</p>
@@ -242,20 +260,20 @@
             <ul><li>特定空家等と認められたもの</li><li>事前相談が必要</li><li>着工前の申請</li></ul>
             <p><a href="https://www.city.kuwana.lg.jp/toshikanri/tsukamoto.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">子育て</h3>
+          <h3 class="area-cat" id="res-cat-6">子育て</h3>
           <div class="area-program" id="kuwana-shinseikatsu">
             <h3>桑名市結婚新生活支援補助金</h3>
-            <p class="area-meta">三重県桑名市｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">三重県桑名市｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>新婚世帯の引越費用、賃貸借費用、リフォーム費用等を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>新婚世帯（詳細要件は要確認）</li></ul>
             <p><a href="https://www.city.kuwana.lg.jp/sdgs/20240319.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="kuwana-teijuu">
             <h3>桑名市移住・定住促進事業補助金</h3>
-            <p class="area-meta">三重県桑名市｜補助金｜基本60万円、最大100万円（加算あり）｜締切：公募要領で確認</p>
+            <p class="area-meta">三重県桑名市｜補助金｜基本60万円、最大100万円（加算あり）</p>
             <p class="area-meta">期間：最新は要確認（来年度は未定と記載）</p>
             <p>市外から移住して市内で住宅を取得した人への補助。掲載は約3年前の情報で来年度は未定と記載。</p>
             <p><strong>主な条件</strong></p>
@@ -264,7 +282,7 @@
           </div>
           <div class="area-program" id="kuwana-tokyo-iju">
             <h3>桑名市東京圏型移住支援補助金</h3>
-            <p class="area-meta">三重県桑名市｜補助金｜単身60万円、世帯100万円、18歳未満の子1人につき30万円加算｜締切：公募要領で確認</p>
+            <p class="area-meta">三重県桑名市｜補助金｜単身60万円、世帯100万円、18歳未満の子1人につき30万円加算</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>東京23区在住者などが桑名市へ移住した場合の補助金。予算上限に達し次第終了。</p>
             <p><strong>主な条件</strong></p>

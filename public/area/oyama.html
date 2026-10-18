@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,14 +170,25 @@
       <p class="lead" style="margin-bottom: 0;">栃木県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（小山市）<b>4件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（栃木県）<b>4件</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>8件（うち受付終了1件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 2</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-7">移住 3</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">小山市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="oyama-city-chushin-shigaichi-shuten-hojo">
             <h3>小山市中心市街地出店補助金（空き店舗内装改造費補助）</h3>
-            <p class="area-meta">小山市 商工観光課｜補助金｜内装改造費の一部（補助率・上限額は要確認）｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">小山市 商工観光課｜補助金｜内装改造費の一部（補助率・上限額は要確認）</p>
+            
             <p>中心市街地で3か月以上空き店舗となっている店舗へ新たに出店する方に、内装改造費を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>中心市街地の空き店舗（3か月以上空き）へ新規出店する方</li><li>要綱の定める要件を満たすこと</li></ul>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="oyama-city-chushokigyo-yushi">
             <h3>小山市中小企業向け融資制度（保証料補助あり）</h3>
-            <p class="area-meta">小山市 商工観光課｜融資｜融資限度額・利率は要確認（信用保証料補助あり）｜締切：公募要領で確認</p>
+            <p class="area-meta">小山市 商工観光課｜融資｜融資限度額・利率は要確認（信用保証料補助あり）</p>
             <p class="area-meta">期間：通年（要確認）</p>
             <p>市内中小企業者が利用できる市の融資制度。営業・設備・創業などの資金が対象で、保証料補助もある。</p>
             <p><strong>主な条件</strong></p>
@@ -187,7 +205,7 @@
           </div>
           <div class="area-program" id="oyama-city-hanro-kaitaku-joseikin">
             <h3>小山市中小企業販路開拓事業助成金</h3>
-            <p class="area-meta">小山市 商工観光課｜助成金｜対象経費の1/3以内、上限30万円（国内・オンライン開催）／50万円（国外開催）｜締切：公募要領で確認</p>
+            <p class="area-meta">小山市 商工観光課｜助成金｜対象経費の1/3以内、上限30万円（国内・オンライン開催）／50万円（国外開催）</p>
             <p class="area-meta">期間：要確認（年度ごとに公式ページで確認）</p>
             <p>市内中小企業が展示会等へ出展する費用の一部を助成する制度。</p>
             <p><strong>主な条件</strong></p>
@@ -196,8 +214,8 @@
           </div>
           <div class="area-program" id="oyama-city-sbt-ninsho-hojo">
             <h3>小山市中小企業SBT認定取得支援事業補助金</h3>
-            <p class="area-meta">小山市 商工観光課｜補助金｜対象経費の1/2、上限100万円｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">小山市 商工観光課｜補助金｜対象経費の1/2、上限100万円</p>
+            
             <p>中小企業向けSBT認定の取得に要する経費の一部を補助し、脱炭素化を促進する。認定取得後に交付。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>小山市内の中小企業者等</li><li>中小企業向けSBT認定を取得すること</li></ul>
@@ -221,20 +239,20 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>小山市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="oyama-taishin">
             <h3>小山市木造住宅耐震対策助成事業</h3>
-            <p class="area-meta">栃木県小山市｜助成金｜耐震改修: 費用の4/5以内・上限115万円、建替え上限100万円、シェルター等上限40万円｜締切：公募要領で確認</p>
+            <p class="area-meta">栃木県小山市｜助成金｜耐震改修: 費用の4/5以内・上限115万円、建替え上限100万円、シェルター等上限40万円</p>
             <p class="area-meta">期間：4月1日から9月上旬予定(予算なくなり次第終了)。令和8年度は受付状況要確認</p>
             <p>旧耐震基準の木造住宅の耐震改修・建替え等を助成する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>昭和56年5月31日以前の木造住宅</li></ul>
             <p><a href="https://www.city.oyama.tochigi.jp/sangyou-sigoto/kenchiku/kenchikukanren/page005596.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="oyama-kojin-solar">
             <h3>小山市個人向け太陽光発電設備導入費補助金</h3>
-            <p class="area-meta">栃木県小山市｜補助金｜要確認｜締切：2026-11-30</p>
+            <p class="area-meta">栃木県小山市｜補助金｜金額は公式で確認｜締切：2026-11-30</p>
             <p class="area-meta">期間：令和8年6月1日から11月30日(予算に達し次第終了)</p>
             <p>太陽光発電と蓄電池を一体で導入する個人への補助(環境省交付金活用、先着順)。</p>
             <p><strong>主な条件</strong></p>
@@ -243,17 +261,17 @@
           </div>
           <div class="area-program is-ended" id="oyama-jutaku-datsutanso">
             <h3>小山市住宅脱炭素化設備等導入費補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">栃木県小山市｜補助金｜蓄電システム: 太陽光同時設置10万円、既設太陽光への後付け5万円｜締切：公募要領で確認</p>
+            <p class="area-meta">栃木県小山市｜補助金｜蓄電システム: 太陽光同時設置10万円、既設太陽光への後付け5万円</p>
             <p class="area-meta">期間：令和8年度は受付終了(申請期間は6月1日から11月30日だった)</p>
             <p>蓄電池・ZEH・V2Hなど住宅の脱炭素設備導入を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>市内の住宅(詳細は要確認)</li></ul>
             <p><a href="https://www.city.oyama.tochigi.jp/kurashi/sumai-hikkoshi/sumai/page006083.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="oyama-akiya-bank-reform">
             <h3>小山市空き家バンク利用促進補助制度</h3>
-            <p class="area-meta">栃木県小山市｜補助金｜リフォーム工事費の1/2・上限50万円(家財処分は上限10万円)｜締切：公募要領で確認</p>
+            <p class="area-meta">栃木県小山市｜補助金｜リフォーム工事費の1/2・上限50万円(家財処分は上限10万円)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>空き家バンク登録の売買物件でリフォームを行う利用登録者への補助。</p>
             <p><strong>主な条件</strong></p>
@@ -262,17 +280,17 @@
           </div>
           <div class="area-program" id="oyama-block">
             <h3>小山市ブロック塀等安全対策助成事業</h3>
-            <p class="area-meta">栃木県小山市｜助成金｜要確認(撤去および軽量塀への改修が対象)｜締切：公募要領で確認</p>
+            <p class="area-meta">栃木県小山市｜助成金｜要確認(撤去および軽量塀への改修が対象)</p>
             <p class="area-meta">期間：毎年4月1日から9月上旬まで(先着順)。令和8年度は受付状況要確認</p>
             <p>道路に面した危険なブロック塀等の撤去や改修工事を助成する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>道路に面した危険なブロック塀等</li></ul>
             <p><a href="https://www.city.oyama.tochigi.jp/sangyou-sigoto/kenchiku/kenchikukanren/page000765.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="oyama-denen-iju">
             <h3>小山市若者・子育て世帯田園部移住支援補助金</h3>
-            <p class="area-meta">栃木県小山市｜補助金｜空き家取得: 基本30万円+18歳未満の子1人20万円加算(最大合計50万円)。賃借は月額最大5万円・36か月｜締切：公募要領で確認</p>
+            <p class="area-meta">栃木県小山市｜補助金｜空き家取得: 基本30万円+18歳未満の子1人20万円加算(最大合計50万円)。賃借は月額最大5万円・36か月</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>田園部の空き家に移住する若者・子育て世帯への補助。</p>
             <p><strong>主な条件</strong></p>
@@ -281,7 +299,7 @@
           </div>
           <div class="area-program" id="oyama-iju-shienkin">
             <h3>小山市移住支援金</h3>
-            <p class="area-meta">栃木県小山市｜給付｜単身60万円、世帯100万円、18歳未満の子1人につき100万円加算(2人まで)｜締切：公募要領で確認</p>
+            <p class="area-meta">栃木県小山市｜給付｜単身60万円、世帯100万円、18歳未満の子1人につき100万円加算(2人まで)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>東京圏から移住し対象求人に就職した人への支援金。</p>
             <p><strong>主な条件</strong></p>
@@ -290,7 +308,7 @@
           </div>
           <div class="area-program" id="oyama-tennyu-jutaku">
             <h3>小山市転入勤労者等住宅取得支援補助金</h3>
-            <p class="area-meta">栃木県小山市｜補助金｜新築最大50万円、中古最大20万円(39歳以下・子育て等で10万円加算)｜締切：公募要領で確認</p>
+            <p class="area-meta">栃木県小山市｜補助金｜新築最大50万円、中古最大20万円(39歳以下・子育て等で10万円加算)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>東京圏から転入し住宅を取得した人を支援する。</p>
             <p><strong>主な条件</strong></p>

@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">東京都・特別区。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（目黒区）<b>5件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（東京都）<b>6件（うち受付終了1件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>10件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 4</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-5">バリアフリー・介護 1</a><a href="#res-cat-6">子育て 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">目黒区の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="meguro-shoryokuka">
             <h3>めぐろ中小企業省力化投資補助金</h3>
-            <p class="area-meta">目黒区 産業経済・消費生活課 中小企業振興係｜補助金｜補助率：経費の2/5、1事業者上限40万円｜締切：公募要領で確認</p>
+            <p class="area-meta">目黒区 産業経済・消費生活課 中小企業振興係｜補助金｜補助率：経費の2/5、1事業者上限40万円</p>
             <p class="area-meta">期間：予算上限に達し次第終了（先着順）</p>
             <p>国のカタログ注文型省力化投資補助事業のカタログ製品の購入費を補助します。先着順（約50社程度）。</p>
             <p><strong>主な条件</strong></p>
@@ -179,7 +197,7 @@
           </div>
           <div class="area-program" id="meguro-hanrokakudai-tenjikai">
             <h3>目黒区中小企業向け販路拡大支援事業（展示会出展）</h3>
-            <p class="area-meta">目黒区 産業経済・消費生活課 中小企業振興係｜補助金｜補助率：展示料の2/3、1企業上限15万円｜締切：公募要領で確認</p>
+            <p class="area-meta">目黒区 産業経済・消費生活課 中小企業振興係｜補助金｜補助率：展示料の2/3、1企業上限15万円</p>
             <p class="area-meta">期間：令和8年度（年度内1回・先着順）</p>
             <p>展示会出展にかかる展示料の一部を補助します。年度内1回、先着順。</p>
             <p><strong>主な条件</strong></p>
@@ -208,7 +226,7 @@
           </div>
           <div class="area-program" id="meguro-sogyo-yushi-assen">
             <h3>中小企業創業支援資金融資（融資あっせん制度）</h3>
-            <p class="area-meta">目黒区 産業経済・消費生活課 中小企業振興係｜融資｜要確認（融資あっせん制度一覧で確認。利子の一部を区が補助）｜締切：公募要領で確認</p>
+            <p class="area-meta">目黒区 産業経済・消費生活課 中小企業振興係｜融資｜要確認（融資あっせん制度一覧で確認。利子の一部を区が補助）</p>
             <p class="area-meta">期間：令和8年度（予約制）</p>
             <p>区内で創業する方などを対象に、取扱金融機関への融資あっせんと利子補助を行います。</p>
             <p><strong>主な条件</strong></p>
@@ -233,11 +251,11 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>目黒区の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="meguro-mokuzo-jokyaku">
             <h3>木造住宅等除却工事助成制度</h3>
-            <p class="area-meta">目黒区 都市整備部 建築課｜補助金｜除却費用の50%以内、上限50万円｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">目黒区 都市整備部 建築課｜補助金｜除却費用の50%以内、上限50万円</p>
+            
             <p>倒壊のおそれがある木造住宅の、建替えを前提とした除却工事費を助成する。</p>
             
             <p><a href="https://www.city.meguro.tokyo.jp/kenchiku/shigoto/kenchiku/jokyaku.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
@@ -253,21 +271,21 @@
           </div>
           <div class="area-program" id="meguro-taishin-sekkei">
             <h3>耐震改修設計助成制度</h3>
-            <p class="area-meta">目黒区 都市整備部 建築課｜補助金｜設計費用の50%以内、上限20万円（木造）｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">目黒区 都市整備部 建築課｜補助金｜設計費用の50%以内、上限20万円（木造）</p>
+            
             <p>木造住宅の耐震改修設計費用を助成する。</p>
             
             <p><a href="https://www.city.meguro.tokyo.jp/kenchiku/shigoto/kenchiku/sekkei.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
           <div class="area-program" id="meguro-taishin-shindan">
             <h3>耐震診断助成制度（木造）</h3>
-            <p class="area-meta">目黒区 都市整備部 建築課｜補助金｜診断費用の60%を助成（上限額は要確認）｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">目黒区 都市整備部 建築課｜補助金｜診断費用の60%を助成（上限額は要確認）</p>
+            
             <p>木造住宅の耐震診断費用を助成する。</p>
             
             <p><a href="https://www.city.meguro.tokyo.jp/kenchiku/shigoto/kenchiku/shindan.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="meguro-taiyoko-chikuden">
             <h3>住宅用再生可能エネルギー設備設置費の助成（太陽光・蓄電システム）</h3>
             <p class="area-meta">目黒区 環境保全課｜補助金｜太陽光発電：1kWあたり3万円（上限15万円）。家庭用蓄電システム：設備本体価格の3分の1以下（上限7万円）｜締切：2027-01-29</p>
@@ -277,21 +295,21 @@
             <ul><li>令和8年1月1日〜12月31日に設置・引渡しが完了した設備</li><li>蓄電池は蓄電システム登録済製品一覧に登録された製品</li><li>申請時にすべての必要書類を提出（オンラインまたは郵送）</li></ul>
             <p><a href="https://www.city.meguro.tokyo.jp/kankyouhozen/kurashi/kankyou/taiyoukou.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program" id="meguro-reform-shikin-josei">
             <h3>目黒区 住宅リフォーム資金助成（一般・省エネ・アスベスト除去・空き家空室バリアフリー）</h3>
-            <p class="area-meta">東京都目黒区｜補助金｜一般リフォーム：税抜工事費の10%（上限10万円）、省エネリフォーム：20%（上限20万円）、アスベスト除去：10%（上限20万円）、空き家・空き室バリアフリー：10%（上限10万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">東京都目黒区｜補助金｜一般リフォーム：税抜工事費の10%（上限10万円）、省エネリフォーム：20%（上限20万円）、アスベスト除去：10%（上限20万円）、空き家・空き室バリアフリー：10%（上限10万円）</p>
             <p class="area-meta">期間：最新は要確認（予算の範囲内で先着順、工事完了期限は令和9年3月31日）</p>
             <p>区内業者による住宅リフォーム工事費の一部を助成。予算の範囲内で先着順、工事前の申請が必要。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>区内業者が施工し税抜工事費20万円以上</li><li>令和9年3月31日までに工事・支払が完了</li><li>国・東京都のリフォーム助成を申請していないこと</li></ul>
             <p><a href="https://www.city.meguro.tokyo.jp/juutaku/kurashi/sumai/rifoumu.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="meguro-block-jokyaku">
             <h3>ブロック塀等除却工事等に係る助成制度</h3>
-            <p class="area-meta">目黒区 都市整備部 建築課｜補助金｜要確認｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">目黒区 都市整備部 建築課｜補助金｜金額は公式で確認</p>
+            
             <p>ブロック塀等の除却工事等の費用を助成する制度（内容は区ページで要確認）。</p>
             
             <p><a href="https://www.city.meguro.tokyo.jp/kenchiku/shigoto/kenchiku/burokku.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
@@ -305,20 +323,20 @@
             <ul><li>道路に面し安全性が確認できない高さ80cm超のブロック塀等の所有者</li><li>道路に面する部分をすべて撤去すること</li><li>住民税・固定資産税を滞納していないこと</li></ul>
             <p><a href="https://www.city.meguro.tokyo.jp/kenchiku/shigoto/kenchiku/burokku.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program" id="meguro-koreisha-jiritsu-shien-jutaku-kaishu">
             <h3>高齢者自立支援住宅改修給付</h3>
-            <p class="area-meta">目黒区｜給付｜要確認｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">目黒区｜給付｜金額は公式で確認</p>
+            
             <p>区内在住の65歳以上で日常生活動作に困難がある方の住宅改修費を、介護保険の住宅改修とは別に給付する区独自の制度。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>65歳以上で区内在住</li><li>日常生活動作に困難がある方（要支援・要介護認定者、虚弱な方など）</li><li>工事前に申請し決定通知を受けてから着工</li></ul>
             <p><a href="https://www.city.meguro.tokyo.jp/koureifukushi/kenkoufukushi/koureisha/kaishuhi.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">子育て</h3>
+          <h3 class="area-cat" id="res-cat-6">子育て</h3>
           <div class="area-program" id="meguro-family-yachin-josei">
             <h3>目黒区 ファミリー世帯家賃助成</h3>
-            <p class="area-meta">東京都目黒区｜助成金｜月額2万円（最長3年間）｜締切：公募要領で確認</p>
+            <p class="area-meta">東京都目黒区｜助成金｜月額2万円（最長3年間）</p>
             <p class="area-meta">期間：令和8年度の受付は令和8年6月10日〜7月10日で終了。次回は要確認</p>
             <p>区内の民間賃貸住宅に住む18歳未満の子を扶養する世帯に家賃の一部を助成。募集120世帯、応募多数の場合は公開抽選。</p>
             <p><strong>主な条件</strong></p>

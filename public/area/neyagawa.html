@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">大阪府・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（寝屋川市）<b>3件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（大阪府）<b>4件</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>4件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 2</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">寝屋川市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="neyagawa-city-keiei-gijutsu-shien-hojo">
             <h3>寝屋川市中小企業経営・技術支援補助金</h3>
-            <p class="area-meta">寝屋川市 産業振興センター｜補助金｜経費の1/2（展示会出展 年度上限20万円、申請サポート 年度上限30万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">寝屋川市 産業振興センター｜補助金｜経費の1/2（展示会出展 年度上限20万円、申請サポート 年度上限30万円）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>展示会等への製品出展費用や、国・府の設備投資補助金申請を外部専門家に依頼する費用を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="neyagawa-city-shokibo-kigyo-yushi">
             <h3>寝屋川市小規模企業事業資金融資あっせん（市町村連携型）</h3>
-            <p class="area-meta">寝屋川市 産業振興センター｜融資｜融資限度額500万円、年1.4%固定、5年以内。信用保証料は市が全額補給と記載（最新条件は要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">寝屋川市 産業振興センター｜融資｜融資限度額500万円、年1.4%固定、5年以内。信用保証料は市が全額補給と記載（最新条件は要確認）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>大阪信用保証協会の保証付きで小規模企業者の借入をあっせんし、保証料を市が補給する制度融資。</p>
             <p><strong>主な条件</strong></p>
@@ -187,7 +205,7 @@
           </div>
           <div class="area-program" id="neyagawa-city-sogyo-shotengai-shutten">
             <h3>寝屋川市創業・商店街等出店応援事業補助金</h3>
-            <p class="area-meta">寝屋川市 産業振興センター｜補助金｜通常枠 経費の1/2・上限20万円（空き物件活用・移住・若者枠は上限50万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">寝屋川市 産業振興センター｜補助金｜通常枠 経費の1/2・上限20万円（空き物件活用・移住・若者枠は上限50万円）</p>
             <p class="area-meta">期間：令和7年度分は終了。令和8年度は要確認</p>
             <p>創業や商店街等への出店にかかる内外装工事、設備・備品購入、販路開拓費などを補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -212,7 +230,7 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>寝屋川市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="neyagawa-taishin-kaishu">
             <h3>寝屋川市 木造住宅耐震改修補助</h3>
             <p class="area-meta">大阪府寝屋川市｜補助金｜改修工事費と90万円のいずれか低い額(耐震設計は費用の10分の7、上限10万円)｜締切：2026-10-30</p>
@@ -224,27 +242,27 @@
           </div>
           <div class="area-program" id="neyagawa-taishin-shindan">
             <h3>寝屋川市 住宅・建築物耐震診断補助</h3>
-            <p class="area-meta">大阪府寝屋川市｜補助金｜要確認｜締切：2026-11-30</p>
+            <p class="area-meta">大阪府寝屋川市｜補助金｜金額は公式で確認｜締切：2026-11-30</p>
             <p class="area-meta">期間：2026-04-09〜2026-11-30</p>
             <p>住宅・建築物の耐震診断費用の一部を補助する制度。令和8年度は2026年4月9日から受付。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>対象建築物・所有者の要件は市の公式ページで要確認</li></ul>
             <p><a href="https://www.city.neyagawa.osaka.jp/organization_list/toshidesign/toshisanka/taishin/1377590052159.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="neyagawa-solar">
             <h3>寝屋川市 太陽光発電システム設置費補助金</h3>
-            <p class="area-meta">大阪府寝屋川市｜補助金｜受給最大電力1kWあたり3万円(上限12万円)(令和7年度実績)｜締切：公募要領で確認</p>
+            <p class="area-meta">大阪府寝屋川市｜補助金｜受給最大電力1kWあたり3万円(上限12万円)(令和7年度実績)</p>
             <p class="area-meta">期間：最新は要確認(令和7年度は2025-04-01〜2026-03-05)</p>
             <p>市内の自己居住住宅に太陽光発電システムを設置する場合の補助金。確認できたのは令和7年度分(受付は2026年3月5日で終了)。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>市内の自ら居住する住宅に未使用の太陽光発電システムを設置</li><li>申請者と電力受給契約者が同一であること</li></ul>
             <p><a href="https://www.city.neyagawa.osaka.jp/organization_list/kankyo/kankou_soumu/hojo/solar/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="neyagawa-akiya-jokyaku">
             <h3>寝屋川市 空き家除却補助金</h3>
-            <p class="area-meta">大阪府寝屋川市｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">大阪府寝屋川市｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>空き家の除却(解体)費用の一部を補助する制度。</p>
             <p><strong>主な条件</strong></p>

@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,14 +170,25 @@
       <p class="lead" style="margin-bottom: 0;">福岡県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（飯塚市）<b>3件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（福岡県）<b>4件（うち受付終了3件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>7件（うち受付終了1件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-7">移住 4</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">飯塚市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="iizuka-city-kaigai-tenkai-hojo">
             <h3>飯塚市海外展開支援事業費補助金</h3>
-            <p class="area-meta">飯塚市 国際政策課｜補助金｜補助率1/2以内、上限10万円（自社独自の活動の場合）｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">飯塚市 国際政策課｜補助金｜補助率1/2以内、上限10万円（自社独自の活動の場合）</p>
+            
             <p>市内中小企業者の海外展開に向けた取組を支援する補助金。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>飯塚市内に主たる事務所を置く中小企業者</li><li>海外展開に取り組むこと</li></ul>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="iizuka-city-shinki-sogyo-yushi">
             <h3>飯塚市新規創業支援資金融資制度</h3>
-            <p class="area-meta">飯塚市 商工観光課｜融資｜融資上限1,000万円、利率1.2%｜締切：公募要領で確認</p>
+            <p class="area-meta">飯塚市 商工観光課｜融資｜融資上限1,000万円、利率1.2%</p>
             <p class="area-meta">期間：通年（要確認）</p>
             <p>創業者および創業後5年未満の事業者向けの融資制度。申請窓口は指定金融機関。</p>
             <p><strong>主な条件</strong></p>
@@ -187,7 +205,7 @@
           </div>
           <div class="area-program" id="iizuka-city-sogyo-rishi-hokyu">
             <h3>飯塚市新規創業支援資金利子補給及び信用保証料補助</h3>
-            <p class="area-meta">飯塚市 商工観光課｜補助金｜利子の50%以内、信用保証料の100%以内｜締切：公募要領で確認</p>
+            <p class="area-meta">飯塚市 商工観光課｜補助金｜利子の50%以内、信用保証料の100%以内</p>
             <p class="area-meta">期間：要確認（支払後に申請、年度ごとに受付）</p>
             <p>新規創業支援資金を利用した事業者に、支払った利子と信用保証料の一部を補助する。利子等を支払った後に申請する。</p>
             <p><strong>主な条件</strong></p>
@@ -212,20 +230,20 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>飯塚市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="iizuka-seinou">
             <h3>飯塚市木造戸建て住宅性能向上改修補助金</h3>
-            <p class="area-meta">福岡県飯塚市｜補助金｜工事費の25%が基本(耐震・省エネ分に上限あり、詳細は要確認)｜締切：公募要領で確認</p>
+            <p class="area-meta">福岡県飯塚市｜補助金｜工事費の25%が基本(耐震・省エネ分に上限あり、詳細は要確認)</p>
             <p class="area-meta">期間：2026年4月13日受付開始(予算到達で終了)</p>
             <p>耐震と省エネを併せた改修、または建替え等に伴う除却工事を補助する。令和8年8月31日時点で予算135万円が未使用。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>市内の木造戸建て住宅の所有者</li></ul>
             <p><a href="https://www.city.iizuka.lg.jp/kenchiku3/machi/sumai/hojo/mokuzoukodateseinoukoujyou.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="iizuka-akiya-saisei">
             <h3>飯塚市空家再生促進支援補助金</h3>
-            <p class="area-meta">福岡県飯塚市｜補助金｜補助対象経費の1/2、上限30万円｜締切：公募要領で確認</p>
+            <p class="area-meta">福岡県飯塚市｜補助金｜補助対象経費の1/2、上限30万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>空き家を買取再販事業者に売却する際の登記や測量等の費用を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -241,19 +259,19 @@
             <ul><li>完了届を2027年2月26日までに提出できること</li></ul>
             <p><a href="https://city.iizuka.lg.jp/kenchiku2/burokkubei.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="iizuka-chuko-shutoku">
             <h3>飯塚市戸建て中古住宅取得補助金</h3>
-            <p class="area-meta">福岡県飯塚市｜補助金｜購入費の10%、上限30万円、子ども1人につき10万円加算｜締切：公募要領で確認</p>
+            <p class="area-meta">福岡県飯塚市｜補助金｜購入費の10%、上限30万円、子ども1人につき10万円加算</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>築10年を経過した戸建て中古住宅の取得費を補助する。</p>
             <p><strong>主な条件</strong></p>
-            <ul><li>築10年を経過した中古住宅の購入者</li><li>要確認</li></ul>
+            <ul><li>築10年を経過した中古住宅の購入者</li></ul>
             <p><a href="https://www.city.iizuka.lg.jp/jyukankyo/machi/sumai/hojo/chuukojuutakushutokuhojo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
           <div class="area-program" id="iizuka-iju-shienkin">
             <h3>飯塚市移住支援金</h3>
-            <p class="area-meta">福岡県飯塚市｜給付｜単身60万円、2人以上世帯100万円、18歳未満1人につき100万円加算｜締切：公募要領で確認</p>
+            <p class="area-meta">福岡県飯塚市｜給付｜単身60万円、2人以上世帯100万円、18歳未満1人につき100万円加算</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>福岡県外から移住し要件を満たす方への支援金(県・市共同事業)。</p>
             <p><strong>主な条件</strong></p>
@@ -271,7 +289,7 @@
           </div>
           <div class="area-program is-ended" id="iizuka-teiju-kaishu">
             <h3>飯塚市定住促進住宅改修補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">福岡県飯塚市｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">福岡県飯塚市｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：受付終了(令和7年度で終了)</p>
             <p>市内業者による住宅改修費の一部補助。令和7年度をもって終了。</p>
             <p><strong>主な条件</strong></p>

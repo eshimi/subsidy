@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">東京都・特別区。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（江戸川区）<b>6件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（東京都）<b>6件（うち受付終了1件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>9件（うち受付終了1件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 2</a><a href="#res-cat-2">EV・充電 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-5">バリアフリー・介護 1</a><a href="#res-cat-6">子育て 1</a><a href="#res-cat-7">移住 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">江戸川区の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="edogawa-sougyo-josei">
             <h3>創業促進助成事業</h3>
-            <p class="area-meta">江戸川区 産業経済部 経営支援課｜助成金｜助成率1/2以内、6か月ごとに30万円まで（※別の資料では上限120万円とあり、要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">江戸川区 産業経済部 経営支援課｜助成金｜助成率1/2以内、6か月ごとに30万円まで（※別の資料では上限120万円とあり、要確認）</p>
             <p class="area-meta">期間：令和8年度：募集期間 令和8年6月15日〜7月13日（終了。次回募集を要確認）</p>
             <p>区内で創業する方、または創業後間もない中小企業者の事業所の賃料の一部を助成します。</p>
             <p><strong>主な条件</strong></p>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="edogawa-sougyo-yushi">
             <h3>創業支援資金融資（区創業）</h3>
-            <p class="area-meta">江戸川区 産業経済部 経営支援課 融資係｜融資｜融資限度額2,000万円（創業予定の個人は必要資金の3分の2以内）／償還7年以内・利率年2.0%以内／利子補給1.5%以内／信用保証料全額補助｜締切：公募要領で確認</p>
+            <p class="area-meta">江戸川区 産業経済部 経営支援課 融資係｜融資｜融資限度額2,000万円（創業予定の個人は必要資金の3分の2以内）／償還7年以内・利率年2.0%以内／利子補給1.5%以内／信用保証料全額補助</p>
             <p class="area-meta">期間：通年または年2回（申請時期は要確認）。申込みから融資実行まで約3か月</p>
             <p>区と契約した金融機関が信用保証協会の保証を得て行う、創業者向けのあっせん融資です。区が利子と信用保証料の一部を補助します。</p>
             <p><strong>主な条件</strong></p>
@@ -188,7 +206,7 @@
           </div>
           <div class="area-program" id="edogawa-dx-donyu">
             <h3>デジタル技術活用促進助成事業（DX導入）</h3>
-            <p class="area-meta">江戸川区 産業経済部 経営支援課｜助成金｜上限200万円／助成率3分の2以内（要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">江戸川区 産業経済部 経営支援課｜助成金｜上限200万円／助成率3分の2以内（要確認）</p>
             <p class="area-meta">期間：令和8年度：第3回募集の申請書受付 令和8年10月中旬〜11月中旬（正確な日付は要確認）</p>
             <p>DXに資するデジタル技術の導入経費を助成します。</p>
             <p><strong>主な条件</strong></p>
@@ -198,7 +216,7 @@
           </div>
           <div class="area-program" id="edogawa-jinzai-kakuho">
             <h3>人材確保支援助成金</h3>
-            <p class="area-meta">江戸川区 産業経済部 経営支援課｜助成金｜上限20万円／助成率2分の1以内｜締切：公募要領で確認</p>
+            <p class="area-meta">江戸川区 産業経済部 経営支援課｜助成金｜上限20万円／助成率2分の1以内</p>
             <p class="area-meta">期間：随時（要確認）</p>
             <p>採用活動などにかかる経費の一部を助成します。</p>
             <p><strong>主な条件</strong></p>
@@ -208,7 +226,7 @@
           </div>
           <div class="area-program" id="edogawa-hanrokakudai">
             <h3>販路拡大支援事業助成金</h3>
-            <p class="area-meta">江戸川区 産業経済部 経営支援課｜助成金｜展示会出展：国内上限20万円、国外上限30万円（要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">江戸川区 産業経済部 経営支援課｜助成金｜展示会出展：国内上限20万円、国外上限30万円（要確認）</p>
             <p class="area-meta">期間：随時（要確認）</p>
             <p>ホームページ作成や展示会出展など、販路拡大に要する経費の一部を助成します。</p>
             <p><strong>主な条件</strong></p>
@@ -244,20 +262,20 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>江戸川区の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="edogawa-taishin-josei">
             <h3>住宅・建築物の耐震化助成制度</h3>
-            <p class="area-meta">江戸川区 建築指導課｜補助金｜要確認｜締切：2026-12-25</p>
+            <p class="area-meta">江戸川区 建築指導課｜補助金｜金額は公式で確認｜締切：2026-12-25</p>
             <p class="area-meta">期間：令和8年度：診断・設計・工事の申請期限は令和8年12月25日（予算到達で終了）</p>
             <p>旧耐震・新耐震（昭和56年6月〜平成12年5月の木造）住宅の耐震改修設計・工事費などを助成。無料の耐震コンサルタント派遣もあり。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>区の耐震コンサルタント派遣（簡易診断）の申込みが前提となる手続きあり</li></ul>
             <p><a href="https://www.city.edogawa.tokyo.jp/e021/kurashi/sumai/taishin/taishin_josei.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="edogawa-portable-battery">
             <h3>気候変動に備え、脱炭素を目指す補助金（ポータブル蓄電池購入費補助）</h3>
-            <p class="area-meta">江戸川区 都市計画部｜補助金｜一律1万円｜締切：公募要領で確認</p>
+            <p class="area-meta">江戸川区 都市計画部｜補助金｜一律1万円</p>
             <p class="area-meta">期間：令和8年4月6日から受付（終了日は要確認）</p>
             <p>太陽光パネルで充電できるなどの要件を満たすポータブル蓄電池の購入費を補助。</p>
             
@@ -265,27 +283,27 @@
           </div>
           <div class="area-program" id="edogawa-saiene100">
             <h3>再エネ電力切替補助金（再エネ100％導入補助）</h3>
-            <p class="area-meta">東京都江戸川区｜補助金｜一律2万円（太陽光・蓄電池・高効率給湯器導入で2万円上乗せ）｜締切：公募要領で確認</p>
+            <p class="area-meta">東京都江戸川区｜補助金｜一律2万円（太陽光・蓄電池・高効率給湯器導入で2万円上乗せ）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>再エネ100％電力への切替に補助。切替前後6か月で太陽光・定置型蓄電池等を導入すると上乗せ。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>区民</li><li>再エネ100％電力等へ切替</li></ul>
             <p><a href="https://www.city.edogawa.tokyo.jp/e086/toshikeikaku/kankyo/inochi/hojokin/saiene100.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">EV・充電</h3>
+          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
           <div class="area-program is-ended" id="edogawa-ev-purchase">
             <h3>気候変動に備え、脱炭素を目指す補助金（電気自動車等購入費補助） <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">東京都江戸川区｜補助金｜一律10万円｜締切：公募要領で確認</p>
+            <p class="area-meta">東京都江戸川区｜補助金｜一律10万円</p>
             <p class="area-meta">期間：令和8年度は電気自動車の受付終了（最新は要確認）</p>
             <p>未登録の電気自動車等を新車購入した場合に補助。令和8年度の電気自動車は7月26日に受付終了と掲載。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>令和7年4月1日以降に初度登録の新車</li><li>区民</li></ul>
             <p><a href="https://www.city.edogawa.tokyo.jp/e086/toshikeikaku/kankyo/inochi/hojokin/denkijidousha.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="edogawa-block-tekkyo">
             <h3>ブロック塀等撤去費助成</h3>
-            <p class="area-meta">江戸川区｜助成金｜個人：対象費用の3分の2と撤去延長×25,000円/mの低い方（法人は2分の1と19,000円/m）、上限1件200万円｜締切：公募要領で確認</p>
+            <p class="area-meta">江戸川区｜助成金｜個人：対象費用の3分の2と撤去延長×25,000円/mの低い方（法人は2分の1と19,000円/m）、上限1件200万円</p>
             <p class="area-meta">期間：確認できた年度は不明（最新は要確認）</p>
             <p>道路に面した高さ1.2m以上のブロック塀等を撤去する費用の一部を助成する。撤去後の生垣・フェンス設置費も対象。</p>
             <p><strong>主な条件</strong></p>
@@ -301,31 +319,31 @@
             <ul><li>除却助成の申請前に耐震コンサルタント派遣の申込みが必要</li></ul>
             <p><a href="https://www.city.edogawa.tokyo.jp/e021/kurashi/sumai/taishin/mokuzojose.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program" id="edogawa-sumai-kaizo-jukunen">
             <h3>住まいの改造助成（熟年者）</h3>
-            <p class="area-meta">江戸川区｜助成金｜助成割合：生活保護10割、自己負担1割の方9割、2割の方8割、3割の方7割。助成対象額の上限200万円（工事種別ごとに限度額あり）｜締切：公募要領で確認</p>
+            <p class="area-meta">江戸川区｜助成金｜助成割合：生活保護10割、自己負担1割の方9割、2割の方8割、3割の方7割。助成対象額の上限200万円（工事種別ごとに限度額あり）</p>
             <p class="area-meta">期間：令和8年4月1日から制度内容改正</p>
             <p>要介護・要支援認定を受けた区民の、便器洋式化・浴槽取替え・段差解消機設置などの住宅改造費を助成する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>区内に居住し要介護・要支援認定を受けている方</li><li>介護保険の住宅改修（限度額20万円）が優先</li><li>所有者の承諾が得られること</li></ul>
             <p><a href="https://www.city.edogawa.tokyo.jp/e040/kenko/fukushikaigo/jukunen/sumai/kaizojosei.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">子育て</h3>
+          <h3 class="area-cat" id="res-cat-6">子育て</h3>
           <div class="area-program" id="edogawa-hitorioya-yachin">
             <h3>ひとり親家庭民間賃貸住宅家賃等助成</h3>
-            <p class="area-meta">東京都江戸川区｜補助金｜要確認（転居後の家賃等の一部）｜締切：公募要領で確認</p>
+            <p class="area-meta">東京都江戸川区｜補助金｜要確認（転居後の家賃等の一部）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>老朽化による取り壊しで立ち退きを求められたひとり親世帯の転居後の家賃等を一部助成。所得制限あり。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>18歳未満の児童とのひとり親世帯</li><li>民間賃貸で家主から立ち退きを求められている</li><li>所得制限あり</li></ul>
             <p><a href="https://www.city.edogawa.tokyo.jp/e090/kosodate/kosodate/teateshien/shisaku/jutakuyachin.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="edogawa-yachin-josei-jukunen">
             <h3>民間賃貸住宅家賃等助成（熟年者）</h3>
-            <p class="area-meta">江戸川区｜助成金｜要確認｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">江戸川区｜助成金｜金額は公式で確認</p>
+            
             <p>熟年者向けの民間賃貸住宅の家賃等に関する助成制度（内容の詳細は公式ページで要確認）。</p>
             
             <p><a href="https://www.city.edogawa.tokyo.jp/e039/kenko/fukushikaigo/jukunen/sumai/yachinjosei.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>

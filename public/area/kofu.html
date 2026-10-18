@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,6 +170,17 @@
       <p class="lead" style="margin-bottom: 0;">山梨県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（甲府市）<b>4件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（山梨県）<b>5件（うち受付終了1件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>6件</b></a><span class="area-toc-cats"><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-2">EV・充電 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-6">子育て 1</a><a href="#res-cat-7">移住 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">甲府市の制度（事業・創業の方向け）</h2>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="kofu-city-jigyoshokei-hojo">
             <h3>甲府市中小企業者等事業承継補助金</h3>
-            <p class="area-meta">甲府市 商工課｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">甲府市 商工課｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>事業承継に必要な資産査定・企業価値の簡易算定などの費用を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -187,7 +205,7 @@
           </div>
           <div class="area-program" id="kofu-city-sogyo-shikin">
             <h3>甲府市創業支援資金（利子補給）</h3>
-            <p class="area-meta">甲府市 商工課｜融資｜運転資金1,000万円・設備資金1,500万円まで、市が1.0%分を利子補給｜締切：公募要領で確認</p>
+            <p class="area-meta">甲府市 商工課｜融資｜運転資金1,000万円・設備資金1,500万円まで、市が1.0%分を利子補給</p>
             <p class="area-meta">期間：通年（最新は要確認）</p>
             <p>創業者向け制度融資で、認定特定創業支援事業の証明を受けた人に利子補給を行う。</p>
             <p><strong>主な条件</strong></p>
@@ -196,7 +214,7 @@
           </div>
           <div class="area-program" id="kofu-city-tokubetsu-keiei-shikin">
             <h3>甲府市特別経営安定資金（令和8年7月拡充）</h3>
-            <p class="area-meta">甲府市 商工課｜融資｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">甲府市 商工課｜融資｜金額は公式で確認</p>
             <p class="area-meta">期間：通年（最新は要確認）</p>
             <p>経営安定のための市の制度融資で、令和8年7月1日から一部が拡充された。</p>
             <p><strong>主な条件</strong></p>
@@ -221,60 +239,60 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>甲府市の制度</strong></p>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="kofu-clean-energy-chikuden">
             <h3>甲府市クリーンエネルギー機器普及助成金（蓄電池）</h3>
-            <p class="area-meta">山梨県甲府市｜補助金｜既存太陽光に蓄電池接続5万円、太陽光と蓄電池同時設置10万円｜締切：公募要領で確認</p>
+            <p class="area-meta">山梨県甲府市｜補助金｜既存太陽光に蓄電池接続5万円、太陽光と蓄電池同時設置10万円</p>
             <p class="area-meta">期間：令和8年4月1日から予算に達するまで</p>
             <p>蓄電池（1kWh以上）の設置に対する助成。太陽光単体は対象外。令和8年4月1日受付開始、先着順。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>市内住宅に設置</li><li>設置完了から3か月以内に申請</li></ul>
             <p><a href="https://www.city.kofu.yamanashi.jp/kankyohozen/machi/kankyo/shisaku/20130328.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">EV・充電</h3>
+          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
           <div class="area-program" id="kofu-ev-v2h">
             <h3>甲府市電気自動車等普及助成金</h3>
-            <p class="area-meta">山梨県甲府市｜補助金｜電気自動車5万円/台、V2H充放電設備5万円/台（太陽光との組み合わせで合計額あり）｜締切：公募要領で確認</p>
+            <p class="area-meta">山梨県甲府市｜補助金｜電気自動車5万円/台、V2H充放電設備5万円/台（太陽光との組み合わせで合計額あり）</p>
             <p class="area-meta">期間：令和8年4月1日から予算に達するまで</p>
             <p>電気自動車の購入およびV2H充放電設備の設置を助成。車両・設備ごとに年度内1人1回。先着順。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>新車登録・設置完了の翌日から3か月以内に申請</li><li>V2Hは国補助の対象設備で市内住宅に設置</li></ul>
             <p><a href="https://www.city.kofu.yamanashi.jp/kankyohozen/ev.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program" id="kofu-kaiteki-jutaku">
             <h3>甲府市 やまなしKAITEKI住宅普及促進事業費補助金</h3>
-            <p class="area-meta">山梨県甲府市｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">山梨県甲府市｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：検索時点の申請期間は令和7年10月1日〜令和8年2月27日。令和8年度は最新は要確認</p>
             <p>県の認定制度「やまなしKAITEKI住宅」を取得する住宅への補助。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>やまなしKAITEKI住宅の認定を受けること</li><li>申請は住宅課窓口へ持参（郵送不可）</li></ul>
             <p><a href="https://www.city.kofu.yamanashi.jp/jutaku/kaiteki/kaitekijyutaku.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="kofu-block-taishin">
             <h3>甲府市ブロック塀等耐震対策補助</h3>
-            <p class="area-meta">山梨県甲府市｜補助金｜上限25万円（市資料に20万円の記載もあり要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">山梨県甲府市｜補助金｜上限25万円（市資料に20万円の記載もあり要確認）</p>
             <p class="area-meta">期間：予算の状況による（最新は要確認）</p>
             <p>避難路等に面した高さ1m超の倒壊の恐れのあるブロック塀の撤去・改修費を助成。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>避難路に面したブロック塀等の所有者</li><li>交付決定前に着手しないこと</li></ul>
             <p><a href="https://www.city.kofu.yamanashi.jp/kenchikushido/machi/kenchiku/shinsa/blockjosei.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">子育て</h3>
+          <h3 class="area-cat" id="res-cat-6">子育て</h3>
           <div class="area-program" id="kofu-kosodate-setai-jutaku-shutoku">
             <h3>甲府市 子育て世帯住宅取得支援事業補助金</h3>
-            <p class="area-meta">山梨県甲府市｜補助金｜新築取得30万円、既存住宅の取得・リフォーム60万円（夫婦ともに29歳以下は増額）｜締切：公募要領で確認</p>
+            <p class="area-meta">山梨県甲府市｜補助金｜新築取得30万円、既存住宅の取得・リフォーム60万円（夫婦ともに29歳以下は増額）</p>
             <p class="area-meta">期間：費用の支払いは令和8年4月1日〜令和9年3月31日（予算の都合で早期終了あり）</p>
             <p>新婚・子育て世帯の住宅取得や工事、引越しにかかる費用を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>市の定める婚姻・子育て世帯であること</li><li>夫婦ともに婚姻日の年齢が39歳以下の世帯など</li><li>令和8年4月1日以降の取得・工事が対象</li></ul>
             <p><a href="https://www.city.kofu.yamanashi.jp/ijuuteijuu/kosodatesetaizyuutakusyutoku.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="kofu-akiya-bank-josei">
             <h3>甲府市空き家バンク活用促進助成制度</h3>
-            <p class="area-meta">山梨県甲府市｜補助金｜要確認（子育て・新婚・移住世帯は買主の改修費上限が引き上げ）｜締切：公募要領で確認</p>
+            <p class="area-meta">山梨県甲府市｜補助金｜要確認（子育て・新婚・移住世帯は買主の改修費上限が引き上げ）</p>
             <p class="area-meta">期間：令和8年度（最新は要確認）</p>
             <p>空き家バンク登録物件の売主・買主への助成。令和8年度から建物の除却工事費も対象に追加。</p>
             <p><strong>主な条件</strong></p>

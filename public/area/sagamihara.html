@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">神奈川県・政令指定都市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（相模原市）<b>3件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（神奈川県）<b>5件（うち受付終了2件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>6件（うち受付終了2件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 2</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-6">子育て 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">相模原市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="sagamihara-seisansei-kojo">
             <h3>中小企業生産性向上支援補助金</h3>
-            <p class="area-meta">相模原市 産業振興関係課｜補助金｜補助率：補助対象経費の3分の2以内、上限1,000万円（要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">相模原市 産業振興関係課｜補助金｜補助率：補助対象経費の3分の2以内、上限1,000万円（要確認）</p>
             <p class="area-meta">期間：令和8年度の受付期間は要確認</p>
             <p>労働生産性の向上につながる設備投資を補助します。予算上限に達し次第終了です。</p>
             <p><strong>主な条件</strong></p>
@@ -187,7 +205,7 @@
           </div>
           <div class="area-program" id="sagamihara-chuso-yushi">
             <h3>相模原市 中小企業融資制度（令和8年度）</h3>
-            <p class="area-meta">相模原市 産業振興関係課｜融資｜要確認（限度額・利率は案内PDFで未確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">相模原市 産業振興関係課｜融資｜要確認（限度額・利率は案内PDFで未確認）</p>
             <p class="area-meta">期間：令和8年度（通年または要確認）</p>
             <p>市と金融機関、神奈川県信用保証協会が連携し、市内で事業を営む、または営む予定の中小企業者に低利の融資を行います。</p>
             <p><strong>主な条件</strong></p>
@@ -212,17 +230,17 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>相模原市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program is-ended" id="sagamihara-kodate-jishin-taisaku">
             <h3>戸建住宅の地震対策支援（耐震診断・耐震改修） <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">相模原市｜補助金｜耐震改修：工事費の1/2、上限115万円（高齢者世帯等は加算あり）｜締切：公募要領で確認</p>
+            <p class="area-meta">相模原市｜補助金｜耐震改修：工事費の1/2、上限115万円（高齢者世帯等は加算あり）</p>
             <p class="area-meta">期間：確認できた年度：令和7年度は募集終了。令和8年度の募集は要確認</p>
             <p>旧耐震の戸建住宅の耐震診断・耐震改修、耐震シェルター・防災ベッドの設置の補助。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>旧耐震基準の住宅</li></ul>
             <p><a href="https://www.city.sagamihara.kanagawa.jp/kurashi/1026529/bousai/1008801/1008815.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="sagamihara-shokihiyo-zero-solar">
             <h3>住宅用初期費用ゼロ太陽光発電設備等導入補助金</h3>
             <p class="area-meta">相模原市｜補助金｜蓄電池：補助対象経費の1/3（上限51万円）。太陽光分は要確認｜締切：2027-01-29</p>
@@ -233,14 +251,14 @@
           </div>
           <div class="area-program is-ended" id="sagamihara-smart-energy-shoreikin">
             <h3>住宅用スマートエネルギー設備等導入奨励金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">相模原市｜補助金｜太陽光単体コース8万円、自家消費コース（蓄電池又はV2H）各20万円、ZEHコース30万円｜締切：公募要領で確認</p>
+            <p class="area-meta">相模原市｜補助金｜太陽光単体コース8万円、自家消費コース（蓄電池又はV2H）各20万円、ZEHコース30万円</p>
             <p class="area-meta">期間：令和8年度第1期は受付終了。第2期の奨励対象期間：令和8年10月1日～令和9年2月26日（申請期間は要確認）</p>
             <p>住宅への太陽光発電設備・蓄電池・V2H・ZEH導入の奨励金。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>自家消費コースは太陽光との連系が必須</li></ul>
             <p><a href="https://www.city.sagamihara.kanagawa.jp/kurashi/1026489/kankyo/hojyo/1008083.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="sagamihara-akiya-jokyaku">
             <h3>相模原市危険な老朽空き家等除却費補助金</h3>
             <p class="area-meta">神奈川県相模原市｜補助金｜対象経費の1/2、標準除却費×床面積、上限50万円のうち最も低い額（非課税世帯は上限80万円）｜締切：2026-11-30</p>
@@ -259,7 +277,7 @@
             <ul><li>市内の道路等に沿う危険な高さ1m超の塀</li><li>市内業者が施工すること</li><li>交付決定後に契約・着手</li></ul>
             <p><a href="https://www.city.sagamihara.kanagawa.jp/kurashi/1026489/sumai/1026513/1007980.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">子育て</h3>
+          <h3 class="area-cat" id="res-cat-6">子育て</h3>
           <div class="area-program" id="sagamihara-kosodate-chuko-jutaku">
             <h3>相模原市子育て世帯等中古住宅購入・改修費補助事業</h3>
             <p class="area-meta">神奈川県相模原市｜補助金｜購入は基本50万円（加算含め最大100万円）、親世帯との同居改修は工事費の1/5（上限40万円、加算含め最大80万円）｜締切：2027-02-26</p>

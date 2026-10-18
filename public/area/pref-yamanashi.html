@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -170,7 +177,7 @@
       <div class="area-body">
           <div class="area-program" id="yamanashi-innovation-sogyo">
             <h3>やまなしイノベーション創出事業費補助金（経営計画等）</h3>
-            <p class="area-meta">山梨県 産業労働部｜補助金｜経営計画：上限50万円・補助率1/2／経営革新計画：上限100万円・補助率2/3｜締切：公募要領で確認</p>
+            <p class="area-meta">山梨県 産業労働部｜補助金｜経営計画：上限50万円・補助率1/2／経営革新計画：上限100万円・補助率2/3</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>小規模事業者の経営計画に基づく販路開拓等や経営革新計画に基づく取組を支援。</p>
             <p><strong>主な条件</strong></p>
@@ -179,7 +186,7 @@
           </div>
           <div class="area-program" id="yamanashi-kigyoka-yushi">
             <h3>山梨県 起業家支援融資（商工業振興資金）</h3>
-            <p class="area-meta">山梨県 産業労働部／山梨県信用保証協会｜融資｜設備・運転各3,500万円（一企業3,500万円）／年1.8%（女性・若者・シニア枠1.6%、移住者枠1.5%）｜締切：公募要領で確認</p>
+            <p class="area-meta">山梨県 産業労働部／山梨県信用保証協会｜融資｜設備・運転各3,500万円（一企業3,500万円）／年1.8%（女性・若者・シニア枠1.6%、移住者枠1.5%）</p>
             <p class="area-meta">期間：随時（条件改定の可能性あり・要確認）</p>
             <p>新規開業予定または開業5年未満の方向け県制度融資。県の保証料補助あり。</p>
             <p><strong>主な条件</strong></p>
@@ -188,7 +195,7 @@
           </div>
           <div class="area-program" id="yamanashi-shokei-yushi">
             <h3>山梨県 事業承継支援融資（商工業振興資金）</h3>
-            <p class="area-meta">山梨県 産業労働部／山梨県信用保証協会｜融資｜設備1億円・運転5,000万円／年1.7%（責任共有）｜締切：公募要領で確認</p>
+            <p class="area-meta">山梨県 産業労働部／山梨県信用保証協会｜融資｜設備1億円・運転5,000万円／年1.7%（責任共有）</p>
             <p class="area-meta">期間：随時（条件は要確認）</p>
             <p>事業承継に取り組む方向けの県制度融資。県が信用保証料の1/2を補助。</p>
             <p><strong>主な条件</strong></p>
@@ -197,7 +204,7 @@
           </div>
           <div class="area-program" id="yamanashi-shijo-kaitaku">
             <h3>山梨県賃上げ環境整備中小企業経営革新サポート事業（市場開拓支援補助金）</h3>
-            <p class="area-meta">山梨県 産業労働部｜補助金｜補助率2/3以内・上限150万円｜締切：公募要領で確認</p>
+            <p class="area-meta">山梨県 産業労働部｜補助金｜補助率2/3以内・上限150万円</p>
             <p class="area-meta">期間：令和8年4月1日から受付開始（予算に達し次第終了）。最新は要確認</p>
             <p>市場開拓に取り組む県内中小企業を支援。申請前に県担当者への事前相談が必要。</p>
             <p><strong>主な条件</strong></p>
@@ -242,17 +249,17 @@
     <section class="art-sec" aria-labelledby="pref-resident"><h2 id="pref-resident"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">個人の方向けの制度（住まい・暮らし）</h2>
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。市区町村の個人向けの制度（12件）は、下の「県内の市区町村のページ」から確認できます。</p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="yamanashi-taishin">
             <h3>木造住宅耐震改修等支援事業</h3>
-            <p class="area-meta">山梨県（市町村と協調）｜補助金｜補助率100%、上限1,437,500円（令和7年度の数字）｜締切：公募要領で確認</p>
+            <p class="area-meta">山梨県（市町村と協調）｜補助金｜補助率100%、上限1,437,500円（令和7年度の数字）</p>
             <p class="area-meta">期間：確認できた年度：令和7年度（最新は要確認）</p>
             <p>昭和56年5月以前に着工した木造住宅で、総合評点1.0未満のものの耐震改修や建替えを補助する。窓口は各市町村。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>昭和56年5月以前に着工した木造住宅</li><li>総合評点1.0未満</li></ul>
             <p><a href="https://www.pref.yamanashi.jp/kenchikujutaku/01256243493.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="yamanashi-saiene-setsubi-r8">
             <h3>令和8年 再エネ設備導入支援事業費補助金（個人住宅向け）</h3>
             <p class="area-meta">山梨県｜補助金｜太陽光は出力1kWあたり3万円（上限27万円）、蓄電池は1台25万円（定額）｜締切：2026-11-27</p>
@@ -262,20 +269,20 @@
             <ul><li>山梨県内に居住する個人（県税の滞納がないこと等）</li><li>交付決定後に契約し令和9年2月12日までに設置完了</li><li>リース・PPAは対象外</li></ul>
             <p><a href="https://www.pref.yamanashi.jp/chiiki-ene/hojyokin-saiene.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program" id="yamanashi-katei-shoene-r8">
             <h3>家庭用省エネ設備等導入支援事業費補助金（令和8年度）</h3>
-            <p class="area-meta">山梨県｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">山梨県｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：令和8年8月5日から申請受付開始（終了時期は要確認）</p>
             <p>原油価格高騰等による家計負担軽減と家庭部門の温室効果ガス削減のため、住宅への省エネ設備・再エネ活用設備の導入費の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>県内の住宅への設備導入（対象者・対象設備の詳細は要確認）</li></ul>
             <p><a href="https://www.pref.yamanashi.jp/release/kankyo-ene/0808/kateiyou_rekease.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="yamanashi-iju-shienkin">
             <h3>山梨県 移住支援金（東京圏からのUIJターン）</h3>
-            <p class="area-meta">山梨県｜給付｜単身60万円、世帯100万円程度（令和8年度の最新額は要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">山梨県｜給付｜単身60万円、世帯100万円程度（令和8年度の最新額は要確認）</p>
             <p class="area-meta">期間：令和8年度（昭和町・丹波山村を除く市町村で実施）</p>
             <p>東京23区在住者または通勤者が県内へ移住し、県の就業マッチングサイトの対象求人に就業する等の場合に、移住先市町村が支給する。申請は市町村が受け付ける。</p>
             <p><strong>主な条件</strong></p>

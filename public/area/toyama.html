@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">富山県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（富山市）<b>3件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（富山県）<b>4件（うち受付終了1件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>4件</b></a><span class="area-toc-cats"><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-2">EV・充電 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-5">バリアフリー・介護 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">富山市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="toyama-city-kigyoshien-yushi-assen">
             <h3>富山市 中小企業制度融資（第二創業支援資金・商店街空き店舗活用促進資金）</h3>
-            <p class="area-meta">富山市 商工労働部 商工労政課｜融資｜第二創業支援資金は上限5,000万円・10年以内、空き店舗資金は上限2,000万円・7年以内（令和8年10月1日から利率0.55%引上げ）｜締切：公募要領で確認</p>
+            <p class="area-meta">富山市 商工労働部 商工労政課｜融資｜第二創業支援資金は上限5,000万円・10年以内、空き店舗資金は上限2,000万円・7年以内（令和8年10月1日から利率0.55%引上げ）</p>
             <p class="area-meta">期間：随時（最新は要確認）</p>
             <p>市の制度融資。第二創業や商店街空き店舗活用向けの資金がある。事業承継では利子助成の補助制度もある。</p>
             <p><strong>主な条件</strong></p>
@@ -187,7 +205,7 @@
           </div>
           <div class="area-program" id="toyama-city-venture-shinshohin-joseikin">
             <h3>富山市ベンチャー企業等新商品市場創出促進助成金</h3>
-            <p class="area-meta">富山市 商工労働部 商工労政課｜助成金｜対象経費の50%以内、1回あたり上限30万円、最長2年間｜締切：公募要領で確認</p>
+            <p class="area-meta">富山市 商工労働部 商工労政課｜助成金｜対象経費の50%以内、1回あたり上限30万円、最長2年間</p>
             <p class="area-meta">期間：令和8年度（最新は要確認）</p>
             <p>新商品の国内見本市出品費用や広告宣伝費を助成。</p>
             <p><strong>主な条件</strong></p>
@@ -212,7 +230,7 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>富山市の制度</strong></p>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="toyama-city-solar-battery">
             <h3>富山市太陽光発電設備及び蓄電池導入促進補助金</h3>
             <p class="area-meta">富山市｜補助金｜蓄電池は補助対象経費の3分の1が基本。子育て・若年夫婦世帯は最大8万円上乗せ（市内事業者の場合）。太陽光の単価は要確認｜締切：2026-11-27</p>
@@ -222,30 +240,30 @@
             <ul><li>自己所有は太陽光と蓄電池の同時設置が要件</li><li>現地調査後・契約前に申請</li></ul>
             <p><a href="https://www.city.toyama.lg.jp/kurashi/gomi/1010252/1013030.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">EV・充電</h3>
+          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
           <div class="area-program" id="toyama-city-ev-juden-setchi">
             <h3>富山市 電気自動車等用充電設備設置費補助事業</h3>
-            <p class="area-meta">富山県富山市｜補助金｜上限75万円（購入費のみ、工事費は対象外）｜締切：公募要領で確認</p>
+            <p class="area-meta">富山県富山市｜補助金｜上限75万円（購入費のみ、工事費は対象外）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>電気自動車等用充電設備の設置費を補助する。燃料電池自動車の導入は50万円の補助。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>富山県の充電インフラ導入支援事業費補助金の交付決定を受けていること</li></ul>
             <p><a href="https://www.city.toyama.lg.jp/kurashi/gomi/1010252/1005140.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program" id="toyama-city-shoene-kiki">
             <h3>富山市 省エネルギー機器等導入補助事業</h3>
-            <p class="area-meta">富山県富山市｜補助金｜機器ごとに5万円（子育て・若者夫婦世帯は1件3万円上乗せ）。ZEHは上限20万円（同3万円上乗せ）｜締切：公募要領で確認</p>
+            <p class="area-meta">富山県富山市｜補助金｜機器ごとに5万円（子育て・若者夫婦世帯は1件3万円上乗せ）。ZEHは上限20万円（同3万円上乗せ）</p>
             <p class="area-meta">期間：令和8年度受付（先着順）。期限は要確認</p>
             <p>省エネ機器やZEH導入を補助する。令和8年度は先着順で、国・県補助との併用可。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>市内の住宅に導入すること</li><li>子育て世帯・若者夫婦世帯は上乗せあり</li></ul>
             <p><a href="https://www.city.toyama.lg.jp/kurashi/gomi/1010252/1005156.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program" id="toyama-city-netakiri-jutaku-seibi">
             <h3>富山市 ねたきり防止等住宅整備費の助成</h3>
-            <p class="area-meta">富山県富山市｜補助金｜工事費の2/3、限度50万円｜締切：公募要領で確認</p>
+            <p class="area-meta">富山県富山市｜補助金｜工事費の2/3、限度50万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>手すり設置や段差解消などの高齢者向け住宅改善費を助成する。</p>
             <p><strong>主な条件</strong></p>

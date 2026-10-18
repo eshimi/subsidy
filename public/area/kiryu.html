@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">群馬県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（桐生市）<b>3件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（群馬県）<b>5件</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>6件（うち受付終了2件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-7">移住 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">桐生市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="kiryu-city-akitenpo-shintenpo-sogyo-hojo">
             <h3>桐生市空き店舗活用型新店舗開設・創業促進事業補助金</h3>
-            <p class="area-meta">桐生市 産業経済部 商工振興課｜補助金｜改修工事費の1/2、上限100万円（中心市街地内）／50万円（中心市街地外）。市の空き店舗登録物件は10万円加算｜締切：公募要領で確認</p>
+            <p class="area-meta">桐生市 産業経済部 商工振興課｜補助金｜改修工事費の1/2、上限100万円（中心市街地内）／50万円（中心市街地外）。市の空き店舗登録物件は10万円加算</p>
             <p class="area-meta">期間：要確認（予算上限に達し次第終了の可能性）</p>
             <p>一定期間使われていない店舗等を改修して新店舗を開く方に、改修工事費の一部を補助する。令和8年度の受付状況は要確認。</p>
             <p><strong>主な条件</strong></p>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="kiryu-city-chushin-akitenpo-yushi">
             <h3>桐生市中心市街地空き店舗等活用支援資金融資制度</h3>
-            <p class="area-meta">桐生市 産業経済部 商工振興課｜融資｜必要経費の90%以内、1,000万円以内｜締切：公募要領で確認</p>
+            <p class="area-meta">桐生市 産業経済部 商工振興課｜融資｜必要経費の90%以内、1,000万円以内</p>
             <p class="area-meta">期間：通年（要確認）</p>
             <p>中心市街地の空き店舗等を活用して事業を行う方向けの制度融資。</p>
             <p><strong>主な条件</strong></p>
@@ -187,8 +205,8 @@
           </div>
           <div class="area-program" id="kiryu-city-tenjikai-shuppin-hojo">
             <h3>桐生市販路拡大支援事業（展示会出展補助金）</h3>
-            <p class="area-meta">桐生市 産業経済部 商工振興課｜補助金｜要確認｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">桐生市 産業経済部 商工振興課｜補助金｜金額は公式で確認</p>
+            
             <p>市内事業者の展示会出展を支援する販路拡大支援事業。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>桐生市内の事業者</li><li>展示会等に出展すること</li></ul>
@@ -212,27 +230,27 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>桐生市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="kiryu-taishin">
             <h3>桐生市木造住宅耐震改修補助</h3>
-            <p class="area-meta">群馬県桐生市｜補助金｜耐震補強工事の補助上限100万円｜締切：公募要領で確認</p>
+            <p class="area-meta">群馬県桐生市｜補助金｜耐震補強工事の補助上限100万円</p>
             <p class="area-meta">期間：令和8年度は4月23日から9月30日で終了</p>
             <p>木造住宅の耐震診断・耐震改修を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>旧耐震の木造住宅など(要確認)</li></ul>
             <p><a href="https://www.city.kiryu.lg.jp/kurashi/jutaku/1018099/1013481/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program is-ended" id="kiryu-chikudenchi">
             <h3>桐生市蓄電池設備設置補助(環境都市推進補助金) <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">群馬県桐生市｜補助金｜1kWhあたり1万円・上限5万円｜締切：公募要領で確認</p>
+            <p class="area-meta">群馬県桐生市｜補助金｜1kWhあたり1万円・上限5万円</p>
             <p class="area-meta">期間：令和8年度は7月8日に予算上限に達し受付終了</p>
             <p>住宅への蓄電池設置費を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>市内の住宅(詳細は要確認)</li></ul>
             <p><a href="https://www.city.kiryu.lg.jp/kurashi/kankyo/1014480/1018543/1018546.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program" id="kiryu-reform">
             <h3>きりゅう暮らし応援事業(住宅リフォーム助成)</h3>
             <p class="area-meta">群馬県桐生市｜補助金｜対象工事費の10%・上限20万円。省エネ・耐震・バリアフリー・防犯は加算10%(上限10万円)、合計最大30万円。子育て世帯は20%｜締切：2026-10-30</p>
@@ -242,10 +260,10 @@
             <ul><li>工事着手前の申請が必要</li></ul>
             <p><a href="https://www.city.kiryu.lg.jp/kurashi/jutaku/1018097/1011339/1001136.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="kiryu-akiya-jokyaku">
             <h3>きりゅう暮らし応援事業(空き家除却助成)</h3>
-            <p class="area-meta">群馬県桐生市｜補助金｜最大100万円(上限30万円・50万円の区分もあり)｜締切：公募要領で確認</p>
+            <p class="area-meta">群馬県桐生市｜補助金｜最大100万円(上限30万円・50万円の区分もあり)</p>
             <p class="area-meta">期間：上限100万円の区分は予算上限に達し終了。30万円・50万円区分は募集中との案内(最新は要確認)</p>
             <p>空き家の除却費を助成。</p>
             <p><strong>主な条件</strong></p>
@@ -254,17 +272,17 @@
           </div>
           <div class="area-program is-ended" id="kiryu-akiya-riyo">
             <h3>きりゅう暮らし応援事業(空き家利活用助成) <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">群馬県桐生市｜補助金｜一般上限70万円、市外からの移住者は工事費の2/3・上限100万円｜締切：公募要領で確認</p>
+            <p class="area-meta">群馬県桐生市｜補助金｜一般上限70万円、市外からの移住者は工事費の2/3・上限100万円</p>
             <p class="area-meta">期間：令和8年度は受付終了</p>
             <p>空き家の利活用に伴う改修費を助成。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>空き家の利活用(詳細は要確認)</li></ul>
             <p><a href="https://www.city.kiryu.lg.jp/kurashi/jutaku/1018097/1011339/1011204.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="kiryu-iju-jutaku">
             <h3>きりゅう暮らし応援事業(移住者住宅取得助成)</h3>
-            <p class="area-meta">群馬県桐生市｜補助金｜住宅取得金額の3%・上限30万円。各種加算で最大200万円｜締切：公募要領で確認</p>
+            <p class="area-meta">群馬県桐生市｜補助金｜住宅取得金額の3%・上限30万円。各種加算で最大200万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>移住者の住宅取得を助成する。</p>
             <p><strong>主な条件</strong></p>

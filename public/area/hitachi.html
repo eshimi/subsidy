@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">茨城県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（日立市）<b>4件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（茨城県）<b>6件</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>10件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-3">省エネ住宅 3</a><a href="#res-cat-4">空き家・ブロック塀 3</a><a href="#res-cat-7">移住 2</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">日立市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="hitachi-city-datsutanso-setsubi-hojo">
             <h3>日立市脱炭素設備導入促進事業補助金（令和8年度）</h3>
-            <p class="area-meta">日立市 産業経済部 商工振興課｜補助金｜補助率1/3以内、上限100万円｜締切：公募要領で確認</p>
+            <p class="area-meta">日立市 産業経済部 商工振興課｜補助金｜補助率1/3以内、上限100万円</p>
             <p class="area-meta">期間：令和8年度（詳細は公式ページ参照）</p>
             <p>省エネ診断等で助言を受けた設備の導入・更新や運用改善の経費を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -179,7 +197,7 @@
           </div>
           <div class="area-program" id="hitachi-city-jinteki-shihon-keiei-hojo">
             <h3>日立市中小企業人的資本経営支援事業補助金（令和8年度）</h3>
-            <p class="area-meta">日立市 産業経済部 商工振興課｜補助金｜上限30万円（補助率は要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">日立市 産業経済部 商工振興課｜補助金｜上限30万円（補助率は要確認）</p>
             <p class="area-meta">期間：令和8年度（詳細は公式ページ参照）</p>
             <p>人的資本経営に取り組む市内中小企業を支援する補助金。競争力強化・課題解決支援補助金とはいずれか1つのみ申請可。</p>
             <p><strong>主な条件</strong></p>
@@ -189,7 +207,7 @@
           </div>
           <div class="area-program" id="hitachi-city-kyosoryoku-kyoka-hojo">
             <h3>日立市中小企業競争力強化支援事業補助金（令和8年度）</h3>
-            <p class="area-meta">日立市 産業経済部 商工振興課｜補助金｜補助率1/3以内、上限80万円｜締切：公募要領で確認</p>
+            <p class="area-meta">日立市 産業経済部 商工振興課｜補助金｜補助率1/3以内、上限80万円</p>
             <p class="area-meta">期間：令和8年度（詳細は公式ページ参照）</p>
             <p>収益力向上のため競争力強化に取り組む中小企業を支援する。先端設備等の導入も対象。</p>
             <p><strong>主な条件</strong></p>
@@ -199,7 +217,7 @@
           </div>
           <div class="area-program" id="hitachi-city-tenpo-office-kaisetsu-shien">
             <h3>日立市店舗・オフィス開設支援事業</h3>
-            <p class="area-meta">日立市 産業経済部 商工振興課｜補助金｜開設時の限度額50万円、2年目20万円、3年目10万円（補助率は要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">日立市 産業経済部 商工振興課｜補助金｜開設時の限度額50万円、2年目20万円、3年目10万円（補助率は要確認）</p>
             <p class="area-meta">期間：令和8年度（要確認）</p>
             <p>市内で新規開店した店舗・オフィスの開設費用等を支援する。令和8年1月1日〜12月31日に新規開店したものが対象とされる。</p>
             <p><strong>主な条件</strong></p>
@@ -225,7 +243,7 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>日立市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="hitachi-taishin">
             <h3>木造住宅耐震化支援事業助成金</h3>
             <p class="area-meta">茨城県日立市｜助成金｜改修工事は助成率1/3（上限30万円）、耐震シェルターは4/5（上限50万円）｜締切：2026-11-30</p>
@@ -235,20 +253,20 @@
             <ul><li>昭和56年5月31日以前建築の木造戸建て</li><li>契約前に申請</li></ul>
             <p><a href="https://www.city.hitachi.lg.jp/machizukuri_kankyo/kenchiku/1016230.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="hitachi-battery">
             <h3>脱炭素化促進事業補助（蓄電システム）</h3>
-            <p class="area-meta">茨城県日立市｜補助金｜1基5万円（1世帯1基）｜締切：公募要領で確認</p>
+            <p class="area-meta">茨城県日立市｜補助金｜1基5万円（1世帯1基）</p>
             <p class="area-meta">期間：令和8年4月1日～予算上限まで（9月末時点の執行率58.49%）</p>
             <p>10kW未満の住宅用太陽光発電と連系する蓄電システムの設置を補助。先着順。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>住宅用太陽光発電と連系する蓄電システム</li><li>市税の滞納がないこと</li><li>ZEH補助金と併用不可</li></ul>
             <p><a href="https://www.city.hitachi.lg.jp/machizukuri_kankyo/kankyo/1011622/1014422/1019090.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program" id="hitachi-appliance">
             <h3>省エネ家電購入費補助</h3>
-            <p class="area-meta">茨城県日立市｜補助金｜1世帯上限3万円｜締切：公募要領で確認</p>
+            <p class="area-meta">茨城県日立市｜補助金｜1世帯上限3万円</p>
             <p class="area-meta">期間：令和8年4月1日～10月28日付の領収書が対象（申請期限は要確認）</p>
             <p>エアコンまたは冷蔵庫の買い替え費用を補助（令和8年度限り）。購入後に申請。</p>
             <p><strong>主な条件</strong></p>
@@ -266,17 +284,17 @@
           </div>
           <div class="area-program" id="hitachi-zeh">
             <h3>ZEH補助金</h3>
-            <p class="area-meta">茨城県日立市｜補助金｜10万円｜締切：公募要領で確認</p>
+            <p class="area-meta">茨城県日立市｜補助金｜10万円</p>
             <p class="area-meta">期間：令和8年度中の引渡しが対象（予算上限まで）</p>
             <p>ZEHの購入または改修に対する補助。引渡し前の申請が必要で先着順。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>引渡しが令和8年度中</li><li>引渡し前に申請</li></ul>
             <p><a href="https://www.city.hitachi.lg.jp/machizukuri_kankyo/kankyo/1011622/1014422/1019092.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="hitachi-akiya-kaitai">
             <h3>空き家解体補助金（利活用型）</h3>
-            <p class="area-meta">茨城県日立市｜補助金｜解体費の1/3（上限50万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">茨城県日立市｜補助金｜解体費の1/3（上限50万円）</p>
             <p class="area-meta">期間：令和8年度（予算に限りあり）</p>
             <p>跡地の利活用を条件とした空き家の解体費補助（令和8年度版）。</p>
             <p><strong>主な条件</strong></p>
@@ -285,11 +303,10 @@
           </div>
           <div class="area-program" id="hitachi-akiya-reform">
             <h3>空き家利活用リフォーム補助金</h3>
-            <p class="area-meta">茨城県日立市｜補助金｜上限50万円（補助率は要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">茨城県日立市｜補助金｜上限50万円（補助率は要確認）</p>
             <p class="area-meta">期間：令和8年度</p>
             <p>空き家のリフォーム費用の補助（令和8年度版）。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>要確認</li></ul>
+            
             <p><a href="https://www.city.hitachi.lg.jp/machizukuri_kankyo/hojokin_joseikin/1007381/1002705.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
           <div class="area-program" id="hitachi-block">
@@ -301,10 +318,10 @@
             <ul><li>避難路等に面した高さ60cm超のブロック塀</li><li>市の事前調査で倒壊の危険ありと判定</li></ul>
             <p><a href="https://www.city.hitachi.lg.jp/machizukuri_kankyo/kenchiku/1002181.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="hitachi-ijushienkin">
             <h3>移住支援金</h3>
-            <p class="area-meta">茨城県日立市｜給付｜単身60万円、2人以上世帯100万円（18歳未満の子1人につき加算あり）｜締切：公募要領で確認</p>
+            <p class="area-meta">茨城県日立市｜給付｜単身60万円、2人以上世帯100万円（18歳未満の子1人につき加算あり）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>東京23区在住または通勤していた人が日立市に移住した場合の支援金。</p>
             <p><strong>主な条件</strong></p>
@@ -313,7 +330,7 @@
           </div>
           <div class="area-program" id="hitachi-sumikae">
             <h3>住み替えチャレンジ支援事業</h3>
-            <p class="area-meta">茨城県日立市｜助成金｜20万円｜締切：公募要領で確認</p>
+            <p class="area-meta">茨城県日立市｜助成金｜20万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>子育て世帯や若年夫婦などが市内の中古住宅・マンションを取得した場合の助成。</p>
             <p><strong>主な条件</strong></p>

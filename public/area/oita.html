@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,6 +170,17 @@
       <p class="lead" style="margin-bottom: 0;">大分県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（大分市）<b>6件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（大分県）<b>4件</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>8件</b></a><span class="area-toc-cats"><a href="#res-cat-1">太陽光・蓄電池 2</a><a href="#res-cat-4">空き家・ブロック塀 3</a><a href="#res-cat-6">子育て 2</a><a href="#res-cat-7">移住 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">大分市の制度（事業・創業の方向け）</h2>
@@ -189,7 +207,7 @@
           </div>
           <div class="area-program" id="oita-city-jigyo-shokei">
             <h3>令和8年度大分市中小企業者経営力強化促進補助金（事業承継等支援事業）</h3>
-            <p class="area-meta">大分市 創業経営支援課｜補助金｜補助率2/3・上限50万円｜締切：公募要領で確認</p>
+            <p class="area-meta">大分市 創業経営支援課｜補助金｜補助率2/3・上限50万円</p>
             <p class="area-meta">期間：令和8年4月1日〜令和9年3月17日（予算額に達するまで。期日は要確認）</p>
             <p>事業承継に向けた取組の費用を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -199,7 +217,7 @@
           </div>
           <div class="area-program" id="oita-city-setsubi-toshi">
             <h3>令和8年度大分市中小企業者設備投資補助金</h3>
-            <p class="area-meta">大分市 創業経営支援課｜補助金｜補助率1/2。通常枠 上限150万円、脱炭素化促進枠 上限300万円｜締切：公募要領で確認</p>
+            <p class="area-meta">大分市 創業経営支援課｜補助金｜補助率1/2。通常枠 上限150万円、脱炭素化促進枠 上限300万円</p>
             <p class="area-meta">期間：令和8年5月1日から予算上限に達するまで</p>
             <p>生産事業の工程上必要な設備や省エネ設備の導入費用を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -209,7 +227,7 @@
           </div>
           <div class="area-program" id="oita-city-shokibo-kyosoryoku">
             <h3>大分市小規模事業者競争力強化支援事業補助金（令和8年度）</h3>
-            <p class="area-meta">大分市 商工労政課｜補助金｜DX推進枠 補助率2/3・上限40万円、一般枠 補助率1/2・上限30万円｜締切：公募要領で確認</p>
+            <p class="area-meta">大分市 商工労政課｜補助金｜DX推進枠 補助率2/3・上限40万円、一般枠 補助率1/2・上限30万円</p>
             <p class="area-meta">期間：令和8年度前期・後期に募集（後期は抽選実施済み。次回は要確認）</p>
             <p>小規模事業者のDX対応など販路開拓・業務効率化の取組費用を補助する。事前エントリーが必要。</p>
             <p><strong>主な条件</strong></p>
@@ -218,7 +236,7 @@
           </div>
           <div class="area-program" id="oita-city-sogyosha-ouen">
             <h3>大分市創業者応援事業補助金（令和8年度）</h3>
-            <p class="area-meta">大分市 創業経営支援課｜補助金｜補助率1/2以内（女性・若者・シニアは2/3以内）。上限額は要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">大分市 創業経営支援課｜補助金｜補助率1/2以内（女性・若者・シニアは2/3以内）。上限額は要確認</p>
             <p class="area-meta">期間：令和8年度募集（受付期間は要確認）</p>
             <p>創業時の初期費用を補助する。事業所賃借料（月額賃料）などが対象経費に含まれる。</p>
             <p><strong>主な条件</strong></p>
@@ -244,7 +262,7 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>大分市の制度</strong></p>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="oita-city-chikudenchi-v2h">
             <h3>大分市 住宅用再エネ・省エネ設備（定置用リチウムイオン蓄電池・V2H）設置補助</h3>
             <p class="area-meta">大分市｜補助金｜補助対象設備1件につき一律5万円｜締切：2027-03-31</p>
@@ -263,10 +281,10 @@
             <ul><li>国の補助対象機器であること</li><li>本庁舎へ持参して申請（郵送不可）</li></ul>
             <p><a href="https://www.city.oita.oita.jp/o258/machizukuri/kankyo/r4saienesyouenehojyokin.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="oita-city-akiya-riyo">
             <h3>大分市空き家等利活用事業（転用促進・移住者購入補助）</h3>
-            <p class="area-meta">大分市｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">大分市｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：令和8年度（要確認）</p>
             <p>空き家の改修や購入に対して補助する。転用促進事業と移住者購入補助事業は受付中、流通促進事業と家財整理促進事業は予算上限に達し停止中。</p>
             
@@ -283,17 +301,17 @@
           </div>
           <div class="area-program" id="oita-shi-roukyu-akiya-jokyaku">
             <h3>老朽・準老朽危険空き家等除却補助</h3>
-            <p class="area-meta">大分県大分市｜補助金｜1敷地につき上限100万円（補助率は要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">大分県大分市｜補助金｜1敷地につき上限100万円（補助率は要確認）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>老朽危険空き家等の所有者等が除却を行う場合の補助。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>老朽または準老朽の危険空き家等</li><li>所有者等</li></ul>
             <p><a href="https://www.city.oita.oita.jp/o168/kurashi/sumaijoho/roukyukikenakiya_hojo_r1.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">子育て</h3>
+          <h3 class="area-cat" id="res-cat-6">子育て</h3>
           <div class="area-program" id="oita-shi-kosodate-chuko-jutaku">
             <h3>中古住宅で始める子育て新生活応援事業</h3>
-            <p class="area-meta">大分県大分市｜補助金｜購入費の上限30万円（近居・同居は15万円加算）｜締切：公募要領で確認</p>
+            <p class="area-meta">大分県大分市｜補助金｜購入費の上限30万円（近居・同居は15万円加算）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>18歳未満の子がいる世帯が、住み替え情報バンク登録の中古住宅を購入して転居する場合に補助。</p>
             <p><strong>主な条件</strong></p>
@@ -302,17 +320,17 @@
           </div>
           <div class="area-program" id="oita-shi-kosodate-koreisha-reform">
             <h3>大分市子育て・高齢者世帯リフォーム支援事業</h3>
-            <p class="area-meta">大分県大分市｜補助金｜経費の2/10（1戸あたり上限50万円、多子世帯加算型は70万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">大分県大分市｜補助金｜経費の2/10（1戸あたり上限50万円、多子世帯加算型は70万円）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>子育てのための改修工事等に対する補助。世帯所得要件あり。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>子育て世帯など</li><li>世帯員全員の前年所得総額が600万円未満など</li></ul>
             <p><a href="https://www.city.oita.oita.jp/o168/kurashi/sumaijoho/1461824914560.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="oita-shi-akiya-riyo-iju">
             <h3>大分市空き家等利活用事業（移住者購入補助ほか）</h3>
-            <p class="area-meta">大分県大分市｜補助金｜移住者購入補助：子どもがいる世帯は上限75万円（基本額は要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">大分県大分市｜補助金｜移住者購入補助：子どもがいる世帯は上限75万円（基本額は要確認）</p>
             <p class="area-meta">期間：2026年6月募集開始（予算に達し次第終了）</p>
             <p>空き家の転用・移住者の購入等を補助する。流通促進・家財整理促進は予算上限で受付停止、転用促進・移住者購入補助は受付中。</p>
             <p><strong>主な条件</strong></p>

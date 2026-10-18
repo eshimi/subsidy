@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">北海道・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（旭川市）<b>5件（うち受付終了1件）</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（北海道）<b>5件（うち受付終了2件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>6件（うち受付終了1件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-5">バリアフリー・介護 1</a><a href="#res-cat-6">子育て 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">旭川市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="asahikawa-city-chushin-shuten">
             <h3>旭川市中心市街地出店促進補助金</h3>
-            <p class="area-meta">旭川市 産業振興課｜補助金｜家賃の一部（詳細は要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">旭川市 産業振興課｜補助金｜家賃の一部（詳細は要確認）</p>
             <p class="area-meta">期間：最新は要確認（令和8年度の要件は要確認）</p>
             <p>中心市街地の空き店舗を賃借して出店する人に家賃の一部を補助。</p>
             <p><strong>主な条件</strong></p>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="asahikawa-city-monozukuri">
             <h3>旭川ものづくり支援補助金</h3>
-            <p class="area-meta">旭川市 産業振興課｜補助金｜補助率1/2以内（販路拡大連携枠は上限100万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">旭川市 産業振興課｜補助金｜補助率1/2以内（販路拡大連携枠は上限100万円）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>展示会出展、ホームページ・カタログ制作などの販路開拓費を補助。</p>
             <p><strong>主な条件</strong></p>
@@ -187,7 +205,7 @@
           </div>
           <div class="area-program" id="asahikawa-city-shinki-kaigyo-riko">
             <h3>旭川市新規開業支援利子補給制度</h3>
-            <p class="area-meta">旭川市 産業振興課｜融資｜支払済み利子の2/3相当額（融資後1年間、原則）｜締切：公募要領で確認</p>
+            <p class="area-meta">旭川市 産業振興課｜融資｜支払済み利子の2/3相当額（融資後1年間、原則）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>日本政策金融公庫の新規開業者向け融資を利用した人に利子を補給。</p>
             <p><strong>主な条件</strong></p>
@@ -196,7 +214,7 @@
           </div>
           <div class="area-program" id="asahikawa-city-shinki-sogyo-shikin-hojo">
             <h3>旭川市中小企業振興資金（新規創業支援資金）の保証料・利子補給</h3>
-            <p class="area-meta">旭川市 産業振興課｜融資｜保証料の50%相当額（上限100万円）、利子は支払済み利子の全額（融資後2年間）｜締切：公募要領で確認</p>
+            <p class="area-meta">旭川市 産業振興課｜融資｜保証料の50%相当額（上限100万円）、利子は支払済み利子の全額（融資後2年間）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>市の中小企業振興資金（新規創業支援資金）利用者に保証料補助と利子補給。</p>
             <p><strong>主な条件</strong></p>
@@ -232,27 +250,27 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>旭川市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="asahikawa-musho-taishin-shindan">
             <h3>旭川市 木造住宅無料耐震診断</h3>
-            <p class="area-meta">北海道旭川市｜助成金｜無料（市職員による診断）｜締切：公募要領で確認</p>
+            <p class="area-meta">北海道旭川市｜助成金｜無料（市職員による診断）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>市内の一戸建て木造住宅について市職員が無料で耐震診断を行う。耐震改修補助の有無は令和8年度分は確認できず、建築指導課への確認が必要。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>旭川市内の一戸建て木造住宅</li></ul>
             <p><a href="https://www.city.asahikawa.hokkaido.jp/500/522/53901/5439010/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="asahikawa-energy-setsubi">
             <h3>旭川市地域エネルギー設備等導入促進事業補助金</h3>
-            <p class="area-meta">北海道旭川市｜補助金｜対象経費の1/10（上限10万円）※令和7年度版の記載。令和8年度は要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">北海道旭川市｜補助金｜対象経費の1/10（上限10万円）※令和7年度版の記載。令和8年度は要確認</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>市内住宅への太陽光発電設備・定置用リチウムイオン蓄電池の設置費用の一部を補助する。令和8年度の額・期間は確認できていない。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>旭川市の住民または市内に居住予定の方</li><li>交付決定前に工事着手していないこと</li><li>国費補助等との併用不可</li></ul>
             <p><a href="https://www.city.asahikawa.hokkaido.jp/kurashi/271/290/291/p005154.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program is-ended" id="asahikawa-jutaku-kaishu">
             <h3>旭川市住宅改修補助金 <span class="area-ended-tag">受付終了</span></h3>
             <p class="area-meta">北海道旭川市｜補助金｜要確認（募集予算総額1,750万円、超過時は抽選）｜締切：2026-06-19</p>
@@ -262,7 +280,7 @@
             <ul><li>市内の既存住宅（新築後15年以上）の所有者等</li><li>省エネ改修・維持改修が対象</li><li>詳細要件は要確認</li></ul>
             <p><a href="https://www.city.asahikawa.hokkaido.jp/kurashi/401/ho01/ho001/d053154.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="asahikawa-furyo-akiya-jokyaku">
             <h3>令和8年度旭川市不良空き家住宅等除却費補助金</h3>
             <p class="area-meta">北海道旭川市｜補助金｜除却工事費の1/3以内（上限30万円）｜締切：2026-11-27</p>
@@ -272,20 +290,20 @@
             <ul><li>不良空き家住宅等の所有者等</li><li>市税の滞納がないこと</li><li>全部を除却し更地にする工事</li></ul>
             <p><a href="https://www.city.asahikawa.hokkaido.jp/kurashi/401/ju01/ju002/d053128.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program" id="asahikawa-shougaisha-jutaku">
             <h3>旭川市 障害者住宅改修助成（手すり・バリアフリー等）</h3>
-            <p class="area-meta">北海道旭川市｜助成金｜上限20万円（助成率は要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">北海道旭川市｜助成金｜上限20万円（助成率は要確認）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>在宅の身体障害者の住宅改修（手すり設置、段差解消等）費用を助成する。着工前の申請が必要。情報が古い可能性あり。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>下肢または体幹機能障害3級以上など</li><li>在宅で生活していること</li><li>工事着手前に申請</li></ul>
             <p><a href="https://www.city.asahikawa.hokkaido.jp/1000/1001/1023/1025/p003226.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">子育て</h3>
+          <h3 class="area-cat" id="res-cat-6">子育て</h3>
           <div class="area-program" id="asahikawa-kodomo-iryohi">
             <h3>旭川市 子ども医療費助成</h3>
-            <p class="area-meta">北海道旭川市｜助成金｜公的医療保険適用の自己負担額を全額助成｜締切：公募要領で確認</p>
+            <p class="area-meta">北海道旭川市｜助成金｜公的医療保険適用の自己負担額を全額助成</p>
             <p class="area-meta">期間：通年（最新は要確認）</p>
             <p>高校生年代（18歳到達後最初の3月31日）までの子どもの医療費自己負担を助成する。</p>
             <p><strong>主な条件</strong></p>

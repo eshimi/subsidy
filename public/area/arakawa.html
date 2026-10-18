@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">東京都・特別区。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（荒川区）<b>3件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（東京都）<b>6件（うち受付終了1件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>13件</b></a><span class="area-toc-cats"><a href="#res-cat-1">太陽光・蓄電池 2</a><a href="#res-cat-3">省エネ住宅 2</a><a href="#res-cat-4">空き家・ブロック塀 3</a><a href="#res-cat-5">バリアフリー・介護 3</a><a href="#res-cat-6">子育て 2</a><a href="#res-cat-7">移住 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">荒川区の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="arakawa-seisan-kachi-kojo">
             <h3>製造業等企業価値向上支援事業補助金</h3>
-            <p class="area-meta">荒川区 産業観光部 産業振興課｜補助金｜補助率2分の1、上限100万円。賃上げ要件を満たす場合は補助率3分の2、上限200万円（要綱で要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">荒川区 産業観光部 産業振興課｜補助金｜補助率2分の1、上限100万円。賃上げ要件を満たす場合は補助率3分の2、上限200万円（要綱で要確認）</p>
             <p class="area-meta">期間：令和8年度（受付期間は要確認）</p>
             <p>生産性・DX・BCP・職場安全などに資する設備投資費用の一部を補助します。</p>
             <p><strong>主な条件</strong></p>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="arakawa-shinseihin-shingijutsu">
             <h3>新製品・新技術開発補助</h3>
-            <p class="area-meta">荒川区 産業観光部 産業振興課｜補助金｜補助率2分の1、上限200万円（要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">荒川区 産業観光部 産業振興課｜補助金｜補助率2分の1、上限200万円（要確認）</p>
             <p class="area-meta">期間：申請受付は4月1日から9月30日（年度は要確認）</p>
             <p>区内中小企業が行う新製品・新技術の開発に要する経費の一部を補助します。</p>
             <p><strong>主な条件</strong></p>
@@ -187,7 +205,7 @@
           </div>
           <div class="area-program" id="arakawa-sogyo-yushi">
             <h3>荒川区中小企業融資制度（創業支援融資）</h3>
-            <p class="area-meta">荒川区 産業観光部 産業振興課｜融資｜融資限度額・信用保証料補助の内容は要確認（区が利子の一部と信用保証料を補助）｜締切：公募要領で確認</p>
+            <p class="area-meta">荒川区 産業観光部 産業振興課｜融資｜融資限度額・信用保証料補助の内容は要確認（区が利子の一部と信用保証料を補助）</p>
             <p class="area-meta">期間：令和8年度（受付期間は要確認）</p>
             <p>区が取扱金融機関へ融資をあっせんし、創業者の事業資金を低利で調達できるようにする制度です。</p>
             <p><strong>主な条件</strong></p>
@@ -212,7 +230,7 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>荒川区の制度</strong></p>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="arakawa-eco-battery">
             <h3>令和8年度荒川区エコ助成事業（蓄電システム・V2H）</h3>
             <p class="area-meta">荒川区 環境部｜補助金｜蓄電容量1kWhあたり5千円。上限は区内業者15万円、区外業者10万円｜締切：2027-02-26</p>
@@ -231,10 +249,10 @@
             <ul><li>自分が住民票を置いて居住する住宅</li><li>令和7年度に補助を受けた同一機器は対象外</li><li>設置完了から1年以内に申請</li></ul>
             <p><a href="https://www.city.arakawa.tokyo.jp/a024/kankyou/ekojyosei.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program" id="arakawa-eco-insulation">
             <h3>令和8年度荒川区エコ助成事業（断熱材の設置・ZEH等）</h3>
-            <p class="area-meta">荒川区 環境部｜補助金｜断熱材は上限20万円（区内業者）・15万円（区外業者）。ZEH、東京ゼロエミ住宅、LCCM住宅は一律25万円｜締切：公募要領で確認</p>
+            <p class="area-meta">荒川区 環境部｜補助金｜断熱材は上限20万円（区内業者）・15万円（区外業者）。ZEH、東京ゼロエミ住宅、LCCM住宅は一律25万円</p>
             <p class="area-meta">期間：令和8年度</p>
             <p>既存住宅への断熱材設置や、ZEH等の住宅に対する助成。</p>
             <p><strong>主な条件</strong></p>
@@ -243,18 +261,18 @@
           </div>
           <div class="area-program" id="arakawa-eco-window">
             <h3>令和8年度荒川区エコ助成事業（高断熱窓・高断熱ドア）</h3>
-            <p class="area-meta">荒川区 環境部｜補助金｜本体費用の2分の1。上限は区内業者15万円、区外業者10万円（個人）｜締切：公募要領で確認</p>
+            <p class="area-meta">荒川区 環境部｜補助金｜本体費用の2分の1。上限は区内業者15万円、区外業者10万円（個人）</p>
             <p class="area-meta">期間：令和8年度</p>
             <p>既存住宅の改修で高断熱窓・高断熱ドアを設置する本体費用を助成。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>改修のみ対象</li><li>施工・支払完了後に申請</li></ul>
             <p><a href="https://www.city.arakawa.tokyo.jp/a024/kankyou/ekojyosei.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="arakawa-akiya-rikatsu">
             <h3>空家利活用事業補助金</h3>
-            <p class="area-meta">東京都荒川区｜補助金｜消費税を除く補助対象経費の3分の2、上限200万円｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">東京都荒川区｜補助金｜消費税を除く補助対象経費の3分の2、上限200万円</p>
+            
             <p>地域に貢献する事業を行うために空き家を改修する費用を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>1年以上空き家であること</li><li>事業を10年以上継続する意思があること</li></ul>
@@ -262,7 +280,7 @@
           </div>
           <div class="area-program" id="arakawa-block-hei-tekkyo">
             <h3>ブロック塀等撤去助成事業</h3>
-            <p class="area-meta">東京都荒川区｜助成金｜撤去工事費用の3分の2、1メートルあたり16,000円が上限｜締切：公募要領で確認</p>
+            <p class="area-meta">東京都荒川区｜助成金｜撤去工事費用の3分の2、1メートルあたり16,000円が上限</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>道路等・公園等に面する危険なブロック塀等の撤去費用を助成する。</p>
             <p><strong>主な条件</strong></p>
@@ -271,26 +289,26 @@
           </div>
           <div class="area-program" id="arakawa-furuakiya-kaitai">
             <h3>古い空家の解体費助成</h3>
-            <p class="area-meta">東京都荒川区｜助成金｜消費税相当額を除く解体費用の3分の2、1件につき上限100万円｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">東京都荒川区｜助成金｜消費税相当額を除く解体費用の3分の2、1件につき上限100万円</p>
+            
             <p>倒壊等のおそれがあると区が判定した古い空き家の解体費用の一部を助成する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>昭和56年5月31日以前に建てられた空き家</li><li>区が倒壊等のおそれがあると判定したもの</li><li>個人または中小企業の所有者（宅地建物取引業者を除く）</li></ul>
             <p><a href="https://www.city.arakawa.tokyo.jp/a041/seikatsu/sumai/rokyuakiya_jyosei.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program" id="arakawa-jutaku-kaishu">
             <h3>荒川区 住宅改修給付（転倒防止給付など）</h3>
-            <p class="area-meta">荒川区｜給付｜要確認｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">荒川区｜給付｜金額は公式で確認</p>
+            
             <p>高齢者等の住宅改修に対する給付（転倒防止給付などの区分あり。詳細は要確認）。</p>
             
             <p><a href="https://www.city.arakawa.tokyo.jp/documents/883/jyutaku7.pdf" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
           <div class="area-program" id="arakawa-koreisha-jutaku-kaishu">
             <h3>高齢者住宅改修給付事業</h3>
-            <p class="area-meta">東京都荒川区｜給付｜住宅改修予防給付は1住宅20万円、転倒防止用手すり設置は6万円、浴槽取替37.9万円など種目ごとに限度額あり（自己負担1〜3割）｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">東京都荒川区｜給付｜住宅改修予防給付は1住宅20万円、転倒防止用手すり設置は6万円、浴槽取替37.9万円など種目ごとに限度額あり（自己負担1〜3割）</p>
+            
             <p>身体機能の低下がある高齢者の、介護保険の対象外となる住宅設備の改修や手すり設置などの費用を給付する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>65歳以上で身体機能の低下により日常生活に支障がある方（転倒防止給付のみ70歳以上）</li><li>事前申請が必要</li><li>新築・大規模な増改築・老朽化による改修は対象外</li></ul>
@@ -298,14 +316,14 @@
           </div>
           <div class="area-program" id="arakawa-safetynet-barrierfree">
             <h3>セーフティネット住宅に関する補助制度（専用住宅の改修費補助）</h3>
-            <p class="area-meta">東京都荒川区｜補助金｜工事費の3分の2、上限250万円/戸｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">東京都荒川区｜補助金｜工事費の3分の2、上限250万円/戸</p>
+            
             <p>セーフティネット専用住宅のバリアフリー改修などを行う所有者等に、工事費の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>専用住宅の改修を実施する所有者等</li></ul>
             <p><a href="https://www.city.arakawa.tokyo.jp/a041/safetynet.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">子育て</h3>
+          <h3 class="area-cat" id="res-cat-6">子育て</h3>
           <div class="area-program" id="arakawa-babysitter-riyo-shien">
             <h3>ベビーシッター利用支援事業（一時預かり利用支援）補助金</h3>
             <p class="area-meta">東京都荒川区｜補助金｜1時間あたり上限 日中2,500円・夜間3,500円。年度の利用上限は一般144時間、障害児・ひとり親・多胎児は288時間｜締切：2027-04-16</p>
@@ -317,18 +335,18 @@
           </div>
           <div class="area-program" id="arakawa-shiritsu-yochien-hojo">
             <h3>私立幼稚園等の園児保護者に対する補助金</h3>
-            <p class="area-meta">東京都荒川区｜補助金｜入園料は年額70,000円を上限。保育料・給食費は所得割額や子の順番により上限が異なる｜締切：公募要領で確認</p>
+            <p class="area-meta">東京都荒川区｜補助金｜入園料は年額70,000円を上限。保育料・給食費は所得割額や子の順番により上限が異なる</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>私立幼稚園等に通う園児の保護者に、入園料・保育料・給食費の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>区内在住で私立幼稚園等に通う園児の保護者</li></ul>
             <p><a href="https://www.city.arakawa.tokyo.jp/a035/kosodate/hoikuen/hojo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="arakawa-funenka-sumikae">
             <h3>不燃化特区住み替え助成事業</h3>
-            <p class="area-meta">東京都荒川区｜助成金｜要確認｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">東京都荒川区｜助成金｜金額は公式で確認</p>
+            
             <p>不燃化特区内で老朽化した住宅を解体し、区内の民間賃貸住宅に住み替える世帯の、住み替えに要する一時的費用等の一部を助成する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>不燃化特区内に居住する世帯</li><li>老朽化した住宅の解体に伴い荒川区内の民間賃貸住宅へ住み替えること</li></ul>

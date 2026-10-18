@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,6 +170,17 @@
       <p class="lead" style="margin-bottom: 0;">沖縄県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（宜野湾市）<b>1件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（沖縄県）<b>4件（うち受付終了2件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>3件（うち受付終了1件）</b></a><span class="area-toc-cats"><a href="#res-cat-5">バリアフリー・介護 2</a><a href="#res-cat-6">子育て 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">宜野湾市の制度（事業・創業の方向け）</h2>
@@ -194,10 +212,10 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>宜野湾市の制度</strong></p>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program" id="ginowan-reform">
             <h3>住宅リフォーム支援事業（令和8年度）</h3>
-            <p class="area-meta">沖縄県宜野湾市｜補助金｜対象工事費の20%（上限20万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">沖縄県宜野湾市｜補助金｜対象工事費の20%（上限20万円）</p>
             <p class="area-meta">期間：事前申込7/1〜24、交付申請8/3〜31。追加で8件程度を先着受付との記載あり（残枠は要確認）</p>
             <p>バリアフリー・断熱工事など既存住宅のリフォームを市内施工業者で行う場合に補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -206,14 +224,14 @@
           </div>
           <div class="area-program" id="ginowan-tentou">
             <h3>転倒予防のための住宅改修費助成</h3>
-            <p class="area-meta">沖縄県宜野湾市｜助成金｜上限75,000円（令和7年度に5万円から引上げ）｜締切：公募要領で確認</p>
+            <p class="area-meta">沖縄県宜野湾市｜助成金｜上限75,000円（令和7年度に5万円から引上げ）</p>
             <p class="area-meta">期間：令和8年度の上限・期間は最新は要確認</p>
             <p>手すり設置や段差緩和など転倒予防の住宅改修費を、市から業者へ直接支払う形で助成する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>65歳以上で市内在住</li><li>基本チェックリストで事業対象者と承認された方</li><li>介護保険の認定申請をしていないこと</li></ul>
             <p><a href="https://www.city.ginowan.lg.jp/soshiki/kenko/1/kaigoyobou/17730.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">子育て</h3>
+          <h3 class="area-cat" id="res-cat-6">子育て</h3>
           <div class="area-program is-ended" id="ginowan-kosodate-teate">
             <h3>物価高対応子育て応援手当 <span class="area-ended-tag">受付終了</span></h3>
             <p class="area-meta">沖縄県宜野湾市｜給付｜児童1人あたり2万円｜締切：2026-06-30</p>

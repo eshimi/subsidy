@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">千葉県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（柏市）<b>4件（うち受付終了1件）</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（千葉県）<b>5件（うち受付終了3件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>6件（うち受付終了2件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 2</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-5">バリアフリー・介護 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">柏市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="kashiwa-city-chusho-shikin-yushi">
             <h3>柏市中小企業資金融資制度(利子補給)</h3>
-            <p class="area-meta">柏市 産業政策課｜融資｜挑戦資金: 運転1,000万円・設備2,000万円まで、創業支援資金: 上限3,500万円。利子補給は5年以内｜締切：公募要領で確認</p>
+            <p class="area-meta">柏市 産業政策課｜融資｜挑戦資金: 運転1,000万円・設備2,000万円まで、創業支援資金: 上限3,500万円。利子補給は5年以内</p>
             <p class="area-meta">期間：通年(最新は要確認)</p>
             <p>千葉県信用保証協会と市内金融機関が連携する制度融資で、支払利息の一部を市が負担する。</p>
             <p><strong>主な条件</strong></p>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="kashiwa-city-shinyohoshoryo-hojo">
             <h3>柏市中小企業融資制度における信用保証料補助</h3>
-            <p class="area-meta">柏市 産業政策課｜補助金｜創業支援資金の信用保証料を全額補助｜締切：公募要領で確認</p>
+            <p class="area-meta">柏市 産業政策課｜補助金｜創業支援資金の信用保証料を全額補助</p>
             <p class="area-meta">期間：通年(最新は要確認)</p>
             <p>市の中小企業融資制度(創業支援資金)を利用した際の信用保証料を市が補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -198,7 +216,7 @@
           <h3 class="area-cat">受付が終了した制度（次回の公募の参考に）</h3>
           <div class="area-program is-ended" id="kashiwa-city-startup-jigyoka-ouen">
             <h3>柏市スタートアップ事業化応援補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">柏市 産業政策・スタートアップ推進課｜補助金｜上限100万円｜締切：公募要領で確認</p>
+            <p class="area-meta">柏市 産業政策・スタートアップ推進課｜補助金｜上限100万円</p>
             <p class="area-meta">期間：受付終了(2026年6月20日)。次年度は要確認</p>
             <p>スタートアップの事業化を応援する補助金。2026年6月20日時点で予算上限に達し受付終了。来年度は要確認。</p>
             <p><strong>主な条件</strong></p>
@@ -223,7 +241,7 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>柏市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="kashiwa-mokuzo-taishin-shindan">
             <h3>柏市木造住宅耐震診断費補助</h3>
             <p class="area-meta">千葉県柏市｜補助金｜診断費の4/5（上限8万円）｜締切：2026-12-25</p>
@@ -233,10 +251,10 @@
             <ul><li>柏市内の平成12年5月31日以前に着工された木造住宅</li></ul>
             <p><a href="https://www.city.kashiwa.lg.jp/soshiki/140200/p004256.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="kashiwa-zerocarbon-katei">
             <h3>令和8年度柏市ゼロカーボンシティ促進総合補助制度（家庭向け）</h3>
-            <p class="area-meta">柏市｜補助金｜定置用蓄電池：上限7万円｜締切：公募要領で確認</p>
+            <p class="area-meta">柏市｜補助金｜定置用蓄電池：上限7万円</p>
             <p class="area-meta">期間：令和8年5月1日受付開始（締切は要確認）</p>
             <p>家庭向けの脱炭素設備導入の補助。</p>
             <p><strong>主な条件</strong></p>
@@ -245,14 +263,14 @@
           </div>
           <div class="area-program is-ended" id="kashiwa-taiyoko-kasokuka">
             <h3>令和8年度柏市太陽光発電設備設置加速化補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">柏市｜補助金｜1kWあたり上限7万円、最大5kW相当（35万円）まで｜締切：公募要領で確認</p>
+            <p class="area-meta">柏市｜補助金｜1kWあたり上限7万円、最大5kW相当（35万円）まで</p>
             <p class="area-meta">期間：受付終了（報告期限：令和9年2月26日）</p>
             <p>住宅への太陽光発電設備設置の補助。予算額に達し受付終了。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>実績報告時までに蓄電容量4kWh以上の蓄電池又はV2Hを設置</li></ul>
             <p><a href="https://www.city.kashiwa.lg.jp/zerocarbon/taiyoko_hojyo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="kashiwa-block-jokyaku">
             <h3>危険コンクリートブロック塀等除却工事費補助金</h3>
             <p class="area-meta">柏市｜補助金｜上限：道路等に面する場合10万円、通学路に面する場合20万円｜締切：2026-11-30</p>
@@ -271,10 +289,10 @@
             <ul><li>空き家を住居以外の用途で活用すること</li><li>活動補助（上限50万円）は別メニュー</li></ul>
             <p><a href="https://www.city.kashiwa.lg.jp/jukankyo/living_environment/jutaku/1576.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program" id="kashiwa-kaigo-jutaku-kaizo">
             <h3>柏市要介護高齢者等住宅改造費補助</h3>
-            <p class="area-meta">千葉県柏市｜補助金｜対象経費上限36万円、補助率1/3または9/10（市民税課税状況による）｜締切：公募要領で確認</p>
+            <p class="area-meta">千葉県柏市｜補助金｜対象経費上限36万円、補助率1/3または9/10（市民税課税状況による）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>要支援・要介護認定を受けた方の住宅改造費を一部補助。介護保険の住宅改修を優先。</p>
             <p><strong>主な条件</strong></p>

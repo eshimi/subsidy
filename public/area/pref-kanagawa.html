@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -179,7 +186,7 @@
           </div>
           <div class="area-program" id="kanagawa-fukugyo-jinzai">
             <h3>神奈川県副業・兼業人材活用補助金</h3>
-            <p class="area-meta">神奈川県・神奈川産業振興センター｜補助金｜上限50万円（補助率は要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">神奈川県・神奈川産業振興センター｜補助金｜上限50万円（補助率は要確認）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>副業・兼業人材を活用する中小企業の費用を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -188,7 +195,7 @@
           </div>
           <div class="area-program" id="kanagawa-sogyo-shien-yushi">
             <h3>創業支援融資（神奈川県中小企業制度融資）</h3>
-            <p class="area-meta">神奈川県 産業労働局・神奈川県信用保証協会｜融資｜限度額3,500万円・年2.0%以内（創業特例は年1.8%以内）・創業特例は信用保証料0%｜締切：公募要領で確認</p>
+            <p class="area-meta">神奈川県 産業労働局・神奈川県信用保証協会｜融資｜限度額3,500万円・年2.0%以内（創業特例は年1.8%以内）・創業特例は信用保証料0%</p>
             <p class="area-meta">期間：通年（最新条件は要確認）</p>
             <p>創業予定者や創業間もない事業者向けの制度融資。創業特例では経営指導を受けると優遇される。</p>
             <p><strong>主な条件</strong></p>
@@ -207,7 +214,7 @@
           </div>
           <div class="area-program is-ended" id="kanagawa-sogyosha-seicho">
             <h3>生産性向上促進事業費補助金（創業者成長支援枠） <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">神奈川県 産業労働局・神奈川産業振興センター｜補助金｜補助率2/3以内・上限300万円（下限25万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">神奈川県 産業労働局・神奈川産業振興センター｜補助金｜補助率2/3以内・上限300万円（下限25万円）</p>
             <p class="area-meta">期間：令和8年5月1日〜8月31日（受付終了）。次回は最新は要確認</p>
             <p>令和5年4月以降に創業した県内中小企業者等の生産性向上の取組を、伴走支援を受けながら支援する。</p>
             <p><strong>主な条件</strong></p>
@@ -322,7 +329,7 @@
     <section class="art-sec" aria-labelledby="pref-resident"><h2 id="pref-resident"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">個人の方向けの制度（住まい・暮らし）</h2>
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。市区町村の個人向けの制度（73件）は、下の「県内の市区町村のページ」から確認できます。</p>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program is-ended" id="kanagawa-jutaku-taiyoko-chikuden">
             <h3>令和8年度神奈川県住宅用太陽光発電・蓄電池導入費補助金 <span class="area-ended-tag">受付終了</span></h3>
             <p class="area-meta">神奈川県｜補助金｜太陽光：出力1kWあたり7万円、蓄電システム：1台あたり15万円｜締切：2026-09-30</p>
@@ -332,17 +339,17 @@
             <ul><li>耐震性能を確保した住宅</li><li>蓄電システムはSII登録製品</li><li>本人申請（業者代行は不可）</li></ul>
             <p><a href="https://www.pref.kanagawa.jp/docs/ap4/solar_home/taiyoukouchikudenchi.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">EV・充電</h3>
+          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
           <div class="area-program" id="kanagawa-ev-futsu-juden-r8">
             <h3>令和8年度神奈川県EV普通充電設備整備費補助金</h3>
-            <p class="area-meta">神奈川県｜補助金｜要確認｜締切：2026-12-28</p>
+            <p class="area-meta">神奈川県｜補助金｜金額は公式で確認｜締切：2026-12-28</p>
             <p class="area-meta">期間：令和8年4月30日〜12月28日17時（予算がなくなり次第終了）</p>
             <p>共同住宅等に整備するEV普通充電設備の経費の一部を補助する。一戸建て住宅への整備は対象外。個人が申請できるかは最新の手引で要確認。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>共同住宅等への設置</li><li>一戸建て住宅は対象外</li></ul>
             <p><a href="https://www.pref.kanagawa.jp/docs/ap4/cnt/f4259/normal-charge_r8.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program" id="kanagawa-zeh-r8">
             <h3>令和8年度神奈川県ネット・ゼロ・エネルギー・ハウス導入費補助金</h3>
             <p class="area-meta">神奈川県｜補助金｜ZEH1戸50万円（削減率35%以上は50万円加算）。経費が下回る場合は経費額｜締切：2026-10-30</p>
@@ -361,10 +368,10 @@
             <ul><li>窓（玄関ドア等含む）の改修を含むこと</li><li>耐震性能が確保された住宅</li><li>電子申請（先着順）</li></ul>
             <p><a href="https://www.pref.kanagawa.jp/docs/ap4/cnt/f300183/shouenekaishu.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="kanagawa-iju-shienkin">
             <h3>神奈川県移住支援事業（移住支援金）</h3>
-            <p class="area-meta">神奈川県｜給付｜単身最大60万円、2人以上世帯最大100万円（子の帯同加算あり。額は町ごとに異なる）｜締切：公募要領で確認</p>
+            <p class="area-meta">神奈川県｜給付｜単身最大60万円、2人以上世帯最大100万円（子の帯同加算あり。額は町ごとに異なる）</p>
             <p class="area-meta">期間：予算上限に達し次第終了（受付期間は町ごとに異なり要確認）</p>
             <p>東京23区等から対象地域（令和8年度は真鶴町・湯河原町）へ移住し就業・テレワークを行う人に支給する。</p>
             <p><strong>主な条件</strong></p>

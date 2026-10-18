@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">神奈川県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（横須賀市）<b>6件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（神奈川県）<b>5件（うち受付終了2件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>7件（うち受付終了1件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-5">バリアフリー・介護 1</a><a href="#res-cat-6">子育て 2</a><a href="#res-cat-7">移住 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">横須賀市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="yokosuka-city-chusho-hosyoryo-hojo">
             <h3>横須賀市中小企業制度融資（信用保証料補助）</h3>
-            <p class="area-meta">横須賀市 経済部 産業振興課｜補助金｜保証料の50%、上限20万円｜締切：公募要領で確認</p>
+            <p class="area-meta">横須賀市 経済部 産業振興課｜補助金｜保証料の50%、上限20万円</p>
             <p class="area-meta">期間：随時（最新は要確認）</p>
             <p>市の制度融資で信用保証を受けた事業者の信用保証料の一部を補助。</p>
             <p><strong>主な条件</strong></p>
@@ -179,7 +197,7 @@
           </div>
           <div class="area-program" id="yokosuka-city-jigyo-shokei-hiyo-hojo">
             <h3>横須賀市 事業承継費用補助金</h3>
-            <p class="area-meta">横須賀市 経済部 産業振興課｜補助金｜補助率2分の1、上限50万円｜締切：公募要領で確認</p>
+            <p class="area-meta">横須賀市 経済部 産業振興課｜補助金｜補助率2分の1、上限50万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>事業承継の初期診断、計画作成、M&amp;A仲介委託契約等の費用を補助（売却側のみ）。</p>
             <p><strong>主な条件</strong></p>
@@ -198,7 +216,7 @@
           </div>
           <div class="area-program" id="yokosuka-city-shinai-sogyosha-rishi-hokyu">
             <h3>横須賀市 市内創業者支援利子補給金</h3>
-            <p class="area-meta">横須賀市 経済部 創業・新産業支援課｜補助金｜利子1年分、上限15万円｜締切：公募要領で確認</p>
+            <p class="area-meta">横須賀市 経済部 創業・新産業支援課｜補助金｜利子1年分、上限15万円</p>
             <p class="area-meta">期間：対象開業日は令和8年3月31日まで（最新は要確認）</p>
             <p>創業資金の融資を受けて市内で開業した方の利子を補助。</p>
             <p><strong>主な条件</strong></p>
@@ -218,7 +236,7 @@
           </div>
           <div class="area-program" id="yokosuka-city-shokibo-ict-shien">
             <h3>横須賀市 小規模事業者ICT支援補助金</h3>
-            <p class="area-meta">横須賀市 経済部 産業振興課｜補助金｜補助率4分の3、上限30万円｜締切：公募要領で確認</p>
+            <p class="area-meta">横須賀市 経済部 産業振興課｜補助金｜補助率4分の3、上限30万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>業務効率化のためのICT導入費用を補助。</p>
             <p><strong>主な条件</strong></p>
@@ -244,7 +262,7 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>横須賀市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="yokosuka-jutaku-taishin">
             <h3>住宅の耐震診断補強工事補助事業</h3>
             <p class="area-meta">横須賀市｜補助金｜要確認（令和8年度から自己負担額等が変更）｜締切：2026-12-28</p>
@@ -254,7 +272,7 @@
             <ul><li>平成12年5月末日以前に建築確認を得て着工した木造（軸組）戸建住宅</li><li>市登録事業者による工事</li></ul>
             <p><a href="https://www.city.yokosuka.kanagawa.jp/4840/sidouka/taisin.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="yokosuka-jutentaisaku-solar">
             <h3>令和8年度横須賀市重点対策加速化事業費補助金（個人 太陽光・蓄電池）</h3>
             <p class="area-meta">横須賀市｜補助金｜太陽光：1kWあたり7万円。併用蓄電池：蓄電システム・工事費（税抜）の1/3｜締切：2027-01-15</p>
@@ -264,7 +282,7 @@
             <ul><li>蓄電池は太陽光と同時設置の場合のみ</li></ul>
             <p><a href="https://www.city.yokosuka.kanagawa.jp/0870/kankyou_solar/jutentaisaku.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="yokosuka-akiya-kaitai">
             <h3>横須賀市空き家解体費用助成（空き家解体・旧耐震空き家解体）</h3>
             <p class="area-meta">神奈川県横須賀市｜助成金｜解体費の1/2（空き家解体上限35万円、旧耐震空き家解体上限15万円。併用不可）｜締切：2027-01-25</p>
@@ -274,7 +292,7 @@
             <ul><li>市の老朽度判定で所定点数超、または旧耐震基準の空き家</li><li>市内に本店のある事業者が施工</li><li>工事着手前に申請</li></ul>
             <p><a href="https://www.city.yokosuka.kanagawa.jp/4821/akiyakanri/kaitaihojo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program is-ended" id="yokosuka-koreisha-reform">
             <h3>横須賀市高齢者住宅リフォーム補助金 <span class="area-ended-tag">受付終了</span></h3>
             <p class="area-meta">神奈川県横須賀市｜補助金｜税抜20万円以上の工事に一律10万円｜締切：2026-05-29</p>
@@ -284,7 +302,7 @@
             <ul><li>税抜20万円以上の対象工事</li><li>市内に本店のある事業者に依頼</li><li>介護保険等との併用不可</li></ul>
             <p><a href="https://www.city.yokosuka.kanagawa.jp/4821/sumai/koureisya_reform.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">子育て</h3>
+          <h3 class="area-cat" id="res-cat-6">子育て</h3>
           <div class="area-program" id="yokosuka-kekkon-shinseikatsu">
             <h3>横須賀市結婚新生活支援事業（令和8年度）</h3>
             <p class="area-meta">神奈川県横須賀市｜補助金｜29歳以下上限60万円、39歳以下上限30万円、49歳以下上限20万円｜締切：2027-02-25</p>
@@ -296,17 +314,17 @@
           </div>
           <div class="area-program" id="yokosuka-kosodate-jutaku-bank">
             <h3>横須賀市子育てファミリー等応援住宅バンク補助金</h3>
-            <p class="area-meta">神奈川県横須賀市｜補助金｜物件購入助成35万円、リフォーム・解体助成15万円（合計最大50万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">神奈川県横須賀市｜補助金｜物件購入助成35万円、リフォーム・解体助成15万円（合計最大50万円）</p>
             <p class="area-meta">期間：最新は要確認（先着20件、予算到達で終了）</p>
             <p>住宅バンク掲載の中古戸建てを子育て世代が購入する場合の補助。先着20件。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>中学3年生以下の子がいる世帯（妊娠中含む）または夫婦とも50歳未満</li><li>市外からの転入または市内借家・実家からの転居</li><li>市内の持ち家からの転居は対象外</li></ul>
             <p><a href="https://www.city.yokosuka.kanagawa.jp/4821/tokei/danti/kosodatebank.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="yokosuka-2setai-reform">
             <h3>横須賀市2世帯住宅リフォーム等補助金</h3>
-            <p class="area-meta">神奈川県横須賀市｜補助金｜リフォーム費用の1/2（最大30万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">神奈川県横須賀市｜補助金｜リフォーム費用の1/2（最大30万円）</p>
             <p class="area-meta">期間：最新は要確認（先着10件）</p>
             <p>親世帯が市内の一戸建てをリフォームし、市外から転入する子ども家族と同居・近居する場合の補助。先着10件。</p>
             <p><strong>主な条件</strong></p>

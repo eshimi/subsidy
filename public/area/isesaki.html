@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">群馬県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（伊勢崎市）<b>4件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（群馬県）<b>5件</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>5件（うち受付終了2件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 2</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-7">移住 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">伊勢崎市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="isesaki-city-chusho-gx-suishin">
             <h3>伊勢崎市中小企業GX推進事業費補助金</h3>
-            <p class="area-meta">伊勢崎市 商工労働課｜補助金｜補助率1/3または2/3（賃上げ表明等による）、上限100万〜400万円｜締切：公募要領で確認</p>
+            <p class="area-meta">伊勢崎市 商工労働課｜補助金｜補助率1/3または2/3（賃上げ表明等による）、上限100万〜400万円</p>
             <p class="area-meta">期間：本文は令和8年7/27〜10/30、ページ題は申請期間終了表記（要確認）</p>
             <p>省エネ設備等の導入に対し賃上げ率に応じて補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="isesaki-city-chusho-yushi">
             <h3>伊勢崎市中小企業者・創業者への融資</h3>
-            <p class="area-meta">伊勢崎市 商工労働課 融資労政係｜融資｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">伊勢崎市 商工労働課 融資労政係｜融資｜金額は公式で確認</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>市内の中小企業者および創業者に必要な資金を融資する市の制度。</p>
             <p><strong>主な条件</strong></p>
@@ -187,7 +205,7 @@
           </div>
           <div class="area-program" id="isesaki-city-shokibo-support">
             <h3>伊勢崎市小規模事業者サポート補助金</h3>
-            <p class="area-meta">伊勢崎市 商工労働課｜補助金｜対象経費の1/2以内、上限50万円｜締切：公募要領で確認</p>
+            <p class="area-meta">伊勢崎市 商工労働課｜補助金｜対象経費の1/2以内、上限50万円</p>
             <p class="area-meta">期間：令和8年度は申請期間終了（7/10）。次回は要確認</p>
             <p>設備導入・販路拡大・人材開発など業務改善や生産性向上の取組を支援する。</p>
             <p><strong>主な条件</strong></p>
@@ -222,7 +240,7 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>伊勢崎市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program is-ended" id="isesaki-shelter">
             <h3>木造住宅耐震シェルター等設置補助金 <span class="area-ended-tag">受付終了</span></h3>
             <p class="area-meta">群馬県伊勢崎市｜補助金｜設置費の2/3(上限20万円)｜締切：2026-09-04</p>
@@ -241,7 +259,7 @@
             <ul><li>昭和56年5月31日以前に建築確認を受けた木造在来軸組2階建て以下</li><li>上部構造耐力評価1.0以上とする工事で年度内に完了</li></ul>
             <p><a href="https://www.city.isesaki.lg.jp/soshiki/tokeibu/kenchiku_shido/kentikusidou/3176.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="isesaki-katei-datutanso">
             <h3>家庭用脱炭素化設備導入補助金</h3>
             <p class="area-meta">群馬県伊勢崎市｜補助金｜各設備の上限5万円(ISECAポイントで交付)｜締切：2027-04-30</p>
@@ -251,7 +269,7 @@
             <ul><li>市内に住民登録があり設備導入住宅に居住</li><li>市税の滞納がないこと</li><li>系統連系すること</li></ul>
             <p><a href="https://www.city.isesaki.lg.jp/soshiki/kankyobu/gxsuishin/isesakigxsuishin/20112.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="isesaki-shinai-akiya-kaishu">
             <h3>市内転居者空き家改修補助事業</h3>
             <p class="area-meta">群馬県伊勢崎市｜補助金｜改修費の1/2以内(上限80万円)｜締切：2026-12-28</p>
@@ -261,7 +279,7 @@
             <ul><li>市内での転居を目的とする</li><li>実績報告から5年以上居住</li></ul>
             <p><a href="https://www.city.isesaki.lg.jp/soshiki/kensetu/jyutaku/akiya/19986.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="isesaki-iju-akiya-kaishu">
             <h3>移住者支援空き家改修補助事業</h3>
             <p class="area-meta">群馬県伊勢崎市｜補助金｜改修費の2/3以内(上限200万円。中学校修了前の子1人につき10万円加算、上限30万円)｜締切：2026-11-30</p>

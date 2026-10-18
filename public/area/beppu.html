@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,14 +170,25 @@
       <p class="lead" style="margin-bottom: 0;">大分県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（別府市）<b>2件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（大分県）<b>4件</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>6件（うち受付終了1件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-6">子育て 1</a><a href="#res-cat-7">移住 2</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">別府市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="beppu-city-kaisha-setsuritsu-shien-hojo">
             <h3>別府市会社設立支援補助金</h3>
-            <p class="area-meta">別府市 産業政策課（産業振興）｜補助金｜登録免許税の一部（詳細な率・上限は要確認）｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">別府市 産業政策課（産業振興）｜補助金｜登録免許税の一部（詳細な率・上限は要確認）</p>
+            
             <p>特定創業支援等事業の証明を受けて市内で会社を設立した人に、登録免許税の一部を補助する制度。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>特定創業支援等事業の証明を受けていること</li><li>別府市内で会社を設立すること</li></ul>
@@ -178,8 +196,8 @@
           </div>
           <div class="area-program" id="beppu-city-social-startup-seicho-shien">
             <h3>別府市ソーシャルスタートアップ成長支援事業</h3>
-            <p class="area-meta">別府市 産業政策課（産業振興）｜補助金｜要確認｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">別府市 産業政策課（産業振興）｜補助金｜金額は公式で確認</p>
+            
             <p>ふるさと納税を財源に、地域課題の解決に取り組むソーシャルスタートアップへ補助を行う制度。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>地域課題の解決に取り組むスタートアップ（詳細は要確認）</li></ul>
@@ -203,20 +221,20 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>別府市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="beppu-taishin">
             <h3>別府市木造住宅耐震化促進事業</h3>
-            <p class="area-meta">大分県別府市｜補助金｜診断:上限9.6万〜14万円、改修:要確認(計画書では上限150万円と記載)｜締切：公募要領で確認</p>
+            <p class="area-meta">大分県別府市｜補助金｜診断:上限9.6万〜14万円、改修:要確認(計画書では上限150万円と記載)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>昭和56年5月31日以前の戸建木造住宅の耐震診断・改修を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>昭和56年5月31日以前に建築された戸建木造住宅</li></ul>
             <p><a href="https://www.city.beppu.oita.jp/seikatu/sumai_tosi/sumai/detail194.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="beppu-akiya-jokyaku">
             <h3>別府市老朽危険空き家等除却推進事業補助金</h3>
-            <p class="area-meta">大分県別府市｜補助金｜除却費用の1/2(上限50万円)｜締切：公募要領で確認</p>
+            <p class="area-meta">大分県別府市｜補助金｜除却費用の1/2(上限50万円)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>老朽危険と判定された木造空き家の除却費用を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -225,14 +243,14 @@
           </div>
           <div class="area-program" id="beppu-block">
             <h3>別府市危険ブロック塀等除却事業補助金</h3>
-            <p class="area-meta">大分県別府市｜補助金｜除却費用の1/2(上限7万円)｜締切：公募要領で確認</p>
+            <p class="area-meta">大分県別府市｜補助金｜除却費用の1/2(上限7万円)</p>
             <p class="area-meta">期間：5月7日受付開始(令和8年度か要確認)</p>
             <p>道路に面した危険なブロック塀等の除却費用を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>建築基準法42条の道路に面する</li><li>道路面からの高さ1.0m以上でひび割れ・傾きがある</li></ul>
             <p><a href="https://www.city.beppu.oita.jp/seikatu/sumai_tosi/sumai/cbfence_jokyo_kouhu.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">子育て</h3>
+          <h3 class="area-cat" id="res-cat-6">子育て</h3>
           <div class="area-program" id="beppu-3sedai-reform">
             <h3>別府市三世代同居世帯・子育て世帯リフォーム支援事業</h3>
             <p class="area-meta">大分県別府市｜補助金｜子育て支援型:最大40万円(工事費の20%)、三世代同居支援型:最大75万円(工事費の50%)｜締切：2026-12-04</p>
@@ -242,7 +260,7 @@
             <ul><li>子育て型:18歳未満の子がいる世帯で前年所得総額600万円未満</li><li>三世代同居型は耐震工事を併せて行うこと</li></ul>
             <p><a href="https://www.city.beppu.oita.jp/kosodate/jigyou/3sedai_reform.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="beppu-akiya-riyo">
             <h3>別府市空き家利活用補助金</h3>
             <p class="area-meta">大分県別府市｜補助金｜家財処分:経費の1/2(上限10万円)、改修・購入:上限30万円｜締切：2027-01-29</p>
@@ -254,11 +272,10 @@
           </div>
           <div class="area-program is-ended" id="beppu-ijushienkin">
             <h3>別府市移住支援金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">大分県別府市｜給付｜単身40万円、2人以上60万円、12歳以下の子1人につき30万円加算｜締切：公募要領で確認</p>
+            <p class="area-meta">大分県別府市｜給付｜単身40万円、2人以上60万円、12歳以下の子1人につき30万円加算</p>
             <p class="area-meta">期間：令和8年度は予算上限に達し受付終了(再開時は同ページで案内)</p>
             <p>別府市へ移住した人に支給する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>要確認</li></ul>
+            
             <p><a href="https://www.city.beppu.oita.jp/sisei/ijyuu/sienkin_driver.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
           <p><strong>大分県の制度</strong></p>

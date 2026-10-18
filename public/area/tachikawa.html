@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">東京都・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（立川市）<b>5件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（東京都）<b>6件（うち受付終了1件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>7件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-5">バリアフリー・介護 1</a><a href="#res-cat-6">子育て 3</a><a href="#res-cat-7">移住 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">立川市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="tachikawa-city-digital-gijutsu-katsuyo">
             <h3>デジタル技術活用支援事業補助金</h3>
-            <p class="area-meta">立川市 産業観光課｜補助金｜補助率4分の3、上限50万円（下限5万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">立川市 産業観光課｜補助金｜補助率4分の3、上限50万円（下限5万円）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>デジタル技術による業務効率化・生産性向上に取り組む市内中小事業者を補助。モバイルオーダーやキャッシュレス決済導入も例示。</p>
             <p><strong>主な条件</strong></p>
@@ -179,7 +197,7 @@
           </div>
           <div class="area-program" id="tachikawa-city-jigyo-shokei-shikin">
             <h3>立川市 事業承継支援資金（利子補給）</h3>
-            <p class="area-meta">立川市 産業観光課｜融資｜限度額2,000万円・7年以内。表面金利2.250%のうち1.825%を市が負担（実質0.425%）｜締切：公募要領で確認</p>
+            <p class="area-meta">立川市 産業観光課｜融資｜限度額2,000万円・7年以内。表面金利2.250%のうち1.825%を市が負担（実質0.425%）</p>
             <p class="area-meta">期間：随時（最新は要確認）</p>
             <p>事業承継を予定し事業計画に取り組む方向けの融資あっせんで、利子の一部を市が補助。</p>
             <p><strong>主な条件</strong></p>
@@ -188,7 +206,7 @@
           </div>
           <div class="area-program" id="tachikawa-city-sanpin-hanro-kakudai">
             <h3>立川産品販路拡大等支援事業補助金</h3>
-            <p class="area-meta">立川市 産業文化スポーツ部 産業観光課｜補助金｜補助率2分の1、上限30万円｜締切：公募要領で確認</p>
+            <p class="area-meta">立川市 産業文化スポーツ部 産業観光課｜補助金｜補助率2分の1、上限30万円</p>
             <p class="area-meta">期間：申請受付中（予算の範囲内・先着順、令和8年度分の期限は要確認）</p>
             <p>立川産品の販路拡大に取り組む市内中小企業の展示会出展や知的財産権取得等の経費を補助。先着順。</p>
             <p><strong>主な条件</strong></p>
@@ -198,7 +216,7 @@
           </div>
           <div class="area-program" id="tachikawa-city-shoene-kaishu-hojo">
             <h3>中小企業二酸化炭素排出量削減事業施設改修費補助金（令和8年度）</h3>
-            <p class="area-meta">立川市 環境政策課｜補助金｜改修費の3分の1以内、上限50万円（令和8年度予算300万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">立川市 環境政策課｜補助金｜改修費の3分の1以内、上限50万円（令和8年度予算300万円）</p>
             <p class="area-meta">期間：令和8年度（予算300万円に達し次第終了）</p>
             <p>省エネ診断を受けた中小企業の設備改修費を補助。予算に達し次第終了。</p>
             <p><strong>主な条件</strong></p>
@@ -208,7 +226,7 @@
           </div>
           <div class="area-program" id="tachikawa-city-sogyo-shikin-yushi">
             <h3>立川市 創業資金融資あっせん（創業資金A・B・S）</h3>
-            <p class="area-meta">立川市 産業観光課｜融資｜要確認（市が利子の一部を補助。2026年6月1日申請分から一部利率変更）｜締切：公募要領で確認</p>
+            <p class="area-meta">立川市 産業観光課｜融資｜要確認（市が利子の一部を補助。2026年6月1日申請分から一部利率変更）</p>
             <p class="area-meta">期間：随時（最新は要確認）</p>
             <p>創業資金A・B・Sの3種。Bは女性・若年者・シニア、Sは特定創業支援等事業の認定創業者向けで優遇。</p>
             <p><strong>主な条件</strong></p>
@@ -233,39 +251,39 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>立川市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="tachikawa-taishin-mokuzo">
             <h3>木造住宅の耐震化助成制度</h3>
-            <p class="area-meta">立川市｜補助金｜耐震診断は費用の2分の1（限度10万円）、耐震改修は工事費の2分の1（限度100万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">立川市｜補助金｜耐震診断は費用の2分の1（限度10万円）、耐震改修は工事費の2分の1（限度100万円）</p>
             <p class="area-meta">期間：年度ごとの予算の範囲内（予算額に達した時点で終了）。最新年度は要確認</p>
             <p>旧耐震基準の木造住宅の耐震診断・耐震改修費用を助成。簡易耐震診断は無料。</p>
             
             <p><a href="https://www.city.tachikawa.lg.jp/kurashi/sumai/1002092/1002114.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="tachikawa-block-tekkyo">
             <h3>立川市ブロック塀等撤去工事等助成金</h3>
-            <p class="area-meta">立川市｜助成金｜撤去・一部撤去・改修：1mあたり6,500円で算出した額と工事費の低い方（上限30万円）／新設：上限18万円｜締切：公募要領で確認</p>
+            <p class="area-meta">立川市｜助成金｜撤去・一部撤去・改修：1mあたり6,500円で算出した額と工事費の低い方（上限30万円）／新設：上限18万円</p>
             <p class="area-meta">期間：確認できた年度は不明（ページ更新から約2年経過。最新は要確認）</p>
             <p>道路等との境界にある高さ80cm以上の危険なブロック塀の撤去・一部撤去・改修・新設の費用を助成する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>市内の道路等との境界にある高さ80cm以上の危険なブロック塀の所有者</li><li>工事契約前に交付申請すること</li><li>市税の滞納がないこと</li></ul>
             <p><a href="https://www.city.tachikawa.lg.jp/bosai/m-bosai/1008366/1008405.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program" id="tachikawa-koreisha-jiritsu-jutaku-kaishu">
             <h3>高齢者自立支援住宅改修給付事業</h3>
-            <p class="area-meta">立川市｜給付｜所得に応じて費用の7〜9割（給付限度額は要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">立川市｜給付｜所得に応じて費用の7〜9割（給付限度額は要確認）</p>
             <p class="area-meta">期間：確認できた年度は不明（ページ更新から1年以上経過。最新は要確認）</p>
             <p>転倒予防等のため、65歳以上の自立または虚弱の高齢者が行う手すり取付け・段差解消などの住宅改修費を給付する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>65歳以上で日常生活動作に困難や不安がある方</li><li>介護認定が非該当の方が中心</li><li>住宅改修アドバイザー事業の訪問調査で必要性が認められること</li></ul>
             <p><a href="https://www.city.tachikawa.lg.jp/kenko/korei/1003482/1003512.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">子育て</h3>
+          <h3 class="area-cat" id="res-cat-6">子育て</h3>
           <div class="area-program" id="tachikawa-ninsho-hoikusho-futan-keigen">
             <h3>認証保育所・企業主導型保育施設の利用者負担軽減補助金</h3>
-            <p class="area-meta">東京都立川市｜補助金｜子ども1人につき月額上限2万円〜4万円（年齢・世帯所得による。実負担額の範囲内）｜締切：公募要領で確認</p>
+            <p class="area-meta">東京都立川市｜補助金｜子ども1人につき月額上限2万円〜4万円（年齢・世帯所得による。実負担額の範囲内）</p>
             <p class="area-meta">期間：令和8年度分（最新は要確認）</p>
             <p>認証保育所や企業主導型保育施設を月極で利用する保護者の保育料負担を軽減する。</p>
             <p><strong>主な条件</strong></p>
@@ -274,7 +292,7 @@
           </div>
           <div class="area-program" id="tachikawa-shiritsu-yochien-hojo">
             <h3>私立幼稚園等園児補助金</h3>
-            <p class="area-meta">東京都立川市｜補助金｜市独自分は月額5,300円（所得にかかわらず一律）。ほか東京都の保護者負担軽減補助あり｜締切：公募要領で確認</p>
+            <p class="area-meta">東京都立川市｜補助金｜市独自分は月額5,300円（所得にかかわらず一律）。ほか東京都の保護者負担軽減補助あり</p>
             <p class="area-meta">期間：令和8年度分（申請は毎年1回。最新は要確認）</p>
             <p>私立幼稚園等に通う園児の保護者の負担を軽減する補助。幼稚園等を通じて年1回申請する。</p>
             <p><strong>主な条件</strong></p>
@@ -283,18 +301,18 @@
           </div>
           <div class="area-program" id="tachikawa-yoikuhi-kakuho-shien">
             <h3>立川市養育費確保支援事業</h3>
-            <p class="area-meta">東京都立川市｜補助金｜公正証書等の作成経費は上限4万3千円、養育費保証契約の初回保証料は上限5万円｜締切：公募要領で確認</p>
+            <p class="area-meta">東京都立川市｜補助金｜公正証書等の作成経費は上限4万3千円、養育費保証契約の初回保証料は上限5万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>ひとり親家庭の養育費確保のため、公正証書等の作成費用や保証契約の初回保証料を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>ひとり親家庭（詳細要件は要確認）</li></ul>
             <p><a href="https://www.city.tachikawa.lg.jp/kosodate/m-kosodate/1004938/1004955.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="tachikawa-kekkon-shinseikatsu">
             <h3>結婚新生活支援事業</h3>
-            <p class="area-meta">立川市｜補助金｜最大30万円｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">立川市｜補助金｜最大30万円</p>
+            
             <p>新婚世帯の新生活にかかる費用（住居関連）を補助する。対象経費・条件の詳細は要確認。</p>
             
             <p><a href="https://www.city.tachikawa.lg.jp/kurashi/1023799/1023802/1024624.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>

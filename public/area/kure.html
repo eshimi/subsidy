@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">広島県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（呉市）<b>4件（うち受付終了1件）</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（広島県）<b>6件（うち受付終了1件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>10件（うち受付終了2件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 2</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 3</a><a href="#res-cat-6">子育て 1</a><a href="#res-cat-7">移住 2</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">呉市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="kure-city-chusho-jinzai-ikusei">
             <h3>呉市 中小企業人材育成事業</h3>
-            <p class="area-meta">呉市 産業部 商工振興課｜補助金｜要確認（研修受講料の補助）｜締切：公募要領で確認</p>
+            <p class="area-meta">呉市 産業部 商工振興課｜補助金｜要確認（研修受講料の補助）</p>
             <p class="area-meta">期間：最新は要確認（掲載の申請期限は令和8年2月27日で終了）</p>
             <p>中小企業の従業員の研修受講料を補助する制度。</p>
             <p><strong>主な条件</strong></p>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="kure-city-chusho-yushi">
             <h3>呉市 中小企業融資制度（創業支援資金ほか）</h3>
-            <p class="area-meta">呉市 産業部 商工振興課｜融資｜要確認（令和8年度の制度概要PDFを公開）｜締切：公募要領で確認</p>
+            <p class="area-meta">呉市 産業部 商工振興課｜融資｜要確認（令和8年度の制度概要PDFを公開）</p>
             <p class="area-meta">期間：令和8年度の制度（通年、詳細は要確認）</p>
             <p>経営安定資金・小規模事業資金・創業支援資金・借換支援資金など、市内中小企業者向けの融資制度。</p>
             <p><strong>主な条件</strong></p>
@@ -197,7 +215,7 @@
           <h3 class="area-cat">受付が終了した制度（次回の公募の参考に）</h3>
           <div class="area-program is-ended" id="kure-city-chiiki-sanpin-kaihatsu">
             <h3>令和8年度 呉市地域産品開発支援事業 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">呉市 産業部 商工振興課｜補助金｜対象経費の2/3以内（1事業者上限50万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">呉市 産業部 商工振興課｜補助金｜対象経費の2/3以内（1事業者上限50万円）</p>
             <p class="area-meta">期間：令和8年度募集は2026年5月7日～6月5日で受付終了（来年度は要確認）</p>
             <p>特産品・土産品の新商品開発と販路開拓にかかる経費を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -222,17 +240,17 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>呉市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="kure-mokuzou-taishin">
             <h3>呉市木造住宅耐震改修等助成事業</h3>
-            <p class="area-meta">広島県呉市｜補助金｜居住誘導区域内：工事費の80％以内・上限115万円／区域外：23％以内・上限30万円｜締切：公募要領で確認</p>
+            <p class="area-meta">広島県呉市｜補助金｜居住誘導区域内：工事費の80％以内・上限115万円／区域外：23％以内・上限30万円</p>
             <p class="area-meta">期間：最新は要確認（ページ更新 令和8年4月1日）</p>
             <p>昭和56年5月以前の木造住宅の耐震改修等工事費を補助。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>昭和56年5月31日以前に建てられた木造住宅</li><li>改修後の総合評点1.0以上</li></ul>
             <p><a href="https://www.city.kure.lg.jp/soshiki/22/mokuzoukaisyuu7.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="kure-chikudenchi">
             <h3>呉市家庭用蓄電池補助（既存太陽光向け）</h3>
             <p class="area-meta">広島県呉市｜補助金｜定額5万円｜締切：2026-11-30</p>
@@ -244,36 +262,34 @@
           </div>
           <div class="area-program" id="kure-solar-battery">
             <h3>呉市住宅用太陽光発電設備・蓄電池設置費補助（重点対策加速化事業）</h3>
-            <p class="area-meta">広島県呉市｜補助金｜太陽光 1kWあたり7万円（上限63万円）＋加算、蓄電池 費用の1/3＋定額5万円｜締切：公募要領で確認</p>
+            <p class="area-meta">広島県呉市｜補助金｜太陽光 1kWあたり7万円（上限63万円）＋加算、蓄電池 費用の1/3＋定額5万円</p>
             <p class="area-meta">期間：最新は要確認（予算6,780万円、予算到達で終了）</p>
             <p>住宅用太陽光発電設備・家庭用蓄電池の設置費を補助。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>戸建て居住専用住宅を所有し居住する個人</li></ul>
             <p><a href="https://www.city.kure.lg.jp/soshiki/18/taiyoukou-hojo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program" id="kure-shouene-kaden">
             <h3>呉市省エネ家電買換促進補助金</h3>
-            <p class="area-meta">広島県呉市｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">広島県呉市｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：令和8年度（期間は要確認）</p>
             <p>省エネ家電への買換えを補助。令和8年度の手引きあり。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>要確認</li></ul>
+            
             <p><a href="https://www.city.kure.lg.jp/soshiki/18/shouenekadenhojo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="kure-akiya-kazai">
             <h3>呉市空き家家財道具等処分支援事業</h3>
             <p class="area-meta">広島県呉市｜補助金｜補助率1/2・上限10万円｜締切：2026-12-15</p>
             <p class="area-meta">期間：令和8年4月13日受付開始、交付申請期限 令和8年12月15日</p>
             <p>空き家の家財道具等の処分費用を補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>要確認</li></ul>
+            
             <p><a href="https://www.city.kure.lg.jp/soshiki/46/akiyakazaidougusyobun.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
           <div class="area-program" id="kure-block">
             <h3>呉市ブロック塀等安全確保事業</h3>
-            <p class="area-meta">広島県呉市｜補助金｜除却：1mあたり9,000円、建替：1mあたり36,000円で算定｜締切：公募要領で確認</p>
+            <p class="area-meta">広島県呉市｜補助金｜除却：1mあたり9,000円、建替：1mあたり36,000円で算定</p>
             <p class="area-meta">期間：令和8年度の募集は要確認（ページは令和7年度分表記）</p>
             <p>通学路等の安全性が確認できないブロック塀の除却・建替費用の一部を補助。</p>
             <p><strong>主な条件</strong></p>
@@ -282,27 +298,27 @@
           </div>
           <div class="area-program" id="kure-kiken-joukyaku">
             <h3>呉市危険建物除却促進事業</h3>
-            <p class="area-meta">広島県呉市｜補助金｜除却費の30％・上限30万円（条件により50万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">広島県呉市｜補助金｜除却費の30％・上限30万円（条件により50万円）</p>
             <p class="area-meta">期間：令和8年度は受付延長（2026年9月25日更新）。期限は要確認</p>
             <p>危険な空き家の解体費用を助成。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>市内の危険な空き家の所有者等</li><li>接道条件で上限50万円に引上げ</li></ul>
             <p><a href="https://www.city.kure.lg.jp/soshiki/46/index1.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">子育て</h3>
+          <h3 class="area-cat" id="res-cat-6">子育て</h3>
           <div class="area-program is-ended" id="kure-shinkon-teijuu">
             <h3>呉市新婚・子育て世帯定住支援事業 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">広島県呉市｜補助金｜基本30万円（購入費の1/2）・最大100万円（加算あり）｜締切：公募要領で確認</p>
+            <p class="area-meta">広島県呉市｜補助金｜基本30万円（購入費の1/2）・最大100万円（加算あり）</p>
             <p class="area-meta">期間：住宅政策課一覧では受付終了表記。最新は要確認</p>
             <p>新婚・子育て世帯の中古住宅購入費を補助。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>市内の新婚・子育て世帯</li><li>購入前の交付申請が必要</li></ul>
             <p><a href="https://www.city.kure.lg.jp/soshiki/46/kosodatesetainoteizyuusiennzigyou.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="kure-ijuu-shienkin">
             <h3>呉市移住支援金</h3>
-            <p class="area-meta">広島県呉市｜給付｜2人以上世帯100万円／単身60万円｜締切：公募要領で確認</p>
+            <p class="area-meta">広島県呉市｜給付｜2人以上世帯100万円／単身60万円</p>
             <p class="area-meta">期間：令和8年度の受付案内あり。期間は要確認</p>
             <p>移住者への支援金。</p>
             <p><strong>主な条件</strong></p>
@@ -311,7 +327,7 @@
           </div>
           <div class="area-program is-ended" id="kure-ijuu-jutaku">
             <h3>呉市移住希望者住宅取得支援事業 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">広島県呉市｜補助金｜中古住宅 基本50万円／新築戸建 基本90万円（新婚・子育て加算 各30万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">広島県呉市｜補助金｜中古住宅 基本50万円／新築戸建 基本90万円（新婚・子育て加算 各30万円）</p>
             <p class="area-meta">期間：住宅政策課一覧では受付終了表記。最新は要確認</p>
             <p>市外からの移住者の住宅取得費を補助。</p>
             <p><strong>主な条件</strong></p>

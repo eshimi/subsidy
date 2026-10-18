@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,6 +170,17 @@
       <p class="lead" style="margin-bottom: 0;">熊本県・政令指定都市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（熊本市）<b>3件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（熊本県）<b>5件（うち受付終了1件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>8件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-2">EV・充電 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-5">バリアフリー・介護 3</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">熊本市の制度（事業・創業の方向け）</h2>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="kumamoto-hojokin-katsuyo-yushi">
             <h3>熊本市中小企業補助金活用支援資金（制度融資）</h3>
-            <p class="area-meta">熊本市 商業金融課（要確認）｜融資｜要確認（融資限度額・利率は未確認。信用保証料率の3/4を市が助成）｜締切：公募要領で確認</p>
+            <p class="area-meta">熊本市 商業金融課（要確認）｜融資｜要確認（融資限度額・利率は未確認。信用保証料率の3/4を市が助成）</p>
             <p class="area-meta">期間：令和8年度 取扱継続（予算に達し次第終了の場合あり）</p>
             <p>生産性向上や賃上げに取り組む事業者が補助金を活用する際の資金調達を支援し、信用保証料を助成します。</p>
             <p><strong>主な条件</strong></p>
@@ -212,39 +230,39 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>熊本市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="kumamoto-city-taishin-kaishu">
             <h3>熊本市 戸建木造住宅の耐震改修等事業（改修一括メニュー）</h3>
-            <p class="area-meta">熊本市｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">熊本市｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：令和8年度（2026年8月20日付で、予算調整のため今後の相談案件を一旦預かりとする案内あり。要確認）</p>
             <p>戸建木造住宅の耐震改修等の費用を補助する。</p>
             
             <p><a href="https://www.city.kumamoto.jp/kiji0031284/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="kumamoto-city-taiyoko-chikudenchi">
             <h3>熊本市省エネルギー機器等導入推進事業補助金（太陽光発電設備・蓄電池）</h3>
-            <p class="area-meta">熊本市 脱炭素戦略課｜補助金｜太陽光発電設備（蓄電池併設型）1件8万円、蓄電池（FIT満了世帯対象）1件8万円｜締切：公募要領で確認</p>
+            <p class="area-meta">熊本市 脱炭素戦略課｜補助金｜太陽光発電設備（蓄電池併設型）1件8万円、蓄電池（FIT満了世帯対象）1件8万円</p>
             <p class="area-meta">期間：令和8年度は2期制。後期は11月2日から受付</p>
             <p>住宅の太陽光発電設備と蓄電池の導入費用を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>太陽光併設型の蓄電池は環境省の蓄電池補助金の対象製品</li></ul>
             <p><a href="https://www.city.kumamoto.jp/kiji00369554/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">EV・充電</h3>
+          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
           <div class="area-program" id="kumamoto-city-ev">
             <h3>熊本市省エネルギー機器等導入推進事業補助金（電気自動車等）</h3>
-            <p class="area-meta">熊本市 脱炭素戦略課｜補助金｜1件10万円｜締切：公募要領で確認</p>
+            <p class="area-meta">熊本市 脱炭素戦略課｜補助金｜1件10万円</p>
             <p class="area-meta">期間：令和8年度は前期・後期の2期制。後期は10月19日から受付</p>
             <p>電気自動車等の購入費を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>国のクリーンエネルギー自動車導入促進補助金の対象車両で給電機能を持つもの</li></ul>
             <p><a href="https://www.city.kumamoto.jp/kiji00369554/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="kumamoto-city-akiya-josyaku">
             <h3>熊本市老朽危険空家等除却促進事業補助金</h3>
-            <p class="area-meta">熊本市｜補助金｜要確認｜締切：2027-01-29</p>
+            <p class="area-meta">熊本市｜補助金｜金額は公式で確認｜締切：2027-01-29</p>
             <p class="area-meta">期間：令和9年1月29日まで（予算がなくなり次第終了）</p>
             <p>老朽危険空家の除却（ブロック塀の撤去を含む敷地全体の更地化）の費用を補助する。</p>
             
@@ -259,7 +277,7 @@
             <ul><li>契約・事業実施前の申込みと交付決定が必要</li></ul>
             <p><a href="https://www.city.kumamoto.jp/dynamic/hpkiji/pub/Detail.aspx?c_id=3&amp;id=22684" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program" id="kumamoto-city-koreisha-barrierfree">
             <h3>熊本市 高齢者住宅バリアフリー化改修費補助金</h3>
             <p class="area-meta">熊本市｜補助金｜補助対象経費上限18万円。非課税世帯2/3（上限12万円）、その他1/3（上限6万円）｜締切：2026-12-18</p>
@@ -271,7 +289,7 @@
           </div>
           <div class="area-program" id="kumamoto-city-koreisha-jutaku-kaizo">
             <h3>熊本市 高齢者住宅改造費助成事業（要介護・要支援認定者向け）</h3>
-            <p class="area-meta">熊本市｜助成金｜基準額40万円（65歳以上の要介護認定者）。助成率は要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">熊本市｜助成金｜基準額40万円（65歳以上の要介護認定者）。助成率は要確認</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>在宅の要介護・要支援認定者が安全に暮らすための住宅改造費を助成する。</p>
             <p><strong>主な条件</strong></p>
@@ -280,7 +298,7 @@
           </div>
           <div class="area-program" id="kumamoto-city-shogaisha-jutaku-kaizo">
             <h3>熊本市 障害者住宅改造費助成事業</h3>
-            <p class="area-meta">熊本市｜助成金｜基準額90万円（助成率は要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">熊本市｜助成金｜基準額90万円（助成率は要確認）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>障がいのある方の住宅改造経費を助成する。</p>
             <p><strong>主な条件</strong></p>

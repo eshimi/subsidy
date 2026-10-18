@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">静岡県・政令指定都市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（静岡市）<b>3件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（静岡県）<b>5件（うち受付終了2件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>7件（うち受付終了1件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 2</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-5">バリアフリー・介護 1</a><a href="#res-cat-7">移住 2</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">静岡市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="shizuoka-kikai-setsubi">
             <h3>中小企業事業高度化機械設備設置事業補助金</h3>
-            <p class="area-meta">静岡市 経済局商工部産業振興課｜補助金｜補助率5〜15%（要件による）、上限500万円〜750万円（要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">静岡市 経済局商工部産業振興課｜補助金｜補助率5〜15%（要件による）、上限500万円〜750万円（要確認）</p>
             <p class="area-meta">期間：令和8年度 申請受付は5月12日から（終了日は要確認）</p>
             <p>市内に製造拠点を持つ中小製造事業者が機械設備を設置する費用を補助します。他の補助金との併用はできません。</p>
             <p><strong>主な条件</strong></p>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="shizuoka-dx-jinzai">
             <h3>中小企業DX人材等育成支援事業補助金</h3>
-            <p class="area-meta">静岡市 経済局商工部産業振興課｜補助金｜上限10万円（補助率は要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">静岡市 経済局商工部産業振興課｜補助金｜上限10万円（補助率は要確認）</p>
             <p class="area-meta">期間：令和8年度 交付申請受付中（終了日は要確認）</p>
             <p>社員に研修を受けさせる経費を補助します。対象研修は県立の工科短期大学校、ポリテクセンター、県産業振興財団などの研修です。</p>
             <p><strong>主な条件</strong></p>
@@ -187,7 +205,7 @@
           </div>
           <div class="area-program" id="shizuoka-keizai-henka-rishi">
             <h3>静岡市経済変動対策資金特別利子助成金</h3>
-            <p class="area-meta">静岡市 経済局商工部産業振興課｜助成金｜要確認（助成率・上限は未確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">静岡市 経済局商工部産業振興課｜助成金｜要確認（助成率・上限は未確認）</p>
             <p class="area-meta">期間：令和8年10月1日より受付開始（終了日は要確認）</p>
             <p>経済変動対策資金の利子負担を助成します。令和8年10月1日から受付が始まっています。</p>
             <p><strong>主な条件</strong></p>
@@ -212,7 +230,7 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>静岡市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="shizuoka-city-mokuzou-taishin">
             <h3>木造住宅耐震事業（補強計画・補強工事への補助）</h3>
             <p class="area-meta">静岡市｜補助金｜事業費の10分の8と115万円のいずれか少ない額｜締切：2026-11-30</p>
@@ -224,17 +242,17 @@
           </div>
           <div class="area-program is-ended" id="shizuoka-city-taishin-shelter">
             <h3>耐震シェルター整備事業 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">静岡市｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">静岡市｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：終了（令和7年度分の受付は終了。令和8年度分の受付開始時期は未定と案内）</p>
             <p>1階の耐震評点が1.0未満の昭和56年5月以前の木造住宅に、耐震シェルターを設置する工事費を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>1981年5月31日以前の木造住宅</li><li>1階の耐震評点が1.0未満</li><li>同じ住宅で木造住宅耐震補強事業の補助を受けていない</li></ul>
             <p><a href="https://www.city.shizuoka.lg.jp/s2574/s007809.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="shizuoka-city-akiya-taikai">
             <h3>静岡市空き家建替え促進事業補助金</h3>
-            <p class="area-meta">静岡県静岡市｜補助金｜解体費の1/2以内、上限100万円｜締切：公募要領で確認</p>
+            <p class="area-meta">静岡県静岡市｜補助金｜解体費の1/2以内、上限100万円</p>
             <p class="area-meta">期間：申請受付中の掲載（最新は要確認）</p>
             <p>1年以上使われていない耐震性のない一戸建ての解体費を補助。ブロック塀等の工作物撤去費は対象外。</p>
             <p><strong>主な条件</strong></p>
@@ -243,27 +261,27 @@
           </div>
           <div class="area-program" id="shizuoka-city-block-taishin">
             <h3>静岡市ブロック塀等耐震化促進事業</h3>
-            <p class="area-meta">静岡県静岡市｜補助金｜撤去：見積額と基準額の少ない額の2/3以内・上限10万円、改善：上限25万円｜締切：公募要領で確認</p>
+            <p class="area-meta">静岡県静岡市｜補助金｜撤去：見積額と基準額の少ない額の2/3以内・上限10万円、改善：上限25万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>通学路・避難路沿いの危険なブロック塀の撤去や、安全な塀への改善を補助。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>通学路・避難路・避難地沿いのブロック塀等の所有者</li></ul>
             <p><a href="https://www.city.shizuoka.lg.jp/s2574/s007798.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program" id="shizuoka-city-kaigo-jutaku-kaishu-shien">
             <h3>静岡市 介護住宅改修支援事業補助金</h3>
-            <p class="area-meta">静岡県静岡市｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">静岡県静岡市｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>要介護・要支援認定者が手すり取付けや段差解消などの小規模改修をした費用の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>要介護または要支援認定を受けていること</li><li>介護保険の住宅改修を優先して利用</li></ul>
             <p><a href="https://www.city.shizuoka.lg.jp/youkou/s2984/s011510.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="shizuoka-city-akiya-kaishu">
             <h3>静岡市空き家改修事業補助金</h3>
-            <p class="area-meta">静岡県静岡市｜補助金｜対象経費の2/3以内、上限100万円（市外移住者等は200万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">静岡県静岡市｜補助金｜対象経費の2/3以内、上限100万円（市外移住者等は200万円）</p>
             <p class="area-meta">期間：予算に達し次第終了（最新は要確認）</p>
             <p>空き家情報バンク登録物件を改修する方への補助。予算がなくなり次第終了。中山間地域は別制度。</p>
             <p><strong>主な条件</strong></p>
@@ -272,7 +290,7 @@
           </div>
           <div class="area-program" id="shizuoka-city-iju-hojokin">
             <h3>静岡市移住者住宅確保応援補助金・移住補助金</h3>
-            <p class="area-meta">静岡県静岡市｜補助金｜東京圏からの移住で単身60万円・2人以上100万円（移住補助金）｜締切：公募要領で確認</p>
+            <p class="area-meta">静岡県静岡市｜補助金｜東京圏からの移住で単身60万円・2人以上100万円（移住補助金）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>移住者の住宅確保や就業を支援する市の移住補助。</p>
             <p><strong>主な条件</strong></p>

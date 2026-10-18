@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">東京都・特別区。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（足立区）<b>4件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（東京都）<b>6件（うち受付終了1件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>14件（うち受付終了2件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 3</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-2">EV・充電 2</a><a href="#res-cat-3">省エネ住宅 4</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-5">バリアフリー・介護 1</a><a href="#res-cat-6">子育て 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">足立区の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="adachi-keiei-kaizen-hojo">
             <h3>小規模事業者等経営改善補助金（令和8年度）</h3>
-            <p class="area-meta">足立区 産業経済部 中小企業支援担当課（要確認）｜補助金｜上限250万円（補助率は要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">足立区 産業経済部 中小企業支援担当課（要確認）｜補助金｜上限250万円（補助率は要確認）</p>
             <p class="area-meta">期間：令和8年度（受付期間は要確認）</p>
             <p>小規模事業者等が設備購入、店舗改修、操業環境改善などを行う経費の一部を補助します。</p>
             <p><strong>主な条件</strong></p>
@@ -187,7 +205,7 @@
           </div>
           <div class="area-program" id="adachi-jinzai-teichaku-sapoto">
             <h3>区内中小企業人材定着サポート助成金</h3>
-            <p class="area-meta">足立区 産業経済部 中小企業支援担当課（要確認）｜助成金｜要確認（金額・補助率は公式ページで確認が必要）｜締切：公募要領で確認</p>
+            <p class="area-meta">足立区 産業経済部 中小企業支援担当課（要確認）｜助成金｜要確認（金額・補助率は公式ページで確認が必要）</p>
             <p class="area-meta">期間：令和8年度（受付期間は要確認）</p>
             <p>区内中小企業が職場環境整備、熱中症対策、就業規則の作成などを行い人材の定着を図る取組を支援します。</p>
             <p><strong>主な条件</strong></p>
@@ -196,7 +214,7 @@
           </div>
           <div class="area-program" id="adachi-chusho-yushi-kinkyu">
             <h3>区の中小企業融資（緊急経営資金・信用保証料補助）</h3>
-            <p class="area-meta">足立区 産業経済部 中小企業支援担当課（要確認）｜融資｜信用保証料の補助：運転資金は2分の1、設備・併用資金は3分の2が目安（融資限度額は要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">足立区 産業経済部 中小企業支援担当課（要確認）｜融資｜信用保証料の補助：運転資金は2分の1、設備・併用資金は3分の2が目安（融資限度額は要確認）</p>
             <p class="area-meta">期間：令和8年度（通年。特別借換の限度額引上げは令和8年8月1日から予定）</p>
             <p>区と契約した区内金融機関が東京信用保証協会の保証を得て貸し付ける区の融資制度。令和8年度は緊急経営資金および借換融資を実施しています。</p>
             <p><strong>主な条件</strong></p>
@@ -221,7 +239,7 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>足立区の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="adachi-taishin-mokuzo">
             <h3>木造住宅耐震診断・耐震改修助成（旧耐震）</h3>
             <p class="area-meta">足立区 建築室 建築防災課｜補助金｜耐震診断は戸建て上限30万円。耐震改修は戸建てで工事費の9割、上限150万円｜締切：2027-03-31</p>
@@ -233,8 +251,8 @@
           </div>
           <div class="area-program" id="adachi-taishin-shelter">
             <h3>耐震シェルター・ベッドの設置支援助成</h3>
-            <p class="area-meta">足立区 建築室 建築防災課｜補助金｜1世帯上限30万円｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">足立区 建築室 建築防災課｜補助金｜1世帯上限30万円</p>
+            
             <p>旧耐震の木造戸建て住宅への耐震シェルター・防災ベッド設置費用を助成。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>旧耐震の木造戸建て</li></ul>
@@ -242,14 +260,14 @@
           </div>
           <div class="area-program" id="adachi-taishin-shinkijun">
             <h3>新耐震基準の木造住宅の耐震助成</h3>
-            <p class="area-meta">足立区 建築室 建築防災課｜補助金｜特定地域では改修の上限200万円（その他は要確認）｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">足立区 建築室 建築防災課｜補助金｜特定地域では改修の上限200万円（その他は要確認）</p>
+            
             <p>昭和56年6月〜平成12年5月に木造軸組工法で建築された2階建て以下の住宅の耐震診断・改修を助成。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>事前申請が必要</li></ul>
             <p><a href="https://www.city.adachi.tokyo.jp/k-bousai/machi/taishinka/sintaisin.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="adachi-solar-battery">
             <h3>太陽光発電システム及び蓄電池設置費補助金（設置後申請）</h3>
             <p class="area-meta">足立区 環境部｜補助金｜太陽光は上限24万円（区内事業者利用で28.8万円）、蓄電池は上限5万円（同6万円）｜締切：2026-12-28</p>
@@ -258,7 +276,7 @@
             
             <p><a href="https://www.city.adachi.tokyo.jp/kankyo/kurashi/kankyo/taiyoukouhatuden.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">EV・充電</h3>
+          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
           <div class="area-program" id="adachi-ev-charger">
             <h3>戸建住宅向け電気自動車等用充電設備設置費補助金（設置後申請）</h3>
             <p class="area-meta">足立区 環境部｜補助金｜2万5千円｜締切：2027-02-26</p>
@@ -269,20 +287,19 @@
           </div>
           <div class="area-program is-ended" id="adachi-ev-purchase">
             <h3>電気自動車等購入費補助金（購入後申請） <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">足立区 環境部｜補助金｜EV・PHEV・FCVは10万円、ミニカー・電動バイクは2万円｜締切：公募要領で確認</p>
+            <p class="area-meta">足立区 環境部｜補助金｜EV・PHEV・FCVは10万円、ミニカー・電動バイクは2万円</p>
             <p class="area-meta">期間：令和8年度（区の一覧では8月31日提出分で受付終了と記載。ページ間で表記が異なるため要確認）</p>
             <p>電気自動車等の購入費を補助。</p>
             
             <p><a href="https://www.city.adachi.tokyo.jp/kankyo/kurashi/kankyo/denkijidousya.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program" id="adachi-aircon">
             <h3>気候変動適応対策エアコン購入費補助金（設置後申請）</h3>
-            <p class="area-meta">東京都足立区｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">東京都足立区｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：受付中と掲載（期限は要確認）</p>
             <p>省エネ性能の高いエアコン購入費の一部を補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>要確認</li></ul>
+            
             <p><a href="https://www.city.adachi.tokyo.jp/kankyo/kikouhendoutekioutaisakueakon.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
           <div class="area-program" id="adachi-enefarm">
@@ -295,26 +312,25 @@
           </div>
           <div class="area-program" id="adachi-zeh-zeroemi">
             <h3>ZEH・東京ゼロエミ住宅補助金（設置後申請）</h3>
-            <p class="area-meta">東京都足立区｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">東京都足立区｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：受付中と掲載（期限は要確認）</p>
             <p>ZEHや東京ゼロエミ住宅の新築等に対する区の補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>要確認</li></ul>
+            
             <p><a href="https://www.city.adachi.tokyo.jp/kankyo/kurashi/kankyo/zeh-zeroemi.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
           <div class="area-program is-ended" id="adachi-shoene-reform">
             <h3>省エネリフォーム補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">東京都足立区｜補助金｜補助対象経費の1/3、上限5万円｜締切：公募要領で確認</p>
+            <p class="area-meta">東京都足立区｜補助金｜補助対象経費の1/3、上限5万円</p>
             <p class="area-meta">期間：令和8年度は8月21日受付終了（次回は要確認）</p>
             <p>窓の交換・内窓設置・断熱材・遮熱塗装・節水型トイレ等の省エネ改修を助成。令和8年度は8月21日で受付終了と掲載。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>区内に住民登録のある個人で自宅を改修</li><li>対象経費5万円以上</li><li>区内業者との契約</li></ul>
             <p><a href="https://www.city.adachi.tokyo.jp/kankyo/kurashi/kankyo/syouenesetubi.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="adachi-block-cut">
             <h3>ブロック塀等カット工事助成制度</h3>
-            <p class="area-meta">足立区｜助成金｜カット工事：道路側延長×2万円と税抜工事費のいずれか少ない額／フェンス設置を伴う全撤去：フェンス延長×3万円と税抜工事費の4分の3のいずれか少ない額｜締切：公募要領で確認</p>
+            <p class="area-meta">足立区｜助成金｜カット工事：道路側延長×2万円と税抜工事費のいずれか少ない額／フェンス設置を伴う全撤去：フェンス延長×3万円と税抜工事費の4分の3のいずれか少ない額</p>
             <p class="area-meta">期間：令和8年度（令和9年3月）まで延長。予算の範囲内、令和9年2月末までに工事完了届</p>
             <p>区内の道路・通路・公園に面した危険なブロック塀等を全撤去または高さ60cm以下にカットする工事費用を助成する。</p>
             <p><strong>主な条件</strong></p>
@@ -323,27 +339,27 @@
           </div>
           <div class="area-program" id="adachi-funenka-kaitai">
             <h3>不燃化特区 老朽建築物の解体工事助成</h3>
-            <p class="area-meta">東京都足立区｜補助金｜実費・延床面積×単価（木造28,000円/㎡、軽量鉄骨41,000円/㎡）の少ない額、上限280万円｜締切：公募要領で確認</p>
+            <p class="area-meta">東京都足立区｜補助金｜実費・延床面積×単価（木造28,000円/㎡、軽量鉄骨41,000円/㎡）の少ない額、上限280万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>不燃化特区内の旧耐震の老朽建築物の解体費用を助成する。着手の約1か月前までに申請が必要。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>不燃化特区内の昭和56年5月31日以前建築の木造・軽量鉄骨造建物等</li><li>着手前の申請が必要</li></ul>
             <p><a href="https://www.city.adachi.tokyo.jp/k-bousai/machi/toshi/adatikutyuunannbuittaitikufunennkatokkunituite.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program" id="adachi-kaigo-jutaku-kaishu">
             <h3>介護保険 住宅改修費の支給</h3>
-            <p class="area-meta">東京都足立区｜給付｜支給限度額20万円（自己負担1〜3割を除く）｜締切：公募要領で確認</p>
+            <p class="area-meta">東京都足立区｜給付｜支給限度額20万円（自己負担1〜3割を除く）</p>
             <p class="area-meta">期間：通年（要確認）</p>
             <p>要介護・要支援認定を受けた方の手すり設置・段差解消等の住宅改修費を支給する。着工前の申請が必要。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>要介護・要支援認定を受けている</li><li>工事着工前に申請</li></ul>
             <p><a href="https://www.city.adachi.tokyo.jp/kaigo/kurashi/hoken/kaigo-kaishu.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">子育て</h3>
+          <h3 class="area-cat" id="res-cat-6">子育て</h3>
           <div class="area-program" id="adachi-jutaku-kairyo">
             <h3>住宅改良助成制度</h3>
-            <p class="area-meta">東京都足立区｜補助金｜工事費の20%または工事種別の上限額のいずれか低い額、上限30万円｜締切：公募要領で確認</p>
+            <p class="area-meta">東京都足立区｜補助金｜工事費の20%または工事種別の上限額のいずれか低い額、上限30万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>自己居住住宅の段差解消・手すり・トイレ改良・間取り変更等の工事費を一部助成する。区内業者施工が原則。</p>
             <p><strong>主な条件</strong></p>

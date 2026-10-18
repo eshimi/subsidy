@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">東京都・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（府中市）<b>4件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（東京都）<b>6件（うち受付終了1件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>7件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 2</a><a href="#res-cat-2">EV・充電 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-5">バリアフリー・介護 1</a><a href="#res-cat-6">子育て 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">府中市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="fuchu-city-akitenpo-yachin">
             <h3>空き店舗等対策家賃補助事業</h3>
-            <p class="area-meta">府中市 産業観光課｜補助金｜事業者負担の月額賃料の2/3以内・6か月間(月額25万円まで)｜締切：公募要領で確認</p>
+            <p class="area-meta">府中市 産業観光課｜補助金｜事業者負担の月額賃料の2/3以内・6か月間(月額25万円まで)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>空き店舗・空き事務所を借りて市内で新たに開業・営業する事業者に家賃の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="fuchu-city-hanro-kaitaku">
             <h3>小規模事業者販路開拓等補助金</h3>
-            <p class="area-meta">府中市 産業観光課・むさし府中商工会議所｜補助金｜補助率2/3・上限30万円｜締切：公募要領で確認</p>
+            <p class="area-meta">府中市 産業観光課・むさし府中商工会議所｜補助金｜補助率2/3・上限30万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>経営計画に基づく小規模事業者の販路開拓や業務効率化の取組費用を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -187,7 +205,7 @@
           </div>
           <div class="area-program" id="fuchu-city-shoene-setsubi">
             <h3>省エネ設備更新支援事業補助金</h3>
-            <p class="area-meta">府中市 産業観光課・むさし府中商工会議所｜補助金｜補助率2/3・上限50万円｜締切：公募要領で確認</p>
+            <p class="area-meta">府中市 産業観光課・むさし府中商工会議所｜補助金｜補助率2/3・上限50万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>市内店舗・事務所の既存設備を省エネ設備に更新する費用を補助する。事前相談が必要。</p>
             <p><strong>主な条件</strong></p>
@@ -196,7 +214,7 @@
           </div>
           <div class="area-program" id="fuchu-city-yushi-assen-rishi">
             <h3>府中市融資あっ旋制度(創業資金・小口事業資金)利子補助</h3>
-            <p class="area-meta">府中市 産業観光課｜融資｜創業資金は1,000万円、利用者負担利率0.5〜0.7%(版により差異あり、要確認)｜締切：公募要領で確認</p>
+            <p class="area-meta">府中市 産業観光課｜融資｜創業資金は1,000万円、利用者負担利率0.5〜0.7%(版により差異あり、要確認)</p>
             <p class="area-meta">期間：通年(令和8年度版パンフレットあり)</p>
             <p>市内中小企業者や創業予定者への融資をあっ旋し、利子の一部を市が補助する。創業資金は創業支援機関への相談が必要。</p>
             <p><strong>主な条件</strong></p>
@@ -221,20 +239,20 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>府中市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="fuchu-taishin">
             <h3>木造住宅耐震診断・耐震改修等助成事業</h3>
-            <p class="area-meta">府中市 住宅課｜助成金｜耐震診断は費用の3分の2（上限12万円）。耐震改修は費用の2分の1（限度170万円、資料により異なり要確認）｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">府中市 住宅課｜助成金｜耐震診断は費用の3分の2（上限12万円）。耐震改修は費用の2分の1（限度170万円、資料により異なり要確認）</p>
+            
             <p>古い木造住宅の耐震診断・耐震改修等の費用を助成。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>事業者との契約前に市へ相談が必要</li></ul>
             <p><a href="https://www.city.fuchu.tokyo.jp/kurashi/machi/jutaku/mokuzotaishin.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="fuchu-eco-battery">
             <h3>エコハウス設備設置費助成金（家庭用蓄電池システム）</h3>
-            <p class="area-meta">府中市 環境政策課｜助成金｜1kWhあたり2万円、上限10万円｜締切：公募要領で確認</p>
+            <p class="area-meta">府中市 環境政策課｜助成金｜1kWhあたり2万円、上限10万円</p>
             <p class="area-meta">期間：令和8年4月6日受付開始（終了日は要確認）</p>
             <p>家庭用蓄電池システムの設置費用を助成。</p>
             <p><strong>主な条件</strong></p>
@@ -243,46 +261,46 @@
           </div>
           <div class="area-program" id="fuchu-eco-solar">
             <h3>エコハウス設備設置費助成金（太陽光発電システム）</h3>
-            <p class="area-meta">府中市 環境政策課｜助成金｜1kWあたり2万円、上限10万円｜締切：公募要領で確認</p>
+            <p class="area-meta">府中市 環境政策課｜助成金｜1kWあたり2万円、上限10万円</p>
             <p class="area-meta">期間：令和8年4月6日受付開始（終了日は要確認）</p>
             <p>住宅用太陽光発電システムの設置費用を助成（設置後申請）。</p>
             
             <p><a href="https://www.city.fuchu.tokyo.jp/kurashi/sekatu/datsutanso_ondanka/ekohausu.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">EV・充電</h3>
+          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
           <div class="area-program" id="fuchu-jisedai-jidosha-konyu">
             <h3>府中市 次世代自動車等購入費助成</h3>
-            <p class="area-meta">東京都府中市｜補助金｜EV 10万円、FCV 25万円、V2H等の充給電設備 10万円｜締切：公募要領で確認</p>
+            <p class="area-meta">東京都府中市｜補助金｜EV 10万円、FCV 25万円、V2H等の充給電設備 10万円</p>
             <p class="area-meta">期間：令和8年6月1日受付開始(予算に達し次第終了)</p>
             <p>EV・FCVの購入やV2H等充給電設備の設置費用を助成する。PHVは対象外。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>府中市在住の個人(令和8年度から法人・個人事業主も対象)</li><li>対象車両・設備の購入または設置</li></ul>
             <p><a href="https://www.city.fuchu.tokyo.jp/kurashi/shinsesho/kurashi/sekatu/EVsubsidy.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="fuchu-block-anzentaisaku">
             <h3>ブロック塀等安全対策費用助成事業</h3>
-            <p class="area-meta">府中市｜助成金｜除却費用の2/3、上限1mあたり8万円（木塀への建て替えは加算あり）｜締切：公募要領で確認</p>
+            <p class="area-meta">府中市｜助成金｜除却費用の2/3、上限1mあたり8万円（木塀への建て替えは加算あり）</p>
             <p class="area-meta">期間：要確認（予算上限に達し次第終了、工事は年度内完了）</p>
             <p>避難路や指定通学路に面するブロック塀の除却費用と、耐震性のある塀への建て替え費用の一部を助成する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>避難路・指定通学路に面した塀（隣地境界は対象外）</li><li>事前相談カード提出と市派遣の調査士による診断</li><li>交付決定通知後に契約すること</li></ul>
             <p><a href="https://www.city.fuchu.tokyo.jp/kurashi/machi/kenchiku/burokkubeitouanzentaisaku.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program" id="fuchu-koreisha-jiritsu-jutaku-kaishu">
             <h3>府中市 高齢者自立支援住宅改修給付</h3>
-            <p class="area-meta">東京都府中市｜給付｜要確認(所得により自己負担割合が異なる)｜締切：公募要領で確認</p>
+            <p class="area-meta">東京都府中市｜給付｜要確認(所得により自己負担割合が異なる)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>手すり設置・段差解消などの予防給付や浴槽・洗面台・トイレ改修などの設備給付を行う。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>65歳以上で日常生活の動作に困難がある方</li><li>事前調査と申請が必要(新築は対象外)</li></ul>
             <p><a href="https://www.city.fuchu.tokyo.jp/kurashi/machi/jutaku/koresha.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">子育て</h3>
+          <h3 class="area-cat" id="res-cat-6">子育て</h3>
           <div class="area-program" id="fuchu-ninkagai-hoikuryo-josei">
             <h3>府中市 認可外保育施設等利用者保育料助成金</h3>
-            <p class="area-meta">東京都府中市｜助成金｜0〜2歳児クラス・市民税課税世帯は月額6万7,000円｜締切：公募要領で確認</p>
+            <p class="area-meta">東京都府中市｜助成金｜0〜2歳児クラス・市民税課税世帯は月額6万7,000円</p>
             <p class="area-meta">期間：令和8年4月〜令和9年3月分</p>
             <p>認可外保育施設等の保育料を助成する。令和8年10月から市民税非課税世帯等で増額。</p>
             <p><strong>主な条件</strong></p>

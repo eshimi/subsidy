@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">兵庫県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（西宮市）<b>3件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（兵庫県）<b>4件（うち受付終了1件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>5件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 2</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-5">バリアフリー・介護 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">西宮市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="nishinomiya-city-shoryokuka-ai-setsubi">
             <h3>西宮市 設備・AI導入支援補助金</h3>
-            <p class="area-meta">西宮市 産業文化局 商工課（西宮商工会議所）｜補助金｜設備:補助率2/3(上限 製造業200万円・その他100万円)、AI導入:補助率1/2(上限20万円)｜締切：公募要領で確認</p>
+            <p class="area-meta">西宮市 産業文化局 商工課（西宮商工会議所）｜補助金｜設備:補助率2/3(上限 製造業200万円・その他100万円)、AI導入:補助率1/2(上限20万円)</p>
             <p class="area-meta">期間：2026年5月1日〜12月15日(予算に達し次第終了)</p>
             <p>省力化・生産性向上設備やAIを導入する市内事業者の経費の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="nishinomiya-city-shotengai-shuten">
             <h3>西宮市 商店街新規出店応援事業</h3>
-            <p class="area-meta">西宮市 産業文化局 商工課｜補助金｜最大100万円(市単独・市県併用の2種類)｜締切：公募要領で確認</p>
+            <p class="area-meta">西宮市 産業文化局 商工課｜補助金｜最大100万円(市単独・市県併用の2種類)</p>
             <p class="area-meta">期間：令和8年度募集中(予算上限に達し次第終了)</p>
             <p>商店街の空き店舗に新たに出店する際の内装工事費などを補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -187,7 +205,7 @@
           </div>
           <div class="area-program" id="nishinomiya-city-sogyo-shien-menu">
             <h3>西宮市 特定創業支援等事業(創業支援メニュー)</h3>
-            <p class="area-meta">西宮市 産業文化局 商工課｜専門家支援｜要確認(受講修了で登録免許税軽減・小規模事業者持続化補助金創業型の要件など)｜締切：公募要領で確認</p>
+            <p class="area-meta">西宮市 産業文化局 商工課｜専門家支援｜要確認(受講修了で登録免許税軽減・小規模事業者持続化補助金創業型の要件など)</p>
             <p class="area-meta">期間：随時(最新は要確認)</p>
             <p>市と西宮商工会議所等が連携する創業セミナー・相談を受け、修了証明で各種優遇を受けられる。</p>
             <p><strong>主な条件</strong></p>
@@ -212,20 +230,20 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>西宮市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="nishinomiya-taishin-kaishu">
             <h3>住宅の耐震化への補助</h3>
-            <p class="area-meta">西宮市｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">西宮市｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：確認できた年度：令和7年度（令和7年11月28日に終了予定、最新は要確認）</p>
             <p>昭和56年5月以前に建築された住宅の耐震改修費用への補助。交付決定前に契約・支払いをすると対象外で、国の補助金との併用もできない。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>昭和56年5月以前に建築された住宅</li><li>交付決定前の契約・支払いは対象外</li></ul>
             <p><a href="https://www.nishi.or.jp/kurashi/sumai/josei/taishinka.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="nishinomiya-jikasyohi-taiyoko">
             <h3>西宮市自家消費型住宅用太陽光発電設備等導入補助事業</h3>
-            <p class="area-meta">兵庫県西宮市｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">兵庫県西宮市｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：令和8年度（最新は要確認）</p>
             <p>自家消費型の住宅用太陽光発電設備等の導入を支援する令和8年度事業。</p>
             <p><strong>主な条件</strong></p>
@@ -234,28 +252,28 @@
           </div>
           <div class="area-program" id="nishinomiya-jikasyohi-taiyoko-r8">
             <h3>令和8年度自家消費型住宅用太陽光発電設備等導入補助事業</h3>
-            <p class="area-meta">西宮市｜補助金｜太陽光：1kWあたり7万円（上限5kWで35万円）、蓄電池：対象価格の1/3（上限5kWhで23.5万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">西宮市｜補助金｜太陽光：1kWあたり7万円（上限5kWで35万円）、蓄電池：対象価格の1/3（上限5kWhで23.5万円）</p>
             <p class="area-meta">期間：令和8年度（予算残額は2026年7月31日時点で1,207万5千円。終了日は要確認）</p>
             <p>市内で自ら所有し居住する戸建て住宅に、太陽光と蓄電池を同時に設置する費用を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>自ら所有し居住する戸建て住宅（賃貸は対象外）</li><li>太陽光と蓄電池の同時設置</li></ul>
             <p><a href="https://www.nishi.or.jp/kurashi/sumai/josei/taiyoukoutikudennti.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program" id="nishinomiya-zeh-mado">
             <h3>西宮市戸建住宅ZEH化及び窓リノベ促進補助事業</h3>
-            <p class="area-meta">兵庫県西宮市｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">兵庫県西宮市｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：令和8年度（最新は要確認）</p>
             <p>戸建住宅のZEH化・窓リノベを促進する令和8年度補助事業。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>詳細は要確認</li></ul>
             <p><a href="https://www.city.nishinomiya.lg.jp/kotsu/kankyo/ondankataisaku/hojojigyo/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program" id="nishinomiya-jinsei-ikiiki-jutaku">
             <h3>西宮市人生いきいき住宅改造助成事業</h3>
-            <p class="area-meta">西宮市｜助成金｜要確認｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">西宮市｜助成金｜金額は公式で確認</p>
+            
             <p>高齢者の福祉として、住宅の改造（バリアフリー改修）に対して助成する事業。</p>
             
             <p><a href="https://www.nishi.or.jp/kenko/koreishafukushi/barrier_free/koreshafukushi.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>

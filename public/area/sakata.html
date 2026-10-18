@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,14 +170,25 @@
       <p class="lead" style="margin-bottom: 0;">山形県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（酒田市）<b>3件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（山形県）<b>4件</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>7件（うち受付終了1件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 2</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-7">移住 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">酒田市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="sakata-city-hanro-kakudai-koryu-hojo">
             <h3>販路拡大・交流支援補助金</h3>
-            <p class="area-meta">酒田市 産業振興部（酒田市産業振興まちづくりセンター）｜補助金｜補助率1/2（小規模事業者等は2/3）、年間上限20万〜30万円（対象者により異なる。要確認）｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">酒田市 産業振興部（酒田市産業振興まちづくりセンター）｜補助金｜補助率1/2（小規模事業者等は2/3）、年間上限20万〜30万円（対象者により異なる。要確認）</p>
+            
             <p>市外で開催される商談会・見本市への出展経費の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>酒田市内の事業者</li><li>市外開催の商談会・見本市等に出展すること</li></ul>
@@ -188,7 +206,7 @@
           </div>
           <div class="area-program" id="sakata-city-shin-business-shohin-kaihatsu">
             <h3>新ビジネス・商品開発・実証プロジェクト応援補助金</h3>
-            <p class="area-meta">酒田市 産業振興部（酒田市産業振興まちづくりセンター）｜補助金｜補助率1/2以内（小規模事業者は2/3の情報あり）、上限50万円｜締切：公募要領で確認</p>
+            <p class="area-meta">酒田市 産業振興部（酒田市産業振興まちづくりセンター）｜補助金｜補助率1/2以内（小規模事業者は2/3の情報あり）、上限50万円</p>
             <p class="area-meta">期間：随時受付（予算がなくなり次第終了。最新年度は要確認）</p>
             <p>新商品・新サービスの開発やビジネスモデルの実証にかかる経費の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -213,10 +231,10 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>酒田市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="sakata-taishin-kaishu">
             <h3>酒田市木造住宅耐震改修補助金</h3>
-            <p class="area-meta">山形県酒田市｜補助金｜補助率50%。評点1.0以上: 上限80万円、簡易・部分改修: 上限30万円｜締切：公募要領で確認</p>
+            <p class="area-meta">山形県酒田市｜補助金｜補助率50%。評点1.0以上: 上限80万円、簡易・部分改修: 上限30万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>木造住宅の耐震改修工事費を補助。</p>
             <p><strong>主な条件</strong></p>
@@ -225,37 +243,37 @@
           </div>
           <div class="area-program" id="sakata-taishin-shindan">
             <h3>酒田市木造住宅耐震診断士派遣</h3>
-            <p class="area-meta">山形県酒田市｜補助金｜自己負担 図面あり15,000円/図面なし19,000円(令和7年度案内)｜締切：公募要領で確認</p>
+            <p class="area-meta">山形県酒田市｜補助金｜自己負担 図面あり15,000円/図面なし19,000円(令和7年度案内)</p>
             <p class="area-meta">期間：令和7年度は5月26日〜12月19日(先着順)。令和8年度は要確認</p>
             <p>耐震診断士を派遣する耐震診断の費用補助。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>木造住宅所有者</li></ul>
             <p><a href="https://www.city.sakata.lg.jp/jyutaku/jyutaku/taishin/jyutaku_shindanshi_h.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="sakata-shinchiku-saiene">
             <h3>酒田市新築住宅再生可能エネルギー設備推進事業</h3>
-            <p class="area-meta">山形県酒田市｜補助金｜初年度サービス料の還元(上限24万円)｜締切：公募要領で確認</p>
+            <p class="area-meta">山形県酒田市｜補助金｜初年度サービス料の還元(上限24万円)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>新築住宅に太陽光発電と蓄電池をオンサイトPPA方式で設置する場合の支援。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>新築住宅</li><li>提携する市内施工会社経由の申込み</li></ul>
             <p><a href="https://www.city.sakata.lg.jp/jyutaku/jyutaku/jyutakushikin/sintikuzyutakusaiene.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program" id="sakata-reform">
             <h3>酒田市住宅リフォーム総合支援事業</h3>
-            <p class="area-meta">山形県酒田市｜補助金｜工事費の2割以内、最大24万円(県外移住・新婚・子育て世帯は最大30万円)｜締切：公募要領で確認</p>
+            <p class="area-meta">山形県酒田市｜補助金｜工事費の2割以内、最大24万円(県外移住・新婚・子育て世帯は最大30万円)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>省エネや耐震補強などの住宅リフォーム費用を補助。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>令和9年2月19日までに居住することなどの要件あり</li></ul>
             <p><a href="https://www.city.sakata.lg.jp/jyutaku/jyutaku/jyutakushikin/reform.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="sakata-akiya-kaitai">
             <h3>酒田市空き家解体補助</h3>
-            <p class="area-meta">山形県酒田市｜補助金｜工事費の2分の1(一般地域20万円、防火・準防火地域40万円が上限)｜締切：公募要領で確認</p>
+            <p class="area-meta">山形県酒田市｜補助金｜工事費の2分の1(一般地域20万円、防火・準防火地域40万円が上限)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>老朽空き家の解体工事費を補助。</p>
             <p><strong>主な条件</strong></p>
@@ -264,17 +282,17 @@
           </div>
           <div class="area-program is-ended" id="sakata-block">
             <h3>酒田市危険ブロック塀等撤去支援事業 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">山形県酒田市｜補助金｜工事費の3分の2と除却面積1平方メートルあたり6千円の少ない方、限度額15万円｜締切：公募要領で確認</p>
+            <p class="area-meta">山形県酒田市｜補助金｜工事費の3分の2と除却面積1平方メートルあたり6千円の少ない方、限度額15万円</p>
             <p class="area-meta">期間：令和8年度は受付終了(令和9年4月以降に建築課へ)</p>
             <p>道路や避難地に面した倒壊の危険が高いブロック塀の除却費を補助。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>着工前の現地調査で除却が必要と判定されたもの</li></ul>
             <p><a href="https://www.city.sakata.lg.jp/jyutaku/jyutaku/taishin/blockhei_tetsukyo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="sakata-ijuteiju-jutaku">
             <h3>酒田市移住定住者住宅支援費補助金</h3>
-            <p class="area-meta">山形県酒田市｜補助金｜購入: 費用の10分の1(上限25万円)、賃借改修: 2分の1(上限25万円、飛島50万円)。中学生以下の子がいる世帯は加算｜締切：公募要領で確認</p>
+            <p class="area-meta">山形県酒田市｜補助金｜購入: 費用の10分の1(上限25万円)、賃借改修: 2分の1(上限25万円、飛島50万円)。中学生以下の子がいる世帯は加算</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>庄内地域外からの移住者の中古住宅・空き家の購入や改修を補助。</p>
             <p><strong>主な条件</strong></p>

@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,6 +170,17 @@
       <p class="lead" style="margin-bottom: 0;">東京都・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（町田市）<b>4件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（東京都）<b>6件（うち受付終了1件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>6件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 2</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-5">バリアフリー・介護 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">町田市の制度（事業・創業の方向け）</h2>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="machida-city-marukei-rishi-josei">
             <h3>小規模事業者経営改善資金(マル経融資)利子助成制度</h3>
-            <p class="area-meta">町田市 産業政策課・町田商工会議所｜融資｜融資実行後2年間の利子を助成(率は要確認)｜締切：公募要領で確認</p>
+            <p class="area-meta">町田市 産業政策課・町田商工会議所｜融資｜融資実行後2年間の利子を助成(率は要確認)</p>
             <p class="area-meta">期間：通年(最新は要確認)</p>
             <p>町田商工会議所の経営指導を受けて日本政策金融公庫のマル経融資を利用する小規模事業者に利子助成を行う。</p>
             <p><strong>主な条件</strong></p>
@@ -187,7 +205,7 @@
           </div>
           <div class="area-program" id="machida-city-sogyo-project">
             <h3>町田創業プロジェクト(特定創業支援)</h3>
-            <p class="area-meta">町田市 産業政策課・町田商工会議所・町田新産業創造センター｜専門家支援｜要確認(登録免許税軽減・融資優遇など)｜締切：公募要領で確認</p>
+            <p class="area-meta">町田市 産業政策課・町田商工会議所・町田新産業創造センター｜専門家支援｜要確認(登録免許税軽減・融資優遇など)</p>
             <p class="area-meta">期間：通年(最新は要確認)</p>
             <p>特定創業支援を1か月以上受けて証明を得ると、登録免許税の軽減や制度融資の優遇利率を受けられる。</p>
             <p><strong>主な条件</strong></p>
@@ -196,7 +214,7 @@
           </div>
           <div class="area-program" id="machida-city-sogyo-shikin">
             <h3>町田市中小企業融資制度 創業資金(利子補助)</h3>
-            <p class="area-meta">町田市 産業政策課｜融資｜限度額1,500万円・期間7年以内。町田創業プロジェクト証明で3年以内利率1.10%など優遇｜締切：公募要領で確認</p>
+            <p class="area-meta">町田市 産業政策課｜融資｜限度額1,500万円・期間7年以内。町田創業プロジェクト証明で3年以内利率1.10%など優遇</p>
             <p class="area-meta">期間：2026年度(通年)</p>
             <p>創業5年未満の中小企業者向け制度融資。市が利子を補助し、東京都の要件で保証料補助(2/3)もある。</p>
             <p><strong>主な条件</strong></p>
@@ -221,10 +239,10 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>町田市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="machida-taishin-kaishu">
             <h3>木造住宅耐震化助成制度（耐震改修工事）</h3>
-            <p class="area-meta">町田市｜助成金｜一般世帯は耐震改修工事費の1/2、上限120万円｜締切：公募要領で確認</p>
+            <p class="area-meta">町田市｜助成金｜一般世帯は耐震改修工事費の1/2、上限120万円</p>
             <p class="area-meta">期間：令和8年度（2026年4月から助成対象を81-00住宅に拡大）</p>
             <p>1981年以前の旧耐震住宅と1981年6月〜2000年5月着工の在来軸組工法の木造住宅の耐震改修を助成。</p>
             <p><strong>主な条件</strong></p>
@@ -240,7 +258,7 @@
             <ul><li>町田市の他の耐震助成を利用したことがないこと</li></ul>
             <p><a href="https://www.city.machida.tokyo.jp/kurashi/sumai/house/earthquake-resistant/wooden/shelter.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program" id="machida-enefarm">
             <h3>家庭用燃料電池システム（エネファーム）奨励金</h3>
             <p class="area-meta">町田市｜給付｜35,000円（定員170名、超過時は抽選）｜締切：2027-03-31</p>
@@ -249,7 +267,7 @@
             
             <p><a href="https://www.city.machida.tokyo.jp/kurashi/kankyo/kankyo/setudenshoene/kateidenotorikumi/riyoukiki/taiyoukououen.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="machida-block-tekkyo">
             <h3>ブロック塀等撤去助成</h3>
             <p class="area-meta">町田市｜助成金｜工事見積額と、水平長さ10cmあたり600円×撤去長さの低い方、上限30万円｜締切：2026-12-11</p>
@@ -268,11 +286,11 @@
             <ul><li>町田市の簡易耐震診断で総合評点1.0未満の木造住宅</li><li>交付決定通知後に工事契約すること</li></ul>
             <p><a href="https://www.city.machida.tokyo.jp/kurashi/sumai/house/earthquake-resistant/wooden/remove.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program" id="machida-barrierfree">
             <h3>住宅バリアフリー化改修工事助成金</h3>
-            <p class="area-meta">町田市｜助成金｜要確認｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">町田市｜助成金｜金額は公式で確認</p>
+            
             <p>住宅のバリアフリー化改修工事費を助成（詳細は要確認）。</p>
             
             <p><a href="https://www.city.machida.tokyo.jp/kurashi/sumai/house/josei.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>

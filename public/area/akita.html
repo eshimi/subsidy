@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,6 +170,17 @@
       <p class="lead" style="margin-bottom: 0;">秋田県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（秋田市）<b>3件（うち受付終了1件）</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（秋田県）<b>5件（うち受付終了2件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>9件（うち受付終了1件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-4">空き家・ブロック塀 3</a><a href="#res-cat-5">バリアフリー・介護 2</a><a href="#res-cat-7">移住 3</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">秋田市の制度（事業・創業の方向け）</h2>
@@ -213,20 +231,19 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>秋田市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program is-ended" id="akita-city-taishin">
             <h3>秋田市木造住宅耐震改修等補助事業 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">秋田市｜補助金｜改修の補助上限：全体改修100万円、部分改修50万円｜締切：公募要領で確認</p>
+            <p class="area-meta">秋田市｜補助金｜改修の補助上限：全体改修100万円、部分改修50万円</p>
             <p class="area-meta">期間：令和8年度の受付は終了</p>
             <p>木造住宅の耐震診断・耐震改修を支援する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>要確認</li></ul>
+            
             <p><a href="https://www.city.akita.lg.jp/shisei/machizukuri/1011485/1007501/1007903.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="akita-city-block-hei">
             <h3>秋田市 危険ブロック塀除却補助</h3>
-            <p class="area-meta">秋田市｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">秋田市｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>小学校の通学路に面したブロック塀で、点検等により危険と判断されたものの除却費用の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -235,26 +252,25 @@
           </div>
           <div class="area-program" id="akita-city-block-jokyaku">
             <h3>秋田市危険ブロック塀等除却支援事業</h3>
-            <p class="area-meta">秋田市｜補助金｜除却工事費の3分の2（上限20万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">秋田市｜補助金｜除却工事費の3分の2（上限20万円）</p>
             <p class="area-meta">期間：令和8年度の申請受付に関するページあり（期間は要確認）</p>
             <p>危険なブロック塀等の除却費用を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>要確認</li></ul>
+            
             <p><a href="https://www.city.akita.lg.jp/shisei/machizukuri/1011485/1007501/1019572.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
           <div class="area-program" id="akita-city-rokyu-akiya-kaitai">
             <h3>老朽危険空き家解体撤去補助金</h3>
-            <p class="area-meta">秋田市｜補助金｜費用の2分の1（上限50万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">秋田市｜補助金｜費用の2分の1（上限50万円）</p>
             <p class="area-meta">期間：補助対象空き家認定申請は受付終了（認定済みの交付申請は受付中）</p>
             <p>特定空家等などに該当する老朽危険空き家の解体撤去費用を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>特定空家等などに該当する空き家</li></ul>
             <p><a href="https://www.city.akita.lg.jp/kurashi/sumai/1007487/1041984.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program" id="akita-city-kaigo-jutaku-kaishu">
             <h3>秋田市 介護保険住宅改修費（手すり・段差解消等）</h3>
-            <p class="area-meta">秋田市｜給付｜20万円までの工事が対象、自己負担は1割（所得により2〜3割）｜締切：公募要領で確認</p>
+            <p class="area-meta">秋田市｜給付｜20万円までの工事が対象、自己負担は1割（所得により2〜3割）</p>
             <p class="area-meta">期間：通年（着工前に事前申請）</p>
             <p>要介護・要支援認定を受けた方の手すり取付け・段差解消などの小規模な住宅改修費を介護保険で給付する。</p>
             <p><strong>主な条件</strong></p>
@@ -263,18 +279,18 @@
           </div>
           <div class="area-program" id="akita-city-reform-shien">
             <h3>秋田市住宅リフォーム支援事業</h3>
-            <p class="area-meta">秋田市｜補助金｜工事費の10%（上限5万円、中心市街地は上限10万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">秋田市｜補助金｜工事費の10%（上限5万円、中心市街地は上限10万円）</p>
             <p class="area-meta">期間：令和7年度は4/1〜12/26。令和8年度は最新は要確認</p>
             <p>市内の住宅のバリアフリー工事を含む増改築・リフォーム費用の一部を補助する。太陽光・蓄電設備、外構工事などは対象外。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>秋田市内に住所があり市税の滞納がない方</li><li>自ら所有し居住する住宅（親族所有等は要確認）</li></ul>
             <p><a href="https://www.city.akita.lg.jp/kurashi/sumai/1007487/1007790.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="akita-city-akiya-teijuu">
             <h3>秋田市 空き家定住推進事業</h3>
-            <p class="area-meta">秋田市｜補助金｜移住者が購入する場合は上限100万円、賃借の場合は上限30万円｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">秋田市｜補助金｜移住者が購入する場合は上限100万円、賃借の場合は上限30万円</p>
+            
             <p>移住者が空き家を購入または賃借する費用を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>移住者であること</li><li>国費や県の国費充当補助事業との併用不可</li><li>門・塀などの外構工事は対象外</li></ul>
@@ -282,7 +298,7 @@
           </div>
           <div class="area-program" id="akita-city-kosodate-iju">
             <h3>秋田市子育て世帯移住促進事業補助金</h3>
-            <p class="area-meta">秋田市｜補助金｜30万円に18歳未満の子1人につき10万円を加算した額が上限｜締切：公募要領で確認</p>
+            <p class="area-meta">秋田市｜補助金｜30万円に18歳未満の子1人につき10万円を加算した額が上限</p>
             <p class="area-meta">期間：令和7年度情報を確認。予算がなくなり次第終了。令和8年度の最新は要確認</p>
             <p>県外から秋田市へ移住する子育て世帯の住宅取得（新築・購入・賃貸初期費用）と引越費用を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -291,8 +307,8 @@
           </div>
           <div class="area-program" id="akita-city-tokyo-iju">
             <h3>東京圏移住支援事業補助金（社会人等向け支援事業）</h3>
-            <p class="area-meta">秋田市｜給付｜単身世帯60万円、2人以上の世帯100万円、18歳未満の子ども1人につき100万円を加算｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">秋田市｜給付｜単身世帯60万円、2人以上の世帯100万円、18歳未満の子ども1人につき100万円を加算</p>
+            
             <p>東京圏から秋田市へ移住した人への支援金。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>東京圏からの移住と就業などの要件</li></ul>

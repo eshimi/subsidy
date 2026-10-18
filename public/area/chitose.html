@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">北海道・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（千歳市）<b>3件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（北海道）<b>5件（うち受付終了2件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>5件（うち受付終了3件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 2</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-6">子育て 1</a><a href="#res-cat-7">移住 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">千歳市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="chitose-city-akitenpo-riyo-sokushin">
             <h3>中心商店街等空き店舗利用促進事業</h3>
-            <p class="area-meta">千歳市 産業振興部 商業労働課｜補助金｜補助対象経費の1/2以内・上限170万円（市公式ページ記載。最新年度は要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">千歳市 産業振興部 商業労働課｜補助金｜補助対象経費の1/2以内・上限170万円（市公式ページ記載。最新年度は要確認）</p>
             <p class="area-meta">期間：要確認（交付決定まで約2か月）</p>
             <p>中心市街地の空き店舗で開業する事業者に、店舗賃借料・広告宣伝費・改装費などの一部を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -178,8 +196,8 @@
           </div>
           <div class="area-program" id="chitose-city-chusho-shinko-yushi">
             <h3>千歳市中小企業振興融資制度</h3>
-            <p class="area-meta">千歳市 産業振興部 商業労働課｜融資｜要確認｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">千歳市 産業振興部 商業労働課｜融資｜金額は公式で確認</p>
+            
             <p>市内の中小企業者の事業資金調達を支援する市の融資制度。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>千歳市内の中小企業者</li><li>詳細要件は市公式ページで要確認</li></ul>
@@ -187,8 +205,8 @@
           </div>
           <div class="area-program" id="chitose-city-shogyo-kasseika-hojo">
             <h3>商業等活性化事業補助金（起業支援事業等）</h3>
-            <p class="area-meta">千歳市 産業振興部 商業労働課｜補助金｜要確認｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">千歳市 産業振興部 商業労働課｜補助金｜金額は公式で確認</p>
+            
             <p>市内の商業活性化の取組を支援する補助金。起業前または起業後180日以内の事業者の店舗賃借料・改装費等を補助するメニューや、市民ふれあいプラザでの試験事業の使用料補助がある。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>千歳市で起業する方または起業後180日以内（試験事業は起業後3年以内）の事業者</li><li>商店街・市内事業者の団体による商業活性化の取組</li></ul>
@@ -212,7 +230,7 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>千歳市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program is-ended" id="chitose-taishin-kaishu">
             <h3>千歳市木造住宅耐震改修補助 <span class="area-ended-tag">受付終了</span></h3>
             <p class="area-meta">北海道千歳市｜補助金｜工事費20万円以下は全額、20万円超200万円以下は一律20万円、200万円超300万円以下は10%、300万円超は一律30万円｜締切：2026-09-30</p>
@@ -231,30 +249,30 @@
             <ul><li>昭和56年5月31日以前に着工された木造戸建て</li></ul>
             <p><a href="https://www.city.chitose.lg.jp/docs/95-37849-165-1072.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program is-ended" id="chitose-zerocarbon">
             <h3>ちとせ住まいのゼロカーボン化推進事業(省エネ機器) <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">北海道千歳市｜補助金｜導入費用の10分の1、上限各10万円(給湯器・暖房機・コージェネ。併用時合計20万円)｜締切：公募要領で確認</p>
+            <p class="area-meta">北海道千歳市｜補助金｜導入費用の10分の1、上限各10万円(給湯器・暖房機・コージェネ。併用時合計20万円)</p>
             <p class="area-meta">期間：令和8年度は予算に達し受付終了</p>
             <p>給湯器・暖房機・コージェネレーションの導入費用を補助。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>詳細要件は要確認</li></ul>
             <p><a href="https://www.city.chitose.lg.jp/c10/1002546/1002570/1003994.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">子育て</h3>
+          <h3 class="area-cat" id="res-cat-6">子育て</h3>
           <div class="area-program" id="chitose-wakate-kosodate">
             <h3>千歳市若年・子育て世帯定住促進事業</h3>
-            <p class="area-meta">北海道千歳市｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">北海道千歳市｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：令和8年度版手引きあり。受付期間は要確認</p>
             <p>若年夫婦世帯・子育て世帯の戸建て住宅への住み替えを支援(フラット35地域連携型の金利引下げ等)。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>若年夫婦世帯または子育て世帯</li></ul>
             <p><a href="https://www.city.chitose.lg.jp/c10/1002546/1002570/1006543.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="chitose-iju-shienkin">
             <h3>千歳市移住支援金(UIJターン新規就業支援事業)</h3>
-            <p class="area-meta">北海道千歳市｜給付｜100万円(世帯)+18歳未満の世帯員1人につき100万円加算｜締切：公募要領で確認</p>
+            <p class="area-meta">北海道千歳市｜給付｜100万円(世帯)+18歳未満の世帯員1人につき100万円加算</p>
             <p class="area-meta">期間：令和8年度分掲載。受付期間は要確認</p>
             <p>東京圏から移住し新規就業等を行う方への支援金。</p>
             <p><strong>主な条件</strong></p>

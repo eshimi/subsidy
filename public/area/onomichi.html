@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,6 +170,17 @@
       <p class="lead" style="margin-bottom: 0;">広島県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（尾道市）<b>3件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（広島県）<b>6件（うち受付終了1件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>7件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-4">空き家・ブロック塀 4</a><a href="#res-cat-6">子育て 1</a><a href="#res-cat-7">移住 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">尾道市の制度（事業・創業の方向け）</h2>
@@ -214,7 +232,7 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>尾道市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="onomichi-taishin">
             <h3>尾道市木造住宅耐震診断・耐震改修・住宅耐震化促進支援事業</h3>
             <p class="area-meta">広島県尾道市｜補助金｜診断は費用の2/3(上限2万円)、改修は23%(上限30万円)、シェルターは1/2(上限12.5万円)、住宅耐震化促進支援事業は改修費の80%(上限115万円)｜締切：2026-11-30</p>
@@ -224,10 +242,10 @@
             <ul><li>昭和56年5月31日以前に着工された木造住宅</li><li>診断で倒壊の可能性ありと判定</li><li>登録された事業者に依頼、契約前に申請</li></ul>
             <p><a href="https://www.city.onomichi.hiroshima.jp/soshiki/36/1887.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="onomichi-akiya-josen">
             <h3>尾道市特定空家等及び不良空き家除却支援事業補助金</h3>
-            <p class="area-meta">広島県尾道市｜補助金｜除却工事費の3分の2、上限60万円｜締切：公募要領で確認</p>
+            <p class="area-meta">広島県尾道市｜補助金｜除却工事費の3分の2、上限60万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>老朽化し危険な空家等の除却費用の一部を補助する。門や塀などの附属物の除却は対象外。</p>
             <p><strong>主な条件</strong></p>
@@ -236,16 +254,15 @@
           </div>
           <div class="area-program" id="onomichi-akiya-kaishu">
             <h3>尾道市空家等改修支援事業補助金</h3>
-            <p class="area-meta">広島県尾道市｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">広島県尾道市｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：令和8年度分は予算上限に達し受付終了</p>
             <p>空家等の改修費用の一部を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>要確認</li></ul>
+            
             <p><a href="https://www.city.onomichi.hiroshima.jp/soshiki/33/24757.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
           <div class="area-program" id="onomichi-akiya-saisei">
             <h3>尾道市空き家再生促進事業(歴史的風致維持向上計画事業)</h3>
-            <p class="area-meta">広島県尾道市｜補助金｜改修費の3分の2、上限30万円｜締切：公募要領で確認</p>
+            <p class="area-meta">広島県尾道市｜補助金｜改修費の3分の2、上限30万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>歴史的風致の重点区域で空き家を改修して居住する場合の改修費を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -254,14 +271,14 @@
           </div>
           <div class="area-program" id="onomichi-block">
             <h3>尾道市ブロック塀等安全確保事業</h3>
-            <p class="area-meta">広島県尾道市｜補助金｜建替費用の3分の2、上限30万円(対象工事費は延長1mあたり8万円以内)｜締切：公募要領で確認</p>
+            <p class="area-meta">広島県尾道市｜補助金｜建替費用の3分の2、上限30万円(対象工事費は延長1mあたり8万円以内)</p>
             <p class="area-meta">期間：令和8年度(完了報告は令和9年1月29日まで)</p>
             <p>道路等に面する倒壊のおそれがあるブロック塀等の除却・建替費用を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>個人所有のブロック塀等</li><li>令和9年1月29日までに完了報告可能</li><li>事前相談が必要</li></ul>
             <p><a href="https://www.city.onomichi.hiroshima.jp/soshiki/36/31967.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">子育て</h3>
+          <h3 class="area-cat" id="res-cat-6">子育て</h3>
           <div class="area-program" id="onomichi-tasedai-shinchiku">
             <h3>尾道市多世代同居等新築住宅取得支援事業</h3>
             <p class="area-meta">広島県尾道市｜給付｜定額30万円｜締切：2027-03-31</p>
@@ -271,7 +288,7 @@
             <ul><li>親世帯との同居・近居</li><li>子育て世帯等(詳細要件は要確認)</li></ul>
             <p><a href="https://www.city.onomichi.hiroshima.jp/soshiki/33/62304.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="onomichi-kosodate-chuko">
             <h3>尾道市子育て世帯等中古住宅取得支援事業補助金</h3>
             <p class="area-meta">広島県尾道市｜補助金｜購入費の2分の1、上限は市外からの移住世帯50万円・市内在住世帯30万円(親世帯と同居・近居で10万円加算)｜締切：2027-03-31</p>

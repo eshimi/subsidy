@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">宮城県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（石巻市）<b>5件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（宮城県）<b>3件（うち受付終了1件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>3件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-7">移住 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">石巻市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="ishinomaki-city-pro-jinzai-koyo">
             <h3>石巻市プロフェッショナル人材雇用助成金</h3>
-            <p class="area-meta">石巻市 産業部｜助成金｜助成率1/3、上限75万円（市外から移住を伴う場合は1/2、上限100万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">石巻市 産業部｜助成金｜助成率1/3、上限75万円（市外から移住を伴う場合は1/2、上限100万円）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>宮城県プロフェッショナル人材戦略拠点を通じて紹介された人材を雇用する事業者への助成。</p>
             <p><strong>主な条件</strong></p>
@@ -188,7 +206,7 @@
           </div>
           <div class="area-program" id="ishinomaki-city-sogyosha-jizokuka">
             <h3>石巻市創業者持続化事業費補助制度</h3>
-            <p class="area-meta">石巻市 産業部産業推進課｜補助金｜補助率1/2以内、上限100万円｜締切：公募要領で確認</p>
+            <p class="area-meta">石巻市 産業部産業推進課｜補助金｜補助率1/2以内、上限100万円</p>
             <p class="area-meta">期間：令和8年度は4月22日〜5月29日の募集で終了（次年度は要確認）</p>
             <p>創業から3年を経過した小規模事業者のIT導入、省力化・省人化、販路開拓などの費用を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -197,7 +215,7 @@
           </div>
           <div class="area-program" id="ishinomaki-city-yushi-ippan">
             <h3>石巻市中小企業融資制度（一般資金）</h3>
-            <p class="area-meta">石巻市 産業部商工課｜融資｜限度額2,000万円以内、年1.5%（1年以内）／1.9%（1年超）、保証料の50%を市が補給｜締切：公募要領で確認</p>
+            <p class="area-meta">石巻市 産業部商工課｜融資｜限度額2,000万円以内、年1.5%（1年以内）／1.9%（1年超）、保証料の50%を市が補給</p>
             <p class="area-meta">期間：通年（最新は要確認）</p>
             <p>運転・設備資金の融資あっせん。宮城県信用保証協会の保証が必要で、保証料の半分を市が補給する。</p>
             <p><strong>主な条件</strong></p>
@@ -207,7 +225,7 @@
           </div>
           <div class="area-program" id="ishinomaki-city-yushi-koguchi">
             <h3>石巻市小企業小口融資制度</h3>
-            <p class="area-meta">石巻市 産業部商工課｜融資｜限度額350万円以内、年1.45%（1年以内）／1.85%（1年超）、保証料の100%を市が補給、連帯保証人不要｜締切：公募要領で確認</p>
+            <p class="area-meta">石巻市 産業部商工課｜融資｜限度額350万円以内、年1.45%（1年以内）／1.85%（1年超）、保証料の100%を市が補給、連帯保証人不要</p>
             <p class="area-meta">期間：通年（最新は要確認）</p>
             <p>従業員20人以下などの小企業向けの小口融資あっせん。保証料を全額市が補給する。</p>
             <p><strong>主な条件</strong></p>
@@ -233,17 +251,17 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>石巻市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="ishinomaki-taishin">
             <h3>木造住宅耐震改修工事助成事業</h3>
-            <p class="area-meta">宮城県石巻市｜助成金｜補助率4/5以内、限度額115万円(令和7年4月受付分から)｜締切：公募要領で確認</p>
+            <p class="area-meta">宮城県石巻市｜助成金｜補助率4/5以内、限度額115万円(令和7年4月受付分から)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>旧耐震の木造住宅の耐震改修工事費を助成。その他改修を併せて行う場合は10万円を限度に加算。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>改修後の総合評点が1.0以上となる住宅、または建替え</li><li>事前に耐震診断・改修計画が必要</li></ul>
             <p><a href="https://www.city.ishinomaki.lg.jp/cont/10504000/1553/1553.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="ishinomaki-solar">
             <h3>太陽光発電等普及促進事業補助金</h3>
             <p class="area-meta">宮城県石巻市｜補助金｜太陽光1kWあたり2万円、蓄電池1kWhあたり2万円、上限は個人8万円(HEMSは上限2万円)｜締切：2027-03-12</p>
@@ -253,10 +271,10 @@
             <ul><li>石巻市内に住所を有する個人等</li></ul>
             <p><a href="https://www.city.ishinomaki.lg.jp/cont/10301000/3369/solar.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="ishinomaki-teiju">
             <h3>定住促進住宅取得等補助金</h3>
-            <p class="area-meta">宮城県石巻市｜補助金｜対象経費の10%(基本額、限度130万円)、空き家バンク活用・市内業者施工・多子世帯で各20万円加算｜締切：公募要領で確認</p>
+            <p class="area-meta">宮城県石巻市｜補助金｜対象経費の10%(基本額、限度130万円)、空き家バンク活用・市内業者施工・多子世帯で各20万円加算</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>市外から移住する子育て世帯が住宅を取得または改修する費用を補助。</p>
             <p><strong>主な条件</strong></p>

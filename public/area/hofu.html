@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">山口県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（防府市）<b>3件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（山口県）<b>5件（うち受付終了2件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>4件（うち受付終了1件）</b></a><span class="area-toc-cats"><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-7">移住 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">防府市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="hofu-city-chushokigyo-jinzai-ikusei-hojo">
             <h3>防府市中小企業人材育成応援補助金</h3>
-            <p class="area-meta">防府市 産業振興部 商工振興課｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">防府市 産業振興部 商工振興課｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：要確認（公式ページ参照）</p>
             <p>中小企業が従業員のリスキリング・人材育成に取り組む際の経費を支援する制度。</p>
             <p><strong>主な条件</strong></p>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="hofu-city-hanro-kaitaku-shien-hojo">
             <h3>防府市販路開拓支援補助金</h3>
-            <p class="area-meta">防府市 産業振興部 商工振興課｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">防府市 産業振興部 商工振興課｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：要確認（公式ページ参照）</p>
             <p>市内事業者が県外で開催される展示会・商談会へ出展する際の経費を補助する制度。</p>
             <p><strong>主な条件</strong></p>
@@ -187,7 +205,7 @@
           </div>
           <div class="area-program" id="hofu-city-sogyo-challenge-shien-hojo">
             <h3>防府市創業チャレンジ支援事業補助金</h3>
-            <p class="area-meta">防府市 産業振興部 商工振興課｜補助金｜チャレンジ店舗出店事業：補助率1/2以内・月額上限5万円（最大12か月）／イベント出展事業：補助率1/2以内・上限30万円｜締切：公募要領で確認</p>
+            <p class="area-meta">防府市 産業振興部 商工振興課｜補助金｜チャレンジ店舗出店事業：補助率1/2以内・月額上限5万円（最大12か月）／イベント出展事業：補助率1/2以内・上限30万円</p>
             <p class="area-meta">期間：令和8年度（出展事業は交付決定日から令和9年3月31日まで。詳細要確認）</p>
             <p>創業後間もない事業者のまちなかでの店舗出店やイベント出展にかかる経費の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -212,17 +230,17 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>防府市の制度</strong></p>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="hofu-ecolife">
             <h3>防府市エコライフ住宅推進事業</h3>
-            <p class="area-meta">山口県防府市｜補助金｜助成率10%、上限10万円｜締切：公募要領で確認</p>
+            <p class="area-meta">山口県防府市｜補助金｜助成率10%、上限10万円</p>
             <p class="area-meta">期間：令和8年度(期間は要確認)</p>
             <p>工事費10万円以上(税抜)の既存住宅の省エネ設備導入、太陽光発電・家庭用蓄電池の設置等を助成する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>既存住宅</li><li>蓄電池は再生可能エネルギーと併用する場合に限る</li><li>他の市補助対象工事を含まないこと</li></ul>
             <p><a href="https://www.city.hofu.yamaguchi.jp/soshiki/24/ecolifezyutakusuishin8.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="hofu-akiya-rikatsuyo">
             <h3>防府市空き家利活用改修費補助金</h3>
             <p class="area-meta">山口県防府市｜補助金｜対象経費の2分の1以内、上限50万円｜締切：2026-12-25</p>
@@ -241,7 +259,7 @@
             <ul><li>判定申請が必要</li><li>交付決定前の契約・着手は対象外</li></ul>
             <p><a href="https://www.city.hofu.yamaguchi.jp/site/akiya/hojokin-kaitai8.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="hofu-ijushienkin">
             <h3>防府市移住支援金</h3>
             <p class="area-meta">山口県防府市｜給付｜単身60万円、2人以上の世帯100万円(条件により)、18歳未満の子は1人につき加算(令和7年度移住者向けページの記載、令和8年度分は別ページで要確認)｜締切：2027-02-05</p>

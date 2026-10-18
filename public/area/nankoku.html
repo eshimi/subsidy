@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">高知県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（南国市）<b>2件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（高知県）<b>4件（うち受付終了3件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>4件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-7">移住 2</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">南国市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="nankoku-city-chushokigyo-shinko-hojo">
             <h3>南国市中小企業振興事業費補助金</h3>
-            <p class="area-meta">南国市 商工観光課｜補助金｜補助対象経費の1/2以内、上限60万円｜締切：公募要領で確認</p>
+            <p class="area-meta">南国市 商工観光課｜補助金｜補助対象経費の1/2以内、上限60万円</p>
             <p class="area-meta">期間：要確認（交付要綱は令和8年4月1日施行、単年度事業）</p>
             <p>市内中小企業者の創業支援（指定区域内）、特産品・新製品の開発、販路拡大などを支援する補助金。審査会で適正と認められた事業が対象。</p>
             <p><strong>主な条件</strong></p>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="nankoku-city-sentan-setsubi-hojo">
             <h3>令和8年度南国市先端設備等導入支援事業費補助金</h3>
-            <p class="area-meta">南国市 商工観光課｜補助金｜補助率2/3、上限200万円（従業員なしの場合は1/2、上限100万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">南国市 商工観光課｜補助金｜補助率2/3、上限200万円（従業員なしの場合は1/2、上限100万円）</p>
             <p class="area-meta">期間：要確認（令和8年度）</p>
             <p>賃上げにつながる設備投資を支援する補助金。交付決定前の契約・発注や中古・リース設備は対象外。</p>
             <p><strong>主な条件</strong></p>
@@ -203,30 +221,30 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>南国市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="nankoku-taishin">
             <h3>南国市住宅等耐震改修費補助金(住宅・ブロック塀)</h3>
-            <p class="area-meta">高知県南国市｜補助金｜設計32万4千円以内、工事165万円以内(市内登録工務店等、他は160万円)、ブロック塀は40万円以内または1mあたり8万円の低い方｜締切：公募要領で確認</p>
+            <p class="area-meta">高知県南国市｜補助金｜設計32万4千円以内、工事165万円以内(市内登録工務店等、他は160万円)、ブロック塀は40万円以内または1mあたり8万円の低い方</p>
             <p class="area-meta">期間：令和8年度(詳細な募集期間は要確認)</p>
             <p>昭和56年5月以前建築で評点1.0未満の住宅の耐震設計・改修と、避難路沿いの危険ブロック塀の撤去を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>昭和56年5月31日以前建築の市内住宅</li><li>耐震診断で評点1.0未満</li><li>ブロック塀は避難路に面し危険判定</li></ul>
             <p><a href="https://www.city.nankoku.lg.jp/life/life_dtl.php?hdnKey=9275" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="nankoku-roukyu-jokyaku">
             <h3>南国市老朽住宅除却事業費補助金</h3>
-            <p class="area-meta">高知県南国市｜補助金｜除却工事費の80%、上限92万5千円｜締切：公募要領で確認</p>
+            <p class="area-meta">高知県南国市｜補助金｜除却工事費の80%、上限92万5千円</p>
             <p class="area-meta">期間：2026年5月19日〜6月30日、7月1日から予算上限まで(募集期間延長の表示あり)</p>
             <p>老朽化した空き家等の除却費用を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>昭和56年5月31日以前建築の木造住宅等</li><li>門・塀は対象外</li></ul>
             <p><a href="https://www.city.nankoku.lg.jp/life/life_dtl.php?hdnKey=10050" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="nankoku-chihou-sosei">
             <h3>南国市地方創生移住支援金</h3>
-            <p class="area-meta">高知県南国市｜給付｜単身60万円、2人以上世帯100万円、18歳未満の同行者1人につき100万円加算｜締切：公募要領で確認</p>
+            <p class="area-meta">高知県南国市｜給付｜単身60万円、2人以上世帯100万円、18歳未満の同行者1人につき100万円加算</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>東京圏から移住し就業・テレワーク・起業を行う方への支援金。</p>
             <p><strong>主な条件</strong></p>
@@ -235,7 +253,7 @@
           </div>
           <div class="area-program" id="nankoku-iju-uij">
             <h3>南国市UIJターン移住支援補助金</h3>
-            <p class="area-meta">高知県南国市｜補助金｜引越し費用の一部、上限30万円(令和7年度版の記載)｜締切：公募要領で確認</p>
+            <p class="area-meta">高知県南国市｜補助金｜引越し費用の一部、上限30万円(令和7年度版の記載)</p>
             <p class="area-meta">期間：令和7年度版を確認、令和8年度は最新は要確認</p>
             <p>県外から移住する際の業者による荷物運搬費の一部を補助する。令和8年度の内容は要確認。</p>
             <p><strong>主な条件</strong></p>

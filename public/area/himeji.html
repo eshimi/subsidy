@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">兵庫県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（姫路市）<b>5件（うち受付終了1件）</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（兵庫県）<b>4件（うち受付終了1件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>9件（うち受付終了2件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 2</a><a href="#res-cat-2">EV・充電 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-5">バリアフリー・介護 1</a><a href="#res-cat-7">移住 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">姫路市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="himeji-city-green-family">
             <h3>姫路市郊外部創業者 信用保証料助成（グリーンファミリー制度）</h3>
-            <p class="area-meta">姫路市 産業振興課｜補助金｜自己負担保証料の1/4（上限10万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">姫路市 産業振興課｜補助金｜自己負担保証料の1/4（上限10万円）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>郊外部で創業し兵庫県融資を利用する事業者の保証料を助成する。</p>
             <p><strong>主な条件</strong></p>
@@ -179,7 +197,7 @@
           </div>
           <div class="area-program" id="himeji-city-hosyoryo-josei">
             <h3>姫路市 兵庫県中小企業融資制度に係る信用保証料助成</h3>
-            <p class="area-meta">姫路市 産業振興課｜補助金｜新規開業貸付は保証料の50%、経営円滑化貸付は5%｜締切：公募要領で確認</p>
+            <p class="area-meta">姫路市 産業振興課｜補助金｜新規開業貸付は保証料の50%、経営円滑化貸付は5%</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>兵庫県の融資制度を利用する市内中小企業者の信用保証料の一部を助成する。</p>
             <p><strong>主な条件</strong></p>
@@ -234,7 +252,7 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>姫路市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="himeji-taishin-kaishu-r8">
             <h3>姫路市住宅耐震化工事等補助</h3>
             <p class="area-meta">兵庫県姫路市｜補助金｜工事費の4/5（戸建て一般型上限115万円、小規模型上限60万円）｜締切：2026-11-11</p>
@@ -244,10 +262,10 @@
             <ul><li>所得600万円以下の兵庫県民等</li><li>県の住宅改修業者登録制度等に登録した事業者による工事</li></ul>
             <p><a href="https://www.city.himeji.lg.jp/sangyo/0000002709.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="himeji-jikasyohi-taiyoko-r8">
             <h3>【令和8年度】姫路市自家消費型住宅用太陽光発電設備等導入補助金</h3>
-            <p class="area-meta">姫路市｜補助金｜太陽光：1kWあたり7万円（上限5kW・35万円）、蓄電池：補助対象価格の1/3（上限5kWh・23.5万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">姫路市｜補助金｜太陽光：1kWあたり7万円（上限5kW・35万円）、蓄電池：補助対象価格の1/3（上限5kWh・23.5万円）</p>
             <p class="area-meta">期間：令和8年度。受付再開後、予算残額942,000円の範囲内で先着順（確認時点）</p>
             <p>自ら居住する戸建住宅に、自家消費型の太陽光発電設備と蓄電池を同時設置する費用を補助する。先着順。</p>
             <p><strong>主な条件</strong></p>
@@ -256,32 +274,32 @@
           </div>
           <div class="area-program" id="himeji-jutaku-chikuden-r8">
             <h3>【令和8年度】姫路市住宅用蓄電システム導入促進事業</h3>
-            <p class="area-meta">姫路市｜補助金｜播磨圏域連携中枢都市圏域内の連携市町内の事業者と契約：1kWhあたり2万円（上限10万円）。それ以外の事業者：1kWhあたり1万円（上限5万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">姫路市｜補助金｜播磨圏域連携中枢都市圏域内の連携市町内の事業者と契約：1kWhあたり2万円（上限10万円）。それ以外の事業者：1kWhあたり1万円（上限5万円）</p>
             <p class="area-meta">期間：令和8年度（受付期間は要確認）</p>
             <p>住宅用蓄電システムの導入費用を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>自家消費型住宅用太陽光発電設備等導入補助金との併用申請不可</li></ul>
             <p><a href="https://www.city.himeji.lg.jp/kurashi/0000011573.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">EV・充電</h3>
+          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
           <div class="area-program" id="himeji-kojin-jisedai-car-r8">
             <h3>【令和8年度】姫路市個人向け次世代自動車導入促進補助金</h3>
-            <p class="area-meta">姫路市｜補助金｜国の補助額の1/4（上限10万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">姫路市｜補助金｜国の補助額の1/4（上限10万円）</p>
             <p class="area-meta">期間：令和8年度。電気自動車は予算上限に達し5月29日に受付終了。燃料電池車・電動バイクは別扱いで受付中の記載あり（確認時点）</p>
             <p>個人向けの電気自動車等の導入を補助する。</p>
             
             <p><a href="https://www.city.himeji.lg.jp/kurashi/0000021695.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program is-ended" id="himeji-shoene-kaden-kaikae">
             <h3>姫路市省エネ家電買換え促進事業（補助金） <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">姫路市｜補助金｜要確認｜締切：2026-09-03</p>
+            <p class="area-meta">姫路市｜補助金｜金額は公式で確認｜締切：2026-09-03</p>
             <p class="area-meta">期間：2026年9月3日に受付終了</p>
             <p>省エネ家電への買い替えを促進するための補助。</p>
             
             <p><a href="https://www.city.himeji.lg.jp/kurashi/0000032527.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="himeji-block-wall-r8">
             <h3>姫路市危険なブロック塀等撤去費補助</h3>
             <p class="area-meta">兵庫県姫路市｜補助金｜対象経費の2/3（個人住宅は上限20万円）｜締切：2026-11-11</p>
@@ -293,27 +311,27 @@
           </div>
           <div class="area-program is-ended" id="himeji-rokyu-akiya">
             <h3>姫路市老朽空家対策補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">兵庫県姫路市｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">兵庫県姫路市｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：令和8年度は受付終了（次年度は要確認）</p>
             <p>老朽空家の解体費を補助。令和8年度の申請受付は6月11日に終了。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>老朽空家の所有者等（詳細は要確認）</li></ul>
             <p><a href="https://www.city.himeji.lg.jp/kurashi/0000006739.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program" id="himeji-jutaku-kaizo">
             <h3>姫路市住宅改造費助成事業</h3>
-            <p class="area-meta">兵庫県姫路市｜助成金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">兵庫県姫路市｜助成金｜金額は公式で確認</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>重度障害者等の住宅改造費を助成。令和8年4月以降の助成決定分から耐震診断受診を要件としない取扱い。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>対象者の詳細は要確認</li></ul>
             <p><a href="https://www.city.himeji.lg.jp/kurashi/0000002309.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="himeji-uji-turn">
             <h3>おかえり姫路。若者世帯郊外UJIターン補助金</h3>
-            <p class="area-meta">兵庫県姫路市｜補助金｜子育て支援金は中学生以下1人最大150万円（3年分割）、空き家取得助成は購入額の1/2（上限100万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">兵庫県姫路市｜補助金｜子育て支援金は中学生以下1人最大150万円（3年分割）、空き家取得助成は購入額の1/2（上限100万円）</p>
             <p class="area-meta">期間：最新は要確認（予算に限りあり）</p>
             <p>若者世帯の郊外へのUJIターンを支援。移住支援金・子育て支援金・空き家バンク物件取得助成がある。</p>
             <p><strong>主な条件</strong></p>

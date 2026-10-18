@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">埼玉県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（春日部市）<b>4件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（埼玉県）<b>5件</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>6件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-5">バリアフリー・介護 2</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">春日部市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="kasukabe-city-hojin-setsuritsu">
             <h3>春日部市法人設立応援補助金</h3>
-            <p class="area-meta">春日部市 商工振興課｜補助金｜登録免許税相当：37,000円または対象経費の1/4（軽減措置適用時は軽減後の1/2）のいずれか低い額｜締切：公募要領で確認</p>
+            <p class="area-meta">春日部市 商工振興課｜補助金｜登録免許税相当：37,000円または対象経費の1/4（軽減措置適用時は軽減後の1/2）のいずれか低い額</p>
             <p class="area-meta">期間：通年（法人設立後1年以内に申請）</p>
             <p>市の特定創業支援等事業を受けて初めて法人を設立する人の登録免許税を補助。設立後1年以内に申請。</p>
             <p><strong>主な条件</strong></p>
@@ -188,7 +206,7 @@
           </div>
           <div class="area-program" id="kasukabe-city-kigyo-taiyoko-chikuden">
             <h3>春日部市企業等における太陽光発電設備・蓄電池設置補助金</h3>
-            <p class="area-meta">春日部市 環境政策課｜補助金｜太陽光発電5万円/kW、蓄電池5万円/kWh（上限は要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">春日部市 環境政策課｜補助金｜太陽光発電5万円/kW、蓄電池5万円/kWh（上限は要確認）</p>
             <p class="area-meta">期間：令和8年度（第5回受付：9月24日〜10月9日予定。以降は要確認）</p>
             <p>企業等の太陽光発電設備・蓄電池の設置を補助。交付決定後に契約・着工が要件。第5回受付は9月24日〜10月9日予定で終了の可能性。</p>
             <p><strong>主な条件</strong></p>
@@ -197,7 +215,7 @@
           </div>
           <div class="area-program" id="kasukabe-city-seidoyushi">
             <h3>春日部市中小企業制度融資（小口資金融資あっ旋・保証料補助）</h3>
-            <p class="area-meta">春日部市 商工振興課｜融資｜特別小口は保証料相当額を市が補助、一般小口は利息の20%相当額を利子補助（利率等は要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">春日部市 商工振興課｜融資｜特別小口は保証料相当額を市が補助、一般小口は利息の20%相当額を利子補助（利率等は要確認）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>市内中小企業向けの事業資金融資あっ旋。約定どおり返済した場合に保証料補助・利子補助がある。</p>
             <p><strong>主な条件</strong></p>
@@ -222,17 +240,17 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>春日部市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="kasukabe-taishin">
             <h3>春日部市既存建築物耐震改修等補助制度</h3>
-            <p class="area-meta">埼玉県春日部市｜補助金｜診断:費用の2/3(上限5万円、65歳以上居住は10万円)、改修:費用の23%(上限40万円、65歳以上居住は60万円)｜締切：公募要領で確認</p>
+            <p class="area-meta">埼玉県春日部市｜補助金｜診断:費用の2/3(上限5万円、65歳以上居住は10万円)、改修:費用の23%(上限40万円、65歳以上居住は60万円)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>旧耐震基準の住宅の耐震診断・耐震改修費を補助。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>昭和56年5月31日以前に建築確認を受けた住宅</li></ul>
             <p><a href="https://www.city.kasukabe.lg.jp/soshikikarasagasu/kenchikuka/gyomuannai/4/1/taisinhojyosedo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="kasukabe-solar">
             <h3>春日部市個人住宅における太陽光発電設備・蓄電池設置補助金</h3>
             <p class="area-meta">埼玉県春日部市｜補助金｜太陽光:1kWあたり9万円(上限45万円、重点区域)/7万円(上限35万円、その他)、蓄電池:1kWhあたり4万円(上限24万円/20万円)｜締切：2026-12-28</p>
@@ -242,10 +260,10 @@
             <ul><li>令和8年4月1日以降に契約した設備</li><li>蓄電池のみの設置は不可</li><li>国の補助等との併用不可</li></ul>
             <p><a href="https://www.city.kasukabe.lg.jp/soshikikarasagasu/kankyoseisakuka/gyomuannai/2/2/30493.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="kasukabe-akiya-jokyaku">
             <h3>春日部市老朽空き家除却補助金</h3>
-            <p class="area-meta">埼玉県春日部市｜補助金｜除却費総額50万円以上で20万円｜締切：公募要領で確認</p>
+            <p class="area-meta">埼玉県春日部市｜補助金｜除却費総額50万円以上で20万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>老朽空き家の除却費用を補助。</p>
             <p><strong>主な条件</strong></p>
@@ -254,17 +272,17 @@
           </div>
           <div class="area-program" id="kasukabe-akiya-reno">
             <h3>春日部市空き家リノベーション補助金</h3>
-            <p class="area-meta">埼玉県春日部市｜補助金｜総額70万円以上の工事で35万円(市内業者利用で5万円加算)｜締切：公募要領で確認</p>
+            <p class="area-meta">埼玉県春日部市｜補助金｜総額70万円以上の工事で35万円(市内業者利用で5万円加算)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>空き家バンク登録物件等の改修費を補助し定住を促進。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>一戸建て</li><li>住宅として使う場合は55平方メートル以上など</li><li>空き家バンク関連の要件あり</li></ul>
             <p><a href="https://www.city.kasukabe.lg.jp/kurashi/sumai/akiyataisaku/10465.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program" id="kasukabe-kyotaku-koreisha">
             <h3>春日部市高齢者居宅改善整備費補助</h3>
-            <p class="area-meta">埼玉県春日部市｜補助金｜改修費の3分の2(上限18万円)｜締切：公募要領で確認</p>
+            <p class="area-meta">埼玉県春日部市｜補助金｜改修費の3分の2(上限18万円)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>高齢者の居宅改修費用を補助。</p>
             <p><strong>主な条件</strong></p>
@@ -273,7 +291,7 @@
           </div>
           <div class="area-program" id="kasukabe-kyotaku-shogai">
             <h3>春日部市重度障害者居宅改善整備費補助</h3>
-            <p class="area-meta">埼玉県春日部市｜補助金｜補助率2/3(上限24万円)｜締切：公募要領で確認</p>
+            <p class="area-meta">埼玉県春日部市｜補助金｜補助率2/3(上限24万円)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>重度障害者が使いやすいよう居宅を改造する費用を補助。</p>
             <p><strong>主な条件</strong></p>

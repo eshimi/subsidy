@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -170,7 +177,7 @@
       <div class="area-body">
           <div class="area-program" id="hokkaido-sogyo-sokushin">
             <h3>創業促進支援事業（北海道中小企業総合支援センター）</h3>
-            <p class="area-meta">北海道中小企業総合支援センター｜補助金｜補助率対象経費の1/2以内（上限額は要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">北海道中小企業総合支援センター｜補助金｜補助率対象経費の1/2以内（上限額は要確認）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>新たに事業を始める個人や中小企業者の創業経費の一部を助成する。</p>
             <p><strong>主な条件</strong></p>
@@ -179,7 +186,7 @@
           </div>
           <div class="area-program" id="hokkaido-step-up-koyo">
             <h3>中小企業総合振興資金 ステップアップ貸付（事業活性化・雇用）</h3>
-            <p class="area-meta">北海道 経済部地域経済局中小企業課｜融資｜融資限度額1億円以内（運転・設備資金）｜締切：公募要領で確認</p>
+            <p class="area-meta">北海道 経済部地域経済局中小企業課｜融資｜融資限度額1億円以内（運転・設備資金）</p>
             <p class="area-meta">期間：通年（最新は要確認）</p>
             <p>新たな雇用を創出する事業を行う中小企業者向けの道の制度融資。</p>
             <p><strong>主な条件</strong></p>
@@ -188,7 +195,7 @@
           </div>
           <div class="area-program" id="hokkaido-sogyo-kasitsuke">
             <h3>中小企業総合振興資金 創業貸付</h3>
-            <p class="area-meta">北海道 経済部地域経済局中小企業課｜融資｜融資限度額3,500万円以内・期間1年超10年以内・固定金利 3年以内1.8%/10年以内2.4%（公式ページ記載、最新は要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">北海道 経済部地域経済局中小企業課｜融資｜融資限度額3,500万円以内・期間1年超10年以内・固定金利 3年以内1.8%/10年以内2.4%（公式ページ記載、最新は要確認）</p>
             <p class="area-meta">期間：通年（最新は要確認）</p>
             <p>創業後5年を経過していない個人・法人向けの道の制度融資。設備資金は見積書等が必要。</p>
             <p><strong>主な条件</strong></p>
@@ -198,7 +205,7 @@
           <h3 class="area-cat">受付が終了した制度（次回の公募の参考に）</h3>
           <div class="area-program is-ended" id="hokkaido-chiiki-kadai-kigyo">
             <h3>地域課題解決型起業支援事業（起業支援金） <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">北海道 経済部地域経済局中小企業課／北海道中小企業総合支援センター｜補助金｜補助率1/2以内・上限200万円｜締切：公募要領で確認</p>
+            <p class="area-meta">北海道 経済部地域経済局中小企業課／北海道中小企業総合支援センター｜補助金｜補助率1/2以内・上限200万円</p>
             <p class="area-meta">期間：令和8年度は2次募集（2026/7/14〜8/19）を含め募集終了。来年度は最新は要確認</p>
             <p>デジタル技術を活用して地域課題を解決する道内での新規起業に対し、経費の一部を補助し伴走支援を行う。</p>
             <p><strong>主な条件</strong></p>
@@ -290,17 +297,17 @@
     <section class="art-sec" aria-labelledby="pref-resident"><h2 id="pref-resident"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">個人の方向けの制度（住まい・暮らし）</h2>
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。市区町村の個人向けの制度（55件）は、下の「県内の市区町村のページ」から確認できます。</p>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program" id="hokkaido-zerocarbon-sumai">
             <h3>住まいのゼロカーボン化推進事業</h3>
-            <p class="area-meta">北海道 建設部住宅局建築指導課｜補助金｜要確認（道が補助する市町村を支援する仕組みで、実際の補助額は各市町村が定める）｜締切：公募要領で確認</p>
+            <p class="area-meta">北海道 建設部住宅局建築指導課｜補助金｜要確認（道が補助する市町村を支援する仕組みで、実際の補助額は各市町村が定める）</p>
             <p class="area-meta">期間：令和8年度（実施市町村は要確認）</p>
             <p>北方型住宅ZEROの新築取得、省エネ改修、太陽光パネル・蓄電池の導入に補助を出す市町村を、道が支援する事業。個人が受けるには実施市町村の制度を確認する必要がある。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>実施している市町村の住民であること（詳細は要確認）</li></ul>
             <p><a href="https://www.pref.hokkaido.lg.jp/kn/ksd/159060.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="hokkaido-iju-shienkin">
             <h3>北海道 移住支援金（UIJターン新規就業支援事業）</h3>
             <p class="area-meta">北海道 経済部労働政策局産業人材課｜給付｜世帯100万円、単身60万円（18歳未満の世帯員を帯同する場合は1人につき最大100万円加算）｜締切：2027-01-20</p>

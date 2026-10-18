@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">北海道・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（北見市）<b>2件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（北海道）<b>5件（うち受付終了2件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>6件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-5">バリアフリー・介護 2</a><a href="#res-cat-7">移住 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">北見市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="kitami-city-hanro-kakudai-hojo">
             <h3>北見市 中小企業等販路拡大補助金</h3>
-            <p class="area-meta">北見市 工業振興課｜補助金｜対象経費の1/2以内、上限20万円｜締切：公募要領で確認</p>
+            <p class="area-meta">北見市 工業振興課｜補助金｜対象経費の1/2以内、上限20万円</p>
             <p class="area-meta">期間：掲載は令和7年度分。令和8年度の募集は要確認</p>
             <p>自社開発の製品・技術・サービスの販路拡大に要する商談会出展費、Web作成費、販促物作成費、広告費などを補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -178,8 +196,8 @@
           </div>
           <div class="area-program" id="kitami-city-sogyo-sokushin-joseikin">
             <h3>北見市創業促進助成金（旧 創業促進補助金）</h3>
-            <p class="area-meta">北見市 商工観光部｜助成金｜要確認（融資額の一部を助成）｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">北見市 商工観光部｜助成金｜要確認（融資額の一部を助成）</p>
+            
             <p>市内で指定の融資を受けて創業する方に、融資額の一部を助成する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>北見市内で指定の融資を受けて創業する方</li><li>事前相談が必要（詳細は要確認）</li></ul>
@@ -203,40 +221,40 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>北見市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="kitami-taishin">
             <h3>北見市木造住宅耐震改修等補助金</h3>
-            <p class="area-meta">北海道北見市｜補助金｜耐震診断: 上限6万円、耐震設計: 上限10万円、耐震改修工事: 上限70万円｜締切：公募要領で確認</p>
+            <p class="area-meta">北海道北見市｜補助金｜耐震診断: 上限6万円、耐震設計: 上限10万円、耐震改修工事: 上限70万円</p>
             <p class="area-meta">期間：令和8年度分は受付終了(令和8年9月末)</p>
             <p>木造住宅の耐震診断・設計・改修工事の費用の一部を補助。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>昭和56年5月31日以前に着工された住宅など</li></ul>
             <p><a href="https://www.city.kitami.lg.jp/administration/work/detail.php?content=7800" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="kitami-zerocarbon">
             <h3>北見市ゼロカーボン推進事業補助金</h3>
-            <p class="area-meta">北海道北見市｜補助金｜定置用蓄電システム10万円(定額)、太陽光との同時設置21万円(定額)。ほか高効率給湯器等も対象｜締切：公募要領で確認</p>
+            <p class="area-meta">北海道北見市｜補助金｜定置用蓄電システム10万円(定額)、太陽光との同時設置21万円(定額)。ほか高効率給湯器等も対象</p>
             <p class="area-meta">期間：令和8年度 申請受付延長中(終了日は要確認)</p>
             <p>太陽光発電・蓄電システム、木質ペレットストーブ、高効率給湯器等の導入を補助。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>詳細要件は要確認</li></ul>
             <p><a href="https://www.city.kitami.lg.jp/administration/life/detail.php?content=14102" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program" id="kitami-chiikizai">
             <h3>北見市地域材活用住宅補助金</h3>
-            <p class="area-meta">北海道北見市｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">北海道北見市｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：令和8年度 申請期間延長中(終了日は要確認)</p>
             <p>地域材を活用した住宅の建築に対する補助。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>詳細要件は要確認</li></ul>
             <p><a href="https://www.city.kitami.lg.jp/administration/work/detail.php?content=13279" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program" id="kitami-eco-kaishu">
             <h3>北見市住宅エコ改修補助事業</h3>
-            <p class="area-meta">北海道北見市｜補助金｜上限20万円(条件あり)｜締切：公募要領で確認</p>
+            <p class="area-meta">北海道北見市｜補助金｜上限20万円(条件あり)</p>
             <p class="area-meta">期間：令和6年度版の掲載のみ。最新は要確認</p>
             <p>既存住宅の省エネ化またはバリアフリー化の改修工事費の一部を補助。</p>
             <p><strong>主な条件</strong></p>
@@ -245,17 +263,17 @@
           </div>
           <div class="area-program" id="kitami-koreisha-shikin">
             <h3>北見市高齢者・障がい者住宅等整備資金貸付</h3>
-            <p class="area-meta">北海道北見市｜融資｜無利子で240万円まで(住宅整備資金)｜締切：公募要領で確認</p>
+            <p class="area-meta">北海道北見市｜融資｜無利子で240万円まで(住宅整備資金)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>60歳以上または身体障害者手帳1・2級の方が住宅を増改築する場合の無利子融資。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>60歳以上、または身体障害者手帳1・2級の方</li></ul>
             <p><a href="https://www.city.kitami.lg.jp/administration/welfare/detail.php?content=9022" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="kitami-iju-shienkin">
             <h3>北見市移住支援金(UIJターン新規就業支援事業)</h3>
-            <p class="area-meta">北海道北見市｜給付｜単身60万円、世帯100万円。18歳未満の子1人につき100万円加算｜締切：公募要領で確認</p>
+            <p class="area-meta">北海道北見市｜給付｜単身60万円、世帯100万円。18歳未満の子1人につき100万円加算</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>東京圏から移住し就業・起業・テレワーク等を行う方への支援金。</p>
             <p><strong>主な条件</strong></p>

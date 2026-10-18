@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">神奈川県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（小田原市）<b>3件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（神奈川県）<b>5件（うち受付終了2件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>6件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-5">バリアフリー・介護 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">小田原市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="odawara-city-akitenpo-riyo">
             <h3>小田原市空き店舗等利活用促進事業費補助金（出店者向け）</h3>
-            <p class="area-meta">小田原市 商業振興担当｜補助金｜出店者：開業時の広告宣伝費の1/2・上限10万円（物件所有者は改修費2/3・上限100万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">小田原市 商業振興担当｜補助金｜出店者：開業時の広告宣伝費の1/2・上限10万円（物件所有者は改修費2/3・上限100万円）</p>
             <p class="area-meta">期間：令和8年度分は受付終了。次年度は要確認</p>
             <p>空き店舗への出店者の広告宣伝費等を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="odawara-city-hanro-kaitaku">
             <h3>小田原市中小企業等販路開拓事業補助金</h3>
-            <p class="area-meta">小田原市 産業政策課｜補助金｜補助率1/2、上限：海外30万円・県外20万円・県内およびオンライン10万円｜締切：公募要領で確認</p>
+            <p class="area-meta">小田原市 産業政策課｜補助金｜補助率1/2、上限：海外30万円・県外20万円・県内およびオンライン10万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>展示会・商談会・見本市への出展経費の一部を助成する。</p>
             <p><strong>主な条件</strong></p>
@@ -187,7 +205,7 @@
           </div>
           <div class="area-program" id="odawara-city-sogyo-risihokyu">
             <h3>小田原市創業融資利子補給金</h3>
-            <p class="area-meta">小田原市 産業政策課｜補助金｜年間10万円上限、利子支払の3年以内｜締切：公募要領で確認</p>
+            <p class="area-meta">小田原市 産業政策課｜補助金｜年間10万円上限、利子支払の3年以内</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>神奈川県創業支援融資（創業特例）を利用する創業者の利子負担を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -212,40 +230,40 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>小田原市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="odawara-taishin">
             <h3>小田原市木造住宅耐震診断・耐震改修費補助</h3>
-            <p class="area-meta">神奈川県小田原市｜補助金｜改修：1/2（要配慮者世帯上限115万円、その他上限85万円）。診断：居住者本人等は全額（上限9万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">神奈川県小田原市｜補助金｜改修：1/2（要配慮者世帯上限115万円、その他上限85万円）。診断：居住者本人等は全額（上限9万円）</p>
             <p class="area-meta">期間：令和8年度の申請受付は開始済み（最新は要確認）</p>
             <p>昭和56年5月31日以前着工の木造住宅の耐震診断・設計・改修費を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>昭和56年5月31日以前に建築工事が始まった木造住宅</li></ul>
             <p><a href="https://www.city.odawara.kanagawa.jp/field/disaster/disaster/nature/seismi/taisin-hojyo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="odawara-pv">
             <h3>小田原市自家消費型太陽光発電・家庭用蓄電池補助金</h3>
-            <p class="area-meta">神奈川県小田原市｜補助金｜太陽光 7万円/kW（基準）、蓄電池：費用の1/3または5.16万円/kWhの低い額｜締切：公募要領で確認</p>
+            <p class="area-meta">神奈川県小田原市｜補助金｜太陽光 7万円/kW（基準）、蓄電池：費用の1/3または5.16万円/kWhの低い額</p>
             <p class="area-meta">期間：2025年8月に受付再開（令和8年度は要確認）</p>
             <p>自家消費型太陽光（自己所有）と同時導入する家庭用蓄電池の費用を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>蓄電池は20kWh以下で補助対象の太陽光と同時導入</li><li>交付決定後に契約・着工</li></ul>
             <p><a href="https://www.city.odawara.kanagawa.jp/field/envi/saiene/co20-subsidy/r6-3pv.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program" id="odawara-ondanka-r8">
             <h3>小田原市地球温暖化対策推進事業費補助金（蓄電池・ZEH・EV・V2H）</h3>
-            <p class="area-meta">神奈川県小田原市｜補助金｜定置型蓄電池5万円/件、エネファーム3万円/件、ZEH10万円/件、EV・V2H各5万円/件｜締切：公募要領で確認</p>
+            <p class="area-meta">神奈川県小田原市｜補助金｜定置型蓄電池5万円/件、エネファーム3万円/件、ZEH10万円/件、EV・V2H各5万円/件</p>
             <p class="area-meta">期間：令和8年度（予算・件数に達し次第終了）</p>
             <p>家庭用の蓄電池・エネファーム・ZEH・EV・V2Hの導入費を補助する。蓄電池は20件限定。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>市内の個人（詳細は要確認）</li></ul>
             <p><a href="https://www.city.odawara.kanagawa.jp/field/envi/saiene/consideration/p41393.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="odawara-akiya">
             <h3>小田原市空家等除却・仲介手数料補助</h3>
-            <p class="area-meta">神奈川県小田原市｜補助金｜除却工事費の1/2（上限45万円）、売買仲介手数料の補助（上限5万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">神奈川県小田原市｜補助金｜除却工事費の1/2（上限45万円）、売買仲介手数料の補助（上限5万円）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>空家等対策支援システム登録の空家の除却費や、売買時の仲介手数料を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -254,17 +272,17 @@
           </div>
           <div class="area-program" id="odawara-block">
             <h3>小田原市ブロック塀等撤去費補助金</h3>
-            <p class="area-meta">神奈川県小田原市｜補助金｜撤去する塀の長さ1mあたり1万円（限度額10万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">神奈川県小田原市｜補助金｜撤去する塀の長さ1mあたり1万円（限度額10万円）</p>
             <p class="area-meta">期間：2025年度の受付は2025年11月28日で終了。令和8年度は最新は要確認</p>
             <p>地震に備え、道路等に面した高さ1m超のブロック塀等の撤去費を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>道路などに面し高さが1mを超えるブロック塀等</li></ul>
             <p><a href="https://www.city.odawara.kanagawa.jp/field/disaster/disaster/hojo/kikennahei_h.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program" id="odawara-juutaku-kaizo">
             <h3>小田原市重度障がい者住宅設備改造費助成</h3>
-            <p class="area-meta">神奈川県小田原市｜助成金｜改造工事費を世帯につき1回に限り助成（上限80万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">神奈川県小田原市｜助成金｜改造工事費を世帯につき1回に限り助成（上限80万円）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>障がい者本人または保護者が住宅設備を改造する際の費用を助成する。</p>
             <p><strong>主な条件</strong></p>

@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">北海道・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（釧路市）<b>4件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（北海道）<b>5件（うち受付終了2件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>5件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-5">バリアフリー・介護 1</a><a href="#res-cat-7">移住 2</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">釧路市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="kushiro-city-akitenpo-katsuyo">
             <h3>釧路市 空き店舗等活用促進事業補助金</h3>
-            <p class="area-meta">釧路市 産業振興部商業労政課｜補助金｜補助率1/2、上限20万円（北大通を中心とした一部地域は上限50万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">釧路市 産業振興部商業労政課｜補助金｜補助率1/2、上限20万円（北大通を中心とした一部地域は上限50万円）</p>
             <p class="area-meta">期間：掲載の申請期間は2025年12月26日まで。令和8年度は最新は要確認</p>
             <p>市指定地区の空き店舗に出店する事業者の店舗改装費・広告宣伝費の一部を補助する。申請は発注前に行う。</p>
             <p><strong>主な条件</strong></p>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="kushiro-city-kojo-shinzosetsu">
             <h3>釧路市 中小企業振興条例に基づく工場新増設助成</h3>
-            <p class="area-meta">釧路市 産業振興部｜補助金｜助成対象額の3/100、限度額200万円｜締切：公募要領で確認</p>
+            <p class="area-meta">釧路市 産業振興部｜補助金｜助成対象額の3/100、限度額200万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>小規模企業者が工場を新設・増設して操業を開始した場合の助成。高度化事業助成（限度額2,000万円）もある。</p>
             <p><strong>主な条件</strong></p>
@@ -187,7 +205,7 @@
           </div>
           <div class="area-program" id="kushiro-city-notsuke-tokusanhin">
             <h3>釧路市 音別地域特産品開発支援事業補助金</h3>
-            <p class="area-meta">釧路市 産業振興部｜補助金｜対象経費の1/2以内、上限20万円｜締切：公募要領で確認</p>
+            <p class="area-meta">釧路市 産業振興部｜補助金｜対象経費の1/2以内、上限20万円</p>
             <p class="area-meta">期間：令和8年度分を募集（予算がなくなり次第終了）</p>
             <p>音別地域の特産品の新規開発や改良に対する補助。予算がなくなり次第終了。</p>
             <p><strong>主な条件</strong></p>
@@ -196,11 +214,11 @@
           </div>
           <div class="area-program" id="kushiro-city-sogyo-shikin">
             <h3>釧路市中小企業融資制度 創業支援資金</h3>
-            <p class="area-meta">釧路市 産業振興部商業労政課｜融資｜貸付限度額1,500万円、借入から3年間の利子補給、信用保証料補助は上限20万円｜締切：公募要領で確認</p>
+            <p class="area-meta">釧路市 産業振興部商業労政課｜融資｜貸付限度額1,500万円、借入から3年間の利子補給、信用保証料補助は上限20万円</p>
             <p class="area-meta">期間：通年（利率等は掲載ページ間で差異あり、最新は要確認）</p>
             <p>創業に必要な運転・設備資金の融資あっせん。利子補給と信用保証料補助で創業期の負担を軽減する。</p>
             <p><strong>主な条件</strong></p>
-            <ul><li>市内で創業する、または創業して間もない事業者</li><li>要確認</li></ul>
+            <ul><li>市内で創業する、または創業して間もない事業者</li></ul>
             <p><a href="https://www.city.kushiro.lg.jp/sangyou/b_shien/1006429/1006450/1006452.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
       </div>
@@ -221,7 +239,7 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>釧路市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="kushiro-taishin">
             <h3>既存住宅耐震改修費等補助金</h3>
             <p class="area-meta">北海道釧路市｜補助金｜耐震改修：工事費の23%以内（上限45万円）、除却：23%以内（上限10万円）｜締切：2026-10-30</p>
@@ -231,7 +249,7 @@
             <ul><li>昭和56年5月31日以前に着工された住宅</li></ul>
             <p><a href="https://www.city.kushiro.lg.jp/kurashi/sumai/1004488/1004489.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="kushiro-akiya-jokyaku">
             <h3>不良空家等除却補助制度</h3>
             <p class="area-meta">北海道釧路市｜補助金｜除却工事費の1/3以内、上限50万円｜締切：2026-12-31</p>
@@ -241,20 +259,20 @@
             <ul><li>危険な老朽空き家</li><li>工事着手前に事前調査を申込</li></ul>
             <p><a href="https://www.city.kushiro.lg.jp/kurashi/sumai/1004491/1004495.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program" id="kushiro-eco-reform">
             <h3>住宅エコリフォーム補助制度</h3>
-            <p class="area-meta">北海道釧路市｜補助金｜補助対象工事費の10%、上限50万円/戸｜締切：公募要領で確認</p>
+            <p class="area-meta">北海道釧路市｜補助金｜補助対象工事費の10%、上限50万円/戸</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>主にバリアフリー改修を対象とする住宅リフォーム補助。空き家も対象。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>補助対象工事費の合計が15万円以上</li></ul>
             <p><a href="https://www.city.kushiro.lg.jp/machi/tkeikaku/1006072/1006100/1006102.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="kushiro-iju-shienkin">
             <h3>釧路市移住支援金（UIJターン新規就業支援事業）</h3>
-            <p class="area-meta">北海道釧路市｜給付｜単身60万円、世帯100万円（18歳未満の子1人につき30万円加算）｜締切：公募要領で確認</p>
+            <p class="area-meta">北海道釧路市｜給付｜単身60万円、世帯100万円（18歳未満の子1人につき30万円加算）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>東京圏から移住し就業・起業する人への支援金。北海道と共同で実施。</p>
             <p><strong>主な条件</strong></p>
@@ -263,7 +281,7 @@
           </div>
           <div class="area-program" id="kushiro-uij-shienkin">
             <h3>釧路市UIJターン支援金</h3>
-            <p class="area-meta">北海道釧路市｜給付｜1人あたり30万円｜締切：公募要領で確認</p>
+            <p class="area-meta">北海道釧路市｜給付｜1人あたり30万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>釧路管内以外からの移住者への支援金。移住支援金の対象者は除く。</p>
             <p><strong>主な条件</strong></p>

@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,6 +170,17 @@
       <p class="lead" style="margin-bottom: 0;">大阪府・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（豊中市）<b>4件（うち受付終了1件）</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（大阪府）<b>4件</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>6件（うち受付終了3件）</b></a><span class="area-toc-cats"><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-2">EV・充電 1</a><a href="#res-cat-3">省エネ住宅 2</a><a href="#res-cat-4">空き家・ブロック塀 2</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">豊中市の制度（事業・創業の方向け）</h2>
@@ -223,29 +241,29 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>豊中市の制度</strong></p>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program is-ended" id="toyonaka-smarthouse-tikuden">
             <h3>【蓄電システム】スマートハウス支援補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">豊中市｜補助金｜初期実効容量1kWhあたり1万円（上限6万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">豊中市｜補助金｜初期実効容量1kWhあたり1万円（上限6万円）</p>
             <p class="area-meta">期間：受付期間：2026年5月7日から2027年3月1日まで。ただし9月25日に予算額に達し受付終了</p>
             <p>環境共創イニシアチブに登録された家庭用蓄電システムの設置費用を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>環境共創イニシアチブ登録機器</li></ul>
             <p><a href="https://www.city.toyonaka.osaka.jp/machi/hojo_joseikin/kankyo_hojyo_jyosei/tikuden.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">EV・充電</h3>
+          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
           <div class="area-program" id="toyonaka-denki-jidosha-kounyu">
             <h3>豊中市電気自動車等購入支援補助金</h3>
-            <p class="area-meta">豊中市｜補助金｜個人：新車1台につき10万円｜締切：公募要領で確認</p>
+            <p class="area-meta">豊中市｜補助金｜個人：新車1台につき10万円</p>
             <p class="area-meta">期間：令和8年度。個人分・事業者分とも予算に達し終了（確認時点）</p>
             <p>電気自動車、プラグインハイブリッド自動車、燃料電池自動車の購入を補助する。</p>
             
             <p><a href="https://www.city.toyonaka.osaka.jp/machi/hojo_joseikin/kankyo_hojyo_jyosei/ev_car.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program" id="toyonaka-dannetsu-smarthouse">
             <h3>【断熱リフォーム】豊中市スマートハウス支援補助金</h3>
-            <p class="area-meta">豊中市｜補助金｜材料費の1/3（上限6万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">豊中市｜補助金｜材料費の1/3（上限6万円）</p>
             <p class="area-meta">期間：受付状況は要確認（市ページに「終了」表示もあり）</p>
             <p>国の断熱リフォーム支援事業の登録製品を使った既存住宅の断熱改修を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -254,16 +272,16 @@
           </div>
           <div class="area-program is-ended" id="toyonaka-smarthouse-zeh">
             <h3>【ZEH】スマートハウス支援補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">豊中市｜補助金｜20万円｜締切：公募要領で確認</p>
+            <p class="area-meta">豊中市｜補助金｜20万円</p>
             <p class="area-meta">期間：令和8年度。5月14日に予算額に達し受付終了（確認時点）</p>
             <p>ZEH（ネット・ゼロ・エネルギー・ハウス）の住宅に対する補助。</p>
             
             <p><a href="https://www.city.toyonaka.osaka.jp/machi/hojo_joseikin/kankyo_hojyo_jyosei/zeh.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="toyonaka-block-tekkyo">
             <h3>豊中市 ブロック塀などの撤去費の補助</h3>
-            <p class="area-meta">豊中市｜補助金｜工事費の4/5、13,000円/㎡×面積の4/5、上限20万円のうち最も低い額｜締切：公募要領で確認</p>
+            <p class="area-meta">豊中市｜補助金｜工事費の4/5、13,000円/㎡×面積の4/5、上限20万円のうち最も低い額</p>
             <p class="area-meta">期間：最新は要確認（2026年度リーフレットあり）</p>
             <p>道路に面し高さ60cm超で安全性が確認できないブロック塀等の撤去費を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -272,7 +290,7 @@
           </div>
           <div class="area-program is-ended" id="toyonaka-mokuzo-jokyaku">
             <h3>豊中市 木造住宅の除却補助制度（震災対策） <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">豊中市｜補助金｜除却費用と40万円のうち低い額｜締切：公募要領で確認</p>
+            <p class="area-meta">豊中市｜補助金｜除却費用と40万円のうち低い額</p>
             <p class="area-meta">期間：最新は要確認（予算に達すると受付終了）</p>
             <p>耐震性が不足する旧耐震の木造住宅の除却費を補助する。</p>
             <p><strong>主な条件</strong></p>

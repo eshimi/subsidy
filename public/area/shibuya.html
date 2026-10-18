@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,6 +170,17 @@
       <p class="lead" style="margin-bottom: 0;">東京都・特別区。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（渋谷区）<b>3件（うち受付終了1件）</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（東京都）<b>6件（うち受付終了1件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>11件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 3</a><a href="#res-cat-2">EV・充電 1</a><a href="#res-cat-3">省エネ住宅 2</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-5">バリアフリー・介護 2</a><a href="#res-cat-7">移住 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">渋谷区の制度（事業・創業の方向け）</h2>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="shibuya-chusho-jigyo-yushi">
             <h3>渋谷区中小企業事業資金融資あっせん制度</h3>
-            <p class="area-meta">渋谷区 商工・労働・相談担当｜融資｜運転資金1,500万円・設備資金2,000万円まで。利用者負担年1.2%以内（区が0.5%負担）。資金ごとに条件が異なる｜締切：公募要領で確認</p>
+            <p class="area-meta">渋谷区 商工・労働・相談担当｜融資｜運転資金1,500万円・設備資金2,000万円まで。利用者負担年1.2%以内（区が0.5%負担）。資金ごとに条件が異なる</p>
             <p class="area-meta">期間：令和8年度（「令和8年度 渋谷区中小企業事業資金融資あっせんのご案内」）</p>
             <p>区内中小企業者が事業資金を必要とする場合に、低利の融資を金融機関にあっせんし、区が利率の一部を負担します。創業支援資金や事業承継支援資金も含まれます。</p>
             <p><strong>主な条件</strong></p>
@@ -213,33 +231,33 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>渋谷区の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="shibuya-manshon-taishin">
             <h3>一般分譲マンションの耐震化支援事業</h3>
-            <p class="area-meta">渋谷区 木密・耐震整備課｜補助金｜要確認｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">渋谷区 木密・耐震整備課｜補助金｜金額は公式で確認</p>
+            
             <p>分譲マンションの耐震診断・補強設計・耐震改修工事の費用の一部を助成する。予算額に達すると終了。</p>
             
             <p><a href="https://www.city.shibuya.tokyo.jp/bosai/josei/taishinjosei/manshon.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
           <div class="area-program" id="shibuya-mokuzo-shindan-consultant">
             <h3>木造住宅耐震診断コンサルタント派遣（無料）</h3>
-            <p class="area-meta">渋谷区 木密・耐震整備課｜補助金｜無料（建築士を派遣して耐震診断）｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">渋谷区 木密・耐震整備課｜補助金｜無料（建築士を派遣して耐震診断）</p>
+            
             <p>区内の木造住宅に建築士を無料で派遣し、耐震診断を行う。</p>
             
             <p><a href="https://www.city.shibuya.tokyo.jp/bosai/josei/taishinjosei/consultant.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
           <div class="area-program" id="shibuya-mokuzo-taishin-kaishu">
             <h3>木造住宅耐震改修費用及び除却費用助成</h3>
-            <p class="area-meta">渋谷区 木密・耐震整備課｜補助金｜要確認｜締切：2026-12-25</p>
+            <p class="area-meta">渋谷区 木密・耐震整備課｜補助金｜金額は公式で確認｜締切：2026-12-25</p>
             <p class="area-meta">期間：原則 令和8年12月25日まで</p>
             <p>区の耐震診断の結果が基準以下だった木造住宅の耐震改修費用・除却費用の一部を助成する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>昭和56年5月31日以前に着工された住宅</li><li>個人の所有者で渋谷区に住民登録があること</li></ul>
             <p><a href="https://www.city.shibuya.tokyo.jp/kankyo/kenchiku/kenchiku-yushi/mokuzo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">EV・充電</h3>
+          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
           <div class="area-program" id="shibuya-ev-juden">
             <h3>電気自動車等用充電設備導入助成</h3>
             <p class="area-meta">渋谷区 環境政策課｜補助金｜通常の充電設備は1基10万円。急速充電設備は機器本体価格等に基づく額（上限10万円と案内。詳細は要確認）｜締切：2027-03-15</p>
@@ -249,7 +267,7 @@
             <ul><li>区民、区内の中小企業者・個人事業者、区内の管理組合</li><li>事前申請が必要（交付決定後に工事）</li><li>区民は1基まで、事業者・管理組合は5基まで</li></ul>
             <p><a href="https://www.city.shibuya.tokyo.jp/kankyo/kankyo/eco-kurashi/evjuden_josei.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program" id="shibuya-enefarm">
             <h3>家庭用燃料電池システム（エネファーム）設置助成金</h3>
             <p class="area-meta">渋谷区 環境政策課｜補助金｜30万円｜締切：2027-03-15</p>
@@ -260,17 +278,17 @@
           </div>
           <div class="area-program" id="shibuya-saiene-denryoku">
             <h3>再生可能エネルギー電力利用促進助成【家庭向け】</h3>
-            <p class="area-meta">渋谷区 環境政策課｜給付｜30,000ハチペイ｜締切：公募要領で確認</p>
+            <p class="area-meta">渋谷区 環境政策課｜給付｜30,000ハチペイ</p>
             <p class="area-meta">期間：令和8年度（詳細な期間は要確認）</p>
             <p>家庭の電力を再生可能エネルギー100%由来の電力に切り替えた世帯に交付する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>今年度に切り替えた電力であること</li></ul>
             <p><a href="https://www.city.shibuya.tokyo.jp/kankyo/kankyo/eco-kurashi/RenewableEnergy.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="shibuya-akiya-tekisei-kanri">
             <h3>空家等適正管理支援事業</h3>
-            <p class="area-meta">渋谷区｜補助金｜費用（税抜）の50％。上限は管理不全空き家の除却等で50万円、それ以外の工事で10万円｜締切：公募要領で確認</p>
+            <p class="area-meta">渋谷区｜補助金｜費用（税抜）の50％。上限は管理不全空き家の除却等で50万円、それ以外の工事で10万円</p>
             <p class="area-meta">期間：年度ごとに申請は1月末まで（対象年度は要確認）</p>
             <p>空き家が周辺環境に悪影響を及ぼさないための適正管理工事（除却等）の費用の一部を助成する。</p>
             <p><strong>主な条件</strong></p>
@@ -279,18 +297,18 @@
           </div>
           <div class="area-program" id="shibuya-block-anzen">
             <h3>ブロック塀等安全化対策促進事業</h3>
-            <p class="area-meta">渋谷区｜補助金｜撤去：1mあたり15,000円（上限60万円）／撤去後のフェンス等新設：1mあたり30,000円（上限120万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">渋谷区｜補助金｜撤去：1mあたり15,000円（上限60万円）／撤去後のフェンス等新設：1mあたり30,000円（上限120万円）</p>
             <p class="area-meta">期間：確認できた年度：令和7年度まで（最新は要確認）</p>
             <p>緊急輸送道路・避難路・通学路に面するブロック塀等の耐震診断（無料）と、撤去・建て替え工事費の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>道路幅員4m以上の緊急輸送道路、避難路、通学路に面するブロック塀・万年塀</li><li>区の承認前に工事契約をしていないこと</li><li>個人は住民税の滞納がないこと</li></ul>
             <p><a href="https://www.city.shibuya.tokyo.jp/bosai/josei/taishinjosei/block_anzen_jigyo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program" id="shibuya-jutaku-kani-kaishu">
             <h3>住宅簡易改修支援事業</h3>
-            <p class="area-meta">渋谷区｜助成金｜工事費（税抜）の20％、上限10万円｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">渋谷区｜助成金｜工事費（税抜）の20％、上限10万円</p>
+            
             <p>区の協定を結んだ区内施工事業者による住宅の改修工事（手すり設置・段差解消などを含む）の費用の一部を助成する。バリアフリー工事に限定した制度ではない。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>区内に住民登録し、対象住宅に居住する人など</li><li>区内の協定施工事業者による工事</li></ul>
@@ -298,18 +316,18 @@
           </div>
           <div class="area-program" id="shibuya-jutaku-setsubi-kaishu">
             <h3>住宅設備改修給付</h3>
-            <p class="area-meta">渋谷区｜給付｜給付限度額：浴槽379,000円、流し台・洗面台156,000円、階段昇降機300,000円（自己負担は原則1割）｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">渋谷区｜給付｜給付限度額：浴槽379,000円、流し台・洗面台156,000円、階段昇降機300,000円（自己負担は原則1割）</p>
+            
             <p>要介護・要支援と認定された高齢者の住宅で、浴槽・流し台・洗面台の取り替えや階段昇降機の取り付けを行う費用を給付する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>介護保険で要介護・要支援と認定された65歳以上の人</li><li>身体機能の低下のため改修が必要な場合</li></ul>
             <p><a href="https://www.city.shibuya.tokyo.jp/kenko/koreisha-seikatsu/koreisha-zaitaku/s_house.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="shibuya-tachinoki-sumikae-yachin">
             <h3>立ち退きに伴う住み替え家賃補助制度</h3>
-            <p class="area-meta">渋谷区｜補助金｜要確認｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">渋谷区｜補助金｜金額は公式で確認</p>
+            
             <p>立ち退きで住み替える高齢者・障害者・ひとり親世帯に、住み替え後の家賃上昇分や転居一時金の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>立ち退きに伴い住み替える世帯</li><li>高齢者、障害者、ひとり親世帯（ひとり親は子が18歳未満など）</li></ul>

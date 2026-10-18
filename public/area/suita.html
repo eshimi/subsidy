@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">大阪府・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（吹田市）<b>5件（うち受付終了1件）</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（大阪府）<b>4件</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>5件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 3</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-5">バリアフリー・介護 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">吹田市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="suita-city-chizai">
             <h3>吹田市知的財産権取得事業補助金</h3>
-            <p class="area-meta">吹田市 地域経済振興室｜補助金｜補助率1/2（特許20万円、実用新案10万円まで）｜締切：公募要領で確認</p>
+            <p class="area-meta">吹田市 地域経済振興室｜補助金｜補助率1/2（特許20万円、実用新案10万円まで）</p>
             <p class="area-meta">期間：取得日の翌日から1年以内に申請</p>
             <p>特許権・実用新案権の取得費用を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -187,7 +205,7 @@
           </div>
           <div class="area-program" id="suita-city-kaigyo-risokyu">
             <h3>吹田市開業資金融資に係る利子補給金</h3>
-            <p class="area-meta">吹田市 地域経済振興室｜補助金｜利子の10/10（利率1%で計算した額が上限）｜締切：公募要領で確認</p>
+            <p class="area-meta">吹田市 地域経済振興室｜補助金｜利子の10/10（利率1%で計算した額が上限）</p>
             <p class="area-meta">期間：融資を受けた日から2年以内に申請</p>
             <p>大阪府または日本政策金融公庫の開業融資の支払利子を補給する。</p>
             <p><strong>主な条件</strong></p>
@@ -197,7 +215,7 @@
           </div>
           <div class="area-program" id="suita-city-sogyo-chinshaku">
             <h3>吹田市創業支援型事業所賃借料補助金</h3>
-            <p class="area-meta">吹田市 地域経済振興室｜補助金｜月額5万円×最長12か月｜締切：公募要領で確認</p>
+            <p class="area-meta">吹田市 地域経済振興室｜補助金｜月額5万円×最長12か月</p>
             <p class="area-meta">期間：令和8年度第1回(7/1〜7/27)は終了。第2回は要確認</p>
             <p>市内で新たに事業所を借りて創業する方の賃借料を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -207,7 +225,7 @@
           <h3 class="area-cat">受付が終了した制度（次回の公募の参考に）</h3>
           <div class="area-program is-ended" id="suita-city-boostup">
             <h3>吹田市中小企業ブーストアップ補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">吹田市 地域経済振興室｜補助金｜補助率2/3（上限200万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">吹田市 地域経済振興室｜補助金｜補助率2/3（上限200万円）</p>
             <p class="area-meta">期間：令和8年度エントリーは8/31まで（受付終了の可能性、最新は要確認）</p>
             <p>設備投資の経費を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -232,10 +250,10 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>吹田市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="suita-taishin-kaishu">
             <h3>吹田市 耐震改修の補助制度</h3>
-            <p class="area-meta">吹田市｜補助金｜工事費の4/5、または80万円（特定世帯は105万円）×住居戸数のいずれか少ない額（令和8年度から限度額を増額）｜締切：公募要領で確認</p>
+            <p class="area-meta">吹田市｜補助金｜工事費の4/5、または80万円（特定世帯は105万円）×住居戸数のいずれか少ない額（令和8年度から限度額を増額）</p>
             <p class="area-meta">期間：令和8年度（受付期間は要確認）</p>
             <p>昭和56年5月31日以前に建築された木造住宅の耐震改修工事費を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -244,7 +262,7 @@
           </div>
           <div class="area-program" id="suita-taishin-sekkei">
             <h3>吹田市 耐震設計の補助制度</h3>
-            <p class="area-meta">吹田市｜補助金｜工事費の7/10、または10万円×住居戸数のいずれか少ない額｜締切：公募要領で確認</p>
+            <p class="area-meta">吹田市｜補助金｜工事費の7/10、または10万円×住居戸数のいずれか少ない額</p>
             <p class="area-meta">期間：令和8年度の耐震設計補助金は予算額に達した（確認時点）</p>
             <p>木造住宅の耐震設計にかかった費用を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -253,27 +271,27 @@
           </div>
           <div class="area-program" id="suita-taishin-shindan">
             <h3>吹田市 耐震診断の補助制度</h3>
-            <p class="area-meta">吹田市｜補助金｜耐震診断に要した費用の10/11と、5万円×住居戸数のいずれか少ない額｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">吹田市｜補助金｜耐震診断に要した費用の10/11と、5万円×住居戸数のいずれか少ない額</p>
+            
             <p>木造住宅の耐震診断にかかった費用を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>昭和56年5月31日以前に建築された木造住宅</li></ul>
             <p><a href="https://www.city.suita.osaka.jp/kurashi/1018501/1018468/1018482/1018483/1010122.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="suita-block-wall">
             <h3>吹田市危険なブロック塀等撤去補助</h3>
-            <p class="area-meta">大阪府吹田市｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">大阪府吹田市｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：最新は要確認（ページ上は令和5年3月31日までの記載）</p>
             <p>道路等に面する危険なブロック塀等の撤去費用の一部を補助する制度。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>道路等に面する危険なブロック塀等であること</li><li>詳細は要確認</li></ul>
             <p><a href="https://www.city.suita.osaka.jp/home/soshiki/div-toshikeikaku/kaihatsushinsa/_91912.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program" id="suita-barrierfree-home">
             <h3>吹田市重度障がい者等住宅改造助成</h3>
-            <p class="area-meta">大阪府吹田市｜助成金｜限度額50万円（所得税額により自己負担あり）｜締切：公募要領で確認</p>
+            <p class="area-meta">大阪府吹田市｜助成金｜限度額50万円（所得税額により自己負担あり）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>在宅の重度障がい者等がトイレ・浴室などを改造する費用を助成。着工前の手続きが必要。</p>
             <p><strong>主な条件</strong></p>

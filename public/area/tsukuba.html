@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">茨城県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（つくば市）<b>5件（うち受付終了1件）</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（茨城県）<b>6件</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>6件（うち受付終了2件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-2">EV・充電 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-7">移住 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">つくば市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="tsukuba-city-business-kakudai">
             <h3>つくば市ビジネス拡大支援補助金</h3>
-            <p class="area-meta">つくば市 経済部 産業振興課｜補助金｜補助率8/10（経営革新計画認定等）または5/10（専門家意見書）、上限30万円｜締切：公募要領で確認</p>
+            <p class="area-meta">つくば市 経済部 産業振興課｜補助金｜補助率8/10（経営革新計画認定等）または5/10（専門家意見書）、上限30万円</p>
             <p class="area-meta">期間：前回（令和7年度分）は令和8年2月末まで。最新は要確認</p>
             <p>市内中小企業の新製品・新サービス開発や新分野への転換経費を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -179,7 +197,7 @@
           </div>
           <div class="area-program" id="tsukuba-city-shinki-sogyo-sokushin">
             <h3>つくば市新規創業促進補助金</h3>
-            <p class="area-meta">つくば市 経済部 産業振興課｜補助金｜補助率10/10、上限12万5千円（登録免許税・定款認証手数料）｜締切：公募要領で確認</p>
+            <p class="area-meta">つくば市 経済部 産業振興課｜補助金｜補助率10/10、上限12万5千円（登録免許税・定款認証手数料）</p>
             <p class="area-meta">期間：令和8年度（予算がなくなり次第終了）</p>
             <p>市内で会社を設立する人の登録免許税等を補助する。予算がなくなり次第終了、事後申請不可。</p>
             <p><strong>主な条件</strong></p>
@@ -189,7 +207,7 @@
           </div>
           <div class="area-program" id="tsukuba-city-sogyo-hosyoryo-hojo">
             <h3>つくば市創業支援融資信用保証料補助金</h3>
-            <p class="area-meta">つくば市 経済部 産業振興課｜補助金｜信用保証料の1/2相当額｜締切：公募要領で確認</p>
+            <p class="area-meta">つくば市 経済部 産業振興課｜補助金｜信用保証料の1/2相当額</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>茨城県の創業支援融資等を受ける市内の法人・個人に信用保証料の半額を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -199,7 +217,7 @@
           </div>
           <div class="area-program" id="tsukuba-city-startup-ricchi-shorei">
             <h3>つくば市スタートアップ立地推進奨励補助金</h3>
-            <p class="area-meta">つくば市 スタートアップ推進室｜補助金｜事業所の月額賃料の1/2、月額上限7.5万円（1年目）・3万円（2年目）、最大2年｜締切：公募要領で確認</p>
+            <p class="area-meta">つくば市 スタートアップ推進室｜補助金｜事業所の月額賃料の1/2、月額上限7.5万円（1年目）・3万円（2年目）、最大2年</p>
             <p class="area-meta">期間：令和8年度要項あり（受付期間は要確認）</p>
             <p>市内に事業所を開設したスタートアップの賃料を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -210,7 +228,7 @@
           <h3 class="area-cat">受付が終了した制度（次回の公募の参考に）</h3>
           <div class="area-program is-ended" id="tsukuba-city-sansan-sangaku-kenkyu">
             <h3>つくば市産産・産学連携研究開発支援補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">つくば市 経済部 産業振興課｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">つくば市 経済部 産業振興課｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：令和8年度は申請期限6/26で受付終了。次回は要確認</p>
             <p>市内ものづくり中小企業等が大学・公的研究機関の成果を活用して行う共同研究等の経費を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -235,7 +253,7 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>つくば市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program is-ended" id="tsukuba-taishin-kaishu">
             <h3>つくば市 木造住宅耐震改修費補助 <span class="area-ended-tag">受付終了</span></h3>
             <p class="area-meta">茨城県つくば市｜補助金｜耐震改修工事費の5分の4、上限115万円｜締切：2026-08-31</p>
@@ -245,50 +263,50 @@
             <ul><li>昭和56年5月31日以前に建てられた2階建て以下の戸建て木造住宅</li></ul>
             <p><a href="https://www.city.tsukuba.lg.jp/soshikikarasagasu/toshikeikakubukenchikushidoka/gyomuannai/1/14224.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="tsukuba-battery-ecocute">
             <h3>つくば市 蓄電池・エコキュート補助金</h3>
-            <p class="area-meta">茨城県つくば市｜補助金｜各5万円(予定件数各263件)｜締切：公募要領で確認</p>
+            <p class="area-meta">茨城県つくば市｜補助金｜各5万円(予定件数各263件)</p>
             <p class="area-meta">期間：2026-10-07再開(予算がなくなり次第終了)</p>
             <p>令和8年度の蓄電池・自然冷媒ヒートポンプ給湯機の補助。2026年10月7日に受付再開(9月補正予算前提)。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>市内居住者、または当年度中に市内へ転入する住宅建築・購入者</li><li>蓄電池は3kW以上10kW未満の太陽光との接続、容量4kWh以上など</li><li>機器設置前の申請が必要</li></ul>
             <p><a href="https://www.city.tsukuba.lg.jp/soshikikarasagasu/seikatsukankyobukankyoseisakuka/gyomuannai/1/1/evm-Subsidy/27812.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">EV・充電</h3>
+          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
           <div class="area-program" id="tsukuba-v2h">
             <h3>つくば市 V2Hシステム補助金</h3>
-            <p class="area-meta">茨城県つくば市｜補助金｜10万円(予定10件)｜締切：公募要領で確認</p>
+            <p class="area-meta">茨城県つくば市｜補助金｜10万円(予定10件)</p>
             <p class="area-meta">期間：令和8年度(予算がなくなり次第終了、最新は要確認)</p>
             <p>令和8年度のV2Hシステム設置補助。太陽光発電が設置済みまたは当年度設置予定の住宅が条件の一つ。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>補助対象システムの設置住宅に太陽光発電があるか当年度中に設置予定</li><li>詳細要件は要確認</li></ul>
             <p><a href="https://www.city.tsukuba.lg.jp/soshikikarasagasu/seikatsukankyobukankyoseisakuka/gyomuannai/1/1/evm-Subsidy/27813.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program" id="tsukuba-reform-support">
             <h3>つくば市 安心住宅リフォーム支援補助金</h3>
-            <p class="area-meta">茨城県つくば市｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">茨城県つくば市｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>快適で安全な居住環境の維持向上等を図る住宅リフォーム補助。令和8年度の案内あり(第2期受付は終了表示のページあり)。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>市内の住宅のリフォーム(要件は要確認)</li></ul>
             <p><a href="https://www.city.tsukuba.lg.jp/soshikikarasagasu/kensetsubujuuakuseisakuka/gyomuannai/2/3/1011856.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program is-ended" id="tsukuba-block-satsukyo">
             <h3>つくば市 危険ブロック塀等撤去費補助 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">茨城県つくば市｜補助金｜撤去費の3分の2、上限10万円(撤去1mあたり1万4千円が算定基礎)｜締切：公募要領で確認</p>
+            <p class="area-meta">茨城県つくば市｜補助金｜撤去費の3分の2、上限10万円(撤去1mあたり1万4千円が算定基礎)</p>
             <p class="area-meta">期間：令和8年度は募集終了(次回は要確認)</p>
             <p>通学路・避難路に面する倒壊危険のあるブロック塀の撤去費を補助。令和8年度の募集は終了。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>通学路や避難路に面し、道路面からの高さが80cmを超えるブロック塀</li></ul>
             <p><a href="https://www.city.tsukuba.lg.jp/soshikikarasagasu/toshikeikakubukenchikushidoka/gyomuannai/1/14218.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="tsukuba-akiya-katsuyo">
             <h3>つくば市 空家活用補助金</h3>
-            <p class="area-meta">茨城県つくば市｜補助金｜空家バンク登録物件の改修費の50%、上限50万円｜締切：公募要領で確認</p>
+            <p class="area-meta">茨城県つくば市｜補助金｜空家バンク登録物件の改修費の50%、上限50万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>空家バンク登録物件の改修費を補助する制度。</p>
             <p><strong>主な条件</strong></p>

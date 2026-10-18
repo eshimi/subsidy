@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">静岡県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（富士市）<b>5件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（静岡県）<b>5件（うち受付終了2件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>8件（うち受付終了1件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 2</a><a href="#res-cat-1">太陽光・蓄電池 2</a><a href="#res-cat-4">空き家・ブロック塀 3</a><a href="#res-cat-7">移住 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">富士市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="fuji-city-anata-mo-tenshu">
             <h3>富士市 あなたも商店主事業（新規出店者募集）</h3>
-            <p class="area-meta">富士市 商業労政課｜補助金｜開業がっちり応援コース最大150万円、開業プチサポートコース最大20万円｜締切：公募要領で確認</p>
+            <p class="area-meta">富士市 商業労政課｜補助金｜開業がっちり応援コース最大150万円、開業プチサポートコース最大20万円</p>
             <p class="area-meta">期間：令和8年度のがっちり応援コース締切は7/31（プチサポートコースの受付と来年度は要確認）</p>
             <p>中心市街地への新規出店者を支援する。令和8年度のがっちり応援コースの締切は7月31日。</p>
             <p><strong>主な条件</strong></p>
@@ -179,7 +197,7 @@
           </div>
           <div class="area-program" id="fuji-city-chusho-dx-suishin">
             <h3>富士市中小企業等DX推進事業支援補助金</h3>
-            <p class="area-meta">富士市 産業政策課｜補助金｜補助率1/2以内（他事業と併用時は50万円が限度。単独時の上限は要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">富士市 産業政策課｜補助金｜補助率1/2以内（他事業と併用時は50万円が限度。単独時の上限は要確認）</p>
             <p class="area-meta">期間：受付再開（締切は要確認）</p>
             <p>中小企業等のDX推進の取組を支援する補助金。予算上限で一度受付終了し、再開と案内されている。</p>
             <p><strong>主な条件</strong></p>
@@ -189,7 +207,7 @@
           </div>
           <div class="area-program" id="fuji-city-kaigyo-powerup-shikin">
             <h3>富士市 開業パワーアップ支援資金（利子補給）</h3>
-            <p class="area-meta">富士市 産業政策課｜融資｜貸付限度額3,500万円、返済期間10年以内（利子補給率は要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">富士市 産業政策課｜融資｜貸付限度額3,500万円、返済期間10年以内（利子補給率は要確認）</p>
             <p class="area-meta">期間：通年（最新は要確認）</p>
             <p>静岡県の創業向け制度融資に市が上乗せで利子補給を行う。</p>
             <p><strong>主な条件</strong></p>
@@ -198,7 +216,7 @@
           </div>
           <div class="area-program" id="fuji-city-kasegu-chikara-kigyo">
             <h3>富士市稼ぐ力起業支援金</h3>
-            <p class="area-meta">富士市 産業政策課（Beパレットふじ）｜補助金｜補助率1/2以内、限度額200万円｜締切：公募要領で確認</p>
+            <p class="area-meta">富士市 産業政策課（Beパレットふじ）｜補助金｜補助率1/2以内、限度額200万円</p>
             <p class="area-meta">期間：令和8年度の公募は6/1〜6/30で終了（来年度は要確認）</p>
             <p>社会的事業でデジタル技術を使い、市内で起業・事業承継・第二創業を行う人を支援する。事前にBeパレットふじへの相談が必須。</p>
             <p><strong>主な条件</strong></p>
@@ -207,7 +225,7 @@
           </div>
           <div class="area-program" id="fuji-city-maruke-risihokyu">
             <h3>富士市 小規模事業者経営改善資金（マル経融資）利子補給</h3>
-            <p class="area-meta">富士市 産業政策課（富士商工会議所・富士市商工会）｜融資｜貸付限度額2,000万円（利子補給率は要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">富士市 産業政策課（富士商工会議所・富士市商工会）｜融資｜貸付限度額2,000万円（利子補給率は要確認）</p>
             <p class="area-meta">期間：通年（最新は要確認）</p>
             <p>日本政策金融公庫のマル経融資に対し、商工会議所・商工会を通じて市が利子補給を行う。</p>
             <p><strong>主な条件</strong></p>
@@ -232,10 +250,10 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>富士市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="fuji-shelter">
             <h3>木造住宅の耐震シェルター・防災ベッド設置補助</h3>
-            <p class="area-meta">静岡県富士市｜補助金｜上限40万円(高齢者等のみ世帯は50万円)｜締切：公募要領で確認</p>
+            <p class="area-meta">静岡県富士市｜補助金｜上限40万円(高齢者等のみ世帯は50万円)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>旧耐震の木造住宅への耐震シェルター等の設置費を助成する。耐震補強補助とは併用不可。</p>
             <p><strong>主な条件</strong></p>
@@ -244,17 +262,17 @@
           </div>
           <div class="area-program" id="fuji-taishin">
             <h3>富士市木造住宅耐震補強事業</h3>
-            <p class="area-meta">静岡県富士市｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">静岡県富士市｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>旧耐震の木造住宅の耐震補強工事費を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>昭和56年5月31日以前の木造住宅(詳細は要確認)</li></ul>
             <p><a href="https://www.city.fuji.shizuoka.jp/1040070000/p000745.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="fuji-zerocarbon-battery">
             <h3>市民ゼロカーボンチャレンジ補助金(蓄電池・V2H等)</h3>
-            <p class="area-meta">静岡県富士市｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">静岡県富士市｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>蓄電池・V2H等の導入を補助する市民向け制度。</p>
             <p><strong>主な条件</strong></p>
@@ -263,17 +281,17 @@
           </div>
           <div class="area-program is-ended" id="fuji-solar">
             <h3>市民ゼロカーボンチャレンジ補助金(太陽光発電) <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">静岡県富士市｜補助金｜1kWあたり4万円(上限20万円)、子育て・若者世帯は1kWあたり1万円加算(上限5万円)｜締切：公募要領で確認</p>
+            <p class="area-meta">静岡県富士市｜補助金｜1kWあたり4万円(上限20万円)、子育て・若者世帯は1kWあたり1万円加算(上限5万円)</p>
             <p class="area-meta">期間：令和8年6月30日受付終了(次年度は要確認)</p>
             <p>自己所有による住宅用太陽光発電システムの導入を補助する。令和8年6月30日で受付終了。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>自己所有で導入する市民</li></ul>
             <p><a href="https://www.city.fuji.shizuoka.jp/1030050000/p004112.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="fuji-akiya-jokyaku">
             <h3>富士市危険空家除却促進補助金</h3>
-            <p class="area-meta">静岡県富士市｜補助金｜工事費の1/2(上限30万円)｜締切：公募要領で確認</p>
+            <p class="area-meta">静岡県富士市｜補助金｜工事費の1/2(上限30万円)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>危険な空き家の除却工事を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -282,7 +300,7 @@
           </div>
           <div class="area-program" id="fuji-akiya-riyo">
             <h3>富士市空き家利活用支援補助金</h3>
-            <p class="area-meta">静岡県富士市｜補助金｜最大100万円｜締切：公募要領で確認</p>
+            <p class="area-meta">静岡県富士市｜補助金｜最大100万円</p>
             <p class="area-meta">期間：2026年4月1日〜2027年3月31日</p>
             <p>地域活性化につながる空き家の改修を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -291,17 +309,17 @@
           </div>
           <div class="area-program" id="fuji-block">
             <h3>富士市ブロック塀等耐震改修促進事業</h3>
-            <p class="area-meta">静岡県富士市｜補助金｜通学路・避難路等以外の道路では撤去費の1/2(上限10万円)｜締切：公募要領で確認</p>
+            <p class="area-meta">静岡県富士市｜補助金｜通学路・避難路等以外の道路では撤去費の1/2(上限10万円)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>道路に面する危険なブロック塀等の撤去・改善を助成する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>道路に面し高さ60cm超のブロック塀等</li><li>工事前に相談が必要</li></ul>
             <p><a href="https://www.city.fuji.shizuoka.jp/1040070000/p000743.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="fuji-iju">
             <h3>移住就業支援補助金</h3>
-            <p class="area-meta">静岡県富士市｜補助金｜単身60万円、2人以上の世帯100万円｜締切：公募要領で確認</p>
+            <p class="area-meta">静岡県富士市｜補助金｜単身60万円、2人以上の世帯100万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>東京23区から移住し就業する人への支援金。</p>
             <p><strong>主な条件</strong></p>

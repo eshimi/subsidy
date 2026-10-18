@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,6 +170,17 @@
       <p class="lead" style="margin-bottom: 0;">北海道・政令指定都市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（札幌市）<b>2件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（北海道）<b>5件（うち受付終了2件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>7件（うち受付終了2件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 2</a><a href="#res-cat-1">太陽光・蓄電池 2</a><a href="#res-cat-2">EV・充電 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">札幌市の制度（事業・創業の方向け）</h2>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="sapporo-startup-location-hojo">
             <h3>スタートアップ立地促進補助金</h3>
-            <p class="area-meta">札幌市 経済観光局｜補助金｜準備費 上限150万円、開設費 上限100万円（補助率・詳細は要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">札幌市 経済観光局｜補助金｜準備費 上限150万円、開設費 上限100万円（補助率・詳細は要確認）</p>
             <p class="area-meta">期間：令和8年度の受付期間は要確認</p>
             <p>札幌で起業・移転・拠点開設を行うスタートアップの準備費と開設費を市が補助します。</p>
             <p><strong>主な条件</strong></p>
@@ -203,11 +221,11 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>札幌市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="sapporo-taishin-mokuzou-jokyaku">
             <h3>木造住宅の除却工事（解体工事）の費用補助</h3>
-            <p class="area-meta">札幌市 都市局｜補助金｜補助率23%以内（上限30万円）｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">札幌市 都市局｜補助金｜補助率23%以内（上限30万円）</p>
+            
             <p>耐震診断で評点1.0未満と判定された旧耐震の木造住宅の解体費用を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>耐震診断で評点1.0未満と判定された旧耐震の木造住宅</li></ul>
@@ -222,7 +240,7 @@
             <ul><li>昭和56年5月31日以前に建築された在来軸組構法の住宅など</li><li>上部構造評点1.0未満と判定されたもの</li><li>札幌市木造住宅耐震診断員が行う設計・工事</li></ul>
             <p><a href="https://www.city.sapporo.jp/toshi/k-shido/taishin/mokuzou.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="sapporo-jutaku-pv-lease-ppa">
             <h3>住宅用太陽光発電設備導入（リース・PPA）補助金制度</h3>
             <p class="area-meta">札幌市 環境局環境都市推進部環境エネルギー課｜補助金｜要確認（補助分は事業者が契約料金から差し引く仕組み）｜締切：2027-01-29</p>
@@ -234,34 +252,34 @@
           </div>
           <div class="area-program" id="sapporo-saiene-kiki">
             <h3>再エネ省エネ機器導入補助金制度</h3>
-            <p class="area-meta">札幌市 環境局環境都市推進部環境エネルギー課｜補助金｜太陽光発電：1kWあたり2万円（上限13万9千円）／定置用蓄電池：1kWhあたり1万6千円（上限6万4千円、Q&amp;Aページに異なる記載があり要確認）／エネファーム8万円／地中熱ヒートポンプ20万円／ペレットストーブ1台5万円｜締切：公募要領で確認</p>
+            <p class="area-meta">札幌市 環境局環境都市推進部環境エネルギー課｜補助金｜太陽光発電：1kWあたり2万円（上限13万9千円）／定置用蓄電池：1kWhあたり1万6千円（上限6万4千円、Q&amp;Aページに異なる記載があり要確認）／エネファーム8万円／地中熱ヒートポンプ20万円／ペレットストーブ1台5万円</p>
             <p class="area-meta">期間：令和8年度（詳細な受付期間は要確認）</p>
             <p>住宅への太陽光発電、蓄電池、エネファーム、地中熱ヒートポンプ、ペレットストーブなどの導入費用を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>2026年2月7日以降に設置が完了したもの</li><li>太陽光・エネファームの申込には「札幌市エコエネクラブ」への入会が必要</li></ul>
             <p><a href="https://www.city.sapporo.jp/kankyo/energy/hojo/kiki.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">EV・充電</h3>
+          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
           <div class="area-program" id="sapporo-zev-kounyu">
             <h3>札幌市ゼロエミッション自動車購入等補助制度</h3>
-            <p class="area-meta">北海道札幌市｜補助金｜電気自動車 定額10万円、軽EV 5万円、基礎充電設備は差額の1/2・上限15万円/基｜締切：公募要領で確認</p>
+            <p class="area-meta">北海道札幌市｜補助金｜電気自動車 定額10万円、軽EV 5万円、基礎充電設備は差額の1/2・上限15万円/基</p>
             <p class="area-meta">期間：対象期間 令和8年2月19日〜令和9年2月18日（受付の詳細は要確認）</p>
             <p>電気自動車の購入などに対する補助。集合住宅の管理組合等が設置する基礎充電設備も対象。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>対象期間 2026年2月19日〜2027年2月18日</li><li>基礎充電設備は集合住宅オーナー・管理組合等が対象</li><li>詳細は要確認</li></ul>
             <p><a href="https://www.city.sapporo.jp/kankyo/zidousya_kankyo/jisedai_hojo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program" id="sapporo-eco-reform">
             <h3>札幌市 住宅エコリフォーム補助</h3>
-            <p class="area-meta">札幌市 都市局｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">札幌市 都市局｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：令和8年度：第1回5月22日〜6月4日、第2回は9月（詳細は要確認）</p>
             <p>省エネ改修やバリアフリー改修などを行う住宅リフォームへの補助。令和8年4月1日以降に工事契約したものが対象。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>総工事費30万円以上などの条件あり</li><li>昭和56年5月31日以前に建てられた住宅などに限られる（要確認）</li></ul>
             <p><a href="https://www.city.sapporo.jp/toshi/jutaku/03reform/eco/documents/r8pannhuretto.pdf" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program is-ended" id="sapporo-kiken-akiya-jokyaku">
             <h3>札幌市危険空家等除却補助制度 <span class="area-ended-tag">受付終了</span></h3>
             <p class="area-meta">北海道札幌市｜補助金｜通常型 上限50万円、地域連携型 上限150万円｜締切：2026-09-30</p>

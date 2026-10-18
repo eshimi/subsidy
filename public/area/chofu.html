@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">東京都・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（調布市）<b>4件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（東京都）<b>6件（うち受付終了1件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>5件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-5">バリアフリー・介護 2</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">調布市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="chofu-city-jigyo-shikin-assen">
             <h3>調布市中小企業 事業資金融資あっせん制度</h3>
-            <p class="area-meta">調布市 産業振興課｜融資｜利子補給・信用保証料全額補助(物価高騰対策の運転資金は当初3年間利子全額補助、4年目以降1/2)｜締切：公募要領で確認</p>
+            <p class="area-meta">調布市 産業振興課｜融資｜利子補給・信用保証料全額補助(物価高騰対策の運転資金は当初3年間利子全額補助、4年目以降1/2)</p>
             <p class="area-meta">期間：通年(最新は要確認)</p>
             <p>市内中小企業者の事業資金の融資をあっせんし、利子と信用保証料を市が補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="chofu-city-kaigyo-shikin-assen">
             <h3>調布市中小企業 開業資金融資あっせん制度</h3>
-            <p class="area-meta">調布市 産業振興課｜融資｜限度額1,000万円・償還84か月以内・利率2.20%(市が利率の1/2を補助、信用保証料は全額補助)｜締切：公募要領で確認</p>
+            <p class="area-meta">調布市 産業振興課｜融資｜限度額1,000万円・償還84か月以内・利率2.20%(市が利率の1/2を補助、信用保証料は全額補助)</p>
             <p class="area-meta">期間：通年(最新は要確認)</p>
             <p>市内で開業する中小企業者向けの融資あっせん。利子の1/2と信用保証料を市が補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -187,7 +205,7 @@
           </div>
           <div class="area-program" id="chofu-city-marukei-rishi">
             <h3>マル経融資(経営改善貸付)利子補給</h3>
-            <p class="area-meta">調布市 産業振興課・調布市商工会｜融資｜要確認(無担保・無保証人融資への利子補給)｜締切：公募要領で確認</p>
+            <p class="area-meta">調布市 産業振興課・調布市商工会｜融資｜要確認(無担保・無保証人融資への利子補給)</p>
             <p class="area-meta">期間：通年(最新は要確認)</p>
             <p>調布市商工会の経営指導を受ける小規模事業者向けのマル経融資に対し、市と商工会が利子補給を行う。</p>
             <p><strong>主な条件</strong></p>
@@ -196,7 +214,7 @@
           </div>
           <div class="area-program" id="chofu-city-zerocarbon-chusho">
             <h3>中小企業等ゼロカーボン推進補助事業</h3>
-            <p class="area-meta">調布市｜補助金｜要確認(LED照明・断熱改修・高効率給湯器が対象)｜締切：公募要領で確認</p>
+            <p class="area-meta">調布市｜補助金｜要確認(LED照明・断熱改修・高効率給湯器が対象)</p>
             <p class="area-meta">期間：令和8年度(募集状況は要確認)</p>
             <p>市内中小企業等のLED照明、断熱化改修、高効率給湯器の導入費用を補助する(令和8年度の補助制度一覧に掲載)。</p>
             <p><strong>主な条件</strong></p>
@@ -221,17 +239,17 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>調布市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="chofu-taishin-mokuzo">
             <h3>木造住宅の耐震化助成（耐震診断・耐震改修・建替え）</h3>
-            <p class="area-meta">調布市｜補助金｜耐震診断は費用の3分の2（上限15万円）。耐震改修は費用の2分の1（上限80万円）。建替えは解体費用の23%（上限80万円）｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">調布市｜補助金｜耐震診断は費用の3分の2（上限15万円）。耐震改修は費用の2分の1（上限80万円）。建替えは解体費用の23%（上限80万円）</p>
+            
             <p>木造住宅の耐震診断・耐震改修・建替えの費用を助成。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>建替えは昭和56年5月31日以前に着手し耐震性不足と診断された住宅</li><li>同じ工事で他の市の補助を受けていないこと</li></ul>
             <p><a href="https://www.city.chofu.tokyo.jp/www/contents/1176118949288/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="chofu-solar-battery">
             <h3>太陽光発電設備・蓄電池設備等設置補助（よりよい住まいづくり応援制度）</h3>
             <p class="area-meta">東京都調布市｜補助金｜太陽光: 1kWあたり2万円(上限10万円)、蓄電池: 上限5万円(いずれも実支出額が低ければその額)｜締切：2027-03-10</p>
@@ -241,28 +259,28 @@
             <ul><li>調布市内の個人住宅・併用住宅</li><li>他の市の補助制度等を受けていない設備</li><li>設置完了日から6か月以内に申請</li></ul>
             <p><a href="https://city.chofu.tokyo.jp/www/contents/1645771444693/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="chofu-block-tekkyo">
             <h3>ブロック塀等の撤去・建て替え助成</h3>
-            <p class="area-meta">調布市（住宅課）｜助成金｜工事費の1/2または1万円×延長メートル数のいずれか低い額、上限10万円（木塀設置は加算あり）｜締切：公募要領で確認</p>
+            <p class="area-meta">調布市（住宅課）｜助成金｜工事費の1/2または1万円×延長メートル数のいずれか低い額、上限10万円（木塀設置は加算あり）</p>
             <p class="area-meta">期間：確認できた年度：令和7年度（申請期限令和7年12月、工事完了令和8年2月末。最新は要確認）</p>
             <p>道路に面した高さ1.2m超のブロック塀・石積塀・万年塀などの撤去や建て替え費用の一部を助成する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>道路に面した高さ1.2m超の塀</li><li>事前相談が必要、着工済みは対象外</li><li>公的団体・不動産開発事業者・他の補助を受けるものは対象外</li></ul>
             <p><a href="https://www.city.chofu.lg.jp/documents/11338/2607block.pdf" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program" id="chofu-barrierfree">
             <h3>バリアフリー適応住宅改修補助（よりよい住まいづくり応援制度）</h3>
-            <p class="area-meta">調布市｜補助金｜要確認｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">調布市｜補助金｜金額は公式で確認</p>
+            
             <p>住宅のバリアフリー適応改修の費用を補助（詳細は要確認）。</p>
             
             <p><a href="https://www.city.chofu.tokyo.jp/www/contents/1465193999978/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
           <div class="area-program" id="chofu-koreisha-jutaku-kaishu">
             <h3>調布市 住宅改修費助成（高齢者）</h3>
-            <p class="area-meta">東京都調布市｜助成金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">東京都調布市｜助成金｜金額は公式で確認</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>在宅生活の維持に住宅改修が必要な65歳以上の方に、住宅改修費の一部を助成する。</p>
             <p><strong>主な条件</strong></p>

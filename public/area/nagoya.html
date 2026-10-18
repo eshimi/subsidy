@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,6 +170,17 @@
       <p class="lead" style="margin-bottom: 0;">愛知県・政令指定都市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（名古屋市）<b>2件（うち受付終了1件）</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（愛知県）<b>5件</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>6件（うち受付終了2件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 2</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-2">EV・充電 1</a><a href="#res-cat-5">バリアフリー・介護 1</a><a href="#res-cat-6">子育て 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">名古屋市の制度（事業・創業の方向け）</h2>
@@ -204,10 +222,10 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>名古屋市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="nagoya-taishin-kaishu">
             <h3>木造住宅耐震改修助成</h3>
-            <p class="area-meta">名古屋市｜補助金｜工事費の5分の4以内。一般改修は一般世帯115万円・非課税世帯165万円が上限（段階的改修は別額）｜締切：公募要領で確認</p>
+            <p class="area-meta">名古屋市｜補助金｜工事費の5分の4以内。一般改修は一般世帯115万円・非課税世帯165万円が上限（段階的改修は別額）</p>
             <p class="area-meta">期間：受付は4月から翌年1月末まで（確認できた年度は不明、最新は要確認）</p>
             <p>無料耐震診断で判定値1.0未満（段階的改修は0.7未満）の木造住宅の耐震改修工事費を助成する。</p>
             <p><strong>主な条件</strong></p>
@@ -216,43 +234,43 @@
           </div>
           <div class="area-program" id="nagoya-taishin-shelter">
             <h3>耐震シェルター・防災ベッドの設置助成</h3>
-            <p class="area-meta">名古屋市｜補助金｜補助対象経費の2分の1以内で30万円以内（非課税世帯は4分の3、45万円以内）｜締切：公募要領で確認</p>
+            <p class="area-meta">名古屋市｜補助金｜補助対象経費の2分の1以内で30万円以内（非課税世帯は4分の3、45万円以内）</p>
             <p class="area-meta">期間：確認できた年度：不明（最新は要確認）</p>
             <p>耐震シェルターや防災ベッドの設置費用を助成する。</p>
             
             <p><a href="https://www.city.nagoya.jp/kurashi/category/15-14-9-7-0-0-0-0-0-0.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program is-ended" id="nagoya-jutaku-datsutanso">
             <h3>住宅等の脱炭素化促進補助 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">名古屋市｜補助金｜太陽光（一体的導入）築10年以内2万円/kW・築10年超3万円/kW（上限9.99kW）、蓄電システム1万5千円/kWh（上限10kWh）｜締切：公募要領で確認</p>
+            <p class="area-meta">名古屋市｜補助金｜太陽光（一体的導入）築10年以内2万円/kW・築10年超3万円/kW（上限9.99kW）、蓄電システム1万5千円/kWh（上限10kWh）</p>
             <p class="area-meta">期間：令和8年度（対象は令和8年4月1日〜令和9年2月12日に設置・引渡し完了したもの。蓄電システムは受付終了）</p>
             <p>住宅への太陽光発電設備、蓄電システム、ZEH等の導入費用を補助する。令和8年10月5日に蓄電システムの受付は予算到達で終了。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>市内の住宅に居住する個人など</li><li>戸建は「なごや太陽光倶楽部」への入会申請が必要</li></ul>
             <p><a href="https://www.city.nagoya.jp/kurashi/kankyou/1012424/1012443/1012445.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">EV・充電</h3>
+          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
           <div class="area-program is-ended" id="nagoya-zev-kounyu">
             <h3>ゼロエミッション車の購入補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">名古屋市｜補助金｜電気自動車10万円（外部給電機能が必要）｜締切：公募要領で確認</p>
+            <p class="area-meta">名古屋市｜補助金｜電気自動車10万円（外部給電機能が必要）</p>
             <p class="area-meta">期間：令和8年度（受付終了）</p>
             <p>電気自動車・PHV・燃料電池自動車の購入補助。個人向けで事業者は対象外。令和8年度分は受付終了と案内されている。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>外部給電機能を備えた車両</li><li>個人（事業者は対象外）</li></ul>
             <p><a href="https://www.city.nagoya.jp/shisei/keikaku/1008387/1008424/1008431/1046948.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program" id="nagoya-shogaisha-jutaku-kaizo">
             <h3>名古屋市 障害者住宅改造補助金</h3>
-            <p class="area-meta">愛知県名古屋市｜補助金｜上限80万円（介護保険の要支援・要介護認定者は60万円）。助成率は所得により異なる｜締切：公募要領で確認</p>
+            <p class="area-meta">愛知県名古屋市｜補助金｜上限80万円（介護保険の要支援・要介護認定者は60万円）。助成率は所得により異なる</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>障害のある人の住宅改造費を助成する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>身体障害者手帳等の等級が要件を満たすこと</li><li>所得が一定以上の場合は対象外</li><li>改造前の申請が必要</li></ul>
             <p><a href="https://www.kaigo-wel.city.nagoya.jp/view/wel/shiori/jyutaku/jyutaku_hojyokin.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">子育て</h3>
+          <h3 class="area-cat" id="res-cat-6">子育て</h3>
           <div class="area-program" id="nagoya-kodomo-anshin-sumairu">
             <h3>名古屋市 子どもあんしん住まいる補助金</h3>
             <p class="area-meta">愛知県名古屋市｜補助金｜工事費等の1/2、最大20万円/戸｜締切：2027-02-28</p>

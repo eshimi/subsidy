@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">東京都・特別区。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（墨田区）<b>4件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（東京都）<b>6件（うち受付終了1件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>13件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 3</a><a href="#res-cat-1">太陽光・蓄電池 2</a><a href="#res-cat-2">EV・充電 2</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-5">バリアフリー・介護 2</a><a href="#res-cat-6">子育て 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">墨田区の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="sumida-hanrokakudai">
             <h3>区内生産品等販路拡張事業補助金</h3>
-            <p class="area-meta">墨田区（担当課は要確認）｜補助金｜要確認｜締切：2027-03-10</p>
+            <p class="area-meta">墨田区（担当課は要確認）｜補助金｜金額は公式で確認｜締切：2027-03-10</p>
             <p class="area-meta">期間：令和8年4月1日〜令和9年3月10日（予算に達し次第終了）</p>
             <p>区内中小企業が国内外で販路拡張を行う際の経費の一部を補助します。予算に達し次第終了。</p>
             <p><strong>主な条件</strong></p>
@@ -189,7 +207,7 @@
           </div>
           <div class="area-program" id="sumida-led">
             <h3>LED照明器具導入支援</h3>
-            <p class="area-meta">墨田区（担当課は要確認）｜補助金｜要確認｜締切：2026-12-28</p>
+            <p class="area-meta">墨田区（担当課は要確認）｜補助金｜金額は公式で確認｜締切：2026-12-28</p>
             <p class="area-meta">期間：令和8年度申請受付中（予算到達で終了）</p>
             <p>区内中小企業がLED照明器具を導入する費用の一部を補助します。令和8年度で終了予定との案内あり。</p>
             <p><strong>主な条件</strong></p>
@@ -224,11 +242,11 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>墨田区の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="sumida-bouka-taishin">
             <h3>防火・耐震化改修促進助成事業</h3>
-            <p class="area-meta">墨田区｜助成金｜基本助成100万円、加算を含め最大200万円｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">墨田区｜助成金｜基本助成100万円、加算を含め最大200万円</p>
+            
             <p>昭和56年5月31日以前に建てられた老朽木造建築物の防火・耐震改修費用を助成する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>昭和56年5月31日以前に建てられた老朽木造建築物</li><li>耐震診断を受けていること</li><li>申請前の事前相談が必要</li></ul>
@@ -236,7 +254,7 @@
           </div>
           <div class="area-program" id="sumida-taishin-kaishu">
             <h3>住宅耐震改修促進助成事業（耐震改修工事）</h3>
-            <p class="area-meta">墨田区｜助成金｜計画作成等の助成額は区内全域30万円。工事費の補助率・上限は要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">墨田区｜助成金｜計画作成等の助成額は区内全域30万円。工事費の補助率・上限は要確認</p>
             <p class="area-meta">期間：令和8年度（2026年度）</p>
             <p>旧耐震（昭和56年5月31日以前着工）の木造住宅などの耐震改修工事等の費用を助成する。令和8年4月1日から非木造住宅も対象。</p>
             <p><strong>主な条件</strong></p>
@@ -245,14 +263,14 @@
           </div>
           <div class="area-program" id="sumida-taishin-soti">
             <h3>住宅耐震改修促進助成事業（耐震装置設置）</h3>
-            <p class="area-meta">墨田区｜助成金｜上限80万円（令和8年4月1日から引き上げ）｜締切：公募要領で確認</p>
+            <p class="area-meta">墨田区｜助成金｜上限80万円（令和8年4月1日から引き上げ）</p>
             <p class="area-meta">期間：令和8年度（2026年度）</p>
             <p>耐震改修が難しい住宅に耐震装置（耐震シェルター等）を設置する費用を助成する。1階に置く装置に限る。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>1階に設置する装置であること</li><li>工事契約後の申請は不可</li></ul>
             <p><a href="https://www.city.sumida.lg.jp/kurashi/funenka_taishinka/taishinka/tajoseikin/taisinnzoutizyosei.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="sumida-chikuden">
             <h3>地球温暖化防止設備導入助成（家庭用蓄電システム）</h3>
             <p class="area-meta">墨田区｜助成金｜工事費用の10%（上限5万円）｜締切：2027-02-26</p>
@@ -271,10 +289,10 @@
             <ul><li>最大出力10kW未満</li><li>工事着工の1か月前から7営業日前までに申請</li><li>未使用品であること</li></ul>
             <p><a href="https://www.city.sumida.lg.jp/kurashi/kankyou_hozen/jyoseikin/ecojyoseiseido.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">EV・充電</h3>
+          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
           <div class="area-program" id="sumida-ev-juden">
             <h3>地球温暖化防止設備導入助成（EV用充電設備）</h3>
-            <p class="area-meta">墨田区｜助成金｜工事費用の80%（上限1基7万5千円）｜締切：公募要領で確認</p>
+            <p class="area-meta">墨田区｜助成金｜工事費用の80%（上限1基7万5千円）</p>
             <p class="area-meta">期間：令和8年度（令和8年4月1日〜令和9年2月26日、予算額に達し次第終了）</p>
             <p>EV用充電設備の設置費用を助成する。令和8年度から分譲マンションも対象（2基まで）。</p>
             <p><strong>主な条件</strong></p>
@@ -283,27 +301,27 @@
           </div>
           <div class="area-program" id="sumida-ev-kounyu">
             <h3>地球温暖化防止設備（次世代自動車）購入助成制度</h3>
-            <p class="area-meta">墨田区｜助成金｜1台につき一律10万円｜締切：公募要領で確認</p>
+            <p class="area-meta">墨田区｜助成金｜1台につき一律10万円</p>
             <p class="area-meta">期間：令和8年度。初度登録の翌日から1年以内に申請（予算額に達し次第終了）</p>
             <p>電気自動車・プラグインハイブリッド車・燃料電池車（四輪）を購入した個人等に助成する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>クリーンエネルギー自動車導入促進補助金の対象車両</li><li>使用の本拠が墨田区</li><li>中古・リースは対象外</li></ul>
             <p><a href="https://www.city.sumida.lg.jp/kurashi/kankyou_hozen/jyoseikin/JISEDAIJIDOUSHA.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program" id="sumida-ondanka-dannetsu">
             <h3>地球温暖化防止設備導入助成制度（断熱改修・省エネルギー機器）</h3>
-            <p class="area-meta">墨田区｜助成金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">墨田区｜助成金｜金額は公式で確認</p>
             <p class="area-meta">期間：令和8年度（令和8年4月1日〜令和9年2月26日）</p>
             <p>区内の建物の断熱改修や省エネルギー機器の導入費用を助成する（令和8年度）。</p>
             
             <p><a href="https://www.city.sumida.lg.jp/kurashi/kankyou_hozen/jyoseikin/ecojyoseiseido.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="sumida-akiya-jokyaku">
             <h3>老朽危険家屋除却費等助成制度</h3>
-            <p class="area-meta">墨田区｜助成金｜除却工事費の1/2（上限50万円）。無接道敷地の不良住宅は上限100万円、跡地を原則10年間区へ無償貸与する場合は上限200万円｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">墨田区｜助成金｜除却工事費の1/2（上限50万円）。無接道敷地の不良住宅は上限100万円、跡地を原則10年間区へ無償貸与する場合は上限200万円</p>
+            
             <p>老朽化した危険な家屋の除却費用を助成する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>不良住宅等に該当すること</li></ul>
@@ -311,34 +329,34 @@
           </div>
           <div class="area-program" id="sumida-block-tekkyo">
             <h3>ブロック塀等撤去工事助成</h3>
-            <p class="area-meta">東京都墨田区｜助成金｜撤去延長1mにつき2万円(取り壊し加算との併用不可)｜締切：公募要領で確認</p>
+            <p class="area-meta">東京都墨田区｜助成金｜撤去延長1mにつき2万円(取り壊し加算との併用不可)</p>
             <p class="area-meta">期間：令和8年度(最新は要確認)</p>
             <p>令和8年4月から新たに始まった、危険なブロック塀等の撤去工事への助成。無料耐震相談も同時に開始。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>墨田区内の危険なブロック塀等の所有者</li><li>詳細な要件は要確認</li></ul>
             <p><a href="https://www.city.sumida.lg.jp/kurashi/kankyou_hozen/midori/josei/midorinohei.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program" id="sumida-chintai-koreisha-kaishu">
             <h3>墨田区民間賃貸住宅改修支援事業（高齢者世帯等向け改修事業）</h3>
-            <p class="area-meta">墨田区｜補助金｜要確認｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">墨田区｜補助金｜金額は公式で確認</p>
+            
             <p>民間賃貸住宅の高齢者世帯等向けの改修を支援する事業（詳細は公式ページで要確認）。</p>
             
             <p><a href="https://www.city.sumida.lg.jp/kurashi/zyuutaku/yanushi/koureishamuke.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
           <div class="area-program" id="sumida-zyuutaku-setubi-kaizen">
             <h3>住宅設備改善費助成</h3>
-            <p class="area-meta">墨田区｜助成金｜要確認｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">墨田区｜助成金｜金額は公式で確認</p>
+            
             <p>住宅設備の改善費用を助成する墨田区の制度（詳細は公式ページで要確認）。</p>
             
             <p><a href="https://www.city.sumida.lg.jp/kenko_fukushi/syougai/kaiteki/zyuutakusetubi.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">子育て</h3>
+          <h3 class="area-cat" id="res-cat-6">子育て</h3>
           <div class="area-program" id="sumida-juutaku-shutoku-rishi">
             <h3>すみだ住宅取得利子補助制度</h3>
-            <p class="area-meta">東京都墨田区｜補助金｜年間利子額(上限10万円)を5年間補助(最大50万円)｜締切：公募要領で確認</p>
+            <p class="area-meta">東京都墨田区｜補助金｜年間利子額(上限10万円)を5年間補助(最大50万円)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>区内で住宅を取得した子育て世帯・若年夫婦世帯の住宅ローン利子の一部を補助する。</p>
             <p><strong>主な条件</strong></p>

@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">宮崎県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（宮崎市）<b>5件（うち受付終了1件）</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（宮崎県）<b>5件（うち受付終了2件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>3件（うち受付終了1件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">宮崎市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="miyazaki-city-chusho-yushi">
             <h3>宮崎市中小企業融資制度（保証料補助）</h3>
-            <p class="area-meta">宮崎市 産業政策課｜融資｜信用保証料のうち上限1.25%を市が補助。小規模企業者特別融資は限度額1,000万円・7年以内｜締切：公募要領で確認</p>
+            <p class="area-meta">宮崎市 産業政策課｜融資｜信用保証料のうち上限1.25%を市が補助。小規模企業者特別融資は限度額1,000万円・7年以内</p>
             <p class="area-meta">期間：通年（令和8年度版）</p>
             <p>市の制度融資。保証協会に支払う保証料を市が補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -188,7 +206,7 @@
           </div>
           <div class="area-program" id="miyazaki-city-sogyo-shikin">
             <h3>宮崎市創業支援資金融資制度</h3>
-            <p class="area-meta">宮崎市 産業政策課｜融資｜融資限度額1,500万円・10年以内。信用保証料を市が上限1.25%まで補助｜締切：公募要領で確認</p>
+            <p class="area-meta">宮崎市 産業政策課｜融資｜融資限度額1,500万円・10年以内。信用保証料を市が上限1.25%まで補助</p>
             <p class="area-meta">期間：通年</p>
             <p>創業者向け低利融資で、必要な信用保証料の一部または全部を市が補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -197,7 +215,7 @@
           </div>
           <div class="area-program" id="miyazaki-city-tokutei-ginou">
             <h3>宮崎市特定技能人材雇用促進事業補助金</h3>
-            <p class="area-meta">宮崎市｜補助金｜特定技能人材1名につき上限15万円（1事業者2名まで）｜締切：公募要領で確認</p>
+            <p class="area-meta">宮崎市｜補助金｜特定技能人材1名につき上限15万円（1事業者2名まで）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>特定技能人材を初めて雇用する事業者を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -232,17 +250,17 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>宮崎市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program is-ended" id="miyazaki-city-mokuzo-taishin">
             <h3>宮崎市 木造住宅の耐震化支援 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">宮崎市｜補助金｜耐震改修は費用の80%、限度額115万円｜締切：公募要領で確認</p>
+            <p class="area-meta">宮崎市｜補助金｜耐震改修は費用の80%、限度額115万円</p>
             <p class="area-meta">期間：令和8年度の申込受付は終了（令和8年度より先着順から抽選に変更）</p>
             <p>木造住宅の耐震診断・耐震改修・除却・建替えを支援する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>耐震診断の評点が低い住宅</li><li>昭和56年5月31日以前の木造住宅（県制度の記載。市の条件は要確認）</li></ul>
             <p><a href="https://www.city.miyazaki.miyazaki.jp/business/architecture/earthquake_resistant/148080.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="miyazaki-city-akiya-kaitai">
             <h3>宮崎市 危険な空き家の解体費補助（令和8年度二次募集）</h3>
             <p class="area-meta">宮崎市｜補助金｜補助対象経費の2分の1以内、上限40万円｜締切：2026-10-30</p>

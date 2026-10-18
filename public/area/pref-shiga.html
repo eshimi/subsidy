@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -170,7 +177,7 @@
       <div class="area-body">
           <div class="area-program" id="shiga-jigyo-shokei-seicho">
             <h3>滋賀県 事業承継・成長促進補助金</h3>
-            <p class="area-meta">滋賀県 商工観光労働部｜補助金｜補助率2/3・上限50万円｜締切：公募要領で確認</p>
+            <p class="area-meta">滋賀県 商工観光労働部｜補助金｜補助率2/3・上限50万円</p>
             <p class="area-meta">期間：令和8年度第3回は8月10日〜9月14日で終了。以降は要確認</p>
             <p>事業承継を契機とした経営革新や人材育成につながる取組の経費の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -180,7 +187,7 @@
           </div>
           <div class="area-program" id="shiga-local-venture">
             <h3>滋賀県ローカルベンチャー創出支援金</h3>
-            <p class="area-meta">滋賀県 商工観光労働部／滋賀県産業支援プラザ｜補助金｜補助上限200万円・補助率1/2（掲載情報）｜締切：公募要領で確認</p>
+            <p class="area-meta">滋賀県 商工観光労働部／滋賀県産業支援プラザ｜補助金｜補助上限200万円・補助率1/2（掲載情報）</p>
             <p class="area-meta">期間：令和8年度三次募集は2026年9月4日で締切済み。次回は要確認</p>
             <p>デジタル技術を活用した起業や、事業承継・第二創業に取り組むローカルベンチャーの経費の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -189,7 +196,7 @@
           </div>
           <div class="area-program" id="shiga-seidoyuushi-kaigyo">
             <h3>滋賀県制度融資「開業資金」（創業枠・創業サポート枠ほか）</h3>
-            <p class="area-meta">滋賀県 商工観光労働部／滋賀県信用保証協会｜融資｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">滋賀県 商工観光労働部／滋賀県信用保証協会｜融資｜金額は公式で確認</p>
             <p class="area-meta">期間：随時（最新は要確認）</p>
             <p>開業前および開業後5年未満の方向けの制度融資。創業枠・創業サポート枠、女性創業枠、北部振興枠がある。小規模企業者向けの経営支援資金（小規模企業者特別枠）も案内されている。</p>
             <p><strong>主な条件</strong></p>
@@ -198,7 +205,7 @@
           </div>
           <div class="area-program" id="shiga-keiei-kakushin">
             <h3>中小企業経営革新等応援事業補助金</h3>
-            <p class="area-meta">滋賀県 商工観光労働部｜補助金｜補助率1/2以内・50万円〜300万円｜締切：公募要領で確認</p>
+            <p class="area-meta">滋賀県 商工観光労働部｜補助金｜補助率1/2以内・50万円〜300万円</p>
             <p class="area-meta">期間：令和8年度二次募集は2026年6月26日〜7月31日で終了。最新は要確認</p>
             <p>県内中小企業の経営革新等の取組経費の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -246,37 +253,37 @@
     <section class="art-sec" aria-labelledby="pref-resident"><h2 id="pref-resident"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">個人の方向けの制度（住まい・暮らし）</h2>
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。市区町村の個人向けの制度（23件）は、下の「県内の市区町村のページ」から確認できます。</p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="shiga-taishin-mokuzo">
             <h3>木造住宅の耐震診断（無料）および耐震改修の補助制度</h3>
-            <p class="area-meta">滋賀県 住宅課（市町が窓口）｜補助金｜市町が適用する国の制度メニューにより異なる（例：補助対象経費の80%・上限115万円、または23%・上限97.86万円）。市町ごとに要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">滋賀県 住宅課（市町が窓口）｜補助金｜市町が適用する国の制度メニューにより異なる（例：補助対象経費の80%・上限115万円、または23%・上限97.86万円）。市町ごとに要確認</p>
             <p class="area-meta">期間：要確認（市町ごと）</p>
             <p>昭和56年6月以前に着工した木造住宅の耐震診断（無料）と、耐震性が不足する住宅の改修への補助。主要道路沿い、高齢者世帯、子育て世帯などには割増補助がある場合がある。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>昭和56年6月以前に建築に着工した木造住宅</li><li>申込みは市町の窓口</li><li>市町の補助を使うには県の名簿に登録された事業者が施工すること</li></ul>
             <p><a href="https://www.pref.shiga.lg.jp/ippan/kendoseibi/zyuutaku/317612.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="shiga-smart-lifestyle-r8">
             <h3>令和8年度スマート・ライフスタイル普及促進事業補助金</h3>
-            <p class="area-meta">滋賀県 CO2ネットゼロ推進課｜補助金｜太陽光発電：7万円/kW・上限30万円、蓄電池：上限30万円、V2H：4万円、断熱改修：補助率1/3・上限120万円（専用住宅のみ）｜締切：公募要領で確認</p>
+            <p class="area-meta">滋賀県 CO2ネットゼロ推進課｜補助金｜太陽光発電：7万円/kW・上限30万円、蓄電池：上限30万円、V2H：4万円、断熱改修：補助率1/3・上限120万円（専用住宅のみ）</p>
             <p class="area-meta">期間：令和8年度（予算に達し次第終了のおそれ。受付期限は要確認）</p>
             <p>既存住宅への太陽光発電、蓄電池、V2H、断熱改修、高効率給湯器など再エネ・省エネ設備の導入費用を補助する。申請受付は淡海環境保全財団。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>太陽光はFIT・FIPの事業計画認定を受けない場合などの条件あり</li><li>蓄電池は太陽光発電システムと同時設置する場合などが条件</li><li>断熱改修は専用住宅のみ</li></ul>
             <p><a href="https://www.pref.shiga.lg.jp/ippan/kankyoshizen/ondanka/349713.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">EV・充電</h3>
+          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
           <div class="area-program" id="shiga-ev-phv-fcv-r7">
             <h3>次世代自動車（EV・PHV・FCV）の購入および電気自動車等用の充電設備の設置への補助</h3>
-            <p class="area-meta">滋賀県｜補助金｜個人向け：EV 10万円、PHV 10万円、FCV 20万円（令和7年度）｜締切：公募要領で確認</p>
+            <p class="area-meta">滋賀県｜補助金｜個人向け：EV 10万円、PHV 10万円、FCV 20万円（令和7年度）</p>
             <p class="area-meta">期間：確認できた年度：令和7年度（申請受付は令和8年2月13日まで）。令和8年度は要確認</p>
             <p>EV・PHV・FCVの購入と、電気自動車等用の充電設備の設置に対する補助。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>予算額を超える申請があった時点で受付終了</li></ul>
             <p><a href="https://www.pref.shiga.lg.jp/kensei/koho/e-shinbun/bosyuu/331830.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program" id="shiga-zeh-shinchiku-r8">
             <h3>令和8年度「しがZEH新築支援事業費補助金」</h3>
             <p class="area-meta">滋賀県 住宅課｜補助金｜基礎額20万円。加算メニューの組み合わせで最大120万円（県外在住の子育て世帯・若者夫婦世帯が北部地域へ移住する場合は30万円加算）｜締切：2026-11-30</p>

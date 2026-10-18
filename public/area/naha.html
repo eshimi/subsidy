@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">沖縄県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（那覇市）<b>5件（うち受付終了1件）</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（沖縄県）<b>4件（うち受付終了2件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>1件</b></a><span class="area-toc-cats"><a href="#res-cat-4">空き家・ブロック塀 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">那覇市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="naha-city-ganbaru-machigwa">
             <h3>那覇市頑張るマチグヮー支援事業</h3>
-            <p class="area-meta">那覇市 商工振興グループ｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">那覇市 商工振興グループ｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：令和8年度（最新は要確認）</p>
             <p>市内のマチグヮー（市場・商店街）の事業者を支援する令和8年度事業。</p>
             <p><strong>主な条件</strong></p>
@@ -188,7 +206,7 @@
           </div>
           <div class="area-program" id="naha-city-keiei-kiban">
             <h3>那覇市 市内企業経営基盤強化事業</h3>
-            <p class="area-meta">那覇市 商工振興グループ｜専門家支援｜要確認（セミナーと専門家派遣）｜締切：公募要領で確認</p>
+            <p class="area-meta">那覇市 商工振興グループ｜専門家支援｜要確認（セミナーと専門家派遣）</p>
             <p class="area-meta">期間：令和8年度（詳細は要確認）</p>
             <p>市内企業の経営課題に専門家を派遣し伴走支援する事業。</p>
             <p><strong>主な条件</strong></p>
@@ -197,7 +215,7 @@
           </div>
           <div class="area-program" id="naha-city-koguchi-yushi">
             <h3>那覇市小口資金融資</h3>
-            <p class="area-meta">那覇市 商工振興グループ｜融資｜限度額1,000万円・保証料率0.40〜0.80%（一般小口）｜締切：公募要領で確認</p>
+            <p class="area-meta">那覇市 商工振興グループ｜融資｜限度額1,000万円・保証料率0.40〜0.80%（一般小口）</p>
             <p class="area-meta">期間：随時（最新は要確認）</p>
             <p>市・金融機関・沖縄県信用保証協会が協力する小規模企業者向け事業資金融資。</p>
             <p><strong>主な条件</strong></p>
@@ -232,7 +250,7 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>那覇市の制度</strong></p>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="naha-akiya-kaitai">
             <h3>那覇市不良住宅等除却費補助金・空家等除却費補助金</h3>
             <p class="area-meta">沖縄県那覇市｜補助金｜不良住宅等：除却費の4/5（上限40万円）、空家等：2/5（上限20万円）｜締切：2026-11-13</p>

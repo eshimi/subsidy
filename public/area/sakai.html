@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,6 +170,17 @@
       <p class="lead" style="margin-bottom: 0;">大阪府・政令指定都市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（堺市）<b>1件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（大阪府）<b>4件</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>5件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-5">バリアフリー・介護 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">堺市の制度（事業・創業の方向け）</h2>
@@ -194,26 +212,26 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>堺市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="sakai-taishin-kaishu-hojo">
             <h3>堺市住宅・建築物耐震改修補助</h3>
-            <p class="area-meta">堺市 建築都市局｜補助金｜要確認｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">堺市 建築都市局｜補助金｜金額は公式で確認</p>
+            
             <p>住宅・建築物の耐震改修に対する補助制度。申請時点で空家である住宅は、空家住宅である旨の申立書が必要。</p>
             
             <p><a href="https://www.city.sakai.lg.jp/kurashi/jutaku/kenchiku/anzen/taishinkaishu/tetsuduki_flow.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="sakai-smarthouse-shien">
             <h3>堺市スマートハウス化等支援事業</h3>
-            <p class="area-meta">堺市 環境局｜補助金｜太陽光は戸建ての一例で4万円（詳細は要確認）。住宅用定置式蓄電システムは一律10万円（太陽光などとの組み合わせが条件）。令和8年度事業予算額2500万円｜締切：公募要領で確認</p>
+            <p class="area-meta">堺市 環境局｜補助金｜太陽光は戸建ての一例で4万円（詳細は要確認）。住宅用定置式蓄電システムは一律10万円（太陽光などとの組み合わせが条件）。令和8年度事業予算額2500万円</p>
             <p class="area-meta">期間：令和8年度（申請受付中、2026年7月1日時点の予算残額2476万円）。終了日は要確認</p>
             <p>太陽光発電システム、蓄電システム、燃料電池自動車、既存集合住宅の充電設備などの導入を補助する。先着順。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>先着順</li><li>蓄電システムは太陽光などとの組み合わせが条件</li></ul>
             <p><a href="https://www.city.sakai.lg.jp/kurashi/gomi/ondanka/smarthouse/sumarthouse/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="sakai-block-tekkyo-doro">
             <h3>道・公園等に面する危険なブロック塀の撤去補助</h3>
             <p class="area-meta">堺市｜補助金｜次の最も低い額：15万円／撤去延長(m)×3.1万円×2/3／撤去費用×2/3｜締切：2027-01-29</p>
@@ -225,17 +243,17 @@
           </div>
           <div class="area-program" id="sakai-endo-cb-hojo">
             <h3>堺市緊急交通路沿道危険ブロック塀等の撤去・軽量フェンス等設置工事等補助</h3>
-            <p class="area-meta">堺市｜補助金｜補助率4/5（上限は要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">堺市｜補助金｜補助率4/5（上限は要確認）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>耐震診断で「撤去」または「撤去又は耐震改修」と判定された緊急交通路沿道のブロック塀等の撤去、軽量フェンス設置、耐震改修の費用を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>緊急交通路沿道の対象ブロック塀等の所有者</li><li>耐震診断で撤去等の判定を受けたこと</li></ul>
             <p><a href="https://www.city.sakai.lg.jp/kurashi/jutaku/kenchiku/anzen/taishinkaishu/endoucb_hojo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program" id="sakai-shougaisha-jutaku-kaishu">
             <h3>堺市重度障害者等住宅改修費の給付</h3>
-            <p class="area-meta">堺市｜給付｜限度50万円（所得区分により全額〜助成対象経費の1/3）｜締切：公募要領で確認</p>
+            <p class="area-meta">堺市｜給付｜限度50万円（所得区分により全額〜助成対象経費の1/3）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>重度障害者等が居住する住宅の改修工事費を給付する。</p>
             <p><strong>主な条件</strong></p>

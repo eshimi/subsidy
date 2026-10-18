@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -170,7 +177,7 @@
       <div class="area-body">
           <div class="area-program" id="okinawa-shokibo-taisaku-shikin">
             <h3>沖縄県 小規模企業対策資金（一般貸付）</h3>
-            <p class="area-meta">沖縄県 商工労働部｜融資｜設備・運転合計2,000万円以内｜締切：公募要領で確認</p>
+            <p class="area-meta">沖縄県 商工労働部｜融資｜設備・運転合計2,000万円以内</p>
             <p class="area-meta">期間：通年（最新は要確認）</p>
             <p>小規模企業者向けの県制度融資（特別小口貸付もあり）。</p>
             <p><strong>主な条件</strong></p>
@@ -179,7 +186,7 @@
           </div>
           <div class="area-program" id="okinawa-sogyosha-shien-kashitsuke">
             <h3>沖縄県 創業者・事業承継支援資金（創業者支援貸付）</h3>
-            <p class="area-meta">沖縄県 商工労働部／沖縄県信用保証協会｜融資｜設備・運転合計2,000万円以内、返済10年以内、利率年2.10%（R8.4.1現在）｜締切：公募要領で確認</p>
+            <p class="area-meta">沖縄県 商工労働部／沖縄県信用保証協会｜融資｜設備・運転合計2,000万円以内、返済10年以内、利率年2.10%（R8.4.1現在）</p>
             <p class="area-meta">期間：通年（最新は要確認）</p>
             <p>独立・開業する人、創業後5年未満の人向けの県制度融資。経営者保証非提供の枠もあり。</p>
             <p><strong>主な条件</strong></p>
@@ -189,7 +196,7 @@
           <h3 class="area-cat">受付が終了した制度（次回の公募の参考に）</h3>
           <div class="area-program is-ended" id="okinawa-startup-kigyo-shienkin">
             <h3>沖縄県スタートアップ起業支援金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">沖縄県 商工労働部｜補助金｜人件費・事業費とも補助率1/2以内、上限200万円｜締切：公募要領で確認</p>
+            <p class="area-meta">沖縄県 商工労働部｜補助金｜人件費・事業費とも補助率1/2以内、上限200万円</p>
             <p class="area-meta">期間：第二期は2026年7月24日〜8月19日で受付終了。次回は要確認</p>
             <p>デジタル技術を活用して起業する人への支援金（第二期）。</p>
             <p><strong>主な条件</strong></p>
@@ -198,7 +205,7 @@
           </div>
           <div class="area-program is-ended" id="okinawa-keiei-kakushin-hojo">
             <h3>沖縄県中小企業等経営革新強化支援事業費補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">沖縄県 中小企業支援課｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">沖縄県 中小企業支援課｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：令和8年度は2026年5月11日〜6月12日で受付終了。次回は要確認</p>
             <p>経営革新計画の承認を受けた事業者の販路開拓・新商品開発・新システム導入等を補助。</p>
             <p><strong>主な条件</strong></p>
@@ -243,21 +250,21 @@
     <section class="art-sec" aria-labelledby="pref-resident"><h2 id="pref-resident"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">個人の方向けの制度（住まい・暮らし）</h2>
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。市区町村の個人向けの制度（8件）は、下の「県内の市区町村のページ」から確認できます。</p>
-          <h3 class="area-cat">子育て</h3>
+          <h3 class="area-cat" id="res-cat-6">子育て</h3>
           <div class="area-program" id="okinawa-hitorioya-jutaku-shikin">
             <h3>ひとり親家庭住宅支援資金貸付</h3>
-            <p class="area-meta">沖縄県｜融資｜家賃実費（月額上限7万円、最長12か月）無利子・無担保・保証人不要｜締切：公募要領で確認</p>
+            <p class="area-meta">沖縄県｜融資｜家賃実費（月額上限7万円、最長12か月）無利子・無担保・保証人不要</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>就労に向けて取り組むひとり親家庭の住居借り上げ資金を貸し付ける。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>就労に向けて取り組むひとり親</li><li>児童扶養手当受給者または同等の所得水準</li></ul>
             <p><a href="https://www.pref.okinawa.lg.jp/kyoiku/kosodate/1008226/1036501/1036529/1036514.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="okinawa-ken-churatturn-kotsuhi">
             <h3>ちゅらっとターン交通費補助金</h3>
-            <p class="area-meta">沖縄県｜補助金｜費用の50％（上限5万円）、最大3回｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">沖縄県｜補助金｜費用の50％（上限5万円）、最大3回</p>
+            
             <p>県外在住者が沖縄県内で就職活動をする際の交通費・宿泊費・移転費を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>県外在住者で沖縄県内で就職活動をする方</li></ul>
@@ -265,7 +272,7 @@
           </div>
           <div class="area-program" id="okinawa-ken-ijyu-shienkin">
             <h3>沖縄県移住支援金</h3>
-            <p class="area-meta">沖縄県（移住先の市町村が申請窓口）｜給付｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">沖縄県（移住先の市町村が申請窓口）｜給付｜金額は公式で確認</p>
             <p class="area-meta">期間：確認できた年度：令和7年度（実施は伊江村、国頭村、本部町。最新は要確認）</p>
             <p>東京23区在住者または通勤者が、県内の離島・過疎地域へ移住し、対象の就業や起業の要件を満たした場合に支給する。</p>
             <p><strong>主な条件</strong></p>

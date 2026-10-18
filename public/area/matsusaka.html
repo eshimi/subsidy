@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">三重県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（松阪市）<b>2件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（三重県）<b>5件（うち受付終了3件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>4件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-6">子育て 1</a><a href="#res-cat-7">移住 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">松阪市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="matsusaka-city-shougakukin-henkan-shien">
             <h3>松阪市中小企業奨学金返還支援補助金</h3>
-            <p class="area-meta">松阪市 商工政策課｜補助金｜企業負担額の1/2、従業員1人あたり年20万円上限（3年間）｜締切：公募要領で確認</p>
+            <p class="area-meta">松阪市 商工政策課｜補助金｜企業負担額の1/2、従業員1人あたり年20万円上限（3年間）</p>
             <p class="area-meta">期間：要確認（事前に商工政策課へ相談）</p>
             <p>従業員の奨学金返還を支援する市内中小企業に対し、企業が負担した支援額の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="matsusaka-city-shuekiryoku-chinage">
             <h3>松阪市中小企業収益力向上・賃上げ環境整備補助金</h3>
-            <p class="area-meta">松阪市 商工政策課｜補助金｜補助率1/2以内、上限300万円（下限10万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">松阪市 商工政策課｜補助金｜補助率1/2以内、上限300万円（下限10万円）</p>
             <p class="area-meta">期間：令和8年度は先着順（4月開始、二次募集の掲載あり）。現在の受付状況は要確認</p>
             <p>設備導入やDXによる生産性向上、新商品開発、販路開拓など収益力向上の取組を支援し、賃上げにつなげる。</p>
             <p><strong>主な条件</strong></p>
@@ -203,40 +221,40 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>松阪市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="matsusaka-shelter">
             <h3>松阪市耐震シェルター設置事業補助金</h3>
-            <p class="area-meta">三重県松阪市｜補助金｜工事費の1/2、上限100万円｜締切：公募要領で確認</p>
+            <p class="area-meta">三重県松阪市｜補助金｜工事費の1/2、上限100万円</p>
             <p class="area-meta">期間：令和8年度受付中(件数上限に達し次第終了)</p>
             <p>旧耐震の木造住宅への耐震シェルター設置費を補助する。令和8年度分受付中、件数上限で終了。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>昭和56年5月31日以前に着工または完成した木造住宅</li></ul>
             <p><a href="https://www.city.matsusaka.mie.jp/site/bousai/taishinshelter.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="matsusaka-solar">
             <h3>松阪市太陽光発電設備等設置費補助金(県補助の市経由)</h3>
-            <p class="area-meta">三重県松阪市｜補助金｜太陽光1kWあたり7万円(上限10kW)、蓄電池:1kWhあたり15.5万円(税抜)の1/3以内、10kWh限度｜締切：公募要領で確認</p>
+            <p class="area-meta">三重県松阪市｜補助金｜太陽光1kWあたり7万円(上限10kW)、蓄電池:1kWhあたり15.5万円(税抜)の1/3以内、10kWh限度</p>
             <p class="area-meta">期間：令和8年6月8日受付開始(終了時期は要確認)</p>
             <p>三重県の個人向け補助を市が実施する制度。令和8年度は6月8日に受付開始。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>住宅の所有者</li><li>発電量の30%以上を自宅で消費</li><li>県の交付決定日より前に契約しない</li></ul>
             <p><a href="https://www.city.matsusaka.mie.jp/site/matsusaka-zerocarbon-site/taiyoukouhojyokin-r8.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">子育て</h3>
+          <h3 class="area-cat" id="res-cat-6">子育て</h3>
           <div class="area-program" id="matsusaka-sansedai">
             <h3>松阪市三世代同居・近居支援補助事業</h3>
-            <p class="area-meta">三重県松阪市｜補助金｜費用の1/2または上限(同居30万円、近居20万円)のいずれか低い方｜締切：公募要領で確認</p>
+            <p class="area-meta">三重県松阪市｜補助金｜費用の1/2または上限(同居30万円、近居20万円)のいずれか低い方</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>市外から転入して三世代の同居・近居を始める世帯の住宅取得・リフォーム費を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>市外から転入する三世代同居・近居世帯</li></ul>
             <p><a href="https://www.city.matsusaka.mie.jp/site/kosodate-zyouhou/sansedaidokyokinkyosien.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="matsusaka-akiyabank">
             <h3>松阪市空家バンク活用補助金</h3>
-            <p class="area-meta">三重県松阪市｜補助金｜改修費上限50万円、家財処分費上限10万円｜締切：公募要領で確認</p>
+            <p class="area-meta">三重県松阪市｜補助金｜改修費上限50万円、家財処分費上限10万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>空家バンクで契約成立した空き家の改修費・家財処分費を補助する。ページ更新が2019年のため現行条件は要確認。</p>
             <p><strong>主な条件</strong></p>

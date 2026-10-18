@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,6 +170,17 @@
       <p class="lead" style="margin-bottom: 0;">大阪府・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（大東市）<b>3件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（大阪府）<b>4件</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>5件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 2</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">大東市の制度（事業・創業の方向け）</h2>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="daito-city-chusho-jinzai-gijutsu-hojo">
             <h3>大東市 中小企業人材スキルアップ支援補助金・技術開発支援補助金</h3>
-            <p class="area-meta">大東市 産業経済室｜補助金｜人材スキルアップ：受講料の1/2、1受講者あたり6万円上限。技術開発：経費の1/2（上限は要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">大東市 産業経済室｜補助金｜人材スキルアップ：受講料の1/2、1受講者あたり6万円上限。技術開発：経費の1/2（上限は要確認）</p>
             <p class="area-meta">期間：要確認（市の補助制度案内ページを参照）</p>
             <p>従業員の研修受講料の一部や、大学・公的機関と共同で行う技術開発経費の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -187,7 +205,7 @@
           </div>
           <div class="area-program" id="daito-city-yume-kigyo-ouen-hojo">
             <h3>夢をかなえる起業応援補助金</h3>
-            <p class="area-meta">大東市 産業経済室（産業振興課）｜補助金｜10万円（1事業者1回限り）｜締切：公募要領で確認</p>
+            <p class="area-meta">大東市 産業経済室（産業振興課）｜補助金｜10万円（1事業者1回限り）</p>
             <p class="area-meta">期間：創業日が属する月の翌月から12か月以内に交付申込み</p>
             <p>市内で起業する個人事業主・法人に起業応援の補助金を交付する。大東ビジネス創造センターD-Bizでの創業相談等が要件。</p>
             <p><strong>主な条件</strong></p>
@@ -212,10 +230,10 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>大東市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="daito-mokuzo-jokyaku">
             <h3>大東市 木造住宅除却補助</h3>
-            <p class="area-meta">大阪府大東市｜補助金｜最大30万円（一戸建て）｜締切：公募要領で確認</p>
+            <p class="area-meta">大阪府大東市｜補助金｜最大30万円（一戸建て）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>耐震性が不足する木造住宅を取り壊す費用の補助。耐震改修補助を受けた住宅は対象外。</p>
             <p><strong>主な条件</strong></p>
@@ -231,7 +249,7 @@
             <ul><li>1981年5月31日以前に建築された木造住宅</li><li>所有者の年間課税総所得が507万円以下など</li></ul>
             <p><a href="https://www.city.daito.lg.jp/site/iju/1663.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program" id="daito-shoene-jutaku">
             <h3>だいとう省エネ住宅応援補助金</h3>
             <p class="area-meta">大阪府大東市｜補助金｜対象経費の1/2。上限はエコジョーズ1万円、エコキュート3万円、ハイブリッド給湯器3万円、エネファーム3万円、LED照明1万円、断熱窓1居室2万円（3居室まで）｜締切：2026-12-01</p>
@@ -241,10 +259,10 @@
             <ul><li>令和8年5月1日時点で大東市に住所があること</li><li>令和8年5月1日〜11月30日に設置完了</li><li>市税の滞納がないこと</li></ul>
             <p><a href="https://www.city.daito.lg.jp/soshiki/17/70577.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="daito-akiya-ryutsu">
             <h3>大東市 空家流通促進補助</h3>
-            <p class="area-meta">大阪府大東市｜補助金｜基本額1住戸20万円（購入・子育て世帯などの条件で加算）｜締切：公募要領で確認</p>
+            <p class="area-meta">大阪府大東市｜補助金｜基本額1住戸20万円（購入・子育て世帯などの条件で加算）</p>
             <p class="area-meta">期間：最新は要確認（確認できたのは令和7年度分）</p>
             <p>6カ月以上空き家の戸建て・長屋のリフォーム費用を補助。</p>
             <p><strong>主な条件</strong></p>
@@ -253,7 +271,7 @@
           </div>
           <div class="area-program" id="daito-roukyu-akiya-jokyaku">
             <h3>大東市 老朽危険空家等除却補助</h3>
-            <p class="area-meta">大阪府大東市｜補助金｜上限80万円（一戸建て）｜締切：公募要領で確認</p>
+            <p class="area-meta">大阪府大東市｜補助金｜上限80万円（一戸建て）</p>
             <p class="area-meta">期間：事前調査の申込は2026年11月30日まで（最新は要確認）</p>
             <p>倒壊のおそれがある老朽空家の解体費用の一部を補助。工事着手前の手続きが必須。</p>
             <p><strong>主な条件</strong></p>

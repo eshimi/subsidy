@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,6 +170,17 @@
       <p class="lead" style="margin-bottom: 0;">和歌山県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（和歌山市）<b>5件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（和歌山県）<b>4件（うち受付終了1件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>14件（うち受付終了2件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 6</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-2">EV・充電 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-6">子育て 1</a><a href="#res-cat-7">移住 3</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">和歌山市の制度（事業・創業の方向け）</h2>
@@ -179,7 +197,7 @@
           </div>
           <div class="area-program" id="wakayama-city-datsutanso-keiei">
             <h3>和歌山市中小企業脱炭素経営促進補助金</h3>
-            <p class="area-meta">和歌山市 環境部局｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">和歌山市 環境部局｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：令和8年度（詳細は要確認）</p>
             <p>中小企業の脱炭素経営の取組を促進する令和8年度の補助金。</p>
             <p><strong>主な条件</strong></p>
@@ -198,7 +216,7 @@
           </div>
           <div class="area-program" id="wakayama-city-machinaka-hosho">
             <h3>和歌山市まちなか新規出店促進保証料補給金</h3>
-            <p class="area-meta">和歌山市 商工振興課｜融資｜信用保証料の1/2・上限30万円｜締切：公募要領で確認</p>
+            <p class="area-meta">和歌山市 商工振興課｜融資｜信用保証料の1/2・上限30万円</p>
             <p class="area-meta">期間：随時（最新は要確認）</p>
             <p>市融資制度の「まちなか枠」を利用してまちなかに事業所を新設する際の信用保証料を補助。</p>
             <p><strong>主な条件</strong></p>
@@ -234,7 +252,7 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>和歌山市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="wakayama-city-taishin-kaishu">
             <h3>和歌山市住宅耐震改修事業（耐震改修費の補助）</h3>
             <p class="area-meta">和歌山県和歌山市｜補助金｜工事費の2/5（上限57.5万円）と補強設計費等（上限74.1万円）の合計、最大131.6万円｜締切：2026-12-11</p>
@@ -246,7 +264,7 @@
           </div>
           <div class="area-program" id="wakayama-city-taishin-reform">
             <h3>和歌山市 耐震改修と同時に行うリフォーム工事の補助</h3>
-            <p class="area-meta">和歌山県和歌山市｜補助金｜上限20万円｜締切：公募要領で確認</p>
+            <p class="area-meta">和歌山県和歌山市｜補助金｜上限20万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>耐震改修の交付決定を受けた住宅で、同時に行うリフォーム工事費の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -264,7 +282,7 @@
           </div>
           <div class="area-program" id="wakayama-city-taishin-shindan">
             <h3>和歌山市 木造住宅耐震診断士派遣（無料耐震診断）</h3>
-            <p class="area-meta">和歌山県和歌山市｜助成金｜無料（診断士派遣）｜締切：公募要領で確認</p>
+            <p class="area-meta">和歌山県和歌山市｜助成金｜無料（診断士派遣）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>旧耐震基準の木造住宅に市の木造住宅耐震診断士を無料で派遣する。</p>
             <p><strong>主な条件</strong></p>
@@ -273,7 +291,7 @@
           </div>
           <div class="area-program" id="wakayama-taishin-kaishu">
             <h3>和歌山市木造住宅耐震改修補助（耐震補強設計・耐震改修工事）</h3>
-            <p class="area-meta">和歌山市｜補助金｜設計と工事を合わせて最大131万6千円（耐震改修工事費の2/5、上限57万5千円などの計算式）｜締切：公募要領で確認</p>
+            <p class="area-meta">和歌山市｜補助金｜設計と工事を合わせて最大131万6千円（耐震改修工事費の2/5、上限57万5千円などの計算式）</p>
             <p class="area-meta">期間：確認できた年度：令和7年度（令和7年4月18日～12月12日。最新は要確認）</p>
             <p>市の無料耐震診断で評点1.0未満と判定された木造住宅の、耐震補強設計と耐震改修工事の費用を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -282,14 +300,14 @@
           </div>
           <div class="area-program is-ended" id="wakayama-city-taishin-tatekae">
             <h3>和歌山市住宅耐震改修事業（建替え費の補助） <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">和歌山県和歌山市｜補助金｜要確認｜締切：2026-09-18</p>
+            <p class="area-meta">和歌山県和歌山市｜補助金｜金額は公式で確認｜締切：2026-09-18</p>
             <p class="area-meta">期間：令和8年度は受付終了（9月18日）</p>
             <p>旧耐震の木造戸建ての建替え費の一部を補助する。令和8年度の受付は9月18日に終了。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>昭和56年5月31日以前に着工した木造戸建て</li></ul>
             <p><a href="https://www.city.wakayama.wakayama.jp/kurashi/sumai_jyougesuidou/1001110/1010372/1001903.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program is-ended" id="wakayama-city-kojin-taiyoko-r8">
             <h3>和歌山市 個人宅向け太陽光発電設備・家庭用蓄電池補助金（令和8年度） <span class="area-ended-tag">受付終了</span></h3>
             <p class="area-meta">和歌山県和歌山市｜補助金｜太陽光7万円/kW、蓄電池は経費の1/3（上限50万円）｜締切：2026-07-27</p>
@@ -299,17 +317,17 @@
             <ul><li>発電出力10kW未満の自家消費型</li><li>蓄電池のみの申請は不可</li><li>令和8年4月23日以降の契約</li></ul>
             <p><a href="https://www.city.wakayama.wakayama.jp/kurashi/gomi_kankyo/1001115/1050736/1050965.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">EV・充電</h3>
+          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
           <div class="area-program" id="wakayama-city-ev-donyu">
             <h3>令和8年度 和歌山市電気自動車導入促進事業補助金</h3>
-            <p class="area-meta">和歌山県和歌山市｜補助金｜定額15万円｜締切：公募要領で確認</p>
+            <p class="area-meta">和歌山県和歌山市｜補助金｜定額15万円</p>
             <p class="area-meta">期間：令和8年4月13日〜（予算がなくなり次第終了）</p>
             <p>電気自動車の購入に対する補助。予算900万円（60台）、10月2日時点の残りは180万円（12台）で先着順。充電設備への補助は確認できず。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>再エネ電気の調達などの要件あり</li><li>リース契約は対象外</li></ul>
             <p><a href="https://www.city.wakayama.wakayama.jp/kurashi/gomi_kankyo/1001115/1049605/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="wakayama-city-block-taishin">
             <h3>和歌山市ブロック塀等耐震対策事業補助</h3>
             <p class="area-meta">和歌山県和歌山市｜補助金｜上限40万円（撤去のみ・撤去後フェンス新設とも）｜締切：2026-12-11</p>
@@ -321,36 +339,35 @@
           </div>
           <div class="area-program" id="wakayama-city-furyo-akiya-jokyaku">
             <h3>和歌山市不良空家の除却に係る補助金</h3>
-            <p class="area-meta">和歌山県和歌山市｜補助金｜除却費用の2/3、上限50万円｜締切：公募要領で確認</p>
+            <p class="area-meta">和歌山県和歌山市｜補助金｜除却費用の2/3、上限50万円</p>
             <p class="area-meta">期間：令和8年4月22日〜（予算の範囲内）</p>
             <p>不良空家の除却費用の一部を補助する。申請前に不良空家の認定が必要。令和8年度は4月22日から受付。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>不良空家の認定を受けていること</li><li>敷地内の塀も含めて撤去</li><li>市税完納</li></ul>
             <p><a href="https://www.city.wakayama.wakayama.jp/kurashi/sumai_jyougesuidou/1001110/1010373/1001893.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">子育て</h3>
+          <h3 class="area-cat" id="res-cat-6">子育て</h3>
           <div class="area-program" id="wakayama-city-sansedai-family">
             <h3>和歌山市三世代ファミリー助成金</h3>
-            <p class="area-meta">和歌山県和歌山市｜助成金｜1戸あたり上限30万円（取得・リフォーム費用の10分の1が基準）｜締切：公募要領で確認</p>
+            <p class="area-meta">和歌山県和歌山市｜助成金｜1戸あたり上限30万円（取得・リフォーム費用の10分の1が基準）</p>
             <p class="area-meta">期間：令和8年4月1日〜（予算の範囲内）</p>
             <p>子世帯が市外から転入して三世代で同居・近居するための住宅取得やリフォーム費用の一部を助成。令和8年4月1日から予算の範囲内で受付。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>子世帯は1年以上市外に居住した転入者で中学生以下の子がいる</li><li>親世帯は3年以上市内在住</li><li>近居は直線2km以内</li></ul>
             <p><a href="https://www.city.wakayama.wakayama.jp/kurashi/kosodate/1001103/1012174.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="wakayama-city-ijusha-akiya-kaishu">
             <h3>和歌山市移住者空き家改修等補助金</h3>
-            <p class="area-meta">和歌山県和歌山市｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">和歌山県和歌山市｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>移住者が空き家を改修等する費用への補助。金額・要件は公式ページで要確認。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>要確認</li></ul>
+            
             <p><a href="https://www.city.wakayama.wakayama.jp/kurashi/sumai_jyougesuidou/1001110/1010373/1049265.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
           <div class="area-program" id="wakayama-city-ijuu-shienkin">
             <h3>和歌山市移住支援金</h3>
-            <p class="area-meta">和歌山県和歌山市｜給付｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">和歌山県和歌山市｜給付｜金額は公式で確認</p>
             <p class="area-meta">期間：令和8年4月1日〜（最新は要確認）</p>
             <p>東京23区に在住・通勤していた方が和歌山市へ移住する場合の支援金。令和8年度は4月1日に申請受付開始。</p>
             <p><strong>主な条件</strong></p>
@@ -359,7 +376,7 @@
           </div>
           <div class="area-program" id="wakayama-city-kurashi-ouenkin">
             <h3>わかやま暮らし応援金</h3>
-            <p class="area-meta">和歌山県和歌山市｜給付｜単身10万円、2人以上の世帯20万円｜締切：公募要領で確認</p>
+            <p class="area-meta">和歌山県和歌山市｜給付｜単身10万円、2人以上の世帯20万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>直近5年間県外に在住していた方が和歌山市へ移住し要件を満たす場合に支給。</p>
             <p><strong>主な条件</strong></p>

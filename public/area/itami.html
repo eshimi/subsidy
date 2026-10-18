@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">兵庫県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（伊丹市）<b>3件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（兵庫県）<b>4件（うち受付終了1件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>1件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">伊丹市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="itami-city-chusho-shinko-yushi">
             <h3>伊丹市中小企業振興融資制度（創業資金ほか）</h3>
-            <p class="area-meta">伊丹市 商工労働課｜融資｜創業資金は限度額1,000万円（自己資金の2倍以内）。その他の条件は要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">伊丹市 商工労働課｜融資｜創業資金は限度額1,000万円（自己資金の2倍以内）。その他の条件は要確認</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>市内中小企業者向けの制度融資。創業資金のほか運転・設備資金があり、兵庫県信用保証協会の保証が必要。</p>
             <p><strong>主な条件</strong></p>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="itami-city-kigyo-ricchi-shien">
             <h3>伊丹市企業立地支援制度</h3>
-            <p class="area-meta">伊丹市 商工労働課｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">伊丹市 商工労働課｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>市内への企業立地や設備投資（設備購入を含む）を促進するための支援制度。</p>
             <p><strong>主な条件</strong></p>
@@ -187,7 +205,7 @@
           </div>
           <div class="area-program" id="itami-city-sogyo-shien-hojokin">
             <h3>伊丹市創業支援補助金</h3>
-            <p class="area-meta">伊丹市 都市活力部 商工労働課｜補助金｜対象経費の1/2、上限50万円（市内転入・市民雇用で最大10万円加算）｜締切：公募要領で確認</p>
+            <p class="area-meta">伊丹市 都市活力部 商工労働課｜補助金｜対象経費の1/2、上限50万円（市内転入・市民雇用で最大10万円加算）</p>
             <p class="area-meta">期間：令和8年度分の交付申請受付中（予算がなくなり次第終了）</p>
             <p>市の特定創業支援等事業を受けて市内で創業した中小企業者の創業経費の一部を補助する。予算がなくなり次第終了。</p>
             <p><strong>主な条件</strong></p>
@@ -213,7 +231,7 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>伊丹市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="itami-taishin-kouji">
             <h3>伊丹市 住宅耐震化促進事業(耐震改修工事費補助等)</h3>
             <p class="area-meta">兵庫県伊丹市｜補助金｜戸建て耐震改修工事費補助は最大115万円(除却工事費補助は最大60万円)｜締切：2026-12-11</p>

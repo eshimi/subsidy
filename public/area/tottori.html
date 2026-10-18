@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">鳥取県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（鳥取市）<b>4件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（鳥取県）<b>6件（うち受付終了1件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>3件</b></a><span class="area-toc-cats"><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">鳥取市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="tottori-city-chusho-jinzai-ikusei">
             <h3>鳥取市 中小企業人材育成補助金</h3>
-            <p class="area-meta">鳥取市 経済・雇用戦略課｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">鳥取市 経済・雇用戦略課｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>中小企業の人材育成に係る経費を補助する(令和8年度支援制度一覧に掲載)。</p>
             <p><strong>主な条件</strong></p>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="tottori-city-jimoto-jinzai-kakuho">
             <h3>鳥取市 地元企業人材確保助成金</h3>
-            <p class="area-meta">鳥取市 経済・雇用戦略課｜助成金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">鳥取市 経済・雇用戦略課｜助成金｜金額は公式で確認</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>地元企業の人材確保の取組を支援する助成金(令和8年度支援制度一覧に掲載)。</p>
             <p><strong>主な条件</strong></p>
@@ -187,7 +205,7 @@
           </div>
           <div class="area-program" id="tottori-city-keiei-kaizen-rishi">
             <h3>鳥取市 小規模事業者経営改善資金利子補助金</h3>
-            <p class="area-meta">鳥取市 企業立地・支援課｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">鳥取市 企業立地・支援課｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>マル経融資など小規模事業者経営改善資金の利子の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -196,7 +214,7 @@
           </div>
           <div class="area-program" id="tottori-city-saiene-shoene-r8">
             <h3>鳥取市 再エネ・省エネ設備導入補助金(令和8年度)</h3>
-            <p class="area-meta">鳥取市 企業立地・支援課｜補助金｜補助率1/3・上限合計500万円｜締切：公募要領で確認</p>
+            <p class="area-meta">鳥取市 企業立地・支援課｜補助金｜補助率1/3・上限合計500万円</p>
             <p class="area-meta">期間：令和8年度分は予算上限に達し受付終了</p>
             <p>事業者の再エネ・省エネ設備導入費用を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -221,28 +239,27 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>鳥取市の制度</strong></p>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program" id="tottori-shi-dannetsu-kaishu">
             <h3>鳥取市脱炭素先行地域づくり既存住宅断熱改修促進事業費補助金</h3>
-            <p class="area-meta">鳥取市｜補助金｜補助率2/3、戸建ては1戸あたり上限120万円｜締切：公募要領で確認</p>
+            <p class="area-meta">鳥取市｜補助金｜補助率2/3、戸建ては1戸あたり上限120万円</p>
             <p class="area-meta">期間：令和8年度（期間は要確認）</p>
             <p>既存住宅の断熱改修を補助する。</p>
             
             <p><a href="https://www.city.tottori.lg.jp/page/5238.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="tottori-shi-akiya-jokyaku">
             <h3>鳥取市 空家等除却事業費補助金</h3>
-            <p class="area-meta">鳥取県鳥取市｜補助金｜除却工事費の1/2（上限60万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">鳥取県鳥取市｜補助金｜除却工事費の1/2（上限60万円）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>空き家の除却（解体）費用の一部を補助する。令和6年度版の県一覧表に基づく情報。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>要確認</li></ul>
+            
             <p><a href="https://www.pref.tottori.lg.jp/secure/1284934/R7akiyahozyokin.pdf" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
           <div class="area-program" id="tottori-shi-block-jokyaku">
             <h3>鳥取市 ブロック塀等の除却・改修補助（震災に強いまちづくり促進事業）</h3>
-            <p class="area-meta">鳥取県鳥取市｜補助金｜避難路沿い上限20万円、それ以外上限10万円｜締切：公募要領で確認</p>
+            <p class="area-meta">鳥取県鳥取市｜補助金｜避難路沿い上限20万円、それ以外上限10万円</p>
             <p class="area-meta">期間：令和8年度（工事は令和9年3月上旬までに完了）</p>
             <p>不特定の者が通行する道路に面した高さ60cm超の危険なブロック塀等の除却・改修費を補助する。</p>
             <p><strong>主な条件</strong></p>

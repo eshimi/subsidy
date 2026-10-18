@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -170,7 +177,7 @@
       <div class="area-body">
           <div class="area-program" id="ehime-dx-hajime">
             <h3>愛媛県DXはじめの一歩補助金</h3>
-            <p class="area-meta">愛媛県 産業創出課｜補助金｜要確認｜締切：2026-10-30</p>
+            <p class="area-meta">愛媛県 産業創出課｜補助金｜金額は公式で確認｜締切：2026-10-30</p>
             <p class="area-meta">期間：追加公募 2026年10月2日〜10月30日</p>
             <p>DX推進の第一歩を踏み出す事業者を支援する補助金。追加公募が実施されている。</p>
             <p><strong>主な条件</strong></p>
@@ -248,30 +255,30 @@
     <section class="art-sec" aria-labelledby="pref-resident"><h2 id="pref-resident"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">個人の方向けの制度（住まい・暮らし）</h2>
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。市区町村の個人向けの制度（26件）は、下の「県内の市区町村のページ」から確認できます。</p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="ehime-mokuzo-taishin">
             <h3>愛媛県 木造住宅耐震化補助制度</h3>
-            <p class="area-meta">愛媛県 建築住宅課｜補助金｜要確認（市町ごとに異なる。耐震シェルターは一部市町で40万円定額）｜締切：公募要領で確認</p>
+            <p class="area-meta">愛媛県 建築住宅課｜補助金｜要確認（市町ごとに異なる。耐震シェルターは一部市町で40万円定額）</p>
             <p class="area-meta">期間：2025年4月1日時点の情報（最新は要確認）</p>
             <p>県内市町が耐震診断派遣、改修設計、耐震改修、シェルター設置を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>昭和56年5月以前に建築された木造住宅</li></ul>
             <p><a href="https://www.pref.ehime.jp/site/mokutaishin/2030.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">EV・充電</h3>
+          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
           <div class="area-program" id="ehime-ev-kounyu">
             <h3>愛媛県 電気自動車（EV）購入支援補助金</h3>
-            <p class="area-meta">愛媛県 環境・ゼロカーボン推進課｜補助金｜市町が実施するEV購入補助に対し、県が1/2（上限10万円）を補助（県から個人への直接補助ではない）｜締切：公募要領で確認</p>
+            <p class="area-meta">愛媛県 環境・ゼロカーボン推進課｜補助金｜市町が実施するEV購入補助に対し、県が1/2（上限10万円）を補助（県から個人への直接補助ではない）</p>
             <p class="area-meta">期間：令和8年7月2日時点の実施状況掲載（期間は要確認）</p>
             <p>市町のEV購入補助を県が支援する。窓口は市町。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>実施市町に住所がある人</li></ul>
             <p><a href="https://www.pref.ehime.jp/page/142962.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="ehime-ijyusha-jutaku-kaishu">
             <h3>愛媛県移住者住宅改修支援事業</h3>
-            <p class="area-meta">愛媛県｜補助金｜県・市町が各1/3負担。上限は子育て世帯の住宅改修400万円、働き手世帯200万円、家財道具の搬出20万円｜締切：公募要領で確認</p>
+            <p class="area-meta">愛媛県｜補助金｜県・市町が各1/3負担。上限は子育て世帯の住宅改修400万円、働き手世帯200万円、家財道具の搬出20万円</p>
             <p class="area-meta">期間：確認できた年度は不明（最新は要確認）</p>
             <p>移住者の住宅改修や家財道具の搬出費用を支援する。</p>
             <p><strong>主な条件</strong></p>

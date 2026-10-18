@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -170,7 +177,7 @@
       <div class="area-body">
           <div class="area-program" id="miyagi-bcp-jissen-hojokin">
             <h3>宮城県中小企業等BCP・事業継続力強化計画実践支援補助金</h3>
-            <p class="area-meta">宮城県 中小企業支援室｜補助金｜補助率1/2以内・備蓄品等枠25〜50万円／設備枠100〜500万円｜締切：公募要領で確認</p>
+            <p class="area-meta">宮城県 中小企業支援室｜補助金｜補助率1/2以内・備蓄品等枠25〜50万円／設備枠100〜500万円</p>
             <p class="area-meta">期間：令和8年度追加募集あり（開始日・期限は要確認）</p>
             <p>BCP・事業継続力強化計画の実践に必要な備蓄品や設備の導入を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -179,7 +186,7 @@
           </div>
           <div class="area-program" id="miyagi-chusho-digital-shien">
             <h3>宮城県中小企業等デジタル化支援事業</h3>
-            <p class="area-meta">宮城県 中小企業支援室／みやぎ産業振興機構｜補助金｜要確認（アドバイザー派遣・導入経費補助）｜締切：公募要領で確認</p>
+            <p class="area-meta">宮城県 中小企業支援室／みやぎ産業振興機構｜補助金｜要確認（アドバイザー派遣・導入経費補助）</p>
             <p class="area-meta">期間：相談エントリー 2026/5/18〜2027/2/12。補助金申請は7月締切のメニューは終了（要確認）</p>
             <p>デジタル化相談、アドバイザー派遣、導入経費の補助により生産性向上を支援する。</p>
             <p><strong>主な条件</strong></p>
@@ -189,7 +196,7 @@
           <h3 class="area-cat">受付が終了した制度（次回の公募の参考に）</h3>
           <div class="area-program is-ended" id="miyagi-startup-kasokuka">
             <h3>宮城県スタートアップ加速化支援事業 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">宮城県 経済商工観光部／みやぎ産業振興機構｜補助金｜DX推進枠:補助率2/3以内・単年度250万円以内／一般枠:補助率1/2以内・単年度100万円以内｜締切：公募要領で確認</p>
+            <p class="area-meta">宮城県 経済商工観光部／みやぎ産業振興機構｜補助金｜DX推進枠:補助率2/3以内・単年度250万円以内／一般枠:補助率1/2以内・単年度100万円以内</p>
             <p class="area-meta">期間：令和8年度は2026/4/13〜5/12で募集終了。来年度は最新は要確認</p>
             <p>商工会・商工会議所と連携し、創業する中小企業者のスタートアップ資金を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -227,30 +234,30 @@
     <section class="art-sec" aria-labelledby="pref-resident"><h2 id="pref-resident"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">個人の方向けの制度（住まい・暮らし）</h2>
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。市区町村の個人向けの制度（16件）は、下の「県内の市区町村のページ」から確認できます。</p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="miyagi-taishin-miyagi-hoshiki">
             <h3>みやぎ方式による木造住宅耐震助成事業</h3>
-            <p class="area-meta">宮城県｜補助金｜市町村ごとに異なる（県は耐震改修と同時のリフォームに最大10万円を市町村へ加算）｜締切：公募要領で確認</p>
+            <p class="area-meta">宮城県｜補助金｜市町村ごとに異なる（県は耐震改修と同時のリフォームに最大10万円を市町村へ加算）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>耐震診断から改修工事までを一連で助成する宮城県内市町村の事業。窓口は各市町村。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>旧耐震基準の木造戸建住宅</li><li>対象や上限額は市町村ごとに異なる</li></ul>
             <p><a href="https://www.pref.miyagi.jp/soshiki/kentaku/taishinjigyou.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="miyagi-smart-energy-jutaku">
             <h3>スマートエネルギー住宅普及促進事業補助金</h3>
-            <p class="area-meta">宮城県 環境生活部（実施：宮城県建築住宅センター）｜補助金｜蓄電池4万円/件、V2H（住宅用外部給電機器）4万円/件、太陽光発電（蓄エネ設備併設）3万円/件｜締切：公募要領で確認</p>
+            <p class="area-meta">宮城県 環境生活部（実施：宮城県建築住宅センター）｜補助金｜蓄電池4万円/件、V2H（住宅用外部給電機器）4万円/件、太陽光発電（蓄エネ設備併設）3万円/件</p>
             <p class="area-meta">期間：令和8年度（募集中と掲載、期限は要確認）</p>
             <p>住宅への蓄電池、V2H、太陽光発電システム（蓄エネ設備併設タイプ）の導入を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>要確認（一次〜三次の募集ごとに設置時期が異なる）</li></ul>
             <p><a href="https://www.pref.miyagi.jp/soshiki/kankyo-s/smart-energy.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">EV・充電</h3>
+          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
           <div class="area-program" id="miyagi-fcv-hojo">
             <h3>燃料電池自動車等導入促進事業補助金（令和8年度）</h3>
-            <p class="area-meta">宮城県｜補助金｜60万円（一律）｜締切：公募要領で確認</p>
+            <p class="area-meta">宮城県｜補助金｜60万円（一律）</p>
             <p class="area-meta">期間：令和8年度（受付期間は要確認）</p>
             <p>燃料電池自動車の購入や、接続する外部給電器の購入を補助する。EVではなくFCVが対象。</p>
             <p><strong>主な条件</strong></p>

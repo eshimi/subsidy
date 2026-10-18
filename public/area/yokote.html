@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">秋田県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（横手市）<b>2件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（秋田県）<b>5件（うち受付終了2件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>7件（うち受付終了2件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 2</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-7">移住 2</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">横手市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="yokote-city-chusho-setsubi-donyu-hojo">
             <h3>中小企業活性化支援事業（中小企業設備導入支援補助金）</h3>
-            <p class="area-meta">横手市 商工労働課｜補助金｜補助対象経費の1/2以内・上限200万円｜締切：公募要領で確認</p>
+            <p class="area-meta">横手市 商工労働課｜補助金｜補助対象経費の1/2以内・上限200万円</p>
             <p class="area-meta">期間：予算の範囲内で随時募集</p>
             <p>先端設備等導入計画の認定を受けた市内中小企業の設備導入経費を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -204,7 +222,7 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>横手市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="yokote-yukiguni-anshin">
             <h3>雪国よこて安全安心住宅普及促進事業</h3>
             <p class="area-meta">秋田県横手市｜補助金｜耐震シェルター設置は1箇所18万円の補助単価ほか(工事別、要確認)｜締切：2026-12-11</p>
@@ -216,46 +234,45 @@
           </div>
           <div class="area-program is-ended" id="yokote-taishin-kaishu">
             <h3>横手市木造住宅耐震診断・耐震改修補助 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">秋田県横手市｜補助金｜耐震改修は工事費の23%・上限100万円(令和7年度版の記載)｜締切：公募要領で確認</p>
+            <p class="area-meta">秋田県横手市｜補助金｜耐震改修は工事費の23%・上限100万円(令和7年度版の記載)</p>
             <p class="area-meta">期間：受付戸数に達し受付終了との記載あり。令和8年度は要確認</p>
             <p>木造住宅の耐震診断費用の支援、耐震改修・耐震改築費用の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>旧耐震の木造住宅など(要確認)</li></ul>
             <p><a href="https://www.city.yokote.lg.jp/kurashi/1001142/1001273/1001275/1002707.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program is-ended" id="yokote-chikudenchi">
             <h3>横手市再生可能エネルギー等補助金(蓄電池) <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">秋田県横手市｜補助金｜対象経費の1/3・上限20万円｜締切：公募要領で確認</p>
+            <p class="area-meta">秋田県横手市｜補助金｜対象経費の1/3・上限20万円</p>
             <p class="area-meta">期間：令和8年度は予算額に達し受付終了</p>
             <p>太陽光発電設備と接続する定置用リチウムイオン蓄電池の設置費を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>太陽光発電設備と接続すること</li></ul>
             <p><a href="https://www.city.yokote.lg.jp/kurashi/1001139/1001235/1002793.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="yokote-akiya-sonota">
             <h3>横手市空家等除却費補助事業(その他の空家等解体)</h3>
-            <p class="area-meta">秋田県横手市｜補助金｜対象経費の50%以内・上限50万円｜締切：公募要領で確認</p>
+            <p class="area-meta">秋田県横手市｜補助金｜対象経費の50%以内・上限50万円</p>
             <p class="area-meta">期間：令和8年度事業(受付期間は要確認)</p>
             <p>特定空家等以外の空家等の解体費用を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>要確認</li></ul>
+            
             <p><a href="https://www.city.yokote.lg.jp/kurashi/1001142/1001280/1009353/1009912.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
           <div class="area-program" id="yokote-akiya-tokutei">
             <h3>横手市空家等除却費補助事業(特定空家等解体)</h3>
-            <p class="area-meta">秋田県横手市｜補助金｜対象経費の30%以内・上限15万円｜締切：公募要領で確認</p>
+            <p class="area-meta">秋田県横手市｜補助金｜対象経費の30%以内・上限15万円</p>
             <p class="area-meta">期間：令和8年度事業(受付期間は要確認)</p>
             <p>特定空家等の解体費用を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>世帯所得などの条件あり</li></ul>
             <p><a href="https://www.city.yokote.lg.jp/kurashi/1001142/1001280/1009353/1009354.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="yokote-iju-shienkin">
             <h3>横手市移住支援金(秋田県移住・就業支援事業)</h3>
-            <p class="area-meta">秋田県横手市｜給付｜世帯100万円・単身60万円｜締切：公募要領で確認</p>
+            <p class="area-meta">秋田県横手市｜給付｜世帯100万円・単身60万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>東京圏から移住し要件を満たす人に支給される移住支援金。</p>
             <p><strong>主な条件</strong></p>
@@ -264,7 +281,7 @@
           </div>
           <div class="area-program" id="yokote-jakunen-sumai">
             <h3>横手市若年世帯住まい応援事業補助金</h3>
-            <p class="area-meta">秋田県横手市｜補助金｜新築300万円(補助率20%)、中古・増改築・リフォーム100万円(補助率10%)｜締切：公募要領で確認</p>
+            <p class="area-meta">秋田県横手市｜補助金｜新築300万円(補助率20%)、中古・増改築・リフォーム100万円(補助率10%)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>夫婦ともに29歳以下の世帯の住宅取得・リフォームを補助する。</p>
             <p><strong>主な条件</strong></p>

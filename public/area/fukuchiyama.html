@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">京都府・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（福知山市）<b>2件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（京都府）<b>4件</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>4件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-7">移住 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">福知山市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="fukuchiyama-city-kigyoka-shien-hojo">
             <h3>福知山市起業家支援事業補助金</h3>
-            <p class="area-meta">福知山市 産業部 産業課｜補助金｜令和7年度実績：ソフト事業は補助率1/2以内・上限20万円、ハード事業は補助率1/4以内・上限50万円（令和8年度は要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">福知山市 産業部 産業課｜補助金｜令和7年度実績：ソフト事業は補助率1/2以内・上限20万円、ハード事業は補助率1/4以内・上限50万円（令和8年度は要確認）</p>
             <p class="area-meta">期間：令和8年度は4月13日受付開始、予算がなくなり次第終了</p>
             <p>市内で新たに起業・創業する方、または創業後1年未満の方の経費の一部を補助する。令和8年度分は4月13日に受付開始。予算がなくなり次第終了。</p>
             <p><strong>主な条件</strong></p>
@@ -203,7 +221,7 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>福知山市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="fukuchiyama-taishin-r8">
             <h3>木造住宅の耐震診断・耐震改修補助（令和8年度）</h3>
             <p class="area-meta">京都府福知山市｜補助金｜診断士派遣は自己負担3,000円。改修は費用の5分の4以内、本格改修上限115万円・簡易改修上限40万円｜締切：2026-11-30</p>
@@ -213,7 +231,7 @@
             <ul><li>要確認(昭和56年5月以前の木造住宅等が想定される。詳細は公式ページで確認)</li></ul>
             <p><a href="https://www.city.fukuchiyama.lg.jp/soshiki/29/85579.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="fukuchiyama-solar-storage-r8">
             <h3>家庭向け自立型再生可能エネルギー導入事業費補助金（新制度・FIT売電不可）</h3>
             <p class="area-meta">京都府福知山市｜補助金｜太陽光1kWあたり4万円(上限16万円)、蓄電設備1kWhあたり4万円(上限24万円)+2万円加算。合計上限42万円(給湯機器追加で最大62万円)｜締切：2027-01-15</p>
@@ -223,20 +241,20 @@
             <ul><li>市内住宅に太陽光と蓄電池を同時設置</li><li>FIT・FIP認定を受けない</li><li>令和8年5月26日より前に着手した設備は対象外</li></ul>
             <p><a href="https://www.city.fukuchiyama.lg.jp/soshiki/72/22945.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="fukuchiyama-akiya-kaishu">
             <h3>農山村地域空き家改修費補助金</h3>
-            <p class="area-meta">京都府福知山市｜補助金｜費用の2分の1以内。上限は移住する利用者80万円、それ以外40万円｜締切：公募要領で確認</p>
+            <p class="area-meta">京都府福知山市｜補助金｜費用の2分の1以内。上限は移住する利用者80万円、それ以外40万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>農山村地域の空き家バンク登録物件を改修する費用を補助。門・塀の新設改修は対象外。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>空き家バンク登録物件</li><li>市外在住者または転入1年未満</li><li>交付後5年以上居住(5年以内の転出等は返還)</li></ul>
             <p><a href="https://www.city.fukuchiyama.lg.jp/reiki/reiki_honbun/k103RG00000659.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="fukuchiyama-iju-shienkin">
             <h3>福知山市移住支援金</h3>
-            <p class="area-meta">京都府福知山市｜給付｜世帯2人以上100万円、それ以外60万円｜締切：公募要領で確認</p>
+            <p class="area-meta">京都府福知山市｜給付｜世帯2人以上100万円、それ以外60万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>市内へ移住し移住先で就業した人等への支援金。</p>
             <p><strong>主な条件</strong></p>

@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">兵庫県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（川西市）<b>3件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（兵庫県）<b>4件（うち受付終了1件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>5件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-5">バリアフリー・介護 1</a><a href="#res-cat-6">子育て 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">川西市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="kawanishi-city-chusho-shinko-jigyo">
             <h3>川西市中小企業振興事業補助制度</h3>
-            <p class="area-meta">川西市 産業振興課｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">川西市 産業振興課｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：令和8年度分の計画書提出は終了。令和9年度分は要確認</p>
             <p>市内中小企業者の技術開発、産業財産権取得、見本市出展、防火・防災設備などの費用の一部を補助する。前年度に市が指定する期日までの計画書提出が原則必要。</p>
             <p><strong>主な条件</strong></p>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="kawanishi-city-keiei-kakushin-shien">
             <h3>川西市経営革新事業支援補助金</h3>
-            <p class="area-meta">川西市 産業振興課｜補助金｜対象経費の3分の1以内（上限額は要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">川西市 産業振興課｜補助金｜対象経費の3分の1以内（上限額は要確認）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>兵庫県の経営革新計画の承認を受けた中小企業者の、謝金・委託費・設備費・広報費などを補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -187,7 +205,7 @@
           </div>
           <div class="area-program" id="kawanishi-city-shinki-shutten-shien">
             <h3>川西市新規出店事業支援補助金</h3>
-            <p class="area-meta">川西市 産業振興課｜補助金｜内装・外装工事費は2分の1以内で上限50万円。中心市街地では賃借料を月5万円上限・5分の1以内で補助｜締切：公募要領で確認</p>
+            <p class="area-meta">川西市 産業振興課｜補助金｜内装・外装工事費は2分の1以内で上限50万円。中心市街地では賃借料を月5万円上限・5分の1以内で補助</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>小売業・飲食店の新規出店に伴う店舗工事費と、中心市街地への出店時の賃借料を補助する。賃借料は開店6か月後から12か月間が対象で年度ごとに申請。</p>
             <p><strong>主な条件</strong></p>
@@ -212,50 +230,49 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>川西市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="kawanishi-taishin-kaishu">
             <h3>住宅耐震改修促進事業</h3>
-            <p class="area-meta">兵庫県川西市｜補助金｜耐震改修工事費の4/5、上限100万円（簡易耐震改修は定額50万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">兵庫県川西市｜補助金｜耐震改修工事費の4/5、上限100万円（簡易耐震改修は定額50万円）</p>
             <p class="area-meta">期間：令和8年度5月1日受付開始（一部予算上限により一時終了）</p>
             <p>戸建住宅の耐震改修・建替え・屋根軽量化等の工事費を補助。令和8年度は一部が予算上限で受付一時終了。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>旧耐震の住宅</li><li>登録事業者との契約</li><li>兵庫県住宅再建共済基金への加入</li></ul>
             <p><a href="https://www.city.kawanishi.hyogo.jp/kurashi/1017490/sumai/1002346/1002349.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="kawanishi-solar-battery">
             <h3>自家消費型住宅用太陽光発電設備等導入補助金</h3>
-            <p class="area-meta">兵庫県川西市｜補助金｜太陽光：1kWあたり7万円（上限35万円）、蓄電池：対象価格の1/3（上限23.5万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">兵庫県川西市｜補助金｜太陽光：1kWあたり7万円（上限35万円）、蓄電池：対象価格の1/3（上限23.5万円）</p>
             <p class="area-meta">期間：令和8年度分は受付終了</p>
             <p>住宅用太陽光発電設備と同時設置の蓄電池を補助。令和8年度分は受付終了。</p>
             <p><strong>主な条件</strong></p>
-            <ul><li>市内の住宅に設置</li><li>蓄電池は太陽光と同時設置</li><li>要確認</li></ul>
+            <ul><li>市内の住宅に設置</li><li>蓄電池は太陽光と同時設置</li></ul>
             <p><a href="https://www.city.kawanishi.hyogo.jp/kurashi/gomi_kankyo/kankyo/1024026.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="kawanishi-akiya-reform">
             <h3>空き家活用リフォーム助成（若年・子育て世帯居住型）</h3>
-            <p class="area-meta">兵庫県川西市｜助成金｜工事費100万円以上150万円未満で40万円、300万円以上で100万円｜締切：公募要領で確認</p>
+            <p class="area-meta">兵庫県川西市｜助成金｜工事費100万円以上150万円未満で40万円、300万円以上で100万円</p>
             <p class="area-meta">期間：令和8年度4月13日受付開始（予算に達し次第終了）</p>
             <p>空き家を改修して居住する若年・子育て世帯への助成。令和8年度は築20年以上は受付終了、築10年以上20年未満は受付中と案内。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>市外からの転入または市内賃貸からの転居、親世帯からの分離など</li><li>空き家の改修工事</li></ul>
             <p><a href="https://www.city.kawanishi.hyogo.jp/kurashi/1017490/sumai/1007030.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program" id="kawanishi-jutaku-kaizo">
             <h3>住宅改造費助成事業（一般型）</h3>
-            <p class="area-meta">兵庫県川西市｜助成金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">兵庫県川西市｜助成金｜金額は公式で確認</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>高齢者・障害者のための住宅改造費を助成する市の制度。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>要確認</li></ul>
+            
             <p><a href="https://www.city.kawanishi.hyogo.jp/kurashi/fukushi_kaigo/fukushi/1007999/1008000.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">子育て</h3>
+          <h3 class="area-cat" id="res-cat-6">子育て</h3>
           <div class="area-program" id="kawanishi-kosodate-jutaku">
             <h3>子育て住宅総合支援事業補助金</h3>
-            <p class="area-meta">兵庫県川西市｜補助金｜新築取得100万円、中古取得60万円、県外から賃貸への住替え25万円｜締切：公募要領で確認</p>
+            <p class="area-meta">兵庫県川西市｜補助金｜新築取得100万円、中古取得60万円、県外から賃貸への住替え25万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>若年世帯・子育て世帯のニュータウンでの住宅取得や賃貸住替え等を補助。令和8年度の受付状況は未確認。</p>
             <p><strong>主な条件</strong></p>

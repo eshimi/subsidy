@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">愛知県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（豊川市）<b>3件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（愛知県）<b>5件</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>7件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 2</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-4">空き家・ブロック塀 3</a><a href="#res-cat-7">移住 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">豊川市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="toyokawa-city-challenge-hanro-kaitaku-hojo">
             <h3>チャレンジとよかわ活性化事業（販路開拓支援事業）</h3>
-            <p class="area-meta">豊川市 商工観光課｜補助金｜補助率1/2、上限10万円（1事業所年1回）｜締切：公募要領で確認</p>
+            <p class="area-meta">豊川市 商工観光課｜補助金｜補助率1/2、上限10万円（1事業所年1回）</p>
             <p class="area-meta">期間：要確認（出展前の申請が必要）</p>
             <p>名古屋市・県外・海外などで開かれる展示会への出展費用の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="toyokawa-city-challenge-keiei-kakushin-hojo">
             <h3>チャレンジとよかわ活性化事業（経営革新支援事業）</h3>
-            <p class="area-meta">豊川市 商工観光課｜補助金｜補助率1/2、上限50万円（1事業所1回限り）｜締切：公募要領で確認</p>
+            <p class="area-meta">豊川市 商工観光課｜補助金｜補助率1/2、上限50万円（1事業所1回限り）</p>
             <p class="area-meta">期間：要確認（事前相談が必要）</p>
             <p>経営革新計画の承認を受けた市内事業者が行う事業の経費の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -187,7 +205,7 @@
           </div>
           <div class="area-program" id="toyokawa-city-challenge-sogyo-hojo">
             <h3>チャレンジとよかわ活性化事業費補助金（創業支援事業）</h3>
-            <p class="area-meta">豊川市 商工観光課｜補助金｜補助率2/3、上限100万円（中心市街地などでは拡充あり）｜締切：公募要領で確認</p>
+            <p class="area-meta">豊川市 商工観光課｜補助金｜補助率2/3、上限100万円（中心市街地などでは拡充あり）</p>
             <p class="area-meta">期間：要確認（事前相談が必要）</p>
             <p>創業にかかる店舗・事務所の内外装工事費や機械装置・備品の調達費の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -212,10 +230,10 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>豊川市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="toyokawa-reform">
             <h3>豊川市 住宅リフォーム工事費補助金（耐震改修併用）</h3>
-            <p class="area-meta">愛知県豊川市｜補助金｜リフォーム工事費の20％、上限20万円｜締切：公募要領で確認</p>
+            <p class="area-meta">愛知県豊川市｜補助金｜リフォーム工事費の20％、上限20万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>耐震改修に合わせて行うリフォーム工事の費用を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -224,14 +242,14 @@
           </div>
           <div class="area-program" id="toyokawa-taishin">
             <h3>豊川市 木造住宅耐震改修費補助金</h3>
-            <p class="area-meta">愛知県豊川市｜補助金｜上限135万円（精密診断法による改修設計で最大20万円上乗せ）｜締切：公募要領で確認</p>
+            <p class="area-meta">愛知県豊川市｜補助金｜上限135万円（精密診断法による改修設計で最大20万円上乗せ）</p>
             <p class="area-meta">期間：令和8年度</p>
             <p>市の無料耐震診断で総合判定値1.0未満の木造住宅の耐震改修費を補助する。段階的改修の制度もある。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>市の無料耐震診断で判定値1.0未満</li><li>事前相談が必要</li><li>愛知県の利子補給制度とは併用不可</li></ul>
             <p><a href="https://www.city.toyokawa.lg.jp/soshiki/kensetsu/kenchiku/2/1/5/1449.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="toyokawa-ondanka">
             <h3>豊川市 地球温暖化対策設備導入促進費補助制度</h3>
             <p class="area-meta">愛知県豊川市｜補助金｜太陽光・HEMS・蓄電池の一体導入で上限10万円、蓄電池単独で上限5万円、V2H単独で上限5万円（太陽光・HEMS・V2H一体は上限10万円）｜締切：2027-03-10</p>
@@ -241,10 +259,10 @@
             <ul><li>市内の自ら居住する（予定の）住宅</li><li>既築は設置の7日前までに申請</li><li>同一設備で過去に市補助を受けていないこと</li></ul>
             <p><a href="https://www.city.toyokawa.lg.jp/soshiki/sangyokankyo/kankyo/2/2/5/804.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="toyokawa-akiya-rikatsu">
             <h3>豊川市 空家バンク利活用費補助金</h3>
-            <p class="area-meta">愛知県豊川市｜補助金｜対象経費の2分の1、改修工事は上限50万円・家財処分は上限10万円｜締切：公募要領で確認</p>
+            <p class="area-meta">愛知県豊川市｜補助金｜対象経費の2分の1、改修工事は上限50万円・家財処分は上限10万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>空家バンク登録物件を売買・賃借した人の改修工事や家財処分費用を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -269,10 +287,10 @@
             <ul><li>老朽空家等（詳細は要確認）</li></ul>
             <p><a href="https://www.city.toyokawa.lg.jp/soshiki/kensetsu/kenchiku/2/1/2/1423.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="toyokawa-machinaka">
             <h3>豊川市まちなか居住補助金</h3>
-            <p class="area-meta">愛知県豊川市｜補助金｜固定資産税相当額を最大3年間補助、中学生以下の子1人あたり10万円の子育て奨励金（1回限り）｜締切：公募要領で確認</p>
+            <p class="area-meta">愛知県豊川市｜補助金｜固定資産税相当額を最大3年間補助、中学生以下の子1人あたり10万円の子育て奨励金（1回限り）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>都市機能誘導区域内に家屋を取得して転入した人に補助金を交付する。</p>
             <p><strong>主な条件</strong></p>

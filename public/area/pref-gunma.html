@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -170,7 +177,7 @@
       <div class="area-body">
           <div class="area-program" id="gunma-dx-gijutsu-kakushin">
             <h3>ぐんまDX技術革新補助金</h3>
-            <p class="area-meta">群馬県 地域企業支援課｜補助金｜補助率1/2、上限1,000万円｜締切：公募要領で確認</p>
+            <p class="area-meta">群馬県 地域企業支援課｜補助金｜補助率1/2、上限1,000万円</p>
             <p class="area-meta">期間：令和8年4月1日〜5月15日</p>
             <p>パートナーシップ構築宣言を行っている中小企業者のDX・技術革新の取組を支援する。</p>
             <p><strong>主な条件</strong></p>
@@ -179,7 +186,7 @@
           </div>
           <div class="area-program" id="gunma-cross-start">
             <h3>ぐんまクロススタート補助金（起業支援金）</h3>
-            <p class="area-meta">群馬県 未来投資・デジタル産業課｜補助金｜補助率1/2以内、上限200万円（想定5〜10名程度）｜締切：公募要領で確認</p>
+            <p class="area-meta">群馬県 未来投資・デジタル産業課｜補助金｜補助率1/2以内、上限200万円（想定5〜10名程度）</p>
             <p class="area-meta">期間：令和8年度は4/15〜5/22で終了。次回は要確認</p>
             <p>地域課題解決に取り組みながら県経済を牽引する企業を目指し、起業または事業承継・第二創業する個人・事業者を支援する。</p>
             <p><strong>主な条件</strong></p>
@@ -188,7 +195,7 @@
           </div>
           <div class="area-program" id="gunma-jigyo-shokei-yushi">
             <h3>群馬県制度融資 事業承継支援資金</h3>
-            <p class="area-meta">群馬県 地域企業支援課｜融資｜融資限度額8,000万円｜締切：公募要領で確認</p>
+            <p class="area-meta">群馬県 地域企業支援課｜融資｜融資限度額8,000万円</p>
             <p class="area-meta">期間：通年（取扱金融機関で申込）</p>
             <p>事業承継を行う中小企業者を資金面から支援する県制度融資。</p>
             <p><strong>主な条件</strong></p>
@@ -197,7 +204,7 @@
           </div>
           <div class="area-program" id="gunma-power-up-shikin">
             <h3>群馬県制度融資 中小企業パワーアップ資金</h3>
-            <p class="area-meta">群馬県 地域企業支援課｜融資｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">群馬県 地域企業支援課｜融資｜金額は公式で確認</p>
             <p class="area-meta">期間：通年</p>
             <p>中小企業の事業活動を支える県制度融資。</p>
             <p><strong>主な条件</strong></p>
@@ -267,20 +274,20 @@
     <section class="art-sec" aria-labelledby="pref-resident"><h2 id="pref-resident"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">個人の方向けの制度（住まい・暮らし）</h2>
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。市区町村の個人向けの制度（31件）は、下の「県内の市区町村のページ」から確認できます。</p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="gunma-mokuzo-taishin-kyocho">
             <h3>木造住宅耐震改修促進支援事業</h3>
-            <p class="area-meta">群馬県｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">群馬県｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>市町村の耐震改修補助に協調して県が補助する。耐震シェルター設置やブロック塀除却のメニューもあるが、実施市町村は限られる。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>実施市町村の窓口で申込み</li></ul>
             <p><a href="https://www.pref.gunma.jp/site/kenchikugyousei/11692.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="gunma-jutaku-solar-yushi">
             <h3>住宅用太陽光発電設備等導入資金融資</h3>
-            <p class="area-meta">群馬県 グリーンイノベーション推進課｜融資｜年1.2%（県内金融機関経由）、融資枠6億円（令和8年度案）｜締切：公募要領で確認</p>
+            <p class="area-meta">群馬県 グリーンイノベーション推進課｜融資｜年1.2%（県内金融機関経由）、融資枠6億円（令和8年度案）</p>
             <p class="area-meta">期間：令和8年度（詳細は要確認）</p>
             <p>住宅用太陽光発電設備・蓄電池等の導入資金の低利融資。</p>
             
@@ -295,30 +302,30 @@
             <ul><li>同年度の国の補助対象設備との併用は不可</li></ul>
             <p><a href="https://www.pref.gunma.jp/page/753198.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">EV・充電</h3>
+          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
           <div class="area-program" id="gunma-bev-konyu">
             <h3>群馬県電気自動車（BEV）購入補助金</h3>
-            <p class="area-meta">群馬県｜補助金｜70kWh以上でV2H機能等を備えた車両は50万円、それ以外は10万円｜締切：公募要領で確認</p>
+            <p class="area-meta">群馬県｜補助金｜70kWh以上でV2H機能等を備えた車両は50万円、それ以外は10万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>県内でBEV生産が始まるのを機に、県内の個人・事業者のBEV購入費を補助する。予算2億円。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>県内の個人または県内に事業所を置く事業者</li><li>令和8年3月31日以前の購入車両は対象外</li></ul>
             <p><a href="https://www.pref.gunma.jp/site/houdou/750587.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">子育て</h3>
+          <h3 class="area-cat" id="res-cat-6">子育て</h3>
           <div class="area-program" id="gunma-zero-sengen-jutaku-kosodate">
             <h3>ぐんまゼロ宣言住宅促進事業（子育て世帯への補助）</h3>
-            <p class="area-meta">群馬県｜補助金｜子育て世帯1世帯1戸あたり5万円｜締切：公募要領で確認</p>
+            <p class="area-meta">群馬県｜補助金｜子育て世帯1世帯1戸あたり5万円</p>
             <p class="area-meta">期間：令和8年度（予算額に達し次第終了）</p>
             <p>県産木材を使った省エネ住宅を取得する子育て世帯に補助する。予算額に達し次第受付終了。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>令和9年3月31日時点で18歳以下の子と同居している世帯</li></ul>
             <p><a href="https://www.pref.gunma.jp/site/hojokin/198891.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="gunma-iju-shienkin">
             <h3>群馬県移住支援金事業</h3>
-            <p class="area-meta">群馬県｜給付｜単身60万円・世帯100万円（18歳未満の帯同者1人につき30万円加算と案内）｜締切：公募要領で確認</p>
+            <p class="area-meta">群馬県｜給付｜単身60万円・世帯100万円（18歳未満の帯同者1人につき30万円加算と案内）</p>
             <p class="area-meta">期間：令和8年度（市町村別の受付状況は要確認）</p>
             <p>東京圏から移住し、県のマッチングサイト掲載企業に就職した人などに市町村が支給する。</p>
             <p><strong>主な条件</strong></p>

@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">埼玉県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（戸田市）<b>4件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（埼玉県）<b>5件</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>6件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-5">バリアフリー・介護 1</a><a href="#res-cat-7">移住 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">戸田市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="toda-city-chusho-kigyo-yushi">
             <h3>戸田市中小企業融資制度（利子補給）</h3>
-            <p class="area-meta">戸田市 経済戦略室｜融資｜利子補給率は小口資金（運転）で支払利子の21％、商工業近代化資金は32〜35％など（現行かは要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">戸田市 経済戦略室｜融資｜利子補給率は小口資金（運転）で支払利子の21％、商工業近代化資金は32〜35％など（現行かは要確認）</p>
             <p class="area-meta">期間：通年（予算残りわずかの表示あり、最新は要確認）</p>
             <p>小口資金・商工業近代化資金・特定中小企業者資金の市のあっせん融資。貸付から1年経過後の1年間に利子補給を申請できる。</p>
             <p><strong>主な条件</strong></p>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="toda-city-dx-suishin">
             <h3>戸田市DX推進補助金</h3>
-            <p class="area-meta">戸田市 経済戦略室｜補助金｜対象経費（税抜）の1/2、上限50万円｜締切：公募要領で確認</p>
+            <p class="area-meta">戸田市 経済戦略室｜補助金｜対象経費（税抜）の1/2、上限50万円</p>
             <p class="area-meta">期間：令和8年4月1日〜予算がなくなり次第終了</p>
             <p>自社の課題解決のためDXに取り組む事業のシステム使用料等（導入から12か月分）を補助する。予算は500万円で、9月9日時点の残額は約230万円、なくなり次第終了。</p>
             <p><strong>主な条件</strong></p>
@@ -187,7 +205,7 @@
           </div>
           <div class="area-program" id="toda-city-shingijutsu-kenkyu-kaihatsu">
             <h3>戸田市新技術研究開発支援事業（商工業支援事業補助金）</h3>
-            <p class="area-meta">戸田市 経済戦略室｜補助金｜経費（税抜）の1/3、上限200万円｜締切：公募要領で確認</p>
+            <p class="area-meta">戸田市 経済戦略室｜補助金｜経費（税抜）の1/3、上限200万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>新技術の研究開発に要した費用を支援する。同補助金には展示会出展支援（上限20万円）やISO等取得支援（1/3、上限50万円）もある。</p>
             <p><strong>主な条件</strong></p>
@@ -196,7 +214,7 @@
           </div>
           <div class="area-program" id="toda-city-shoten-shingyoshu-tenkan">
             <h3>戸田市商店等新業種等転換支援事業</h3>
-            <p class="area-meta">戸田市 経済戦略室｜補助金｜補助率1/2、上限50万円｜締切：公募要領で確認</p>
+            <p class="area-meta">戸田市 経済戦略室｜補助金｜補助率1/2、上限50万円</p>
             <p class="area-meta">期間：令和8年4月1日〜予算の範囲内で申請順（実績報告は令和9年3月末まで）</p>
             <p>新業種・新業態への転換に伴い、エネルギー高度化、子育て支援、高齢者支援などの社会的課題に対応する改修工事費を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -221,17 +239,17 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>戸田市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="toda-taishin">
             <h3>戸田市木造住宅等耐震診断・耐震改修助成</h3>
-            <p class="area-meta">埼玉県戸田市｜補助金｜診断:上限10万円(補助率1/1)、改修:一般上限50万円(1/3)・簡易上限20万円(1/2)｜締切：公募要領で確認</p>
+            <p class="area-meta">埼玉県戸田市｜補助金｜診断:上限10万円(補助率1/1)、改修:一般上限50万円(1/3)・簡易上限20万円(1/2)</p>
             <p class="area-meta">期間：最新は要確認(R8.4月版案内あり)</p>
             <p>旧耐震基準の既存住宅の耐震診断・耐震改修費用の一部を助成。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>1981年(昭和56年)5月31日以前に着工した住宅が中心</li></ul>
             <p><a href="https://www.city.toda.saitama.jp/uploaded/attachment/78773.pdf" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="toda-zerocarbon">
             <h3>令和8年度戸田市ゼロカーボン推進補助金(太陽光発電)</h3>
             <p class="area-meta">埼玉県戸田市｜補助金｜太陽光発電システム:一律5万円｜締切：2027-03-01</p>
@@ -241,7 +259,7 @@
             <ul><li>自ら所有し居住する住宅への設置(リース・PPA不可)</li><li>定格出力合計1kW以上、JET認証モジュール</li></ul>
             <p><a href="https://www.city.toda.saitama.jp/soshiki/212/kankyo-zero-carbon-hozyo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program" id="toda-reform">
             <h3>令和8年度戸田市住宅改修資金助成制度</h3>
             <p class="area-meta">埼玉県戸田市｜助成金｜工事費の5%以内(上限10万円)｜締切：2027-02-28</p>
@@ -251,7 +269,7 @@
             <ul><li>市内業者による税抜20万円以上の工事</li><li>工事開始前に申請</li></ul>
             <p><a href="https://www.city.toda.saitama.jp/soshiki/214/keizai-hojyo-jyuutaku.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="toda-block">
             <h3>戸田市ブロック塀等撤去・築造等事業支援補助</h3>
             <p class="area-meta">埼玉県戸田市｜補助金｜撤去:1mあたり1万円(上限20万円)、築造:1mあたり5千円(上限10万円)(いずれも実費が上限)｜締切：2027-02-26</p>
@@ -261,20 +279,20 @@
             <ul><li>公道に面し高さ1.2m超のコンクリート・レンガ・石材の塀</li><li>工事前に申請(工事後申請は不可)</li></ul>
             <p><a href="https://www.city.toda.saitama.jp/soshiki/121/kikikanri-blockfence.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program" id="toda-koreisumai">
             <h3>戸田市高齢者の居住の支援(住宅建築資金融資・利子補給)</h3>
-            <p class="area-meta">埼玉県戸田市｜融資｜融資上限500万円(利子補給あり)｜締切：公募要領で確認</p>
+            <p class="area-meta">埼玉県戸田市｜融資｜融資上限500万円(利子補給あり)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>60歳以上の方との同居のため、高齢者の居室等を新築・増築・改築する建築資金を融資し利子を補給。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>60歳以上の人と同居または同居予定</li></ul>
             <p><a href="https://www.city.toda.saitama.jp/soshiki/234/chojukaigo-shien-house.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="toda-akiya">
             <h3>戸田市空き家への住み替え補助金</h3>
-            <p class="area-meta">埼玉県戸田市｜補助金｜要確認(子育て世帯・三世代同居・近居等は加算あり)｜締切：公募要領で確認</p>
+            <p class="area-meta">埼玉県戸田市｜補助金｜要確認(子育て世帯・三世代同居・近居等は加算あり)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>空き家バンク登録の空き家の売買成立時の仲介手数料や、購入者の改修・除却工事費用を補助。</p>
             <p><strong>主な条件</strong></p>

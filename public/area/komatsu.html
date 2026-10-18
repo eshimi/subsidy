@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,6 +170,17 @@
       <p class="lead" style="margin-bottom: 0;">石川県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（小松市）<b>3件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（石川県）<b>4件</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>8件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 2</a><a href="#res-cat-4">空き家・ブロック塀 4</a><a href="#res-cat-7">移住 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">小松市の制度（事業・創業の方向け）</h2>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="komatsu-city-keiei-model-change">
             <h3>小松市経営モデルチェンジ支援事業（新事業チャレンジ）</h3>
-            <p class="area-meta">小松市 商工労働課｜補助金｜補助率1/2、上限200万円｜締切：公募要領で確認</p>
+            <p class="area-meta">小松市 商工労働課｜補助金｜補助率1/2、上限200万円</p>
             <p class="area-meta">期間：要確認（市ページで現行の募集期間を確認）</p>
             <p>業態転換や新たな取組みを計画する市内事業者、革新的サービス・新商品開発により創業する事業者を支援する市独自の補助制度。</p>
             <p><strong>主な条件</strong></p>
@@ -187,7 +205,7 @@
           </div>
           <div class="area-program" id="komatsu-city-kigyoka-rishihokyu">
             <h3>小松市起業家支援利子補給事業</h3>
-            <p class="area-meta">小松市 商工労働課｜融資｜融資後1年間の利子支払額を補給、上限10万円/事業者｜締切：公募要領で確認</p>
+            <p class="area-meta">小松市 商工労働課｜融資｜融資後1年間の利子支払額を補給、上限10万円/事業者</p>
             <p class="area-meta">期間：貸付から1年経過後の3か月以内に申請</p>
             <p>市内で新規開業する起業家が創業資金の融資を受けた場合、利子の一部を補給する。制度融資（限度額700万円、6年以内）と併用できる。</p>
             <p><strong>主な条件</strong></p>
@@ -212,20 +230,20 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>小松市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="komatsu-taishin">
             <h3>木造住宅の耐震診断・耐震改修・防火改修補助</h3>
-            <p class="area-meta">石川県小松市｜補助金｜耐震診断は4/5（上限12万円）、耐震改修は10/10（一戸建ては最大280万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">石川県小松市｜補助金｜耐震診断は4/5（上限12万円）、耐震改修は10/10（一戸建ては最大280万円）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>昭和56年5月31日以前着工の木造住宅の耐震診断・改修の補助。工事前の申請が必要。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>昭和56年5月31日以前着工の木造住宅</li><li>工事前に申請</li><li>国の補助金と併用不可</li></ul>
             <p><a href="https://www.city.komatsu.lg.jp/soshiki/1027/taishin/1044.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="komatsu-battery-v2h">
             <h3>再生可能エネルギー設備設置費補助金（蓄電池・V2H・バイオマス）</h3>
-            <p class="area-meta">石川県小松市｜補助金｜蓄電システム一律5万円、V2H一律10万円（バイオマスは本体価格により変動）｜締切：公募要領で確認</p>
+            <p class="area-meta">石川県小松市｜補助金｜蓄電システム一律5万円、V2H一律10万円（バイオマスは本体価格により変動）</p>
             <p class="area-meta">期間：令和8年度（予算の範囲内で先着）</p>
             <p>住宅用蓄電システム、V2H充放電設備、バイオマス設備の設置費補助。先着順。</p>
             <p><strong>主な条件</strong></p>
@@ -234,17 +252,17 @@
           </div>
           <div class="area-program" id="komatsu-ppa">
             <h3>第三者所有型再生可能エネルギー設備設置費補助金</h3>
-            <p class="area-meta">石川県小松市｜補助金｜一律5万円｜締切：公募要領で確認</p>
+            <p class="area-meta">石川県小松市｜補助金｜一律5万円</p>
             <p class="area-meta">期間：令和8年度</p>
             <p>太陽光と蓄電システムを一体で導入する第三者所有（PPA）モデルへの補助。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>PPA月額サービス料金を自ら支払う人</li><li>月額サービス料金が5万円超</li></ul>
             <p><a href="https://www.city.komatsu.lg.jp/soshiki/1021/kankyou/6/16655.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="komatsu-akiya-bank">
             <h3>空き家バンク・さかさまバンク成約報奨金</h3>
-            <p class="area-meta">石川県小松市｜給付｜3万円｜締切：公募要領で確認</p>
+            <p class="area-meta">石川県小松市｜給付｜3万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>空き家バンク登録の一戸建て賃貸・売買が成立した所有者への報奨金。</p>
             <p><strong>主な条件</strong></p>
@@ -262,7 +280,7 @@
           </div>
           <div class="area-program" id="komatsu-block">
             <h3>危険ブロック塀の除却補助金</h3>
-            <p class="area-meta">石川県小松市｜補助金｜コンクリートブロック塀は4,000円/平方メートル（上限10万円）など｜締切：公募要領で確認</p>
+            <p class="area-meta">石川県小松市｜補助金｜コンクリートブロック塀は4,000円/平方メートル（上限10万円）など</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>危険ブロック塀の除却費用の補助。</p>
             <p><strong>主な条件</strong></p>
@@ -271,17 +289,17 @@
           </div>
           <div class="area-program" id="komatsu-rouchiku">
             <h3>老朽危険空家解体補助事業</h3>
-            <p class="area-meta">石川県小松市｜補助金｜解体費補助（パンフでは5,000円/平方メートル、上限50万円。最新額は要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">石川県小松市｜補助金｜解体費補助（パンフでは5,000円/平方メートル、上限50万円。最新額は要確認）</p>
             <p class="area-meta">期間：令和8年度（解体前に申請）</p>
             <p>老朽化した危険な空き家の解体補助。令和8年4月から判定基準が緩和（危険度75点以上）。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>危険度75点以上（構造危険度25点以上）</li><li>解体工事前に申請</li></ul>
             <p><a href="https://www.city.komatsu.lg.jp/soshiki/1027/komatsushinoakiyataisakunitsuite/18521.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="komatsu-teiju">
             <h3>「ようこそ小松」定住促進奨励金</h3>
-            <p class="area-meta">石川県小松市｜給付｜基本額30万円｜締切：公募要領で確認</p>
+            <p class="area-meta">石川県小松市｜給付｜基本額30万円</p>
             <p class="area-meta">期間：令和8年度</p>
             <p>市外から移住し一戸建てを新築・増築・購入する人への奨励金。令和8年度から条件変更。</p>
             <p><strong>主な条件</strong></p>

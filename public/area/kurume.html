@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,6 +170,17 @@
       <p class="lead" style="margin-bottom: 0;">福岡県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（久留米市）<b>5件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（福岡県）<b>4件（うち受付終了3件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>6件（うち受付終了1件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-4">空き家・ブロック塀 3</a><a href="#res-cat-5">バリアフリー・介護 2</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">久留米市の制度（事業・創業の方向け）</h2>
@@ -179,7 +197,7 @@
           </div>
           <div class="area-program" id="kurume-city-jinzai-kakuho">
             <h3>久留米市人材確保支援事業費補助金</h3>
-            <p class="area-meta">久留米市 雇用労働担当｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">久留米市 雇用労働担当｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：最新は要確認（令和8年度募集あり）</p>
             <p>正規職員の確保に取り組む中小企業者等を支援する。令和8年度募集。</p>
             <p><strong>主な条件</strong></p>
@@ -199,7 +217,7 @@
           </div>
           <div class="area-program" id="kurume-city-shinki-kaigyo-shikin">
             <h3>久留米市新規開業資金（創業融資）</h3>
-            <p class="area-meta">久留米市 商工政策課｜融資｜融資2,000万円以内・利率1.26%（特定創業支援で1.16%）・保証料市負担・借入後1年間の利子全額補給｜締切：公募要領で確認</p>
+            <p class="area-meta">久留米市 商工政策課｜融資｜融資2,000万円以内・利率1.26%（特定創業支援で1.16%）・保証料市負担・借入後1年間の利子全額補給</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>創業者向けの市制度融資。保証料は市が負担し、利子補給もある。</p>
             <p><strong>主な条件</strong></p>
@@ -234,17 +252,17 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>久留米市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program is-ended" id="kurume-mokuzo-taishin">
             <h3>久留米市木造住宅耐震改修等事業費補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">久留米市｜補助金｜耐震改修は、工事見積額の50%、国の単価×延べ面積の50%、上限50万円のうち最も低い額｜締切：公募要領で確認</p>
+            <p class="area-meta">久留米市｜補助金｜耐震改修は、工事見積額の50%、国の単価×延べ面積の50%、上限50万円のうち最も低い額</p>
             <p class="area-meta">期間：令和7年度の耐震改修工事等の受付は終了。令和8年度の状況は要確認</p>
             <p>木造住宅の耐震改修等の費用を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>昭和56年5月31日以前に建築された木造住宅</li></ul>
             <p><a href="https://www.city.kurume.fukuoka.jp/1050kurashi/2080juutaku/3140taishinkaisyuu/2021-1229-0920-94.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="kurume-akiya-kaitai">
             <h3>久留米市 老朽危険空家等除却促進事業（危険な空き家の解体補助金）</h3>
             <p class="area-meta">久留米市｜補助金｜除却工事費の2分の1、上限65万円｜締切：2027-01-29</p>
@@ -256,7 +274,7 @@
           </div>
           <div class="area-program" id="kurume-akiya-katsuyo-reform">
             <h3>久留米市 空き家活用リフォーム助成事業補助金</h3>
-            <p class="area-meta">久留米市｜補助金｜対象工事費の50%（居住誘導区域内上限50万円、区域外上限30万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">久留米市｜補助金｜対象工事費の50%（居住誘導区域内上限50万円、区域外上限30万円）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>空き家を活用するためのリフォーム費用を助成する。</p>
             <p><strong>主な条件</strong></p>
@@ -265,17 +283,17 @@
           </div>
           <div class="area-program" id="kurume-block-tekkyo">
             <h3>久留米市 危険ブロック塀等撤去費補助事業</h3>
-            <p class="area-meta">久留米市｜補助金｜上限16万円（補助率は要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">久留米市｜補助金｜上限16万円（補助率は要確認）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>危険なブロック塀等の撤去費用の一部を助成する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>対象ブロック塀の要件あり（詳細は要確認）</li></ul>
             <p><a href="https://www.city.kurume.fukuoka.jp/1050kurashi/2080juutaku/3140taishinkaisyuu/2021-1014-1628-94.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program" id="kurume-jutaku-kaizo">
             <h3>久留米市 住宅改造費の助成（福岡住みよか事業）</h3>
-            <p class="area-meta">久留米市｜助成金｜助成限度額30万円｜締切：公募要領で確認</p>
+            <p class="area-meta">久留米市｜助成金｜助成限度額30万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>重度の心身障害のある方の住宅改造費の一部を助成する。</p>
             <p><strong>主な条件</strong></p>
@@ -284,7 +302,7 @@
           </div>
           <div class="area-program" id="kurume-reform-josei">
             <h3>久留米市 住宅リフォーム助成事業（省エネ・バリアフリー改修）</h3>
-            <p class="area-meta">久留米市｜助成金｜工事費の半額（上限10万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">久留米市｜助成金｜工事費の半額（上限10万円）</p>
             <p class="area-meta">期間：令和8年度は募集予定なし（市ページ記載）。最新は要確認</p>
             <p>省エネ改修またはバリアフリー改修（工事費10万円以上）を助成。市ページには令和8年度の募集は予定していないとの記載。</p>
             <p><strong>主な条件</strong></p>

@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,6 +170,17 @@
       <p class="lead" style="margin-bottom: 0;">東京都・特別区。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（中野区）<b>3件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（東京都）<b>6件（うち受付終了1件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>10件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 4</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-5">バリアフリー・介護 1</a><a href="#res-cat-6">子育て 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">中野区の制度（事業・創業の方向け）</h2>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="nakano-city-sangyo-keizai-yushi">
             <h3>中野区産業経済融資（利子補給）</h3>
-            <p class="area-meta">中野区 区民部産業振興課｜融資｜金利の一部を区が利子補給（年4回金融機関へ）。限度額・利率は資金ごとに要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">中野区 区民部産業振興課｜融資｜金利の一部を区が利子補給（年4回金融機関へ）。限度額・利率は資金ごとに要確認</p>
             <p class="area-meta">期間：通年（最新は要確認）</p>
             <p>区内中小企業者が区のあっせんで金融機関から低利で借りられ、金利の一部を区が補給。IT・DX導入資金など資金メニュー多数。</p>
             <p><strong>主な条件</strong></p>
@@ -187,7 +205,7 @@
           </div>
           <div class="area-program" id="nakano-city-sogyo-shienshikin">
             <h3>中野区産業経済融資 創業支援資金（保証料補助あり）</h3>
-            <p class="area-meta">中野区 区民部産業振興課｜融資｜貸付限度額2,000万円、償還7年以内。信用保証料の1/3を区が補助（都の2/3補助と併せ実質0）｜締切：公募要領で確認</p>
+            <p class="area-meta">中野区 区民部産業振興課｜融資｜貸付限度額2,000万円、償還7年以内。信用保証料の1/3を区が補助（都の2/3補助と併せ実質0）</p>
             <p class="area-meta">期間：通年（最新は要確認）</p>
             <p>創業前または創業5年未満の方向けの融資あっせん。創業計画書が必要で、区が保証料の一部を補助。</p>
             <p><strong>主な条件</strong></p>
@@ -212,10 +230,10 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>中野区の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="nakano-bosai-bed">
             <h3>中野区防災ベッド設置助成金</h3>
-            <p class="area-meta">東京都中野区｜助成金｜限度額50万円(世帯所得合計500万円以上は25万円)｜締切：公募要領で確認</p>
+            <p class="area-meta">東京都中野区｜助成金｜限度額50万円(世帯所得合計500万円以上は25万円)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>耐震改修が困難な木造住宅に防災ベッドを設置する費用を助成する。</p>
             <p><strong>主な条件</strong></p>
@@ -224,8 +242,8 @@
           </div>
           <div class="area-program" id="nakano-hi-mokuzo-taishin">
             <h3>非木造住宅の耐震改修等助成</h3>
-            <p class="area-meta">中野区 都市基盤部 建築課｜補助金｜補助率3分の1、限度額7,500万円｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">中野区 都市基盤部 建築課｜補助金｜補助率3分の1、限度額7,500万円</p>
+            
             <p>非木造住宅の補強設計・耐震補強・建替え/除却を助成する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>1981年5月31日以前に着工</li><li>耐火・準耐火建築物であること</li></ul>
@@ -233,22 +251,22 @@
           </div>
           <div class="area-program" id="nakano-mokuzo-shindan">
             <h3>木造住宅の耐震診断支援</h3>
-            <p class="area-meta">中野区 都市基盤部 建築課｜補助金｜区が派遣する耐震診断士による無料診断｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">中野区 都市基盤部 建築課｜補助金｜区が派遣する耐震診断士による無料診断</p>
+            
             <p>木造住宅の耐震診断を支援する（無料診断）。</p>
             
             <p><a href="https://www.city.tokyo-nakano.lg.jp/machizukuri/kenchiku/taishin/taishinshindan.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
           <div class="area-program" id="nakano-mokuzo-taishin-hokyo">
             <h3>木造住宅耐震補強工事助成</h3>
-            <p class="area-meta">中野区 都市基盤部 建築課｜補助金｜対象経費の2分の1、上限250万円｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">中野区 都市基盤部 建築課｜補助金｜対象経費の2分の1、上限250万円</p>
+            
             <p>木造住宅の耐震補強工事費を助成する。令和7年4月1日から新耐震木造住宅も助成開始。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>2000年5月31日以前に建てられた木造在来工法の2階建て以下</li><li>区の診断助成を事前に受けていること</li><li>工事契約前に事前相談</li></ul>
             <p><a href="https://www.city.tokyo-nakano.lg.jp/machizukuri/kenchiku/taishin/mokuzojyutaku-hokyo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="nakano-taiyoko-chikuden">
             <h3>省エネルギー設備等の設置に係る費用の補助（太陽光発電・蓄電システム）</h3>
             <p class="area-meta">中野区 環境課｜補助金｜令和8年度の額は要確認（令和5年度要綱：太陽光1戸あたり上限15万円、蓄電池上限10万円）｜締切：2027-02-28</p>
@@ -258,7 +276,7 @@
             <ul><li>蓄電池は蓄電容量4kWh以上で太陽光発電と連携（令和5年度要件）</li><li>過去に補助を受けた設備は申請不可</li></ul>
             <p><a href="https://www.city.tokyo-nakano.lg.jp/kurashi/kankyo/ondankataisaku/0686241120240301112636655.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program" id="nakano-shoene-setsubi">
             <h3>省エネルギー設備等の設置に係る費用の補助（断熱窓・給湯器等）</h3>
             <p class="area-meta">中野区 環境課｜補助金｜令和8年度の額は要確認（令和5年度要綱：高断熱窓は対象経費の2分の1または15万円の少ない額、家庭用燃料電池は経費または10万円の少ない額）｜締切：2027-02-28</p>
@@ -268,10 +286,10 @@
             <ul><li>過去に補助を受けた設備は申請不可</li><li>ハイブリッド給湯器は設置完了日が令和8年4月1日〜令和9年1月31日</li></ul>
             <p><a href="https://www.city.tokyo-nakano.lg.jp/kurashi/kankyo/ondankataisaku/0686241120240301112636655.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="nakano-block-tekkyo">
             <h3>ブロック塀等撤去・フェンス等設置助成</h3>
-            <p class="area-meta">中野区｜助成金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">中野区｜助成金｜金額は公式で確認</p>
             <p class="area-meta">期間：確認できた年度：令和7年度の案内資料（最新は要確認）</p>
             <p>道路等に面したブロック塀等の撤去工事と、撤去後のフェンス等設置にかかる費用の一部を助成する。</p>
             <p><strong>主な条件</strong></p>
@@ -287,20 +305,20 @@
             <ul><li>セーフティネット住宅の所有者等</li><li>工事着手前に申請</li></ul>
             <p><a href="https://www.city.tokyo-nakano.lg.jp/machizukuri/jyutaku/saftynet/safetynet.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program" id="nakano-koreisha-jiritsu-jutaku-kaishu">
             <h3>中野区高齢者自立支援住宅改修等給付事業</h3>
-            <p class="area-meta">東京都中野区｜給付｜浴室改善20万円、台所13万円、便所洋式化9万円が限度(非該当の方の予防給付は20万円限度)｜締切：公募要領で確認</p>
+            <p class="area-meta">東京都中野区｜給付｜浴室改善20万円、台所13万円、便所洋式化9万円が限度(非該当の方の予防給付は20万円限度)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>介護保険の住宅改修とは別に、高齢者の住宅設備の改善費用を区が給付する。同一種目は1世帯1回限り。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>区内在住で要支援・要介護認定を受けた65歳以上</li><li>世帯全員の合計所得金額が基準未満(200万円未満と案内)</li></ul>
             <p><a href="https://www.city.tokyo-nakano.lg.jp/kenko_hukushi/kourei/hokenhukushi/jiritsushienjyutaku.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">子育て</h3>
+          <h3 class="area-cat" id="res-cat-6">子育て</h3>
           <div class="area-program" id="nakano-hitorioya-jutaku-shien">
             <h3>中野区ひとり親家庭住宅支援補助金(転居費用補助)</h3>
-            <p class="area-meta">東京都中野区｜補助金｜上限30万円｜締切：公募要領で確認</p>
+            <p class="area-meta">東京都中野区｜補助金｜上限30万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>区内で住み替えるひとり親世帯の引越費用や初期費用を補助する。物件を探す前の事前相談が必要。</p>
             <p><strong>主な条件</strong></p>

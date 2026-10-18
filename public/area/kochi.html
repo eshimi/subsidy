@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">高知県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（高知市）<b>2件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（高知県）<b>4件（うち受付終了3件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>3件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">高知市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="kochi-city-akitenpo-sogyo">
             <h3>高知市空き店舗活用創業支援事業</h3>
-            <p class="area-meta">高知市 産業政策課｜補助金｜店舗賃借料の一部補助（出店地・区分・34歳以下の若年層枠で補助率が異なる）｜締切：公募要領で確認</p>
+            <p class="area-meta">高知市 産業政策課｜補助金｜店舗賃借料の一部補助（出店地・区分・34歳以下の若年層枠で補助率が異なる）</p>
             <p class="area-meta">期間：最新は要確認（来年度分は予算措置次第）</p>
             <p>商店街・中心市街地の空き店舗で開業する事業者の賃借料を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="kochi-city-hanro-support">
             <h3>高知市販路拡大サポート事業費</h3>
-            <p class="area-meta">高知市 外商支援課｜補助金｜補助率原則1/2（3年度助成後は1/4）｜締切：公募要領で確認</p>
+            <p class="area-meta">高知市 外商支援課｜補助金｜補助率原則1/2（3年度助成後は1/4）</p>
             <p class="area-meta">期間：補助対象期間 令和8年4月1日〜令和9年3月31日</p>
             <p>中小企業者の自社開発商品の販路拡大を支援する。</p>
             <p><strong>主な条件</strong></p>
@@ -203,29 +221,29 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>高知市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="kochi-shi-mokuzo-jokyaku">
             <h3>高知市 木造住宅の除却工事補助</h3>
-            <p class="area-meta">高知市 建築指導課｜補助金｜要確認｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">高知市 建築指導課｜補助金｜金額は公式で確認</p>
+            
             <p>耐震性のない木造住宅の解体（除却）費用の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>耐震性がない住宅</li><li>過去に耐震改修補助を受けていないこと</li></ul>
             <p><a href="https://www.city.kochi.kochi.jp/soshiki/58/mokuzouzyokyaku0504.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="kochi-shi-jikashohi-solar">
             <h3>高知市住宅用自家消費型太陽光発電設備導入促進事業費補助金（令和8年度）</h3>
-            <p class="area-meta">高知市 新エネルギー・環境政策課｜補助金｜太陽光は出力1kWあたり7万円、蓄電池は上限25万円｜締切：公募要領で確認</p>
+            <p class="area-meta">高知市 新エネルギー・環境政策課｜補助金｜太陽光は出力1kWあたり7万円、蓄電池は上限25万円</p>
             <p class="area-meta">期間：令和8年度（期間は要確認）</p>
             <p>住宅への自家消費型太陽光発電設備の導入を補助する。蓄電池同時設置も対象になり得る。</p>
             
             <p><a href="https://www.city.kochi.kochi.jp/soshiki/186/r8taiyoukouhojyo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="kochi-shi-block-tekkyo">
             <h3>高知市 ブロック塀等の耐震対策補助</h3>
-            <p class="area-meta">高知市 建築指導課｜補助金｜補助対象工事費の2/3（上限205,000円）｜締切：公募要領で確認</p>
+            <p class="area-meta">高知市 建築指導課｜補助金｜補助対象工事費の2/3（上限205,000円）</p>
             <p class="area-meta">期間：令和8年度も申請受付中（期限は要確認）</p>
             <p>避難路等に面した危険なブロック塀の撤去・フェンス等への改修を補助する。</p>
             <p><strong>主な条件</strong></p>

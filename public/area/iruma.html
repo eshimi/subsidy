@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">埼玉県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（入間市）<b>3件（うち受付終了2件）</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（埼玉県）<b>5件</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>3件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">入間市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="iruma-city-sogyo-shorei">
             <h3>入間市創業支援奨励金</h3>
-            <p class="area-meta">入間市 商工観光課｜給付金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">入間市 商工観光課｜給付金｜金額は公式で確認</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>市内に住み市内で創業する人に奨励金を支給するとFAQに記載。令和8年度の実施状況は要確認。</p>
             <p><strong>主な条件</strong></p>
@@ -179,7 +197,7 @@
           <h3 class="area-cat">受付が終了した制度（次回の公募の参考に）</h3>
           <div class="area-program is-ended" id="iruma-city-akiten-sogyo-hojo">
             <h3>入間市空き店舗活用創業等支援補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">入間市 商工観光課｜補助金｜改修費は1/2または25万円の低い額（対象4商店街は上限50万円）、家賃は月額1/2または4万5千円の低い額（営業開始12か月以内）｜締切：公募要領で確認</p>
+            <p class="area-meta">入間市 商工観光課｜補助金｜改修費は1/2または25万円の低い額（対象4商店街は上限50万円）、家賃は月額1/2または4万5千円の低い額（営業開始12か月以内）</p>
             <p class="area-meta">期間：令和8年度の受付は終了（来年度は要確認）</p>
             <p>空き店舗で創業・出店する際の店舗改修費と家賃を補助する。市外在住者も利用可。</p>
             <p><strong>主な条件</strong></p>
@@ -188,7 +206,7 @@
           </div>
           <div class="area-program is-ended" id="iruma-city-chusho-seido-yushi">
             <h3>入間市中小企業制度融資 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">入間市 商工観光課｜融資｜要確認（創業支援資金融資を含む。令和8年度から信用保証料補助は廃止）｜締切：公募要領で確認</p>
+            <p class="area-meta">入間市 商工観光課｜融資｜要確認（創業支援資金融資を含む。令和8年度から信用保証料補助は廃止）</p>
             <p class="area-meta">期間：令和8年度の受付は終了</p>
             <p>市の中小企業向け制度融資。令和8年度から保証料補助事業が廃止され貸出利率も変更されている。</p>
             <p><strong>主な条件</strong></p>
@@ -213,34 +231,33 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>入間市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="iruma-taishin">
             <h3>入間市木造住宅耐震診断・耐震改修・防災ベッド等補助</h3>
-            <p class="area-meta">埼玉県入間市｜補助金｜診断:半額(上限5万円)、改修:費用の23%(上限20万円)、防災ベッド:半額(上限10万円)｜締切：公募要領で確認</p>
+            <p class="area-meta">埼玉県入間市｜補助金｜診断:半額(上限5万円)、改修:費用の23%(上限20万円)、防災ベッド:半額(上限10万円)</p>
             <p class="area-meta">期間：最新は要確認(予算に達し次第終了)</p>
             <p>旧耐震木造住宅の耐震診断・改修、防災ベッド等の費用を補助。先着順。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>昭和56年5月31日以前に着工された一戸建て等</li><li>契約・工事前に申請</li></ul>
             <p><a href="https://www.city.iruma.saitama.jp/soshiki/kaihatsukenchikuka/7/jukyo/7/450.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="iruma-zerocarbon">
             <h3>令和8年度入間市ゼロカーボンシティ推進設備設置費補助</h3>
-            <p class="area-meta">埼玉県入間市｜補助金｜太陽光:1kWあたり7万円(上限35万円)、蓄電池:価格の1/3(上限50万円)｜締切：公募要領で確認</p>
+            <p class="area-meta">埼玉県入間市｜補助金｜太陽光:1kWあたり7万円(上限35万円)、蓄電池:価格の1/3(上限50万円)</p>
             <p class="area-meta">期間：令和8年度分。2026年6月25日時点で予算上限に達し、以後は補欠扱い</p>
             <p>太陽光発電、蓄電池、V2H等の設置費を補助。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>発電量の30%以上を自家消費(太陽光)</li><li>令和8年4月9日以降に契約・工事</li></ul>
             <p><a href="https://www.city.iruma.saitama.jp/soshiki/eco_cleanseisakuka/18/9192.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="iruma-block">
             <h3>入間市ブロック塀等撤去工事補助制度</h3>
-            <p class="area-meta">埼玉県入間市｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">埼玉県入間市｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：現在受付を中止(最新は要確認)</p>
             <p>ブロック塀等の撤去工事への補助。ページ上は受付中止と表示。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>要確認</li></ul>
+            
             <p><a href="https://www.city.iruma.saitama.jp/soshiki/kaihatsukenchikuka/7/jukyo/5/3087.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
           <p><strong>埼玉県の制度</strong></p>

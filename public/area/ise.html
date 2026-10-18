@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">三重県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（伊勢市）<b>2件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（三重県）<b>5件（うち受付終了3件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>4件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">伊勢市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="ise-city-sogyo-iten-sokushin">
             <h3>伊勢市創業・移転促進補助金</h3>
-            <p class="area-meta">伊勢市 商工労政課｜補助金｜要確認（募集要領に記載。民間情報では補助率1/2・上限100万円程度）｜締切：公募要領で確認</p>
+            <p class="area-meta">伊勢市 商工労政課｜補助金｜要確認（募集要領に記載。民間情報では補助率1/2・上限100万円程度）</p>
             <p class="area-meta">期間：随時受付（予算額に達し次第終了）</p>
             <p>市内での創業や市外からの本店移転、事業承継にかかる経費の一部を補助する。申請前に商工労政課への事前連絡が必要。</p>
             <p><strong>主な条件</strong></p>
@@ -179,8 +197,8 @@
           </div>
           <div class="area-program" id="ise-city-sogyo-saichosen-risoku">
             <h3>創業・再挑戦アシスト資金利子補給補助金</h3>
-            <p class="area-meta">伊勢市 商工労政課｜融資｜要確認｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">伊勢市 商工労政課｜融資｜金額は公式で確認</p>
+            
             <p>創業や再挑戦のための資金を借り入れた事業者に対し、利子の一部を補給する制度。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>市内で創業または再挑戦する事業者</li><li>対象の融資を利用していること（詳細は要確認）</li></ul>
@@ -204,30 +222,30 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>伊勢市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="ise-taishin">
             <h3>伊勢市木造住宅耐震補強・耐震シェルター・空き家除却補助</h3>
-            <p class="area-meta">三重県伊勢市｜補助金｜耐震補強工事上限157.5万円、耐震シェルター等上限100万円、空き家除却上限30万円｜締切：公募要領で確認</p>
+            <p class="area-meta">三重県伊勢市｜補助金｜耐震補強工事上限157.5万円、耐震シェルター等上限100万円、空き家除却上限30万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>旧耐震の木造住宅の耐震補強、シェルター設置、空き家除却費を補助する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>昭和56年5月31日以前着工の木造住宅</li><li>耐震診断で評点が低いこと</li><li>契約前に申請</li></ul>
             <p><a href="https://www.city.ise.mie.jp/bousai_kyukyu/bousai/hojo/1013783.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="ise-solar">
             <h3>伊勢市自家消費型太陽光発電設備等設置費補助金</h3>
-            <p class="area-meta">三重県伊勢市｜補助金｜蓄電池:容量×15.5万円と購入設置費(税抜)の1/3の少ない方、太陽光:出力×7万円等｜締切：公募要領で確認</p>
+            <p class="area-meta">三重県伊勢市｜補助金｜蓄電池:容量×15.5万円と購入設置費(税抜)の1/3の少ない方、太陽光:出力×7万円等</p>
             <p class="area-meta">期間：令和8年度分は受付終了</p>
             <p>住宅の太陽光発電設備・定置型蓄電池の設置費を補助する。令和8年度分は予算額(1,751万円)に達し受付終了。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>住宅への設置</li><li>詳細は要確認</li></ul>
             <p><a href="https://www.city.ise.mie.jp/kurashi/kankyo/hozen/1016396.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="ise-akiya-kounyu">
             <h3>伊勢市空家購入促進事業補助金</h3>
-            <p class="area-meta">三重県伊勢市｜補助金｜購入費の1/2、上限50万円(移住者・子育て世帯)/30万円(一般世帯)｜締切：公募要領で確認</p>
+            <p class="area-meta">三重県伊勢市｜補助金｜購入費の1/2、上限50万円(移住者・子育て世帯)/30万円(一般世帯)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>市内の空き家購入費を補助する。空家リフォーム促進事業補助金との併用不可。</p>
             <p><strong>主な条件</strong></p>
@@ -236,7 +254,7 @@
           </div>
           <div class="area-program" id="ise-akiya-reform">
             <h3>伊勢市空家リフォーム促進事業補助金</h3>
-            <p class="area-meta">三重県伊勢市｜補助金｜工事費の1/2、上限30万円(一般世帯)/50万円(子育て・移住世帯)｜締切：公募要領で確認</p>
+            <p class="area-meta">三重県伊勢市｜補助金｜工事費の1/2、上限30万円(一般世帯)/50万円(子育て・移住世帯)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>空き家のリフォーム費用を補助する。</p>
             <p><strong>主な条件</strong></p>

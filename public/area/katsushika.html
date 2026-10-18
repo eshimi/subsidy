@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,6 +170,17 @@
       <p class="lead" style="margin-bottom: 0;">東京都・特別区。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（葛飾区）<b>4件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（東京都）<b>6件（うち受付終了1件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>14件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 2</a><a href="#res-cat-1">太陽光・蓄電池 4</a><a href="#res-cat-3">省エネ住宅 2</a><a href="#res-cat-4">空き家・ブロック塀 3</a><a href="#res-cat-5">バリアフリー・介護 2</a><a href="#res-cat-7">移住 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">葛飾区の制度（事業・創業の方向け）</h2>
@@ -225,10 +243,10 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>葛飾区の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="katsushika-taishin-hi-mokuzo">
             <h3>非木造の住宅、分譲マンション等の耐震助成</h3>
-            <p class="area-meta">葛飾区 建築課｜補助金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">葛飾区 建築課｜補助金｜金額は公式で確認</p>
             <p class="area-meta">期間：令和8年度の非木造建築物の申請締切は12月11日と案内</p>
             <p>昭和56年5月31日以前の非木造住宅・分譲マンション等の耐震診断・改修設計・改修工事費を助成。</p>
             
@@ -236,14 +254,14 @@
           </div>
           <div class="area-program" id="katsushika-taishin-mokuzo">
             <h3>木造住宅の耐震化促進事業</h3>
-            <p class="area-meta">葛飾区 建築課｜補助金｜費用の2/3。補強設計・耐震改修は最大200万円（旧耐震）。除却の上限は資料により記載が異なり要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">葛飾区 建築課｜補助金｜費用の2/3。補強設計・耐震改修は最大200万円（旧耐震）。除却の上限は資料により記載が異なり要確認</p>
             <p class="area-meta">期間：要確認（予算に達し次第終了）</p>
             <p>木造住宅の耐震診断士無料派遣と、補強設計・耐震改修・建替え・除却の費用を助成。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>昭和56年5月31日以前に着工（新耐震〜平成12年5月着工も別枠あり）</li></ul>
             <p><a href="https://www.city.katsushika.lg.jp/kurashi/1003399/1030171/1028654/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="katsushika-eco-battery">
             <h3>かつしかエコ助成金（個人住宅用・蓄電池）</h3>
             <p class="area-meta">葛飾区 環境課｜助成金｜対象経費の4分の1、限度額20万円。太陽光との併設で5万円加算｜締切：2027-03-31</p>
@@ -280,7 +298,7 @@
             <ul><li>工事着工前の事前協議が必要</li></ul>
             <p><a href="https://www.city.katsushika.lg.jp/kurashi/1000062/1023018/1035385/1030818.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program" id="katsushika-eco-high-insulation">
             <h3>かつしかエコ助成金（個人住宅用・高断熱住宅）</h3>
             <p class="area-meta">東京都葛飾区｜助成金｜断熱等性能等級5:15万円、等級6:60万円、等級7:80万円｜締切：2027-03-31</p>
@@ -299,10 +317,10 @@
             <ul><li>区内の個人住宅</li><li>事前協議が必要</li></ul>
             <p><a href="https://www.city.katsushika.lg.jp/kurashi/1000062/1023018/1035385/1036257/1036375.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="katsushika-akiya-tekisei-kanri">
             <h3>空き家適正管理助成制度</h3>
-            <p class="area-meta">東京都葛飾区｜補助金｜管理委託費の1/2（年額上限2万円）、樹木せん定費の1/2（上限1万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">東京都葛飾区｜補助金｜管理委託費の1/2（年額上限2万円）、樹木せん定費の1/2（上限1万円）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>空き家の管理委託費や樹木せん定費の一部を助成する。</p>
             <p><strong>主な条件</strong></p>
@@ -311,7 +329,7 @@
           </div>
           <div class="area-program" id="katsushika-block-tekkyo">
             <h3>ブロック塀等撤去工事等助成</h3>
-            <p class="area-meta">葛飾区｜助成金｜要確認（令和2年度資料では限度額30万円〜40万円。現行額は要確認）｜締切：公募要領で確認</p>
+            <p class="area-meta">葛飾区｜助成金｜要確認（令和2年度資料では限度額30万円〜40万円。現行額は要確認）</p>
             <p class="area-meta">期間：令和8年度（事前協議の締切は令和8年12月11日と案内）</p>
             <p>道路等に面した危険なブロック塀等の撤去および再築にかかる費用を助成する。</p>
             <p><strong>主な条件</strong></p>
@@ -320,18 +338,18 @@
           </div>
           <div class="area-program" id="katsushika-funenka-torikowashi">
             <h3>不燃化特区内の老朽建築物の取壊し助成</h3>
-            <p class="area-meta">東京都葛飾区｜補助金｜延床面積に応じた額と工事費の低い方、上限200万円｜締切：公募要領で確認</p>
+            <p class="area-meta">東京都葛飾区｜補助金｜延床面積に応じた額と工事費の低い方、上限200万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>四つ木一・二丁目の不燃化特区内の老朽木造等建築物の取壊し費用を助成。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>不燃化特区内の昭和56年5月31日以前建築の木造・軽量鉄骨造等</li></ul>
             <p><a href="https://www.city.katsushika.lg.jp/planning/1003610/1025770/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program" id="katsushika-jiritsu-shien-jutaku-kaishu">
             <h3>自立支援住宅改修費助成</h3>
-            <p class="area-meta">葛飾区｜助成金｜限度額20万円、自己負担1割（旧資料に基づく。現行は要確認）｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">葛飾区｜助成金｜限度額20万円、自己負担1割（旧資料に基づく。現行は要確認）</p>
+            
             <p>在宅で生活を続ける65歳以上の方の、転倒防止等のための手すり取付け・段差解消などの住宅改修費を助成する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>65歳以上で在宅生活をしている方</li><li>介護認定がない方が中心</li><li>工事着工前に相談すること</li></ul>
@@ -339,17 +357,17 @@
           </div>
           <div class="area-program" id="katsushika-jutaku-setsubi-kaishu">
             <h3>住宅設備改修費助成</h3>
-            <p class="area-meta">葛飾区｜助成金｜要確認（費用の1〜3割は自己負担、生活保護受給者は自己負担なし）｜締切：公募要領で確認</p>
-            <p class="area-meta">期間：要確認</p>
+            <p class="area-meta">葛飾区｜助成金｜要確認（費用の1〜3割は自己負担、生活保護受給者は自己負担なし）</p>
+            
             <p>在宅で生活する介護保険の要支援以上の認定を受けた方の住宅設備の改修費を助成する。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>区内在住で要支援以上の認定を受け在宅で生活している方</li><li>工事着工前に相談・申請すること</li></ul>
             <p><a href="https://www.city.katsushika.lg.jp/kenkou/1000052/1030186/1002141/1002163.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">移住</h3>
+          <h3 class="area-cat" id="res-cat-7">移住</h3>
           <div class="area-program" id="katsushika-kaisho-hosho">
             <h3>家賃債務保証制度利用助成</h3>
-            <p class="area-meta">東京都葛飾区｜補助金｜初回保証料、上限3万円｜締切：公募要領で確認</p>
+            <p class="area-meta">東京都葛飾区｜補助金｜初回保証料、上限3万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>区内の民間賃貸へ転居する際の家賃債務保証料を助成（高齢者世帯・ひとり親世帯等）。</p>
             <p><strong>主な条件</strong></p>

@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">大阪府・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（富田林市）<b>2件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（大阪府）<b>4件</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>4件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">富田林市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="tondabayashi-city-akiten-katsuyo-shien-hojo">
             <h3>富田林市空き店舗活用支援事業補助金</h3>
-            <p class="area-meta">富田林市 商工観光課｜補助金｜改装費の1/2、上限20万円（特別枠50万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">富田林市 商工観光課｜補助金｜改装費の1/2、上限20万円（特別枠50万円）</p>
             <p class="area-meta">期間：要確認（今年度の募集状況は市ページで確認）</p>
             <p>市内の空き店舗を活用して市内で初めて店舗等を開設する方に、改装費の一部を補助する。事業開始前の申請が必要。</p>
             <p><strong>主な条件</strong></p>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="tondabayashi-city-shokogyo-shinko-hojo">
             <h3>富田林市商工業振興補助制度（BCP策定・人材育成）</h3>
-            <p class="area-meta">富田林市 商工観光課｜補助金｜BCP策定：経費の1/2以内、上限10万円。研修派遣：受講料の1/2以内、1人3万円上限（1社年度内3人まで）。団体研修：1/2以内、1団体5万円上限｜締切：公募要領で確認</p>
+            <p class="area-meta">富田林市 商工観光課｜補助金｜BCP策定：経費の1/2以内、上限10万円。研修派遣：受講料の1/2以内、1人3万円上限（1社年度内3人まで）。団体研修：1/2以内、1団体5万円上限</p>
             <p class="area-meta">期間：要確認（年度ごとに受付、市ページで確認）</p>
             <p>中小企業者のBCP（事業継続計画）策定費や、従業員の外部研修派遣・団体研修の経費の一部を補助する。</p>
             <p><strong>主な条件</strong></p>
@@ -203,39 +221,39 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>富田林市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="tondabayashi-taishin">
             <h3>富田林市住宅等の耐震診断・改修・除却補助制度</h3>
-            <p class="area-meta">大阪府富田林市｜補助金｜戸建ての耐震改修は1戸あたり限度額100万円｜締切：公募要領で確認</p>
+            <p class="area-meta">大阪府富田林市｜補助金｜戸建ての耐震改修は1戸あたり限度額100万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>旧耐震の木造住宅の耐震診断・改修・除却を補助し、市から事業者へ直接支払う仕組みがある。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>昭和56年5月31日以前に建てられた木造住宅</li><li>直近の課税所得金額507万円未満の個人所有者</li></ul>
             <p><a href="https://www.city.tondabayashi.lg.jp/soshiki/32/44454.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="tondabayashi-datsutanso">
             <h3>富田林市住宅用脱炭素化機器等導入促進助成金</h3>
-            <p class="area-meta">大阪府富田林市｜助成金｜機器1種につき上限3万円｜締切：公募要領で確認</p>
+            <p class="area-meta">大阪府富田林市｜助成金｜機器1種につき上限3万円</p>
             <p class="area-meta">期間：令和8年度（2026年4月1日〜2027年3月31日取得分）</p>
             <p>出力10kW未満の太陽光発電システムなどの脱炭素化機器の導入を助成する。</p>
             <p><strong>主な条件</strong></p>
-            <ul><li>2026年4月1日〜2027年3月31日に取得した機器</li><li>要確認</li></ul>
+            <ul><li>2026年4月1日〜2027年3月31日に取得した機器</li></ul>
             <p><a href="https://www.city.tondabayashi.lg.jp/soshiki/17/93860.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="tondabayashi-akiya-jokyaku">
             <h3>富田林市老朽危険空家の除却補助制度</h3>
-            <p class="area-meta">大阪府富田林市｜補助金｜限度額1戸あたり100万円｜締切：公募要領で確認</p>
+            <p class="area-meta">大阪府富田林市｜補助金｜限度額1戸あたり100万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>倒壊のおそれのある老朽危険空家（木造）の除却費を補助する。</p>
             <p><strong>主な条件</strong></p>
-            <ul><li>老朽化により倒壊のおそれのある木造空き家</li><li>要確認</li></ul>
+            <ul><li>老朽化により倒壊のおそれのある木造空き家</li></ul>
             <p><a href="https://www.city.tondabayashi.lg.jp/soshiki/32/1125.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
           <div class="area-program" id="tondabayashi-akiyabank">
             <h3>富田林市空き家バンク制度活用促進補助制度</h3>
-            <p class="area-meta">大阪府富田林市｜補助金｜リフォーム費用の3分の1（上限20万円）｜締切：公募要領で確認</p>
+            <p class="area-meta">大阪府富田林市｜補助金｜リフォーム費用の3分の1（上限20万円）</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>空き家バンク経由で売買契約が成立した空き家の、市内事業者によるリフォーム費用を補助する。</p>
             <p><strong>主な条件</strong></p>

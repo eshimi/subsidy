@@ -42,6 +42,13 @@
     .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
     .area-program:first-child { border-top: 0; padding-top: 0; }
     .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
     .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
     .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
     .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
@@ -163,13 +170,24 @@
       <p class="lead" style="margin-bottom: 0;">福岡県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
     </div>
 
+    <nav class="area-toc" aria-label="このページの内容">
+      <p class="area-toc-title">このページの内容</p>
+      <ul>
+        <li><a href="#city-programs">事業・創業の方向け（大野城市）<b>2件</b></a></li>
+        <li><a href="#pref-programs">事業・創業の方向け（福岡県）<b>4件（うち受付終了3件）</b></a></li>
+        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>7件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-2">EV・充電 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-5">バリアフリー・介護 1</a></span></li>
+        <li><a href="#national">国の制度・全国から探す</a></li>
+        <li><a href="#checklist">申請前に確認したいこと</a></li>
+      </ul>
+    </nav>
+
     <div class="page-split"><div class="page-main">
 <div class="art-box">
 <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">大野城市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
           <div class="area-program" id="onojo-city-chushokigyo-yushi">
             <h3>大野城市中小企業融資制度</h3>
-            <p class="area-meta">大野城市 産業振興課（受付は大野城市商工会）｜融資｜貸付限度1,000万円、返済10年以内（据置6か月以内）、年1.60%｜締切：公募要領で確認</p>
+            <p class="area-meta">大野城市 産業振興課（受付は大野城市商工会）｜融資｜貸付限度1,000万円、返済10年以内（据置6か月以内）、年1.60%</p>
             <p class="area-meta">期間：通年（要確認）</p>
             <p>市内で事業を営む中小企業者向けの制度融資。完済後は保証料の一部補助を受けられる場合がある（完済日から1年以内に申請）。</p>
             <p><strong>主な条件</strong></p>
@@ -178,7 +196,7 @@
           </div>
           <div class="area-program" id="onojo-city-keiei-sodan-sogyo-shien">
             <h3>大野城市 中小企業対象の経営相談・診断・創業支援</h3>
-            <p class="area-meta">大野城市 産業振興課・大野城市商工会｜専門家支援｜要確認（相談は無料の案内あり）｜締切：公募要領で確認</p>
+            <p class="area-meta">大野城市 産業振興課・大野城市商工会｜専門家支援｜要確認（相談は無料の案内あり）</p>
             <p class="area-meta">期間：通年（要確認）</p>
             <p>創業希望者や中小企業者向けの経営相談・診断・創業支援の案内。ワン・ストップ無料相談では社会保険労務士や中小企業診断士などが対応する。</p>
             <p><strong>主な条件</strong></p>
@@ -203,27 +221,27 @@
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
           <p><strong>大野城市の制度</strong></p>
-          <h3 class="area-cat">耐震</h3>
+          <h3 class="area-cat" id="res-cat-0">耐震</h3>
           <div class="area-program" id="onojo-taishin">
             <h3>大野城市木造戸建て住宅耐震改修等補助事業</h3>
-            <p class="area-meta">福岡県大野城市｜補助金｜耐震改修費の50%(上限60万円)、建替え・住替え伴う解体は45%(上限60万円)｜締切：公募要領で確認</p>
+            <p class="area-meta">福岡県大野城市｜補助金｜耐震改修費の50%(上限60万円)、建替え・住替え伴う解体は45%(上限60万円)</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>旧耐震の木造戸建て住宅の耐震改修等を補助。着工前の申請が必要。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>昭和56年5月31日以前の市内木造戸建て</li><li>上部構造評点1.0未満</li></ul>
             <p><a href="https://www.city.onojo.fukuoka.jp/kiji0036125/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">太陽光・蓄電池</h3>
+          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
           <div class="area-program" id="onojo-saiene">
             <h3>大野城市再生可能エネルギー機器等設置費補助金</h3>
-            <p class="area-meta">福岡県大野城市｜補助金｜太陽光1kWあたり2万円(上限5kW、市内業者契約で+5千円/kW)、蓄電システム8万円、HEMS2万円｜締切：公募要領で確認</p>
+            <p class="area-meta">福岡県大野城市｜補助金｜太陽光1kWあたり2万円(上限5kW、市内業者契約で+5千円/kW)、蓄電システム8万円、HEMS2万円</p>
             <p class="area-meta">期間：最新は要確認(予算がなくなり次第終了)</p>
             <p>住宅への太陽光発電・蓄電システム・HEMS・V2H等の設置を補助。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>市内の住宅への設置者</li><li>令和4年4月1日以降契約分</li></ul>
             <p><a href="https://www.city.onojo.fukuoka.jp/s068/saiseikanou.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">EV・充電</h3>
+          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
           <div class="area-program" id="onojo-jisedai-car">
             <h3>大野城市次世代自動車普及促進補助金</h3>
             <p class="area-meta">福岡県大野城市｜補助金｜EV10万円、PHV5万円、FCV20万円(充電設備も対象)｜締切：2027-03-31</p>
@@ -233,20 +251,20 @@
             <ul><li>市民(個人)</li><li>充電設備は要件を満たすもの</li></ul>
             <p><a href="https://www.city.onojo.fukuoka.jp/s068/030/010/030/20230714153727.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">省エネ住宅</h3>
+          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
           <div class="area-program" id="onojo-shoene">
             <h3>大野城市省エネ住宅推進補助金</h3>
-            <p class="area-meta">福岡県大野城市｜補助金｜上限20万円｜締切：公募要領で確認</p>
+            <p class="area-meta">福岡県大野城市｜補助金｜上限20万円</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>省エネ住宅の推進に係る補助。詳細は要確認。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>市内の住宅(詳細要確認)</li></ul>
             <p><a href="https://www.city.onojo.fukuoka.jp/kiji0036267/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">空き家・ブロック塀</h3>
+          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
           <div class="area-program" id="onojo-akiya-kaitai">
             <h3>大野城市老朽危険空き家解体補助</h3>
-            <p class="area-meta">福岡県大野城市｜補助金｜除却工事費の2分の1(上限50万円)｜締切：公募要領で確認</p>
+            <p class="area-meta">福岡県大野城市｜補助金｜除却工事費の2分の1(上限50万円)</p>
             <p class="area-meta">期間：最新は要確認(申請期限は例年1月下旬が目安)</p>
             <p>老朽化した危険な空き家の解体費を補助(2件程度)。</p>
             <p><strong>主な条件</strong></p>
@@ -255,17 +273,17 @@
           </div>
           <div class="area-program" id="onojo-block">
             <h3>大野城市ブロック塀等撤去費補助事業</h3>
-            <p class="area-meta">福岡県大野城市｜補助金｜8000円×撤去長さ(m)または撤去費の3分の2の低い方(上限16万円)｜締切：公募要領で確認</p>
+            <p class="area-meta">福岡県大野城市｜補助金｜8000円×撤去長さ(m)または撤去費の3分の2の低い方(上限16万円)</p>
             <p class="area-meta">期間：最新は要確認(申請期限は例年1月下旬が目安)</p>
             <p>危険なブロック塀の撤去費用を補助。フェンス・土留めは対象外。</p>
             <p><strong>主な条件</strong></p>
             <ul><li>道路に面し高さ1m以上</li><li>市職員の診断で危険と判断</li></ul>
             <p><a href="https://www.city.onojo.fukuoka.jp/s059/030/030/040/20181219120625.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">バリアフリー・介護</h3>
+          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
           <div class="area-program" id="onojo-sumiyoka">
             <h3>大野城市住みよか事業(住宅改造費助成)</h3>
-            <p class="area-meta">福岡県大野城市｜助成金｜要確認｜締切：公募要領で確認</p>
+            <p class="area-meta">福岡県大野城市｜助成金｜金額は公式で確認</p>
             <p class="area-meta">期間：最新は要確認</p>
             <p>介護保険の住宅改修でも不足する手すり設置・段差解消等の費用の一部を助成。</p>
             <p><strong>主な条件</strong></p>
