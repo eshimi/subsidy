@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"市川市","item":"https://hojyokin.net/area/ichikawa.html"}]}</script>
@@ -165,143 +207,106 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 市川市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b17.webp')"><h1 class="pb-title">市川市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-chiba.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">千葉県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">千葉県 市川市</p>
+        <h1>市川市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度10件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-chiba.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（市川市）<b>3件</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（千葉県）<b>5件（うち受付終了3件）</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>7件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-2">EV・充電 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-5">バリアフリー・介護 2</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <span class="is-none"><i aria-hidden="true">👶</i><b>子育て</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>掲載なし</small></span>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>7件</small></a>
+      <span class="is-none"><i aria-hidden="true">🌱</i><b>移住</b><small>掲載なし</small></span>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市3件＋県5件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">市川市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="ichikawa-city-shoene-soene">
-            <h3>市川市省エネ・創エネ設備設置費等補助金（中小企業者等）</h3>
-            <p class="area-meta">市川市 カーボンニュートラル推進局｜補助金｜太陽光発電は1kWあたり5万円（上限50万円）。その他設備は要確認｜締切：2027-03-31</p>
-            <p class="area-meta">期間：2026年5月7日〜2027年3月31日（予算に達し次第終了）</p>
-            <p>事業所への太陽光発電、蓄電システム、HEMS、断熱改修等の設置費用を補助する。市内事業者による施工が条件。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の中小企業者等</li><li>令和8年4月1日〜令和9年3月31日に設置・工事が完了したもの</li><li>過去に市の同補助金を受けていないこと</li></ul>
-            <p><a href="https://www.city.ichikawa.lg.jp/page/5020.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>7件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="ichikawa-akiya-reform">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>市川市空家除却・活用事業補助金（空家活用リフォーム）</b><small>空家の除却・活用リフォームを補助する。子育て世帯が空家を改修して住む場合の加算もある。<br>対象：現行の耐震基準を満たす空家の活用等／子育て世帯は18歳未満の子を養育</small><span class="ar-prov">千葉県市川市</span></div>
+            <div class="ar-amt">改修費の1/2（上限100万円）。子育て世帯の転入は上限50万円、市内転居は上限25万円。家財処分は上限20万円、インスペクションは上限5万円</div>
+            <a class="ar-go" href="https://www.city.ichikawa.lg.jp/page/5030.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="ichikawa-city-tenjikai-shuppin">
-            <h3>市川市中小企業展示会等出展支援事業補助金</h3>
-            <p class="area-meta">市川市 商工課｜補助金｜補助率2分の1以内、上限30万円｜締切：2027-02-26</p>
-            <p class="area-meta">期間：2026年4月1日〜2027年2月26日（先着順。新規申請枠は2026年10月30日まで、継続申請枠は一時停止中）</p>
-            <p>国内で開催される展示会等への出展費用（会場使用料、設営・装飾費、電気・水道・通信費等）を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>販路開拓や受注拡大を目指す市内の中小企業者</li><li>国・他自治体・千葉県産業振興センター等から同目的の補助を受けていないこと</li></ul>
-            <p><a href="https://www.city.ichikawa.lg.jp/page/4783.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="ichikawa-anshin-housing">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>市川市あんしん住宅助成制度（防災改修・バリアフリー改修）</b><small>介護認定や障がい者手帳のない方のバリアフリー改修（手すり・段差解消等）や屋根軽量化などの防災改修を助成する。<br>対象：市内の住宅所有者等（詳細は要確認）／令和8年度から屋根軽量化は耐震診断が必要</small><span class="ar-prov">千葉県市川市</span></div>
+            <div class="ar-amt">バリアフリー改修は経費の1/3（上限10万円）。防災改修は要確認</div>
+            <a class="ar-go" href="https://www.city.ichikawa.lg.jp/page/1771.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="ichikawa-city-venture-hoshoryo">
-            <h3>市川市ベンチャービジネス等支援資金 信用保証料補助</h3>
-            <p class="area-meta">市川市 商工課｜補助金｜信用保証料の半額補助、上限12万8千円｜締切：2027-03-31</p>
-            <p class="area-meta">期間：令和8年4月1日以降の融資申請分、融資実行は2027年3月31日まで</p>
-            <p>市の中小企業融資制度のベンチャービジネス等支援資金を利用する際の信用保証料を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>ベンチャービジネス等支援資金の利用者</li><li>令和8年4月1日以降に融資申請し、令和9年3月31日までに融資実行されること</li></ul>
-            <p><a href="https://www.city.ichikawa.lg.jp/page/4784.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/ichikawa-city-venture-hoshoryo.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+          <div class="ar-row" id="ichikawa-block">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>市川市危険コンクリートブロック塀等除却事業助成</b><small>危険なブロック塀等の除却費用を助成する。<br>対象：市内の危険なブロック塀等の所有者（詳細は要確認）</small><span class="ar-prov">千葉県市川市</span></div>
+            <div class="ar-amt">撤去する塀の長さ1mあたり5千円（上限10万円）</div>
+            <a class="ar-go" href="https://www.city.ichikawa.lg.jp/cit06/1111000014.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          <div class="ar-row" id="ichikawa-ev-v2h">
+            <div class="ar-name"><b><span class="ar-tag">EV・充電</span>市川市電気自動車等導入費補助金（EV・V2H）</b><small>電気自動車・電動バイクの購入費やV2H充放電設備の設置費の一部を補助する。<br>対象：市内在住者等（詳細は要確認）／令和8年度予算は285万円で残額は要確認<br>期間：令和8年度（予算に達し次第終了）</small><span class="ar-prov">千葉県市川市</span></div>
+            <div class="ar-amt">EV 5万円、電動バイク 2万円、V2H設備 5万円（上限）</div>
+            <a class="ar-go" href="https://www.city.ichikawa.lg.jp/page/5130.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="ichikawa-kaigo-reform">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>市川市住宅改修費の給付・すみよい住まいづくり助成</b><small>手すり取付や段差解消などの住宅改修費を支給する。限度額を超える場合の助成制度もある。<br>対象：要介護・要支援認定を受けている方／着工前の事前申請が必要</small><span class="ar-prov">千葉県市川市</span></div>
+            <div class="ar-amt">介護保険の住宅改修は20万円を限度。給付限度額超過分への助成も限度20万円</div>
+            <a class="ar-go" href="https://www.city.ichikawa.lg.jp/wel02/1111000006.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="ichikawa-smarthouse">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>市川市スマートハウス関連設備導入費補助金</b><small>住宅用太陽光発電や定置用リチウムイオン蓄電システム等の導入費を補助する。令和8年度の太陽光枠は残額が少ない。<br>対象：市内事業者による施工（太陽光）／先着順・予算到達で終了<br>期間：令和8年度（予算到達次第終了）</small><span class="ar-prov">千葉県市川市</span></div>
+            <div class="ar-amt">住宅用太陽光 5万円/kW（上限50万円）。蓄電システム等は要確認</div>
+            <a class="ar-go" href="https://www.city.ichikawa.lg.jp/env01/1111000130.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="ichikawa-taishin">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>市川市建築物耐震診断・改修助成</b><small>木造住宅の耐震診断・改修工事費を助成する。<br>対象：市内の旧耐震の木造住宅等（詳細は要確認）</small><span class="ar-prov">千葉県市川市</span></div>
+            <div class="ar-amt">木造診断：費用の2/3（上限9万円）、改修：設計・工事費の4/5（上限115万円）</div>
+            <a class="ar-go" href="https://www.city.ichikawa.lg.jp/cit06/1111000015.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>千葉県の制度</strong></p>
+          <ul><li><a href="pref-chiba.html#chiba-pref-iju-shienkin">千葉県移住支援金（UIJターン）</a></li><li><a href="pref-chiba.html#chiba-pref-jutaku-lease-ppa">千葉県住宅用太陽光発電設備等に係るリース等導入促進事業補助金</a></li><li><a href="pref-chiba.html#chiba-pref-zeh">令和8年度千葉県ネット・ゼロ・エネルギー・ハウス導入促進事業補助金</a></li></ul>
+          <p><a href="pref-chiba.html#pref-resident">千葉県の制度3件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">千葉県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">市川市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-chiba.html#chiba-chusho-shinko-shikin">千葉県 中小企業振興資金</a></li><li><a href="pref-chiba.html#chiba-shijo-kaitaku-josei">市場開拓助成（展示会出展）</a></li><li><a href="pref-chiba.html#chiba-pref-sogyo-ouen">ちば創業応援助成金</a></li><li><a href="pref-chiba.html#chiba-reskilling-banso">中小企業向け伴走型リスキリング支援</a></li><li><a href="pref-chiba.html#chiba-seicho-sokushin-hojo">中小企業成長促進補助金（第4弾）</a></li></ul>
-          <p><a href="pref-chiba.html#pref-business">千葉県の制度5件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="ichikawa-city-shoene-soene">
+            <div class="ar-name"><b>市川市省エネ・創エネ設備設置費等補助金（中小企業者等）</b><small>事業所への太陽光発電、蓄電システム、HEMS、断熱改修等の設置費用を補助する。市内事業者による施工が条件。<br>対象：市内の中小企業者等／令和8年4月1日〜令和9年3月31日に設置・工事が完了したもの<br>期間：2026年5月7日〜2027年3月31日（予算に達し次第終了）<br>締切：2027-03-31</small><span class="ar-prov">市川市 カーボンニュートラル推進局</span></div>
+            <div class="ar-amt">太陽光発電は1kWあたり5万円（上限50万円）。その他設備は要確認</div>
+            <a class="ar-go" href="https://www.city.ichikawa.lg.jp/page/5020.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="ichikawa-city-tenjikai-shuppin">
+            <div class="ar-name"><b>市川市中小企業展示会等出展支援事業補助金</b><small>国内で開催される展示会等への出展費用（会場使用料、設営・装飾費、電気・水道・通信費等）を補助する。<br>対象：販路開拓や受注拡大を目指す市内の中小企業者／国・他自治体・千葉県産業振興センター等から同目的の補助を受けていないこと<br>期間：2026年4月1日〜2027年2月26日（先着順。新規申請枠は2026年10月30日まで、継続申請枠は一時停止中）<br>締切：2027-02-26</small><span class="ar-prov">市川市 商工課</span></div>
+            <div class="ar-amt">補助率2分の1以内、上限30万円</div>
+            <a class="ar-go" href="https://www.city.ichikawa.lg.jp/page/4783.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="ichikawa-city-venture-hoshoryo">
+            <div class="ar-name"><b>市川市ベンチャービジネス等支援資金 信用保証料補助</b><small>市の中小企業融資制度のベンチャービジネス等支援資金を利用する際の信用保証料を補助する。<br>対象：ベンチャービジネス等支援資金の利用者／令和8年4月1日以降に融資申請し、令和9年3月31日までに融資実行されること<br>期間：令和8年4月1日以降の融資申請分、融資実行は2027年3月31日まで<br>締切：2027-03-31</small><span class="ar-prov">市川市 商工課</span></div>
+            <div class="ar-amt">信用保証料の半額補助、上限12万8千円</div>
+            <a class="ar-go" href="https://www.city.ichikawa.lg.jp/page/4784.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">千葉県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>市川市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="ichikawa-taishin">
-            <h3>市川市建築物耐震診断・改修助成</h3>
-            <p class="area-meta">千葉県市川市｜助成金｜木造診断：費用の2/3（上限9万円）、改修：設計・工事費の4/5（上限115万円）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>木造住宅の耐震診断・改修工事費を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の旧耐震の木造住宅等（詳細は要確認）</li></ul>
-            <p><a href="https://www.city.ichikawa.lg.jp/cit06/1111000015.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program" id="ichikawa-smarthouse">
-            <h3>市川市スマートハウス関連設備導入費補助金</h3>
-            <p class="area-meta">千葉県市川市｜補助金｜住宅用太陽光 5万円/kW（上限50万円）。蓄電システム等は要確認</p>
-            <p class="area-meta">期間：令和8年度（予算到達次第終了）</p>
-            <p>住宅用太陽光発電や定置用リチウムイオン蓄電システム等の導入費を補助する。令和8年度の太陽光枠は残額が少ない。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内事業者による施工（太陽光）</li><li>先着順・予算到達で終了</li></ul>
-            <p><a href="https://www.city.ichikawa.lg.jp/env01/1111000130.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
-          <div class="area-program" id="ichikawa-ev-v2h">
-            <h3>市川市電気自動車等導入費補助金（EV・V2H）</h3>
-            <p class="area-meta">千葉県市川市｜補助金｜EV 5万円、電動バイク 2万円、V2H設備 5万円（上限）</p>
-            <p class="area-meta">期間：令和8年度（予算に達し次第終了）</p>
-            <p>電気自動車・電動バイクの購入費やV2H充放電設備の設置費の一部を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内在住者等（詳細は要確認）</li><li>令和8年度予算は285万円で残額は要確認</li></ul>
-            <p><a href="https://www.city.ichikawa.lg.jp/page/5130.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="ichikawa-akiya-reform">
-            <h3>市川市空家除却・活用事業補助金（空家活用リフォーム）</h3>
-            <p class="area-meta">千葉県市川市｜補助金｜改修費の1/2（上限100万円）。子育て世帯の転入は上限50万円、市内転居は上限25万円。家財処分は上限20万円、インスペクションは上限5万円</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>空家の除却・活用リフォームを補助する。子育て世帯が空家を改修して住む場合の加算もある。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>現行の耐震基準を満たす空家の活用等</li><li>子育て世帯は18歳未満の子を養育</li></ul>
-            <p><a href="https://www.city.ichikawa.lg.jp/page/5030.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="ichikawa-block">
-            <h3>市川市危険コンクリートブロック塀等除却事業助成</h3>
-            <p class="area-meta">千葉県市川市｜助成金｜撤去する塀の長さ1mあたり5千円（上限10万円）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>危険なブロック塀等の除却費用を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の危険なブロック塀等の所有者（詳細は要確認）</li></ul>
-            <p><a href="https://www.city.ichikawa.lg.jp/cit06/1111000014.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
-          <div class="area-program" id="ichikawa-anshin-housing">
-            <h3>市川市あんしん住宅助成制度（防災改修・バリアフリー改修）</h3>
-            <p class="area-meta">千葉県市川市｜助成金｜バリアフリー改修は経費の1/3（上限10万円）。防災改修は要確認</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>介護認定や障がい者手帳のない方のバリアフリー改修（手すり・段差解消等）や屋根軽量化などの防災改修を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の住宅所有者等（詳細は要確認）</li><li>令和8年度から屋根軽量化は耐震診断が必要</li></ul>
-            <p><a href="https://www.city.ichikawa.lg.jp/page/1771.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="ichikawa-kaigo-reform">
-            <h3>市川市住宅改修費の給付・すみよい住まいづくり助成</h3>
-            <p class="area-meta">千葉県市川市｜給付｜介護保険の住宅改修は20万円を限度。給付限度額超過分への助成も限度20万円</p>
-            <p class="area-meta">期間：通年（要確認）</p>
-            <p>手すり取付や段差解消などの住宅改修費を支給する。限度額を超える場合の助成制度もある。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>要介護・要支援認定を受けている方</li><li>着工前の事前申請が必要</li></ul>
-            <p><a href="https://www.city.ichikawa.lg.jp/wel02/1111000006.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>千葉県の制度</strong></p>
-          <ul><li><a href="pref-chiba.html#chiba-pref-iju-shienkin">千葉県移住支援金（UIJターン）</a></li><li><a href="pref-chiba.html#chiba-pref-jutaku-lease-ppa">千葉県住宅用太陽光発電設備等に係るリース等導入促進事業補助金</a></li><li><a href="pref-chiba.html#chiba-pref-zeh">令和8年度千葉県ネット・ゼロ・エネルギー・ハウス導入促進事業補助金</a></li></ul>
-          <p><a href="pref-chiba.html#pref-resident">千葉県の制度3件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-chiba.html#chiba-chusho-shinko-shikin">千葉県 中小企業振興資金</a></li><li><a href="pref-chiba.html#chiba-shijo-kaitaku-josei">市場開拓助成（展示会出展）</a></li><li><a href="pref-chiba.html#chiba-pref-sogyo-ouen">ちば創業応援助成金</a></li><li><a href="pref-chiba.html#chiba-reskilling-banso">中小企業向け伴走型リスキリング支援</a></li><li><a href="pref-chiba.html#chiba-seicho-sokushin-hojo">中小企業成長促進補助金（第4弾）</a></li></ul>
+          <p><a href="pref-chiba.html#pref-business">千葉県の制度5件を、県のページで見る →</a></p>
       </div>
     </section>
 

@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"京都市","item":"https://hojyokin.net/area/kyoto.html"}]}</script>
@@ -165,152 +207,123 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 京都市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b14.webp')"><h1 class="pb-title">京都市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-kyoto.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">京都府・政令指定都市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">京都府 京都市</p>
+        <h1>京都市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度11件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-kyoto.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（京都市）<b>3件（うち受付終了1件）</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（京都府）<b>4件</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>8件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 2</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-6">子育て 1</a><a href="#res-cat-7">医療・福祉 2</a><a href="#res-cat-8">教育・学び 1</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <a href="#res-g-kosodate"><i aria-hidden="true">👶</i><b>子育て</b><small>1件</small></a>
+      <a href="#res-g-iryo"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>2件</small></a>
+      <a href="#res-g-kyoiku"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>1件</small></a>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>4件</small></a>
+      <span class="is-none"><i aria-hidden="true">🌱</i><b>移住</b><small>掲載なし</small></span>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市3件＋県4件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">京都市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="kyoto-energy-renovation">
-            <h3>京都市中小事業者の省エネリノベーション支援事業補助金（令和8年度7月補正予算事業）</h3>
-            <p class="area-meta">京都市 環境政策局｜補助金｜補助率：3分の1（要確認）。上限200万円（要確認）。下限20万円（前回募集の数値）</p>
-            <p class="area-meta">期間：令和8年8月12日付の公式お知らせによる受付。受付期間は先着順（開始日は要確認）</p>
-            <p>物価高騰対策として、空調・照明・給湯・冷凍冷蔵設備の省エネ改修を行う京都市内の中小事業者を支援します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>中小企業者、社会福祉法人、医療法人、学校法人等</li><li>予算の範囲内で先着順</li></ul>
-            <p><a href="https://www.city.kyoto.lg.jp/kankyo/page/0000356906.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-kosodate">子育て<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="kyoto-smile-mama-hot-sangocare">
+            <div class="ar-name"><b>京都市スマイルママ・ホッと事業（産後ケア事業）</b><small>産後1年までの母子に、産後ショートステイや産後デイケア、令和8年8月開始の訪問型で、助産師等によるケアを提供し、利用料を減免する事業です。<br>対象：京都市に住民票を有し、京都市内に居住している生後1年未満の母親とその赤ちゃん<br>期間：産後1年まで（令和8年8月1日からアウトリーチ（訪問型）を開始）</small><span class="ar-prov">京都市</span></div>
+            <div class="ar-amt">市民税課税世帯は1回あたり最大2,500円を減免（合計5回分まで）、非課税・生活保護世帯は利用回数上限まで無料</div>
+            <a class="ar-go" href="https://www.city.kyoto.lg.jp/hagukumi/page/0000168986.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="kyoto-chuto-oen-loan">
-            <h3>京都市 小規模企業おうえん資金（中東情勢対応枠）</h3>
-            <p class="area-meta">京都市 産業観光局 中小企業支援課｜融資｜無担保2,000万円、金利1.2%（要確認）</p>
-            <p class="area-meta">期間：令和8年度（受付期間は公式ページで要確認）</p>
-            <p>中東情勢の影響で売上高等の減少が見込まれる京都市内の小規模事業者が、資金繰りのために借入れできます。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>京都市内の小規模事業者</li><li>中東情勢の影響で売上高等の減少が見込まれること（詳細要件は要確認）</li></ul>
-            <p><a href="https://www.city.kyoto.lg.jp/sankan/page/0000356045.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">受付が終了した制度（次回の公募の参考に）</h3>
-          <div class="area-program is-ended" id="kyoto-impact-flow">
-            <h3>京都市創業支援補助金（IMPACT FLOW KYOTO） <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">京都市・京都高度技術研究所（ASTEM）｜補助金｜創業支援部門 上限50万円／STEP-UP部門 上限200万円｜締切：2026-08-07</p>
-            <p class="area-meta">期間：例年6〜8月に公募（令和8年度は6月1日〜8月7日）</p>
-            <p>環境・教育・医療・文化など社会課題の解決に挑む創業予定者・スタートアップを支援。補助金に加え、伴走支援や法人登記可能なコワーキングスペースの利用料免除（1年間）なども受けられます。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>京都市内で創業予定、またはスタートアップ</li><li>社会課題の解決を目指す事業</li></ul>
-            
+          <h3 class="area-cat" id="res-g-iryo">医療・福祉<span>2件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="kyoto-hitorioya-iryohi">
+            <div class="ar-name"><b>ひとり親家庭等医療費支給制度</b><small>ひとり親家庭の親子などが健康保険を使って受診したときの、窓口で支払う自己負担額を京都市が支給する制度です。<br>対象：京都市内に住み、健康保険に加入している「配偶者のない母親・父親」とその児童など／世帯の主たる生計維持者の所得が所得制限基準額未満であること<br>期間：通年（令和8年度から更新申請書の提出は原則不要）</small><span class="ar-prov">京都市</span></div>
+            <div class="ar-amt">窓口で支払う医療費（自己負担額）を京都市が支給</div>
+            <a class="ar-go" href="https://www.city.kyoto.lg.jp/hagukumi/page/0000160272.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          <div class="ar-row" id="kyoto-kikoe-ouen-jigyo">
+            <div class="ar-name"><b>聞こえの応援事業（加齢性難聴者の補聴器購入助成）</b><small>令和8年度から、加齢性難聴による「聞こえ」の課題を抱える高齢者に対し、補聴器購入費の一部を助成する事業です。<br>対象：身体障害者手帳（聴覚障害）の交付を受けていないこと／補聴器購入時点で満65歳以上で、申請日時点で京都市に住民登録があること<br>期間：補聴器を購入した翌日から1年以内に申請（令和8年4月以降に購入した補聴器が対象）</small><span class="ar-prov">京都市 保健福祉局 健康長寿のまち・京都推進室 健康長寿企画課</span></div>
+            <div class="ar-amt">上限3万円（補聴器本体に係る購入費の2分の1の額と3万円のいずれか少ない額）</div>
+            <a class="ar-go" href="https://www.city.kyoto.lg.jp/hokenfukushi/page/0000353311.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-kyoiku">教育・学び<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="kyoto-koko-shugaku-gakuyohin">
+            <div class="ar-name"><b>京都市高校進学・修学支援金（学用品購入等助成金）</b><small>市民税が課税されていない世帯等の高校生等に対し、学用品購入などの費用を助成する令和8年度の支給事業です。<br>対象：市民税が課税されていない世帯（生活保護受給世帯を除く）に属する高校生等／扶養者が京都市内に在住していること<br>期間：令和8年10月1日（木曜日）～令和9年3月31日（水曜日）<br>締切：2027-03-31</small><span class="ar-prov">京都市 子ども家庭支援課分室</span></div>
+            <div class="ar-amt">支給上限額 144,000円</div>
+            <a class="ar-go" href="https://www.city.kyoto.lg.jp/hagukumi/page/0000348053.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>4件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="kyoto-city-dannetsu-kaishu-r8">
+            <div class="ar-name"><b><span class="ar-tag">省エネ住宅</span>令和8年度京都市脱炭素先行地域づくり事業における既存住宅の断熱改修等補助</b><small>脱炭素先行地域づくり事業として、既存住宅の断熱改修等に対して補助する。<br>対象：京都市内の戸建住宅を所有して居住する個人（引越し予定者を含む）<br>期間：令和8年5月1日〜令和8年11月30日<br>締切：2026-11-30</small><span class="ar-prov">京都市</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.kyoto.lg.jp/kankyo/page/0000352083.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kyoto-city-jikasyohi-taiyoko-r8">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>令和8年度京都市住宅の自家消費型太陽光発電設備等設置補助金</b><small>京都市内の戸建て住宅に、太陽光発電設備（2kW以上）と蓄電池またはV2Hを同時設置する経費の一部を補助する。高効率給湯機器やコージェネの同時設置も対象になる。<br>対象：京都市内の戸建て住宅／太陽光（2kW以上）と蓄電池またはV2Hの同時設置</small><span class="ar-prov">京都市 環境政策局</span></div>
+            <div class="ar-amt">太陽光：1kWあたり7万円、蓄電池：1kWhあたり5万円（経費の1/3が上限）、V2H充放電設備：1件10万円</div>
+            <a class="ar-go" href="https://www.city.kyoto.lg.jp/kankyo/page/0000353430.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kyoto-city-machinotakumi-taishin">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>令和8年度すまいの耐震・防火補助制度（まちの匠・ぷらす）</b><small>昭和56年5月31日以前に着工された京都市内の木造住宅・京町家の耐震改修等を補助する。<br>対象：昭和56年5月31日以前に着工された木造住宅または京町家／京都市内の住宅<br>期間：2026年4月13日から12月25日まで<br>締切：2026-12-25</small><span class="ar-prov">京都市 都市計画局</span></div>
+            <div class="ar-amt">木造住宅の本格耐震改修：最大200万円、簡易な改修（屋根の軽量化など）：最大40万円。感震ブレーカー設置にも補助あり</div>
+            <a class="ar-go" href="https://www.city.kyoto.lg.jp/tokei/page/0000351188.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kyoto-city-taishin-shindanshi">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>木造住宅及び京町家の耐震診断士派遣事業</b><small>耐震診断士を派遣し、木造住宅や京町家の耐震診断を行う。</small><span class="ar-prov">京都市 都市計画局</span></div>
+            <div class="ar-amt">木造住宅の耐震診断は無料（京町家の基本計画作成のみ自己負担2万円）</div>
+            <a class="ar-go" href="https://www.city.kyoto.lg.jp/tokei/page/0000119039.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>京都府の制度</strong></p>
+          <ul><li><a href="pref-kyoto.html#kyoto-iju-shienkin">京都府移住支援金</a></li><li><a href="pref-kyoto.html#kyoto-jutaku-datsutanso-r8">京都府住宅脱炭素化促進事業補助金</a></li><li><a href="pref-kyoto.html#kyoto-kateimuke-taiyoko-r8">家庭向け太陽光発電・蓄電設備補助金（令和8年度）</a></li><li><a href="pref-kyoto.html#kyoto-kosodate-ouen-jutaku">子育ておうえん住宅支援事業費補助金</a></li><li><a href="pref-kyoto.html#kyoto-taishin-mokuzo-kaishu">京都府木造住宅耐震改修等事業費補助</a></li></ul>
+          <p><a href="pref-kyoto.html#pref-resident">京都府の制度6件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">京都府の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">京都市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-kyoto.html#kyoto-keiei-kaikaku">京都府 中小企業経営改革支援事業</a></li><li><a href="pref-kyoto.html#kyoto-seisansei-hitode">京都府生産性向上・人手不足対策事業費補助事業</a></li><li><a href="pref-kyoto.html#kyoto-shokibo-ouen-shikin">京都府・京都市 小規模企業おうえん資金</a></li><li><a href="pref-kyoto.html#kyoto-sogyo-shien-shikin">京都府・京都市 創業支援資金（創業・事業転換等）</a></li></ul>
-          <p><a href="pref-kyoto.html#pref-business">京都府の制度4件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="kyoto-energy-renovation">
+            <div class="ar-name"><b>京都市中小事業者の省エネリノベーション支援事業補助金（令和8年度7月補正予算事業）</b><small>物価高騰対策として、空調・照明・給湯・冷凍冷蔵設備の省エネ改修を行う京都市内の中小事業者を支援します。<br>対象：中小企業者、社会福祉法人、医療法人、学校法人等／予算の範囲内で先着順</small><span class="ar-prov">京都市 環境政策局</span></div>
+            <div class="ar-amt">補助率：3分の1（要確認）。上限200万円（要確認）。下限20万円（前回募集の数値）</div>
+            <a class="ar-go" href="https://www.city.kyoto.lg.jp/kankyo/page/0000356906.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kyoto-chuto-oen-loan">
+            <div class="ar-name"><b>京都市 小規模企業おうえん資金（中東情勢対応枠）</b><small>中東情勢の影響で売上高等の減少が見込まれる京都市内の小規模事業者が、資金繰りのために借入れできます。<br>対象：京都市内の小規模事業者／中東情勢の影響で売上高等の減少が見込まれること（詳細要件は要確認）</small><span class="ar-prov">京都市 産業観光局 中小企業支援課</span></div>
+            <div class="ar-amt">無担保2,000万円、金利1.2%（要確認）</div>
+            <a class="ar-go" href="https://www.city.kyoto.lg.jp/sankan/page/0000356045.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="kyoto-impact-flow">
+            <div class="ar-name"><b>京都市創業支援補助金（IMPACT FLOW KYOTO） <span class="area-ended-tag">受付終了</span></b><small>環境・教育・医療・文化など社会課題の解決に挑む創業予定者・スタートアップを支援。補助金に加え、伴走支援や法人登記可能なコワーキングスペースの利用料免除（1年間）なども受けられます。<br>対象：京都市内で創業予定、またはスタートアップ／社会課題の解決を目指す事業<br>期間：例年6〜8月に公募（令和8年度は6月1日〜8月7日）<br>締切：2026-08-07</small><span class="ar-prov">京都市・京都高度技術研究所（ASTEM）</span></div>
+            <div class="ar-amt">創業支援部門 上限50万円／STEP-UP部門 上限200万円</div>
+            
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">京都府の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>京都市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="kyoto-city-machinotakumi-taishin">
-            <h3>令和8年度すまいの耐震・防火補助制度（まちの匠・ぷらす）</h3>
-            <p class="area-meta">京都市 都市計画局｜補助金｜木造住宅の本格耐震改修：最大200万円、簡易な改修（屋根の軽量化など）：最大40万円。感震ブレーカー設置にも補助あり｜締切：2026-12-25</p>
-            <p class="area-meta">期間：2026年4月13日から12月25日まで</p>
-            <p>昭和56年5月31日以前に着工された京都市内の木造住宅・京町家の耐震改修等を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>昭和56年5月31日以前に着工された木造住宅または京町家</li><li>京都市内の住宅</li><li>予算がなくなり次第終了</li></ul>
-            <p><a href="https://www.city.kyoto.lg.jp/tokei/page/0000351188.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="kyoto-city-taishin-shindanshi">
-            <h3>木造住宅及び京町家の耐震診断士派遣事業</h3>
-            <p class="area-meta">京都市 都市計画局｜助成金｜木造住宅の耐震診断は無料（京町家の基本計画作成のみ自己負担2万円）</p>
-            
-            <p>耐震診断士を派遣し、木造住宅や京町家の耐震診断を行う。</p>
-            
-            <p><a href="https://www.city.kyoto.lg.jp/tokei/page/0000119039.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program" id="kyoto-city-jikasyohi-taiyoko-r8">
-            <h3>令和8年度京都市住宅の自家消費型太陽光発電設備等設置補助金</h3>
-            <p class="area-meta">京都市 環境政策局｜補助金｜太陽光：1kWあたり7万円、蓄電池：1kWhあたり5万円（経費の1/3が上限）、V2H充放電設備：1件10万円</p>
-            <p class="area-meta">期間：令和8年度（募集期間は要確認）</p>
-            <p>京都市内の戸建て住宅に、太陽光発電設備（2kW以上）と蓄電池またはV2Hを同時設置する経費の一部を補助する。高効率給湯機器やコージェネの同時設置も対象になる。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>京都市内の戸建て住宅</li><li>太陽光（2kW以上）と蓄電池またはV2Hの同時設置</li></ul>
-            <p><a href="https://www.city.kyoto.lg.jp/kankyo/page/0000353430.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
-          <div class="area-program" id="kyoto-city-dannetsu-kaishu-r8">
-            <h3>令和8年度京都市脱炭素先行地域づくり事業における既存住宅の断熱改修等補助</h3>
-            <p class="area-meta">京都市｜補助金｜金額は公式で確認｜締切：2026-11-30</p>
-            <p class="area-meta">期間：令和8年5月1日〜令和8年11月30日</p>
-            <p>脱炭素先行地域づくり事業として、既存住宅の断熱改修等に対して補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>京都市内の戸建住宅を所有して居住する個人（引越し予定者を含む）</li></ul>
-            <p><a href="https://www.city.kyoto.lg.jp/kankyo/page/0000352083.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-6">子育て</h3>
-          <div class="area-program" id="kyoto-smile-mama-hot-sangocare">
-            <h3>京都市スマイルママ・ホッと事業（産後ケア事業）</h3>
-            <p class="area-meta">京都市｜助成金｜市民税課税世帯は1回あたり最大2,500円を減免（合計5回分まで）、非課税・生活保護世帯は利用回数上限まで無料</p>
-            <p class="area-meta">期間：産後1年まで（令和8年8月1日からアウトリーチ（訪問型）を開始）</p>
-            <p>産後1年までの母子に、産後ショートステイや産後デイケア、令和8年8月開始の訪問型で、助産師等によるケアを提供し、利用料を減免する事業です。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>京都市に住民票を有し、京都市内に居住している生後1年未満の母親とその赤ちゃん</li></ul>
-            <p><a href="https://www.city.kyoto.lg.jp/hagukumi/page/0000168986.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-7">医療・福祉</h3>
-          <div class="area-program" id="kyoto-hitorioya-iryohi">
-            <h3>ひとり親家庭等医療費支給制度</h3>
-            <p class="area-meta">京都市｜給付｜窓口で支払う医療費（自己負担額）を京都市が支給</p>
-            <p class="area-meta">期間：通年（令和8年度から更新申請書の提出は原則不要）</p>
-            <p>ひとり親家庭の親子などが健康保険を使って受診したときの、窓口で支払う自己負担額を京都市が支給する制度です。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>京都市内に住み、健康保険に加入している「配偶者のない母親・父親」とその児童など</li><li>世帯の主たる生計維持者の所得が所得制限基準額未満であること</li></ul>
-            <p><a href="https://www.city.kyoto.lg.jp/hagukumi/page/0000160272.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="kyoto-kikoe-ouen-jigyo">
-            <h3>聞こえの応援事業（加齢性難聴者の補聴器購入助成）</h3>
-            <p class="area-meta">京都市 保健福祉局 健康長寿のまち・京都推進室 健康長寿企画課｜助成金｜上限3万円（補聴器本体に係る購入費の2分の1の額と3万円のいずれか少ない額）</p>
-            <p class="area-meta">期間：補聴器を購入した翌日から1年以内に申請（令和8年4月以降に購入した補聴器が対象）</p>
-            <p>令和8年度から、加齢性難聴による「聞こえ」の課題を抱える高齢者に対し、補聴器購入費の一部を助成する事業です。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>身体障害者手帳（聴覚障害）の交付を受けていないこと</li><li>補聴器購入時点で満65歳以上で、申請日時点で京都市に住民登録があること</li><li>講座の受講・協力医療機関での判断・対象販売店での購入などの要件を全て満たすこと</li></ul>
-            <p><a href="https://www.city.kyoto.lg.jp/hokenfukushi/page/0000353311.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-8">教育・学び</h3>
-          <div class="area-program" id="kyoto-koko-shugaku-gakuyohin">
-            <h3>京都市高校進学・修学支援金（学用品購入等助成金）</h3>
-            <p class="area-meta">京都市 子ども家庭支援課分室｜助成金｜支給上限額 144,000円｜締切：2027-03-31</p>
-            <p class="area-meta">期間：令和8年10月1日（木曜日）～令和9年3月31日（水曜日）</p>
-            <p>市民税が課税されていない世帯等の高校生等に対し、学用品購入などの費用を助成する令和8年度の支給事業です。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市民税が課税されていない世帯（生活保護受給世帯を除く）に属する高校生等</li><li>扶養者が京都市内に在住していること</li><li>同一学年で過去に学用品購入等助成金の支給を受けていないこと</li></ul>
-            <p><a href="https://www.city.kyoto.lg.jp/hagukumi/page/0000348053.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>京都府の制度</strong></p>
-          <ul><li><a href="pref-kyoto.html#kyoto-iju-shienkin">京都府移住支援金</a></li><li><a href="pref-kyoto.html#kyoto-jutaku-datsutanso-r8">京都府住宅脱炭素化促進事業補助金</a></li><li><a href="pref-kyoto.html#kyoto-kateimuke-taiyoko-r8">家庭向け太陽光発電・蓄電設備補助金（令和8年度）</a></li><li><a href="pref-kyoto.html#kyoto-kosodate-ouen-jutaku">子育ておうえん住宅支援事業費補助金</a></li><li><a href="pref-kyoto.html#kyoto-taishin-mokuzo-kaishu">京都府木造住宅耐震改修等事業費補助</a></li></ul>
-          <p><a href="pref-kyoto.html#pref-resident">京都府の制度6件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-kyoto.html#kyoto-keiei-kaikaku">京都府 中小企業経営改革支援事業</a></li><li><a href="pref-kyoto.html#kyoto-seisansei-hitode">京都府生産性向上・人手不足対策事業費補助事業</a></li><li><a href="pref-kyoto.html#kyoto-shokibo-ouen-shikin">京都府・京都市 小規模企業おうえん資金</a></li><li><a href="pref-kyoto.html#kyoto-sogyo-shien-shikin">京都府・京都市 創業支援資金（創業・事業転換等）</a></li></ul>
+          <p><a href="pref-kyoto.html#pref-business">京都府の制度4件を、県のページで見る →</a></p>
       </div>
     </section>
 

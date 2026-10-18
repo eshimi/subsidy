@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"横浜市","item":"https://hojyokin.net/area/yokohama.html"}]}</script>
@@ -165,208 +207,153 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 横浜市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b15.webp')"><h1 class="pb-title">横浜市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-kanagawa.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">神奈川県・政令指定都市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">神奈川県 横浜市</p>
+        <h1>横浜市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度17件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-kanagawa.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（横浜市）<b>3件（うち受付終了1件）</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（神奈川県）<b>5件（うち受付終了2件）</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>14件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 2</a><a href="#res-cat-2">EV・充電 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-5">バリアフリー・介護 1</a><a href="#res-cat-6">子育て 3</a><a href="#res-cat-7">医療・福祉 2</a><a href="#res-cat-8">教育・学び 3</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <a href="#res-g-kosodate"><i aria-hidden="true">👶</i><b>子育て</b><small>3件</small></a>
+      <a href="#res-g-iryo"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>2件</small></a>
+      <a href="#res-g-kyoiku"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>3件</small></a>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>6件</small></a>
+      <span class="is-none"><i aria-hidden="true">🌱</i><b>移住</b><small>掲載なし</small></span>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市3件＋県5件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">横浜市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="yokohama-startup-port">
-            <h3>スタートアップポートヨコハマ／よこはま地域創業スクール</h3>
-            <p class="area-meta">横浜市・横浜中小企業診断士会・かながわ信用金庫ほか｜専門家支援｜創業スクール・相談・イベント情報</p>
-            
-            <p>横浜市の創業・スタートアップ支援の窓口。市内で創業予定、または創業5年未満の方向けの創業スクールなど、公的機関の支援やイベントをまとめて案内しています。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>横浜市内で創業予定、または創業5年未満</li></ul>
-            <p><a href="https://www.city.yokohama.lg.jp/business/keizai/sougyo/sogyoshien/startup.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-kosodate">子育て<span>3件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="yokohama-akiya-kosodate-teiju">
+            <div class="ar-name"><b>空家を活用した子育て世代転入・定住促進補助金（横浜市）</b><small>空家と敷地を購入して住む子育て世代の転入・定住を補助する。<br>対象：子育て世代であること（詳細要件は要確認）／空家と敷地の購入<br>期間：令和8年4月6日受付開始。交付申請期限 令和8年11月27日、実績報告 令和9年1月29日<br>締切：2026-11-27</small><span class="ar-prov">神奈川県横浜市</span></div>
+            <div class="ar-amt">対象経費の1/2と、基礎額100万円＋加算額（3年以上購入+30万円、扶養の子2人以上+40万円、市外転入+30万円）のうち小さい方</div>
+            <a class="ar-go" href="https://www.city.yokohama.lg.jp/kurashi/sumai-kurashi/jutaku/sien/akiya/akiyatennyuuteijyuu.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="yokohama-sogyo-ouen-shikin">
-            <h3>創業おうえん資金</h3>
-            <p class="area-meta">横浜市 経済局 金融課｜融資｜融資限度額3,500万円以内、融資利率年2.3%以内、保証料0.1%助成（要確認）</p>
-            <p class="area-meta">期間：令和8年度（令和8年4月1日版要綱）</p>
-            <p>市内での創業時の初期資金を、原則無担保で融資する制度です。再挑戦の区分もあります。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>横浜市内での創業予定者または創業間もない方</li><li>詳細要件は要綱で要確認</li></ul>
-            <p><a href="https://www.city.yokohama.lg.jp/business/kigyoshien/yushiseido/yushiseido/yushi.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="yokohama-shoni-child">
+            <div class="ar-name"><b>小児医療費助成</b><small>横浜市内に住所があり健康保険に加入しているお子さまが医療機関等で受診したとき、保険診療の自己負担額を助成する制度です。令和８年６月から対象年齢を18歳まで拡大しました。<br>対象：横浜市内に住所があり健康保険に加入している０歳～18歳（18歳に達する日以後の最初の３月31日まで）のお子さま／生活保護を受けている場合などは対象とならない<br>期間：令和８年６月１日～（通年）</small><span class="ar-prov">横浜市 健康福祉局 医療援助課</span></div>
+            <div class="ar-amt">保険診療の自己負担額を全額助成</div>
+            <a class="ar-go" href="https://www.city.yokohama.lg.jp/kenko-iryo-fukushi/kenko-iryo/iryohijosei/shoni/child.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <h3 class="area-cat">受付が終了した制度（次回の公募の参考に）</h3>
-          <div class="area-program is-ended" id="yokohama-shingijutsu-shinseihin-r8">
-            <h3>中小企業新技術・新製品開発促進助成金（令和8年度） <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">横浜市 経済局｜助成金｜助成限度額1,000万円、助成率は算定基礎額の1/2または2/3｜締切：2026-06-04</p>
-            <p class="area-meta">期間：令和8年度（申請期限 2026年6月4日。受付は終了の見込み）</p>
-            <p>市内中小企業の新技術・新製品の研究開発経費を助成します。事前相談が必須です。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>横浜市内の中小企業</li><li>事前相談が必須</li><li>対象期間は令和8年4月1日〜令和9年1月31日</li></ul>
-            <p><a href="https://www.city.yokohama.lg.jp/business/kigyoshien/keieishien/kaihatsu/gijutsu/kaihatsu.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="yokohama-shussan-josei">
+            <div class="ar-name"><b>出産費用助成金</b><small>令和８年４月１日以降に出産した方に、出産費用の助成金を支給する横浜市独自の制度です。<br>対象：令和８年４月１日以降に出産した方（妊娠85日以上の死産・流産を含む）／出産日から申請時点まで横浜市内に住民登録があり、健康保険に加入している方<br>期間：出産した日の翌日から起算して１年間</small><span class="ar-prov">横浜市</span></div>
+            <div class="ar-amt">出産したお子さま１人につき、最大９万円</div>
+            <a class="ar-go" href="https://www.city.yokohama.lg.jp/kosodate-kyoiku/oyakokenko/teate/syussanjosei.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          </div>
+          <h3 class="area-cat" id="res-g-iryo">医療・福祉<span>2件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="yokohama-fuikusho-kensa">
+            <div class="ar-name"><b>不育症検査費助成事業</b><small>２回以上の流産等を繰り返す不育症に悩む方を支援するため、先進医療として告示された不育症検査の費用を助成する事業です。<br>対象：申請日現在、横浜市内に住所があること／二回以上の流産、死産の既往があること<br>期間：令和８年７月１日現在の対象検査（検査日の要件あり）</small><span class="ar-prov">横浜市</span></div>
+            <div class="ar-amt">１回の検査につき検査費用の７割（千円未満切り捨て）、上限６万円</div>
+            <a class="ar-go" href="https://www.city.yokohama.lg.jp/kosodate-kyoiku/oyakokenko/teate/fuikukensajyosei.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="yokohama-hitorioya-iryohi">
+            <div class="ar-name"><b>ひとり親家庭等医療費助成</b><small>健康保険に加入している母子家庭、父子家庭などのひとり親家庭等の方が、病気やけがで医療機関にかかったときの保険診療の自己負担額を助成する制度です。<br>対象：横浜市内に住所があり、何らかの健康保険に加入している児童とその児童を監護する母、父又は養育者／一定の所得基準を超えていないこと<br>期間：通年（令和８年度現況届出の期限は令和８年９月30日）</small><span class="ar-prov">横浜市 健康福祉局</span></div>
+            <div class="ar-amt">保険診療の自己負担額を助成（福祉医療証を提示すると自己負担がかからない）</div>
+            <a class="ar-go" href="https://www.city.yokohama.lg.jp/kenko-iryo-fukushi/kenko-iryo/iryohijosei/hitorioya.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-kyoiku">教育・学び<span>3件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="yokohama-juken-chu3">
+            <div class="ar-name"><b>ひとり親家庭 高校受験模擬試験受験料補助（中学３年生）</b><small>横浜市内在住のひとり親家庭の中学３年生が、進学のための受験に向けた模擬試験料として支払った費用を補助します。<br>対象：中学３年生の児童を対象として児童扶養手当を受給している方／模擬試験料の支払日が令和８年４月１日から令和９年３月１５日の間<br>期間：受付：令和８年９月１日から、締切：令和９年３月１６日 １７時必着</small><span class="ar-prov">横浜市 こども青少年局 こども家庭課</span></div>
+            <div class="ar-amt">児童１人あたり上限６、０００円</div>
+            <a class="ar-go" href="https://www.city.yokohama.lg.jp/kosodate-kyoiku/oyakokenko/hitorioya/jukennchuugaku3nen.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="yokohama-juken-koko3">
+            <div class="ar-name"><b>ひとり親家庭 大学等及び模擬試験受験料補助（高校３年生等）</b><small>横浜市内在住のひとり親家庭の高校３年生等が、大学等及び模擬試験を受験した場合の受験料を補助します。<br>対象：令和８年度に大学等を受験する児童を対象として児童扶養手当を受給している方／受験料の支払日が令和８年４月１日から令和９年３月１５日の間<br>期間：受付：令和８年９月１日から、締切：令和９年３月１６日 １７時必着</small><span class="ar-prov">横浜市 こども青少年局 こども家庭課</span></div>
+            <div class="ar-amt">大学等受験料は児童１人あたり上限５３，０００円、模擬試験受験料は上限８，０００円</div>
+            <a class="ar-go" href="https://www.city.yokohama.lg.jp/kosodate-kyoiku/oyakokenko/hitorioya/jukennkoukou3nen.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="yokohama-koto-kyufu">
+            <div class="ar-name"><b>母子父子家庭高等職業訓練促進給付金</b><small>対象となる資格を習得するために修学するひとり親家庭の親へ、学校に通う期間の生活費の負担軽減のため給付をします。<br>対象：横浜市内に住むひとり親家庭の母または父で、20歳未満の子を扶養している／養成機関で６か月以上のカリキュラムを受講し対象資格を取得しようとしている<br>期間：修学期間に相当する期間（上限４年間（48か月））</small><span class="ar-prov">横浜市</span></div>
+            <div class="ar-amt">訓練促進給付金：月額100,000円（非課税）・70,500円（課税）、修学期間に相当する期間（上限４年間）</div>
+            <a class="ar-go" href="https://www.city.yokohama.lg.jp/kosodate-kyoiku/oyakokenko/hitorioya/koutoukyuuhukinn.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>6件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="yokohama-block-hei">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>横浜市ブロック塀等改善事業</b><small>道路等に面する高さ1m以上の倒壊のおそれのあるブロック塀等の除却と、軽量フェンス・生垣の新設を補助する。<br>対象：市内の道路等に面する高さ1m以上のブロック塀等／市内に本社のある事業者が施工すること<br>期間：令和8年4月1日〜12月31日（予算上限で終了。事前相談は10月31日まで）<br>締切：2026-12-31</small><span class="ar-prov">神奈川県横浜市</span></div>
+            <div class="ar-amt">除却：工事費の9/10と長さ×13,000円/mの低い方。除却と新設の合計上限は10m未満30万円、10〜20m未満40万円、20m以上50万円</div>
+            <a class="ar-go" href="https://www.city.yokohama.lg.jp/business/bunyabetsu/kenchiku/bosai/blockbei/blockbei.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="yokohama-jukankyo-seibi">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>横浜市 住環境整備費の助成</b><small>支援・介護が必要な高齢者や障害児・者の住宅改造の費用の一部を助成する。<br>対象：身体障害者手帳1・2級の方など／工事前に区の福祉保健センターへ相談</small><span class="ar-prov">神奈川県横浜市</span></div>
+            <div class="ar-amt">住宅改造費は120万円を限度（自己負担は市民税額に応じる）</div>
+            <a class="ar-go" href="https://www.city.yokohama.lg.jp/kenko-iryo-fukushi/fukushi-kaigo/fukushi/annai/jutaku/jutaku-josei/josei.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="yokohama-jutaku-jokyaku">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>横浜市住宅除却補助制度</b><small>耐震性が低いと判断された旧耐震等の住宅の除却工事費を補助する。<br>対象：平成12年5月末以前に新築着工した耐震性の低い住宅／不燃化推進対象地区外であること<br>期間：令和8年4月1日〜12月28日<br>締切：2026-12-28</small><span class="ar-prov">神奈川県横浜市</span></div>
+            <div class="ar-amt">昭和56年5月以前の建物は上限50万円。昭和56年6月〜平成12年5月は一般世帯上限20万円、非課税世帯上限40万円（面積限度額あり）</div>
+            <a class="ar-go" href="https://www.city.yokohama.lg.jp/business/bunyabetsu/kenchiku/bosai/taishin/hojokinshienseido/mokutai/jyuutakujyokyaku.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="yokohama-kizon-dannetsu-kaishu">
+            <div class="ar-name"><b><span class="ar-tag">省エネ住宅</span>令和8年度 既存住宅断熱改修補助制度</b><small>既存住宅の断熱改修費用の補助制度。</small><span class="ar-prov">横浜市</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.yokohama.lg.jp/kurashi/sumai-kurashi/jutaku/sien/shoene/event/r8kizondannetuhojo.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="yokohama-mokuzo-taishin-kaishu">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>横浜市木造住宅耐震改修促進事業</b><small>旧耐震等の木造個人住宅の耐震改修工事費の補助。<br>対象：2000年5月末以前に着工した2階建以下の在来軸組構法の木造個人住宅／耐震診断で上部構造評点が1.0未満<br>期間：令和8年4月1日から申請受付（完了実績報告の締切：令和9年2月26日）</small><span class="ar-prov">横浜市 建築局</span></div>
+            <div class="ar-amt">上限：一般世帯115万円、非課税世帯155万円（省エネ改修を併せて行う場合、別途最大100万円の加算）</div>
+            <a class="ar-go" href="https://www.city.yokohama.lg.jp/business/bunyabetsu/kenchiku/bosai/taishin/hojokinshienseido/mokutai/mokukaishu/mokukaishu.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="yokohama-ygrep-v2h-ev">
+            <div class="ar-name"><b><span class="ar-tag">EV・充電</span>横浜グリーンエネルギーパートナーシップ事業（V2H・EV支援）</b><small>市民等が対象設備を導入する際に支援を受けられる事業。V2Hや電気自動車が対象。<br>対象：市民または市内事業者／国の補助対象設備またはCHAdeMO協議会認証設備等</small><span class="ar-prov">神奈川県横浜市</span></div>
+            <div class="ar-amt">V2H充放電設備10万円分/件、EVは太陽光と同時設置・既設の場合10万円分/件、太陽光なしは5万円分/件</div>
+            <a class="ar-go" href="https://www.city.yokohama.lg.jp/kurashi/machizukuri-kankyo/ondanka/hojo-sien/YGrEP.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>神奈川県の制度</strong></p>
+          <ul><li><a href="pref-kanagawa.html#kanagawa-ev-futsu-juden-r8">令和8年度神奈川県EV普通充電設備整備費補助金</a></li><li><a href="pref-kanagawa.html#kanagawa-iju-shienkin">神奈川県移住支援事業（移住支援金）</a></li><li><a href="pref-kanagawa.html#kanagawa-zeh-r8">令和8年度神奈川県ネット・ゼロ・エネルギー・ハウス導入費補助金</a></li><li><a href="pref-kanagawa.html#kanagawa-jutaku-taiyoko-chikuden">令和8年度神奈川県住宅用太陽光発電・蓄電池導入費補助金</a></li><li><a href="pref-kanagawa.html#kanagawa-kizon-shoene-kaishu-r8">令和8年度神奈川県既存住宅省エネ改修事業費補助金</a></li></ul>
+          <p><a href="pref-kanagawa.html#pref-resident">神奈川県の制度5件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">神奈川県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">横浜市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-kanagawa.html#kanagawa-fukugyo-jinzai">神奈川県副業・兼業人材活用補助金</a></li><li><a href="pref-kanagawa.html#kanagawa-jigyoshokei">神奈川県事業承継補助金（令和8年度）</a></li><li><a href="pref-kanagawa.html#kanagawa-sogyo-shien-yushi">創業支援融資（神奈川県中小企業制度融資）</a></li><li><a href="pref-kanagawa.html#kanagawa-shokibo-digital">小規模事業者デジタル化支援推進事業費補助金（令和8年度）</a></li><li><a href="pref-kanagawa.html#kanagawa-sogyosha-seicho">生産性向上促進事業費補助金（創業者成長支援枠）</a></li></ul>
-          <p><a href="pref-kanagawa.html#pref-business">神奈川県の制度5件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="yokohama-startup-port">
+            <div class="ar-name"><b>スタートアップポートヨコハマ／よこはま地域創業スクール</b><small>横浜市の創業・スタートアップ支援の窓口。市内で創業予定、または創業5年未満の方向けの創業スクールなど、公的機関の支援やイベントをまとめて案内しています。<br>対象：横浜市内で創業予定、または創業5年未満</small><span class="ar-prov">横浜市・横浜中小企業診断士会・かながわ信用金庫ほか</span></div>
+            <div class="ar-amt">創業スクール・相談・イベント情報</div>
+            <a class="ar-go" href="https://www.city.yokohama.lg.jp/business/keizai/sougyo/sogyoshien/startup.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="yokohama-sogyo-ouen-shikin">
+            <div class="ar-name"><b>創業おうえん資金</b><small>市内での創業時の初期資金を、原則無担保で融資する制度です。再挑戦の区分もあります。<br>対象：横浜市内での創業予定者または創業間もない方／詳細要件は要綱で要確認<br>期間：令和8年度（令和8年4月1日版要綱）</small><span class="ar-prov">横浜市 経済局 金融課</span></div>
+            <div class="ar-amt">融資限度額3,500万円以内、融資利率年2.3%以内、保証料0.1%助成（要確認）</div>
+            <a class="ar-go" href="https://www.city.yokohama.lg.jp/business/kigyoshien/yushiseido/yushiseido/yushi.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="yokohama-shingijutsu-shinseihin-r8">
+            <div class="ar-name"><b>中小企業新技術・新製品開発促進助成金（令和8年度） <span class="area-ended-tag">受付終了</span></b><small>市内中小企業の新技術・新製品の研究開発経費を助成します。事前相談が必須です。<br>対象：横浜市内の中小企業／事前相談が必須<br>期間：令和8年度（申請期限 2026年6月4日。受付は終了の見込み）<br>締切：2026-06-04</small><span class="ar-prov">横浜市 経済局</span></div>
+            <div class="ar-amt">助成限度額1,000万円、助成率は算定基礎額の1/2または2/3</div>
+            <a class="ar-go" href="https://www.city.yokohama.lg.jp/business/kigyoshien/keieishien/kaihatsu/gijutsu/kaihatsu.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">神奈川県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>横浜市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="yokohama-jutaku-jokyaku">
-            <h3>横浜市住宅除却補助制度</h3>
-            <p class="area-meta">神奈川県横浜市｜補助金｜昭和56年5月以前の建物は上限50万円。昭和56年6月〜平成12年5月は一般世帯上限20万円、非課税世帯上限40万円（面積限度額あり）｜締切：2026-12-28</p>
-            <p class="area-meta">期間：令和8年4月1日〜12月28日</p>
-            <p>耐震性が低いと判断された旧耐震等の住宅の除却工事費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>平成12年5月末以前に新築着工した耐震性の低い住宅</li><li>不燃化推進対象地区外であること</li><li>交付決定前に工事着手しないこと</li></ul>
-            <p><a href="https://www.city.yokohama.lg.jp/business/bunyabetsu/kenchiku/bosai/taishin/hojokinshienseido/mokutai/jyuutakujyokyaku.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="yokohama-mokuzo-taishin-kaishu">
-            <h3>横浜市木造住宅耐震改修促進事業</h3>
-            <p class="area-meta">横浜市 建築局｜補助金｜上限：一般世帯115万円、非課税世帯155万円（省エネ改修を併せて行う場合、別途最大100万円の加算）</p>
-            <p class="area-meta">期間：令和8年4月1日から申請受付（完了実績報告の締切：令和9年2月26日）</p>
-            <p>旧耐震等の木造個人住宅の耐震改修工事費の補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>2000年5月末以前に着工した2階建以下の在来軸組構法の木造個人住宅</li><li>耐震診断で上部構造評点が1.0未満</li><li>所有者又は一親等以内の親族が改修後に居住</li></ul>
-            <p><a href="https://www.city.yokohama.lg.jp/business/bunyabetsu/kenchiku/bosai/taishin/hojokinshienseido/mokutai/mokukaishu/mokukaishu.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
-          <div class="area-program" id="yokohama-ygrep-v2h-ev">
-            <h3>横浜グリーンエネルギーパートナーシップ事業（V2H・EV支援）</h3>
-            <p class="area-meta">神奈川県横浜市｜補助金｜V2H充放電設備10万円分/件、EVは太陽光と同時設置・既設の場合10万円分/件、太陽光なしは5万円分/件</p>
-            <p class="area-meta">期間：令和8年6月15日受付開始（終了日は要確認）</p>
-            <p>市民等が対象設備を導入する際に支援を受けられる事業。V2Hや電気自動車が対象。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市民または市内事業者</li><li>国の補助対象設備またはCHAdeMO協議会認証設備等</li><li>新規導入の未使用品（中古不可）</li></ul>
-            <p><a href="https://www.city.yokohama.lg.jp/kurashi/machizukuri-kankyo/ondanka/hojo-sien/YGrEP.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
-          <div class="area-program" id="yokohama-kizon-dannetsu-kaishu">
-            <h3>令和8年度 既存住宅断熱改修補助制度</h3>
-            <p class="area-meta">横浜市｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：令和8年度（詳細は要確認）</p>
-            <p>既存住宅の断熱改修費用の補助制度。</p>
-            
-            <p><a href="https://www.city.yokohama.lg.jp/kurashi/sumai-kurashi/jutaku/sien/shoene/event/r8kizondannetuhojo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="yokohama-block-hei">
-            <h3>横浜市ブロック塀等改善事業</h3>
-            <p class="area-meta">神奈川県横浜市｜補助金｜除却：工事費の9/10と長さ×13,000円/mの低い方。除却と新設の合計上限は10m未満30万円、10〜20m未満40万円、20m以上50万円｜締切：2026-12-31</p>
-            <p class="area-meta">期間：令和8年4月1日〜12月31日（予算上限で終了。事前相談は10月31日まで）</p>
-            <p>道路等に面する高さ1m以上の倒壊のおそれのあるブロック塀等の除却と、軽量フェンス・生垣の新設を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の道路等に面する高さ1m以上のブロック塀等</li><li>市内に本社のある事業者が施工すること</li><li>交付決定後に契約・着手すること</li></ul>
-            <p><a href="https://www.city.yokohama.lg.jp/business/bunyabetsu/kenchiku/bosai/blockbei/blockbei.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
-          <div class="area-program" id="yokohama-jukankyo-seibi">
-            <h3>横浜市 住環境整備費の助成</h3>
-            <p class="area-meta">神奈川県横浜市｜助成金｜住宅改造費は120万円を限度（自己負担は市民税額に応じる）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>支援・介護が必要な高齢者や障害児・者の住宅改造の費用の一部を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>身体障害者手帳1・2級の方など</li><li>工事前に区の福祉保健センターへ相談</li><li>介護保険対象工事は介護保険が優先</li></ul>
-            <p><a href="https://www.city.yokohama.lg.jp/kenko-iryo-fukushi/fukushi-kaigo/fukushi/annai/jutaku/jutaku-josei/josei.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-6">子育て</h3>
-          <div class="area-program" id="yokohama-akiya-kosodate-teiju">
-            <h3>空家を活用した子育て世代転入・定住促進補助金（横浜市）</h3>
-            <p class="area-meta">神奈川県横浜市｜補助金｜対象経費の1/2と、基礎額100万円＋加算額（3年以上購入+30万円、扶養の子2人以上+40万円、市外転入+30万円）のうち小さい方｜締切：2026-11-27</p>
-            <p class="area-meta">期間：令和8年4月6日受付開始。交付申請期限 令和8年11月27日、実績報告 令和9年1月29日</p>
-            <p>空家と敷地を購入して住む子育て世代の転入・定住を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>子育て世代であること（詳細要件は要確認）</li><li>空家と敷地の購入</li><li>同一年度内に申請から請求まで行うこと</li></ul>
-            <p><a href="https://www.city.yokohama.lg.jp/kurashi/sumai-kurashi/jutaku/sien/akiya/akiyatennyuuteijyuu.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="yokohama-shoni-child">
-            <h3>小児医療費助成</h3>
-            <p class="area-meta">横浜市 健康福祉局 医療援助課｜助成金｜保険診療の自己負担額を全額助成</p>
-            <p class="area-meta">期間：令和８年６月１日～（通年）</p>
-            <p>横浜市内に住所があり健康保険に加入しているお子さまが医療機関等で受診したとき、保険診療の自己負担額を助成する制度です。令和８年６月から対象年齢を18歳まで拡大しました。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>横浜市内に住所があり健康保険に加入している０歳～18歳（18歳に達する日以後の最初の３月31日まで）のお子さま</li><li>生活保護を受けている場合などは対象とならない</li></ul>
-            <p><a href="https://www.city.yokohama.lg.jp/kenko-iryo-fukushi/kenko-iryo/iryohijosei/shoni/child.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="yokohama-shussan-josei">
-            <h3>出産費用助成金</h3>
-            <p class="area-meta">横浜市｜給付｜出産したお子さま１人につき、最大９万円</p>
-            <p class="area-meta">期間：出産した日の翌日から起算して１年間</p>
-            <p>令和８年４月１日以降に出産した方に、出産費用の助成金を支給する横浜市独自の制度です。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>令和８年４月１日以降に出産した方（妊娠85日以上の死産・流産を含む）</li><li>出産日から申請時点まで横浜市内に住民登録があり、健康保険に加入している方</li></ul>
-            <p><a href="https://www.city.yokohama.lg.jp/kosodate-kyoiku/oyakokenko/teate/syussanjosei.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-7">医療・福祉</h3>
-          <div class="area-program" id="yokohama-fuikusho-kensa">
-            <h3>不育症検査費助成事業</h3>
-            <p class="area-meta">横浜市｜助成金｜１回の検査につき検査費用の７割（千円未満切り捨て）、上限６万円</p>
-            <p class="area-meta">期間：令和８年７月１日現在の対象検査（検査日の要件あり）</p>
-            <p>２回以上の流産等を繰り返す不育症に悩む方を支援するため、先進医療として告示された不育症検査の費用を助成する事業です。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>申請日現在、横浜市内に住所があること</li><li>二回以上の流産、死産の既往があること</li></ul>
-            <p><a href="https://www.city.yokohama.lg.jp/kosodate-kyoiku/oyakokenko/teate/fuikukensajyosei.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="yokohama-hitorioya-iryohi">
-            <h3>ひとり親家庭等医療費助成</h3>
-            <p class="area-meta">横浜市 健康福祉局｜助成金｜保険診療の自己負担額を助成（福祉医療証を提示すると自己負担がかからない）</p>
-            <p class="area-meta">期間：通年（令和８年度現況届出の期限は令和８年９月30日）</p>
-            <p>健康保険に加入している母子家庭、父子家庭などのひとり親家庭等の方が、病気やけがで医療機関にかかったときの保険診療の自己負担額を助成する制度です。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>横浜市内に住所があり、何らかの健康保険に加入している児童とその児童を監護する母、父又は養育者</li><li>一定の所得基準を超えていないこと</li><li>生活保護を受けている場合などは対象にならない</li></ul>
-            <p><a href="https://www.city.yokohama.lg.jp/kenko-iryo-fukushi/kenko-iryo/iryohijosei/hitorioya.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-8">教育・学び</h3>
-          <div class="area-program" id="yokohama-juken-chu3">
-            <h3>ひとり親家庭 高校受験模擬試験受験料補助（中学３年生）</h3>
-            <p class="area-meta">横浜市 こども青少年局 こども家庭課｜補助金｜児童１人あたり上限６、０００円</p>
-            <p class="area-meta">期間：受付：令和８年９月１日から、締切：令和９年３月１６日 １７時必着</p>
-            <p>横浜市内在住のひとり親家庭の中学３年生が、進学のための受験に向けた模擬試験料として支払った費用を補助します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>中学３年生の児童を対象として児童扶養手当を受給している方</li><li>模擬試験料の支払日が令和８年４月１日から令和９年３月１５日の間</li></ul>
-            <p><a href="https://www.city.yokohama.lg.jp/kosodate-kyoiku/oyakokenko/hitorioya/jukennchuugaku3nen.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="yokohama-juken-koko3">
-            <h3>ひとり親家庭 大学等及び模擬試験受験料補助（高校３年生等）</h3>
-            <p class="area-meta">横浜市 こども青少年局 こども家庭課｜補助金｜大学等受験料は児童１人あたり上限５３，０００円、模擬試験受験料は上限８，０００円</p>
-            <p class="area-meta">期間：受付：令和８年９月１日から、締切：令和９年３月１６日 １７時必着</p>
-            <p>横浜市内在住のひとり親家庭の高校３年生等が、大学等及び模擬試験を受験した場合の受験料を補助します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>令和８年度に大学等を受験する児童を対象として児童扶養手当を受給している方</li><li>受験料の支払日が令和８年４月１日から令和９年３月１５日の間</li></ul>
-            <p><a href="https://www.city.yokohama.lg.jp/kosodate-kyoiku/oyakokenko/hitorioya/jukennkoukou3nen.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="yokohama-koto-kyufu">
-            <h3>母子父子家庭高等職業訓練促進給付金</h3>
-            <p class="area-meta">横浜市｜給付｜訓練促進給付金：月額100,000円（非課税）・70,500円（課税）、修学期間に相当する期間（上限４年間）</p>
-            <p class="area-meta">期間：修学期間に相当する期間（上限４年間（48か月））</p>
-            <p>対象となる資格を習得するために修学するひとり親家庭の親へ、学校に通う期間の生活費の負担軽減のため給付をします。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>横浜市内に住むひとり親家庭の母または父で、20歳未満の子を扶養している</li><li>養成機関で６か月以上のカリキュラムを受講し対象資格を取得しようとしている</li></ul>
-            <p><a href="https://www.city.yokohama.lg.jp/kosodate-kyoiku/oyakokenko/hitorioya/koutoukyuuhukinn.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>神奈川県の制度</strong></p>
-          <ul><li><a href="pref-kanagawa.html#kanagawa-ev-futsu-juden-r8">令和8年度神奈川県EV普通充電設備整備費補助金</a></li><li><a href="pref-kanagawa.html#kanagawa-iju-shienkin">神奈川県移住支援事業（移住支援金）</a></li><li><a href="pref-kanagawa.html#kanagawa-zeh-r8">令和8年度神奈川県ネット・ゼロ・エネルギー・ハウス導入費補助金</a></li><li><a href="pref-kanagawa.html#kanagawa-jutaku-taiyoko-chikuden">令和8年度神奈川県住宅用太陽光発電・蓄電池導入費補助金</a></li><li><a href="pref-kanagawa.html#kanagawa-kizon-shoene-kaishu-r8">令和8年度神奈川県既存住宅省エネ改修事業費補助金</a></li></ul>
-          <p><a href="pref-kanagawa.html#pref-resident">神奈川県の制度5件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-kanagawa.html#kanagawa-fukugyo-jinzai">神奈川県副業・兼業人材活用補助金</a></li><li><a href="pref-kanagawa.html#kanagawa-jigyoshokei">神奈川県事業承継補助金（令和8年度）</a></li><li><a href="pref-kanagawa.html#kanagawa-sogyo-shien-yushi">創業支援融資（神奈川県中小企業制度融資）</a></li><li><a href="pref-kanagawa.html#kanagawa-shokibo-digital">小規模事業者デジタル化支援推進事業費補助金（令和8年度）</a></li><li><a href="pref-kanagawa.html#kanagawa-sogyosha-seicho">生産性向上促進事業費補助金（創業者成長支援枠）</a></li></ul>
+          <p><a href="pref-kanagawa.html#pref-business">神奈川県の制度5件を、県のページで見る →</a></p>
       </div>
     </section>
 

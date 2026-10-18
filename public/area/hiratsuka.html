@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"平塚市","item":"https://hojyokin.net/area/hiratsuka.html"}]}</script>
@@ -165,201 +207,148 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 平塚市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b12.webp')"><h1 class="pb-title">平塚市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-kanagawa.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">神奈川県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">神奈川県 平塚市</p>
+        <h1>平塚市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度16件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-kanagawa.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（平塚市）<b>5件</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（神奈川県）<b>5件（うち受付終了2件）</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>11件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-5">バリアフリー・介護 1</a><a href="#res-cat-6">子育て 3</a><a href="#res-cat-7">医療・福祉 2</a><a href="#res-cat-8">教育・学び 1</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <a href="#res-g-kosodate"><i aria-hidden="true">👶</i><b>子育て</b><small>3件</small></a>
+      <a href="#res-g-iryo"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>2件</small></a>
+      <a href="#res-g-kyoiku"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>1件</small></a>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>5件</small></a>
+      <span class="is-none"><i aria-hidden="true">🌱</i><b>移住</b><small>掲載なし</small></span>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市5件＋県5件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">平塚市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="hiratsuka-city-akitenpo-kaisou">
-            <h3>平塚市中心市街地活性化事業（空き店舗対策・改装費補助）</h3>
-            <p class="area-meta">平塚市 産業振興課（事務局：平塚商工会議所）｜補助金｜改装費の2/3以内、原則上限50万円（重点エリア100万円）、賃借料補助あり</p>
-            <p class="area-meta">期間：予算の範囲内で受付（最新は要確認）</p>
-            <p>中心市街地の1階空き店舗への出店に伴う賃借料と改装費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>対象エリアの1階空き店舗に出店する事業者</li></ul>
-            <p><a href="https://www.city.hiratsuka.kanagawa.jp/sangyo/page-c_01110.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-kosodate">子育て<span>3件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="hiratsuka-papa-ikukyu-koufukin">
+            <div class="ar-name"><b>産後パパ育休取得応援交付金</b><small>子の出生後8週間のうち4週間（28日）以上の出生時育児休業（産後パパ育休）または育児休業を取得して育児に取り組んだ父親を対象に交付します。<br>対象：出生後8週間以内に28日以上の育児休業等を取得した父親（15万円は復職せず継続して6か月以上取得）／交付を受けるためには、出産前から母親父親教室に参加するなどの準備が必要<br>期間：令和8年度から交付要件が変わります（令和8年4月1日以降に妊娠届出をした方は新制度）</small><span class="ar-prov">平塚市 健康課</span></div>
+            <div class="ar-amt">令和8年4月1日以降に妊娠届出の方：5万円または15万円（令和8年3月31日までの妊娠届出者は10万円）</div>
+            <a class="ar-go" href="https://www.city.hiratsuka.kanagawa.jp/kenko/page21_00303.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="hiratsuka-city-chinage-shoreikin">
-            <h3>平塚市中小企業等賃上げ応援奨励金</h3>
-            <p class="area-meta">平塚市 産業振興課｜給付金｜奨励金10万円〜30万円｜締切：2027-01-31</p>
-            <p class="area-meta">期間：令和9年1月31日まで（予算に達し次第終了）</p>
-            <p>賃上げに取り組む中小企業等に奨励金を交付する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の中小企業者等</li><li>賃上げの実施（詳細は要確認）</li></ul>
-            <p><a href="https://www.city.hiratsuka.kanagawa.jp/sangyo/page33_00136.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/hiratsuka-city-chinage-shoreikin.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+          <div class="ar-row" id="hiratsuka-sanfujinka">
+            <div class="ar-name"><b>産婦健康診査（2週間健診・1か月健診）の費用補助</b><small>令和8年4月1日以降に実施する産婦健康診査から助成額を増額し、産後2週間健診への補助も新たに開始しました。補助券で助成します。<br>対象：健診受診日に平塚市に住民票がある産婦／2週間健診の補助券は、令和8年4月1日以降に母子健康手帳の交付を受けた産婦<br>期間：令和8年4月1日以降に実施する健診から（令和8年度）</small><span class="ar-prov">平塚市 健康課</span></div>
+            <div class="ar-amt">1回あたり5,000円（2週間健診・1か月健診）</div>
+            <a class="ar-go" href="https://www.city.hiratsuka.kanagawa.jp/kenko/page21_00209.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="hiratsuka-city-datsutanso-setsubi">
-            <h3>平塚市脱炭素設備投資促進補助金</h3>
-            <p class="area-meta">平塚市 産業振興課｜補助金｜省エネ設備：30万円以上300万円未満の経費の1/5、上限50万円</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>CO2排出量を年間2％以上削減する設備等の導入費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の事業者</li><li>本体価格30万円（税抜）以上の設備</li></ul>
-            <p><a href="https://www.city.hiratsuka.kanagawa.jp/sangyo/page33_00104.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="hiratsuka-shoni-iryohi">
+            <div class="ar-name"><b>小児医療費の助成</b><small>平塚市に住所を有する0歳から18歳に達する日以後の最初の3月31日までのお子様を対象に、医療費の助成を行っています。<br>対象：平塚市に住所を有する0歳から18歳の年度末までのお子さま／保険外診療、健康診査、入院時食事代等は対象外<br>期間：一度申請すると更新手続きは不要（医療証の有効期間終了日は18歳に達する日以後の最初の3月31日）</small><span class="ar-prov">平塚市 こども家庭課</span></div>
+            <div class="ar-amt">入院・通院にかかる保険診療医療費の自己負担額を助成</div>
+            <a class="ar-go" href="https://www.city.hiratsuka.kanagawa.jp/kodomo/page-c_03167.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="hiratsuka-city-dx-hojo">
-            <h3>平塚市中小企業等DX支援補助金</h3>
-            <p class="area-meta">平塚市 産業振興課｜補助金｜金額は公式で確認｜締切：2027-02-28</p>
-            <p class="area-meta">期間：令和8年4月1日〜令和9年2月28日</p>
-            <p>中小企業等のDX（デジタル化）に取り組む費用を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の中小企業者等（詳細は要確認）</li></ul>
-            <p><a href="https://www.city.hiratsuka.kanagawa.jp/sangyo/page33_00096.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/hiratsuka-city-dx-hojo.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
           </div>
-          <div class="area-program" id="hiratsuka-city-shin-sogyo-shien">
-            <h3>平塚市 新創業支援資金（利子・保証料全額補助）</h3>
-            <p class="area-meta">平塚市 産業振興課｜融資｜融資時の信用保証料と利子を全額市が補助（限度額・利率は制度表で要確認）</p>
-            <p class="area-meta">期間：通年（最新は要確認）</p>
-            <p>創業予定者と創業後5年未満の方向けの市制度融資で、保証料と利子を市が全額補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>創業予定者または創業後5年未満</li><li>特定創業支援等事業の証明が条件となる場合あり</li></ul>
-            <p><a href="https://www.city.hiratsuka.kanagawa.jp/kigyo/page-c_01622.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <h3 class="area-cat" id="res-g-iryo">医療・福祉<span>2件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="hiratsuka-funin-senshin-iryo">
+            <div class="ar-name"><b>不妊治療（先進医療）費助成事業</b><small>医療保険適用の体外受精・顕微授精と併せて、医療保険の適用とならない先進医療の治療を受けた方を対象に、先進医療にかかった費用の一部を助成します。<br>対象：医療保険適用の特定不妊治療と併用して先進医療を受けたこと／治療開始日および申請日時点で、法律上の婚姻をしている、または事実婚であること<br>期間：申請期限：治療終了日から起算して6か月以内</small><span class="ar-prov">平塚市 健康課</span></div>
+            <div class="ar-amt">1回の治療で先進医療にかかった費用の10分の7（上限5万円）</div>
+            <a class="ar-go" href="https://www.city.hiratsuka.kanagawa.jp/kenko/page21_00263.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          <div class="ar-row" id="hiratsuka-hitorioya-iryohi">
+            <div class="ar-name"><b>ひとり親家庭等医療費の助成</b><small>母子家庭あるいは父子家庭にある父または母及び児童の医療費に対して助成を行い、ひとり親家庭等の生活の安定と自立を支援する制度です。<br>対象：市内に居住し、対象となる児童を監護している父か母または養育している方、及びその児童／児童は18才に達する日以後の最初の3月31日までなど<br>期間：所得制限：令和6年分の所得額が基準以上の場合、令和8年1月1日から1年間は対象外</small><span class="ar-prov">平塚市 こども家庭課</span></div>
+            <div class="ar-amt">保険診療分は入院・通院費が無料（所得制限あり）</div>
+            <a class="ar-go" href="https://www.city.hiratsuka.kanagawa.jp/kodomo/page-c_03173.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-kyoiku">教育・学び<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="hiratsuka-shugaku-enjo">
+            <div class="ar-name"><b>児童生徒就学援助</b><small>経済的な理由により、小・中学校に通学するお子さんの就学にお困りの方に対して、学用品費や給食費など学校での学習に必要な費用の一部を援助します。<br>対象：平塚市立小・中学校に在学している児童生徒と同居の保護者など／生活保護法の規定による要保護者、または世帯の収入が認定基準以下の方<br>期間：令和8年度支給予定額。各学校の就学援助支給申請書を学校へ提出</small><span class="ar-prov">平塚市 学務課</span></div>
+            <div class="ar-amt">学用品費は小学校第1学年11,630円・中学校第1学年22,730円など。給食費は徴収額（令和8年度支給予定額）</div>
+            <a class="ar-go" href="https://www.city.hiratsuka.kanagawa.jp/kyoiku/page-c_01043.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>5件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="hiratsuka-block">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>平塚市ブロック塀等倒壊予防策補助金</b><small>道路に面した危険なブロック塀等の撤去費を補助する。<br>対象：高さ80cm以上で市の現地調査で危険度「大」と判定された塀／フェンス新設は対象外</small><span class="ar-prov">神奈川県平塚市</span></div>
+            <div class="ar-amt">撤去費の50%（上限15万円）、非課税世帯は100%（上限30万円）</div>
+            <a class="ar-go" href="https://www.city.hiratsuka.kanagawa.jp/machizukuri/page-c_01930.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="hiratsuka-jutaku-kairyo">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>平塚市重度障がい者住宅設備改良費助成</b><small>在宅の重度障がい者の浴室・便所・玄関・廊下等の住宅改良費を助成する。<br>対象：在宅の重度障がい者がいる世帯</small><span class="ar-prov">神奈川県平塚市</span></div>
+            <div class="ar-amt">工事の種類により上限60万円～100万円（1回限り）</div>
+            <a class="ar-go" href="https://www.city.hiratsuka.kanagawa.jp/fukushi/page-c_00988.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="hiratsuka-pv">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>平塚市太陽光発電設備導入補助金</b><small>住宅への太陽光発電設備と蓄電システムの導入費を補助する。<br>対象：市内の住宅に設置／交付決定前の着工は原則不可（事業完了期限は令和9年3月31日）<br>期間：令和8年度（予算の範囲内）</small><span class="ar-prov">神奈川県平塚市</span></div>
+            <div class="ar-amt">太陽光 5万円/kW（上限20万円）、定置型蓄電システム同時設置で5万円加算</div>
+            <a class="ar-go" href="https://www.city.hiratsuka.kanagawa.jp/kankyo/page67_00127.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="hiratsuka-taishin-kaishu">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>平塚市木造住宅耐震改修工事の補助金</b><small>評点1.0未満の旧耐震木造住宅を1.0以上にする耐震改修工事等を補助する。<br>対象：昭和56年5月31日以前に建築された2階建て以下の木造住宅／借家の居住者や改修後に住む所有者も申請可<br>期間：令和8年度分は11月末に締切予定（予算がなくなり次第終了）</small><span class="ar-prov">神奈川県平塚市</span></div>
+            <div class="ar-amt">工事費の4/5（一般世帯の上限90万円または45万円）。設計は1/2（上限7万円または3.5万円）</div>
+            <a class="ar-go" href="https://www.city.hiratsuka.kanagawa.jp/machizukuri/page-c_01939.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="hiratsuka-zeh">
+            <div class="ar-name"><b><span class="ar-tag">省エネ住宅</span>平塚市ゼロエネルギーハウス導入補助金</b><small>ZEHの新築・購入・改修費を補助する。太陽光の補助金とは併用不可。<br>対象：市内でZEHを新築・購入・改修する個人／Nearly ZEH等は対象外</small><span class="ar-prov">神奈川県平塚市</span></div>
+            <div class="ar-amt">ZEH1件20万円、蓄電システム同時設置で5万円加算</div>
+            <a class="ar-go" href="https://www.city.hiratsuka.kanagawa.jp/kankyo/page67_00041.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>神奈川県の制度</strong></p>
+          <ul><li><a href="pref-kanagawa.html#kanagawa-ev-futsu-juden-r8">令和8年度神奈川県EV普通充電設備整備費補助金</a></li><li><a href="pref-kanagawa.html#kanagawa-iju-shienkin">神奈川県移住支援事業（移住支援金）</a></li><li><a href="pref-kanagawa.html#kanagawa-zeh-r8">令和8年度神奈川県ネット・ゼロ・エネルギー・ハウス導入費補助金</a></li><li><a href="pref-kanagawa.html#kanagawa-jutaku-taiyoko-chikuden">令和8年度神奈川県住宅用太陽光発電・蓄電池導入費補助金</a></li><li><a href="pref-kanagawa.html#kanagawa-kizon-shoene-kaishu-r8">令和8年度神奈川県既存住宅省エネ改修事業費補助金</a></li></ul>
+          <p><a href="pref-kanagawa.html#pref-resident">神奈川県の制度5件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">神奈川県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">平塚市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-kanagawa.html#kanagawa-fukugyo-jinzai">神奈川県副業・兼業人材活用補助金</a></li><li><a href="pref-kanagawa.html#kanagawa-jigyoshokei">神奈川県事業承継補助金（令和8年度）</a></li><li><a href="pref-kanagawa.html#kanagawa-sogyo-shien-yushi">創業支援融資（神奈川県中小企業制度融資）</a></li><li><a href="pref-kanagawa.html#kanagawa-shokibo-digital">小規模事業者デジタル化支援推進事業費補助金（令和8年度）</a></li><li><a href="pref-kanagawa.html#kanagawa-sogyosha-seicho">生産性向上促進事業費補助金（創業者成長支援枠）</a></li></ul>
-          <p><a href="pref-kanagawa.html#pref-business">神奈川県の制度5件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="hiratsuka-city-akitenpo-kaisou">
+            <div class="ar-name"><b>平塚市中心市街地活性化事業（空き店舗対策・改装費補助）</b><small>中心市街地の1階空き店舗への出店に伴う賃借料と改装費を補助する。<br>対象：対象エリアの1階空き店舗に出店する事業者</small><span class="ar-prov">平塚市 産業振興課（事務局：平塚商工会議所）</span></div>
+            <div class="ar-amt">改装費の2/3以内、原則上限50万円（重点エリア100万円）、賃借料補助あり</div>
+            <a class="ar-go" href="https://www.city.hiratsuka.kanagawa.jp/sangyo/page-c_01110.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="hiratsuka-city-chinage-shoreikin">
+            <div class="ar-name"><b>平塚市中小企業等賃上げ応援奨励金</b><small>賃上げに取り組む中小企業等に奨励金を交付する。<br>対象：市内の中小企業者等／賃上げの実施（詳細は要確認）<br>期間：令和9年1月31日まで（予算に達し次第終了）<br>締切：2027-01-31</small><span class="ar-prov">平塚市 産業振興課</span></div>
+            <div class="ar-amt">奨励金10万円〜30万円</div>
+            <a class="ar-go" href="https://www.city.hiratsuka.kanagawa.jp/sangyo/page33_00136.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="hiratsuka-city-datsutanso-setsubi">
+            <div class="ar-name"><b>平塚市脱炭素設備投資促進補助金</b><small>CO2排出量を年間2％以上削減する設備等の導入費を補助する。<br>対象：市内の事業者／本体価格30万円（税抜）以上の設備</small><span class="ar-prov">平塚市 産業振興課</span></div>
+            <div class="ar-amt">省エネ設備：30万円以上300万円未満の経費の1/5、上限50万円</div>
+            <a class="ar-go" href="https://www.city.hiratsuka.kanagawa.jp/sangyo/page33_00104.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="hiratsuka-city-dx-hojo">
+            <div class="ar-name"><b>平塚市中小企業等DX支援補助金</b><small>中小企業等のDX（デジタル化）に取り組む費用を補助する。<br>対象：市内の中小企業者等（詳細は要確認）<br>期間：令和8年4月1日〜令和9年2月28日<br>締切：2027-02-28</small><span class="ar-prov">平塚市 産業振興課</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.hiratsuka.kanagawa.jp/sangyo/page33_00096.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="hiratsuka-city-shin-sogyo-shien">
+            <div class="ar-name"><b>平塚市 新創業支援資金（利子・保証料全額補助）</b><small>創業予定者と創業後5年未満の方向けの市制度融資で、保証料と利子を市が全額補助する。<br>対象：創業予定者または創業後5年未満／特定創業支援等事業の証明が条件となる場合あり</small><span class="ar-prov">平塚市 産業振興課</span></div>
+            <div class="ar-amt">融資時の信用保証料と利子を全額市が補助（限度額・利率は制度表で要確認）</div>
+            <a class="ar-go" href="https://www.city.hiratsuka.kanagawa.jp/kigyo/page-c_01622.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">神奈川県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>平塚市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="hiratsuka-taishin-kaishu">
-            <h3>平塚市木造住宅耐震改修工事の補助金</h3>
-            <p class="area-meta">神奈川県平塚市｜補助金｜工事費の4/5（一般世帯の上限90万円または45万円）。設計は1/2（上限7万円または3.5万円）</p>
-            <p class="area-meta">期間：令和8年度分は11月末に締切予定（予算がなくなり次第終了）</p>
-            <p>評点1.0未満の旧耐震木造住宅を1.0以上にする耐震改修工事等を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>昭和56年5月31日以前に建築された2階建て以下の木造住宅</li><li>借家の居住者や改修後に住む所有者も申請可</li></ul>
-            <p><a href="https://www.city.hiratsuka.kanagawa.jp/machizukuri/page-c_01939.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program" id="hiratsuka-pv">
-            <h3>平塚市太陽光発電設備導入補助金</h3>
-            <p class="area-meta">神奈川県平塚市｜補助金｜太陽光 5万円/kW（上限20万円）、定置型蓄電システム同時設置で5万円加算</p>
-            <p class="area-meta">期間：令和8年度（予算の範囲内）</p>
-            <p>住宅への太陽光発電設備と蓄電システムの導入費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の住宅に設置</li><li>交付決定前の着工は原則不可（事業完了期限は令和9年3月31日）</li></ul>
-            <p><a href="https://www.city.hiratsuka.kanagawa.jp/kankyo/page67_00127.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
-          <div class="area-program" id="hiratsuka-zeh">
-            <h3>平塚市ゼロエネルギーハウス導入補助金</h3>
-            <p class="area-meta">神奈川県平塚市｜補助金｜ZEH1件20万円、蓄電システム同時設置で5万円加算</p>
-            <p class="area-meta">期間：令和8年度（最新は要確認）</p>
-            <p>ZEHの新築・購入・改修費を補助する。太陽光の補助金とは併用不可。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内でZEHを新築・購入・改修する個人</li><li>Nearly ZEH等は対象外</li></ul>
-            <p><a href="https://www.city.hiratsuka.kanagawa.jp/kankyo/page67_00041.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="hiratsuka-block">
-            <h3>平塚市ブロック塀等倒壊予防策補助金</h3>
-            <p class="area-meta">神奈川県平塚市｜補助金｜撤去費の50%（上限15万円）、非課税世帯は100%（上限30万円）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>道路に面した危険なブロック塀等の撤去費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>高さ80cm以上で市の現地調査で危険度「大」と判定された塀</li><li>フェンス新設は対象外</li></ul>
-            <p><a href="https://www.city.hiratsuka.kanagawa.jp/machizukuri/page-c_01930.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
-          <div class="area-program" id="hiratsuka-jutaku-kairyo">
-            <h3>平塚市重度障がい者住宅設備改良費助成</h3>
-            <p class="area-meta">神奈川県平塚市｜助成金｜工事の種類により上限60万円～100万円（1回限り）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>在宅の重度障がい者の浴室・便所・玄関・廊下等の住宅改良費を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>在宅の重度障がい者がいる世帯</li></ul>
-            <p><a href="https://www.city.hiratsuka.kanagawa.jp/fukushi/page-c_00988.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-6">子育て</h3>
-          <div class="area-program" id="hiratsuka-papa-ikukyu-koufukin">
-            <h3>産後パパ育休取得応援交付金</h3>
-            <p class="area-meta">平塚市 健康課｜給付｜令和8年4月1日以降に妊娠届出の方：5万円または15万円（令和8年3月31日までの妊娠届出者は10万円）</p>
-            <p class="area-meta">期間：令和8年度から交付要件が変わります（令和8年4月1日以降に妊娠届出をした方は新制度）</p>
-            <p>子の出生後8週間のうち4週間（28日）以上の出生時育児休業（産後パパ育休）または育児休業を取得して育児に取り組んだ父親を対象に交付します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>出生後8週間以内に28日以上の育児休業等を取得した父親（15万円は復職せず継続して6か月以上取得）</li><li>交付を受けるためには、出産前から母親父親教室に参加するなどの準備が必要</li></ul>
-            <p><a href="https://www.city.hiratsuka.kanagawa.jp/kenko/page21_00303.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="hiratsuka-sanfujinka">
-            <h3>産婦健康診査（2週間健診・1か月健診）の費用補助</h3>
-            <p class="area-meta">平塚市 健康課｜助成金｜1回あたり5,000円（2週間健診・1か月健診）</p>
-            <p class="area-meta">期間：令和8年4月1日以降に実施する健診から（令和8年度）</p>
-            <p>令和8年4月1日以降に実施する産婦健康診査から助成額を増額し、産後2週間健診への補助も新たに開始しました。補助券で助成します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>健診受診日に平塚市に住民票がある産婦</li><li>2週間健診の補助券は、令和8年4月1日以降に母子健康手帳の交付を受けた産婦</li></ul>
-            <p><a href="https://www.city.hiratsuka.kanagawa.jp/kenko/page21_00209.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="hiratsuka-shoni-iryohi">
-            <h3>小児医療費の助成</h3>
-            <p class="area-meta">平塚市 こども家庭課｜助成金｜入院・通院にかかる保険診療医療費の自己負担額を助成</p>
-            <p class="area-meta">期間：一度申請すると更新手続きは不要（医療証の有効期間終了日は18歳に達する日以後の最初の3月31日）</p>
-            <p>平塚市に住所を有する0歳から18歳に達する日以後の最初の3月31日までのお子様を対象に、医療費の助成を行っています。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>平塚市に住所を有する0歳から18歳の年度末までのお子さま</li><li>保険外診療、健康診査、入院時食事代等は対象外</li></ul>
-            <p><a href="https://www.city.hiratsuka.kanagawa.jp/kodomo/page-c_03167.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-7">医療・福祉</h3>
-          <div class="area-program" id="hiratsuka-funin-senshin-iryo">
-            <h3>不妊治療（先進医療）費助成事業</h3>
-            <p class="area-meta">平塚市 健康課｜助成金｜1回の治療で先進医療にかかった費用の10分の7（上限5万円）</p>
-            <p class="area-meta">期間：申請期限：治療終了日から起算して6か月以内</p>
-            <p>医療保険適用の体外受精・顕微授精と併せて、医療保険の適用とならない先進医療の治療を受けた方を対象に、先進医療にかかった費用の一部を助成します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>医療保険適用の特定不妊治療と併用して先進医療を受けたこと</li><li>治療開始日および申請日時点で、法律上の婚姻をしている、または事実婚であること</li><li>助成申請の時点で、夫婦の両方または一方が平塚市民であること</li></ul>
-            <p><a href="https://www.city.hiratsuka.kanagawa.jp/kenko/page21_00263.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="hiratsuka-hitorioya-iryohi">
-            <h3>ひとり親家庭等医療費の助成</h3>
-            <p class="area-meta">平塚市 こども家庭課｜助成金｜保険診療分は入院・通院費が無料（所得制限あり）</p>
-            <p class="area-meta">期間：所得制限：令和6年分の所得額が基準以上の場合、令和8年1月1日から1年間は対象外</p>
-            <p>母子家庭あるいは父子家庭にある父または母及び児童の医療費に対して助成を行い、ひとり親家庭等の生活の安定と自立を支援する制度です。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内に居住し、対象となる児童を監護している父か母または養育している方、及びその児童</li><li>児童は18才に達する日以後の最初の3月31日までなど</li><li>国民健康保険又は社会保険に加入していない方などは対象外</li></ul>
-            <p><a href="https://www.city.hiratsuka.kanagawa.jp/kodomo/page-c_03173.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-8">教育・学び</h3>
-          <div class="area-program" id="hiratsuka-shugaku-enjo">
-            <h3>児童生徒就学援助</h3>
-            <p class="area-meta">平塚市 学務課｜給付｜学用品費は小学校第1学年11,630円・中学校第1学年22,730円など。給食費は徴収額（令和8年度支給予定額）</p>
-            <p class="area-meta">期間：令和8年度支給予定額。各学校の就学援助支給申請書を学校へ提出</p>
-            <p>経済的な理由により、小・中学校に通学するお子さんの就学にお困りの方に対して、学用品費や給食費など学校での学習に必要な費用の一部を援助します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>平塚市立小・中学校に在学している児童生徒と同居の保護者など</li><li>生活保護法の規定による要保護者、または世帯の収入が認定基準以下の方</li></ul>
-            <p><a href="https://www.city.hiratsuka.kanagawa.jp/kyoiku/page-c_01043.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>神奈川県の制度</strong></p>
-          <ul><li><a href="pref-kanagawa.html#kanagawa-ev-futsu-juden-r8">令和8年度神奈川県EV普通充電設備整備費補助金</a></li><li><a href="pref-kanagawa.html#kanagawa-iju-shienkin">神奈川県移住支援事業（移住支援金）</a></li><li><a href="pref-kanagawa.html#kanagawa-zeh-r8">令和8年度神奈川県ネット・ゼロ・エネルギー・ハウス導入費補助金</a></li><li><a href="pref-kanagawa.html#kanagawa-jutaku-taiyoko-chikuden">令和8年度神奈川県住宅用太陽光発電・蓄電池導入費補助金</a></li><li><a href="pref-kanagawa.html#kanagawa-kizon-shoene-kaishu-r8">令和8年度神奈川県既存住宅省エネ改修事業費補助金</a></li></ul>
-          <p><a href="pref-kanagawa.html#pref-resident">神奈川県の制度5件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-kanagawa.html#kanagawa-fukugyo-jinzai">神奈川県副業・兼業人材活用補助金</a></li><li><a href="pref-kanagawa.html#kanagawa-jigyoshokei">神奈川県事業承継補助金（令和8年度）</a></li><li><a href="pref-kanagawa.html#kanagawa-sogyo-shien-yushi">創業支援融資（神奈川県中小企業制度融資）</a></li><li><a href="pref-kanagawa.html#kanagawa-shokibo-digital">小規模事業者デジタル化支援推進事業費補助金（令和8年度）</a></li><li><a href="pref-kanagawa.html#kanagawa-sogyosha-seicho">生産性向上促進事業費補助金（創業者成長支援枠）</a></li></ul>
+          <p><a href="pref-kanagawa.html#pref-business">神奈川県の制度5件を、県のページで見る →</a></p>
       </div>
     </section>
 

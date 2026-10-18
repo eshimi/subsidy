@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"成田市","item":"https://hojyokin.net/area/narita.html"}]}</script>
@@ -165,133 +207,109 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 成田市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b15.webp')"><h1 class="pb-title">成田市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-chiba.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">千葉県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">千葉県 成田市</p>
+        <h1>成田市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度9件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-chiba.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（成田市）<b>2件</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（千葉県）<b>5件（うち受付終了3件）</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>7件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 2</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-6">子育て 1</a><a href="#res-cat-9">移住 1</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <a href="#res-g-kosodate"><i aria-hidden="true">👶</i><b>子育て</b><small>1件</small></a>
+      <span class="is-none"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>掲載なし</small></span>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>5件</small></a>
+      <a href="#res-g-iju"><i aria-hidden="true">🌱</i><b>移住</b><small>1件</small></a>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市2件＋県5件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">成田市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="narita-city-chushokigyo-kinyu">
-            <h3>成田市中小企業金融支援（創業支援資金・一般事業資金ほか）</h3>
-            <p class="area-meta">成田市 商工振興企業立地課｜融資｜創業支援資金：設備1,500万円・運転750万円まで。一般事業資金：設備3,000万円・10年以内など</p>
-            <p class="area-meta">期間：令和8年度版の案内あり（通年。詳細は要確認）</p>
-            <p>市内中小企業向けの制度融資。創業支援資金、事業転換資金、環境経営支援資金などがあり、令和8年度版の案内が公開。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の中小企業者</li><li>千葉県信用保証協会の保証を利用</li></ul>
-            <p><a href="https://www.city.narita.chiba.jp/business/page152800.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-kosodate">子育て<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="narita-kekkon-shinseikatsu">
+            <div class="ar-name"><b>成田市結婚新生活支援事業</b><small>新婚世帯の住宅取得費・賃借費等を助成。<br>対象：令和8年1月1日〜令和9年3月31日に婚姻届受理／所得要件あり<br>期間：令和8年1月1日〜令和9年3月31日に婚姻した世帯<br>締切：2027-03-31</small><span class="ar-prov">千葉県成田市</span></div>
+            <div class="ar-amt">夫婦とも29歳以下:上限60万円、39歳以下:上限30万円</div>
+            <a class="ar-go" href="https://www.city.narita.chiba.jp/shisei/page0101_00052.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="narita-city-sogyo-shien">
-            <h3>成田市創業支援補助金</h3>
-            <p class="area-meta">成田市 商工振興企業立地課｜補助金｜創業経費の1/2（上限50万円。うち広報費は上限25万円）</p>
-            <p class="area-meta">期間：最新は要確認（ページ更新日が古く令和8年度の募集は未確認）</p>
-            <p>創業前から創業後6か月以内の人の店舗等借入費・広報費等を補助。事前申請が必要で、交付決定前の経費は対象外。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>創業前〜創業後6か月以内の人</li><li>成田商工会議所または成田市東商工会の創業相談を受け推薦を得ていること</li><li>事業承継・フランチャイズは対象外</li></ul>
-            <p><a href="https://www.city.narita.chiba.jp/business/page154900.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>5件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="narita-block">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>成田市危険コンクリートブロック塀等除却工事費助成制度</b><small>倒壊のおそれがある道路沿いのブロック塀等の除却を市内業者に依頼する場合に助成。<br>対象：市長が危険と認めたブロック塀／市内業者による施工</small><span class="ar-prov">千葉県成田市</span></div>
+            <div class="ar-amt">除却費の1/2以内(上限10万円)</div>
+            <a class="ar-go" href="https://www.city.narita.chiba.jp/kurashi/page173800_00001.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="narita-shouene">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>成田市住宅用省エネルギー設備設置費補助金</b><small>太陽光、蓄電池、エネファーム、断熱窓、電気自動車等の住宅用設備の設置費を補助。<br>対象：市内に住民登録があり市税滞納なし／工事後の申請</small><span class="ar-prov">千葉県成田市</span></div>
+            <div class="ar-amt">要確認(令和7年度版:太陽光1kWあたり2万円・上限9万円、蓄電池上限7万円)</div>
+            <a class="ar-go" href="https://www.city.narita.chiba.jp/kurashi/page111200.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="narita-taishin-kaishu">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>成田市住宅耐震改修助成制度</b><small>耐震性が低いと診断された住宅の改修費を助成。令和7年度から上限額引き上げ。<br>対象：耐震診断で改修が必要と判定された住宅</small><span class="ar-prov">千葉県成田市</span></div>
+            <div class="ar-amt">上限115万円</div>
+            <a class="ar-go" href="https://www.city.narita.chiba.jp/kurashi/page172700.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="narita-taishin-shindan">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>成田市住宅耐震診断等助成制度</b><small>市登録の耐震診断士による住宅耐震診断費用を助成。<br>対象：交付決定後に診断を実施</small><span class="ar-prov">千葉県成田市</span></div>
+            <div class="ar-amt">診断費用の3分の2以内(上限8万円)</div>
+            <a class="ar-go" href="https://www.city.narita.chiba.jp/kurashi/page172500.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="narita-tokutei-akiya">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>成田市特定空家等除却工事費補助金</b><small>特定空家等に認定された個人所有の一戸建ての除却費を補助。<br>対象：個人所有の一戸建て／空家等対策委員会による判定が必要</small><span class="ar-prov">千葉県成田市</span></div>
+            <div class="ar-amt">補助率1/2(上限50万円)</div>
+            <a class="ar-go" href="https://www.city.narita.chiba.jp/kurashi/page0142_00082.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-iju">移住<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="narita-akiya-kaishu">
+            <div class="ar-name"><b>成田市空家改修補助金</b><small>1年以上使われていない一戸建ての改修費を補助。市外転入者等が対象。<br>対象：1年以上使用されていない一戸建て／市外から転入する人など</small><span class="ar-prov">千葉県成田市</span></div>
+            <div class="ar-amt">補助対象経費の1/2(住宅用上限50万円、空き家バンク登録で10万円加算)</div>
+            <a class="ar-go" href="https://www.city.narita.chiba.jp/kurashi/page0142_00082.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>千葉県の制度</strong></p>
+          <ul><li><a href="pref-chiba.html#chiba-pref-iju-shienkin">千葉県移住支援金（UIJターン）</a></li><li><a href="pref-chiba.html#chiba-pref-jutaku-lease-ppa">千葉県住宅用太陽光発電設備等に係るリース等導入促進事業補助金</a></li><li><a href="pref-chiba.html#chiba-pref-zeh">令和8年度千葉県ネット・ゼロ・エネルギー・ハウス導入促進事業補助金</a></li></ul>
+          <p><a href="pref-chiba.html#pref-resident">千葉県の制度3件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">千葉県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">成田市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-chiba.html#chiba-chusho-shinko-shikin">千葉県 中小企業振興資金</a></li><li><a href="pref-chiba.html#chiba-shijo-kaitaku-josei">市場開拓助成（展示会出展）</a></li><li><a href="pref-chiba.html#chiba-pref-sogyo-ouen">ちば創業応援助成金</a></li><li><a href="pref-chiba.html#chiba-reskilling-banso">中小企業向け伴走型リスキリング支援</a></li><li><a href="pref-chiba.html#chiba-seicho-sokushin-hojo">中小企業成長促進補助金（第4弾）</a></li></ul>
-          <p><a href="pref-chiba.html#pref-business">千葉県の制度5件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="narita-city-chushokigyo-kinyu">
+            <div class="ar-name"><b>成田市中小企業金融支援（創業支援資金・一般事業資金ほか）</b><small>市内中小企業向けの制度融資。創業支援資金、事業転換資金、環境経営支援資金などがあり、令和8年度版の案内が公開。<br>対象：市内の中小企業者／千葉県信用保証協会の保証を利用</small><span class="ar-prov">成田市 商工振興企業立地課</span></div>
+            <div class="ar-amt">創業支援資金：設備1,500万円・運転750万円まで。一般事業資金：設備3,000万円・10年以内など</div>
+            <a class="ar-go" href="https://www.city.narita.chiba.jp/business/page152800.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="narita-city-sogyo-shien">
+            <div class="ar-name"><b>成田市創業支援補助金</b><small>創業前から創業後6か月以内の人の店舗等借入費・広報費等を補助。事前申請が必要で、交付決定前の経費は対象外。<br>対象：創業前〜創業後6か月以内の人／成田商工会議所または成田市東商工会の創業相談を受け推薦を得ていること</small><span class="ar-prov">成田市 商工振興企業立地課</span></div>
+            <div class="ar-amt">創業経費の1/2（上限50万円。うち広報費は上限25万円）</div>
+            <a class="ar-go" href="https://www.city.narita.chiba.jp/business/page154900.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">千葉県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>成田市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="narita-taishin-kaishu">
-            <h3>成田市住宅耐震改修助成制度</h3>
-            <p class="area-meta">千葉県成田市｜助成金｜上限115万円</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>耐震性が低いと診断された住宅の改修費を助成。令和7年度から上限額引き上げ。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>耐震診断で改修が必要と判定された住宅</li></ul>
-            <p><a href="https://www.city.narita.chiba.jp/kurashi/page172700.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="narita-taishin-shindan">
-            <h3>成田市住宅耐震診断等助成制度</h3>
-            <p class="area-meta">千葉県成田市｜助成金｜診断費用の3分の2以内(上限8万円)</p>
-            <p class="area-meta">期間：4月1日〜12月末を目安(令和8年度は要確認)</p>
-            <p>市登録の耐震診断士による住宅耐震診断費用を助成。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>交付決定後に診断を実施</li></ul>
-            <p><a href="https://www.city.narita.chiba.jp/kurashi/page172500.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program" id="narita-shouene">
-            <h3>成田市住宅用省エネルギー設備設置費補助金</h3>
-            <p class="area-meta">千葉県成田市｜補助金｜要確認(令和7年度版:太陽光1kWあたり2万円・上限9万円、蓄電池上限7万円)</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>太陽光、蓄電池、エネファーム、断熱窓、電気自動車等の住宅用設備の設置費を補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内に住民登録があり市税滞納なし</li><li>工事後の申請</li></ul>
-            <p><a href="https://www.city.narita.chiba.jp/kurashi/page111200.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="narita-block">
-            <h3>成田市危険コンクリートブロック塀等除却工事費助成制度</h3>
-            <p class="area-meta">千葉県成田市｜助成金｜除却費の1/2以内(上限10万円)</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>倒壊のおそれがある道路沿いのブロック塀等の除却を市内業者に依頼する場合に助成。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市長が危険と認めたブロック塀</li><li>市内業者による施工</li></ul>
-            <p><a href="https://www.city.narita.chiba.jp/kurashi/page173800_00001.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="narita-tokutei-akiya">
-            <h3>成田市特定空家等除却工事費補助金</h3>
-            <p class="area-meta">千葉県成田市｜補助金｜補助率1/2(上限50万円)</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>特定空家等に認定された個人所有の一戸建ての除却費を補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>個人所有の一戸建て</li><li>空家等対策委員会による判定が必要</li></ul>
-            <p><a href="https://www.city.narita.chiba.jp/kurashi/page0142_00082.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-6">子育て</h3>
-          <div class="area-program" id="narita-kekkon-shinseikatsu">
-            <h3>成田市結婚新生活支援事業</h3>
-            <p class="area-meta">千葉県成田市｜補助金｜夫婦とも29歳以下:上限60万円、39歳以下:上限30万円｜締切：2027-03-31</p>
-            <p class="area-meta">期間：令和8年1月1日〜令和9年3月31日に婚姻した世帯</p>
-            <p>新婚世帯の住宅取得費・賃借費等を助成。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>令和8年1月1日〜令和9年3月31日に婚姻届受理</li><li>所得要件あり</li><li>対象住宅へ住民登録</li></ul>
-            <p><a href="https://www.city.narita.chiba.jp/shisei/page0101_00052.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-9">移住</h3>
-          <div class="area-program" id="narita-akiya-kaishu">
-            <h3>成田市空家改修補助金</h3>
-            <p class="area-meta">千葉県成田市｜補助金｜補助対象経費の1/2(住宅用上限50万円、空き家バンク登録で10万円加算)</p>
-            <p class="area-meta">期間：4月1日〜10月末を目安(令和8年度は要確認)</p>
-            <p>1年以上使われていない一戸建ての改修費を補助。市外転入者等が対象。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>1年以上使用されていない一戸建て</li><li>市外から転入する人など</li><li>契約前に申請</li></ul>
-            <p><a href="https://www.city.narita.chiba.jp/kurashi/page0142_00082.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>千葉県の制度</strong></p>
-          <ul><li><a href="pref-chiba.html#chiba-pref-iju-shienkin">千葉県移住支援金（UIJターン）</a></li><li><a href="pref-chiba.html#chiba-pref-jutaku-lease-ppa">千葉県住宅用太陽光発電設備等に係るリース等導入促進事業補助金</a></li><li><a href="pref-chiba.html#chiba-pref-zeh">令和8年度千葉県ネット・ゼロ・エネルギー・ハウス導入促進事業補助金</a></li></ul>
-          <p><a href="pref-chiba.html#pref-resident">千葉県の制度3件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-chiba.html#chiba-chusho-shinko-shikin">千葉県 中小企業振興資金</a></li><li><a href="pref-chiba.html#chiba-shijo-kaitaku-josei">市場開拓助成（展示会出展）</a></li><li><a href="pref-chiba.html#chiba-pref-sogyo-ouen">ちば創業応援助成金</a></li><li><a href="pref-chiba.html#chiba-reskilling-banso">中小企業向け伴走型リスキリング支援</a></li><li><a href="pref-chiba.html#chiba-seicho-sokushin-hojo">中小企業成長促進補助金（第4弾）</a></li></ul>
+          <p><a href="pref-chiba.html#pref-business">千葉県の制度5件を、県のページで見る →</a></p>
       </div>
     </section>
 

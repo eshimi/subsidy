@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"戸田市","item":"https://hojyokin.net/area/toda.html"}]}</script>
@@ -165,143 +207,110 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 戸田市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b14.webp')"><h1 class="pb-title">戸田市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-saitama.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">埼玉県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">埼玉県 戸田市</p>
+        <h1>戸田市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度10件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-saitama.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（戸田市）<b>4件</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（埼玉県）<b>5件</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>6件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-5">バリアフリー・介護 1</a><a href="#res-cat-9">移住 1</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <span class="is-none"><i aria-hidden="true">👶</i><b>子育て</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>掲載なし</small></span>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>5件</small></a>
+      <a href="#res-g-iju"><i aria-hidden="true">🌱</i><b>移住</b><small>1件</small></a>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市4件＋県5件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">戸田市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="toda-city-chusho-kigyo-yushi">
-            <h3>戸田市中小企業融資制度（利子補給）</h3>
-            <p class="area-meta">戸田市 経済戦略室｜融資｜利子補給率は小口資金（運転）で支払利子の21％、商工業近代化資金は32〜35％など（現行かは要確認）</p>
-            <p class="area-meta">期間：通年（予算残りわずかの表示あり、最新は要確認）</p>
-            <p>小口資金・商工業近代化資金・特定中小企業者資金の市のあっせん融資。貸付から1年経過後の1年間に利子補給を申請できる。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内で事業を営む中小企業者</li></ul>
-            <p><a href="https://www.city.toda.saitama.jp/soshiki/214/keizai-yuushi-seido.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>5件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="toda-block">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>戸田市ブロック塀等撤去・築造等事業支援補助</b><small>倒壊の恐れのある公道沿いのブロック塀等の撤去・築造費用の一部を補助。事前申請制。<br>対象：公道に面し高さ1.2m超のコンクリート・レンガ・石材の塀／工事前に申請(工事後申請は不可)<br>期間：申請期限2027年2月26日(予算に限りあり)<br>締切：2027-02-26</small><span class="ar-prov">埼玉県戸田市</span></div>
+            <div class="ar-amt">撤去:1mあたり1万円(上限20万円)、築造:1mあたり5千円(上限10万円)(いずれも実費が上限)</div>
+            <a class="ar-go" href="https://www.city.toda.saitama.jp/soshiki/121/kikikanri-blockfence.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="toda-city-dx-suishin">
-            <h3>戸田市DX推進補助金</h3>
-            <p class="area-meta">戸田市 経済戦略室｜補助金｜対象経費（税抜）の1/2、上限50万円</p>
-            <p class="area-meta">期間：令和8年4月1日〜予算がなくなり次第終了</p>
-            <p>自社の課題解決のためDXに取り組む事業のシステム使用料等（導入から12か月分）を補助する。予算は500万円で、9月9日時点の残額は約230万円、なくなり次第終了。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内に本店（個人は主たる事業所）を有する中小企業者・小規模事業者</li><li>市内で1年以上継続して事業を営んでいること</li><li>市税等の滞納がないこと</li></ul>
-            <p><a href="https://www.city.toda.saitama.jp/soshiki/214/keizai-dxhojyo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="toda-koreisumai">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>戸田市高齢者の居住の支援(住宅建築資金融資・利子補給)</b><small>60歳以上の方との同居のため、高齢者の居室等を新築・増築・改築する建築資金を融資し利子を補給。<br>対象：60歳以上の人と同居または同居予定</small><span class="ar-prov">埼玉県戸田市</span></div>
+            <div class="ar-amt">融資上限500万円(利子補給あり)</div>
+            <a class="ar-go" href="https://www.city.toda.saitama.jp/soshiki/234/chojukaigo-shien-house.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="toda-city-shingijutsu-kenkyu-kaihatsu">
-            <h3>戸田市新技術研究開発支援事業（商工業支援事業補助金）</h3>
-            <p class="area-meta">戸田市 経済戦略室｜補助金｜経費（税抜）の1/3、上限200万円</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>新技術の研究開発に要した費用を支援する。同補助金には展示会出展支援（上限20万円）やISO等取得支援（1/3、上限50万円）もある。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>製造業・情報通信業・事業所向けサービス業・建設業・運輸業の中小企業者</li><li>申請年度中に技術確立や市場化を行うこと</li></ul>
-            <p><a href="https://www.city.toda.saitama.jp/soshiki/214/keizai-shoukougyoushien-hojyo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="toda-reform">
+            <div class="ar-name"><b><span class="ar-tag">省エネ住宅</span>令和8年度戸田市住宅改修資金助成制度</b><small>市内施工業者による20万円以上(税抜)の個人住宅改修費用の一部を助成。<br>対象：市内業者による税抜20万円以上の工事／工事開始前に申請<br>期間：第2期受付 2026年9月1日〜(2027年2月28日までに完了する工事)<br>締切：2027-02-28</small><span class="ar-prov">埼玉県戸田市</span></div>
+            <div class="ar-amt">工事費の5%以内(上限10万円)</div>
+            <a class="ar-go" href="https://www.city.toda.saitama.jp/soshiki/214/keizai-hojyo-jyuutaku.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="toda-city-shoten-shingyoshu-tenkan">
-            <h3>戸田市商店等新業種等転換支援事業</h3>
-            <p class="area-meta">戸田市 経済戦略室｜補助金｜補助率1/2、上限50万円</p>
-            <p class="area-meta">期間：令和8年4月1日〜予算の範囲内で申請順（実績報告は令和9年3月末まで）</p>
-            <p>新業種・新業態への転換に伴い、エネルギー高度化、子育て支援、高齢者支援などの社会的課題に対応する改修工事費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>小売業・飲食業・サービス業を営む（営もうとする）人</li><li>個人は市内在住</li><li>市税等の未納がないこと</li></ul>
-            <p><a href="https://www.city.toda.saitama.jp/soshiki/214/keizai-hojyo-shouten.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="toda-taishin">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>戸田市木造住宅等耐震診断・耐震改修助成</b><small>旧耐震基準の既存住宅の耐震診断・耐震改修費用の一部を助成。<br>対象：1981年(昭和56年)5月31日以前に着工した住宅が中心</small><span class="ar-prov">埼玉県戸田市</span></div>
+            <div class="ar-amt">診断:上限10万円(補助率1/1)、改修:一般上限50万円(1/3)・簡易上限20万円(1/2)</div>
+            <a class="ar-go" href="https://www.city.toda.saitama.jp/uploaded/attachment/78773.pdf" target="_blank" rel="noopener">公式 →</a>
           </div>
+          <div class="ar-row" id="toda-zerocarbon">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>令和8年度戸田市ゼロカーボン推進補助金(太陽光発電)</b><small>自ら居住する住宅に太陽光発電を設置する個人への補助。蓄電池が2026年度の対象かは要確認。<br>対象：自ら所有し居住する住宅への設置(リース・PPA不可)／定格出力合計1kW以上、JET認証モジュール<br>期間：2026年4月1日〜2027年3月1日(予算額に達し次第終了。7/23時点残額約1,287万円)<br>締切：2027-03-01</small><span class="ar-prov">埼玉県戸田市</span></div>
+            <div class="ar-amt">太陽光発電システム:一律5万円</div>
+            <a class="ar-go" href="https://www.city.toda.saitama.jp/soshiki/212/kankyo-zero-carbon-hozyo.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-iju">移住<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="toda-akiya">
+            <div class="ar-name"><b>戸田市空き家への住み替え補助金</b><small>空き家バンク登録の空き家の売買成立時の仲介手数料や、購入者の改修・除却工事費用を補助。<br>対象：空き家バンク登録物件の購入／居住目的での購入</small><span class="ar-prov">埼玉県戸田市</span></div>
+            <div class="ar-amt">要確認(子育て世帯・三世代同居・近居等は加算あり)</div>
+            <a class="ar-go" href="https://www.city.toda.saitama.jp/soshiki/272/matidukuri-akiya-hojo.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>埼玉県の制度</strong></p>
+          <ul><li><a href="pref-saitama.html#saitama-katei-shoene-saiene">家庭における省エネ・再エネ活用設備導入補助金</a></li><li><a href="pref-saitama.html#saitama-pref-iju-shienkin">埼玉県移住支援金</a></li></ul>
+          <p><a href="pref-saitama.html#pref-resident">埼玉県の制度2件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">埼玉県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">戸田市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-saitama.html#saitama-dx-donyu-hojo">埼玉県中小企業DX導入支援補助金（追加募集）</a></li><li><a href="pref-saitama.html#saitama-jinzai-katsuyo-hojo">埼玉県人材活用促進事業補助金</a></li><li><a href="pref-saitama.html#saitama-kigyoka-ikusei-shikin">埼玉県制度融資 起業家育成資金</a></li><li><a href="pref-saitama.html#saitama-shokibo-jigyo-shikin">埼玉県制度融資 小規模事業資金</a></li><li><a href="pref-saitama.html#saitama-shoryokuka-hojo">埼玉県中小企業省力化支援事業補助金【新規導入】</a></li></ul>
-          <p><a href="pref-saitama.html#pref-business">埼玉県の制度5件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="toda-city-chusho-kigyo-yushi">
+            <div class="ar-name"><b>戸田市中小企業融資制度（利子補給）</b><small>小口資金・商工業近代化資金・特定中小企業者資金の市のあっせん融資。貸付から1年経過後の1年間に利子補給を申請できる。<br>対象：市内で事業を営む中小企業者</small><span class="ar-prov">戸田市 経済戦略室</span></div>
+            <div class="ar-amt">利子補給率は小口資金（運転）で支払利子の21％、商工業近代化資金は32〜35％など（現行かは要確認）</div>
+            <a class="ar-go" href="https://www.city.toda.saitama.jp/soshiki/214/keizai-yuushi-seido.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="toda-city-dx-suishin">
+            <div class="ar-name"><b>戸田市DX推進補助金</b><small>自社の課題解決のためDXに取り組む事業のシステム使用料等（導入から12か月分）を補助する。予算は500万円で、9月9日時点の残額は約230万円、なくなり次第終了。<br>対象：市内に本店（個人は主たる事業所）を有する中小企業者・小規模事業者／市内で1年以上継続して事業を営んでいること<br>期間：令和8年4月1日〜予算がなくなり次第終了</small><span class="ar-prov">戸田市 経済戦略室</span></div>
+            <div class="ar-amt">対象経費（税抜）の1/2、上限50万円</div>
+            <a class="ar-go" href="https://www.city.toda.saitama.jp/soshiki/214/keizai-dxhojyo.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="toda-city-shingijutsu-kenkyu-kaihatsu">
+            <div class="ar-name"><b>戸田市新技術研究開発支援事業（商工業支援事業補助金）</b><small>新技術の研究開発に要した費用を支援する。同補助金には展示会出展支援（上限20万円）やISO等取得支援（1/3、上限50万円）もある。<br>対象：製造業・情報通信業・事業所向けサービス業・建設業・運輸業の中小企業者／申請年度中に技術確立や市場化を行うこと</small><span class="ar-prov">戸田市 経済戦略室</span></div>
+            <div class="ar-amt">経費（税抜）の1/3、上限200万円</div>
+            <a class="ar-go" href="https://www.city.toda.saitama.jp/soshiki/214/keizai-shoukougyoushien-hojyo.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="toda-city-shoten-shingyoshu-tenkan">
+            <div class="ar-name"><b>戸田市商店等新業種等転換支援事業</b><small>新業種・新業態への転換に伴い、エネルギー高度化、子育て支援、高齢者支援などの社会的課題に対応する改修工事費を補助する。<br>対象：小売業・飲食業・サービス業を営む（営もうとする）人／個人は市内在住<br>期間：令和8年4月1日〜予算の範囲内で申請順（実績報告は令和9年3月末まで）</small><span class="ar-prov">戸田市 経済戦略室</span></div>
+            <div class="ar-amt">補助率1/2、上限50万円</div>
+            <a class="ar-go" href="https://www.city.toda.saitama.jp/soshiki/214/keizai-hojyo-shouten.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">埼玉県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>戸田市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="toda-taishin">
-            <h3>戸田市木造住宅等耐震診断・耐震改修助成</h3>
-            <p class="area-meta">埼玉県戸田市｜補助金｜診断:上限10万円(補助率1/1)、改修:一般上限50万円(1/3)・簡易上限20万円(1/2)</p>
-            <p class="area-meta">期間：最新は要確認(R8.4月版案内あり)</p>
-            <p>旧耐震基準の既存住宅の耐震診断・耐震改修費用の一部を助成。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>1981年(昭和56年)5月31日以前に着工した住宅が中心</li></ul>
-            <p><a href="https://www.city.toda.saitama.jp/uploaded/attachment/78773.pdf" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program" id="toda-zerocarbon">
-            <h3>令和8年度戸田市ゼロカーボン推進補助金(太陽光発電)</h3>
-            <p class="area-meta">埼玉県戸田市｜補助金｜太陽光発電システム:一律5万円｜締切：2027-03-01</p>
-            <p class="area-meta">期間：2026年4月1日〜2027年3月1日(予算額に達し次第終了。7/23時点残額約1,287万円)</p>
-            <p>自ら居住する住宅に太陽光発電を設置する個人への補助。蓄電池が2026年度の対象かは要確認。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>自ら所有し居住する住宅への設置(リース・PPA不可)</li><li>定格出力合計1kW以上、JET認証モジュール</li></ul>
-            <p><a href="https://www.city.toda.saitama.jp/soshiki/212/kankyo-zero-carbon-hozyo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
-          <div class="area-program" id="toda-reform">
-            <h3>令和8年度戸田市住宅改修資金助成制度</h3>
-            <p class="area-meta">埼玉県戸田市｜助成金｜工事費の5%以内(上限10万円)｜締切：2027-02-28</p>
-            <p class="area-meta">期間：第2期受付 2026年9月1日〜(2027年2月28日までに完了する工事)</p>
-            <p>市内施工業者による20万円以上(税抜)の個人住宅改修費用の一部を助成。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内業者による税抜20万円以上の工事</li><li>工事開始前に申請</li></ul>
-            <p><a href="https://www.city.toda.saitama.jp/soshiki/214/keizai-hojyo-jyuutaku.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="toda-block">
-            <h3>戸田市ブロック塀等撤去・築造等事業支援補助</h3>
-            <p class="area-meta">埼玉県戸田市｜補助金｜撤去:1mあたり1万円(上限20万円)、築造:1mあたり5千円(上限10万円)(いずれも実費が上限)｜締切：2027-02-26</p>
-            <p class="area-meta">期間：申請期限2027年2月26日(予算に限りあり)</p>
-            <p>倒壊の恐れのある公道沿いのブロック塀等の撤去・築造費用の一部を補助。事前申請制。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>公道に面し高さ1.2m超のコンクリート・レンガ・石材の塀</li><li>工事前に申請(工事後申請は不可)</li></ul>
-            <p><a href="https://www.city.toda.saitama.jp/soshiki/121/kikikanri-blockfence.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
-          <div class="area-program" id="toda-koreisumai">
-            <h3>戸田市高齢者の居住の支援(住宅建築資金融資・利子補給)</h3>
-            <p class="area-meta">埼玉県戸田市｜融資｜融資上限500万円(利子補給あり)</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>60歳以上の方との同居のため、高齢者の居室等を新築・増築・改築する建築資金を融資し利子を補給。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>60歳以上の人と同居または同居予定</li></ul>
-            <p><a href="https://www.city.toda.saitama.jp/soshiki/234/chojukaigo-shien-house.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-9">移住</h3>
-          <div class="area-program" id="toda-akiya">
-            <h3>戸田市空き家への住み替え補助金</h3>
-            <p class="area-meta">埼玉県戸田市｜補助金｜要確認(子育て世帯・三世代同居・近居等は加算あり)</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>空き家バンク登録の空き家の売買成立時の仲介手数料や、購入者の改修・除却工事費用を補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>空き家バンク登録物件の購入</li><li>居住目的での購入</li></ul>
-            <p><a href="https://www.city.toda.saitama.jp/soshiki/272/matidukuri-akiya-hojo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>埼玉県の制度</strong></p>
-          <ul><li><a href="pref-saitama.html#saitama-katei-shoene-saiene">家庭における省エネ・再エネ活用設備導入補助金</a></li><li><a href="pref-saitama.html#saitama-pref-iju-shienkin">埼玉県移住支援金</a></li></ul>
-          <p><a href="pref-saitama.html#pref-resident">埼玉県の制度2件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-saitama.html#saitama-dx-donyu-hojo">埼玉県中小企業DX導入支援補助金（追加募集）</a></li><li><a href="pref-saitama.html#saitama-jinzai-katsuyo-hojo">埼玉県人材活用促進事業補助金</a></li><li><a href="pref-saitama.html#saitama-kigyoka-ikusei-shikin">埼玉県制度融資 起業家育成資金</a></li><li><a href="pref-saitama.html#saitama-shokibo-jigyo-shikin">埼玉県制度融資 小規模事業資金</a></li><li><a href="pref-saitama.html#saitama-shoryokuka-hojo">埼玉県中小企業省力化支援事業補助金【新規導入】</a></li></ul>
+          <p><a href="pref-saitama.html#pref-business">埼玉県の制度5件を、県のページで見る →</a></p>
       </div>
     </section>
 

@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"奈良市","item":"https://hojyokin.net/area/nara.html"}]}</script>
@@ -165,218 +207,158 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 奈良市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b02.webp')"><h1 class="pb-title">奈良市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-nara.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">奈良県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">奈良県 奈良市</p>
+        <h1>奈良市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度18件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-nara.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（奈良市）<b>5件</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（奈良県）<b>5件</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>13件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 3</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-4">空き家・ブロック塀 3</a><a href="#res-cat-5">バリアフリー・介護 1</a><a href="#res-cat-7">医療・福祉 2</a><a href="#res-cat-8">教育・学び 2</a><a href="#res-cat-9">移住 1</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <span class="is-none"><i aria-hidden="true">👶</i><b>子育て</b><small>掲載なし</small></span>
+      <a href="#res-g-iryo"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>2件</small></a>
+      <a href="#res-g-kyoiku"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>2件</small></a>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>8件</small></a>
+      <a href="#res-g-iju"><i aria-hidden="true">🌱</i><b>移住</b><small>1件</small></a>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市5件＋県5件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">奈良市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="nara-city-chusho-yushi">
-            <h3>奈良市中小企業融資制度（令和6年度新制度）</h3>
-            <p class="area-meta">奈良市 産業政策課｜融資｜金額は公式で確認</p>
-            <p class="area-meta">期間：随時（最新は要確認）</p>
-            <p>市内中小企業の資金繰りを支える市の融資制度。令和6年度から新制度に移行。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内で事業を営む中小企業者</li></ul>
-            <p><a href="https://www.city.nara.lg.jp/soshiki/109/9010.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/nara-city-chusho-yushi.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-iryo">医療・福祉<span>2件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="nara-seishoku-funin">
+            <div class="ar-name"><b>奈良市生殖補助医療等助成事業・一般不妊治療等助成事業</b><small>体外受精・顕微授精などの生殖補助医療と先進医療を受けたご夫婦に、経済的な負担の軽減を図るため費用を助成します。<br>対象：生殖補助医療以外の治療法では妊娠の見込みがない又は極めて少ないと医師に診断された夫婦／治療開始日における妻の年齢が43歳未満<br>期間：治療期間の終了日が令和8年度（令和8年4月1日～令和9年3月31日）の場合、令和10年3月31日まで</small><span class="ar-prov">奈良市 母子保健課</span></div>
+            <div class="ar-amt">本人負担額の2分の1（生殖補助医療の先進医療は上限5万円、全額自費となった生殖補助医療は上限15万円）</div>
+            <a class="ar-go" href="https://www.city.nara.lg.jp/soshiki/95/159141.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="nara-city-datsutanso-hojo">
-            <h3>奈良市地域脱炭素移行・再エネ推進事業補助金（事業所向け）</h3>
-            <p class="area-meta">奈良市 環境都市推進課｜補助金｜金額は公式で確認｜締切：2026-12-25</p>
-            <p class="area-meta">期間：令和8年4月16日〜12月25日</p>
-            <p>事業所への省エネ・再エネ設備の導入費用を補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の事業所（事業者）</li></ul>
-            <p><a href="https://www.city.nara.lg.jp/site/zerocarbon/263838.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/nara-city-datsutanso-hojo.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+          <div class="ar-row" id="nara-shinshin-iryohi">
+            <div class="ar-name"><b>心身障害者医療費助成</b><small>身体障害者手帳1・2級所持者または療育手帳所持者に、保険診療の自己負担分から一部負担金を除いた額を助成します。<br>対象：健康保険加入者（後期高齢者医療加入者を除く）で、身体障害者手帳1・2級所持者または療育手帳所持者<br>期間：受給資格証の有効期間は令和8年8月1日～令和9年7月31日</small><span class="ar-prov">奈良市 福祉医療課</span></div>
+            <div class="ar-amt">保険診療の自己負担分から一部負担金を除いた額（通院500円・月額上限額1,500円、入院1,000円）</div>
+            <a class="ar-go" href="https://www.city.nara.lg.jp/soshiki/38/9689.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="nara-city-nigiwai-hojo">
-            <h3>奈良市中小商業者等にぎわい創出事業補助金</h3>
-            <p class="area-meta">奈良市 産業政策課｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：最新は要確認（令和8年度ページは6月30日更新）</p>
-            <p>市内の中小商業者等による販路拡大・にぎわい創出のイベント等を支援する補助金。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の中小商業者等（対象団体・要件は要確認）</li></ul>
-            <p><a href="https://www.city.nara.lg.jp/site/jigyosyashien/list932.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <div class="area-program" id="nara-city-shintaisen-hojo">
-            <h3>奈良市中小企業等新たな挑戦支援補助金</h3>
-            <p class="area-meta">奈良市 産業政策課｜補助金｜補助率2/3・上限30万円（過去公募の情報。令和8年度は要確認）</p>
-            <p class="area-meta">期間：最新は要確認（令和8年度ページは6月30日更新）</p>
-            <p>新商品開発・新サービス提供など新たな挑戦に取り組む市内事業者を支援する補助金。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の中小企業者等</li><li>新たな挑戦・取組（新商品開発・新サービス等）を行うこと</li></ul>
-            <p><a href="https://www.city.nara.lg.jp/soshiki/109/180941.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <h3 class="area-cat" id="res-g-kyoiku">教育・学び<span>2件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="nara-shinnyugaku">
+            <div class="ar-name"><b>就学援助制度による「新入学準備金」入学前支給</b><small>経済的にお困りの世帯に対し、小学校新1年生になる前の3月に「新入学準備金」を就学援助制度により支給します。<br>対象：令和9年4月に小学校新1年生になる児童の保護者で、経済的にお困りの世帯／令和8年度市民税所得割が基準以下の世帯、または児童扶養手当受給世帯<br>期間：申請期間：令和8年11月2日(月曜日)～12月22日(火曜日)。支給日は令和9年3月5日(金曜日)予定<br>締切：2026-12-22</small><span class="ar-prov">奈良市 教育総務課</span></div>
+            <div class="ar-amt">6万円程度（令和8年度新小学1年生への支給実績：64,300円）</div>
+            <a class="ar-go" href="https://www.city.nara.lg.jp/site/kosodate/10621.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="nara-city-sogyo-shien-shikin">
-            <h3>奈良市創業支援資金</h3>
-            <p class="area-meta">奈良市 産業政策課｜融資｜融資限度額1,000万円・利率年1.00%以内（固定）・期間5年以内（据置6月以内）</p>
-            <p class="area-meta">期間：随時（最新は要確認）</p>
-            <p>新しく事業を始める事業者向けの市の制度融資。奈良県信用保証協会の創業関連保証を利用。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>創業関連保証を受けられる創業者・創業間もない事業者</li></ul>
-            <p><a href="https://www.city.nara.lg.jp/soshiki/109/8684.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="nara-tokubetsu-shien">
+            <div class="ar-name"><b>特別支援教育就学奨励費</b><small>特別支援学級に就学する児童生徒の保護者に、学校給食費・学用品費・修学旅行費など学校で必要な費用の一部を援助します。<br>対象：奈良市内に住所を有し、奈良市立小・中学校の特別支援学級に就学している児童生徒の保護者世帯／就学援助や生活保護による教育扶助など他の助成を受給している場合は対象外<br>期間：当初受付：令和8年7月6日(月曜日) ～ 8月7日(金曜日)。最終受付期限：令和9年3月31日(火曜日)<br>締切：2027-03-31</small><span class="ar-prov">奈良市 教育総務課</span></div>
+            <div class="ar-amt">新入学学用品費 小学1年28,530円・中学1年31,500円（定額）ほか、費目ごとに定額または上限額</div>
+            <a class="ar-go" href="https://www.city.nara.lg.jp/site/kosodate/239149.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          </div>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>8件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="nara-akiyabank-kaishu">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>奈良市空き家・町家バンク活用住宅支援補助金（改修費）</b><small>空き家バンク・奈良町町家バンク登録物件の購入、改修、荷物撤去に要する経費を補助する。同一物件で購入費補助と改修費補助の重複は不可。<br>対象：バンク登録物件の所有者または利用希望者／交付申請後に改修を行うこと</small><span class="ar-prov">奈良県奈良市</span></div>
+            <div class="ar-amt">改修費の補助対象経費の1/2、上限50万円</div>
+            <a class="ar-go" href="https://www.city.nara.lg.jp/site/akiya-bank/list40-163.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="nara-block-tekkyo">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>奈良市ブロック塀等撤去費補助金</b><small>倒壊の危険があるブロック塀等の撤去費用の一部を補助する。令和8年度の募集は7件で先着順。<br>対象：倒壊等の危険性があるブロック塀等の所有者／撤去工事の契約・着工前の申請<br>期間：令和8年5月18日〜11月30日（土日祝除く、先着順）<br>締切：2026-11-30</small><span class="ar-prov">奈良県奈良市</span></div>
+            <div class="ar-amt">撤去費用の1/2、上限15万円（見付面積1平方メートルあたり8,000円が限度）</div>
+            <a class="ar-go" href="https://www.city.nara.lg.jp/soshiki/117/8965.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="nara-kaigo-jutaku-kaishu">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>奈良市 介護保険 住宅改修費の支給</b><small>要介護・要支援認定を受けた方の手すり設置や段差解消などの住宅改修費を介護保険から支給する。工事前後の申請が必要。<br>対象：要介護・要支援の認定を受けている方／工事前と工事後にそれぞれ申請</small><span class="ar-prov">奈良県奈良市</span></div>
+            <div class="ar-amt">改修費の7〜9割（負担割合による）、支給限度20万円</div>
+            <a class="ar-go" href="https://www.city.nara.lg.jp/site/kaigohoken/8877.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="nara-taishin-kaishu-koji">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>奈良市既存木造住宅耐震改修工事補助金</b><small>木造住宅の耐震改修工事費の一部を補助する。令和8年度の募集は3件で先着順。<br>対象：居住している所有者／上部構造評点を1.0以上にする工事<br>期間：令和8年5月18日〜11月30日（土日祝除く、先着順）<br>締切：2026-11-30</small><span class="ar-prov">奈良県奈良市</span></div>
+            <div class="ar-amt">要確認（令和7年度は工事費の1/3、上限50万円）</div>
+            <a class="ar-go" href="https://www.city.nara.lg.jp/soshiki/117/8966.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="nara-taishin-sekkei">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>奈良市既存木造住宅耐震改修設計補助金</b><small>昭和56年5月31日以前に建築された居住中の木造一戸建て住宅の耐震改修設計に要する費用の一部を補助する。<br>対象：昭和56年5月31日以前に建築された一戸建て住宅／所有者が現に居住している<br>期間：令和8年度：令和8年5月18日～11月30日（先着3件。令和9年2月19日までに完了・実績報告）<br>締切：2026-11-30</small><span class="ar-prov">奈良市</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.nara.lg.jp/uploaded/attachment/209908.pdf" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="nara-taishin-shindan">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>奈良市既存住宅耐震診断補助金（一戸建て住宅）</b><small>旧耐震の一戸建て住宅の耐震診断費用の一部を補助する。先着順で、診断完了と実績報告が令和9年2月19日までに必要。<br>対象：昭和56年5月31日以前に建築された住宅が主な対象／診断中・契約済み・診断終了分は対象外<br>期間：令和8年5月18日〜11月30日（土日祝除く、先着順）<br>締切：2026-11-30</small><span class="ar-prov">奈良県奈良市</span></div>
+            <div class="ar-amt">要確認（令和7年度は費用の2/3、上限9万円）</div>
+            <a class="ar-go" href="https://www.city.nara.lg.jp/soshiki/117/8968.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="nara-taiyoko-chikudenchi">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>奈良市地域脱炭素移行・再エネ推進事業補助金（住宅用太陽光発電・蓄電池）</b><small>住宅に太陽光発電設備と蓄電池を導入する市民の費用を補助する。<br>対象：自家消費率30％以上／FIT/FIP制度の認定を取得しない<br>期間：令和8年度：公募は令和8年12月25日15時まで（先着、予算到達で終了）。事業完了は令和9年1月末まで<br>締切：2026-12-25</small><span class="ar-prov">奈良市</span></div>
+            <div class="ar-amt">太陽光：1kWあたり7万円。蓄電池：補助率1/2（上限は14万1千円×容量kWh×1/2）</div>
+            <a class="ar-go" href="https://www.city.nara.lg.jp/uploaded/attachment/212124.pdf" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="nara-tokutei-akiya-jokyaku">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>奈良市特定空家等除却費用補助金</b><small>特定空家等と判断された空き家の除却工事費の一部を補助する。令和8年4月13日から受付開始、予算上限に達し次第終了。<br>対象：特定空家等と判断された空き家／交付決定前に契約・着工していないこと<br>期間：令和8年4月13日〜（予算上限に達し次第終了）</small><span class="ar-prov">奈良県奈良市</span></div>
+            <div class="ar-amt">除却費用の1/2以内、上限30万円</div>
+            <a class="ar-go" href="https://www.city.nara.lg.jp/site/akiya-bank/9205.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-iju">移住<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="nara-kosodate-ijuu-teijuu">
+            <div class="ar-name"><b>奈良市子育て移住・定住支援金</b><small>若年子育て世帯が奈良市内で住宅を購入して転入する場合に支給。令和8年7月7日開始、予算1,200万円で先着順。<br>対象：夫・妻ともに39歳以下（ひとり親含む）／中学生以下の子がいる、または妊娠中<br>期間：令和8年7月7日〜（予算上限に達し次第終了）</small><span class="ar-prov">奈良県奈良市</span></div>
+            <div class="ar-amt">基本30万円、居住誘導区域等への転入は10万円加算で最大40万円</div>
+            <a class="ar-go" href="https://www.city.nara.lg.jp/site/nararhythm/259382.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>奈良県の制度</strong></p>
+          <ul><li><a href="pref-nara.html#nara-taishin-shindan-shien">耐震診断支援事業</a></li><li><a href="pref-nara.html#nara-smarthouse-fukyu">スマートハウス普及促進事業</a></li></ul>
+          <p><a href="pref-nara.html#pref-resident">奈良県の制度2件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">奈良県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">奈良市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-nara.html#nara-jigyo-shokei-enkatsu">奈良県事業承継円滑化支援補助金</a></li><li><a href="pref-nara.html#nara-kigyoka-shien">奈良県 起業家支援事業</a></li><li><a href="pref-nara.html#nara-senior-kigyo">奈良県 シニア起業支援事業</a></li><li><a href="pref-nara.html#nara-shoryokuka-setsubi">奈良県 中小企業省力化・生産性向上設備投資支援補助金</a></li><li><a href="pref-nara.html#nara-sogyo-shikin">奈良県 創業資金（女性・若者・シニア・UIJターン枠）</a></li></ul>
-          <p><a href="pref-nara.html#pref-business">奈良県の制度5件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="nara-city-chusho-yushi">
+            <div class="ar-name"><b>奈良市中小企業融資制度（令和6年度新制度）</b><small>市内中小企業の資金繰りを支える市の融資制度。令和6年度から新制度に移行。<br>対象：市内で事業を営む中小企業者</small><span class="ar-prov">奈良市 産業政策課</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.nara.lg.jp/soshiki/109/9010.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="nara-city-datsutanso-hojo">
+            <div class="ar-name"><b>奈良市地域脱炭素移行・再エネ推進事業補助金（事業所向け）</b><small>事業所への省エネ・再エネ設備の導入費用を補助。<br>対象：市内の事業所（事業者）<br>期間：令和8年4月16日〜12月25日<br>締切：2026-12-25</small><span class="ar-prov">奈良市 環境都市推進課</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.nara.lg.jp/site/zerocarbon/263838.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="nara-city-nigiwai-hojo">
+            <div class="ar-name"><b>奈良市中小商業者等にぎわい創出事業補助金</b><small>市内の中小商業者等による販路拡大・にぎわい創出のイベント等を支援する補助金。<br>対象：市内の中小商業者等（対象団体・要件は要確認）</small><span class="ar-prov">奈良市 産業政策課</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.nara.lg.jp/site/jigyosyashien/list932.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="nara-city-shintaisen-hojo">
+            <div class="ar-name"><b>奈良市中小企業等新たな挑戦支援補助金</b><small>新商品開発・新サービス提供など新たな挑戦に取り組む市内事業者を支援する補助金。<br>対象：市内の中小企業者等／新たな挑戦・取組（新商品開発・新サービス等）を行うこと</small><span class="ar-prov">奈良市 産業政策課</span></div>
+            <div class="ar-amt">補助率2/3・上限30万円（過去公募の情報。令和8年度は要確認）</div>
+            <a class="ar-go" href="https://www.city.nara.lg.jp/soshiki/109/180941.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="nara-city-sogyo-shien-shikin">
+            <div class="ar-name"><b>奈良市創業支援資金</b><small>新しく事業を始める事業者向けの市の制度融資。奈良県信用保証協会の創業関連保証を利用。<br>対象：創業関連保証を受けられる創業者・創業間もない事業者</small><span class="ar-prov">奈良市 産業政策課</span></div>
+            <div class="ar-amt">融資限度額1,000万円・利率年1.00%以内（固定）・期間5年以内（据置6月以内）</div>
+            <a class="ar-go" href="https://www.city.nara.lg.jp/soshiki/109/8684.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">奈良県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>奈良市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="nara-taishin-kaishu-koji">
-            <h3>奈良市既存木造住宅耐震改修工事補助金</h3>
-            <p class="area-meta">奈良県奈良市｜補助金｜要確認（令和7年度は工事費の1/3、上限50万円）｜締切：2026-11-30</p>
-            <p class="area-meta">期間：令和8年5月18日〜11月30日（土日祝除く、先着順）</p>
-            <p>木造住宅の耐震改修工事費の一部を補助する。令和8年度の募集は3件で先着順。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>居住している所有者</li><li>上部構造評点を1.0以上にする工事</li><li>契約・着工前の申請</li></ul>
-            <p><a href="https://www.city.nara.lg.jp/soshiki/117/8966.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="nara-taishin-sekkei">
-            <h3>奈良市既存木造住宅耐震改修設計補助金</h3>
-            <p class="area-meta">奈良市｜補助金｜金額は公式で確認｜締切：2026-11-30</p>
-            <p class="area-meta">期間：令和8年度：令和8年5月18日～11月30日（先着3件。令和9年2月19日までに完了・実績報告）</p>
-            <p>昭和56年5月31日以前に建築された居住中の木造一戸建て住宅の耐震改修設計に要する費用の一部を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>昭和56年5月31日以前に建築された一戸建て住宅</li><li>所有者が現に居住している</li><li>交付決定後に設計契約を結ぶこと</li></ul>
-            <p><a href="https://www.city.nara.lg.jp/uploaded/attachment/209908.pdf" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="nara-taishin-shindan">
-            <h3>奈良市既存住宅耐震診断補助金（一戸建て住宅）</h3>
-            <p class="area-meta">奈良県奈良市｜補助金｜要確認（令和7年度は費用の2/3、上限9万円）｜締切：2026-11-30</p>
-            <p class="area-meta">期間：令和8年5月18日〜11月30日（土日祝除く、先着順）</p>
-            <p>旧耐震の一戸建て住宅の耐震診断費用の一部を補助する。先着順で、診断完了と実績報告が令和9年2月19日までに必要。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>昭和56年5月31日以前に建築された住宅が主な対象</li><li>診断中・契約済み・診断終了分は対象外</li></ul>
-            <p><a href="https://www.city.nara.lg.jp/soshiki/117/8968.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program" id="nara-taiyoko-chikudenchi">
-            <h3>奈良市地域脱炭素移行・再エネ推進事業補助金（住宅用太陽光発電・蓄電池）</h3>
-            <p class="area-meta">奈良市｜補助金｜太陽光：1kWあたり7万円。蓄電池：補助率1/2（上限は14万1千円×容量kWh×1/2）｜締切：2026-12-25</p>
-            <p class="area-meta">期間：令和8年度：公募は令和8年12月25日15時まで（先着、予算到達で終了）。事業完了は令和9年1月末まで</p>
-            <p>住宅に太陽光発電設備と蓄電池を導入する市民の費用を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>自家消費率30％以上</li><li>FIT/FIP制度の認定を取得しない</li><li>蓄電池は太陽光と同時設置で容量20kWh以下</li></ul>
-            <p><a href="https://www.city.nara.lg.jp/uploaded/attachment/212124.pdf" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="nara-akiyabank-kaishu">
-            <h3>奈良市空き家・町家バンク活用住宅支援補助金（改修費）</h3>
-            <p class="area-meta">奈良県奈良市｜補助金｜改修費の補助対象経費の1/2、上限50万円</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>空き家バンク・奈良町町家バンク登録物件の購入、改修、荷物撤去に要する経費を補助する。同一物件で購入費補助と改修費補助の重複は不可。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>バンク登録物件の所有者または利用希望者</li><li>交付申請後に改修を行うこと</li><li>年度内に事業完了</li></ul>
-            <p><a href="https://www.city.nara.lg.jp/site/akiya-bank/list40-163.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="nara-block-tekkyo">
-            <h3>奈良市ブロック塀等撤去費補助金</h3>
-            <p class="area-meta">奈良県奈良市｜補助金｜撤去費用の1/2、上限15万円（見付面積1平方メートルあたり8,000円が限度）｜締切：2026-11-30</p>
-            <p class="area-meta">期間：令和8年5月18日〜11月30日（土日祝除く、先着順）</p>
-            <p>倒壊の危険があるブロック塀等の撤去費用の一部を補助する。令和8年度の募集は7件で先着順。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>倒壊等の危険性があるブロック塀等の所有者</li><li>撤去工事の契約・着工前の申請</li><li>令和9年2月19日までに工事完了・報告</li></ul>
-            <p><a href="https://www.city.nara.lg.jp/soshiki/117/8965.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="nara-tokutei-akiya-jokyaku">
-            <h3>奈良市特定空家等除却費用補助金</h3>
-            <p class="area-meta">奈良県奈良市｜補助金｜除却費用の1/2以内、上限30万円</p>
-            <p class="area-meta">期間：令和8年4月13日〜（予算上限に達し次第終了）</p>
-            <p>特定空家等と判断された空き家の除却工事費の一部を補助する。令和8年4月13日から受付開始、予算上限に達し次第終了。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>特定空家等と判断された空き家</li><li>交付決定前に契約・着工していないこと</li></ul>
-            <p><a href="https://www.city.nara.lg.jp/site/akiya-bank/9205.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
-          <div class="area-program" id="nara-kaigo-jutaku-kaishu">
-            <h3>奈良市 介護保険 住宅改修費の支給</h3>
-            <p class="area-meta">奈良県奈良市｜給付｜改修費の7〜9割（負担割合による）、支給限度20万円</p>
-            <p class="area-meta">期間：通年（要確認）</p>
-            <p>要介護・要支援認定を受けた方の手すり設置や段差解消などの住宅改修費を介護保険から支給する。工事前後の申請が必要。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>要介護・要支援の認定を受けている方</li><li>工事前と工事後にそれぞれ申請</li></ul>
-            <p><a href="https://www.city.nara.lg.jp/site/kaigohoken/8877.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-7">医療・福祉</h3>
-          <div class="area-program" id="nara-seishoku-funin">
-            <h3>奈良市生殖補助医療等助成事業・一般不妊治療等助成事業</h3>
-            <p class="area-meta">奈良市 母子保健課｜助成金｜本人負担額の2分の1（生殖補助医療の先進医療は上限5万円、全額自費となった生殖補助医療は上限15万円）</p>
-            <p class="area-meta">期間：治療期間の終了日が令和8年度（令和8年4月1日～令和9年3月31日）の場合、令和10年3月31日まで</p>
-            <p>体外受精・顕微授精などの生殖補助医療と先進医療を受けたご夫婦に、経済的な負担の軽減を図るため費用を助成します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>生殖補助医療以外の治療法では妊娠の見込みがない又は極めて少ないと医師に診断された夫婦</li><li>治療開始日における妻の年齢が43歳未満</li><li>夫婦のどちらか一方が治療期間の初日から申請日までの間、奈良市に住所を有すること</li></ul>
-            <p><a href="https://www.city.nara.lg.jp/soshiki/95/159141.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="nara-shinshin-iryohi">
-            <h3>心身障害者医療費助成</h3>
-            <p class="area-meta">奈良市 福祉医療課｜助成金｜保険診療の自己負担分から一部負担金を除いた額（通院500円・月額上限額1,500円、入院1,000円）</p>
-            <p class="area-meta">期間：受給資格証の有効期間は令和8年8月1日～令和9年7月31日</p>
-            <p>身体障害者手帳1・2級所持者または療育手帳所持者に、保険診療の自己負担分から一部負担金を除いた額を助成します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>健康保険加入者（後期高齢者医療加入者を除く）で、身体障害者手帳1・2級所持者または療育手帳所持者</li></ul>
-            <p><a href="https://www.city.nara.lg.jp/soshiki/38/9689.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-8">教育・学び</h3>
-          <div class="area-program" id="nara-shinnyugaku">
-            <h3>就学援助制度による「新入学準備金」入学前支給</h3>
-            <p class="area-meta">奈良市 教育総務課｜給付｜6万円程度（令和8年度新小学1年生への支給実績：64,300円）｜締切：2026-12-22</p>
-            <p class="area-meta">期間：申請期間：令和8年11月2日(月曜日)～12月22日(火曜日)。支給日は令和9年3月5日(金曜日)予定</p>
-            <p>経済的にお困りの世帯に対し、小学校新1年生になる前の3月に「新入学準備金」を就学援助制度により支給します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>令和9年4月に小学校新1年生になる児童の保護者で、経済的にお困りの世帯</li><li>令和8年度市民税所得割が基準以下の世帯、または児童扶養手当受給世帯</li></ul>
-            <p><a href="https://www.city.nara.lg.jp/site/kosodate/10621.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="nara-tokubetsu-shien">
-            <h3>特別支援教育就学奨励費</h3>
-            <p class="area-meta">奈良市 教育総務課｜給付｜新入学学用品費 小学1年28,530円・中学1年31,500円（定額）ほか、費目ごとに定額または上限額｜締切：2027-03-31</p>
-            <p class="area-meta">期間：当初受付：令和8年7月6日(月曜日) ～ 8月7日(金曜日)。最終受付期限：令和9年3月31日(火曜日)</p>
-            <p>特別支援学級に就学する児童生徒の保護者に、学校給食費・学用品費・修学旅行費など学校で必要な費用の一部を援助します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>奈良市内に住所を有し、奈良市立小・中学校の特別支援学級に就学している児童生徒の保護者世帯</li><li>就学援助や生活保護による教育扶助など他の助成を受給している場合は対象外</li></ul>
-            <p><a href="https://www.city.nara.lg.jp/site/kosodate/239149.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-9">移住</h3>
-          <div class="area-program" id="nara-kosodate-ijuu-teijuu">
-            <h3>奈良市子育て移住・定住支援金</h3>
-            <p class="area-meta">奈良県奈良市｜給付｜基本30万円、居住誘導区域等への転入は10万円加算で最大40万円</p>
-            <p class="area-meta">期間：令和8年7月7日〜（予算上限に達し次第終了）</p>
-            <p>若年子育て世帯が奈良市内で住宅を購入して転入する場合に支給。令和8年7月7日開始、予算1,200万円で先着順。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>夫・妻ともに39歳以下（ひとり親含む）</li><li>中学生以下の子がいる、または妊娠中</li><li>転入前1年間は奈良市に住所がなく、5年以上居住する意思</li></ul>
-            <p><a href="https://www.city.nara.lg.jp/site/nararhythm/259382.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>奈良県の制度</strong></p>
-          <ul><li><a href="pref-nara.html#nara-taishin-shindan-shien">耐震診断支援事業</a></li><li><a href="pref-nara.html#nara-smarthouse-fukyu">スマートハウス普及促進事業</a></li></ul>
-          <p><a href="pref-nara.html#pref-resident">奈良県の制度2件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-nara.html#nara-jigyo-shokei-enkatsu">奈良県事業承継円滑化支援補助金</a></li><li><a href="pref-nara.html#nara-kigyoka-shien">奈良県 起業家支援事業</a></li><li><a href="pref-nara.html#nara-senior-kigyo">奈良県 シニア起業支援事業</a></li><li><a href="pref-nara.html#nara-shoryokuka-setsubi">奈良県 中小企業省力化・生産性向上設備投資支援補助金</a></li><li><a href="pref-nara.html#nara-sogyo-shikin">奈良県 創業資金（女性・若者・シニア・UIJターン枠）</a></li></ul>
+          <p><a href="pref-nara.html#pref-business">奈良県の制度5件を、県のページで見る →</a></p>
       </div>
     </section>
 

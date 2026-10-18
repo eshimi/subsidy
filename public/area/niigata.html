@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"新潟市","item":"https://hojyokin.net/area/niigata.html"}]}</script>
@@ -165,152 +207,123 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 新潟市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b05.webp')"><h1 class="pb-title">新潟市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-niigata.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">新潟県・政令指定都市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">新潟県 新潟市</p>
+        <h1>新潟市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度11件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-niigata.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（新潟市）<b>3件（うち受付終了1件）</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（新潟県）<b>4件（うち受付終了2件）</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>8件</b></a><span class="area-toc-cats"><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-5">バリアフリー・介護 2</a><a href="#res-cat-6">子育て 1</a><a href="#res-cat-7">医療・福祉 2</a><a href="#res-cat-8">教育・学び 2</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <a href="#res-g-kosodate"><i aria-hidden="true">👶</i><b>子育て</b><small>1件</small></a>
+      <a href="#res-g-iryo"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>2件</small></a>
+      <a href="#res-g-kyoiku"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>2件</small></a>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>3件</small></a>
+      <span class="is-none"><i aria-hidden="true">🌱</i><b>移住</b><small>掲載なし</small></span>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市3件＋県4件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">新潟市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="niigata-keieishien-tokubetsu">
-            <h3>新潟市 経営支援特別融資（物価高騰・能登半島地震対応枠）</h3>
-            <p class="area-meta">新潟市 商工関係課｜融資｜要確認（融資限度額は未確認。保証料補助：融資額300万円以内は100%、300万円超1,000万円以内は50%）｜締切：2027-03-31</p>
-            <p class="area-meta">期間：令和8年度（令和9年3月31日実行分まで）</p>
-            <p>物価高騰・能登半島地震の影響で売上等が減少した市内中小企業の資金調達を支援します。対応枠は令和9年3月31日実行分まで延長されています。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市税を完納していること</li><li>直近3か月の売上等が一定割合以上減少していること</li><li>信用保証協会の保証を受けること</li></ul>
-            <p><a href="https://www.city.niigata.lg.jp/business/shoko/jorei/yushi/kashituske/seidoyushi/tokubetu.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-kosodate">子育て<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="niigata-bukka-kodomo-kyufukin">
+            <div class="ar-name"><b>低所得の子育て世帯に対する物価高騰対策給付金</b><small>国の重点支援地方交付金を活用し、物価高騰の影響を受ける低所得の子育て世帯へ給付金を支給する。申請は不要。<br>対象：令和8年7月分の児童扶養手当受給者／令和8年7月1日時点の新潟市ひとり親家庭等医療費助成の助成対象者<br>期間：令和8年度（通知は8月から順次発送、一部は10月以降発送予定）</small><span class="ar-prov">新潟市 こども未来部 こども政策課</span></div>
+            <div class="ar-amt">児童一人につき25,000円（1回限り）</div>
+            <a class="ar-go" href="https://www.city.niigata.lg.jp/kosodate/ninshin/shien/teate/R8bukkakoutoukodomo.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="niigata-kaigyo-shikin">
-            <h3>新潟市 中小企業開業資金</h3>
-            <p class="area-meta">新潟市 商工関係課｜融資｜要確認（保証料補助の対象借入限度額は2,000万円まで拡大との案内。特定創業支援等事業を受けた方は3年間の利子を市が全額負担との案内）</p>
-            <p class="area-meta">期間：令和8年度（通年または要確認）</p>
-            <p>創業する方や創業間もない方の開業資金を支援します。特定創業支援等事業を受けた方は利子負担の優遇があります。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>新潟市内で創業する方、または創業間もない方</li><li>特定創業支援等事業を受けた方は利子負担の優遇あり（要確認）</li></ul>
-            <p><a href="https://www.city.niigata.lg.jp/business/shoko/jorei/yushi/kashituske/seidoyushi/shogyo20230401.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">受付が終了した制度（次回の公募の参考に）</h3>
-          <div class="area-program is-ended" id="niigata-shoku-kaihatsu">
-            <h3>新潟市 食の商品開発補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">新潟市｜補助金｜上限100万円／補助率 2/3｜締切：2026-05-22</p>
-            <p class="area-meta">期間：例年春に公募（令和8年度は4月1日〜5月22日）</p>
-            <p>自社の強みや地域の特色を活かした食品の商品開発・改良の取り組みを支援します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の食品関連事業者</li></ul>
-            
+          <h3 class="area-cat" id="res-g-iryo">医療・福祉<span>2件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="niigata-fukushi-taxi">
+            <div class="ar-name"><b>福祉タクシー券・人工透析通院費タクシー券（令和8年度分）</b><small>重度心身障がい者及び人工透析療法を受けている方を対象に、各種交通費助成を行っている。令和8年度分のタクシー券の交付を令和8年3月24日から受け付けている。<br>対象：重度心身障がい者及び人工透析療法を受けている方／身体障がい者手帳または療育手帳または精神障がい者保健福祉手帳が必要<br>期間：令和8年度分（タクシー助成券の使用は令和8年4月1日から）</small><span class="ar-prov">新潟市 福祉部 障がい福祉課</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.niigata.lg.jp/iryo/shofuku/seikatsu/shogai-taxi2026.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          <div class="ar-row" id="niigata-funin-chiryohi">
+            <div class="ar-name"><b>新潟市不妊治療費助成事業</b><small>不妊治療（一般不妊治療・生殖補助医療・先進医療）費用の一部を助成する。所得制限はない。<br>対象：申請日時点において、夫婦であること（事実婚も含む）／申請日時点において、新潟市に住民登録があること<br>期間：令和8年度（令和8年4月1日から令和9年3月31日まで）の治療が対象。申請期限は令和9年3月31日<br>締切：2027-03-31</small><span class="ar-prov">新潟市 こども未来部</span></div>
+            <div class="ar-amt">自己負担額の2分の1を助成（保険診療は1人1年度あたり上限4万円、先進医療は上限3万円）</div>
+            <a class="ar-go" href="https://www.city.niigata.lg.jp/kosodate/ninshin/shien/kenko_iryo/hunin.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-kyoiku">教育・学び<span>2件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="niigata-shugaku-enjo">
+            <div class="ar-name"><b>就学援助制度</b><small>同一生計の家族全員の前年の合計所得が一定の基準以内の家庭に、学校でかかる学用品費、修学旅行費等の一部を助成する。<br>対象：新潟市に住民登録している、または新潟市立の小学校・中学校等に在籍する子のいる家庭／同一生計の家族全員の前年の所得の合計が、市の定める基準以内</small><span class="ar-prov">新潟市 教育委員会</span></div>
+            <div class="ar-amt">学用品費、修学旅行費等の一部を助成（所得に応じた支給率）</div>
+            <a class="ar-go" href="https://www.city.niigata.lg.jp/kosodate/gakko/school_jyosei/school_jyosei1.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="niigata-tokubetsu-shien-shureihi">
+            <div class="ar-name"><b>特別支援教育の就学奨励制度</b><small>小・中学校の特別支援学級でかかる費用の一部を補助する就学奨励制度。所得や他制度の認定状況に応じて補助が異なる。<br>対象：市内小・中学校の特別支援学級に在籍するお子さんのいる保護者</small><span class="ar-prov">新潟市 教育委員会</span></div>
+            <div class="ar-amt">学用品・通学用品購入費は定額（小学生5,820円、中学生11,370円）など</div>
+            <a class="ar-go" href="https://www.city.niigata.lg.jp/kosodate/gakko/school_jyosei/school_jyosei2.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>3件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="niigata-city-kenko-sumai-reform">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>新潟市 健幸すまいリフォーム助成事業（令和8年度）</b><small>子育て世帯・高齢者世帯の既存住宅のバリアフリー化、子育て対応、省エネ化リフォームを補助する。<br>対象：子育て世帯または高齢者世帯／既存住宅のリフォーム<br>期間：令和8年度受付中（予算上限まで）。実績報告期限は令和9年3月15日<br>締切：2027-03-15</small><span class="ar-prov">新潟県新潟市</span></div>
+            <div class="ar-amt">工事ごとの補助額の合計で上限10万円</div>
+            <a class="ar-go" href="https://www.city.niigata.lg.jp/kurashi/jyutaku/jukankyo/yushi_josei/kenkosumai_r8.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="niigata-city-koreisha-reform">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>新潟市 高齢者向け住宅リフォーム助成</b><small>要介護・要支援認定を受けた高齢者のいる世帯の浴室・トイレ・階段などの改造費を助成する。<br>対象：65歳以上で要介護または要支援の認定を受けた人がいる世帯／世帯所得により助成率が変わる</small><span class="ar-prov">新潟県新潟市</span></div>
+            <div class="ar-amt">所得税課税世帯は50%・上限15万円（所得により助成率が異なる）</div>
+            <a class="ar-go" href="https://www.city.niigata.lg.jp/iryo/korei/koreisha-reform.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="niigata-city-saiene">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>住宅用再生可能エネルギー等導入促進事業補助金</b><small>市内住宅への太陽光発電設備、定置用蓄電池、燃料電池の導入費を補助する。予算上限に達した場合は抽選。<br>対象：太陽光は主に自家消費し余剰のみ売電するもの<br>期間：令和8年度（令和8年4月16日から予算上限まで）</small><span class="ar-prov">新潟市</span></div>
+            <div class="ar-amt">太陽光2万円/kW（上限10万円）、定置用蓄電池1万円/kWh（上限10万円）、燃料電池定額5万円</div>
+            <a class="ar-go" href="https://www.city.niigata.lg.jp/kurashi/kankyo/datutanso/shien/saiene2026.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>新潟県の制度</strong></p>
+          <ul><li><a href="pref-niigata.html#niigata-akiya-riyo">空き家利活用支援事業</a></li><li><a href="pref-niigata.html#niigata-iju-shienkin">移住支援金（東京圏からの移住）</a></li><li><a href="pref-niigata.html#niigata-kosodate-iju-shienkin">子育て世帯移住支援金</a></li><li><a href="pref-niigata.html#niigata-taishin-sumaizukuri">耐震すまいづくり支援事業</a></li><li><a href="pref-niigata.html#niigata-yukiguni-zeh">新潟県雪国型ZEH等導入促進補助金</a></li></ul>
+          <p><a href="pref-niigata.html#pref-resident">新潟県の制度5件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">新潟県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">新潟市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-niigata.html#niigata-kigyo-renkei">企業連携プロジェクト創出事業</a></li><li><a href="pref-niigata.html#niigata-sogyo-shien-shikin">中小企業創業等支援資金（制度融資）</a></li><li><a href="pref-niigata.html#niigata-kaseguchikara">にいがた稼ぐ力強化支援事業補助金</a></li><li><a href="pref-niigata.html#niigata-shoene-setsubi">県内中小企業等省エネルギー設備導入支援</a></li></ul>
-          <p><a href="pref-niigata.html#pref-business">新潟県の制度4件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="niigata-keieishien-tokubetsu">
+            <div class="ar-name"><b>新潟市 経営支援特別融資（物価高騰・能登半島地震対応枠）</b><small>物価高騰・能登半島地震の影響で売上等が減少した市内中小企業の資金調達を支援します。対応枠は令和9年3月31日実行分まで延長されています。<br>対象：市税を完納していること／直近3か月の売上等が一定割合以上減少していること<br>期間：令和8年度（令和9年3月31日実行分まで）<br>締切：2027-03-31</small><span class="ar-prov">新潟市 商工関係課</span></div>
+            <div class="ar-amt">要確認（融資限度額は未確認。保証料補助：融資額300万円以内は100%、300万円超1,000万円以内は50%）</div>
+            <a class="ar-go" href="https://www.city.niigata.lg.jp/business/shoko/jorei/yushi/kashituske/seidoyushi/tokubetu.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="niigata-kaigyo-shikin">
+            <div class="ar-name"><b>新潟市 中小企業開業資金</b><small>創業する方や創業間もない方の開業資金を支援します。特定創業支援等事業を受けた方は利子負担の優遇があります。<br>対象：新潟市内で創業する方、または創業間もない方／特定創業支援等事業を受けた方は利子負担の優遇あり（要確認）</small><span class="ar-prov">新潟市 商工関係課</span></div>
+            <div class="ar-amt">要確認（保証料補助の対象借入限度額は2,000万円まで拡大との案内。特定創業支援等事業を受けた方は3年間の利子を市が全額負担との案内）</div>
+            <a class="ar-go" href="https://www.city.niigata.lg.jp/business/shoko/jorei/yushi/kashituske/seidoyushi/shogyo20230401.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="niigata-shoku-kaihatsu">
+            <div class="ar-name"><b>新潟市 食の商品開発補助金 <span class="area-ended-tag">受付終了</span></b><small>自社の強みや地域の特色を活かした食品の商品開発・改良の取り組みを支援します。<br>対象：市内の食品関連事業者<br>期間：例年春に公募（令和8年度は4月1日〜5月22日）<br>締切：2026-05-22</small><span class="ar-prov">新潟市</span></div>
+            <div class="ar-amt">上限100万円／補助率 2/3</div>
+            
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">新潟県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>新潟市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program" id="niigata-city-saiene">
-            <h3>住宅用再生可能エネルギー等導入促進事業補助金</h3>
-            <p class="area-meta">新潟市｜補助金｜太陽光2万円/kW（上限10万円）、定置用蓄電池1万円/kWh（上限10万円）、燃料電池定額5万円</p>
-            <p class="area-meta">期間：令和8年度（令和8年4月16日から予算上限まで）</p>
-            <p>市内住宅への太陽光発電設備、定置用蓄電池、燃料電池の導入費を補助する。予算上限に達した場合は抽選。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>太陽光は主に自家消費し余剰のみ売電するもの</li></ul>
-            <p><a href="https://www.city.niigata.lg.jp/kurashi/kankyo/datutanso/shien/saiene2026.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
-          <div class="area-program" id="niigata-city-kenko-sumai-reform">
-            <h3>新潟市 健幸すまいリフォーム助成事業（令和8年度）</h3>
-            <p class="area-meta">新潟県新潟市｜補助金｜工事ごとの補助額の合計で上限10万円｜締切：2027-03-15</p>
-            <p class="area-meta">期間：令和8年度受付中（予算上限まで）。実績報告期限は令和9年3月15日</p>
-            <p>子育て世帯・高齢者世帯の既存住宅のバリアフリー化、子育て対応、省エネ化リフォームを補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>子育て世帯または高齢者世帯</li><li>既存住宅のリフォーム</li><li>外壁・屋根の塗装は対象外</li></ul>
-            <p><a href="https://www.city.niigata.lg.jp/kurashi/jyutaku/jukankyo/yushi_josei/kenkosumai_r8.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="niigata-city-koreisha-reform">
-            <h3>新潟市 高齢者向け住宅リフォーム助成</h3>
-            <p class="area-meta">新潟県新潟市｜補助金｜所得税課税世帯は50%・上限15万円（所得により助成率が異なる）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>要介護・要支援認定を受けた高齢者のいる世帯の浴室・トイレ・階段などの改造費を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>65歳以上で要介護または要支援の認定を受けた人がいる世帯</li><li>世帯所得により助成率が変わる</li></ul>
-            <p><a href="https://www.city.niigata.lg.jp/iryo/korei/koreisha-reform.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-6">子育て</h3>
-          <div class="area-program" id="niigata-bukka-kodomo-kyufukin">
-            <h3>低所得の子育て世帯に対する物価高騰対策給付金</h3>
-            <p class="area-meta">新潟市 こども未来部 こども政策課｜給付｜児童一人につき25,000円（1回限り）</p>
-            <p class="area-meta">期間：令和8年度（通知は8月から順次発送、一部は10月以降発送予定）</p>
-            <p>国の重点支援地方交付金を活用し、物価高騰の影響を受ける低所得の子育て世帯へ給付金を支給する。申請は不要。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>令和8年7月分の児童扶養手当受給者</li><li>令和8年7月1日時点の新潟市ひとり親家庭等医療費助成の助成対象者</li><li>児童手当受給者のうち、夫婦ともに令和8年度の住民税が非課税の世帯</li></ul>
-            <p><a href="https://www.city.niigata.lg.jp/kosodate/ninshin/shien/teate/R8bukkakoutoukodomo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-7">医療・福祉</h3>
-          <div class="area-program" id="niigata-fukushi-taxi">
-            <h3>福祉タクシー券・人工透析通院費タクシー券（令和8年度分）</h3>
-            <p class="area-meta">新潟市 福祉部 障がい福祉課｜給付｜金額は公式で確認</p>
-            <p class="area-meta">期間：令和8年度分（タクシー助成券の使用は令和8年4月1日から）</p>
-            <p>重度心身障がい者及び人工透析療法を受けている方を対象に、各種交通費助成を行っている。令和8年度分のタクシー券の交付を令和8年3月24日から受け付けている。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>重度心身障がい者及び人工透析療法を受けている方</li><li>身体障がい者手帳または療育手帳または精神障がい者保健福祉手帳が必要</li></ul>
-            <p><a href="https://www.city.niigata.lg.jp/iryo/shofuku/seikatsu/shogai-taxi2026.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="niigata-funin-chiryohi">
-            <h3>新潟市不妊治療費助成事業</h3>
-            <p class="area-meta">新潟市 こども未来部｜助成金｜自己負担額の2分の1を助成（保険診療は1人1年度あたり上限4万円、先進医療は上限3万円）｜締切：2027-03-31</p>
-            <p class="area-meta">期間：令和8年度（令和8年4月1日から令和9年3月31日まで）の治療が対象。申請期限は令和9年3月31日</p>
-            <p>不妊治療（一般不妊治療・生殖補助医療・先進医療）費用の一部を助成する。所得制限はない。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>申請日時点において、夫婦であること（事実婚も含む）</li><li>申請日時点において、新潟市に住民登録があること</li></ul>
-            <p><a href="https://www.city.niigata.lg.jp/kosodate/ninshin/shien/kenko_iryo/hunin.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-8">教育・学び</h3>
-          <div class="area-program" id="niigata-shugaku-enjo">
-            <h3>就学援助制度</h3>
-            <p class="area-meta">新潟市 教育委員会｜給付｜学用品費、修学旅行費等の一部を助成（所得に応じた支給率）</p>
-            <p class="area-meta">期間：通年（要確認）</p>
-            <p>同一生計の家族全員の前年の合計所得が一定の基準以内の家庭に、学校でかかる学用品費、修学旅行費等の一部を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>新潟市に住民登録している、または新潟市立の小学校・中学校等に在籍する子のいる家庭</li><li>同一生計の家族全員の前年の所得の合計が、市の定める基準以内</li></ul>
-            <p><a href="https://www.city.niigata.lg.jp/kosodate/gakko/school_jyosei/school_jyosei1.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="niigata-tokubetsu-shien-shureihi">
-            <h3>特別支援教育の就学奨励制度</h3>
-            <p class="area-meta">新潟市 教育委員会｜給付｜学用品・通学用品購入費は定額（小学生5,820円、中学生11,370円）など</p>
-            <p class="area-meta">期間：通年（要確認）。令和8年度の案内あり</p>
-            <p>小・中学校の特別支援学級でかかる費用の一部を補助する就学奨励制度。所得や他制度の認定状況に応じて補助が異なる。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内小・中学校の特別支援学級に在籍するお子さんのいる保護者</li></ul>
-            <p><a href="https://www.city.niigata.lg.jp/kosodate/gakko/school_jyosei/school_jyosei2.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>新潟県の制度</strong></p>
-          <ul><li><a href="pref-niigata.html#niigata-akiya-riyo">空き家利活用支援事業</a></li><li><a href="pref-niigata.html#niigata-iju-shienkin">移住支援金（東京圏からの移住）</a></li><li><a href="pref-niigata.html#niigata-kosodate-iju-shienkin">子育て世帯移住支援金</a></li><li><a href="pref-niigata.html#niigata-taishin-sumaizukuri">耐震すまいづくり支援事業</a></li><li><a href="pref-niigata.html#niigata-yukiguni-zeh">新潟県雪国型ZEH等導入促進補助金</a></li></ul>
-          <p><a href="pref-niigata.html#pref-resident">新潟県の制度5件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-niigata.html#niigata-kigyo-renkei">企業連携プロジェクト創出事業</a></li><li><a href="pref-niigata.html#niigata-sogyo-shien-shikin">中小企業創業等支援資金（制度融資）</a></li><li><a href="pref-niigata.html#niigata-kaseguchikara">にいがた稼ぐ力強化支援事業補助金</a></li><li><a href="pref-niigata.html#niigata-shoene-setsubi">県内中小企業等省エネルギー設備導入支援</a></li></ul>
+          <p><a href="pref-niigata.html#pref-business">新潟県の制度4件を、県のページで見る →</a></p>
       </div>
     </section>
 

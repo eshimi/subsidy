@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"諏訪市","item":"https://hojyokin.net/area/suwa.html"}]}</script>
@@ -165,142 +207,114 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 諏訪市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b08.webp')"><h1 class="pb-title">諏訪市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-nagano.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">長野県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">長野県 諏訪市</p>
+        <h1>諏訪市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度10件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-nagano.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（諏訪市）<b>3件</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（長野県）<b>5件（うち受付終了2件）</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>7件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-6">子育て 1</a><a href="#res-cat-9">移住 2</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <a href="#res-g-kosodate"><i aria-hidden="true">👶</i><b>子育て</b><small>1件</small></a>
+      <span class="is-none"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>掲載なし</small></span>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>4件</small></a>
+      <a href="#res-g-iju"><i aria-hidden="true">🌱</i><b>移住</b><small>2件</small></a>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市3件＋県5件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">諏訪市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="suwa-city-akitenpo-katsuyo-hojo">
-            <h3>諏訪市空店舗等活用補助金</h3>
-            <p class="area-meta">諏訪市 商工課｜補助金｜改装費から100万円を除いた額の1/2、上限50万円</p>
-            <p class="area-meta">期間：要確認（年度ごとに募集）</p>
-            <p>空き店舗等を活用して新たに事業を開始する市内事業者に対し、改修に要する経費の一部を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>空き店舗等を活用して新たに事業を開始する市内事業者</li><li>交付決定前に着工していないこと</li><li>改修費用が100万円を超えること</li></ul>
-            <p><a href="https://www.city.suwa.lg.jp/site/kougyou/4743.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-kosodate">子育て<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="suwa-shinkon">
+            <div class="ar-name"><b>新婚新生活住まいる補助金</b><small>新婚世帯の新生活にかかる住居費等を補助する。<br>対象：新婚世帯(詳細要件は要確認)</small><span class="ar-prov">長野県諏訪市</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.suwa.lg.jp/soshiki/7/1834.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="suwa-city-shokuba-kankyo-seibi-hojo">
-            <h3>諏訪市職場環境整備促進事業補助金</h3>
-            <p class="area-meta">諏訪市 商工課｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：要確認（年度ごとに募集）</p>
-            <p>市内工業者が行う事業所の職場環境整備（更衣室・託児所等の整備、テレワーク・Web会議システム導入、省エネルギー機器への買替え）の経費の一部を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>諏訪市内の工業者</li><li>事業所の職場環境整備に要した経費であること</li></ul>
-            <p><a href="https://www.city.suwa.lg.jp/site/kougyou/4727.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <div class="area-program" id="suwa-city-tenpo-reform-hojo">
-            <h3>諏訪市店舗リフォーム補助金</h3>
-            <p class="area-meta">諏訪市 商工課｜補助金｜小規模工事（30万円以上120万円未満）は工事費の1/10（3万〜10万円）、大規模工事は改装費から100万円を引いた額の1/2（上限50万円）</p>
-            
-            <p>登録建設事業者を利用して既存店舗をリフォームする市内事業者に、改装費の一部を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>既存店舗をリフォームする市内事業者</li><li>市の登録建設事業者を利用すること</li><li>交付決定前に着工していないこと</li></ul>
-            <p><a href="https://www.city.suwa.lg.jp/site/kougyou/4745.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>4件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="suwa-akiya-atochi">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>空家跡地活用支援事業補助金</b><small>空き家の解体費用の一部を補助し、跡地の活用・流通を促進する。<br>対象：市内の空き家及びその土地の所有者等／工事契約前の申請</small><span class="ar-prov">長野県諏訪市</span></div>
+            <div class="ar-amt">工事費等の10分の1、固定資産税軽減額基準の額、20万円のうち最も低い額</div>
+            <a class="ar-go" href="https://www.city.suwa.lg.jp/soshiki/21/1295.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          <div class="ar-row" id="suwa-akiya-reform">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>空き家・空き地バンク登録物件リフォーム補助金</b><small>空き家バンク等登録物件のリフォーム費用を補助する。<br>対象：空き家・空き地バンク等の登録物件</small><span class="ar-prov">長野県諏訪市</span></div>
+            <div class="ar-amt">経費の2分の1以内、上限50万円</div>
+            <a class="ar-go" href="https://www.city.suwa.lg.jp/site/iju/62959.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="suwa-ondanka">
+            <div class="ar-name"><b><span class="ar-tag">省エネ住宅</span>地球温暖化対策補助金(蓄電池・V2H・断熱改修)</b><small>家庭向けに定置型蓄電システム、V2H、住宅開口部断熱改修等の費用を補助する。<br>対象：新築を除く住宅(蓄電池)／市税滞納なし</small><span class="ar-prov">長野県諏訪市</span></div>
+            <div class="ar-amt">蓄電システム10分の1(上限10万円)、V2H10分の1(上限10万円)、開口部断熱改修5分の1(上限10万円)</div>
+            <a class="ar-go" href="https://www.city.suwa.lg.jp/soshiki/101/54986.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="suwa-taishin">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>木造住宅耐震改修補助</b><small>木造住宅の耐震改修工事等の費用を補助する。<br>対象：旧耐震の木造住宅(要件は要確認)</small><span class="ar-prov">長野県諏訪市</span></div>
+            <div class="ar-amt">最大100万円</div>
+            <a class="ar-go" href="https://www.city.suwa.lg.jp/soshiki/21/1262.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-iju">移住<span>2件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="suwa-iju-jutaku">
+            <div class="ar-name"><b>移住者住宅取得補助金</b><small>諏訪圏域外から移住して住宅を取得する人に補助する。<br>対象：諏訪圏域外からの移住／申請時40歳以下(夫婦いずれかでも可)</small><span class="ar-prov">長野県諏訪市</span></div>
+            <div class="ar-amt">取得費の2分の1以内、上限50万円</div>
+            <a class="ar-go" href="https://www.city.suwa.lg.jp/site/iju/72270.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="suwa-uij-shienkin">
+            <div class="ar-name"><b>UIJターン就業・創業移住支援補助金</b><small>東京圏・愛知県・大阪府から移住し要件を満たす人に補助する。<br>対象：東京圏・愛知県・大阪府からの移住／就業・創業要件あり</small><span class="ar-prov">長野県諏訪市</span></div>
+            <div class="ar-amt">上限40万円、18歳未満の世帯員1人につき100万円を上限に加算</div>
+            <a class="ar-go" href="https://www.city.suwa.lg.jp/site/iju/4705.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>長野県の制度</strong></p>
+          <ul><li><a href="pref-nagano.html#nagano-anshin-akiya-ryutsu">あんしん空き家流通促進事業補助金</a></li><li><a href="pref-nagano.html#nagano-kenkozeroene">信州健康ゼロエネ住宅助成金</a></li><li><a href="pref-nagano.html#nagano-shoene-kaden">信州省エネ家電等購入応援キャンペーン第3弾</a></li><li><a href="pref-nagano.html#nagano-taishin-uwanose">住宅耐震改修 上乗せ補助（長野県）</a></li><li><a href="pref-nagano.html#nagano-yane-solar">クルマとつなぐ屋根ソーラー補助金</a></li></ul>
+          <p><a href="pref-nagano.html#pref-resident">長野県の制度5件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">長野県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">諏訪市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-nagano.html#nagano-shinshu-shokei-yushi">長野県中小企業融資制度 信州創生推進資金（事業承継向け）</a></li><li><a href="pref-nagano.html#nagano-shinshu-sogyo-yushi">長野県中小企業融資制度 信州創生推進資金（創業支援向け）</a></li><li><a href="pref-nagano.html#nagano-startup-yuchi-sosyutsu">長野県スタートアップ誘致・創出強化事業補助金</a></li><li><a href="pref-nagano.html#nagano-gyomu-kyodoka">長野県業務共同化モデル実証補助金</a></li><li><a href="pref-nagano.html#nagano-social-business-sogyo">長野県ソーシャル・ビジネス創業支援金</a></li></ul>
-          <p><a href="pref-nagano.html#pref-business">長野県の制度5件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="suwa-city-akitenpo-katsuyo-hojo">
+            <div class="ar-name"><b>諏訪市空店舗等活用補助金</b><small>空き店舗等を活用して新たに事業を開始する市内事業者に対し、改修に要する経費の一部を補助する。<br>対象：空き店舗等を活用して新たに事業を開始する市内事業者／交付決定前に着工していないこと</small><span class="ar-prov">諏訪市 商工課</span></div>
+            <div class="ar-amt">改装費から100万円を除いた額の1/2、上限50万円</div>
+            <a class="ar-go" href="https://www.city.suwa.lg.jp/site/kougyou/4743.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="suwa-city-shokuba-kankyo-seibi-hojo">
+            <div class="ar-name"><b>諏訪市職場環境整備促進事業補助金</b><small>市内工業者が行う事業所の職場環境整備（更衣室・託児所等の整備、テレワーク・Web会議システム導入、省エネルギー機器への買替え）の経費の一部を補助する。<br>対象：諏訪市内の工業者／事業所の職場環境整備に要した経費であること</small><span class="ar-prov">諏訪市 商工課</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.suwa.lg.jp/site/kougyou/4727.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="suwa-city-tenpo-reform-hojo">
+            <div class="ar-name"><b>諏訪市店舗リフォーム補助金</b><small>登録建設事業者を利用して既存店舗をリフォームする市内事業者に、改装費の一部を補助する。<br>対象：既存店舗をリフォームする市内事業者／市の登録建設事業者を利用すること</small><span class="ar-prov">諏訪市 商工課</span></div>
+            <div class="ar-amt">小規模工事（30万円以上120万円未満）は工事費の1/10（3万〜10万円）、大規模工事は改装費から100万円を引いた額の1/2（上限50万円）</div>
+            <a class="ar-go" href="https://www.city.suwa.lg.jp/site/kougyou/4745.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">長野県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>諏訪市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="suwa-taishin">
-            <h3>木造住宅耐震改修補助</h3>
-            <p class="area-meta">長野県諏訪市｜補助金｜最大100万円</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>木造住宅の耐震改修工事等の費用を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>旧耐震の木造住宅(要件は要確認)</li></ul>
-            <p><a href="https://www.city.suwa.lg.jp/soshiki/21/1262.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
-          <div class="area-program" id="suwa-ondanka">
-            <h3>地球温暖化対策補助金(蓄電池・V2H・断熱改修)</h3>
-            <p class="area-meta">長野県諏訪市｜補助金｜蓄電システム10分の1(上限10万円)、V2H10分の1(上限10万円)、開口部断熱改修5分の1(上限10万円)</p>
-            <p class="area-meta">期間：令和8年度(予算残額は変動、要確認)</p>
-            <p>家庭向けに定置型蓄電システム、V2H、住宅開口部断熱改修等の費用を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>新築を除く住宅(蓄電池)</li><li>市税滞納なし</li></ul>
-            <p><a href="https://www.city.suwa.lg.jp/soshiki/101/54986.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="suwa-akiya-atochi">
-            <h3>空家跡地活用支援事業補助金</h3>
-            <p class="area-meta">長野県諏訪市｜補助金｜工事費等の10分の1、固定資産税軽減額基準の額、20万円のうち最も低い額</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>空き家の解体費用の一部を補助し、跡地の活用・流通を促進する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の空き家及びその土地の所有者等</li><li>工事契約前の申請</li></ul>
-            <p><a href="https://www.city.suwa.lg.jp/soshiki/21/1295.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="suwa-akiya-reform">
-            <h3>空き家・空き地バンク登録物件リフォーム補助金</h3>
-            <p class="area-meta">長野県諏訪市｜補助金｜経費の2分の1以内、上限50万円</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>空き家バンク等登録物件のリフォーム費用を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>空き家・空き地バンク等の登録物件</li></ul>
-            <p><a href="https://www.city.suwa.lg.jp/site/iju/62959.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-6">子育て</h3>
-          <div class="area-program" id="suwa-shinkon">
-            <h3>新婚新生活住まいる補助金</h3>
-            <p class="area-meta">長野県諏訪市｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>新婚世帯の新生活にかかる住居費等を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>新婚世帯(詳細要件は要確認)</li></ul>
-            <p><a href="https://www.city.suwa.lg.jp/soshiki/7/1834.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-9">移住</h3>
-          <div class="area-program" id="suwa-iju-jutaku">
-            <h3>移住者住宅取得補助金</h3>
-            <p class="area-meta">長野県諏訪市｜補助金｜取得費の2分の1以内、上限50万円</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>諏訪圏域外から移住して住宅を取得する人に補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>諏訪圏域外からの移住</li><li>申請時40歳以下(夫婦いずれかでも可)</li></ul>
-            <p><a href="https://www.city.suwa.lg.jp/site/iju/72270.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="suwa-uij-shienkin">
-            <h3>UIJターン就業・創業移住支援補助金</h3>
-            <p class="area-meta">長野県諏訪市｜補助金｜上限40万円、18歳未満の世帯員1人につき100万円を上限に加算</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>東京圏・愛知県・大阪府から移住し要件を満たす人に補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>東京圏・愛知県・大阪府からの移住</li><li>就業・創業要件あり</li></ul>
-            <p><a href="https://www.city.suwa.lg.jp/site/iju/4705.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>長野県の制度</strong></p>
-          <ul><li><a href="pref-nagano.html#nagano-anshin-akiya-ryutsu">あんしん空き家流通促進事業補助金</a></li><li><a href="pref-nagano.html#nagano-kenkozeroene">信州健康ゼロエネ住宅助成金</a></li><li><a href="pref-nagano.html#nagano-shoene-kaden">信州省エネ家電等購入応援キャンペーン第3弾</a></li><li><a href="pref-nagano.html#nagano-taishin-uwanose">住宅耐震改修 上乗せ補助（長野県）</a></li><li><a href="pref-nagano.html#nagano-yane-solar">クルマとつなぐ屋根ソーラー補助金</a></li></ul>
-          <p><a href="pref-nagano.html#pref-resident">長野県の制度5件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-nagano.html#nagano-shinshu-shokei-yushi">長野県中小企業融資制度 信州創生推進資金（事業承継向け）</a></li><li><a href="pref-nagano.html#nagano-shinshu-sogyo-yushi">長野県中小企業融資制度 信州創生推進資金（創業支援向け）</a></li><li><a href="pref-nagano.html#nagano-startup-yuchi-sosyutsu">長野県スタートアップ誘致・創出強化事業補助金</a></li><li><a href="pref-nagano.html#nagano-gyomu-kyodoka">長野県業務共同化モデル実証補助金</a></li><li><a href="pref-nagano.html#nagano-social-business-sogyo">長野県ソーシャル・ビジネス創業支援金</a></li></ul>
+          <p><a href="pref-nagano.html#pref-business">長野県の制度5件を、県のページで見る →</a></p>
       </div>
     </section>
 

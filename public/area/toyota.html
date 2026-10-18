@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"豊田市","item":"https://hojyokin.net/area/toyota.html"}]}</script>
@@ -165,228 +207,167 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 豊田市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b12.webp')"><h1 class="pb-title">豊田市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-aichi.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">愛知県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">愛知県 豊田市</p>
+        <h1>豊田市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度19件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-aichi.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（豊田市）<b>5件（うち受付終了1件）</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（愛知県）<b>5件</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>14件（うち受付終了1件）</b></a><span class="area-toc-cats"><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-2">EV・充電 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-6">子育て 3</a><a href="#res-cat-7">医療・福祉 3</a><a href="#res-cat-8">教育・学び 1</a><a href="#res-cat-9">移住 2</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <a href="#res-g-kosodate"><i aria-hidden="true">👶</i><b>子育て</b><small>3件</small></a>
+      <a href="#res-g-iryo"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>3件</small></a>
+      <a href="#res-g-kyoiku"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>1件</small></a>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>5件</small></a>
+      <a href="#res-g-iju"><i aria-hidden="true">🌱</i><b>移住</b><small>2件</small></a>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市5件＋県5件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">豊田市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="toyota-city-jinzai-katsuyaku">
-            <h3>豊田市人材活躍支援補助金</h3>
-            <p class="area-meta">豊田市 産業部｜補助金｜要確認（事業ごとに異なる）</p>
-            <p class="area-meta">期間：令和8年度：4〜9月開始分は4/1〜8/31受付。以降分は要確認</p>
-            <p>人材育成・人材確保・副業人材活用・事業承継/M&amp;Aの4事業を支援する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の中小企業者（全業種）</li></ul>
-            <p><a href="https://www.city.toyota.aichi.jp/sangyo/sogyokeiei/1073280/1074810/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-kosodate">子育て<span>3件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="toyota-hitorioya-shienteate">
+            <div class="ar-name"><b>豊田市ひとり親家庭等支援手当</b><small>ひとり親家庭等の生活の安定と児童の健全育成のために手当を支給する豊田市の制度です。所得制限があります。<br>対象：市内に住所があり、18歳以下の児童を監護している父、母又は養育者／父又は母が婚姻を解消した児童などが対象<br>期間：2026年度の振込日は2026年5月28日、7月30日、9月24日、11月26日、2027年1月28日、3月25日</small><span class="ar-prov">豊田市 おやこ応援課</span></div>
+            <div class="ar-amt">児童1人月額3,000円（両親死亡の場合は月額4,500円）</div>
+            <a class="ar-go" href="https://www.city.toyota.aichi.jp/kosodategakko/kosodate/1027167/1073648/1003503.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="toyota-city-keieiryoku-kyoka">
-            <h3>豊田市経営力強化支援補助金</h3>
-            <p class="area-meta">豊田市 産業部｜補助金｜金額は公式で確認｜締切：2027-02-28</p>
-            <p class="area-meta">期間：令和8年4月1日〜令和9年2月28日</p>
-            <p>販路拡大、BCP策定、サイバーセキュリティ診断の費用を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の中小企業者</li></ul>
-            <p><a href="https://www.city.toyota.aichi.jp/sangyo/sogyokeiei/1073279/1074798/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/toyota-city-keieiryoku-kyoka.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+          <div class="ar-row" id="toyota-jido-hattatsu-chushoku">
+            <div class="ar-name"><b>児童発達支援昼食費給付金</b><small>豊田市で支給決定を受けた児童発達支援を利用する3～5歳児の昼食費に対して、自費で昼食を食べた日数に応じた額を給付します。<br>対象：児童発達支援を利用する3～5歳児（4月1日時点）の保護者／通所日の活動時間内に自費で対象児が昼食を食べた日数が対象<br>期間：令和8年10月1日から令和8年10月26日が申請期間<br>締切：2026-10-26</small><span class="ar-prov">豊田市 福祉部 障がい福祉課</span></div>
+            <div class="ar-amt">令和8年4月以降は1か月の対象日数に応じて2,800円または5,600円</div>
+            <a class="ar-go" href="https://www.city.toyota.aichi.jp/kenkoiryo/shogai/1073265/1030040/1073735/1060284.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="toyota-city-monozukuri-innovation">
-            <h3>豊田市ものづくりイノベーション創出補助金（オープンイノベーション実証枠）</h3>
-            <p class="area-meta">豊田市 産業部｜補助金｜補助率4/5（上限200万円）｜締切：2026-12-25</p>
-            <p class="area-meta">期間：令和8年7月1日〜12月25日</p>
-            <p>市内企業がスタートアップ等と連携して行う新規事業・実証を支援する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の事業者</li><li>スタートアップ等と連携する事業</li></ul>
-            <p><a href="https://www.city.toyota.aichi.jp/pressrelease/1074699/1075948.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/toyota-city-monozukuri-innovation.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+          <div class="ar-row" id="toyota-yoji-kyushoku">
+            <div class="ar-name"><b>豊田市幼児給食費給付金</b><small>給食費の無償化に伴い、こども園等に通っているが豊田市から給食の提供を受けていない家庭に、給食費相当分を給付する制度です。<br>対象：市内在住の3～5歳児と生計を同一にする同居の保護者／アレルギー等で給食を停止し弁当を持参している子、市外の幼稚園等に通園している子などが対象<br>期間：令和8年度第1期分（令和8年4月～9月分）の申請は令和8年10月1日から10月26日まで。第2期分は令和9年4月頃の予定<br>締切：2026-10-26</small><span class="ar-prov">豊田市 保育課</span></div>
+            <div class="ar-amt">満額は月額5,600円、6日から10日は半額（月額2,800円）（令和8年度分以降）</div>
+            <a class="ar-go" href="https://www.city.toyota.aichi.jp/kosodategakko/kosodate/teate/1073767/1060283.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="toyota-city-sogyo-hosyoryo">
-            <h3>豊田市 市内創業者資金繰り支援制度（環創 信用保証料補助）</h3>
-            <p class="area-meta">豊田市 産業部｜補助金｜保証料の75%以内（上限50万円）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>愛知県経済環境適応資金（創業等支援資金）の信用保証料を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内創業者</li><li>愛知県経済環境適応資金（創業等支援資金）の利用者</li></ul>
-            <p><a href="https://www.city.toyota.aichi.jp/sangyo/sogyokeiei/1076532/1073358/1024089.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/toyota-city-sogyo-hosyoryo.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
           </div>
-          <h3 class="area-cat">受付が終了した制度（次回の公募の参考に）</h3>
-          <div class="area-program is-ended" id="toyota-city-sangyo-powerup">
-            <h3>豊田市産業パワーアップ支援補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">豊田市 産業部 産業振興課｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：令和8年度：一次公募4月、二次公募8月（受付終了の可能性、最新は要確認）</p>
-            <p>売上向上につながる事業転換・事業拡大・業務効率化の取組を支援する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>採択申請時点で1年以上市内で事業を営む中小企業者</li></ul>
-            <p><a href="https://www.city.toyota.aichi.jp/jigyousha/shogyoshinko/1064321.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <h3 class="area-cat" id="res-g-iryo">医療・福祉<span>3件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="toyota-boshi-fushi-iryohi">
+            <div class="ar-name"><b>母子・父子家庭医療費助成制度</b><small>申請により母子・父子家庭医療費受給者証を交付し、保険診療分の医療費の自己負担額を助成する制度です。<br>対象：母子・父子家庭のうち、18歳以下の児童を扶養している父母等およびその児童／父母のいない18歳以下の児童<br>期間：令和8年度の受給者証の更新申請期間は令和8年9月18日から令和8年11月13日まで<br>締切：2026-11-13</small><span class="ar-prov">豊田市 おやこ応援課</span></div>
+            <div class="ar-amt">保険診療分の医療費の自己負担額を助成</div>
+            <a class="ar-go" href="https://www.city.toyota.aichi.jp/kosodategakko/kosodate/1027167/1073648/1003506.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          <div class="ar-row" id="toyota-fuikusho-kensa">
+            <div class="ar-name"><b>令和8年度不育症検査費補助金</b><small>先進医療として告示されている不育症検査にかかる費用の補助を行います。<br>対象：二回以上流産・死産の既往がある方／令和8年4月1日から令和9年3月31日の間に受けた先進医療の不育症検査<br>期間：令和8年4月1日から令和9年3月31日の間に受けた検査が対象。申請期限は令和9年3月31日<br>締切：2027-03-31</small><span class="ar-prov">豊田市 おやこ応援課</span></div>
+            <div class="ar-amt">検査費用の7割に相当する額（千円未満切り捨て）で、上限6万円</div>
+            <a class="ar-go" href="https://www.city.toyota.aichi.jp/kenkoiryo/iryo/1073262/1003116/1052871.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="toyota-funin-senshin">
+            <div class="ar-name"><b>特定不妊治療費（先進医療）補助金</b><small>保険診療の特定不妊治療と共に実施した先進医療に要した費用を補助します。<br>対象：特定不妊治療を開始した日から申請日まで継続して市内に住民登録がある法律婚又は事実婚の夫婦／特定不妊治療を開始した日の女性の年齢が43歳未満<br>期間：領収書は令和8年4月1日以降に実施した先進医療分。申請期限は本文に記載あり</small><span class="ar-prov">豊田市 おやこ応援課</span></div>
+            <div class="ar-amt">先進医療に要した費用の10分の7（10円未満は四捨五入）、上限10万円</div>
+            <a class="ar-go" href="https://www.city.toyota.aichi.jp/kenkoiryo/iryo/1073262/1003116/1060269/index.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-kyoiku">教育・学び<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="toyota-shugaku-enjo">
+            <div class="ar-name"><b>就学援助制度</b><small>経済的な理由で就学が困難な児童生徒の保護者に、学用品費・通学費・修学旅行費などを援助する制度です。<br>対象：小・中学校に在学（入学予定を含む）するお子さんの保護者／生活保護を受けている方、停止又は廃止された方、経済的にお困りの方<br>期間：いつでも申請できます。新入学児童生徒学用品費等の入学前支給は令和8年11月30日午後11時59分まで</small><span class="ar-prov">豊田市 教育委員会 学校教育課</span></div>
+            <div class="ar-amt">学用品費等は国から示された額を限度、通学費・修学旅行費などは実費または現物</div>
+            <a class="ar-go" href="https://www.city.toyota.aichi.jp/kosodategakko/kyoikushien/hojo/1002727.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>5件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="toyota-akiya-kaitai">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>豊田市 空家解体促進費補助金</b><small>空き家の解体費用を補助する。</small><span class="ar-prov">愛知県豊田市</span></div>
+            <div class="ar-amt">解体費の1/2（上限52万円）</div>
+            <a class="ar-go" href="https://www.city.toyota.aichi.jp/kurashi/sumai/teiju/1036825.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="toyota-block-tekkyo">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>豊田市 ブロック塀等撤去奨励補助事業</b><small>避難路沿道等の危険なブロック塀等の撤去費を補助する。<br>対象：道路面から高さ1m以上の危険なブロック塀等を全て撤去／交付決定前の着工は対象外</small><span class="ar-prov">愛知県豊田市</span></div>
+            <div class="ar-amt">撤去・処分費の2/3と延長1mあたり1万円のいずれか少ない方（上限20万円、通学路に面する塀は上限なし）</div>
+            <a class="ar-go" href="https://www.city.toyota.aichi.jp/kurashi/bousaibouhan/bousaishien/1013899/1003650.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="toyota-eco-family">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>豊田市エコファミリー支援補助金</b><small>太陽光、蓄電池またはV2H、HEMSの一体導入のほか、蓄電池・燃料電池の単独導入、外部給電対応の次世代自動車購入に補助する。<br>対象：太陽光とHEMSだけの単独申請は不可／燃料電池は「とよたゼロカーボンバンク」等への入会が必要<br>期間：令和8年度（住宅編：2026年4月1日〜2027年3月1日）<br>締切：2027-03-01</small><span class="ar-prov">豊田市</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.toyota.aichi.jp/kurashi/kankyou/hojokin/1023875.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="toyota-zerocarbon-drive">
+            <div class="ar-name"><b><span class="ar-tag">EV・充電</span>とよた・ゼロカーボンドライブ補助金</b><small>再エネ由来の電気で給電できる次世代自動車およびV2H・充電設備を導入する市民への補助。<br>対象：自宅に太陽光発電設備を設置していること</small><span class="ar-prov">愛知県豊田市</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.toyota.aichi.jp/kurashi/kankyou/hojokin/1065455/index.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="toyota-jutaku-shoene-kaishu">
+            <div class="ar-name"><b><span class="ar-tag">省エネ住宅</span>住宅省エネ改修補助制度 <span class="area-ended-tag">受付終了</span></b><small>既存住宅の断熱改修への補助。予算上限に達して受付終了と案内されている。<br>期間：確認できた年度：不明（受付終了）</small><span class="ar-prov">豊田市</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.toyota.aichi.jp/kurashi/kankyou/hojokin/1058157.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-iju">移住<span>2件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="toyota-akiya-kaishu-sanson">
+            <div class="ar-name"><b>豊田市 空き家情報バンク登録物件の改修費補助</b><small>山村地域の空き家情報バンクで契約成立した空き家の改修費を補助する。<br>対象：山村地域（旭・足助・稲武・小原・下山地区）等の空き家バンク成約物件</small><span class="ar-prov">愛知県豊田市</span></div>
+            <div class="ar-amt">改修費の8/10（上限100万円、居住促進地区は上限150万円）</div>
+            <a class="ar-go" href="https://www.city.toyota.aichi.jp/kurashi/sumai/teiju/ijyubank/1028028/1028017.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="toyota-sanson-teiju-ouen">
+            <div class="ar-name"><b>豊田市 山村地域等定住応援補助金</b><small>山村地域へ定住するための住宅取得費の一部を補助する。<br>対象：山村地域等に定住し住宅を取得すること</small><span class="ar-prov">愛知県豊田市</span></div>
+            <div class="ar-amt">要確認（子の同居または40歳未満で限度額が上がる）</div>
+            <a class="ar-go" href="https://www.city.toyota.aichi.jp/kurashi/sumai/teiju/1003661.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>愛知県の制度</strong></p>
+          <ul><li><a href="pref-aichi.html#aichi-iju-shienkin">愛知県 移住支援金（東京圏からのUIJターン）</a></li><li><a href="pref-aichi.html#aichi-jutaku-ondanka-setsubi">愛知県住宅用地球温暖化対策設備導入促進費補助金（市町村との協調補助）</a></li><li><a href="pref-aichi.html#aichi-jutaku-taishin">住宅・建築物の耐震診断・耐震改修の補助制度（市町村実施）</a></li></ul>
+          <p><a href="pref-aichi.html#pref-resident">愛知県の制度3件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">愛知県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">豊田市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-aichi.html#aichi-digital-dx">愛知県 中小企業デジタル化・DX促進補助金</a></li><li><a href="pref-aichi.html#aichi-kakushin-jigyo">愛知県 革新事業創造事業費補助金</a></li><li><a href="pref-aichi.html#aichi-shogyo-shinko">愛知県 商業振興事業費補助金（地域商業活動活性化事業）</a></li><li><a href="pref-aichi.html#aichi-sogyo-shikin">愛知県中小企業融資制度 創業等支援資金</a></li><li><a href="pref-aichi.html#aichi-startup-sogyo">あいちスタートアップ創業支援事業費補助金（起業支援金）</a></li></ul>
-          <p><a href="pref-aichi.html#pref-business">愛知県の制度5件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="toyota-city-jinzai-katsuyaku">
+            <div class="ar-name"><b>豊田市人材活躍支援補助金</b><small>人材育成・人材確保・副業人材活用・事業承継/M&amp;Aの4事業を支援する。<br>対象：市内の中小企業者（全業種）</small><span class="ar-prov">豊田市 産業部</span></div>
+            <div class="ar-amt">要確認（事業ごとに異なる）</div>
+            <a class="ar-go" href="https://www.city.toyota.aichi.jp/sangyo/sogyokeiei/1073280/1074810/index.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="toyota-city-keieiryoku-kyoka">
+            <div class="ar-name"><b>豊田市経営力強化支援補助金</b><small>販路拡大、BCP策定、サイバーセキュリティ診断の費用を補助する。<br>対象：市内の中小企業者<br>期間：令和8年4月1日〜令和9年2月28日<br>締切：2027-02-28</small><span class="ar-prov">豊田市 産業部</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.toyota.aichi.jp/sangyo/sogyokeiei/1073279/1074798/index.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="toyota-city-monozukuri-innovation">
+            <div class="ar-name"><b>豊田市ものづくりイノベーション創出補助金（オープンイノベーション実証枠）</b><small>市内企業がスタートアップ等と連携して行う新規事業・実証を支援する。<br>対象：市内の事業者／スタートアップ等と連携する事業<br>期間：令和8年7月1日〜12月25日<br>締切：2026-12-25</small><span class="ar-prov">豊田市 産業部</span></div>
+            <div class="ar-amt">補助率4/5（上限200万円）</div>
+            <a class="ar-go" href="https://www.city.toyota.aichi.jp/pressrelease/1074699/1075948.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="toyota-city-sogyo-hosyoryo">
+            <div class="ar-name"><b>豊田市 市内創業者資金繰り支援制度（環創 信用保証料補助）</b><small>愛知県経済環境適応資金（創業等支援資金）の信用保証料を補助する。<br>対象：市内創業者／愛知県経済環境適応資金（創業等支援資金）の利用者</small><span class="ar-prov">豊田市 産業部</span></div>
+            <div class="ar-amt">保証料の75%以内（上限50万円）</div>
+            <a class="ar-go" href="https://www.city.toyota.aichi.jp/sangyo/sogyokeiei/1076532/1073358/1024089.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="toyota-city-sangyo-powerup">
+            <div class="ar-name"><b>豊田市産業パワーアップ支援補助金 <span class="area-ended-tag">受付終了</span></b><small>売上向上につながる事業転換・事業拡大・業務効率化の取組を支援する。<br>対象：採択申請時点で1年以上市内で事業を営む中小企業者</small><span class="ar-prov">豊田市 産業部 産業振興課</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.toyota.aichi.jp/jigyousha/shogyoshinko/1064321.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">愛知県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>豊田市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program" id="toyota-eco-family">
-            <h3>豊田市エコファミリー支援補助金</h3>
-            <p class="area-meta">豊田市｜補助金｜金額は公式で確認｜締切：2027-03-01</p>
-            <p class="area-meta">期間：令和8年度（住宅編：2026年4月1日〜2027年3月1日）</p>
-            <p>太陽光、蓄電池またはV2H、HEMSの一体導入のほか、蓄電池・燃料電池の単独導入、外部給電対応の次世代自動車購入に補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>太陽光とHEMSだけの単独申請は不可</li><li>燃料電池は「とよたゼロカーボンバンク」等への入会が必要</li></ul>
-            <p><a href="https://www.city.toyota.aichi.jp/kurashi/kankyou/hojokin/1023875.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
-          <div class="area-program" id="toyota-zerocarbon-drive">
-            <h3>とよた・ゼロカーボンドライブ補助金</h3>
-            <p class="area-meta">愛知県豊田市｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：V2H枠は受付終了の記載あり。最新は要確認</p>
-            <p>再エネ由来の電気で給電できる次世代自動車およびV2H・充電設備を導入する市民への補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>自宅に太陽光発電設備を設置していること</li></ul>
-            <p><a href="https://www.city.toyota.aichi.jp/kurashi/kankyou/hojokin/1065455/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
-          <div class="area-program is-ended" id="toyota-jutaku-shoene-kaishu">
-            <h3>住宅省エネ改修補助制度 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">豊田市｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：確認できた年度：不明（受付終了）</p>
-            <p>既存住宅の断熱改修への補助。予算上限に達して受付終了と案内されている。</p>
-            
-            <p><a href="https://www.city.toyota.aichi.jp/kurashi/kankyou/hojokin/1058157.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="toyota-akiya-kaitai">
-            <h3>豊田市 空家解体促進費補助金</h3>
-            <p class="area-meta">愛知県豊田市｜補助金｜解体費の1/2（上限52万円）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>空き家の解体費用を補助する。</p>
-            
-            <p><a href="https://www.city.toyota.aichi.jp/kurashi/sumai/teiju/1036825.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="toyota-block-tekkyo">
-            <h3>豊田市 ブロック塀等撤去奨励補助事業</h3>
-            <p class="area-meta">愛知県豊田市｜補助金｜撤去・処分費の2/3と延長1mあたり1万円のいずれか少ない方（上限20万円、通学路に面する塀は上限なし）</p>
-            <p class="area-meta">期間：申請は1月下旬まで（年度は要確認）</p>
-            <p>避難路沿道等の危険なブロック塀等の撤去費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>道路面から高さ1m以上の危険なブロック塀等を全て撤去</li><li>交付決定前の着工は対象外</li></ul>
-            <p><a href="https://www.city.toyota.aichi.jp/kurashi/bousaibouhan/bousaishien/1013899/1003650.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-6">子育て</h3>
-          <div class="area-program" id="toyota-hitorioya-shienteate">
-            <h3>豊田市ひとり親家庭等支援手当</h3>
-            <p class="area-meta">豊田市 おやこ応援課｜給付｜児童1人月額3,000円（両親死亡の場合は月額4,500円）</p>
-            <p class="area-meta">期間：2026年度の振込日は2026年5月28日、7月30日、9月24日、11月26日、2027年1月28日、3月25日</p>
-            <p>ひとり親家庭等の生活の安定と児童の健全育成のために手当を支給する豊田市の制度です。所得制限があります。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内に住所があり、18歳以下の児童を監護している父、母又は養育者</li><li>父又は母が婚姻を解消した児童などが対象</li><li>受給資格者の所得が所得制限額を超過していない</li></ul>
-            <p><a href="https://www.city.toyota.aichi.jp/kosodategakko/kosodate/1027167/1073648/1003503.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="toyota-jido-hattatsu-chushoku">
-            <h3>児童発達支援昼食費給付金</h3>
-            <p class="area-meta">豊田市 福祉部 障がい福祉課｜給付｜令和8年4月以降は1か月の対象日数に応じて2,800円または5,600円｜締切：2026-10-26</p>
-            <p class="area-meta">期間：令和8年10月1日から令和8年10月26日が申請期間</p>
-            <p>豊田市で支給決定を受けた児童発達支援を利用する3～5歳児の昼食費に対して、自費で昼食を食べた日数に応じた額を給付します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>児童発達支援を利用する3～5歳児（4月1日時点）の保護者</li><li>通所日の活動時間内に自費で対象児が昼食を食べた日数が対象</li></ul>
-            <p><a href="https://www.city.toyota.aichi.jp/kenkoiryo/shogai/1073265/1030040/1073735/1060284.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="toyota-yoji-kyushoku">
-            <h3>豊田市幼児給食費給付金</h3>
-            <p class="area-meta">豊田市 保育課｜給付｜満額は月額5,600円、6日から10日は半額（月額2,800円）（令和8年度分以降）｜締切：2026-10-26</p>
-            <p class="area-meta">期間：令和8年度第1期分（令和8年4月～9月分）の申請は令和8年10月1日から10月26日まで。第2期分は令和9年4月頃の予定</p>
-            <p>給食費の無償化に伴い、こども園等に通っているが豊田市から給食の提供を受けていない家庭に、給食費相当分を給付する制度です。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内在住の3～5歳児と生計を同一にする同居の保護者</li><li>アレルギー等で給食を停止し弁当を持参している子、市外の幼稚園等に通園している子などが対象</li><li>所得制限はありません</li></ul>
-            <p><a href="https://www.city.toyota.aichi.jp/kosodategakko/kosodate/teate/1073767/1060283.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-7">医療・福祉</h3>
-          <div class="area-program" id="toyota-boshi-fushi-iryohi">
-            <h3>母子・父子家庭医療費助成制度</h3>
-            <p class="area-meta">豊田市 おやこ応援課｜助成金｜保険診療分の医療費の自己負担額を助成｜締切：2026-11-13</p>
-            <p class="area-meta">期間：令和8年度の受給者証の更新申請期間は令和8年9月18日から令和8年11月13日まで</p>
-            <p>申請により母子・父子家庭医療費受給者証を交付し、保険診療分の医療費の自己負担額を助成する制度です。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>母子・父子家庭のうち、18歳以下の児童を扶養している父母等およびその児童</li><li>父母のいない18歳以下の児童</li><li>所得制限等の条件があります</li></ul>
-            <p><a href="https://www.city.toyota.aichi.jp/kosodategakko/kosodate/1027167/1073648/1003506.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="toyota-fuikusho-kensa">
-            <h3>令和8年度不育症検査費補助金</h3>
-            <p class="area-meta">豊田市 おやこ応援課｜補助金｜検査費用の7割に相当する額（千円未満切り捨て）で、上限6万円｜締切：2027-03-31</p>
-            <p class="area-meta">期間：令和8年4月1日から令和9年3月31日の間に受けた検査が対象。申請期限は令和9年3月31日</p>
-            <p>先進医療として告示されている不育症検査にかかる費用の補助を行います。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>二回以上流産・死産の既往がある方</li><li>令和8年4月1日から令和9年3月31日の間に受けた先進医療の不育症検査</li><li>市税を滞納していない方</li></ul>
-            <p><a href="https://www.city.toyota.aichi.jp/kenkoiryo/iryo/1073262/1003116/1052871.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="toyota-funin-senshin">
-            <h3>特定不妊治療費（先進医療）補助金</h3>
-            <p class="area-meta">豊田市 おやこ応援課｜補助金｜先進医療に要した費用の10分の7（10円未満は四捨五入）、上限10万円</p>
-            <p class="area-meta">期間：領収書は令和8年4月1日以降に実施した先進医療分。申請期限は本文に記載あり</p>
-            <p>保険診療の特定不妊治療と共に実施した先進医療に要した費用を補助します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>特定不妊治療を開始した日から申請日まで継続して市内に住民登録がある法律婚又は事実婚の夫婦</li><li>特定不妊治療を開始した日の女性の年齢が43歳未満</li><li>40歳未満は1子ごとに6回まで、40歳以上43歳未満は1子ごとに3回まで</li></ul>
-            <p><a href="https://www.city.toyota.aichi.jp/kenkoiryo/iryo/1073262/1003116/1060269/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-8">教育・学び</h3>
-          <div class="area-program" id="toyota-shugaku-enjo">
-            <h3>就学援助制度</h3>
-            <p class="area-meta">豊田市 教育委員会 学校教育課｜給付｜学用品費等は国から示された額を限度、通学費・修学旅行費などは実費または現物</p>
-            <p class="area-meta">期間：いつでも申請できます。新入学児童生徒学用品費等の入学前支給は令和8年11月30日午後11時59分まで</p>
-            <p>経済的な理由で就学が困難な児童生徒の保護者に、学用品費・通学費・修学旅行費などを援助する制度です。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>小・中学校に在学（入学予定を含む）するお子さんの保護者</li><li>生活保護を受けている方、停止又は廃止された方、経済的にお困りの方</li><li>所得の目安は令和8年度で2人世帯2,096,000円など</li></ul>
-            <p><a href="https://www.city.toyota.aichi.jp/kosodategakko/kyoikushien/hojo/1002727.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-9">移住</h3>
-          <div class="area-program" id="toyota-akiya-kaishu-sanson">
-            <h3>豊田市 空き家情報バンク登録物件の改修費補助</h3>
-            <p class="area-meta">愛知県豊田市｜補助金｜改修費の8/10（上限100万円、居住促進地区は上限150万円）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>山村地域の空き家情報バンクで契約成立した空き家の改修費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>山村地域（旭・足助・稲武・小原・下山地区）等の空き家バンク成約物件</li></ul>
-            <p><a href="https://www.city.toyota.aichi.jp/kurashi/sumai/teiju/ijyubank/1028028/1028017.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="toyota-sanson-teiju-ouen">
-            <h3>豊田市 山村地域等定住応援補助金</h3>
-            <p class="area-meta">愛知県豊田市｜補助金｜要確認（子の同居または40歳未満で限度額が上がる）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>山村地域へ定住するための住宅取得費の一部を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>山村地域等に定住し住宅を取得すること</li></ul>
-            <p><a href="https://www.city.toyota.aichi.jp/kurashi/sumai/teiju/1003661.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>愛知県の制度</strong></p>
-          <ul><li><a href="pref-aichi.html#aichi-iju-shienkin">愛知県 移住支援金（東京圏からのUIJターン）</a></li><li><a href="pref-aichi.html#aichi-jutaku-ondanka-setsubi">愛知県住宅用地球温暖化対策設備導入促進費補助金（市町村との協調補助）</a></li><li><a href="pref-aichi.html#aichi-jutaku-taishin">住宅・建築物の耐震診断・耐震改修の補助制度（市町村実施）</a></li></ul>
-          <p><a href="pref-aichi.html#pref-resident">愛知県の制度3件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-aichi.html#aichi-digital-dx">愛知県 中小企業デジタル化・DX促進補助金</a></li><li><a href="pref-aichi.html#aichi-kakushin-jigyo">愛知県 革新事業創造事業費補助金</a></li><li><a href="pref-aichi.html#aichi-shogyo-shinko">愛知県 商業振興事業費補助金（地域商業活動活性化事業）</a></li><li><a href="pref-aichi.html#aichi-sogyo-shikin">愛知県中小企業融資制度 創業等支援資金</a></li><li><a href="pref-aichi.html#aichi-startup-sogyo">あいちスタートアップ創業支援事業費補助金（起業支援金）</a></li></ul>
+          <p><a href="pref-aichi.html#pref-business">愛知県の制度5件を、県のページで見る →</a></p>
       </div>
     </section>
 

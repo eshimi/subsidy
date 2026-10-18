@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"前橋市","item":"https://hojyokin.net/area/maebashi.html"}]}</script>
@@ -165,200 +207,148 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 前橋市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b10.webp')"><h1 class="pb-title">前橋市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-gunma.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">群馬県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">群馬県 前橋市</p>
+        <h1>前橋市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度16件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-gunma.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（前橋市）<b>6件</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（群馬県）<b>5件</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>10件（うち受付終了1件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-5">バリアフリー・介護 1</a><a href="#res-cat-7">医療・福祉 2</a><a href="#res-cat-8">教育・学び 3</a><a href="#res-cat-9">移住 1</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <span class="is-none"><i aria-hidden="true">👶</i><b>子育て</b><small>掲載なし</small></span>
+      <a href="#res-g-iryo"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>2件</small></a>
+      <a href="#res-g-kyoiku"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>3件</small></a>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>4件</small></a>
+      <a href="#res-g-iju"><i aria-hidden="true">🌱</i><b>移住</b><small>1件</small></a>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市6件＋県5件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">前橋市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="maebashi-city-dx-suishin">
-            <h3>前橋市DX推進補助金</h3>
-            <p class="area-meta">前橋市 産業政策課｜補助金｜補助率1/3（小規模事業者1/2）、上限150万円</p>
-            <p class="area-meta">期間：令和8年度分は受付終了（審査中）</p>
-            <p>業務効率化のためのソフトウェア・ハードウェア導入費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の中小企業者</li></ul>
-            <p><a href="https://www.city.maebashi.gunma.jp/soshiki/sangyokeizai/sangyoseisaku/shinseisho/7311.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-iryo">医療・福祉<span>2件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="maebashi-fuiku-chiryohi">
+            <div class="ar-name"><b>令和8年度不育症治療費助成事業</b><small>「不育症」と診断され治療に取り組んでいるご夫婦に、治療費等の一部を助成します。<br>対象：2回以上の流産又は死産の既往があるもしくは専門医に不育症と診断され、医療機関で不育症の検査・治療を受けた法律上の婚姻関係にある夫婦／夫婦の両方又はいずれか一方が、令和8年1月1日から同年12月31日までの一部又は全部の期間において、前橋市民であること<br>期間：助成対象の治療期間は令和8年1月1日から同年12月31日まで／申請期限は令和9年2月26日（金曜日）<br>締切：2027-02-26</small><span class="ar-prov">前橋市</span></div>
+            <div class="ar-amt">自己負担額の2分の1以内、10万円を限度</div>
+            <a class="ar-go" href="https://www.city.maebashi.gunma.jp/kosodate_kyoiku/4/5/1/12102.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="maebashi-city-jinzai-skillup">
-            <h3>前橋市人財スキルアップ補助金</h3>
-            <p class="area-meta">前橋市 産業政策課｜補助金｜補助率1/2（小規模事業者2/3）、上限7万円（DX人材育成等で12万円）</p>
-            <p class="area-meta">期間：令和8年度の案内あり。受付状況は要確認</p>
-            <p>従業員の研修・資格試験受講料等を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の中小企業者</li></ul>
-            <p><a href="https://www.city.maebashi.gunma.jp/soshiki/sangyokeizai/sangyoseisaku/shinseisho/7296.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/maebashi-city-jinzai-skillup.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+          <div class="ar-row" id="maebashi-funin-chiryohi">
+            <div class="ar-name"><b>令和8年度不妊治療費助成事業</b><small>不妊治療を行っている夫婦の経済的な負担を軽減するため、その治療に要する医療費の一部を助成します。<br>対象：不妊治療をしている法律上の婚姻関係にある夫婦（事実婚を含む。）であること／夫婦の両方又はいずれか一方が、令和8年1月1日から同年12月31日までの一部又は全部の期間において、前橋市民であったこと<br>期間：助成対象の治療期間は令和8年1月1日から同年12月31日まで／申請期限は令和9年2月26日（金曜日）<br>締切：2027-02-26</small><span class="ar-prov">前橋市</span></div>
+            <div class="ar-amt">自己負担額の2分の1以内、15万円を限度（男性不妊治療は5万円を限度に上乗せ）</div>
+            <a class="ar-go" href="https://www.city.maebashi.gunma.jp/kosodate_kyoiku/4/5/1/12103.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="maebashi-city-keiei-keikaku-jikko">
-            <h3>前橋市経営計画実行補助金</h3>
-            <p class="area-meta">前橋市 産業政策課｜補助金｜補助率2/3以内、上限20万円</p>
-            <p class="area-meta">期間：令和8年度、随時受付（予算上限まで）</p>
-            <p>商工会議所・商工会の支援で経営計画を作成・見直した事業者の計画実行費用を補助する。省エネのみが目的の事業は対象外。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>経営計画を作成・見直した市内事業者</li></ul>
-            <p><a href="https://www.city.maebashi.gunma.jp/soshiki/sangyokeizai/sangyoseisaku/gyomu/4/2/6/30411.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <div class="area-program" id="maebashi-city-machinaka-kaigyo">
-            <h3>前橋市まちなか開業支援補助金</h3>
-            <p class="area-meta">前橋市 にぎわい商業課｜補助金｜補助率1/2（上限は立地・業態により異なる）</p>
-            <p class="area-meta">期間：令和8年4月1日〜令和9年2月28日</p>
-            <p>中心市街地で店舗・オフィスを開業する事業者の改修工事費・備品購入費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>中心市街地で新規開業する事業者</li></ul>
-            <p><a href="https://www.city.maebashi.gunma.jp/soshiki/sangyokeizai/nigiwaishogyo/shinseisho/7284.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/maebashi-city-machinaka-kaigyo.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+          <h3 class="area-cat" id="res-g-kyoiku">教育・学び<span>3件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="maebashi-daigaku-juken-hojo">
+            <div class="ar-name"><b>ひとり親家庭や非課税世帯等のこどもの大学等受験料補助</b><small>ひとり親家庭や住民税非課税世帯等のこどもに対して、大学等の受験料を補助します。受付開始は令和8年11月1日です。<br>対象：申請時に前橋市内に住民登録があり受験生を養育している保護者等／児童扶養手当受給者、令和7年度市町村民税非課税の世帯、生活保護受給者などのいずれかの区分に該当する方<br>期間：令和8年11月1日受付開始／申請期限は令和9年3月5日（金曜日）必着<br>締切：2027-03-05</small><span class="ar-prov">前橋市</span></div>
+            <div class="ar-amt">受験生1人あたり53,000円を上限（対象経費の全額）</div>
+            <a class="ar-go" href="https://www.city.maebashi.gunma.jp/kosodate_kyoiku/2/6/1/41057.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="maebashi-city-sogyo-support">
-            <h3>前橋市創業サポート総合制度</h3>
-            <p class="area-meta">前橋市 産業政策課｜融資｜制度融資の利子・保証料の一部補助、診断士による無料コンサル最大8回</p>
-            <p class="area-meta">期間：利子補給等の申請は毎年1月受付。最新は要確認</p>
-            <p>創業者向けに中小企業診断士の伴走支援と、前橋市起業家独立開業支援資金の利子・保証料補助を行う。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内で創業する者・創業間もない事業者</li></ul>
-            <p><a href="https://www.city.maebashi.gunma.jp/soshiki/sangyokeizai/sangyoseisaku/gyomu/4/2/4/3302.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/maebashi-city-sogyo-support.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+          <div class="ar-row" id="maebashi-nyugaku-shienkin">
+            <div class="ar-name"><b>前橋市入学支援金（奨学資金）制度</b><small>令和9年4月に高校等へ進学を希望する方に対し、給付型の入学支援金の申請者を募集します。募集人数は10人です。<br>対象：高校等に入学を希望する者で、申請時に前橋市民であり、入学以降も継続して前橋市に居住予定の者／家庭（世帯）の経済的理由で就学が困難な者<br>期間：令和8年11月2日（月曜日）から令和8年12月24日（木曜日）まで<br>締切：2026-12-24</small><span class="ar-prov">前橋市</span></div>
+            <div class="ar-amt">一括200,000円（一回限り）</div>
+            <a class="ar-go" href="https://www.city.maebashi.gunma.jp/kosodate_kyoiku/3/8/10993.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="maebashi-city-startup-office">
-            <h3>前橋市スタートアップオフィス支援補助金</h3>
-            <p class="area-meta">前橋市 産業政策課｜補助金｜賃借料の1/3、月額上限3万円</p>
-            <p class="area-meta">期間：令和7年度分は令和7年9月30日で締切。令和8年度は要確認</p>
-            <p>市内で事業所を新たに借りる創業者の家賃を補助する。特定創業支援等事業の証明書が条件。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内で事業所を賃借して創業する者</li><li>特定創業支援等事業の証明書を取得</li></ul>
-            <p><a href="https://www.city.maebashi.gunma.jp/soshiki/sangyokeizai/sangyoseisaku/gyomu/4/2/4/25333.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="maebashi-shugaku-enjo">
+            <div class="ar-name"><b>就学援助制度（小学生と中学生の保護者の方へ）</b><small>経済的な理由でお子様に義務教育を受けさせることが困難な保護者に、学校生活で必要な費用の一部を援助する制度です。年度ごとに申請が必要です。<br>対象：児童扶養手当を全額支給されている方／生活保護が一時停止や廃止になって、現在何も保護を受けていない方<br>期間：年度ごとに申請が必要（令和8年度）</small><span class="ar-prov">前橋市教育委員会</span></div>
+            <div class="ar-amt">学用品費 小学校11,630円・中学校22,730円、新入学児童生徒学用品費（1年生）小学校64,300円・中学校81,000円 など</div>
+            <a class="ar-go" href="https://www.city.maebashi.gunma.jp/kosodate_kyoiku/3/8/10994.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          </div>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>4件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="maebashi-mokuzo-taishin">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>令和8年度木造住宅耐震改修費等補助事業</b><small>耐震診断の結果、現行基準に適合しない自己所有住宅の耐震改修等を行う個人への補助。<br>対象：耐震診断者派遣による診断で基準に不適合<br>期間：令和8年度</small><span class="ar-prov">前橋市</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.maebashi.gunma.jp/6/49119.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="maebashi-reform-barrierfree">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>住宅リフォーム補助（バリアフリー改修）</b><small>段差解消・手すり設置・廊下幅拡張などのバリアフリー改修を補助する。確認できたのは令和7年度手引き（受付は令和7年12月26日まで）。<br>対象：税抜15万円以上の工事／市内業者に依頼</small><span class="ar-prov">群馬県前橋市</span></div>
+            <div class="ar-amt">対象工事費の3分の1以内（上限8万円）</div>
+            <a class="ar-go" href="https://www.city.maebashi.gunma.jp/material/files/group/63/R7jutakutebiki.pdf" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="maebashi-zerocarbon-katei">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>令和8年度前橋市家庭用ゼロカーボン推進補助事業</b><small>家庭への太陽光発電設備・蓄電池設置の補助。<br>対象：自宅に設置する1kW以上10kW未満の設備</small><span class="ar-prov">前橋市</span></div>
+            <div class="ar-amt">太陽光：3万円、定置用蓄電池：1kWhあたり1万円（上限5万円）</div>
+            <a class="ar-go" href="https://www.city.maebashi.gunma.jp/soshiki/kankyo/kankyoseisaku/gyomu/1_2/23240.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="maebashi-akiya-taisaku">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>令和8年度前橋市空き家対策補助金 <span class="area-ended-tag">受付終了</span></b><small>空き家活用リフォーム補助と老朽空き家解体補助。いずれも予算上限に達し新規受付終了。<br>期間：受付終了（令和8年度）</small><span class="ar-prov">前橋市</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.maebashi.gunma.jp/soshiki/toshikeikakubu/kenchikujutaku/gyomu/2/1/48337.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-iju">移住<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="maebashi-iju-shienkin">
+            <div class="ar-name"><b>前橋市移住支援金</b><small>東京圏から移住し就業・起業した人への移住支援金。<br>対象：転入から1年以内に申請<br>期間：令和8年度（申請は令和9年2月5日まで）<br>締切：2027-02-05</small><span class="ar-prov">群馬県前橋市</span></div>
+            <div class="ar-amt">世帯100万円・単身60万円</div>
+            <a class="ar-go" href="https://www.city.maebashi.gunma.jp/soshiki/seisaku/kohobrand/shinseisho/20008.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>群馬県の制度</strong></p>
+          <ul><li><a href="pref-gunma.html#gunma-bev-konyu">群馬県電気自動車（BEV）購入補助金</a></li><li><a href="pref-gunma.html#gunma-iju-shienkin">群馬県移住支援金事業</a></li><li><a href="pref-gunma.html#gunma-jutaku-solar-yushi">住宅用太陽光発電設備等導入資金融資</a></li><li><a href="pref-gunma.html#gunma-mokuzo-taishin-kyocho">木造住宅耐震改修促進支援事業</a></li><li><a href="pref-gunma.html#gunma-zero-sengen-jutaku-kosodate">ぐんまゼロ宣言住宅促進事業（子育て世帯への補助）</a></li></ul>
+          <p><a href="pref-gunma.html#pref-resident">群馬県の制度6件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">群馬県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">前橋市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-gunma.html#gunma-cross-start">ぐんまクロススタート補助金（起業支援金）</a></li><li><a href="pref-gunma.html#gunma-dx-gijutsu-kakushin">ぐんまDX技術革新補助金</a></li><li><a href="pref-gunma.html#gunma-jigyo-shokei-yushi">群馬県制度融資 事業承継支援資金</a></li><li><a href="pref-gunma.html#gunma-power-up-shikin">群馬県制度融資 中小企業パワーアップ資金</a></li><li><a href="pref-gunma.html#gunma-seicho-ma-hojo">群馬県成長実現型M&amp;A補助金</a></li></ul>
-          <p><a href="pref-gunma.html#pref-business">群馬県の制度5件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="maebashi-city-dx-suishin">
+            <div class="ar-name"><b>前橋市DX推進補助金</b><small>業務効率化のためのソフトウェア・ハードウェア導入費を補助する。<br>対象：市内の中小企業者<br>期間：令和8年度分は受付終了（審査中）</small><span class="ar-prov">前橋市 産業政策課</span></div>
+            <div class="ar-amt">補助率1/3（小規模事業者1/2）、上限150万円</div>
+            <a class="ar-go" href="https://www.city.maebashi.gunma.jp/soshiki/sangyokeizai/sangyoseisaku/shinseisho/7311.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="maebashi-city-jinzai-skillup">
+            <div class="ar-name"><b>前橋市人財スキルアップ補助金</b><small>従業員の研修・資格試験受講料等を補助する。<br>対象：市内の中小企業者</small><span class="ar-prov">前橋市 産業政策課</span></div>
+            <div class="ar-amt">補助率1/2（小規模事業者2/3）、上限7万円（DX人材育成等で12万円）</div>
+            <a class="ar-go" href="https://www.city.maebashi.gunma.jp/soshiki/sangyokeizai/sangyoseisaku/shinseisho/7296.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="maebashi-city-keiei-keikaku-jikko">
+            <div class="ar-name"><b>前橋市経営計画実行補助金</b><small>商工会議所・商工会の支援で経営計画を作成・見直した事業者の計画実行費用を補助する。省エネのみが目的の事業は対象外。<br>対象：経営計画を作成・見直した市内事業者<br>期間：令和8年度、随時受付（予算上限まで）</small><span class="ar-prov">前橋市 産業政策課</span></div>
+            <div class="ar-amt">補助率2/3以内、上限20万円</div>
+            <a class="ar-go" href="https://www.city.maebashi.gunma.jp/soshiki/sangyokeizai/sangyoseisaku/gyomu/4/2/6/30411.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="maebashi-city-machinaka-kaigyo">
+            <div class="ar-name"><b>前橋市まちなか開業支援補助金</b><small>中心市街地で店舗・オフィスを開業する事業者の改修工事費・備品購入費を補助する。<br>対象：中心市街地で新規開業する事業者<br>期間：令和8年4月1日〜令和9年2月28日</small><span class="ar-prov">前橋市 にぎわい商業課</span></div>
+            <div class="ar-amt">補助率1/2（上限は立地・業態により異なる）</div>
+            <a class="ar-go" href="https://www.city.maebashi.gunma.jp/soshiki/sangyokeizai/nigiwaishogyo/shinseisho/7284.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="maebashi-city-sogyo-support">
+            <div class="ar-name"><b>前橋市創業サポート総合制度</b><small>創業者向けに中小企業診断士の伴走支援と、前橋市起業家独立開業支援資金の利子・保証料補助を行う。<br>対象：市内で創業する者・創業間もない事業者</small><span class="ar-prov">前橋市 産業政策課</span></div>
+            <div class="ar-amt">制度融資の利子・保証料の一部補助、診断士による無料コンサル最大8回</div>
+            <a class="ar-go" href="https://www.city.maebashi.gunma.jp/soshiki/sangyokeizai/sangyoseisaku/gyomu/4/2/4/3302.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="maebashi-city-startup-office">
+            <div class="ar-name"><b>前橋市スタートアップオフィス支援補助金</b><small>市内で事業所を新たに借りる創業者の家賃を補助する。特定創業支援等事業の証明書が条件。<br>対象：市内で事業所を賃借して創業する者／特定創業支援等事業の証明書を取得</small><span class="ar-prov">前橋市 産業政策課</span></div>
+            <div class="ar-amt">賃借料の1/3、月額上限3万円</div>
+            <a class="ar-go" href="https://www.city.maebashi.gunma.jp/soshiki/sangyokeizai/sangyoseisaku/gyomu/4/2/4/25333.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">群馬県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>前橋市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="maebashi-mokuzo-taishin">
-            <h3>令和8年度木造住宅耐震改修費等補助事業</h3>
-            <p class="area-meta">前橋市｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：令和8年度</p>
-            <p>耐震診断の結果、現行基準に適合しない自己所有住宅の耐震改修等を行う個人への補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>耐震診断者派遣による診断で基準に不適合</li></ul>
-            <p><a href="https://www.city.maebashi.gunma.jp/6/49119.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program" id="maebashi-zerocarbon-katei">
-            <h3>令和8年度前橋市家庭用ゼロカーボン推進補助事業</h3>
-            <p class="area-meta">前橋市｜補助金｜太陽光：3万円、定置用蓄電池：1kWhあたり1万円（上限5万円）</p>
-            <p class="area-meta">期間：令和8年度（ページ表示は受付中、現在の状況は要確認）</p>
-            <p>家庭への太陽光発電設備・蓄電池設置の補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>自宅に設置する1kW以上10kW未満の設備</li></ul>
-            <p><a href="https://www.city.maebashi.gunma.jp/soshiki/kankyo/kankyoseisaku/gyomu/1_2/23240.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program is-ended" id="maebashi-akiya-taisaku">
-            <h3>令和8年度前橋市空き家対策補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">前橋市｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：受付終了（令和8年度）</p>
-            <p>空き家活用リフォーム補助と老朽空き家解体補助。いずれも予算上限に達し新規受付終了。</p>
-            
-            <p><a href="https://www.city.maebashi.gunma.jp/soshiki/toshikeikakubu/kenchikujutaku/gyomu/2/1/48337.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
-          <div class="area-program" id="maebashi-reform-barrierfree">
-            <h3>住宅リフォーム補助（バリアフリー改修）</h3>
-            <p class="area-meta">群馬県前橋市｜補助金｜対象工事費の3分の1以内（上限8万円）</p>
-            <p class="area-meta">期間：令和7年度手引きのみ確認。最新は要確認</p>
-            <p>段差解消・手すり設置・廊下幅拡張などのバリアフリー改修を補助する。確認できたのは令和7年度手引き（受付は令和7年12月26日まで）。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>税抜15万円以上の工事</li><li>市内業者に依頼</li></ul>
-            <p><a href="https://www.city.maebashi.gunma.jp/material/files/group/63/R7jutakutebiki.pdf" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-7">医療・福祉</h3>
-          <div class="area-program" id="maebashi-fuiku-chiryohi">
-            <h3>令和8年度不育症治療費助成事業</h3>
-            <p class="area-meta">前橋市｜助成金｜自己負担額の2分の1以内、10万円を限度｜締切：2027-02-26</p>
-            <p class="area-meta">期間：助成対象の治療期間は令和8年1月1日から同年12月31日まで／申請期限は令和9年2月26日（金曜日）</p>
-            <p>「不育症」と診断され治療に取り組んでいるご夫婦に、治療費等の一部を助成します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>2回以上の流産又は死産の既往があるもしくは専門医に不育症と診断され、医療機関で不育症の検査・治療を受けた法律上の婚姻関係にある夫婦</li><li>夫婦の両方又はいずれか一方が、令和8年1月1日から同年12月31日までの一部又は全部の期間において、前橋市民であること</li></ul>
-            <p><a href="https://www.city.maebashi.gunma.jp/kosodate_kyoiku/4/5/1/12102.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="maebashi-funin-chiryohi">
-            <h3>令和8年度不妊治療費助成事業</h3>
-            <p class="area-meta">前橋市｜助成金｜自己負担額の2分の1以内、15万円を限度（男性不妊治療は5万円を限度に上乗せ）｜締切：2027-02-26</p>
-            <p class="area-meta">期間：助成対象の治療期間は令和8年1月1日から同年12月31日まで／申請期限は令和9年2月26日（金曜日）</p>
-            <p>不妊治療を行っている夫婦の経済的な負担を軽減するため、その治療に要する医療費の一部を助成します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>不妊治療をしている法律上の婚姻関係にある夫婦（事実婚を含む。）であること</li><li>夫婦の両方又はいずれか一方が、令和8年1月1日から同年12月31日までの一部又は全部の期間において、前橋市民であったこと</li></ul>
-            <p><a href="https://www.city.maebashi.gunma.jp/kosodate_kyoiku/4/5/1/12103.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-8">教育・学び</h3>
-          <div class="area-program" id="maebashi-daigaku-juken-hojo">
-            <h3>ひとり親家庭や非課税世帯等のこどもの大学等受験料補助</h3>
-            <p class="area-meta">前橋市｜補助金｜受験生1人あたり53,000円を上限（対象経費の全額）｜締切：2027-03-05</p>
-            <p class="area-meta">期間：令和8年11月1日受付開始／申請期限は令和9年3月5日（金曜日）必着</p>
-            <p>ひとり親家庭や住民税非課税世帯等のこどもに対して、大学等の受験料を補助します。受付開始は令和8年11月1日です。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>申請時に前橋市内に住民登録があり受験生を養育している保護者等</li><li>児童扶養手当受給者、令和7年度市町村民税非課税の世帯、生活保護受給者などのいずれかの区分に該当する方</li></ul>
-            <p><a href="https://www.city.maebashi.gunma.jp/kosodate_kyoiku/2/6/1/41057.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="maebashi-nyugaku-shienkin">
-            <h3>前橋市入学支援金（奨学資金）制度</h3>
-            <p class="area-meta">前橋市｜給付｜一括200,000円（一回限り）｜締切：2026-12-24</p>
-            <p class="area-meta">期間：令和8年11月2日（月曜日）から令和8年12月24日（木曜日）まで</p>
-            <p>令和9年4月に高校等へ進学を希望する方に対し、給付型の入学支援金の申請者を募集します。募集人数は10人です。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>高校等に入学を希望する者で、申請時に前橋市民であり、入学以降も継続して前橋市に居住予定の者</li><li>家庭（世帯）の経済的理由で就学が困難な者</li><li>生活保護費を受給していない者</li></ul>
-            <p><a href="https://www.city.maebashi.gunma.jp/kosodate_kyoiku/3/8/10993.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="maebashi-shugaku-enjo">
-            <h3>就学援助制度（小学生と中学生の保護者の方へ）</h3>
-            <p class="area-meta">前橋市教育委員会｜給付｜学用品費 小学校11,630円・中学校22,730円、新入学児童生徒学用品費（1年生）小学校64,300円・中学校81,000円 など</p>
-            <p class="area-meta">期間：年度ごとに申請が必要（令和8年度）</p>
-            <p>経済的な理由でお子様に義務教育を受けさせることが困難な保護者に、学校生活で必要な費用の一部を援助する制度です。年度ごとに申請が必要です。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>児童扶養手当を全額支給されている方</li><li>生活保護が一時停止や廃止になって、現在何も保護を受けていない方</li><li>経済的にお困りの方(所得基準があります。)</li></ul>
-            <p><a href="https://www.city.maebashi.gunma.jp/kosodate_kyoiku/3/8/10994.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-9">移住</h3>
-          <div class="area-program" id="maebashi-iju-shienkin">
-            <h3>前橋市移住支援金</h3>
-            <p class="area-meta">群馬県前橋市｜給付｜世帯100万円・単身60万円｜締切：2027-02-05</p>
-            <p class="area-meta">期間：令和8年度（申請は令和9年2月5日まで）</p>
-            <p>東京圏から移住し就業・起業した人への移住支援金。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>転入から1年以内に申請</li></ul>
-            <p><a href="https://www.city.maebashi.gunma.jp/soshiki/seisaku/kohobrand/shinseisho/20008.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>群馬県の制度</strong></p>
-          <ul><li><a href="pref-gunma.html#gunma-bev-konyu">群馬県電気自動車（BEV）購入補助金</a></li><li><a href="pref-gunma.html#gunma-iju-shienkin">群馬県移住支援金事業</a></li><li><a href="pref-gunma.html#gunma-jutaku-solar-yushi">住宅用太陽光発電設備等導入資金融資</a></li><li><a href="pref-gunma.html#gunma-mokuzo-taishin-kyocho">木造住宅耐震改修促進支援事業</a></li><li><a href="pref-gunma.html#gunma-zero-sengen-jutaku-kosodate">ぐんまゼロ宣言住宅促進事業（子育て世帯への補助）</a></li></ul>
-          <p><a href="pref-gunma.html#pref-resident">群馬県の制度6件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-gunma.html#gunma-cross-start">ぐんまクロススタート補助金（起業支援金）</a></li><li><a href="pref-gunma.html#gunma-dx-gijutsu-kakushin">ぐんまDX技術革新補助金</a></li><li><a href="pref-gunma.html#gunma-jigyo-shokei-yushi">群馬県制度融資 事業承継支援資金</a></li><li><a href="pref-gunma.html#gunma-power-up-shikin">群馬県制度融資 中小企業パワーアップ資金</a></li><li><a href="pref-gunma.html#gunma-seicho-ma-hojo">群馬県成長実現型M&amp;A補助金</a></li></ul>
+          <p><a href="pref-gunma.html#pref-business">群馬県の制度5件を、県のページで見る →</a></p>
       </div>
     </section>
 

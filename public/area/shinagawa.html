@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"品川区","item":"https://hojyokin.net/area/shinagawa.html"}]}</script>
@@ -165,172 +207,125 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 品川区</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b15.webp')"><h1 class="pb-title">品川区の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-tokyo.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">東京都・特別区。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">東京都 品川区</p>
+        <h1>品川区で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度13件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-tokyo.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（品川区）<b>5件</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（東京都）<b>6件（うち受付終了1件）</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>8件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 2</a><a href="#res-cat-2">EV・充電 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-5">バリアフリー・介護 2</a><a href="#res-cat-6">子育て 1</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <a href="#res-g-kosodate"><i aria-hidden="true">👶</i><b>子育て</b><small>1件</small></a>
+      <span class="is-none"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>掲載なし</small></span>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>7件</small></a>
+      <span class="is-none"><i aria-hidden="true">🌱</i><b>移住</b><small>掲載なし</small></span>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市5件＋県6件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">品川区の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="shinagawa-yushi-assen">
-            <h3>中小企業（法人・個人）事業資金 融資あっせん（令和8年度）</h3>
-            <p class="area-meta">品川区 地域産業振興課 中小企業支援担当｜融資｜要確認（区が取扱金融機関に融資をあっせんし、低利で借りられる制度。限度額・利率は未確認）</p>
-            <p class="area-meta">期間：令和8年度（予約制）</p>
-            <p>区が取扱金融機関をあっせんし、区内中小企業が低利で事業資金を借りられる制度です。事前予約の上、面談後に要件適合すれば紹介状を発行。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>区内で事業を営む中小企業（法人・個人）</li><li>信用保証対象外業種は利用不可（一覧で確認）</li></ul>
-            <p><a href="https://www.city.shinagawa.tokyo.jp/PC/sangyo/sangyo-keieishien/hpg000033289.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-kosodate">子育て<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="shinagawa-kosodate-family-tenkyo">
+            <div class="ar-name"><b>品川区 子育てファミリー世帯転居費用助成</b><small>区内在住の子育て世帯が区内の住宅へ転居する際の転居費用・仲介手数料・礼金を助成。<br>対象：2年以上区内に居住する子育て世帯／令和8年4月1日以降に契約</small><span class="ar-prov">東京都品川区</span></div>
+            <div class="ar-amt">区内で住宅取得：上限30万円、区内民間賃貸へ転居：上限15万円（3人以上の子がいる多子世帯は2万円加算）</div>
+            <a class="ar-go" href="https://www.city.shinagawa.tokyo.jp/PC/kankyo/kankyo-kenchiku/kankyo-kenchiku-assen/20260603115846.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="shinagawa-jinzai-shokuba">
-            <h3>魅力ある職場づくり支援事業助成金</h3>
-            <p class="area-meta">品川区 地域産業振興課 中小企業支援担当｜助成金｜最大30万円（対象経費の2/3）</p>
-            <p class="area-meta">期間：令和8年度分を受付中（終了日は要確認）</p>
-            <p>区内中小企業が魅力ある職場づくりに取り組む際の経費の一部を助成します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>区内中小企業（詳細要件は公式ページ参照）</li></ul>
-            <p><a href="https://www.mics.city.shinagawa.tokyo.jp/joseikin/jinnzai/2272.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/shinagawa-jinzai-shokuba.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
           </div>
-          <div class="area-program" id="shinagawa-sangaku-kaihatsu">
-            <h3>産学連携開発支援（助成金）</h3>
-            <p class="area-meta">品川区 地域産業振興課 中小企業支援担当｜助成金｜助成限度額 最大100万円（助成対象経費の2/3）｜締切：2027-02-26</p>
-            <p class="area-meta">期間：令和8年5月7日〜令和9年2月26日</p>
-            <p>区内中小企業が大学等と行う共同研究・開発の費用の一部を助成します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>区内中小企業</li><li>大学等との共同研究・開発を行うこと</li></ul>
-            <p><a href="https://www.mics.city.shinagawa.tokyo.jp/soshikikarasagasu/chushokigyoshiengakari/joseikin/2284.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>7件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="shinagawa-block-concrete-anzenka">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>コンクリートブロック塀等安全化支援</b><small>道路に面する高さ80cm以上のブロック塀・万年塀・石積塀・レンガ塀の所有者に対し、撤去工事や撤去後のフェンス等の設置費用を助成する。<br>対象：道路に面した高さ80cm以上のブロック塀等の所有者／工事契約前に区へ申請すること</small><span class="ar-prov">品川区</span></div>
+            <div class="ar-amt">撤去：延長1mにつき30,000円を上限（工事費の範囲内）。撤去後にフェンス等を設ける場合は工事費の1/2。設計費・工事監理費は上限15万円</div>
+            <a class="ar-go" href="https://www.city.shinagawa.tokyo.jp/contentshozon2020/CBpamphlet.pdf" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="shinagawa-jinzai-skillup">
-            <h3>人材スキルアップ支援事業助成</h3>
-            <p class="area-meta">品川区 地域産業振興課 中小企業支援担当｜助成金｜金額は公式で確認｜締切：2027-02-26</p>
-            <p class="area-meta">期間：令和8年5月7日〜令和9年2月26日（予算到達で締切）</p>
-            <p>区内中小企業が従業員の人材スキルアップに取り組む経費の一部を助成します。予算に達した時点で締切。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>区内中小企業（詳細要件は公式ページ参照）</li></ul>
-            <p><a href="https://www.mics.city.shinagawa.tokyo.jp/joseikin/jinnzai/2417.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/shinagawa-jinzai-skillup.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+          <div class="ar-row" id="shinagawa-jutaku-kaizen-eco-barrierfree">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>住宅改善工事助成事業（エコ＆バリアフリー住宅改修）</b><small>区内施工業者による環境・バリアフリーに配慮したリフォーム（手すり設置、段差解消、浴室・トイレ改修など）の費用の一部を助成する。<br>対象：区内施工業者を利用すること／工事費（税抜）総額10万円以上<br>期間：令和8年度（申込期間 令和8年4月1日〜令和9年1月29日、予算に達し次第終了）<br>締切：2027-01-29</small><span class="ar-prov">品川区</span></div>
+            <div class="ar-amt">対象工事費（税抜）の10%、区民の上限20万円</div>
+            <a class="ar-go" href="https://www.city.shinagawa.tokyo.jp/PC/kankyo/kankyo-kenchiku/kankyo-kenchiku-assen/20211221163556.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="shinagawa-keiei-kaizen">
-            <h3>品川区経営改善支援事業助成金</h3>
-            <p class="area-meta">品川区 地域産業振興課 中小企業支援担当｜助成金｜要確認（国の補助事業に上乗せして助成。区分ごとの詳細は要確認）｜締切：2027-02-26</p>
-            <p class="area-meta">期間：令和8年4月20日〜令和9年2月26日</p>
-            <p>国の経営改善関連補助事業に区が上乗せして助成する制度です。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>区内中小企業（詳細要件は公式ページ参照）</li></ul>
-            <p><a href="https://www.mics.city.shinagawa.tokyo.jp/soshikikarasagasu/chushokigyoshiengakari/joseikin/2264.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/shinagawa-keiei-kaizen.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+          <div class="ar-row" id="shinagawa-koreisha-jiritsu-jutaku-kaishu">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>品川区 高齢者自立支援住宅改修給付（介護保険住宅改修と併せて）</b><small>在宅の高齢者が安全に暮らすための手すり設置・段差解消等（介護保険）や、浴槽・洗面台交換等（区の自立支援）の改修費を給付。<br>対象：要支援・要介護認定を受けた在宅の高齢者／ケアマネジャー等に相談のうえ工事前に申請</small><span class="ar-prov">東京都品川区</span></div>
+            <div class="ar-amt">上限：浴槽取替37万9千円、流し・洗面台取替15万6千円など（自己負担1〜3割）。介護保険の住宅改修は限度額20万円</div>
+            <a class="ar-go" href="https://www.city.shinagawa.tokyo.jp/PC/kenkou/kaigo1/20211224090503.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          <div class="ar-row" id="shinagawa-taishin-shien">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>耐震化支援事業（木造住宅の耐震改修助成）</b><small>平成12年5月31日以前に建築された木造2階以下の住宅の耐震改修を助成する。区の耐震診断は専門家派遣で自己負担なしとされている。<br>対象：平成12年5月31日以前に建築された木造2階建て以下の住宅／昭和56年6月1日〜平成12年5月31日の着工分は在来軸組工法に限る<br>期間：令和8年4月1日〜令和8年12月4日<br>締切：2026-12-04</small><span class="ar-prov">品川区 都市環境部</span></div>
+            <div class="ar-amt">耐震改修工事：戸建て等300万円まで、共同住宅450万円まで（区パンフレットの記載。令和9年度までの期間限定）。設計と工事を同時申請する総合支援メニューは戸建て等最大400万円。高齢者・障害者・要介護者等の世帯は助成率10分の10（要確認）</div>
+            <a class="ar-go" href="https://www.city.shinagawa.tokyo.jp/PC/bosai/bosai2/jishin/hpg000012434.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="shinagawa-zerocarbon-chikudenchi">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>しながわゼロカーボンアクション助成（蓄電池システム）</b><small>住宅等に蓄電池システムを設置する費用を助成する。<br>対象：設置完了日が令和8年4月1日〜令和9年3月15日であること<br>期間：令和8年5月25日〜令和9年3月15日<br>締切：2027-03-15</small><span class="ar-prov">品川区 環境課</span></div>
+            <div class="ar-amt">1kWhあたり3万円、上限30万円（区民・中小企業者等向け予定100件、管理組合等向け予定10件）</div>
+            <a class="ar-go" href="https://www.city.shinagawa.tokyo.jp/PC/kankyo/kankyo-kankyo/kankyo-kankyo-zyosei/20250310125732.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="shinagawa-zerocarbon-taiyoko">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>しながわゼロカーボンアクション助成（太陽光発電システム）</b><small>住宅等に太陽光発電システムを設置する費用を助成する。設置工事完了後に申請する。<br>対象：設置完了日が令和8年4月1日〜令和9年3月15日であること<br>期間：令和8年5月25日〜令和9年3月15日<br>締切：2027-03-15</small><span class="ar-prov">品川区 環境課</span></div>
+            <div class="ar-amt">区民・中小企業者等向け：1kWあたり5万円、上限20万円（予定100件）。管理組合等向け：1kWあたり5万円、上限50万円（予定10件）</div>
+            <a class="ar-go" href="https://www.city.shinagawa.tokyo.jp/PC/kankyo/kankyo-kankyo/kankyo-kankyo-zyosei/20250310125732.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="shinagawa-zerocarbon-zev">
+            <div class="ar-name"><b><span class="ar-tag">EV・充電</span>しながわゼロカーボンアクション助成（ZEV購入）</b><small>電気自動車・プラグインハイブリッド車・燃料電池車・超小型モビリティの車両本体費またはリース料を助成する。</small><span class="ar-prov">品川区 環境課</span></div>
+            <div class="ar-amt">上限10万円（予定155件）</div>
+            <a class="ar-go" href="https://www.city.shinagawa.tokyo.jp/PC/kankyo/kankyo-kankyo/kankyo-kankyo-zyosei/20250310125732.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>東京都の制度</strong></p>
+          <ul><li><a href="pref-tokyo.html#tokyo-akachan-first">東京都出産・子育て応援事業（赤ちゃんファースト）</a></li><li><a href="pref-tokyo.html#tokyo-akiya-kazai-kaitai">東京都空き家家財整理・解体促進事業</a></li><li><a href="pref-tokyo.html#tokyo-dannetsu-solar-jutaku">災害にも強く健康にも資する断熱・太陽光住宅普及拡大事業</a></li><li><a href="pref-tokyo.html#tokyo-home-evcharge">戸建住宅向け充電設備普及促進事業（令和8年度）</a></li><li><a href="pref-tokyo.html#tokyo-kodomo-mamoru-jutaku">子育て世帯向け補助事業（「子供を守る」住宅確保促進事業）</a></li></ul>
+          <p><a href="pref-tokyo.html#pref-resident">東京都の制度9件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">東京都の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">品川区の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-tokyo.html#tokyo-jigyoshokei-josei">事業承継支援助成金（第3回）</a></li><li><a href="pref-tokyo.html#tokyo-kadai-kaiketsu-gijutsu">課題解決型技術開発促進事業</a></li><li><a href="pref-tokyo.html#tokyo-seidoyushi-sogyo">東京都中小企業制度融資「創業」</a></li><li><a href="pref-tokyo.html#tokyo-seihin-chakushu">製品開発着手支援助成事業</a></li><li><a href="pref-tokyo.html#tokyo-souikufuu-challenge">経営力強化に向けた創意工夫チャレンジ促進事業</a></li></ul>
-          <p><a href="pref-tokyo.html#pref-business">東京都の制度6件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="shinagawa-yushi-assen">
+            <div class="ar-name"><b>中小企業（法人・個人）事業資金 融資あっせん（令和8年度）</b><small>区が取扱金融機関をあっせんし、区内中小企業が低利で事業資金を借りられる制度です。事前予約の上、面談後に要件適合すれば紹介状を発行。<br>対象：区内で事業を営む中小企業（法人・個人）／信用保証対象外業種は利用不可（一覧で確認）<br>期間：令和8年度（予約制）</small><span class="ar-prov">品川区 地域産業振興課 中小企業支援担当</span></div>
+            <div class="ar-amt">要確認（区が取扱金融機関に融資をあっせんし、低利で借りられる制度。限度額・利率は未確認）</div>
+            <a class="ar-go" href="https://www.city.shinagawa.tokyo.jp/PC/sangyo/sangyo-keieishien/hpg000033289.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="shinagawa-jinzai-shokuba">
+            <div class="ar-name"><b>魅力ある職場づくり支援事業助成金</b><small>区内中小企業が魅力ある職場づくりに取り組む際の経費の一部を助成します。<br>対象：区内中小企業（詳細要件は公式ページ参照）</small><span class="ar-prov">品川区 地域産業振興課 中小企業支援担当</span></div>
+            <div class="ar-amt">最大30万円（対象経費の2/3）</div>
+            <a class="ar-go" href="https://www.mics.city.shinagawa.tokyo.jp/joseikin/jinnzai/2272.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="shinagawa-sangaku-kaihatsu">
+            <div class="ar-name"><b>産学連携開発支援（助成金）</b><small>区内中小企業が大学等と行う共同研究・開発の費用の一部を助成します。<br>対象：区内中小企業／大学等との共同研究・開発を行うこと<br>期間：令和8年5月7日〜令和9年2月26日<br>締切：2027-02-26</small><span class="ar-prov">品川区 地域産業振興課 中小企業支援担当</span></div>
+            <div class="ar-amt">助成限度額 最大100万円（助成対象経費の2/3）</div>
+            <a class="ar-go" href="https://www.mics.city.shinagawa.tokyo.jp/soshikikarasagasu/chushokigyoshiengakari/joseikin/2284.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="shinagawa-jinzai-skillup">
+            <div class="ar-name"><b>人材スキルアップ支援事業助成</b><small>区内中小企業が従業員の人材スキルアップに取り組む経費の一部を助成します。予算に達した時点で締切。<br>対象：区内中小企業（詳細要件は公式ページ参照）<br>期間：令和8年5月7日〜令和9年2月26日（予算到達で締切）<br>締切：2027-02-26</small><span class="ar-prov">品川区 地域産業振興課 中小企業支援担当</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.mics.city.shinagawa.tokyo.jp/joseikin/jinnzai/2417.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="shinagawa-keiei-kaizen">
+            <div class="ar-name"><b>品川区経営改善支援事業助成金</b><small>国の経営改善関連補助事業に区が上乗せして助成する制度です。<br>対象：区内中小企業（詳細要件は公式ページ参照）<br>期間：令和8年4月20日〜令和9年2月26日<br>締切：2027-02-26</small><span class="ar-prov">品川区 地域産業振興課 中小企業支援担当</span></div>
+            <div class="ar-amt">要確認（国の補助事業に上乗せして助成。区分ごとの詳細は要確認）</div>
+            <a class="ar-go" href="https://www.mics.city.shinagawa.tokyo.jp/soshikikarasagasu/chushokigyoshiengakari/joseikin/2264.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">東京都の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>品川区の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="shinagawa-taishin-shien">
-            <h3>耐震化支援事業（木造住宅の耐震改修助成）</h3>
-            <p class="area-meta">品川区 都市環境部｜補助金｜耐震改修工事：戸建て等300万円まで、共同住宅450万円まで（区パンフレットの記載。令和9年度までの期間限定）。設計と工事を同時申請する総合支援メニューは戸建て等最大400万円。高齢者・障害者・要介護者等の世帯は助成率10分の10（要確認）｜締切：2026-12-04</p>
-            <p class="area-meta">期間：令和8年4月1日〜令和8年12月4日</p>
-            <p>平成12年5月31日以前に建築された木造2階以下の住宅の耐震改修を助成する。区の耐震診断は専門家派遣で自己負担なしとされている。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>平成12年5月31日以前に建築された木造2階建て以下の住宅</li><li>昭和56年6月1日〜平成12年5月31日の着工分は在来軸組工法に限る</li><li>建物全体の補強が前提（部分的な工事は対象外）</li></ul>
-            <p><a href="https://www.city.shinagawa.tokyo.jp/PC/bosai/bosai2/jishin/hpg000012434.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program" id="shinagawa-zerocarbon-chikudenchi">
-            <h3>しながわゼロカーボンアクション助成（蓄電池システム）</h3>
-            <p class="area-meta">品川区 環境課｜補助金｜1kWhあたり3万円、上限30万円（区民・中小企業者等向け予定100件、管理組合等向け予定10件）｜締切：2027-03-15</p>
-            <p class="area-meta">期間：令和8年5月25日〜令和9年3月15日</p>
-            <p>住宅等に蓄電池システムを設置する費用を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>設置完了日が令和8年4月1日〜令和9年3月15日であること</li></ul>
-            <p><a href="https://www.city.shinagawa.tokyo.jp/PC/kankyo/kankyo-kankyo/kankyo-kankyo-zyosei/20250310125732.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="shinagawa-zerocarbon-taiyoko">
-            <h3>しながわゼロカーボンアクション助成（太陽光発電システム）</h3>
-            <p class="area-meta">品川区 環境課｜補助金｜区民・中小企業者等向け：1kWあたり5万円、上限20万円（予定100件）。管理組合等向け：1kWあたり5万円、上限50万円（予定10件）｜締切：2027-03-15</p>
-            <p class="area-meta">期間：令和8年5月25日〜令和9年3月15日</p>
-            <p>住宅等に太陽光発電システムを設置する費用を助成する。設置工事完了後に申請する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>設置完了日が令和8年4月1日〜令和9年3月15日であること</li></ul>
-            <p><a href="https://www.city.shinagawa.tokyo.jp/PC/kankyo/kankyo-kankyo/kankyo-kankyo-zyosei/20250310125732.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
-          <div class="area-program" id="shinagawa-zerocarbon-zev">
-            <h3>しながわゼロカーボンアクション助成（ZEV購入）</h3>
-            <p class="area-meta">品川区 環境課｜補助金｜上限10万円（予定155件）</p>
-            <p class="area-meta">期間：令和8年度（ZEVの個別の申請期間は要確認。同助成全体は令和8年5月25日〜令和9年3月15日）</p>
-            <p>電気自動車・プラグインハイブリッド車・燃料電池車・超小型モビリティの車両本体費またはリース料を助成する。</p>
-            
-            <p><a href="https://www.city.shinagawa.tokyo.jp/PC/kankyo/kankyo-kankyo/kankyo-kankyo-zyosei/20250310125732.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="shinagawa-block-concrete-anzenka">
-            <h3>コンクリートブロック塀等安全化支援</h3>
-            <p class="area-meta">品川区｜助成金｜撤去：延長1mにつき30,000円を上限（工事費の範囲内）。撤去後にフェンス等を設ける場合は工事費の1/2。設計費・工事監理費は上限15万円</p>
-            <p class="area-meta">期間：確認できた年度：令和2年度拡充版の記載（最新は要確認）</p>
-            <p>道路に面する高さ80cm以上のブロック塀・万年塀・石積塀・レンガ塀の所有者に対し、撤去工事や撤去後のフェンス等の設置費用を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>道路に面した高さ80cm以上のブロック塀等の所有者</li><li>工事契約前に区へ申請すること</li><li>販売目的の宅地建物取引業者は除く</li></ul>
-            <p><a href="https://www.city.shinagawa.tokyo.jp/contentshozon2020/CBpamphlet.pdf" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
-          <div class="area-program" id="shinagawa-jutaku-kaizen-eco-barrierfree">
-            <h3>住宅改善工事助成事業（エコ＆バリアフリー住宅改修）</h3>
-            <p class="area-meta">品川区｜助成金｜対象工事費（税抜）の10%、区民の上限20万円｜締切：2027-01-29</p>
-            <p class="area-meta">期間：令和8年度（申込期間 令和8年4月1日〜令和9年1月29日、予算に達し次第終了）</p>
-            <p>区内施工業者による環境・バリアフリーに配慮したリフォーム（手すり設置、段差解消、浴室・トイレ改修など）の費用の一部を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>区内施工業者を利用すること</li><li>工事費（税抜）総額10万円以上</li><li>工事前に申込むこと</li></ul>
-            <p><a href="https://www.city.shinagawa.tokyo.jp/PC/kankyo/kankyo-kenchiku/kankyo-kenchiku-assen/20211221163556.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="shinagawa-koreisha-jiritsu-jutaku-kaishu">
-            <h3>品川区 高齢者自立支援住宅改修給付（介護保険住宅改修と併せて）</h3>
-            <p class="area-meta">東京都品川区｜給付｜上限：浴槽取替37万9千円、流し・洗面台取替15万6千円など（自己負担1〜3割）。介護保険の住宅改修は限度額20万円</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>在宅の高齢者が安全に暮らすための手すり設置・段差解消等（介護保険）や、浴槽・洗面台交換等（区の自立支援）の改修費を給付。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>要支援・要介護認定を受けた在宅の高齢者</li><li>ケアマネジャー等に相談のうえ工事前に申請</li></ul>
-            <p><a href="https://www.city.shinagawa.tokyo.jp/PC/kenkou/kaigo1/20211224090503.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-6">子育て</h3>
-          <div class="area-program" id="shinagawa-kosodate-family-tenkyo">
-            <h3>品川区 子育てファミリー世帯転居費用助成</h3>
-            <p class="area-meta">東京都品川区｜助成金｜区内で住宅取得：上限30万円、区内民間賃貸へ転居：上限15万円（3人以上の子がいる多子世帯は2万円加算）</p>
-            <p class="area-meta">期間：令和8年度（オンライン申請は令和8年7月1日から。最新は要確認）</p>
-            <p>区内在住の子育て世帯が区内の住宅へ転居する際の転居費用・仲介手数料・礼金を助成。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>2年以上区内に居住する子育て世帯</li><li>令和8年4月1日以降に契約</li><li>区内転居後6か月以内に申請</li></ul>
-            <p><a href="https://www.city.shinagawa.tokyo.jp/PC/kankyo/kankyo-kenchiku/kankyo-kenchiku-assen/20260603115846.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>東京都の制度</strong></p>
-          <ul><li><a href="pref-tokyo.html#tokyo-akachan-first">東京都出産・子育て応援事業（赤ちゃんファースト）</a></li><li><a href="pref-tokyo.html#tokyo-akiya-kazai-kaitai">東京都空き家家財整理・解体促進事業</a></li><li><a href="pref-tokyo.html#tokyo-dannetsu-solar-jutaku">災害にも強く健康にも資する断熱・太陽光住宅普及拡大事業</a></li><li><a href="pref-tokyo.html#tokyo-home-evcharge">戸建住宅向け充電設備普及促進事業（令和8年度）</a></li><li><a href="pref-tokyo.html#tokyo-kodomo-mamoru-jutaku">子育て世帯向け補助事業（「子供を守る」住宅確保促進事業）</a></li></ul>
-          <p><a href="pref-tokyo.html#pref-resident">東京都の制度9件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-tokyo.html#tokyo-jigyoshokei-josei">事業承継支援助成金（第3回）</a></li><li><a href="pref-tokyo.html#tokyo-kadai-kaiketsu-gijutsu">課題解決型技術開発促進事業</a></li><li><a href="pref-tokyo.html#tokyo-seidoyushi-sogyo">東京都中小企業制度融資「創業」</a></li><li><a href="pref-tokyo.html#tokyo-seihin-chakushu">製品開発着手支援助成事業</a></li><li><a href="pref-tokyo.html#tokyo-souikufuu-challenge">経営力強化に向けた創意工夫チャレンジ促進事業</a></li></ul>
+          <p><a href="pref-tokyo.html#pref-business">東京都の制度6件を、県のページで見る →</a></p>
       </div>
     </section>
 

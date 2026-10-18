@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"鳥栖市","item":"https://hojyokin.net/area/tosu.html"}]}</script>
@@ -165,113 +207,95 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 鳥栖市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b13.webp')"><h1 class="pb-title">鳥栖市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-saga.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">佐賀県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">佐賀県 鳥栖市</p>
+        <h1>鳥栖市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度7件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-saga.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（鳥栖市）<b>3件</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（佐賀県）<b>5件（うち受付終了2件）</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>4件（うち受付終了1件）</b></a><span class="area-toc-cats"><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-9">移住 1</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <span class="is-none"><i aria-hidden="true">👶</i><b>子育て</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>掲載なし</small></span>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>3件</small></a>
+      <a href="#res-g-iju"><i aria-hidden="true">🌱</i><b>移住</b><small>1件</small></a>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市3件＋県5件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">鳥栖市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="tosu-city-akimise-katsuyo-hojo">
-            <h3>鳥栖市空き店舗等活用支援事業補助金</h3>
-            <p class="area-meta">鳥栖市 商工観光課（鳥栖商工会議所を通じて実施）｜補助金｜移住起業者は補助率3/4以内・上限150万円、それ以外は補助率1/2以内・上限100万円｜締切：2026-11-30</p>
-            <p class="area-meta">期間：令和8年11月30日（月）まで（予算の範囲内で先着順）</p>
-            <p>市が指定する中心市街地（鳥栖駅西側創業地域）の空き店舗等を改装して独立・開業または新事業展開を行う方に、改装費の一部を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>1年以上営業されていない空き店舗・店舗兼住宅、または1年以上無人の空き家を活用する</li><li>改装工事の前に商工会議所へ申請し交付決定を受ける</li><li>市税の滞納がない</li></ul>
-            <p><a href="https://www.city.tosu.lg.jp/soshiki/18/64026.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>3件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="tosu-akiya-reform">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>鳥栖市空き家リフォーム費用補助</b><small>子育て世帯等の空き家改修費用を補助。<br>対象：市外から転入する世帯など／子育て世帯<br>期間：令和8年11月30日まで<br>締切：2026-11-30</small><span class="ar-prov">佐賀県鳥栖市</span></div>
+            <div class="ar-amt">最大80万円(補助率3分の2)</div>
+            <a class="ar-go" href="https://www.city.tosu.lg.jp/soshiki/20/96854.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="tosu-city-chusho-koguchi-shikin-yushi">
-            <h3>鳥栖市中小企業小口資金融資制度</h3>
-            <p class="area-meta">鳥栖市 商工観光課｜融資｜要確認（信用保証料は、経営者保証非提供制度による上乗せ分を除き市が全額負担）</p>
-            
-            <p>市内の中小企業者向けの小口融資制度で、信用保証料を市が負担する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>鳥栖市内の中小企業者</li><li>詳細な要件は市公式ページで要確認</li></ul>
-            <p><a href="https://www.city.tosu.lg.jp/soshiki/18/2425.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="tosu-zerocarbon">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>鳥栖市SAGAゼロカーボン加速化事業補助金(太陽光・蓄電池)</b><small>家庭用太陽光と蓄電池のセット導入を補助。交付決定前の契約・着工は対象外。<br>対象：太陽光と蓄電池を必ずセットで導入／市内の住宅</small><span class="ar-prov">佐賀県鳥栖市</span></div>
+            <div class="ar-amt">太陽光1kWあたり7万円(上限35万円)、蓄電池は対象経費の3分の1(上限47万円)</div>
+            <a class="ar-go" href="https://www.city.tosu.lg.jp/site/zerocarbon/107892.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="tosu-city-sogyo-shien-hojo">
-            <h3>鳥栖市創業支援事業補助金（信用保証料補助）</h3>
-            <p class="area-meta">鳥栖市 商工観光課｜補助金｜信用保証料の一括払いは支払額の1/2、分割払いは初回支払額の1/2</p>
-            <p class="area-meta">期間：融資実行日から60日以内に申請（対象融資は令和8年4月1日〜令和9年3月31日実行分）</p>
-            <p>市内で新規創業した方が佐賀県の「さが創生貸付【独立・創業資金】」を利用した際の信用保証料の一部を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>鳥栖市内で新規に創業し事務所等を開設する</li><li>令和8年4月1日から令和9年3月31日に独立・創業資金の融資を受けた</li><li>信用保証料を納入している</li></ul>
-            <p><a href="https://www.city.tosu.lg.jp/soshiki/18/2428.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row is-ended" id="tosu-akiya-kaitai">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>鳥栖市危険な空き家の解体補助 <span class="area-ended-tag">受付終了</span></b><small>危険な空き家の解体費を補助。令和8年度の受付(6/1〜7/31)は終了。<br>対象：危険な空き家の所有者等(要件は要確認)<br>期間：令和8年度は受付終了(令和8年6月1日〜7月31日)<br>締切：2026-07-31</small><span class="ar-prov">佐賀県鳥栖市</span></div>
+            <div class="ar-amt">最大50万円</div>
+            <a class="ar-go" href="https://www.city.tosu.lg.jp/soshiki/20/1932.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          </div>
+          <h3 class="area-cat" id="res-g-iju">移住<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="tosu-ijuu-shienkin">
+            <div class="ar-name"><b>鳥栖市地方創生移住支援金</b><small>東京圏から鳥栖市へ移住し就業等をする人への支援金。<br>対象：東京23区在住または通勤していた人／就業等の要件あり</small><span class="ar-prov">佐賀県鳥栖市</span></div>
+            <div class="ar-amt">単身60万円、2人以上の世帯100万円</div>
+            <a class="ar-go" href="https://www.city.tosu.lg.jp/site/tosugood/2906.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>佐賀県の制度</strong></p>
+          <ul><li><a href="pref-saga.html#saga-pref-iju-sagakurashi">さが暮らしスタート支援事業（移住支援金）</a></li><li><a href="pref-saga.html#saga-pref-taishin-shindan">佐賀県 住宅の耐震診断補助</a></li><li><a href="pref-saga.html#saga-pref-zero-carbon">SAGAゼロカーボン加速化事業（住民向け太陽光・蓄電池補助）</a></li></ul>
+          <p><a href="pref-saga.html#pref-resident">佐賀県の制度3件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">佐賀県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">鳥栖市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-saga.html#saga-akiten-model">佐賀県空き店舗対策モデル創出事業費補助金</a></li><li><a href="pref-saga.html#saga-jigyo-hikitsugi">佐賀県事業引継ぎ奨励金</a></li><li><a href="pref-saga.html#saga-sousei-kashitsuke">さが創生貸付（創業資金）</a></li><li><a href="pref-saga.html#saga-jigyo-shokei-enkatsuka">佐賀県中小企業事業承継円滑化支援事業費補助金</a></li><li><a href="pref-saga.html#saga-seisansei-koujou">佐賀県中小企業生産性向上支援補助金（第7弾）</a></li></ul>
-          <p><a href="pref-saga.html#pref-business">佐賀県の制度5件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="tosu-city-akimise-katsuyo-hojo">
+            <div class="ar-name"><b>鳥栖市空き店舗等活用支援事業補助金</b><small>市が指定する中心市街地（鳥栖駅西側創業地域）の空き店舗等を改装して独立・開業または新事業展開を行う方に、改装費の一部を補助する。<br>対象：1年以上営業されていない空き店舗・店舗兼住宅、または1年以上無人の空き家を活用する／改装工事の前に商工会議所へ申請し交付決定を受ける<br>期間：令和8年11月30日（月）まで（予算の範囲内で先着順）<br>締切：2026-11-30</small><span class="ar-prov">鳥栖市 商工観光課（鳥栖商工会議所を通じて実施）</span></div>
+            <div class="ar-amt">移住起業者は補助率3/4以内・上限150万円、それ以外は補助率1/2以内・上限100万円</div>
+            <a class="ar-go" href="https://www.city.tosu.lg.jp/soshiki/18/64026.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="tosu-city-chusho-koguchi-shikin-yushi">
+            <div class="ar-name"><b>鳥栖市中小企業小口資金融資制度</b><small>市内の中小企業者向けの小口融資制度で、信用保証料を市が負担する。<br>対象：鳥栖市内の中小企業者／詳細な要件は市公式ページで要確認</small><span class="ar-prov">鳥栖市 商工観光課</span></div>
+            <div class="ar-amt">要確認（信用保証料は、経営者保証非提供制度による上乗せ分を除き市が全額負担）</div>
+            <a class="ar-go" href="https://www.city.tosu.lg.jp/soshiki/18/2425.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="tosu-city-sogyo-shien-hojo">
+            <div class="ar-name"><b>鳥栖市創業支援事業補助金（信用保証料補助）</b><small>市内で新規創業した方が佐賀県の「さが創生貸付【独立・創業資金】」を利用した際の信用保証料の一部を補助する。<br>対象：鳥栖市内で新規に創業し事務所等を開設する／令和8年4月1日から令和9年3月31日に独立・創業資金の融資を受けた<br>期間：融資実行日から60日以内に申請（対象融資は令和8年4月1日〜令和9年3月31日実行分）</small><span class="ar-prov">鳥栖市 商工観光課</span></div>
+            <div class="ar-amt">信用保証料の一括払いは支払額の1/2、分割払いは初回支払額の1/2</div>
+            <a class="ar-go" href="https://www.city.tosu.lg.jp/soshiki/18/2428.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">佐賀県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>鳥栖市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program" id="tosu-zerocarbon">
-            <h3>鳥栖市SAGAゼロカーボン加速化事業補助金(太陽光・蓄電池)</h3>
-            <p class="area-meta">佐賀県鳥栖市｜補助金｜太陽光1kWあたり7万円(上限35万円)、蓄電池は対象経費の3分の1(上限47万円)</p>
-            <p class="area-meta">期間：令和8年度交付予定(募集予告、受付期間は要確認)</p>
-            <p>家庭用太陽光と蓄電池のセット導入を補助。交付決定前の契約・着工は対象外。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>太陽光と蓄電池を必ずセットで導入</li><li>市内の住宅</li></ul>
-            <p><a href="https://www.city.tosu.lg.jp/site/zerocarbon/107892.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="tosu-akiya-reform">
-            <h3>鳥栖市空き家リフォーム費用補助</h3>
-            <p class="area-meta">佐賀県鳥栖市｜補助金｜最大80万円(補助率3分の2)｜締切：2026-11-30</p>
-            <p class="area-meta">期間：令和8年11月30日まで</p>
-            <p>子育て世帯等の空き家改修費用を補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市外から転入する世帯など</li><li>子育て世帯</li></ul>
-            <p><a href="https://www.city.tosu.lg.jp/soshiki/20/96854.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program is-ended" id="tosu-akiya-kaitai">
-            <h3>鳥栖市危険な空き家の解体補助 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">佐賀県鳥栖市｜補助金｜最大50万円｜締切：2026-07-31</p>
-            <p class="area-meta">期間：令和8年度は受付終了(令和8年6月1日〜7月31日)</p>
-            <p>危険な空き家の解体費を補助。令和8年度の受付(6/1〜7/31)は終了。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>危険な空き家の所有者等(要件は要確認)</li></ul>
-            <p><a href="https://www.city.tosu.lg.jp/soshiki/20/1932.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-9">移住</h3>
-          <div class="area-program" id="tosu-ijuu-shienkin">
-            <h3>鳥栖市地方創生移住支援金</h3>
-            <p class="area-meta">佐賀県鳥栖市｜給付｜単身60万円、2人以上の世帯100万円</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>東京圏から鳥栖市へ移住し就業等をする人への支援金。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>東京23区在住または通勤していた人</li><li>就業等の要件あり</li></ul>
-            <p><a href="https://www.city.tosu.lg.jp/site/tosugood/2906.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>佐賀県の制度</strong></p>
-          <ul><li><a href="pref-saga.html#saga-pref-iju-sagakurashi">さが暮らしスタート支援事業（移住支援金）</a></li><li><a href="pref-saga.html#saga-pref-taishin-shindan">佐賀県 住宅の耐震診断補助</a></li><li><a href="pref-saga.html#saga-pref-zero-carbon">SAGAゼロカーボン加速化事業（住民向け太陽光・蓄電池補助）</a></li></ul>
-          <p><a href="pref-saga.html#pref-resident">佐賀県の制度3件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-saga.html#saga-akiten-model">佐賀県空き店舗対策モデル創出事業費補助金</a></li><li><a href="pref-saga.html#saga-jigyo-hikitsugi">佐賀県事業引継ぎ奨励金</a></li><li><a href="pref-saga.html#saga-sousei-kashitsuke">さが創生貸付（創業資金）</a></li><li><a href="pref-saga.html#saga-jigyo-shokei-enkatsuka">佐賀県中小企業事業承継円滑化支援事業費補助金</a></li><li><a href="pref-saga.html#saga-seisansei-koujou">佐賀県中小企業生産性向上支援補助金（第7弾）</a></li></ul>
+          <p><a href="pref-saga.html#pref-business">佐賀県の制度5件を、県のページで見る →</a></p>
       </div>
     </section>
 

@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"豊中市","item":"https://hojyokin.net/area/toyonaka.html"}]}</script>
@@ -165,141 +207,106 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 豊中市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b18.webp')"><h1 class="pb-title">豊中市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-osaka.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">大阪府・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">大阪府 豊中市</p>
+        <h1>豊中市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度10件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-osaka.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（豊中市）<b>4件（うち受付終了1件）</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（大阪府）<b>4件</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>6件（うち受付終了3件）</b></a><span class="area-toc-cats"><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-2">EV・充電 1</a><a href="#res-cat-3">省エネ住宅 2</a><a href="#res-cat-4">空き家・ブロック塀 2</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <span class="is-none"><i aria-hidden="true">👶</i><b>子育て</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>掲載なし</small></span>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>6件</small></a>
+      <span class="is-none"><i aria-hidden="true">🌱</i><b>移住</b><small>掲載なし</small></span>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市4件＋県4件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">豊中市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="toyonaka-city-it-kasokushin">
-            <h3>豊中市IT化促進補助金</h3>
-            <p class="area-meta">豊中市 産業振興課｜補助金｜補助率1/2（上限10万円）｜締切：2027-01-29</p>
-            <p class="area-meta">期間：令和8年4月1日〜令和9年1月29日（予算上限で終了）</p>
-            <p>ITコンシェルジュ派遣を利用した事業者のIT・WEB活用やIT人材育成を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>ITコンシェルジュ派遣事業を利用した市内事業者</li></ul>
-            <p><a href="https://www.city.toyonaka.osaka.jp/machi/sangyoushinkou/hojokin/R8itkasokushin.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>6件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="toyonaka-block-tekkyo">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>豊中市 ブロック塀などの撤去費の補助</b><small>道路に面し高さ60cm超で安全性が確認できないブロック塀等の撤去費を補助する。<br>対象：道路（私道含む）に面し高さ60cm超のブロック塀等／工事契約前の申込が必要</small><span class="ar-prov">豊中市</span></div>
+            <div class="ar-amt">工事費の4/5、13,000円/㎡×面積の4/5、上限20万円のうち最も低い額</div>
+            <a class="ar-go" href="https://www.city.toyonaka.osaka.jp/machi/kenchiku_kaihatsu/taisin/cbhojo.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="toyonaka-city-jinzai-kakuho">
-            <h3>豊中市人材確保促進補助金</h3>
-            <p class="area-meta">豊中市 産業振興課｜補助金｜上限10万円（高度副業人材は15万円、合計上限15万円）｜締切：2027-03-31</p>
-            <p class="area-meta">期間：令和8年4月1日〜令和9年3月31日（予算上限で終了）</p>
-            <p>職場環境の整備や副業人材の活用経費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の中小企業者</li></ul>
-            <p><a href="https://www.city.toyonaka.osaka.jp/machi/sangyoushinkou/hojokin/R8jinzaikakuho.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="toyonaka-dannetsu-smarthouse">
+            <div class="ar-name"><b><span class="ar-tag">省エネ住宅</span>【断熱リフォーム】豊中市スマートハウス支援補助金</b><small>国の断熱リフォーム支援事業の登録製品を使った既存住宅の断熱改修を補助する。<br>対象：市内の既存住宅の断熱改修／工事完了日が令和8年4月1日〜令和9年2月28日</small><span class="ar-prov">豊中市</span></div>
+            <div class="ar-amt">材料費の1/3（上限6万円）</div>
+            <a class="ar-go" href="https://www.city.toyonaka.osaka.jp/machi/hojo_joseikin/kankyo_hojyo_jyosei/dannetu.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="toyonaka-city-touroku-menkyozei">
-            <h3>豊中市法人設立登録免許税助成金</h3>
-            <p class="area-meta">豊中市 産業振興課｜助成金｜株式会社7.5万円、合同会社3万円｜締切：2027-03-31</p>
-            <p class="area-meta">期間：令和9年3月31日まで（予算上限に達し次第終了）</p>
-            <p>特定創業支援等事業を受けて設立した法人の登録免許税を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>特定創業支援等事業を受け令和8年度に株式会社・合同会社を設立した方</li></ul>
-            <p><a href="https://www.city.toyonaka.osaka.jp/machi/sangyoushinkou/hojokin/R8tourokumenkyozei.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/toyonaka-city-touroku-menkyozei.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+          <div class="ar-row" id="toyonaka-denki-jidosha-kounyu">
+            <div class="ar-name"><b><span class="ar-tag">EV・充電</span>豊中市電気自動車等購入支援補助金</b><small>電気自動車、プラグインハイブリッド自動車、燃料電池自動車の購入を補助する。<br>期間：令和8年度。個人分・事業者分とも予算に達し終了（確認時点）</small><span class="ar-prov">豊中市</span></div>
+            <div class="ar-amt">個人：新車1台につき10万円</div>
+            <a class="ar-go" href="https://www.city.toyonaka.osaka.jp/machi/hojo_joseikin/kankyo_hojyo_jyosei/ev_car.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <h3 class="area-cat">受付が終了した制度（次回の公募の参考に）</h3>
-          <div class="area-program is-ended" id="toyonaka-city-startup-shien">
-            <h3>豊中市スタートアップ支援補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">豊中市 産業振興課｜補助金｜補助率2/3（上限200万円）｜締切：2026-03-27</p>
-            <p class="area-meta">期間：令和8年度分は申込受付終了。次年度は要確認</p>
-            <p>創業後間もない市内事業者の事業を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>創業後間もない市内事業者</li></ul>
-            <p><a href="https://www.city.toyonaka.osaka.jp/machi/sangyoushinkou/hojokin/r8startuphojokin.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row is-ended" id="toyonaka-mokuzo-jokyaku">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>豊中市 木造住宅の除却補助制度（震災対策） <span class="area-ended-tag">受付終了</span></b><small>耐震性が不足する旧耐震の木造住宅の除却費を補助する。<br>対象：1981年5月31日以前建築の2階建て以下の木造住宅／所得・資産要件あり</small><span class="ar-prov">豊中市</span></div>
+            <div class="ar-amt">除却費用と40万円のうち低い額</div>
+            <a class="ar-go" href="https://www.city.toyonaka.osaka.jp/machi/kenchiku_kaihatsu/taisin/jokyaku.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          <div class="ar-row is-ended" id="toyonaka-smarthouse-tikuden">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>【蓄電システム】スマートハウス支援補助金 <span class="area-ended-tag">受付終了</span></b><small>環境共創イニシアチブに登録された家庭用蓄電システムの設置費用を補助する。<br>対象：環境共創イニシアチブ登録機器<br>期間：受付期間：2026年5月7日から2027年3月1日まで。ただし9月25日に予算額に達し受付終了</small><span class="ar-prov">豊中市</span></div>
+            <div class="ar-amt">初期実効容量1kWhあたり1万円（上限6万円）</div>
+            <a class="ar-go" href="https://www.city.toyonaka.osaka.jp/machi/hojo_joseikin/kankyo_hojyo_jyosei/tikuden.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="toyonaka-smarthouse-zeh">
+            <div class="ar-name"><b><span class="ar-tag">省エネ住宅</span>【ZEH】スマートハウス支援補助金 <span class="area-ended-tag">受付終了</span></b><small>ZEH（ネット・ゼロ・エネルギー・ハウス）の住宅に対する補助。<br>期間：令和8年度。5月14日に予算額に達し受付終了（確認時点）</small><span class="ar-prov">豊中市</span></div>
+            <div class="ar-amt">20万円</div>
+            <a class="ar-go" href="https://www.city.toyonaka.osaka.jp/machi/hojo_joseikin/kankyo_hojyo_jyosei/zeh.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>大阪府の制度</strong></p>
+          <ul><li><a href="pref-osaka.html#osaka-koiki-blockbei">大阪府広域緊急交通路沿道ブロック塀補助制度</a></li><li><a href="pref-osaka.html#osaka-kouiki-cb-hojo">大阪府広域緊急交通路沿道ブロック塀補助制度（耐震診断義務付けブロック塀等）</a></li><li><a href="pref-osaka.html#osaka-taishin-mokuzo-hojo">木造住宅の耐震化（耐震診断・設計・改修・除却の補助）</a></li></ul>
+          <p><a href="pref-osaka.html#pref-resident">大阪府の制度3件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">大阪府の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">豊中市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-osaka.html#osaka-datsutanso-jishu">大阪府 中小事業者の脱炭素化に係る自主的取組支援補助金</a></li><li><a href="pref-osaka.html#osaka-gyomukaizen-chinage">大阪府 業務改善・賃上げ促進補助金</a></li><li><a href="pref-osaka.html#osaka-kaigyo-startup-shikin">大阪府制度融資「開業・スタートアップ応援資金」</a></li><li><a href="pref-osaka.html#osaka-tenjikai-shuttenshien">大阪府 中小企業展示商談会出展支援事業補助金</a></li></ul>
-          <p><a href="pref-osaka.html#pref-business">大阪府の制度4件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="toyonaka-city-it-kasokushin">
+            <div class="ar-name"><b>豊中市IT化促進補助金</b><small>ITコンシェルジュ派遣を利用した事業者のIT・WEB活用やIT人材育成を補助する。<br>対象：ITコンシェルジュ派遣事業を利用した市内事業者<br>期間：令和8年4月1日〜令和9年1月29日（予算上限で終了）<br>締切：2027-01-29</small><span class="ar-prov">豊中市 産業振興課</span></div>
+            <div class="ar-amt">補助率1/2（上限10万円）</div>
+            <a class="ar-go" href="https://www.city.toyonaka.osaka.jp/machi/sangyoushinkou/hojokin/R8itkasokushin.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="toyonaka-city-jinzai-kakuho">
+            <div class="ar-name"><b>豊中市人材確保促進補助金</b><small>職場環境の整備や副業人材の活用経費を補助する。<br>対象：市内の中小企業者<br>期間：令和8年4月1日〜令和9年3月31日（予算上限で終了）<br>締切：2027-03-31</small><span class="ar-prov">豊中市 産業振興課</span></div>
+            <div class="ar-amt">上限10万円（高度副業人材は15万円、合計上限15万円）</div>
+            <a class="ar-go" href="https://www.city.toyonaka.osaka.jp/machi/sangyoushinkou/hojokin/R8jinzaikakuho.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="toyonaka-city-touroku-menkyozei">
+            <div class="ar-name"><b>豊中市法人設立登録免許税助成金</b><small>特定創業支援等事業を受けて設立した法人の登録免許税を助成する。<br>対象：特定創業支援等事業を受け令和8年度に株式会社・合同会社を設立した方<br>期間：令和9年3月31日まで（予算上限に達し次第終了）<br>締切：2027-03-31</small><span class="ar-prov">豊中市 産業振興課</span></div>
+            <div class="ar-amt">株式会社7.5万円、合同会社3万円</div>
+            <a class="ar-go" href="https://www.city.toyonaka.osaka.jp/machi/sangyoushinkou/hojokin/R8tourokumenkyozei.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="toyonaka-city-startup-shien">
+            <div class="ar-name"><b>豊中市スタートアップ支援補助金 <span class="area-ended-tag">受付終了</span></b><small>創業後間もない市内事業者の事業を補助する。<br>対象：創業後間もない市内事業者<br>締切：2026-03-27</small><span class="ar-prov">豊中市 産業振興課</span></div>
+            <div class="ar-amt">補助率2/3（上限200万円）</div>
+            <a class="ar-go" href="https://www.city.toyonaka.osaka.jp/machi/sangyoushinkou/hojokin/r8startuphojokin.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">大阪府の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>豊中市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program is-ended" id="toyonaka-smarthouse-tikuden">
-            <h3>【蓄電システム】スマートハウス支援補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">豊中市｜補助金｜初期実効容量1kWhあたり1万円（上限6万円）</p>
-            <p class="area-meta">期間：受付期間：2026年5月7日から2027年3月1日まで。ただし9月25日に予算額に達し受付終了</p>
-            <p>環境共創イニシアチブに登録された家庭用蓄電システムの設置費用を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>環境共創イニシアチブ登録機器</li></ul>
-            <p><a href="https://www.city.toyonaka.osaka.jp/machi/hojo_joseikin/kankyo_hojyo_jyosei/tikuden.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
-          <div class="area-program" id="toyonaka-denki-jidosha-kounyu">
-            <h3>豊中市電気自動車等購入支援補助金</h3>
-            <p class="area-meta">豊中市｜補助金｜個人：新車1台につき10万円</p>
-            <p class="area-meta">期間：令和8年度。個人分・事業者分とも予算に達し終了（確認時点）</p>
-            <p>電気自動車、プラグインハイブリッド自動車、燃料電池自動車の購入を補助する。</p>
-            
-            <p><a href="https://www.city.toyonaka.osaka.jp/machi/hojo_joseikin/kankyo_hojyo_jyosei/ev_car.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
-          <div class="area-program" id="toyonaka-dannetsu-smarthouse">
-            <h3>【断熱リフォーム】豊中市スマートハウス支援補助金</h3>
-            <p class="area-meta">豊中市｜補助金｜材料費の1/3（上限6万円）</p>
-            <p class="area-meta">期間：受付状況は要確認（市ページに「終了」表示もあり）</p>
-            <p>国の断熱リフォーム支援事業の登録製品を使った既存住宅の断熱改修を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の既存住宅の断熱改修</li><li>工事完了日が令和8年4月1日〜令和9年2月28日</li></ul>
-            <p><a href="https://www.city.toyonaka.osaka.jp/machi/hojo_joseikin/kankyo_hojyo_jyosei/dannetu.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program is-ended" id="toyonaka-smarthouse-zeh">
-            <h3>【ZEH】スマートハウス支援補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">豊中市｜補助金｜20万円</p>
-            <p class="area-meta">期間：令和8年度。5月14日に予算額に達し受付終了（確認時点）</p>
-            <p>ZEH（ネット・ゼロ・エネルギー・ハウス）の住宅に対する補助。</p>
-            
-            <p><a href="https://www.city.toyonaka.osaka.jp/machi/hojo_joseikin/kankyo_hojyo_jyosei/zeh.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="toyonaka-block-tekkyo">
-            <h3>豊中市 ブロック塀などの撤去費の補助</h3>
-            <p class="area-meta">豊中市｜補助金｜工事費の4/5、13,000円/㎡×面積の4/5、上限20万円のうち最も低い額</p>
-            <p class="area-meta">期間：最新は要確認（2026年度リーフレットあり）</p>
-            <p>道路に面し高さ60cm超で安全性が確認できないブロック塀等の撤去費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>道路（私道含む）に面し高さ60cm超のブロック塀等</li><li>工事契約前の申込が必要</li><li>1敷地につき1回限り</li></ul>
-            <p><a href="https://www.city.toyonaka.osaka.jp/machi/kenchiku_kaihatsu/taisin/cbhojo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program is-ended" id="toyonaka-mokuzo-jokyaku">
-            <h3>豊中市 木造住宅の除却補助制度（震災対策） <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">豊中市｜補助金｜除却費用と40万円のうち低い額</p>
-            <p class="area-meta">期間：最新は要確認（予算に達すると受付終了）</p>
-            <p>耐震性が不足する旧耐震の木造住宅の除却費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>1981年5月31日以前建築の2階建て以下の木造住宅</li><li>所得・資産要件あり</li></ul>
-            <p><a href="https://www.city.toyonaka.osaka.jp/machi/kenchiku_kaihatsu/taisin/jokyaku.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>大阪府の制度</strong></p>
-          <ul><li><a href="pref-osaka.html#osaka-koiki-blockbei">大阪府広域緊急交通路沿道ブロック塀補助制度</a></li><li><a href="pref-osaka.html#osaka-kouiki-cb-hojo">大阪府広域緊急交通路沿道ブロック塀補助制度（耐震診断義務付けブロック塀等）</a></li><li><a href="pref-osaka.html#osaka-taishin-mokuzo-hojo">木造住宅の耐震化（耐震診断・設計・改修・除却の補助）</a></li></ul>
-          <p><a href="pref-osaka.html#pref-resident">大阪府の制度3件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-osaka.html#osaka-datsutanso-jishu">大阪府 中小事業者の脱炭素化に係る自主的取組支援補助金</a></li><li><a href="pref-osaka.html#osaka-gyomukaizen-chinage">大阪府 業務改善・賃上げ促進補助金</a></li><li><a href="pref-osaka.html#osaka-kaigyo-startup-shikin">大阪府制度融資「開業・スタートアップ応援資金」</a></li><li><a href="pref-osaka.html#osaka-tenjikai-shuttenshien">大阪府 中小企業展示商談会出展支援事業補助金</a></li></ul>
+          <p><a href="pref-osaka.html#pref-business">大阪府の制度4件を、県のページで見る →</a></p>
       </div>
     </section>
 

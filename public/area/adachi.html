@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"足立区","item":"https://hojyokin.net/area/adachi.html"}]}</script>
@@ -165,266 +207,188 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 足立区</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b08.webp')"><h1 class="pb-title">足立区の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-tokyo.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">東京都・特別区。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">東京都 足立区</p>
+        <h1>足立区で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度24件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-tokyo.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（足立区）<b>4件</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（東京都）<b>6件（うち受付終了1件）</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>20件（うち受付終了2件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 3</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-2">EV・充電 2</a><a href="#res-cat-3">省エネ住宅 4</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-5">バリアフリー・介護 1</a><a href="#res-cat-6">子育て 2</a><a href="#res-cat-7">医療・福祉 3</a><a href="#res-cat-8">教育・学び 2</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <a href="#res-g-kosodate"><i aria-hidden="true">👶</i><b>子育て</b><small>2件</small></a>
+      <a href="#res-g-iryo"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>3件</small></a>
+      <a href="#res-g-kyoiku"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>2件</small></a>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>13件</small></a>
+      <span class="is-none"><i aria-hidden="true">🌱</i><b>移住</b><small>掲載なし</small></span>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市4件＋県6件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">足立区の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="adachi-keiei-kaizen-hojo">
-            <h3>小規模事業者等経営改善補助金（令和8年度）</h3>
-            <p class="area-meta">足立区 産業経済部 中小企業支援担当課（要確認）｜補助金｜上限250万円（補助率は要確認）</p>
-            <p class="area-meta">期間：令和8年度（受付期間は要確認）</p>
-            <p>小規模事業者等が設備購入、店舗改修、操業環境改善などを行う経費の一部を補助します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>足立区内の小規模事業者等</li><li>申請前に区の中小企業相談員による事前相談を受けること</li></ul>
-            <p><a href="https://www.city.adachi.tokyo.jp/s-shinko/shigoto/chushokigyo/yushi-monozukuri.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-kosodate">子育て<span>2件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="adachi-jutaku-kairyo">
+            <div class="ar-name"><b>住宅改良助成制度</b><small>自己居住住宅の段差解消・手すり・トイレ改良・間取り変更等の工事費を一部助成する。区内業者施工が原則。<br>対象：区内の自己居住住宅／施工は原則区内業者</small><span class="ar-prov">東京都足立区</span></div>
+            <div class="ar-amt">工事費の20%または工事種別の上限額のいずれか低い額、上限30万円</div>
+            <a class="ar-go" href="https://www.city.adachi.tokyo.jp/k-bousai/machi/jutaku/kairyojose.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="adachi-jinzai-saiyo-joseikin">
-            <h3>区内中小企業人材採用支援助成金</h3>
-            <p class="area-meta">足立区 産業経済部 中小企業支援担当課（要確認）｜助成金｜採用活動経費の2分の1（上限60万円）が目安｜締切：2027-01-29</p>
-            <p class="area-meta">期間：令和8年4月1日〜令和9年1月29日</p>
-            <p>区内中小企業が人材を採用する際の採用活動経費の一部を助成します（予算に達し次第終了）。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>区内の中小企業者</li><li>人材採用活動を行うこと</li></ul>
-            <p><a href="https://www.city.adachi.tokyo.jp/chusho/jinzaisaiyoshien.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="adachi-sangokea">
+            <div class="ar-name"><b>産後ケア</b><small>産後のお母さんの休息や育児支援が必要な方を、デイサービス型・宿泊型・日帰り型・訪問型で支援する。令和8年4月1日に自己負担額が引き下げられた。<br>対象：足立区に住民登録がある産後1年未満のお母さんと赤ちゃん（デイサービス型）／宿泊型・日帰り型は産後4か月未満のお母さんと赤ちゃん<br>期間：令和８年４月１日から変更（通年）</small><span class="ar-prov">足立区 衛生部保健予防課</span></div>
+            <div class="ar-amt">自己負担：宿泊型1日2,500円、日帰り型1日1,250円、訪問型1回1,000円、デイサービス型500円</div>
+            <a class="ar-go" href="https://www.city.adachi.tokyo.jp/hoken/fukushi-kenko/kenko/sangokea.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="adachi-jinzai-teichaku-sapoto">
-            <h3>区内中小企業人材定着サポート助成金</h3>
-            <p class="area-meta">足立区 産業経済部 中小企業支援担当課（要確認）｜助成金｜要確認（金額・補助率は公式ページで確認が必要）</p>
-            <p class="area-meta">期間：令和8年度（受付期間は要確認）</p>
-            <p>区内中小企業が職場環境整備、熱中症対策、就業規則の作成などを行い人材の定着を図る取組を支援します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>区内の中小企業者</li><li>人材定着に資する取組を行うこと</li></ul>
-            <p><a href="https://www.city.adachi.tokyo.jp/chusho/jinzaiteicyakusapoto.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <div class="area-program" id="adachi-chusho-yushi-kinkyu">
-            <h3>区の中小企業融資（緊急経営資金・信用保証料補助）</h3>
-            <p class="area-meta">足立区 産業経済部 中小企業支援担当課（要確認）｜融資｜信用保証料の補助：運転資金は2分の1、設備・併用資金は3分の2が目安（融資限度額は要確認）</p>
-            <p class="area-meta">期間：令和8年度（通年。特別借換の限度額引上げは令和8年8月1日から予定）</p>
-            <p>区と契約した区内金融機関が東京信用保証協会の保証を得て貸し付ける区の融資制度。令和8年度は緊急経営資金および借換融資を実施しています。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>区内で事業を行う中小企業者</li><li>区の定める条件を満たすこと</li></ul>
-            <p><a href="https://www.city.adachi.tokyo.jp/chusho/shigoto/chushokigyo/htmlonly.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <h3 class="area-cat" id="res-g-iryo">医療・福祉<span>3件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="adachi-kodomo-influenza">
+            <div class="ar-name"><b>小児インフルエンザワクチン任意接種費用一部助成</b><small>生後6か月の前日から高校3年生相当までの方の小児インフルエンザワクチン任意接種の費用を一部助成する。<br>対象：生後６か月の前日から高校３年生相当までの方<br>期間：毎年10月1日から1月31日まで（令和8年度の助成は10月1日から）<br>締切：2027-01-31</small><span class="ar-prov">足立区 衛生部保健予防課</span></div>
+            <div class="ar-amt">不活化ワクチン3,000円／回、経鼻弱毒生ワクチン6,000円／回</div>
+            <a class="ar-go" href="https://www.city.adachi.tokyo.jp/hoken/kodomo-influenza.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          <div class="ar-row" id="adachi-mashin-kotai">
+            <div class="ar-name"><b>任意麻しん抗体検査・予防接種費用助成制度</b><small>19歳以上の区民の麻しん抗体検査を無料とし、抗体価が低い方の麻しん風しん（MR）ワクチン接種を自己負担なしで受けられる制度。<br>対象：検査日現在、足立区に住民登録のある19歳以上の男女／予防接種は、抗体検査の結果、抗体価が低い方<br>期間：令和８年９月１日から令和９年３月３１日まで<br>締切：2027-03-31</small><span class="ar-prov">足立区 衛生部保健予防課</span></div>
+            <div class="ar-amt">抗体検査は無料、予防接種はMRワクチンが自己負担なし</div>
+            <a class="ar-go" href="https://www.city.adachi.tokyo.jp/hoken/mashinhiyouzyosei.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="adachi-mr-ninni">
+            <div class="ar-name"><b>麻しん・風しんワクチンの任意接種公費負担制度（最大2回まで助成）</b><small>麻しんまたは風しんにかかったことのない2歳以上18歳以下で、定期接種を打ちそびれた方の任意接種を、2回を限度に公費負担する。<br>対象：麻しんまたは風しんにかかったことのない2歳以上18歳以下で定期接種未接種の方または1回接種の方／令和7年度のMR定期予防接種該当者を除く<br>期間：令和8年4月1日から令和9年3月31日まで<br>締切：2027-03-31</small><span class="ar-prov">足立区 衛生部保健予防課</span></div>
+            <div class="ar-amt">費用は無料（2回を限度）</div>
+            <a class="ar-go" href="https://www.city.adachi.tokyo.jp/hoken/k-kyoiku/kosodate/k-mr.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-kyoiku">教育・学び<span>2件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="adachi-koukou-junbi">
+            <div class="ar-name"><b>高等学校等入学準備助成</b><small>高等学校等へ進学が決定している中学3年生がいる就学援助の準要保護世帯に、入学前にかかる費用の一部を助成する。<br>対象：足立区在住／令和８年度の中学校３年生で、高等学校等へ進学先が決定していること<br>期間：令和9年２月下旬・３月下旬（予定）に支給</small><span class="ar-prov">足立区 教育委員会事務局学務課助成係</span></div>
+            <div class="ar-amt">10万円（一律）</div>
+            <a class="ar-go" href="https://www.city.adachi.tokyo.jp/gakumu/gakumu.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="adachi-koukouseiouen">
+            <div class="ar-name"><b>高校生世代応援支援金</b><small>部活動や習い事、資格取得などにチャレンジしたい高校生世代へ5万円を支給する。<br>対象：足立区に在住している方／課税世帯で保護者の税額控除前の区市町村民税所得割の合計額が105,000円以下の方<br>期間：令和８年４月１日（水曜日）から令和９年１月２９日（金曜日）まで<br>締切：2027-01-29</small><span class="ar-prov">足立区 子どもの貧困対策・若年者支援課</span></div>
+            <div class="ar-amt">5万円（年額）</div>
+            <a class="ar-go" href="https://www.city.adachi.tokyo.jp/k-hinkon/koukouseiouenshienkin.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>13件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="adachi-aircon">
+            <div class="ar-name"><b><span class="ar-tag">省エネ住宅</span>気候変動適応対策エアコン購入費補助金（設置後申請）</b><small>省エネ性能の高いエアコン購入費の一部を補助。</small><span class="ar-prov">東京都足立区</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.adachi.tokyo.jp/kankyo/kikouhendoutekioutaisakueakon.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="adachi-block-cut">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>ブロック塀等カット工事助成制度</b><small>区内の道路・通路・公園に面した危険なブロック塀等を全撤去または高さ60cm以下にカットする工事費用を助成する。<br>対象：道路・通路・公園に面した高さ1.2m超のブロック塀等／区の耐震アドバイザー派遣で危険と判定されたもの<br>期間：令和8年度（令和9年3月）まで延長。予算の範囲内、令和9年2月末までに工事完了届</small><span class="ar-prov">足立区</span></div>
+            <div class="ar-amt">カット工事：道路側延長×2万円と税抜工事費のいずれか少ない額／フェンス設置を伴う全撤去：フェンス延長×3万円と税抜工事費の4分の3のいずれか少ない額</div>
+            <a class="ar-go" href="https://www.city.adachi.tokyo.jp/k-bousai/machi/taishinka/burrokubeitoukattojyosei.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="adachi-enefarm">
+            <div class="ar-name"><b><span class="ar-tag">省エネ住宅</span>家庭用燃料電池システム（エネファーム）設置費補助金（設置後申請）</b><small>家庭用燃料電池システムの設置費用を補助。<br>期間：令和9年2月26日まで受付<br>締切：2027-02-26</small><span class="ar-prov">足立区 環境部</span></div>
+            <div class="ar-amt">5万円</div>
+            <a class="ar-go" href="https://www.city.adachi.tokyo.jp/kankyo/kurashi/kankyo/ondanka-j-h24-denchi.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="adachi-ev-charger">
+            <div class="ar-name"><b><span class="ar-tag">EV・充電</span>戸建住宅向け電気自動車等用充電設備設置費補助金（設置後申請）</b><small>戸建住宅へのEV等用充電設備の設置費用を補助。<br>期間：令和8年4月13日〜令和9年2月26日（残りわずかと表示）<br>締切：2027-02-26</small><span class="ar-prov">足立区 環境部</span></div>
+            <div class="ar-amt">2万5千円</div>
+            <a class="ar-go" href="https://www.city.adachi.tokyo.jp/kankyo/kurashi/kankyo/kodatemukejyudensetubi.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="adachi-funenka-kaitai">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>不燃化特区 老朽建築物の解体工事助成</b><small>不燃化特区内の旧耐震の老朽建築物の解体費用を助成する。着手の約1か月前までに申請が必要。<br>対象：不燃化特区内の昭和56年5月31日以前建築の木造・軽量鉄骨造建物等／着手前の申請が必要</small><span class="ar-prov">東京都足立区</span></div>
+            <div class="ar-amt">実費・延床面積×単価（木造28,000円/㎡、軽量鉄骨41,000円/㎡）の少ない額、上限280万円</div>
+            <a class="ar-go" href="https://www.city.adachi.tokyo.jp/k-bousai/machi/toshi/adatikutyuunannbuittaitikufunennkatokkunituite.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="adachi-kaigo-jutaku-kaishu">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>介護保険 住宅改修費の支給</b><small>要介護・要支援認定を受けた方の手すり設置・段差解消等の住宅改修費を支給する。着工前の申請が必要。<br>対象：要介護・要支援認定を受けている／工事着工前に申請</small><span class="ar-prov">東京都足立区</span></div>
+            <div class="ar-amt">支給限度額20万円（自己負担1〜3割を除く）</div>
+            <a class="ar-go" href="https://www.city.adachi.tokyo.jp/kaigo/kurashi/hoken/kaigo-kaishu.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="adachi-solar-battery">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>太陽光発電システム及び蓄電池設置費補助金（設置後申請）</b><small>太陽光発電システムと蓄電池の設置費用を補助（個別申請も可）。<br>期間：令和8年度第3期：10月1日〜12月28日（予算到達次第終了）<br>締切：2026-12-28</small><span class="ar-prov">足立区 環境部</span></div>
+            <div class="ar-amt">太陽光は上限24万円（区内事業者利用で28.8万円）、蓄電池は上限5万円（同6万円）</div>
+            <a class="ar-go" href="https://www.city.adachi.tokyo.jp/kankyo/kurashi/kankyo/taiyoukouhatuden.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="adachi-taishin-mokuzo">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>木造住宅耐震診断・耐震改修助成（旧耐震）</b><small>昭和56年5月以前の木造住宅の耐震診断・改修費用を助成。<br>対象：事前申請が必要<br>期間：令和8年度（令和9年3月まで期間延長と案内）<br>締切：2027-03-31</small><span class="ar-prov">足立区 建築室 建築防災課</span></div>
+            <div class="ar-amt">耐震診断は戸建て上限30万円。耐震改修は戸建てで工事費の9割、上限150万円</div>
+            <a class="ar-go" href="https://www.city.adachi.tokyo.jp/k-bousai/machi/taishinka/sokushin-taishin.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="adachi-taishin-shelter">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>耐震シェルター・ベッドの設置支援助成</b><small>旧耐震の木造戸建て住宅への耐震シェルター・防災ベッド設置費用を助成。<br>対象：旧耐震の木造戸建て</small><span class="ar-prov">足立区 建築室 建築防災課</span></div>
+            <div class="ar-amt">1世帯上限30万円</div>
+            <a class="ar-go" href="https://www.city.adachi.tokyo.jp/k-bousai/machi/taishinka/sokushin-bed.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="adachi-taishin-shinkijun">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>新耐震基準の木造住宅の耐震助成</b><small>昭和56年6月〜平成12年5月に木造軸組工法で建築された2階建て以下の住宅の耐震診断・改修を助成。<br>対象：事前申請が必要</small><span class="ar-prov">足立区 建築室 建築防災課</span></div>
+            <div class="ar-amt">特定地域では改修の上限200万円（その他は要確認）</div>
+            <a class="ar-go" href="https://www.city.adachi.tokyo.jp/k-bousai/machi/taishinka/sintaisin.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="adachi-zeh-zeroemi">
+            <div class="ar-name"><b><span class="ar-tag">省エネ住宅</span>ZEH・東京ゼロエミ住宅補助金（設置後申請）</b><small>ZEHや東京ゼロエミ住宅の新築等に対する区の補助。</small><span class="ar-prov">東京都足立区</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.adachi.tokyo.jp/kankyo/kurashi/kankyo/zeh-zeroemi.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="adachi-ev-purchase">
+            <div class="ar-name"><b><span class="ar-tag">EV・充電</span>電気自動車等購入費補助金（購入後申請） <span class="area-ended-tag">受付終了</span></b><small>電気自動車等の購入費を補助。</small><span class="ar-prov">足立区 環境部</span></div>
+            <div class="ar-amt">EV・PHEV・FCVは10万円、ミニカー・電動バイクは2万円</div>
+            <a class="ar-go" href="https://www.city.adachi.tokyo.jp/kankyo/kurashi/kankyo/denkijidousya.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="adachi-shoene-reform">
+            <div class="ar-name"><b><span class="ar-tag">省エネ住宅</span>省エネリフォーム補助金 <span class="area-ended-tag">受付終了</span></b><small>窓の交換・内窓設置・断熱材・遮熱塗装・節水型トイレ等の省エネ改修を助成。令和8年度は8月21日で受付終了と掲載。<br>対象：区内に住民登録のある個人で自宅を改修／対象経費5万円以上</small><span class="ar-prov">東京都足立区</span></div>
+            <div class="ar-amt">補助対象経費の1/3、上限5万円</div>
+            <a class="ar-go" href="https://www.city.adachi.tokyo.jp/kankyo/kurashi/kankyo/syouenesetubi.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>東京都の制度</strong></p>
+          <ul><li><a href="pref-tokyo.html#tokyo-akachan-first">東京都出産・子育て応援事業（赤ちゃんファースト）</a></li><li><a href="pref-tokyo.html#tokyo-akiya-kazai-kaitai">東京都空き家家財整理・解体促進事業</a></li><li><a href="pref-tokyo.html#tokyo-dannetsu-solar-jutaku">災害にも強く健康にも資する断熱・太陽光住宅普及拡大事業</a></li><li><a href="pref-tokyo.html#tokyo-home-evcharge">戸建住宅向け充電設備普及促進事業（令和8年度）</a></li><li><a href="pref-tokyo.html#tokyo-kodomo-mamoru-jutaku">子育て世帯向け補助事業（「子供を守る」住宅確保促進事業）</a></li></ul>
+          <p><a href="pref-tokyo.html#pref-resident">東京都の制度9件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">東京都の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">足立区の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-tokyo.html#tokyo-jigyoshokei-josei">事業承継支援助成金（第3回）</a></li><li><a href="pref-tokyo.html#tokyo-kadai-kaiketsu-gijutsu">課題解決型技術開発促進事業</a></li><li><a href="pref-tokyo.html#tokyo-seidoyushi-sogyo">東京都中小企業制度融資「創業」</a></li><li><a href="pref-tokyo.html#tokyo-seihin-chakushu">製品開発着手支援助成事業</a></li><li><a href="pref-tokyo.html#tokyo-souikufuu-challenge">経営力強化に向けた創意工夫チャレンジ促進事業</a></li></ul>
-          <p><a href="pref-tokyo.html#pref-business">東京都の制度6件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="adachi-keiei-kaizen-hojo">
+            <div class="ar-name"><b>小規模事業者等経営改善補助金（令和8年度）</b><small>小規模事業者等が設備購入、店舗改修、操業環境改善などを行う経費の一部を補助します。<br>対象：足立区内の小規模事業者等／申請前に区の中小企業相談員による事前相談を受けること</small><span class="ar-prov">足立区 産業経済部 中小企業支援担当課（要確認）</span></div>
+            <div class="ar-amt">上限250万円（補助率は要確認）</div>
+            <a class="ar-go" href="https://www.city.adachi.tokyo.jp/s-shinko/shigoto/chushokigyo/yushi-monozukuri.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="adachi-jinzai-saiyo-joseikin">
+            <div class="ar-name"><b>区内中小企業人材採用支援助成金</b><small>区内中小企業が人材を採用する際の採用活動経費の一部を助成します（予算に達し次第終了）。<br>対象：区内の中小企業者／人材採用活動を行うこと<br>期間：令和8年4月1日〜令和9年1月29日<br>締切：2027-01-29</small><span class="ar-prov">足立区 産業経済部 中小企業支援担当課（要確認）</span></div>
+            <div class="ar-amt">採用活動経費の2分の1（上限60万円）が目安</div>
+            <a class="ar-go" href="https://www.city.adachi.tokyo.jp/chusho/jinzaisaiyoshien.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="adachi-jinzai-teichaku-sapoto">
+            <div class="ar-name"><b>区内中小企業人材定着サポート助成金</b><small>区内中小企業が職場環境整備、熱中症対策、就業規則の作成などを行い人材の定着を図る取組を支援します。<br>対象：区内の中小企業者／人材定着に資する取組を行うこと</small><span class="ar-prov">足立区 産業経済部 中小企業支援担当課（要確認）</span></div>
+            <div class="ar-amt">要確認（金額・補助率は公式ページで確認が必要）</div>
+            <a class="ar-go" href="https://www.city.adachi.tokyo.jp/chusho/jinzaiteicyakusapoto.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="adachi-chusho-yushi-kinkyu">
+            <div class="ar-name"><b>区の中小企業融資（緊急経営資金・信用保証料補助）</b><small>区と契約した区内金融機関が東京信用保証協会の保証を得て貸し付ける区の融資制度。令和8年度は緊急経営資金および借換融資を実施しています。<br>対象：区内で事業を行う中小企業者／区の定める条件を満たすこと<br>期間：令和8年度（通年。特別借換の限度額引上げは令和8年8月1日から予定）</small><span class="ar-prov">足立区 産業経済部 中小企業支援担当課（要確認）</span></div>
+            <div class="ar-amt">信用保証料の補助：運転資金は2分の1、設備・併用資金は3分の2が目安（融資限度額は要確認）</div>
+            <a class="ar-go" href="https://www.city.adachi.tokyo.jp/chusho/shigoto/chushokigyo/htmlonly.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">東京都の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>足立区の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="adachi-taishin-mokuzo">
-            <h3>木造住宅耐震診断・耐震改修助成（旧耐震）</h3>
-            <p class="area-meta">足立区 建築室 建築防災課｜補助金｜耐震診断は戸建て上限30万円。耐震改修は戸建てで工事費の9割、上限150万円｜締切：2027-03-31</p>
-            <p class="area-meta">期間：令和8年度（令和9年3月まで期間延長と案内）</p>
-            <p>昭和56年5月以前の木造住宅の耐震診断・改修費用を助成。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>事前申請が必要</li></ul>
-            <p><a href="https://www.city.adachi.tokyo.jp/k-bousai/machi/taishinka/sokushin-taishin.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="adachi-taishin-shelter">
-            <h3>耐震シェルター・ベッドの設置支援助成</h3>
-            <p class="area-meta">足立区 建築室 建築防災課｜補助金｜1世帯上限30万円</p>
-            
-            <p>旧耐震の木造戸建て住宅への耐震シェルター・防災ベッド設置費用を助成。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>旧耐震の木造戸建て</li></ul>
-            <p><a href="https://www.city.adachi.tokyo.jp/k-bousai/machi/taishinka/sokushin-bed.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="adachi-taishin-shinkijun">
-            <h3>新耐震基準の木造住宅の耐震助成</h3>
-            <p class="area-meta">足立区 建築室 建築防災課｜補助金｜特定地域では改修の上限200万円（その他は要確認）</p>
-            
-            <p>昭和56年6月〜平成12年5月に木造軸組工法で建築された2階建て以下の住宅の耐震診断・改修を助成。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>事前申請が必要</li></ul>
-            <p><a href="https://www.city.adachi.tokyo.jp/k-bousai/machi/taishinka/sintaisin.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program" id="adachi-solar-battery">
-            <h3>太陽光発電システム及び蓄電池設置費補助金（設置後申請）</h3>
-            <p class="area-meta">足立区 環境部｜補助金｜太陽光は上限24万円（区内事業者利用で28.8万円）、蓄電池は上限5万円（同6万円）｜締切：2026-12-28</p>
-            <p class="area-meta">期間：令和8年度第3期：10月1日〜12月28日（予算到達次第終了）</p>
-            <p>太陽光発電システムと蓄電池の設置費用を補助（個別申請も可）。</p>
-            
-            <p><a href="https://www.city.adachi.tokyo.jp/kankyo/kurashi/kankyo/taiyoukouhatuden.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
-          <div class="area-program" id="adachi-ev-charger">
-            <h3>戸建住宅向け電気自動車等用充電設備設置費補助金（設置後申請）</h3>
-            <p class="area-meta">足立区 環境部｜補助金｜2万5千円｜締切：2027-02-26</p>
-            <p class="area-meta">期間：令和8年4月13日〜令和9年2月26日（残りわずかと表示）</p>
-            <p>戸建住宅へのEV等用充電設備の設置費用を補助。</p>
-            
-            <p><a href="https://www.city.adachi.tokyo.jp/kankyo/kurashi/kankyo/kodatemukejyudensetubi.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program is-ended" id="adachi-ev-purchase">
-            <h3>電気自動車等購入費補助金（購入後申請） <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">足立区 環境部｜補助金｜EV・PHEV・FCVは10万円、ミニカー・電動バイクは2万円</p>
-            <p class="area-meta">期間：令和8年度（区の一覧では8月31日提出分で受付終了と記載。ページ間で表記が異なるため要確認）</p>
-            <p>電気自動車等の購入費を補助。</p>
-            
-            <p><a href="https://www.city.adachi.tokyo.jp/kankyo/kurashi/kankyo/denkijidousya.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
-          <div class="area-program" id="adachi-aircon">
-            <h3>気候変動適応対策エアコン購入費補助金（設置後申請）</h3>
-            <p class="area-meta">東京都足立区｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：受付中と掲載（期限は要確認）</p>
-            <p>省エネ性能の高いエアコン購入費の一部を補助。</p>
-            
-            <p><a href="https://www.city.adachi.tokyo.jp/kankyo/kikouhendoutekioutaisakueakon.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="adachi-enefarm">
-            <h3>家庭用燃料電池システム（エネファーム）設置費補助金（設置後申請）</h3>
-            <p class="area-meta">足立区 環境部｜補助金｜5万円｜締切：2027-02-26</p>
-            <p class="area-meta">期間：令和9年2月26日まで受付</p>
-            <p>家庭用燃料電池システムの設置費用を補助。</p>
-            
-            <p><a href="https://www.city.adachi.tokyo.jp/kankyo/kurashi/kankyo/ondanka-j-h24-denchi.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="adachi-zeh-zeroemi">
-            <h3>ZEH・東京ゼロエミ住宅補助金（設置後申請）</h3>
-            <p class="area-meta">東京都足立区｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：受付中と掲載（期限は要確認）</p>
-            <p>ZEHや東京ゼロエミ住宅の新築等に対する区の補助。</p>
-            
-            <p><a href="https://www.city.adachi.tokyo.jp/kankyo/kurashi/kankyo/zeh-zeroemi.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program is-ended" id="adachi-shoene-reform">
-            <h3>省エネリフォーム補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">東京都足立区｜補助金｜補助対象経費の1/3、上限5万円</p>
-            <p class="area-meta">期間：令和8年度は8月21日受付終了（次回は要確認）</p>
-            <p>窓の交換・内窓設置・断熱材・遮熱塗装・節水型トイレ等の省エネ改修を助成。令和8年度は8月21日で受付終了と掲載。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>区内に住民登録のある個人で自宅を改修</li><li>対象経費5万円以上</li><li>区内業者との契約</li></ul>
-            <p><a href="https://www.city.adachi.tokyo.jp/kankyo/kurashi/kankyo/syouenesetubi.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="adachi-block-cut">
-            <h3>ブロック塀等カット工事助成制度</h3>
-            <p class="area-meta">足立区｜助成金｜カット工事：道路側延長×2万円と税抜工事費のいずれか少ない額／フェンス設置を伴う全撤去：フェンス延長×3万円と税抜工事費の4分の3のいずれか少ない額</p>
-            <p class="area-meta">期間：令和8年度（令和9年3月）まで延長。予算の範囲内、令和9年2月末までに工事完了届</p>
-            <p>区内の道路・通路・公園に面した危険なブロック塀等を全撤去または高さ60cm以下にカットする工事費用を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>道路・通路・公園に面した高さ1.2m超のブロック塀等</li><li>区の耐震アドバイザー派遣で危険と判定されたもの</li><li>工事契約・着手前に申請すること</li></ul>
-            <p><a href="https://www.city.adachi.tokyo.jp/k-bousai/machi/taishinka/burrokubeitoukattojyosei.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="adachi-funenka-kaitai">
-            <h3>不燃化特区 老朽建築物の解体工事助成</h3>
-            <p class="area-meta">東京都足立区｜補助金｜実費・延床面積×単価（木造28,000円/㎡、軽量鉄骨41,000円/㎡）の少ない額、上限280万円</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>不燃化特区内の旧耐震の老朽建築物の解体費用を助成する。着手の約1か月前までに申請が必要。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>不燃化特区内の昭和56年5月31日以前建築の木造・軽量鉄骨造建物等</li><li>着手前の申請が必要</li></ul>
-            <p><a href="https://www.city.adachi.tokyo.jp/k-bousai/machi/toshi/adatikutyuunannbuittaitikufunennkatokkunituite.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
-          <div class="area-program" id="adachi-kaigo-jutaku-kaishu">
-            <h3>介護保険 住宅改修費の支給</h3>
-            <p class="area-meta">東京都足立区｜給付｜支給限度額20万円（自己負担1〜3割を除く）</p>
-            <p class="area-meta">期間：通年（要確認）</p>
-            <p>要介護・要支援認定を受けた方の手すり設置・段差解消等の住宅改修費を支給する。着工前の申請が必要。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>要介護・要支援認定を受けている</li><li>工事着工前に申請</li></ul>
-            <p><a href="https://www.city.adachi.tokyo.jp/kaigo/kurashi/hoken/kaigo-kaishu.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-6">子育て</h3>
-          <div class="area-program" id="adachi-jutaku-kairyo">
-            <h3>住宅改良助成制度</h3>
-            <p class="area-meta">東京都足立区｜補助金｜工事費の20%または工事種別の上限額のいずれか低い額、上限30万円</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>自己居住住宅の段差解消・手すり・トイレ改良・間取り変更等の工事費を一部助成する。区内業者施工が原則。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>区内の自己居住住宅</li><li>施工は原則区内業者</li></ul>
-            <p><a href="https://www.city.adachi.tokyo.jp/k-bousai/machi/jutaku/kairyojose.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="adachi-sangokea">
-            <h3>産後ケア</h3>
-            <p class="area-meta">足立区 衛生部保健予防課｜助成金｜自己負担：宿泊型1日2,500円、日帰り型1日1,250円、訪問型1回1,000円、デイサービス型500円</p>
-            <p class="area-meta">期間：令和８年４月１日から変更（通年）</p>
-            <p>産後のお母さんの休息や育児支援が必要な方を、デイサービス型・宿泊型・日帰り型・訪問型で支援する。令和8年4月1日に自己負担額が引き下げられた。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>足立区に住民登録がある産後1年未満のお母さんと赤ちゃん（デイサービス型）</li><li>宿泊型・日帰り型は産後4か月未満のお母さんと赤ちゃん</li></ul>
-            <p><a href="https://www.city.adachi.tokyo.jp/hoken/fukushi-kenko/kenko/sangokea.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-7">医療・福祉</h3>
-          <div class="area-program" id="adachi-kodomo-influenza">
-            <h3>小児インフルエンザワクチン任意接種費用一部助成</h3>
-            <p class="area-meta">足立区 衛生部保健予防課｜助成金｜不活化ワクチン3,000円／回、経鼻弱毒生ワクチン6,000円／回｜締切：2027-01-31</p>
-            <p class="area-meta">期間：毎年10月1日から1月31日まで（令和8年度の助成は10月1日から）</p>
-            <p>生後6か月の前日から高校3年生相当までの方の小児インフルエンザワクチン任意接種の費用を一部助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>生後６か月の前日から高校３年生相当までの方</li></ul>
-            <p><a href="https://www.city.adachi.tokyo.jp/hoken/kodomo-influenza.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="adachi-mashin-kotai">
-            <h3>任意麻しん抗体検査・予防接種費用助成制度</h3>
-            <p class="area-meta">足立区 衛生部保健予防課｜助成金｜抗体検査は無料、予防接種はMRワクチンが自己負担なし｜締切：2027-03-31</p>
-            <p class="area-meta">期間：令和８年９月１日から令和９年３月３１日まで</p>
-            <p>19歳以上の区民の麻しん抗体検査を無料とし、抗体価が低い方の麻しん風しん（MR）ワクチン接種を自己負担なしで受けられる制度。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>検査日現在、足立区に住民登録のある19歳以上の男女</li><li>予防接種は、抗体検査の結果、抗体価が低い方</li></ul>
-            <p><a href="https://www.city.adachi.tokyo.jp/hoken/mashinhiyouzyosei.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="adachi-mr-ninni">
-            <h3>麻しん・風しんワクチンの任意接種公費負担制度（最大2回まで助成）</h3>
-            <p class="area-meta">足立区 衛生部保健予防課｜助成金｜費用は無料（2回を限度）｜締切：2027-03-31</p>
-            <p class="area-meta">期間：令和8年4月1日から令和9年3月31日まで</p>
-            <p>麻しんまたは風しんにかかったことのない2歳以上18歳以下で、定期接種を打ちそびれた方の任意接種を、2回を限度に公費負担する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>麻しんまたは風しんにかかったことのない2歳以上18歳以下で定期接種未接種の方または1回接種の方</li><li>令和7年度のMR定期予防接種該当者を除く</li></ul>
-            <p><a href="https://www.city.adachi.tokyo.jp/hoken/k-kyoiku/kosodate/k-mr.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-8">教育・学び</h3>
-          <div class="area-program" id="adachi-koukou-junbi">
-            <h3>高等学校等入学準備助成</h3>
-            <p class="area-meta">足立区 教育委員会事務局学務課助成係｜給付｜10万円（一律）</p>
-            <p class="area-meta">期間：令和9年２月下旬・３月下旬（予定）に支給</p>
-            <p>高等学校等へ進学が決定している中学3年生がいる就学援助の準要保護世帯に、入学前にかかる費用の一部を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>足立区在住</li><li>令和８年度の中学校３年生で、高等学校等へ進学先が決定していること</li><li>令和９年２月１日時点で、就学援助の準要保護世帯として認定されていること</li></ul>
-            <p><a href="https://www.city.adachi.tokyo.jp/gakumu/gakumu.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="adachi-koukouseiouen">
-            <h3>高校生世代応援支援金</h3>
-            <p class="area-meta">足立区 子どもの貧困対策・若年者支援課｜給付｜5万円（年額）｜締切：2027-01-29</p>
-            <p class="area-meta">期間：令和８年４月１日（水曜日）から令和９年１月２９日（金曜日）まで</p>
-            <p>部活動や習い事、資格取得などにチャレンジしたい高校生世代へ5万円を支給する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>足立区に在住している方</li><li>課税世帯で保護者の税額控除前の区市町村民税所得割の合計額が105,000円以下の方</li></ul>
-            <p><a href="https://www.city.adachi.tokyo.jp/k-hinkon/koukouseiouenshienkin.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>東京都の制度</strong></p>
-          <ul><li><a href="pref-tokyo.html#tokyo-akachan-first">東京都出産・子育て応援事業（赤ちゃんファースト）</a></li><li><a href="pref-tokyo.html#tokyo-akiya-kazai-kaitai">東京都空き家家財整理・解体促進事業</a></li><li><a href="pref-tokyo.html#tokyo-dannetsu-solar-jutaku">災害にも強く健康にも資する断熱・太陽光住宅普及拡大事業</a></li><li><a href="pref-tokyo.html#tokyo-home-evcharge">戸建住宅向け充電設備普及促進事業（令和8年度）</a></li><li><a href="pref-tokyo.html#tokyo-kodomo-mamoru-jutaku">子育て世帯向け補助事業（「子供を守る」住宅確保促進事業）</a></li></ul>
-          <p><a href="pref-tokyo.html#pref-resident">東京都の制度9件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-tokyo.html#tokyo-jigyoshokei-josei">事業承継支援助成金（第3回）</a></li><li><a href="pref-tokyo.html#tokyo-kadai-kaiketsu-gijutsu">課題解決型技術開発促進事業</a></li><li><a href="pref-tokyo.html#tokyo-seidoyushi-sogyo">東京都中小企業制度融資「創業」</a></li><li><a href="pref-tokyo.html#tokyo-seihin-chakushu">製品開発着手支援助成事業</a></li><li><a href="pref-tokyo.html#tokyo-souikufuu-challenge">経営力強化に向けた創意工夫チャレンジ促進事業</a></li></ul>
+          <p><a href="pref-tokyo.html#pref-business">東京都の制度6件を、県のページで見る →</a></p>
       </div>
     </section>
 

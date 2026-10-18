@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"佐世保市","item":"https://hojyokin.net/area/sasebo.html"}]}</script>
@@ -165,152 +207,115 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 佐世保市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b07.webp')"><h1 class="pb-title">佐世保市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-nagasaki.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">長崎県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">長崎県 佐世保市</p>
+        <h1>佐世保市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度11件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-nagasaki.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（佐世保市）<b>5件（うち受付終了2件）</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（長崎県）<b>5件（うち受付終了2件）</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>6件（うち受付終了2件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-5">バリアフリー・介護 1</a><a href="#res-cat-6">子育て 1</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <a href="#res-g-kosodate"><i aria-hidden="true">👶</i><b>子育て</b><small>1件</small></a>
+      <span class="is-none"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>掲載なし</small></span>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>5件</small></a>
+      <span class="is-none"><i aria-hidden="true">🌱</i><b>移住</b><small>掲載なし</small></span>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市5件＋県5件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">佐世保市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="sasebo-city-hanro-kaitaku">
-            <h3>佐世保市中小企業販路開拓支援事業</h3>
-            <p class="area-meta">佐世保市 経済部 商工労働課｜補助金｜展示会出展と広告宣伝を併せて行う場合の補助限度額100万円（補助率は要確認）</p>
-            <p class="area-meta">期間：令和7年度分は令和8年2月13日で受付終了（令和8年度は最新は要確認）</p>
-            <p>新製品の展示会出展や広告宣伝にかかる経費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の中小企業者</li><li>新製品等の展示会出展・広告宣伝</li></ul>
-            <p><a href="https://www.city.sasebo.lg.jp/keizai/syouko/hanrokaitaku.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-kosodate">子育て<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="sasebo-chuko-kosodate">
+            <div class="ar-name"><b>佐世保市子育て世帯の中古住宅購入費補助</b><small>居住誘導区域内の中古住宅を取得する子育て世帯への補助。<br>対象：居住誘導区域内の中古住宅／完了後10年間の居住義務<br>期間：令和8年5月18日受付開始（予算到達で終了）</small><span class="ar-prov">長崎県佐世保市</span></div>
+            <div class="ar-amt">取得費用（税抜、土地代除く）の1/5・上限40万円</div>
+            <a class="ar-go" href="https://www.city.sasebo.lg.jp/tosiseibi/jyutak/3sedaidoukyokinkyo.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="sasebo-city-keiei-kiban-kyoka">
-            <h3>佐世保市 経営基盤強化資金（令和8年4月創設）</h3>
-            <p class="area-meta">佐世保市 経済部 商工労働課｜融資｜融資上限3,000万円、返済期間 設備10年・運転7年、保証料率1.45%</p>
-            <p class="area-meta">期間：令和8年4月1日創設（通年、詳細は要確認）</p>
-            <p>物価高などで利益率が低下している市内中小企業者向けの制度融資。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>物価高等で利益率が低下している市内中小企業者</li></ul>
-            <p><a href="https://www.city.sasebo.lg.jp/keizai/syouko/yushi.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <div class="area-program" id="sasebo-city-sogyo-shikin">
-            <h3>佐世保市中小企業創業資金融資</h3>
-            <p class="area-meta">佐世保市 経済部 商工労働課｜融資｜融資限度額2,000万円（特定創業支援を受けた方は優遇利率0.65%と資料に記載）</p>
-            <p class="area-meta">期間：令和8年度の融資制度（通年、詳細は要確認）</p>
-            <p>市内で創業する方向けの制度融資。特定創業支援を受けると借入対象期間の拡大や利率優遇がある。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内で創業する方または創業間もない方</li><li>申込窓口は佐世保商工会議所・佐世保市北部商工会・宇久町商工会</li></ul>
-            <p><a href="https://www.city.sasebo.lg.jp/keizai/syouko/yushi.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>5件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="sasebo-eeco-point">
+            <div class="ar-name"><b><span class="ar-tag">省エネ住宅</span>させぼeエコポイント（省エネ家電）</b><small>エアコン・冷蔵庫・テレビの省エネ家電購入者にポイントを発行。<br>対象：市内実店舗で購入し市内の自宅に設置（ネット通販は対象外）<br>期間：令和8年5月18日〜12月21日（予算到達で終了）<br>締切：2026-12-21</small><span class="ar-prov">長崎県佐世保市</span></div>
+            <div class="ar-amt">税抜購入額の1/5相当のポイント・1台あたり上限20,000ポイント</div>
+            <a class="ar-go" href="https://www.city.sasebo.lg.jp/kankyo/zeroca/saseboeeco.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <h3 class="area-cat">受付が終了した制度（次回の公募の参考に）</h3>
-          <div class="area-program is-ended" id="sasebo-city-jinzai-ikusei">
-            <h3>佐世保市中小企業等人材育成支援事業補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">佐世保市 経済部 商工労働課｜補助金｜従業員の研修派遣：対象経費の1/2以内（年間1企業上限10万円）</p>
-            <p class="area-meta">期間：市の一覧で受付終了と表示（最新は要確認）</p>
-            <p>中小企業大学校等への従業員研修派遣や研修会開催にかかる経費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の中小企業者</li><li>従業員の研修派遣または研修会開催</li></ul>
-            <p><a href="https://www.city.sasebo.lg.jp/keizai/syouko/jinzaikuse.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="sasebo-reform">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>佐世保市住宅性能向上リフォーム支援事業</b><small>バリアフリー・省エネ・防災等の住宅リフォーム工事を補助。<br>対象：対象工事費30万円以上／1住宅につき1回限り<br>期間：令和7〜8年度（追加募集は令和8年6月1日から先着）。予算到達で終了</small><span class="ar-prov">長崎県佐世保市</span></div>
+            <div class="ar-amt">対象工事費の1/5・上限20万円</div>
+            <a class="ar-go" href="https://www.city.sasebo.lg.jp/tosiseibi/kentiku/reform.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program is-ended" id="sasebo-city-sentan-setsubi">
-            <h3>令和8年度 佐世保市先端設備等導入促進事業補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">佐世保市 経済部 商工労働課｜補助金｜対象経費の1/2以内（上限500万円）</p>
-            <p class="area-meta">期間：新規申請は受付終了（計画認定は随時受付。来年度は要確認）</p>
-            <p>先端設備等導入計画の認定を受けた市内中小企業者の設備投資を補助する。賃上げ方針の計画への位置付けが要件。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>先端設備等導入計画の認定を受けた市内中小企業者</li><li>賃上げ方針を計画に位置付けること</li></ul>
-            <p><a href="https://www.city.sasebo.lg.jp/keizai/syouko/505senntan.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="sasebo-taishin">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>佐世保市安全・安心住まいづくり支援事業（木造住宅耐震診断）</b><small>木造戸建て住宅の耐震診断費用を助成。耐震改修補助は要確認。</small><span class="ar-prov">長崎県佐世保市</span></div>
+            <div class="ar-amt">診断費用定額136,000円のうち113,000円を助成</div>
+            <a class="ar-go" href="https://www.city.sasebo.lg.jp/tosiseibi/kentiku/kodatetaisin.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          <div class="ar-row is-ended" id="sasebo-akiya-joukyaku">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>佐世保市老朽危険空き家及び空き建築物除却費補助金 <span class="area-ended-tag">受付終了</span></b><small>老朽危険空き家等の除却費の一部を補助。<br>対象：希望者多数の場合は市が選定<br>期間：令和8年度は受付終了（相談期間 4/15〜5/29）</small><span class="ar-prov">長崎県佐世保市</span></div>
+            <div class="ar-amt">限度額60万円（市街化区域内の住宅は条件により最大100万円）</div>
+            <a class="ar-go" href="https://www.city.sasebo.lg.jp/tosiseibi/jyutak/rokyu.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="sasebo-solar">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>佐世保市太陽光発電設備等設置補助金（重点対策加速化事業） <span class="area-ended-tag">受付終了</span></b><small>太陽光発電設備等の設置費を補助。蓄電池のみは対象外。<br>対象：市内の住宅等<br>期間：令和8年度は予算上限到達により受付終了</small><span class="ar-prov">長崎県佐世保市</span></div>
+            <div class="ar-amt">個人1kWあたり7万円、蓄電池は価格の1/3目安、上限80万円</div>
+            <a class="ar-go" href="https://www.city.sasebo.lg.jp/kankyo/zeroca/r6hojo_pvbt.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>長崎県の制度</strong></p>
+          <ul><li><a href="pref-nagasaki.html#nagasaki-iju-shienkin">長崎県 移住支援金（東京圏からのUIJターン）</a></li><li><a href="pref-nagasaki.html#nagasaki-pref-taishin-anshin">長崎県耐震・安心住まいづくり支援事業</a></li><li><a href="pref-nagasaki.html#nagasaki-pref-saiene-kofukin-jutaku">自家消費型太陽光発電等の補助金（再エネ交付金・住宅向け）</a></li></ul>
+          <p><a href="pref-nagasaki.html#pref-resident">長崎県の制度3件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">長崎県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">佐世保市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-nagasaki.html#nagasaki-chinage-kinkyu-shienkin">中小・小規模事業者賃上げ緊急支援金</a></li><li><a href="pref-nagasaki.html#nagasaki-digital-koujou">長崎県デジタル力向上支援事業費補助金</a></li><li><a href="pref-nagasaki.html#nagasaki-kokkyoritou-sogyo">長崎県国境離島創業・事業拡大等支援事業（雇用機会拡充事業）</a></li><li><a href="pref-nagasaki.html#nagasaki-jigyo-shokei-sokushin">事業承継促進・後継者事業展開支援補助金</a></li><li><a href="pref-nagasaki.html#nagasaki-sogyo-shienkin">長崎県創業支援金（創業支援事業）</a></li></ul>
-          <p><a href="pref-nagasaki.html#pref-business">長崎県の制度5件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="sasebo-city-hanro-kaitaku">
+            <div class="ar-name"><b>佐世保市中小企業販路開拓支援事業</b><small>新製品の展示会出展や広告宣伝にかかる経費を補助する。<br>対象：市内の中小企業者／新製品等の展示会出展・広告宣伝</small><span class="ar-prov">佐世保市 経済部 商工労働課</span></div>
+            <div class="ar-amt">展示会出展と広告宣伝を併せて行う場合の補助限度額100万円（補助率は要確認）</div>
+            <a class="ar-go" href="https://www.city.sasebo.lg.jp/keizai/syouko/hanrokaitaku.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="sasebo-city-keiei-kiban-kyoka">
+            <div class="ar-name"><b>佐世保市 経営基盤強化資金（令和8年4月創設）</b><small>物価高などで利益率が低下している市内中小企業者向けの制度融資。<br>対象：物価高等で利益率が低下している市内中小企業者</small><span class="ar-prov">佐世保市 経済部 商工労働課</span></div>
+            <div class="ar-amt">融資上限3,000万円、返済期間 設備10年・運転7年、保証料率1.45%</div>
+            <a class="ar-go" href="https://www.city.sasebo.lg.jp/keizai/syouko/yushi.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="sasebo-city-sogyo-shikin">
+            <div class="ar-name"><b>佐世保市中小企業創業資金融資</b><small>市内で創業する方向けの制度融資。特定創業支援を受けると借入対象期間の拡大や利率優遇がある。<br>対象：市内で創業する方または創業間もない方／申込窓口は佐世保商工会議所・佐世保市北部商工会・宇久町商工会</small><span class="ar-prov">佐世保市 経済部 商工労働課</span></div>
+            <div class="ar-amt">融資限度額2,000万円（特定創業支援を受けた方は優遇利率0.65%と資料に記載）</div>
+            <a class="ar-go" href="https://www.city.sasebo.lg.jp/keizai/syouko/yushi.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="sasebo-city-jinzai-ikusei">
+            <div class="ar-name"><b>佐世保市中小企業等人材育成支援事業補助金 <span class="area-ended-tag">受付終了</span></b><small>中小企業大学校等への従業員研修派遣や研修会開催にかかる経費を補助する。<br>対象：市内の中小企業者／従業員の研修派遣または研修会開催</small><span class="ar-prov">佐世保市 経済部 商工労働課</span></div>
+            <div class="ar-amt">従業員の研修派遣：対象経費の1/2以内（年間1企業上限10万円）</div>
+            <a class="ar-go" href="https://www.city.sasebo.lg.jp/keizai/syouko/jinzaikuse.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="sasebo-city-sentan-setsubi">
+            <div class="ar-name"><b>令和8年度 佐世保市先端設備等導入促進事業補助金 <span class="area-ended-tag">受付終了</span></b><small>先端設備等導入計画の認定を受けた市内中小企業者の設備投資を補助する。賃上げ方針の計画への位置付けが要件。<br>対象：先端設備等導入計画の認定を受けた市内中小企業者／賃上げ方針を計画に位置付けること</small><span class="ar-prov">佐世保市 経済部 商工労働課</span></div>
+            <div class="ar-amt">対象経費の1/2以内（上限500万円）</div>
+            <a class="ar-go" href="https://www.city.sasebo.lg.jp/keizai/syouko/505senntan.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">長崎県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>佐世保市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="sasebo-taishin">
-            <h3>佐世保市安全・安心住まいづくり支援事業（木造住宅耐震診断）</h3>
-            <p class="area-meta">長崎県佐世保市｜補助金｜診断費用定額136,000円のうち113,000円を助成</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>木造戸建て住宅の耐震診断費用を助成。耐震改修補助は要確認。</p>
-            
-            <p><a href="https://www.city.sasebo.lg.jp/tosiseibi/kentiku/kodatetaisin.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program is-ended" id="sasebo-solar">
-            <h3>佐世保市太陽光発電設備等設置補助金（重点対策加速化事業） <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">長崎県佐世保市｜補助金｜個人1kWあたり7万円、蓄電池は価格の1/3目安、上限80万円</p>
-            <p class="area-meta">期間：令和8年度は予算上限到達により受付終了</p>
-            <p>太陽光発電設備等の設置費を補助。蓄電池のみは対象外。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の住宅等</li></ul>
-            <p><a href="https://www.city.sasebo.lg.jp/kankyo/zeroca/r6hojo_pvbt.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
-          <div class="area-program" id="sasebo-eeco-point">
-            <h3>させぼeエコポイント（省エネ家電）</h3>
-            <p class="area-meta">長崎県佐世保市｜補助金｜税抜購入額の1/5相当のポイント・1台あたり上限20,000ポイント｜締切：2026-12-21</p>
-            <p class="area-meta">期間：令和8年5月18日〜12月21日（予算到達で終了）</p>
-            <p>エアコン・冷蔵庫・テレビの省エネ家電購入者にポイントを発行。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内実店舗で購入し市内の自宅に設置（ネット通販は対象外）</li></ul>
-            <p><a href="https://www.city.sasebo.lg.jp/kankyo/zeroca/saseboeeco.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program is-ended" id="sasebo-akiya-joukyaku">
-            <h3>佐世保市老朽危険空き家及び空き建築物除却費補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">長崎県佐世保市｜補助金｜限度額60万円（市街化区域内の住宅は条件により最大100万円）</p>
-            <p class="area-meta">期間：令和8年度は受付終了（相談期間 4/15〜5/29）</p>
-            <p>老朽危険空き家等の除却費の一部を補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>希望者多数の場合は市が選定</li></ul>
-            <p><a href="https://www.city.sasebo.lg.jp/tosiseibi/jyutak/rokyu.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
-          <div class="area-program" id="sasebo-reform">
-            <h3>佐世保市住宅性能向上リフォーム支援事業</h3>
-            <p class="area-meta">長崎県佐世保市｜補助金｜対象工事費の1/5・上限20万円</p>
-            <p class="area-meta">期間：令和7〜8年度（追加募集は令和8年6月1日から先着）。予算到達で終了</p>
-            <p>バリアフリー・省エネ・防災等の住宅リフォーム工事を補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>対象工事費30万円以上</li><li>1住宅につき1回限り</li></ul>
-            <p><a href="https://www.city.sasebo.lg.jp/tosiseibi/kentiku/reform.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-6">子育て</h3>
-          <div class="area-program" id="sasebo-chuko-kosodate">
-            <h3>佐世保市子育て世帯の中古住宅購入費補助</h3>
-            <p class="area-meta">長崎県佐世保市｜補助金｜取得費用（税抜、土地代除く）の1/5・上限40万円</p>
-            <p class="area-meta">期間：令和8年5月18日受付開始（予算到達で終了）</p>
-            <p>居住誘導区域内の中古住宅を取得する子育て世帯への補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>居住誘導区域内の中古住宅</li><li>完了後10年間の居住義務</li><li>交付決定前の売買契約は対象外</li></ul>
-            <p><a href="https://www.city.sasebo.lg.jp/tosiseibi/jyutak/3sedaidoukyokinkyo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>長崎県の制度</strong></p>
-          <ul><li><a href="pref-nagasaki.html#nagasaki-iju-shienkin">長崎県 移住支援金（東京圏からのUIJターン）</a></li><li><a href="pref-nagasaki.html#nagasaki-pref-taishin-anshin">長崎県耐震・安心住まいづくり支援事業</a></li><li><a href="pref-nagasaki.html#nagasaki-pref-saiene-kofukin-jutaku">自家消費型太陽光発電等の補助金（再エネ交付金・住宅向け）</a></li></ul>
-          <p><a href="pref-nagasaki.html#pref-resident">長崎県の制度3件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-nagasaki.html#nagasaki-chinage-kinkyu-shienkin">中小・小規模事業者賃上げ緊急支援金</a></li><li><a href="pref-nagasaki.html#nagasaki-digital-koujou">長崎県デジタル力向上支援事業費補助金</a></li><li><a href="pref-nagasaki.html#nagasaki-kokkyoritou-sogyo">長崎県国境離島創業・事業拡大等支援事業（雇用機会拡充事業）</a></li><li><a href="pref-nagasaki.html#nagasaki-jigyo-shokei-sokushin">事業承継促進・後継者事業展開支援補助金</a></li><li><a href="pref-nagasaki.html#nagasaki-sogyo-shienkin">長崎県創業支援金（創業支援事業）</a></li></ul>
+          <p><a href="pref-nagasaki.html#pref-business">長崎県の制度5件を、県のページで見る →</a></p>
       </div>
     </section>
 

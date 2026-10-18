@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"鹿児島市","item":"https://hojyokin.net/area/kagoshima.html"}]}</script>
@@ -165,219 +207,158 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 鹿児島市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b10.webp')"><h1 class="pb-title">鹿児島市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-kagoshima.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">鹿児島県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">鹿児島県 鹿児島市</p>
+        <h1>鹿児島市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度18件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-kagoshima.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（鹿児島市）<b>5件</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（鹿児島県）<b>5件（うち受付終了2件）</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>13件（うち受付終了2件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 2</a><a href="#res-cat-2">EV・充電 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-5">バリアフリー・介護 3</a><a href="#res-cat-6">子育て 2</a><a href="#res-cat-8">教育・学び 1</a><a href="#res-cat-9">移住 1</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <a href="#res-g-kosodate"><i aria-hidden="true">👶</i><b>子育て</b><small>2件</small></a>
+      <span class="is-none"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>掲載なし</small></span>
+      <a href="#res-g-kyoiku"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>1件</small></a>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>9件</small></a>
+      <a href="#res-g-iju"><i aria-hidden="true">🌱</i><b>移住</b><small>1件</small></a>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市5件＋県5件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">鹿児島市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="kagoshima-city-chiiki-kadai-business">
-            <h3>令和8年度地域課題解決ビジネス支援事業補助金（鹿児島市）</h3>
-            <p class="area-meta">鹿児島市｜補助金｜補助率10/10。上限300万円（クラウドファンディング型）または750万円（企業版ふるさと納税）</p>
-            <p class="area-meta">期間：令和8年6月15日から受付（交付決定は9〜12月頃予定）。補助対象期間は令和9年3月31日まで</p>
-            <p>ふるさと納税の寄附を原資に、地域課題解決に取り組む事業者等を補助する。展示会出展、新規開発、システム導入等が対象。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>地域課題解決を目指す中小企業者（市内に本店または住民登録のある個人事業主）</li><li>起業家の成長を支援する団体</li></ul>
-            <p><a href="https://www.city.kagoshima.lg.jp/san-sousyutu/sougyou-startupshien/chiikikadaikaiketubusinesshojyokinr8-2.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-kosodate">子育て<span>2件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="kagoshima-city-kosodate-sumikae">
+            <div class="ar-name"><b>鹿児島市 子育て世帯の住替えに関する補助</b><small>子育て世帯の住替えに関する補助。</small><span class="ar-prov">鹿児島市 建築部</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.kagoshima.lg.jp/kensetu/kenchiku/jutaku/kosodatesumikaeshien/kosodatesumikaehojyo.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="kagoshima-city-ict-seisansei">
-            <h3>令和8年度中小企業等生産性向上支援事業（ICT化）</h3>
-            <p class="area-meta">鹿児島市 産業支援課｜補助金｜補助率1/2以内・上限50万円（ハードウェアは上限10万円）｜締切：2027-02-26</p>
-            <p class="area-meta">期間：令和9年2月26日まで</p>
-            <p>専門家派遣で作成した導入計画に基づくICTツール導入費を補助する。国・県の補助を受ける事業は対象外。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の中小企業者・小規模事業者（詳細は要確認）</li></ul>
-            <p><a href="https://www.city.kagoshima.lg.jp/san-shien/syoukibo_ict.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/kagoshima-city-ict-seisansei.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+          <div class="ar-row" id="kagoshima-shi-kosodate-sumikae">
+            <div class="ar-name"><b>子育て世帯の住替えに関する補助</b><small>子育て世帯の既存住宅取得や賃貸への住替え費用を補助する。新築取得の補助は終了。<br>対象：子育て世帯／既存住宅の取得または賃貸への住替え</small><span class="ar-prov">鹿児島県鹿児島市</span></div>
+            <div class="ar-amt">既存住宅取得費の1/2（上限10万円）、賃貸への引越しは引越費用の1/2（上限5万円）</div>
+            <a class="ar-go" href="https://www.city.kagoshima.lg.jp/kensetu/kenchiku/jutaku/kosodatesumikaeshien/kosodatesumikaehojyo.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="kagoshima-city-made-in-kagoshima">
-            <h3>「メイドインかごしま」支援事業</h3>
-            <p class="area-meta">鹿児島市 産業支援課（ものづくり係）｜補助金｜補助率1/2以内（上限は支援内容により異なる、要確認）</p>
-            <p class="area-meta">期間：令和8年度の募集期間は要確認</p>
-            <p>製造業者等の設備導入、経営力強化、新製品開発、販路開拓の経費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の中小企業者（製造業者）等</li><li>市税を滞納していないこと</li></ul>
-            <p><a href="https://www.city.kagoshima.lg.jp/san-shien/sangyo/shokogyo/sezogyonado/meidoin2019.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/kagoshima-city-made-in-kagoshima.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
           </div>
-          <div class="area-program" id="kagoshima-city-shinki-kaigyo-risoku">
-            <h3>鹿児島市 新規開業支援利子補給制度</h3>
-            <p class="area-meta">鹿児島市 産業支援課（金融係）｜融資｜融資実行後12か月以内の支払利子相当額を補助（上限30万円）。創業支援資金は限度額2,000万円</p>
-            <p class="area-meta">期間：通年（最新は要確認）</p>
-            <p>市の創業支援資金を利用した事業者に、支払利子を補助する。令和8年度から申請時点で同一業種を市内で1年継続していることが条件。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市融資制度の創業支援資金を利用した事業者</li></ul>
-            <p><a href="https://www.city.kagoshima.lg.jp/san-shien/sangyo/shokogyo/yushi/shien.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <h3 class="area-cat" id="res-g-kyoiku">教育・学び<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="kagoshima-shugaku-enjo">
+            <div class="ar-name"><b>就学援助制度</b><small>児童生徒の就学に必要な経費を負担することが困難な家庭の保護者に、学用品費・通学費・修学旅行費・学校給食費などを援助する制度。<br>対象：鹿児島市内に住所を有し、鹿児島市立小・中学校等に在学する児童生徒の保護者／令和8年度世帯人員別認定所得基準額以下の方<br>期間：令和8年度（新入学学用品費は令和9年1月29日が提出期限）</small><span class="ar-prov">鹿児島市 教育委員会</span></div>
+            <div class="ar-amt">学用品費等 小学校1年生13,230円・2年生から6年生15,500円、中学校1年生25,040円・2年生3年生27,310円（年額）ほか</div>
+            <a class="ar-go" href="https://www.city.kagoshima.lg.jp/kyoiku/kanri/kysoumu/kosodate/gakko/jose/shugakuenjo.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="kagoshima-city-tenant-matching">
-            <h3>創業者テナントマッチング事業（鹿児島市）</h3>
-            <p class="area-meta">鹿児島市 産業支援課｜補助金｜補助率1/2以内。上限100万円（中心市街地の商店街区域内）、それ以外は50万円｜締切：2026-11-30</p>
-            <p class="area-meta">期間：第3次募集 令和8年10月1日〜11月30日（予算に達し次第終了）</p>
-            <p>創業セミナー等修了者が中心市街地等の空き店舗で開業する際の内外装・空調・水回り等の整備費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>鹿児島市主催の創業セミナー等の修了者</li><li>中心市街地または都市機能誘導区域の団地核の空き店舗へ新規出店</li></ul>
-            <p><a href="https://www.city.kagoshima.lg.jp/san-shien/sougyousyatenanto.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/kagoshima-city-tenant-matching.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
           </div>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>9件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="kagoshima-city-stock-taishin">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>鹿児島市 安全安心住宅ストック支援事業（住宅の耐震化）</b><small>戸建住宅の耐震診断・耐震改修、耐震シェルター等の設置費を補助する。空家活用者・移住者向けリフォーム補助も同事業にある。<br>対象：昭和56年5月31日以前に着工された戸建住宅／所定の講習会を受講した建築士が診断・設計・監理を行う<br>期間：令和8年度。受付は令和8年12月9日まで（予算に達した時点で終了）。工事完了期限は令和9年2月5日<br>締切：2026-12-09</small><span class="ar-prov">鹿児島市 建築指導課</span></div>
+            <div class="ar-amt">耐震診断は3分の2・上限10万円、耐震改修工事は2分の1・上限115万円、耐震シェルター・防災ベッドは上限25万円</div>
+            <a class="ar-go" href="https://www.city.kagoshima.lg.jp/kensetu/kenchiku/kenshido/stock.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kagoshima-shi-block-tekkyo">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>ブロック塀等の撤去費に関する補助</b><small>道路に面した倒壊のおそれがあるブロック塀の撤去費の一部を補助する。同一敷地1回限り。<br>対象：道路に面し倒壊のおそれがあるブロック塀等／交付決定前の着工は対象外<br>期間：2026-04-20〜2027-01-29<br>締切：2027-01-29</small><span class="ar-prov">鹿児島県鹿児島市</span></div>
+            <div class="ar-amt">撤去費の1/2（基準額1mあたり1万円と見積額の少ない方、上限20万円）</div>
+            <a class="ar-go" href="https://www.city.kagoshima.lg.jp/kensetu/kenchiku/kenshido/machizukuri/kaihatsu/kenchiku/rokyu/burokkubei.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kagoshima-shi-jusho-shintai-jutaku-kaizo">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>重度身体障害者住宅改造費助成事業</b><small>身体障害者手帳1級・2級の方が住宅を改造する費用の一部を助成する。事前申請が必要。<br>対象：身体障害者手帳1級から2級の方／工事前に申請すること</small><span class="ar-prov">鹿児島市</span></div>
+            <div class="ar-amt">対象経費の2分の1（上限額は要確認）</div>
+            <a class="ar-go" href="https://www.city.kagoshima.lg.jp/faq-kenkofukushi/syofuku-syo/q49.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kagoshima-shi-kiken-akiya-kaitai">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>危険空き家の解体費に関する補助</b><small>倒壊のおそれがある危険な空き家の解体費の一部を補助する。予算に達し次第終了、事前協議が必要。<br>対象：倒壊のおそれがある危険な空き家／申請前の事前協議<br>期間：2026-05-07〜2026-12-09<br>締切：2026-12-09</small><span class="ar-prov">鹿児島県鹿児島市</span></div>
+            <div class="ar-amt">解体費の1/3（上限30万円）</div>
+            <a class="ar-go" href="https://www.city.kagoshima.lg.jp/kensetu/kenchiku/kenshido/machizukuri/kaihatsu/kenchiku/rokyu/hojo.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kagoshima-shi-koreisha-jutaku-kaizo">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>高齢者等住宅改造費助成</b><small>在宅の高齢者がいる世帯の住宅改造（バリアフリー改修）に必要な経費の一部を助成する。<br>対象：介護保険で要支援以上の認定を受けた方など／同居する全員の前年の課税所得金額の合計が330万円以下</small><span class="ar-prov">鹿児島市</span></div>
+            <div class="ar-amt">対象経費の2分の1（上限50万円。浴室改造30万円、便器交換10万円まで）</div>
+            <a class="ar-go" href="https://www.city.kagoshima.lg.jp/kenkofukushi/chouju/ikigaishien/chouju-jutakukaizou.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kagoshima-shi-koureisha-jutaku-kaizo">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>高齢者等住宅改造費助成</b><small>要支援以上の認定を受けた方がいる世帯の住宅改造費を助成する。<br>対象：要支援以上の認定を受けた方がいる世帯／世帯の前年課税所得の上限あり（要確認）</small><span class="ar-prov">鹿児島県鹿児島市</span></div>
+            <div class="ar-amt">対象経費の1/2（上限50万円、浴室改造30万円・便器交換10万円まで）</div>
+            <a class="ar-go" href="https://www.city.kagoshima.lg.jp/kenkofukushi/chouju/ikigaishien/chouju-jutakukaizou.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kagoshima-shi-zerocarbon-ev">
+            <div class="ar-name"><b><span class="ar-tag">EV・充電</span>ゼロカーボン推進支援事業（電気自動車等）補助金</b><small>市内で新規登録した新車のEV・FCV・V2Hなどの導入を補助する。令和8年8月時点で予算の8割超が交付決定。<br>対象：市内で新規登録された新車（中古不可）／申請期限は車両登録後（資料により記載差あり・要確認）<br>期間：令和8年度（予算に達し次第終了）</small><span class="ar-prov">鹿児島県鹿児島市</span></div>
+            <div class="ar-amt">普通EV 上限8万円、軽EV 上限5万円（V2H等は要確認）</div>
+            <a class="ar-go" href="https://www.city.kagoshima.lg.jp/kankyo/kankyo/saiene/jisedaijidousya/r8denkijidousha.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="kagoshima-city-zerocarbon-taiyoko">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>鹿児島市 ゼロカーボン推進支援事業（太陽光）補助金 <span class="area-ended-tag">受付終了</span></b><small>個人住宅の太陽光発電システム等の設置費を補助する。蓄電池・燃料電池は太陽光と同時設置の場合のみ対象。<br>対象：個人住宅区分はHEMSの同時設置が必要</small><span class="ar-prov">鹿児島市</span></div>
+            <div class="ar-amt">個人住宅の太陽光発電システムは1kWあたり1万5千円、上限15万円（10kW未満）</div>
+            <a class="ar-go" href="https://www.city.kagoshima.lg.jp/kankyo/kankyo/saiene/taiyokohojor8.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="kagoshima-shi-zerocarbon-solar">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>ゼロカーボン推進支援事業（太陽光）補助金 <span class="area-ended-tag">受付終了</span></b><small>個人住宅への太陽光発電システム、HEMS、蓄電池などの設置費を補助する。一部受付終了と表示。<br>対象：個人住宅は太陽光とHEMSの同時設置が必要／蓄電池は太陽光・HEMSと同時新設時のみ</small><span class="ar-prov">鹿児島県鹿児島市</span></div>
+            <div class="ar-amt">太陽光 1kWあたり1.5万円（上限15万円）、蓄電池1件5万円、HEMS1万円（年度で変動の可能性・要確認）</div>
+            <a class="ar-go" href="https://www.city.kagoshima.lg.jp/kankyo/kankyo/saiene/taiyokohojor8.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-iju">移住<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="kagoshima-shi-ijyu-shienkin">
+            <div class="ar-name"><b>鹿児島市移住支援金</b><small>東京圏から移住し、中小企業等への就業・起業・テレワークを行う人に支給する。<br>対象：東京圏からの移住／対象となる就業・起業・テレワークの要件を満たすこと</small><span class="ar-prov">鹿児島市</span></div>
+            <div class="ar-amt">単身60万円、2人以上の世帯100万円、18歳未満の子1人につき最大100万円加算</div>
+            <a class="ar-go" href="https://www.city.kagoshima.lg.jp/shigotonavi/shigoto/uij/ijushienkin.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>鹿児島県の制度</strong></p>
+          <ul><li><a href="pref-kagoshima.html#kagoshima-iju-shienkin">鹿児島県移住支援金</a></li><li><a href="pref-kagoshima.html#kagoshima-ken-ijyu-shienkin">鹿児島県移住支援金</a></li><li><a href="pref-kagoshima.html#kagoshima-ken-ui-shukatsu-ouen">令和8年度UIターン就活応援事業</a></li><li><a href="pref-kagoshima.html#kagoshima-ritou-ev">鹿児島県 離島における電気自動車等購入支援事業</a></li><li><a href="pref-kagoshima.html#kagoshima-ritou-ev-kounyu">離島における電気自動車等購入支援事業</a></li></ul>
+          <p><a href="pref-kagoshima.html#pref-resident">鹿児島県の制度5件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">鹿児島県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">鹿児島市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-kagoshima.html#kagoshima-jigyo-shokei-kasokuka">鹿児島県中小企業事業承継加速化事業費補助金</a></li><li><a href="pref-kagoshima.html#kagoshima-kasegu-chikara">かごしまの「稼ぐ力」加速化総合補助金</a></li><li><a href="pref-kagoshima.html#kagoshima-sogyo-shien-shikin">鹿児島県 創業支援資金（県制度融資）</a></li><li><a href="pref-kagoshima.html#kagoshima-chiiki-kadai-kigyo">かごしま地域課題解決型起業支援金</a></li><li><a href="pref-kagoshima.html#kagoshima-chusho-dx">かごしま中小企業DX推進事業費補助金</a></li></ul>
-          <p><a href="pref-kagoshima.html#pref-business">鹿児島県の制度5件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="kagoshima-city-chiiki-kadai-business">
+            <div class="ar-name"><b>令和8年度地域課題解決ビジネス支援事業補助金（鹿児島市）</b><small>ふるさと納税の寄附を原資に、地域課題解決に取り組む事業者等を補助する。展示会出展、新規開発、システム導入等が対象。<br>対象：地域課題解決を目指す中小企業者（市内に本店または住民登録のある個人事業主）／起業家の成長を支援する団体<br>期間：令和8年6月15日から受付（交付決定は9〜12月頃予定）。補助対象期間は令和9年3月31日まで</small><span class="ar-prov">鹿児島市</span></div>
+            <div class="ar-amt">補助率10/10。上限300万円（クラウドファンディング型）または750万円（企業版ふるさと納税）</div>
+            <a class="ar-go" href="https://www.city.kagoshima.lg.jp/san-sousyutu/sougyou-startupshien/chiikikadaikaiketubusinesshojyokinr8-2.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kagoshima-city-ict-seisansei">
+            <div class="ar-name"><b>令和8年度中小企業等生産性向上支援事業（ICT化）</b><small>専門家派遣で作成した導入計画に基づくICTツール導入費を補助する。国・県の補助を受ける事業は対象外。<br>対象：市内の中小企業者・小規模事業者（詳細は要確認）<br>期間：令和9年2月26日まで<br>締切：2027-02-26</small><span class="ar-prov">鹿児島市 産業支援課</span></div>
+            <div class="ar-amt">補助率1/2以内・上限50万円（ハードウェアは上限10万円）</div>
+            <a class="ar-go" href="https://www.city.kagoshima.lg.jp/san-shien/syoukibo_ict.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kagoshima-city-made-in-kagoshima">
+            <div class="ar-name"><b>「メイドインかごしま」支援事業</b><small>製造業者等の設備導入、経営力強化、新製品開発、販路開拓の経費を補助する。<br>対象：市内の中小企業者（製造業者）等／市税を滞納していないこと</small><span class="ar-prov">鹿児島市 産業支援課（ものづくり係）</span></div>
+            <div class="ar-amt">補助率1/2以内（上限は支援内容により異なる、要確認）</div>
+            <a class="ar-go" href="https://www.city.kagoshima.lg.jp/san-shien/sangyo/shokogyo/sezogyonado/meidoin2019.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kagoshima-city-shinki-kaigyo-risoku">
+            <div class="ar-name"><b>鹿児島市 新規開業支援利子補給制度</b><small>市の創業支援資金を利用した事業者に、支払利子を補助する。令和8年度から申請時点で同一業種を市内で1年継続していることが条件。<br>対象：市融資制度の創業支援資金を利用した事業者</small><span class="ar-prov">鹿児島市 産業支援課（金融係）</span></div>
+            <div class="ar-amt">融資実行後12か月以内の支払利子相当額を補助（上限30万円）。創業支援資金は限度額2,000万円</div>
+            <a class="ar-go" href="https://www.city.kagoshima.lg.jp/san-shien/sangyo/shokogyo/yushi/shien.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kagoshima-city-tenant-matching">
+            <div class="ar-name"><b>創業者テナントマッチング事業（鹿児島市）</b><small>創業セミナー等修了者が中心市街地等の空き店舗で開業する際の内外装・空調・水回り等の整備費を補助する。<br>対象：鹿児島市主催の創業セミナー等の修了者／中心市街地または都市機能誘導区域の団地核の空き店舗へ新規出店<br>期間：第3次募集 令和8年10月1日〜11月30日（予算に達し次第終了）<br>締切：2026-11-30</small><span class="ar-prov">鹿児島市 産業支援課</span></div>
+            <div class="ar-amt">補助率1/2以内。上限100万円（中心市街地の商店街区域内）、それ以外は50万円</div>
+            <a class="ar-go" href="https://www.city.kagoshima.lg.jp/san-shien/sougyousyatenanto.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">鹿児島県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>鹿児島市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="kagoshima-city-stock-taishin">
-            <h3>鹿児島市 安全安心住宅ストック支援事業（住宅の耐震化）</h3>
-            <p class="area-meta">鹿児島市 建築指導課｜補助金｜耐震診断は3分の2・上限10万円、耐震改修工事は2分の1・上限115万円、耐震シェルター・防災ベッドは上限25万円｜締切：2026-12-09</p>
-            <p class="area-meta">期間：令和8年度。受付は令和8年12月9日まで（予算に達した時点で終了）。工事完了期限は令和9年2月5日</p>
-            <p>戸建住宅の耐震診断・耐震改修、耐震シェルター等の設置費を補助する。空家活用者・移住者向けリフォーム補助も同事業にある。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>昭和56年5月31日以前に着工された戸建住宅</li><li>所定の講習会を受講した建築士が診断・設計・監理を行う</li></ul>
-            <p><a href="https://www.city.kagoshima.lg.jp/kensetu/kenchiku/kenshido/stock.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program is-ended" id="kagoshima-city-zerocarbon-taiyoko">
-            <h3>鹿児島市 ゼロカーボン推進支援事業（太陽光）補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">鹿児島市｜補助金｜個人住宅の太陽光発電システムは1kWあたり1万5千円、上限15万円（10kW未満）</p>
-            <p class="area-meta">期間：令和8年度（ページに「一部受付終了」と表示。受付状況は要確認）</p>
-            <p>個人住宅の太陽光発電システム等の設置費を補助する。蓄電池・燃料電池は太陽光と同時設置の場合のみ対象。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>個人住宅区分はHEMSの同時設置が必要</li></ul>
-            <p><a href="https://www.city.kagoshima.lg.jp/kankyo/kankyo/saiene/taiyokohojor8.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program is-ended" id="kagoshima-shi-zerocarbon-solar">
-            <h3>ゼロカーボン推進支援事業（太陽光）補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">鹿児島県鹿児島市｜補助金｜太陽光 1kWあたり1.5万円（上限15万円）、蓄電池1件5万円、HEMS1万円（年度で変動の可能性・要確認）</p>
-            <p class="area-meta">期間：最新は要確認（一部受付終了）</p>
-            <p>個人住宅への太陽光発電システム、HEMS、蓄電池などの設置費を補助する。一部受付終了と表示。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>個人住宅は太陽光とHEMSの同時設置が必要</li><li>蓄電池は太陽光・HEMSと同時新設時のみ</li><li>着工前に申請</li></ul>
-            <p><a href="https://www.city.kagoshima.lg.jp/kankyo/kankyo/saiene/taiyokohojor8.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
-          <div class="area-program" id="kagoshima-shi-zerocarbon-ev">
-            <h3>ゼロカーボン推進支援事業（電気自動車等）補助金</h3>
-            <p class="area-meta">鹿児島県鹿児島市｜補助金｜普通EV 上限8万円、軽EV 上限5万円（V2H等は要確認）</p>
-            <p class="area-meta">期間：令和8年度（予算に達し次第終了）</p>
-            <p>市内で新規登録した新車のEV・FCV・V2Hなどの導入を補助する。令和8年8月時点で予算の8割超が交付決定。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内で新規登録された新車（中古不可）</li><li>申請期限は車両登録後（資料により記載差あり・要確認）</li></ul>
-            <p><a href="https://www.city.kagoshima.lg.jp/kankyo/kankyo/saiene/jisedaijidousya/r8denkijidousha.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="kagoshima-shi-block-tekkyo">
-            <h3>ブロック塀等の撤去費に関する補助</h3>
-            <p class="area-meta">鹿児島県鹿児島市｜補助金｜撤去費の1/2（基準額1mあたり1万円と見積額の少ない方、上限20万円）｜締切：2027-01-29</p>
-            <p class="area-meta">期間：2026-04-20〜2027-01-29</p>
-            <p>道路に面した倒壊のおそれがあるブロック塀の撤去費の一部を補助する。同一敷地1回限り。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>道路に面し倒壊のおそれがあるブロック塀等</li><li>交付決定前の着工は対象外</li></ul>
-            <p><a href="https://www.city.kagoshima.lg.jp/kensetu/kenchiku/kenshido/machizukuri/kaihatsu/kenchiku/rokyu/burokkubei.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="kagoshima-shi-kiken-akiya-kaitai">
-            <h3>危険空き家の解体費に関する補助</h3>
-            <p class="area-meta">鹿児島県鹿児島市｜補助金｜解体費の1/3（上限30万円）｜締切：2026-12-09</p>
-            <p class="area-meta">期間：2026-05-07〜2026-12-09</p>
-            <p>倒壊のおそれがある危険な空き家の解体費の一部を補助する。予算に達し次第終了、事前協議が必要。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>倒壊のおそれがある危険な空き家</li><li>申請前の事前協議</li><li>塀・門扉の撤去は対象外</li></ul>
-            <p><a href="https://www.city.kagoshima.lg.jp/kensetu/kenchiku/kenshido/machizukuri/kaihatsu/kenchiku/rokyu/hojo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
-          <div class="area-program" id="kagoshima-shi-jusho-shintai-jutaku-kaizo">
-            <h3>重度身体障害者住宅改造費助成事業</h3>
-            <p class="area-meta">鹿児島市｜助成金｜対象経費の2分の1（上限額は要確認）</p>
-            <p class="area-meta">期間：要確認（申請は毎月10日締め）</p>
-            <p>身体障害者手帳1級・2級の方が住宅を改造する費用の一部を助成する。事前申請が必要。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>身体障害者手帳1級から2級の方</li><li>工事前に申請すること</li></ul>
-            <p><a href="https://www.city.kagoshima.lg.jp/faq-kenkofukushi/syofuku-syo/q49.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="kagoshima-shi-koreisha-jutaku-kaizo">
-            <h3>高齢者等住宅改造費助成</h3>
-            <p class="area-meta">鹿児島市｜助成金｜対象経費の2分の1（上限50万円。浴室改造30万円、便器交換10万円まで）</p>
-            
-            <p>在宅の高齢者がいる世帯の住宅改造（バリアフリー改修）に必要な経費の一部を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>介護保険で要支援以上の認定を受けた方など</li><li>同居する全員の前年の課税所得金額の合計が330万円以下</li></ul>
-            <p><a href="https://www.city.kagoshima.lg.jp/kenkofukushi/chouju/ikigaishien/chouju-jutakukaizou.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="kagoshima-shi-koureisha-jutaku-kaizo">
-            <h3>高齢者等住宅改造費助成</h3>
-            <p class="area-meta">鹿児島県鹿児島市｜助成金｜対象経費の1/2（上限50万円、浴室改造30万円・便器交換10万円まで）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>要支援以上の認定を受けた方がいる世帯の住宅改造費を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>要支援以上の認定を受けた方がいる世帯</li><li>世帯の前年課税所得の上限あり（要確認）</li></ul>
-            <p><a href="https://www.city.kagoshima.lg.jp/kenkofukushi/chouju/ikigaishien/chouju-jutakukaizou.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-6">子育て</h3>
-          <div class="area-program" id="kagoshima-city-kosodate-sumikae">
-            <h3>鹿児島市 子育て世帯の住替えに関する補助</h3>
-            <p class="area-meta">鹿児島市 建築部｜補助金｜金額は公式で確認</p>
-            
-            <p>子育て世帯の住替えに関する補助。</p>
-            
-            <p><a href="https://www.city.kagoshima.lg.jp/kensetu/kenchiku/jutaku/kosodatesumikaeshien/kosodatesumikaehojyo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="kagoshima-shi-kosodate-sumikae">
-            <h3>子育て世帯の住替えに関する補助</h3>
-            <p class="area-meta">鹿児島県鹿児島市｜補助金｜既存住宅取得費の1/2（上限10万円）、賃貸への引越しは引越費用の1/2（上限5万円）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>子育て世帯の既存住宅取得や賃貸への住替え費用を補助する。新築取得の補助は終了。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>子育て世帯</li><li>既存住宅の取得または賃貸への住替え</li></ul>
-            <p><a href="https://www.city.kagoshima.lg.jp/kensetu/kenchiku/jutaku/kosodatesumikaeshien/kosodatesumikaehojyo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-8">教育・学び</h3>
-          <div class="area-program" id="kagoshima-shugaku-enjo">
-            <h3>就学援助制度</h3>
-            <p class="area-meta">鹿児島市 教育委員会｜給付｜学用品費等 小学校1年生13,230円・2年生から6年生15,500円、中学校1年生25,040円・2年生3年生27,310円（年額）ほか</p>
-            <p class="area-meta">期間：令和8年度（新入学学用品費は令和9年1月29日が提出期限）</p>
-            <p>児童生徒の就学に必要な経費を負担することが困難な家庭の保護者に、学用品費・通学費・修学旅行費・学校給食費などを援助する制度。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>鹿児島市内に住所を有し、鹿児島市立小・中学校等に在学する児童生徒の保護者</li><li>令和8年度世帯人員別認定所得基準額以下の方</li></ul>
-            <p><a href="https://www.city.kagoshima.lg.jp/kyoiku/kanri/kysoumu/kosodate/gakko/jose/shugakuenjo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-9">移住</h3>
-          <div class="area-program" id="kagoshima-shi-ijyu-shienkin">
-            <h3>鹿児島市移住支援金</h3>
-            <p class="area-meta">鹿児島市｜給付｜単身60万円、2人以上の世帯100万円、18歳未満の子1人につき最大100万円加算</p>
-            <p class="area-meta">期間：確認できた年度：令和7年度（応募期間は2026年2月13日まで。令和8年度は要確認）</p>
-            <p>東京圏から移住し、中小企業等への就業・起業・テレワークを行う人に支給する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>東京圏からの移住</li><li>対象となる就業・起業・テレワークの要件を満たすこと</li></ul>
-            <p><a href="https://www.city.kagoshima.lg.jp/shigotonavi/shigoto/uij/ijushienkin.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>鹿児島県の制度</strong></p>
-          <ul><li><a href="pref-kagoshima.html#kagoshima-iju-shienkin">鹿児島県移住支援金</a></li><li><a href="pref-kagoshima.html#kagoshima-ken-ijyu-shienkin">鹿児島県移住支援金</a></li><li><a href="pref-kagoshima.html#kagoshima-ken-ui-shukatsu-ouen">令和8年度UIターン就活応援事業</a></li><li><a href="pref-kagoshima.html#kagoshima-ritou-ev">鹿児島県 離島における電気自動車等購入支援事業</a></li><li><a href="pref-kagoshima.html#kagoshima-ritou-ev-kounyu">離島における電気自動車等購入支援事業</a></li></ul>
-          <p><a href="pref-kagoshima.html#pref-resident">鹿児島県の制度5件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-kagoshima.html#kagoshima-jigyo-shokei-kasokuka">鹿児島県中小企業事業承継加速化事業費補助金</a></li><li><a href="pref-kagoshima.html#kagoshima-kasegu-chikara">かごしまの「稼ぐ力」加速化総合補助金</a></li><li><a href="pref-kagoshima.html#kagoshima-sogyo-shien-shikin">鹿児島県 創業支援資金（県制度融資）</a></li><li><a href="pref-kagoshima.html#kagoshima-chiiki-kadai-kigyo">かごしま地域課題解決型起業支援金</a></li><li><a href="pref-kagoshima.html#kagoshima-chusho-dx">かごしま中小企業DX推進事業費補助金</a></li></ul>
+          <p><a href="pref-kagoshima.html#pref-business">鹿児島県の制度5件を、県のページで見る →</a></p>
       </div>
     </section>
 

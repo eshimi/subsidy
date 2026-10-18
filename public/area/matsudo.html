@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"松戸市","item":"https://hojyokin.net/area/matsudo.html"}]}</script>
@@ -165,248 +207,173 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 松戸市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b01.webp')"><h1 class="pb-title">松戸市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-chiba.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">千葉県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">千葉県 松戸市</p>
+        <h1>松戸市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度21件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-chiba.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（松戸市）<b>7件</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（千葉県）<b>5件（うち受付終了3件）</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>14件（うち受付終了1件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-2">EV・充電 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-6">子育て 3</a><a href="#res-cat-7">医療・福祉 3</a><a href="#res-cat-8">教育・学び 2</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <a href="#res-g-kosodate"><i aria-hidden="true">👶</i><b>子育て</b><small>3件</small></a>
+      <a href="#res-g-iryo"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>3件</small></a>
+      <a href="#res-g-kyoiku"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>2件</small></a>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>6件</small></a>
+      <span class="is-none"><i aria-hidden="true">🌱</i><b>移住</b><small>掲載なし</small></span>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市7件＋県5件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">松戸市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="matsudo-city-akitenpo">
-            <h3>松戸市商店街商業事業者誘致促進事業補助金（空き店舗出店）</h3>
-            <p class="area-meta">松戸市 商工振興課｜補助金｜改修費：1/2以内・上限50万円、賃借料補助あり（詳細は要確認）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>商店会エリアの空き店舗に出店する商業事業者の店舗改修費と賃借料の一部を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>商店会エリア内の3か月以上貸し出されていない空き店舗に入居</li><li>営業開始後3年間の事業継続</li></ul>
-            <p><a href="https://www.city.matsudo.chiba.jp/jigyosya/syoukougyou/syotenkai-hojyo/syoutenngaiakitenpo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-kosodate">子育て<span>3件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="matsudo-hosoku-kyufu">
+            <div class="ar-name"><b>副食費の補足給付（幼稚園向け）</b><small>施設型給付を受けない幼稚園に在園する、所得割課税額が一定未満の世帯や多子世帯に対し、給食費のうち副食費を補助します。<br>対象：市民税の所得割課税額が77,101円未満の世帯（年収360万円未満相当世帯）／小学校第3学年修了前の子の中で、最年長の子から数えた第3子以降<br>期間：前期（4月から9月）分は10月上旬、後期（10月から翌3月）分は3月下旬に申請</small><span class="ar-prov">松戸市</span></div>
+            <div class="ar-amt">月額上限5,100円</div>
+            <a class="ar-go" href="https://www.city.matsudo.chiba.jp/kosodate/matsudodekosodate/kosodatenavi/hoikuenyouchien/youchien/hosokukyuuhu.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="matsudo-city-chusho-risihokyu">
-            <h3>松戸市中小企業振興資金利子補給制度</h3>
-            <p class="area-meta">松戸市 商工振興課｜融資｜年1.0％以内等の利子補給（創業後5年未満の融資や事業承継資金など。率は融資種別により要確認）</p>
-            <p class="area-meta">期間：令和8年度の実施有無は令和8年4月に公表とされる。最新は要確認</p>
-            <p>千葉県制度融資の利用者に対し市が利子の一部を補給する。毎年度の予算措置で、3年間の補給を約束するものではない。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の中小企業者</li><li>対象の制度融資を利用（創業後5年未満・事業承継資金など）</li></ul>
-            <p><a href="https://www.city.matsudo.chiba.jp/jigyosya/syoukougyou/risihokyu.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/matsudo-city-chusho-risihokyu.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+          <div class="ar-row" id="matsudo-kodomo-iryohi">
+            <div class="ar-name"><b>子ども医療費助成制度（0歳から高校3年生相当年齢まで）</b><small>松戸市に住民登録がある子どもの保険診療分の医療費等について、保護者に対して助成する制度です。受給券は毎年8月から自動更新です。<br>対象：松戸市に住民登録がある子ども（生活保護世帯を除く）／0歳から高校3年生相当年齢まで<br>期間：通年（受給券は毎年8月からの自動更新）</small><span class="ar-prov">松戸市 子ども未来応援課 児童給付担当室</span></div>
+            <div class="ar-amt">保護者の自己負担：通院1回200円・入院1日200円・調剤なし（無料）</div>
+            <a class="ar-go" href="https://www.city.matsudo.chiba.jp/kosodate/matsudodekosodate/kosodatenavi/teate_jyosei/kodomo_iryou_annai/kodomoiryouhi.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="matsudo-city-digital-challenge">
-            <h3>松戸市中小企業デジタル化チャレンジ補助金</h3>
-            <p class="area-meta">松戸市 商工振興課｜補助金｜上限50万円（補助率は要確認）｜締切：2027-02-27</p>
-            <p class="area-meta">期間：令和8年4月1日〜令和9年2月27日</p>
-            <p>業務改善により売上・生産性向上につながるソフトウェアの利用料・購入費・開発費、保守委託費などを補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の中小企業者等</li><li>ソフトウェアの導入が必須</li></ul>
-            <p><a href="https://www.city.matsudo.chiba.jp/jigyosya/syoukougyou/dx-charenji.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/matsudo-city-digital-challenge.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+          <div class="ar-row" id="matsudo-shokai-sanka">
+            <div class="ar-name"><b>初回産科受診料及び妊婦健康診査公費負担超過費の補助</b><small>低所得の妊婦が安心して妊婦健診を受けられるよう、初回産科受診料と健診の公費負担額を超えた費用の一部または全部を補助します（償還払い）。<br>対象：初回産科受診時に松戸市内に住所を有する妊婦／非課税世帯若しくは均等割のみ課税されている世帯など<br>期間：通年（申請期限は受診後6か月または年度末のいずれか早い日）</small><span class="ar-prov">松戸市</span></div>
+            <div class="ar-amt">初回産科受診料：上限10,000円／妊婦健康診査公費負担超過費：上限2,000円（14回まで）</div>
+            <a class="ar-go" href="https://www.city.matsudo.chiba.jp/kosodate/matsudodekosodate/kosodatenavi/ninshinshitara/syokaisanka.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="matsudo-city-kaisha-setsuritsu-hojo">
-            <h3>松戸市新規会社設立登録免許税補助金</h3>
-            <p class="area-meta">松戸市 商工振興課｜補助金｜登録免許税（株式会社75,000円・合同会社30,000円まで）＋定款認証手数料（5万円まで）、合算上限125,000円</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>株式会社・合同会社の設立にかかる登録免許税等の一部を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内で会社を設立する創業者</li><li>会社設立前（支払前）に申請すること</li></ul>
-            <p><a href="https://www.city.matsudo.chiba.jp/jigyosya/syoukougyou/tourokumenkyozei.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/matsudo-city-kaisha-setsuritsu-hojo.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
           </div>
-          <div class="area-program" id="matsudo-city-setsubi-toushi">
-            <h3>松戸市中小企業設備投資補助金</h3>
-            <p class="area-meta">松戸市 商工振興課｜補助金｜一般型：1/10以内・上限50万円、生産性向上型：1/3以内・上限250万円（賃上げありの場合）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>製造業者が税抜300万円以上の生産機械等を購入した費用の一部を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の中小企業者（製造業者）</li><li>取得価額合計が税抜300万円以上の機械・装置</li><li>製造小売業は対象外</li></ul>
-            <p><a href="https://www.city.matsudo.chiba.jp/jigyosya/syoukougyou/setubitousi.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <h3 class="area-cat" id="res-g-iryo">医療・福祉<span>3件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="matsudo-ningendock">
+            <div class="ar-name"><b>人間ドック費用助成制度</b><small>自費で人間ドックを受診する、松戸市国民健康保険等の加入者に費用を助成します。<br>対象：受診日に松戸市国民健康保険加入の40歳以上の方／千葉県後期高齢者医療制度に加入し、松戸市の後期高齢者健康診査の対象となる方<br>期間：令和8年度（令和9年3月31日時点の年齢で判定）</small><span class="ar-prov">松戸市 健康推進課 健診担当室</span></div>
+            <div class="ar-amt">国民健康保険：1人につき上限15,000円／後期高齢者医療：上限10,000円（同一年度内1回のみ）</div>
+            <a class="ar-go" href="https://www.city.matsudo.chiba.jp/iryoutoshi/healthcare/kensin_osirase/ningendog_hojo.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="matsudo-city-sogyosha-hoshoryo">
-            <h3>松戸市創業者保証料補助金</h3>
-            <p class="area-meta">松戸市 商工振興課｜補助金｜千葉県制度融資「創業資金 一般枠」で支払った保証料を補助（上限額は要確認）</p>
-            <p class="area-meta">期間：令和8年度の申請受付は令和8年11月中下旬にページで案内予定</p>
-            <p>市内で創業し千葉県制度融資の創業資金を借りた際の信用保証料を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内で創業する方</li><li>千葉県制度融資 創業資金 一般枠を利用</li><li>特定創業支援等事業の証明書が必要な場合あり（要確認）</li></ul>
-            <p><a href="https://www.city.matsudo.chiba.jp/jigyosya/syoukougyou/sougyoushahoshou.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="matsudo-otafuku">
+            <div class="ar-name"><b>おたふくかぜ任意予防接種費用の一部助成</b><small>令和8年度に限り、おたふくかぜの任意予防接種費用を一部助成します。<br>対象：接種当日に松戸市に住民票がある、1歳から小学校就学前年度（年長児）の3月31日までの幼児／小学1年生（令和8年度に限る）<br>期間：令和8年4月1日から令和9年3月31日まで<br>締切：2027-03-31</small><span class="ar-prov">松戸市</span></div>
+            <div class="ar-amt">1回につき2,500円（最大2回まで）</div>
+            <a class="ar-go" href="https://www.city.matsudo.chiba.jp/kosodate/matsudodekosodate/kosodatenavi/shussanshitara/yobousessyu/josei.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="matsudo-city-tenjikai-hojo">
-            <h3>松戸市展示会・見本市等出展補助</h3>
-            <p class="area-meta">松戸市 商工振興課｜補助金｜国内展示会：経費の1/2以内・上限10万円（海外は要確認）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>自社製品を国内外の展示会・見本市に出展する際の出展費用の一部を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の中小企業者等</li><li>自社製品の受注拡大・販路開拓が目的</li></ul>
-            <p><a href="https://www.city.matsudo.chiba.jp/jigyosya/syoukougyou/tenjikaihojo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/matsudo-city-tenjikai-hojo.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+          <div class="ar-row" id="matsudo-soki-funin">
+            <div class="ar-name"><b>早期不妊検査費用の助成</b><small>令和8年10月1日以降に開始した不妊検査費用の一部を助成します。<br>対象：夫婦の双方またはいずれか一方が、助成申請時に松戸市内に住所を有していること／不妊検査開始時の女性の年齢が43歳未満であること<br>期間：令和8年10月1日以降に開始した検査が対象</small><span class="ar-prov">松戸市 こども家庭センター 母子保健担当室</span></div>
+            <div class="ar-amt">1組の夫婦につき上限30,000円（1回限り）</div>
+            <a class="ar-go" href="https://www.city.matsudo.chiba.jp/kosodate/matsudodekosodate/kosodatenavi/teate_jyosei/soukifuninkensa.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          </div>
+          <h3 class="area-cat" id="res-g-kyoiku">教育・学び<span>2件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="matsudo-freeschool">
+            <div class="ar-name"><b>フリースクール等利用児童生徒支援補助金</b><small>不登校傾向にある小・中学生が利用するフリースクールの利用料金の一部を補助します。申請は年度ごとに必要です。<br>対象：市内在住の児童生徒または、市外在住で松戸市内の小中学校に在籍している児童生徒の保護者／1年以内におおよそ30日以上登校していない児童生徒の保護者<br>期間：令和8年4月1日～令和9年3月末日分までの利用料金（通年）</small><span class="ar-prov">松戸市 教育委員会 児童生徒課</span></div>
+            <div class="ar-amt">月額利用料金の3分の1（月額上限1万円）</div>
+            <a class="ar-go" href="https://www.city.matsudo.chiba.jp/kyouiku/gakkoukyouiku/kankyou/R7matsudofreeschool.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="matsudo-juken-ouen">
+            <div class="ar-name"><b>子どもの受験応援助成</b><small>経済的課題を抱える世帯の子どもの受験料や模擬試験の費用の一部を助成します。<br>対象：生活保護世帯／児童扶養手当受給世帯または同等の所得水準のひとり親世帯、養育者世帯<br>期間：令和8年6月1日（月曜）から令和9年3月19日（金曜）まで<br>締切：2027-03-19</small><span class="ar-prov">松戸市 子ども未来応援課</span></div>
+            <div class="ar-amt">大学等受験料53,000円（上限）・模擬試験料8,000円（上限）、中学3年生は模擬試験料6,000円（上限）</div>
+            <a class="ar-go" href="https://www.city.matsudo.chiba.jp/kosodate/matsudodekosodate/kosodatenavi/teate_jyosei/juken_ouen.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>6件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="matsudo-block">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>松戸市危険コンクリートブロック塀等対策（除却）事業補助金</b><small>地震時に倒壊のおそれのある危険なブロック塀の撤去費を補助する。<br>対象：危険なブロック塀等の所有者／除却工事の契約前に事前相談・申請が必要</small><span class="ar-prov">千葉県松戸市</span></div>
+            <div class="ar-amt">限度額20万円（工事費と長さに応じた額の少ない方）</div>
+            <a class="ar-go" href="https://www.city.matsudo.chiba.jp/kurashi/sumai/sonota/kikenkonkuritoguroku.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="matsudo-ev-v2h">
+            <div class="ar-name"><b><span class="ar-tag">EV・充電</span>松戸市住宅用省エネルギー設備等設置費補助金（EV・V2H）</b><small>電気自動車とV2H充放電設備の導入費を補助する。旧EV充電設備補助は統合された。<br>対象：市内の住宅等に設置する個人／一部区分は残りわずか<br>期間：令和8年度（予算の範囲内）</small><span class="ar-prov">千葉県松戸市</span></div>
+            <div class="ar-amt">EV 単体3万円、太陽光併設10万円、太陽光＋V2H併設15万円（上限）。V2H設備は対象経費の1/10（上限25万円）</div>
+            <a class="ar-go" href="https://www.city.matsudo.chiba.jp/kurashi/kankyou/tikyuuondanka/hojokin/shoene.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="matsudo-shoene-housing">
+            <div class="ar-name"><b><span class="ar-tag">省エネ住宅</span>松戸市省エネルギー住宅普及促進事業費補助金</b><small>省エネ住宅の新築・購入・改修に補助する。<br>対象：市内の住宅（詳細は要確認）</small><span class="ar-prov">千葉県松戸市</span></div>
+            <div class="ar-amt">最大50万円（上限）</div>
+            <a class="ar-go" href="https://www.city.matsudo.chiba.jp/kurashi/kankyou/tikyuuondanka/hojokin/shoenej.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="matsudo-shoene-pv">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>松戸市住宅用省エネルギー設備等設置費補助金（太陽光・蓄電）</b><small>住宅用の太陽光発電や蓄電システム等の設置費を補助する。千葉県の補助と併用可。<br>対象：市内の住宅に設置する個人／予算残額あり（2026年時点の一覧）<br>期間：令和8年度（予算の範囲内）</small><span class="ar-prov">千葉県松戸市</span></div>
+            <div class="ar-amt">太陽光 2万円/kW（上限6万円）、蓄電システム 上限7万円</div>
+            <a class="ar-go" href="https://www.city.matsudo.chiba.jp/kurashi/kankyou/tikyuuondanka/hojokin/shoene.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="matsudo-taishin">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>松戸市木造住宅耐震改修費補助金</b><small>耐震診断で評点1.0未満の木造住宅の耐震改修費を補助する。<br>対象：平成12年5月31日以前に建築・着工の木造一戸建て等／契約前に建築指導課との事前協議が必要<br>期間：2026年5月7日～11月13日（予算到達で終了）<br>締切：2026-11-13</small><span class="ar-prov">千葉県松戸市</span></div>
+            <div class="ar-amt">設計費・工事費等の4/5（上限100万円）。リフォーム費用の1/10（上限30万円）の別助成あり</div>
+            <a class="ar-go" href="https://www.city.matsudo.chiba.jp/kurashi/sumai/taisin/taisinnkaishuhojokin.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="matsudo-akiya-jokyaku">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>松戸市老朽空家等除却費用補助金 <span class="area-ended-tag">受付終了</span></b><small>倒壊のおそれのある老朽空家の除却費を補助する。令和8年度の事前調査申請は受付終了。<br>対象：空家等の所有者等／市税を滞納していないこと<br>期間：令和8年度の事前調査申請は受付終了</small><span class="ar-prov">千葉県松戸市</span></div>
+            <div class="ar-amt">除却費用の1/3以内（上限60万円）、予定15戸程度</div>
+            <a class="ar-go" href="https://www.city.matsudo.chiba.jp/kurashi/sumai/akiya/akiyatoujyokyaku.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>千葉県の制度</strong></p>
+          <ul><li><a href="pref-chiba.html#chiba-pref-iju-shienkin">千葉県移住支援金（UIJターン）</a></li><li><a href="pref-chiba.html#chiba-pref-jutaku-lease-ppa">千葉県住宅用太陽光発電設備等に係るリース等導入促進事業補助金</a></li><li><a href="pref-chiba.html#chiba-pref-zeh">令和8年度千葉県ネット・ゼロ・エネルギー・ハウス導入促進事業補助金</a></li></ul>
+          <p><a href="pref-chiba.html#pref-resident">千葉県の制度3件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">千葉県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">松戸市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-chiba.html#chiba-chusho-shinko-shikin">千葉県 中小企業振興資金</a></li><li><a href="pref-chiba.html#chiba-shijo-kaitaku-josei">市場開拓助成（展示会出展）</a></li><li><a href="pref-chiba.html#chiba-pref-sogyo-ouen">ちば創業応援助成金</a></li><li><a href="pref-chiba.html#chiba-reskilling-banso">中小企業向け伴走型リスキリング支援</a></li><li><a href="pref-chiba.html#chiba-seicho-sokushin-hojo">中小企業成長促進補助金（第4弾）</a></li></ul>
-          <p><a href="pref-chiba.html#pref-business">千葉県の制度5件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="matsudo-city-akitenpo">
+            <div class="ar-name"><b>松戸市商店街商業事業者誘致促進事業補助金（空き店舗出店）</b><small>商店会エリアの空き店舗に出店する商業事業者の店舗改修費と賃借料の一部を補助する。<br>対象：商店会エリア内の3か月以上貸し出されていない空き店舗に入居／営業開始後3年間の事業継続</small><span class="ar-prov">松戸市 商工振興課</span></div>
+            <div class="ar-amt">改修費：1/2以内・上限50万円、賃借料補助あり（詳細は要確認）</div>
+            <a class="ar-go" href="https://www.city.matsudo.chiba.jp/jigyosya/syoukougyou/syotenkai-hojyo/syoutenngaiakitenpo.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="matsudo-city-chusho-risihokyu">
+            <div class="ar-name"><b>松戸市中小企業振興資金利子補給制度</b><small>千葉県制度融資の利用者に対し市が利子の一部を補給する。毎年度の予算措置で、3年間の補給を約束するものではない。<br>対象：市内の中小企業者／対象の制度融資を利用（創業後5年未満・事業承継資金など）</small><span class="ar-prov">松戸市 商工振興課</span></div>
+            <div class="ar-amt">年1.0％以内等の利子補給（創業後5年未満の融資や事業承継資金など。率は融資種別により要確認）</div>
+            <a class="ar-go" href="https://www.city.matsudo.chiba.jp/jigyosya/syoukougyou/risihokyu.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="matsudo-city-digital-challenge">
+            <div class="ar-name"><b>松戸市中小企業デジタル化チャレンジ補助金</b><small>業務改善により売上・生産性向上につながるソフトウェアの利用料・購入費・開発費、保守委託費などを補助する。<br>対象：市内の中小企業者等／ソフトウェアの導入が必須<br>期間：令和8年4月1日〜令和9年2月27日<br>締切：2027-02-27</small><span class="ar-prov">松戸市 商工振興課</span></div>
+            <div class="ar-amt">上限50万円（補助率は要確認）</div>
+            <a class="ar-go" href="https://www.city.matsudo.chiba.jp/jigyosya/syoukougyou/dx-charenji.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="matsudo-city-kaisha-setsuritsu-hojo">
+            <div class="ar-name"><b>松戸市新規会社設立登録免許税補助金</b><small>株式会社・合同会社の設立にかかる登録免許税等の一部を補助する。<br>対象：市内で会社を設立する創業者／会社設立前（支払前）に申請すること</small><span class="ar-prov">松戸市 商工振興課</span></div>
+            <div class="ar-amt">登録免許税（株式会社75,000円・合同会社30,000円まで）＋定款認証手数料（5万円まで）、合算上限125,000円</div>
+            <a class="ar-go" href="https://www.city.matsudo.chiba.jp/jigyosya/syoukougyou/tourokumenkyozei.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="matsudo-city-setsubi-toushi">
+            <div class="ar-name"><b>松戸市中小企業設備投資補助金</b><small>製造業者が税抜300万円以上の生産機械等を購入した費用の一部を補助する。<br>対象：市内の中小企業者（製造業者）／取得価額合計が税抜300万円以上の機械・装置</small><span class="ar-prov">松戸市 商工振興課</span></div>
+            <div class="ar-amt">一般型：1/10以内・上限50万円、生産性向上型：1/3以内・上限250万円（賃上げありの場合）</div>
+            <a class="ar-go" href="https://www.city.matsudo.chiba.jp/jigyosya/syoukougyou/setubitousi.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="matsudo-city-sogyosha-hoshoryo">
+            <div class="ar-name"><b>松戸市創業者保証料補助金</b><small>市内で創業し千葉県制度融資の創業資金を借りた際の信用保証料を補助する。<br>対象：市内で創業する方／千葉県制度融資 創業資金 一般枠を利用<br>期間：令和8年度の申請受付は令和8年11月中下旬にページで案内予定</small><span class="ar-prov">松戸市 商工振興課</span></div>
+            <div class="ar-amt">千葉県制度融資「創業資金 一般枠」で支払った保証料を補助（上限額は要確認）</div>
+            <a class="ar-go" href="https://www.city.matsudo.chiba.jp/jigyosya/syoukougyou/sougyoushahoshou.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="matsudo-city-tenjikai-hojo">
+            <div class="ar-name"><b>松戸市展示会・見本市等出展補助</b><small>自社製品を国内外の展示会・見本市に出展する際の出展費用の一部を補助する。<br>対象：市内の中小企業者等／自社製品の受注拡大・販路開拓が目的</small><span class="ar-prov">松戸市 商工振興課</span></div>
+            <div class="ar-amt">国内展示会：経費の1/2以内・上限10万円（海外は要確認）</div>
+            <a class="ar-go" href="https://www.city.matsudo.chiba.jp/jigyosya/syoukougyou/tenjikaihojo.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">千葉県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>松戸市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="matsudo-taishin">
-            <h3>松戸市木造住宅耐震改修費補助金</h3>
-            <p class="area-meta">千葉県松戸市｜補助金｜設計費・工事費等の4/5（上限100万円）。リフォーム費用の1/10（上限30万円）の別助成あり｜締切：2026-11-13</p>
-            <p class="area-meta">期間：2026年5月7日～11月13日（予算到達で終了）</p>
-            <p>耐震診断で評点1.0未満の木造住宅の耐震改修費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>平成12年5月31日以前に建築・着工の木造一戸建て等</li><li>契約前に建築指導課との事前協議が必要</li></ul>
-            <p><a href="https://www.city.matsudo.chiba.jp/kurashi/sumai/taisin/taisinnkaishuhojokin.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program" id="matsudo-shoene-pv">
-            <h3>松戸市住宅用省エネルギー設備等設置費補助金（太陽光・蓄電）</h3>
-            <p class="area-meta">千葉県松戸市｜補助金｜太陽光 2万円/kW（上限6万円）、蓄電システム 上限7万円</p>
-            <p class="area-meta">期間：令和8年度（予算の範囲内）</p>
-            <p>住宅用の太陽光発電や蓄電システム等の設置費を補助する。千葉県の補助と併用可。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の住宅に設置する個人</li><li>予算残額あり（2026年時点の一覧）</li></ul>
-            <p><a href="https://www.city.matsudo.chiba.jp/kurashi/kankyou/tikyuuondanka/hojokin/shoene.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
-          <div class="area-program" id="matsudo-ev-v2h">
-            <h3>松戸市住宅用省エネルギー設備等設置費補助金（EV・V2H）</h3>
-            <p class="area-meta">千葉県松戸市｜補助金｜EV 単体3万円、太陽光併設10万円、太陽光＋V2H併設15万円（上限）。V2H設備は対象経費の1/10（上限25万円）</p>
-            <p class="area-meta">期間：令和8年度（予算の範囲内）</p>
-            <p>電気自動車とV2H充放電設備の導入費を補助する。旧EV充電設備補助は統合された。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の住宅等に設置する個人</li><li>一部区分は残りわずか</li></ul>
-            <p><a href="https://www.city.matsudo.chiba.jp/kurashi/kankyou/tikyuuondanka/hojokin/shoene.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
-          <div class="area-program" id="matsudo-shoene-housing">
-            <h3>松戸市省エネルギー住宅普及促進事業費補助金</h3>
-            <p class="area-meta">千葉県松戸市｜補助金｜最大50万円（上限）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>省エネ住宅の新築・購入・改修に補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の住宅（詳細は要確認）</li></ul>
-            <p><a href="https://www.city.matsudo.chiba.jp/kurashi/kankyou/tikyuuondanka/hojokin/shoenej.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="matsudo-block">
-            <h3>松戸市危険コンクリートブロック塀等対策（除却）事業補助金</h3>
-            <p class="area-meta">千葉県松戸市｜補助金｜限度額20万円（工事費と長さに応じた額の少ない方）</p>
-            <p class="area-meta">期間：令和8年度（最新は要確認）</p>
-            <p>地震時に倒壊のおそれのある危険なブロック塀の撤去費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>危険なブロック塀等の所有者</li><li>除却工事の契約前に事前相談・申請が必要</li></ul>
-            <p><a href="https://www.city.matsudo.chiba.jp/kurashi/sumai/sonota/kikenkonkuritoguroku.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program is-ended" id="matsudo-akiya-jokyaku">
-            <h3>松戸市老朽空家等除却費用補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">千葉県松戸市｜補助金｜除却費用の1/3以内（上限60万円）、予定15戸程度</p>
-            <p class="area-meta">期間：令和8年度の事前調査申請は受付終了</p>
-            <p>倒壊のおそれのある老朽空家の除却費を補助する。令和8年度の事前調査申請は受付終了。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>空家等の所有者等</li><li>市税を滞納していないこと</li></ul>
-            <p><a href="https://www.city.matsudo.chiba.jp/kurashi/sumai/akiya/akiyatoujyokyaku.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-6">子育て</h3>
-          <div class="area-program" id="matsudo-hosoku-kyufu">
-            <h3>副食費の補足給付（幼稚園向け）</h3>
-            <p class="area-meta">松戸市｜給付｜月額上限5,100円</p>
-            <p class="area-meta">期間：前期（4月から9月）分は10月上旬、後期（10月から翌3月）分は3月下旬に申請</p>
-            <p>施設型給付を受けない幼稚園に在園する、所得割課税額が一定未満の世帯や多子世帯に対し、給食費のうち副食費を補助します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市民税の所得割課税額が77,101円未満の世帯（年収360万円未満相当世帯）</li><li>小学校第3学年修了前の子の中で、最年長の子から数えた第3子以降</li></ul>
-            <p><a href="https://www.city.matsudo.chiba.jp/kosodate/matsudodekosodate/kosodatenavi/hoikuenyouchien/youchien/hosokukyuuhu.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="matsudo-kodomo-iryohi">
-            <h3>子ども医療費助成制度（0歳から高校3年生相当年齢まで）</h3>
-            <p class="area-meta">松戸市 子ども未来応援課 児童給付担当室｜助成金｜保護者の自己負担：通院1回200円・入院1日200円・調剤なし（無料）</p>
-            <p class="area-meta">期間：通年（受給券は毎年8月からの自動更新）</p>
-            <p>松戸市に住民登録がある子どもの保険診療分の医療費等について、保護者に対して助成する制度です。受給券は毎年8月から自動更新です。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>松戸市に住民登録がある子ども（生活保護世帯を除く）</li><li>0歳から高校3年生相当年齢まで</li></ul>
-            <p><a href="https://www.city.matsudo.chiba.jp/kosodate/matsudodekosodate/kosodatenavi/teate_jyosei/kodomo_iryou_annai/kodomoiryouhi.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="matsudo-shokai-sanka">
-            <h3>初回産科受診料及び妊婦健康診査公費負担超過費の補助</h3>
-            <p class="area-meta">松戸市｜補助金｜初回産科受診料：上限10,000円／妊婦健康診査公費負担超過費：上限2,000円（14回まで）</p>
-            <p class="area-meta">期間：通年（申請期限は受診後6か月または年度末のいずれか早い日）</p>
-            <p>低所得の妊婦が安心して妊婦健診を受けられるよう、初回産科受診料と健診の公費負担額を超えた費用の一部または全部を補助します（償還払い）。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>初回産科受診時に松戸市内に住所を有する妊婦</li><li>非課税世帯若しくは均等割のみ課税されている世帯など</li></ul>
-            <p><a href="https://www.city.matsudo.chiba.jp/kosodate/matsudodekosodate/kosodatenavi/ninshinshitara/syokaisanka.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-7">医療・福祉</h3>
-          <div class="area-program" id="matsudo-ningendock">
-            <h3>人間ドック費用助成制度</h3>
-            <p class="area-meta">松戸市 健康推進課 健診担当室｜助成金｜国民健康保険：1人につき上限15,000円／後期高齢者医療：上限10,000円（同一年度内1回のみ）</p>
-            <p class="area-meta">期間：令和8年度（令和9年3月31日時点の年齢で判定）</p>
-            <p>自費で人間ドックを受診する、松戸市国民健康保険等の加入者に費用を助成します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>受診日に松戸市国民健康保険加入の40歳以上の方</li><li>千葉県後期高齢者医療制度に加入し、松戸市の後期高齢者健康診査の対象となる方</li></ul>
-            <p><a href="https://www.city.matsudo.chiba.jp/iryoutoshi/healthcare/kensin_osirase/ningendog_hojo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="matsudo-otafuku">
-            <h3>おたふくかぜ任意予防接種費用の一部助成</h3>
-            <p class="area-meta">松戸市｜助成金｜1回につき2,500円（最大2回まで）｜締切：2027-03-31</p>
-            <p class="area-meta">期間：令和8年4月1日から令和9年3月31日まで</p>
-            <p>令和8年度に限り、おたふくかぜの任意予防接種費用を一部助成します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>接種当日に松戸市に住民票がある、1歳から小学校就学前年度（年長児）の3月31日までの幼児</li><li>小学1年生（令和8年度に限る）</li></ul>
-            <p><a href="https://www.city.matsudo.chiba.jp/kosodate/matsudodekosodate/kosodatenavi/shussanshitara/yobousessyu/josei.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="matsudo-soki-funin">
-            <h3>早期不妊検査費用の助成</h3>
-            <p class="area-meta">松戸市 こども家庭センター 母子保健担当室｜助成金｜1組の夫婦につき上限30,000円（1回限り）</p>
-            <p class="area-meta">期間：令和8年10月1日以降に開始した検査が対象</p>
-            <p>令和8年10月1日以降に開始した不妊検査費用の一部を助成します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>夫婦の双方またはいずれか一方が、助成申請時に松戸市内に住所を有していること</li><li>不妊検査開始時の女性の年齢が43歳未満であること</li><li>令和8年10月1日以降に開始した検査</li></ul>
-            <p><a href="https://www.city.matsudo.chiba.jp/kosodate/matsudodekosodate/kosodatenavi/teate_jyosei/soukifuninkensa.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-8">教育・学び</h3>
-          <div class="area-program" id="matsudo-freeschool">
-            <h3>フリースクール等利用児童生徒支援補助金</h3>
-            <p class="area-meta">松戸市 教育委員会 児童生徒課｜補助金｜月額利用料金の3分の1（月額上限1万円）</p>
-            <p class="area-meta">期間：令和8年4月1日～令和9年3月末日分までの利用料金（通年）</p>
-            <p>不登校傾向にある小・中学生が利用するフリースクールの利用料金の一部を補助します。申請は年度ごとに必要です。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内在住の児童生徒または、市外在住で松戸市内の小中学校に在籍している児童生徒の保護者</li><li>1年以内におおよそ30日以上登校していない児童生徒の保護者</li><li>認定されたフリースクール（見込みも含む）を利用する児童生徒の保護者</li></ul>
-            <p><a href="https://www.city.matsudo.chiba.jp/kyouiku/gakkoukyouiku/kankyou/R7matsudofreeschool.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="matsudo-juken-ouen">
-            <h3>子どもの受験応援助成</h3>
-            <p class="area-meta">松戸市 子ども未来応援課｜助成金｜大学等受験料53,000円（上限）・模擬試験料8,000円（上限）、中学3年生は模擬試験料6,000円（上限）｜締切：2027-03-19</p>
-            <p class="area-meta">期間：令和8年6月1日（月曜）から令和9年3月19日（金曜）まで</p>
-            <p>経済的課題を抱える世帯の子どもの受験料や模擬試験の費用の一部を助成します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>生活保護世帯</li><li>児童扶養手当受給世帯または同等の所得水準のひとり親世帯、養育者世帯</li><li>非課税世帯</li></ul>
-            <p><a href="https://www.city.matsudo.chiba.jp/kosodate/matsudodekosodate/kosodatenavi/teate_jyosei/juken_ouen.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>千葉県の制度</strong></p>
-          <ul><li><a href="pref-chiba.html#chiba-pref-iju-shienkin">千葉県移住支援金（UIJターン）</a></li><li><a href="pref-chiba.html#chiba-pref-jutaku-lease-ppa">千葉県住宅用太陽光発電設備等に係るリース等導入促進事業補助金</a></li><li><a href="pref-chiba.html#chiba-pref-zeh">令和8年度千葉県ネット・ゼロ・エネルギー・ハウス導入促進事業補助金</a></li></ul>
-          <p><a href="pref-chiba.html#pref-resident">千葉県の制度3件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-chiba.html#chiba-chusho-shinko-shikin">千葉県 中小企業振興資金</a></li><li><a href="pref-chiba.html#chiba-shijo-kaitaku-josei">市場開拓助成（展示会出展）</a></li><li><a href="pref-chiba.html#chiba-pref-sogyo-ouen">ちば創業応援助成金</a></li><li><a href="pref-chiba.html#chiba-reskilling-banso">中小企業向け伴走型リスキリング支援</a></li><li><a href="pref-chiba.html#chiba-seicho-sokushin-hojo">中小企業成長促進補助金（第4弾）</a></li></ul>
+          <p><a href="pref-chiba.html#pref-business">千葉県の制度5件を、県のページで見る →</a></p>
       </div>
     </section>
 

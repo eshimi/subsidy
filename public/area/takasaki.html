@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"高崎市","item":"https://hojyokin.net/area/takasaki.html"}]}</script>
@@ -165,240 +207,177 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 高崎市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b13.webp')"><h1 class="pb-title">高崎市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-gunma.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">群馬県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">群馬県 高崎市</p>
+        <h1>高崎市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度21件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-gunma.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（高崎市）<b>4件（うち受付終了1件）</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（群馬県）<b>5件</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>17件（うち受付終了1件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 2</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-5">バリアフリー・介護 2</a><a href="#res-cat-6">子育て 3</a><a href="#res-cat-7">医療・福祉 3</a><a href="#res-cat-8">教育・学び 1</a><a href="#res-cat-9">移住 3</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <a href="#res-g-kosodate"><i aria-hidden="true">👶</i><b>子育て</b><small>3件</small></a>
+      <a href="#res-g-iryo"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>3件</small></a>
+      <a href="#res-g-kyoiku"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>1件</small></a>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>7件</small></a>
+      <a href="#res-g-iju"><i aria-hidden="true">🌱</i><b>移住</b><small>3件</small></a>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市4件＋県5件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">高崎市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="takasaki-city-kikai-setsubi">
-            <h3>高崎市中小企業等機械設備導入支援助成金</h3>
-            <p class="area-meta">高崎市 商工振興課｜助成金｜金額は公式で確認</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>リースで導入した機械設備費の一部を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の中小企業者</li></ul>
-            <p><a href="https://www.city.takasaki.gunma.jp/page/3420.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-kosodate">子育て<span>3件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="takasaki-ninka-daisanshi-hoikuryo">
+            <div class="ar-name"><b>認可外保育施設第3子以降3歳未満児保育料等補助事業</b><small>就労や介護・疾病等の理由により認可外保育施設に通園する、第3子以降で3歳未満のお子さんの保育料等を補助します。<br>対象：保護者・お子さんともに高崎市に住民登録があること／保護者に現に扶養されている兄又は姉が2人以上いる（第3子以降のお子さんである）こと<br>期間：令和8年度</small><span class="ar-prov">高崎市 保育課</span></div>
+            <div class="ar-amt">1か月当たり24,000円を上限</div>
+            <a class="ar-go" href="https://www.city.takasaki.gunma.jp/page/5795.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="takasaki-city-sogyosha-yushi-hosho">
-            <h3>高崎市創業者融資保証料補助金及び利子補給金</h3>
-            <p class="area-meta">高崎市 商工振興課｜融資｜保証料の全額補助、融資日から5年間の利子全額補給</p>
-            <p class="area-meta">期間：交付申請は年2回（7月・1月）。融資から1か月以内に申請</p>
-            <p>創業時の借入に対する信用保証料と利子を市が補助する。創業支援資金（限度額5,000万円）などが対象。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内で創業する法人・個人</li><li>過去に事業歴がないこと</li></ul>
-            <p><a href="https://www.city.takasaki.gunma.jp/page/4941.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="takasaki-ninpu-shokai-sanka">
+            <div class="ar-name"><b>高崎市妊婦初回産科受診料助成金</b><small>妊娠にかかる経済的負担を軽減し、安心した妊娠期を支援するために、妊婦さんを対象に初回の産科受診料の一部を助成します。<br>対象：初回産科受診時及び助成金交付申請時において高崎市に住民登録があり、母子健康手帳の交付を受けた人／他の公的助成制度による初回産科受診料の助成金の交付を受けていない人<br>期間：申請は妊娠届提出日からおおむね3か月以内</small><span class="ar-prov">高崎市 保健所健康課</span></div>
+            <div class="ar-amt">初回の産科受診料の費用と10,000円のいずれか少ない額</div>
+            <a class="ar-go" href="https://www.city.takasaki.gunma.jp/page/3449.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="takasaki-city-tenjikai-shien">
-            <h3>高崎市技術振興展示会等支援事業</h3>
-            <p class="area-meta">高崎市 産業政策課｜補助金｜補助率1/2以内、国内展示会は上限20万円</p>
-            <p class="area-meta">期間：前期（4〜9月）・後期（10〜3月）。令和8年度前期は終了、後期は要確認</p>
-            <p>展示会出展費用の一部を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の中小企業者</li></ul>
-            <p><a href="https://www.city.takasaki.gunma.jp/page/3279.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="takasaki-shussan-oiwaikin">
+            <div class="ar-name"><b>高崎市出産お祝い金</b><small>お子さんの誕生をお祝いし、安心して子育てができる環境づくりのため、出産お祝い金を交付します。令和8年4月開始です。<br>対象：令和8年4月1日以降に出生したお子さんの母（産婦）であること／お子さんの初めての住民登録地が高崎市であること<br>期間：令和8年4月1日以降に出生したお子さんが対象／申請期限は出生届を出した日から概ね3か月以内</small><span class="ar-prov">高崎市 保健所健康課</span></div>
+            <div class="ar-amt">新生児1人につき3万円分（高崎通貨で交付）</div>
+            <a class="ar-go" href="https://www.city.takasaki.gunma.jp/page/85440.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <h3 class="area-cat">受付が終了した制度（次回の公募の参考に）</h3>
-          <div class="area-program is-ended" id="takasaki-city-machinaka-renewal">
-            <h3>高崎市まちなか商店リニューアル助成事業補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">高崎市 産業政策課｜補助金｜改装・備品購入費の1/2、上限100万円</p>
-            <p class="area-meta">期間：令和8年度の交付申請は受付終了。来年度は要確認</p>
-            <p>まちなかの店舗の改装や備品購入費用を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>店舗を借りて営業する者</li><li>営業開始前で賃貸契約を結んだ者</li></ul>
-            <p><a href="https://www.city.takasaki.gunma.jp/site/notice/3250.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
+          <h3 class="area-cat" id="res-g-iryo">医療・福祉<span>3件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="takasaki-nanbyo-mimaikin">
+            <div class="ar-name"><b>難病患者見舞金制度</b><small>特定医療費（指定難病）受給者証などが交付されている方に対して、申請に基づき難病患者見舞金を支給します。<br>対象：特定医療費（指定難病）受給者証、小児慢性特定疾病医療受給者証、特定疾患医療受給者証（スモン）、先天性血液凝固因子障害等医療受給者証が交付されている方<br>期間：申請があった月の翌月分から対象／4月、8月、12月の各月末頃に前4か月分を支給</small><span class="ar-prov">高崎市 保健予防課</span></div>
+            <div class="ar-amt">月額3,000円</div>
+            <a class="ar-go" href="https://www.city.takasaki.gunma.jp/page/5731.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="takasaki-ninyosei-ondon">
+            <div class="ar-name"><b>がん患者等妊孕性温存治療費等助成事業</b><small>小児、思春期・若年がん患者等の妊孕性温存治療費の一部を助成します。先に群馬県への申請が必要です。<br>対象：ガイドラインに基づき、がん治療等により生殖機能が低下する、又は失う恐れがあると医師に診断された方／治療終了日、更新日、申請日に年齢が43歳未満であり、高崎市に住所を有する方</small><span class="ar-prov">高崎市</span></div>
+            <div class="ar-amt">治療の種類により2万5千円〜5万円を上限（群馬県の助成額を上回る場合のみ）</div>
+            <a class="ar-go" href="https://www.city.takasaki.gunma.jp/page/3132.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="takasaki-wig-hojo">
+            <div class="ar-name"><b>医療用ウィッグ等の補助事業</b><small>がん治療等に伴う外見の変化をカバーする補整具（ウィッグ、胸部補整具、エピテーゼなど）の購入費用を補助します。<br>対象：申請時点で本市に住民登録している人／がん治療等に伴う脱毛や手術、傷病等により、外見の変化に対する補整具が必要な人、または先天性の身体欠損により補整具が必要な人<br>期間：補整具を購入した日の翌日から起算して1年以内のものが対象</small><span class="ar-prov">高崎市</span></div>
+            <div class="ar-amt">購入費用1回30,000円まで（1人につき2回まで）</div>
+            <a class="ar-go" href="https://www.city.takasaki.gunma.jp/page/2042.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-kyoiku">教育・学び<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="takasaki-shugaku-enjo">
+            <div class="ar-name"><b>就学援助制度</b><small>経済的な理由でお子様に義務教育を受けさせることが困難な保護者に、学校生活で必要な費用の一部を援助する制度です。<br>対象：義務教育を受けることが困難であると判断される程度の経済状況であること／児童扶養手当を支給されている方など、該当する可能性がある世帯あり<br>期間：令和8年度</small><span class="ar-prov">高崎市 教育委員会教職員課</span></div>
+            <div class="ar-amt">学用品費 小学校11,630円・中学校22,730円、新入学児童生徒学用品費 64,300円（小学校）・81,000円（中学校） など（支給限度額）</div>
+            <a class="ar-go" href="https://www.city.takasaki.gunma.jp/page/4237.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>7件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="takasaki-akiya-kinkyu-taisaku">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>高崎市空き家緊急総合対策</b><small>空き家の管理・解体・活用の助成。解体助成は予算到達と案内。<br>期間：申請受付：4月15日から（令和8年度）</small><span class="ar-prov">高崎市 建築住宅課</span></div>
+            <div class="ar-amt">管理助成：費用の1/2。他は要確認</div>
+            <a class="ar-go" href="https://www.city.takasaki.gunma.jp/page/3293.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="takasaki-hei-jokyaku-kaishu">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>高崎市塀除却・改修工事補助</b><small>道路沿いの劣化した塀の除却・改修工事の補助。<br>対象：道路沿いで高さ0.8m以上かつ延長5m以上の劣化した塀</small><span class="ar-prov">高崎市 建築指導課</span></div>
+            <div class="ar-amt">塀の除却：一律2万円、築造工事：費用の1/2（上限あり）</div>
+            <a class="ar-go" href="https://www.city.takasaki.gunma.jp/page/6033.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="takasaki-jutaku-kaizo">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>住宅改造費の補助（障害福祉課）</b><small>障害のある人の住宅改造費の補助。</small><span class="ar-prov">群馬県高崎市</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.takasaki.gunma.jp/page/4265.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="takasaki-jutaku-taiyoko">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>令和8年度住宅用太陽光発電システム導入補助制度</b><small>住宅への太陽光発電システム導入の補助。<br>期間：令和8年7月1日～令和9年3月31日（予算額に達し次第終了）<br>締切：2027-03-31</small><span class="ar-prov">高崎市</span></div>
+            <div class="ar-amt">1kWあたり8千円、上限4万円（蓄電池・V2Hの補助はなし）</div>
+            <a class="ar-go" href="https://www.city.takasaki.gunma.jp/page/6849.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="takasaki-kinkyu-taishin">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>高崎市緊急耐震対策事業（耐震補助金）</b><small>耐震診断・補強設計・耐震改修工事・耐震除却工事の補助。<br>期間：令和8年5月11日～11月30日<br>締切：2026-11-30</small><span class="ar-prov">高崎市 建築指導課</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.takasaki.gunma.jp/page/3291.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="takasaki-taishin-kinkyu-2">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>高崎市耐震診断・補強設計・耐震改修・除却補助（建築指導課）</b><small>昭和56年5月31日以前の木造住宅の耐震診断・改修等を補助。<br>対象：昭和56年5月31日以前に建築確認を受けた一戸建て木造住宅<br>期間：令和8年5月11日〜11月30日<br>締切：2026-11-30</small><span class="ar-prov">群馬県高崎市</span></div>
+            <div class="ar-amt">耐震診断50%（上限5万円）、耐震改修80%（上限140万円）等</div>
+            <a class="ar-go" href="https://www.city.takasaki.gunma.jp/page/6474.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="takasaki-jukankyo-kaizen">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>高崎市住環境改善助成事業 <span class="area-ended-tag">受付終了</span></b><small>市内業者を利用した住宅改修費の一部を助成。令和8年度は予算到達により9月14日に本申請受付終了。<br>対象：市内業者を利用して自宅を改修する市民／交付決定前の着工は対象外</small><span class="ar-prov">群馬県高崎市</span></div>
+            <div class="ar-amt">工事経費の30%（上限20万円）</div>
+            <a class="ar-go" href="https://www.city.takasaki.gunma.jp/page/3352.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-iju">移住<span>3件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="takasaki-iju-rishi-hokyu">
+            <div class="ar-name"><b>高崎市移住促進資金利子補給</b><small>倉渕・榛名・吉井地域で住宅を取得する場合の融資利子を補給する制度。<br>対象：倉渕・榛名・吉井地域で住宅を取得する移住者／詳細は要確認</small><span class="ar-prov">群馬県高崎市</span></div>
+            <div class="ar-amt">融資利子5年（60か月）分を全額補給</div>
+            <a class="ar-go" href="https://www.city.takasaki.gunma.jp/page/3254.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="takasaki-iju-shienkin">
+            <div class="ar-name"><b>高崎市移住支援金</b><small>東京圏から移住し対象法人に就業等した方への支援金。転入後1年以内に窓口申請。<br>対象：東京23区在住・通勤者が東京圏から高崎市へ移住／対象法人への就業等の要件あり<br>期間：令和8年度（受付期限は2027年2月5日と記載）<br>締切：2027-02-05</small><span class="ar-prov">群馬県高崎市</span></div>
+            <div class="ar-amt">単身60万円、世帯100万円（18歳未満の世帯員1人につき30万円加算）</div>
+            <a class="ar-go" href="https://www.city.takasaki.gunma.jp/page/3253.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="takasaki-iju-yushi-riho">
+            <div class="ar-name"><b>移住者の住宅取得融資 利子補給</b><small>倉渕・榛名・吉井地域に移住して住宅を取得する場合に融資の利子を補給する（移住情報ページ記載）。</small><span class="ar-prov">群馬県高崎市</span></div>
+            <div class="ar-amt">融資利子5年分を全額補給</div>
+            <a class="ar-go" href="https://www.city.takasaki.gunma.jp/site/iju/4260.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>群馬県の制度</strong></p>
+          <ul><li><a href="pref-gunma.html#gunma-bev-konyu">群馬県電気自動車（BEV）購入補助金</a></li><li><a href="pref-gunma.html#gunma-iju-shienkin">群馬県移住支援金事業</a></li><li><a href="pref-gunma.html#gunma-jutaku-solar-yushi">住宅用太陽光発電設備等導入資金融資</a></li><li><a href="pref-gunma.html#gunma-mokuzo-taishin-kyocho">木造住宅耐震改修促進支援事業</a></li><li><a href="pref-gunma.html#gunma-zero-sengen-jutaku-kosodate">ぐんまゼロ宣言住宅促進事業（子育て世帯への補助）</a></li></ul>
+          <p><a href="pref-gunma.html#pref-resident">群馬県の制度6件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">群馬県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">高崎市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-gunma.html#gunma-cross-start">ぐんまクロススタート補助金（起業支援金）</a></li><li><a href="pref-gunma.html#gunma-dx-gijutsu-kakushin">ぐんまDX技術革新補助金</a></li><li><a href="pref-gunma.html#gunma-jigyo-shokei-yushi">群馬県制度融資 事業承継支援資金</a></li><li><a href="pref-gunma.html#gunma-power-up-shikin">群馬県制度融資 中小企業パワーアップ資金</a></li><li><a href="pref-gunma.html#gunma-seicho-ma-hojo">群馬県成長実現型M&amp;A補助金</a></li></ul>
-          <p><a href="pref-gunma.html#pref-business">群馬県の制度5件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="takasaki-city-kikai-setsubi">
+            <div class="ar-name"><b>高崎市中小企業等機械設備導入支援助成金</b><small>リースで導入した機械設備費の一部を助成する。<br>対象：市内の中小企業者</small><span class="ar-prov">高崎市 商工振興課</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.takasaki.gunma.jp/page/3420.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="takasaki-city-sogyosha-yushi-hosho">
+            <div class="ar-name"><b>高崎市創業者融資保証料補助金及び利子補給金</b><small>創業時の借入に対する信用保証料と利子を市が補助する。創業支援資金（限度額5,000万円）などが対象。<br>対象：市内で創業する法人・個人／過去に事業歴がないこと<br>期間：交付申請は年2回（7月・1月）。融資から1か月以内に申請</small><span class="ar-prov">高崎市 商工振興課</span></div>
+            <div class="ar-amt">保証料の全額補助、融資日から5年間の利子全額補給</div>
+            <a class="ar-go" href="https://www.city.takasaki.gunma.jp/page/4941.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="takasaki-city-tenjikai-shien">
+            <div class="ar-name"><b>高崎市技術振興展示会等支援事業</b><small>展示会出展費用の一部を助成する。<br>対象：市内の中小企業者</small><span class="ar-prov">高崎市 産業政策課</span></div>
+            <div class="ar-amt">補助率1/2以内、国内展示会は上限20万円</div>
+            <a class="ar-go" href="https://www.city.takasaki.gunma.jp/page/3279.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="takasaki-city-machinaka-renewal">
+            <div class="ar-name"><b>高崎市まちなか商店リニューアル助成事業補助金 <span class="area-ended-tag">受付終了</span></b><small>まちなかの店舗の改装や備品購入費用を助成する。<br>対象：店舗を借りて営業する者／営業開始前で賃貸契約を結んだ者</small><span class="ar-prov">高崎市 産業政策課</span></div>
+            <div class="ar-amt">改装・備品購入費の1/2、上限100万円</div>
+            <a class="ar-go" href="https://www.city.takasaki.gunma.jp/site/notice/3250.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">群馬県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>高崎市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="takasaki-kinkyu-taishin">
-            <h3>高崎市緊急耐震対策事業（耐震補助金）</h3>
-            <p class="area-meta">高崎市 建築指導課｜補助金｜金額は公式で確認｜締切：2026-11-30</p>
-            <p class="area-meta">期間：令和8年5月11日～11月30日</p>
-            <p>耐震診断・補強設計・耐震改修工事・耐震除却工事の補助。</p>
-            
-            <p><a href="https://www.city.takasaki.gunma.jp/page/3291.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="takasaki-taishin-kinkyu-2">
-            <h3>高崎市耐震診断・補強設計・耐震改修・除却補助（建築指導課）</h3>
-            <p class="area-meta">群馬県高崎市｜補助金｜耐震診断50%（上限5万円）、耐震改修80%（上限140万円）等｜締切：2026-11-30</p>
-            <p class="area-meta">期間：令和8年5月11日〜11月30日</p>
-            <p>昭和56年5月31日以前の木造住宅の耐震診断・改修等を補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>昭和56年5月31日以前に建築確認を受けた一戸建て木造住宅</li></ul>
-            <p><a href="https://www.city.takasaki.gunma.jp/page/6474.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program" id="takasaki-jutaku-taiyoko">
-            <h3>令和8年度住宅用太陽光発電システム導入補助制度</h3>
-            <p class="area-meta">高崎市｜補助金｜1kWあたり8千円、上限4万円（蓄電池・V2Hの補助はなし）｜締切：2027-03-31</p>
-            <p class="area-meta">期間：令和8年7月1日～令和9年3月31日（予算額に達し次第終了）</p>
-            <p>住宅への太陽光発電システム導入の補助。</p>
-            
-            <p><a href="https://www.city.takasaki.gunma.jp/page/6849.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="takasaki-akiya-kinkyu-taisaku">
-            <h3>高崎市空き家緊急総合対策</h3>
-            <p class="area-meta">高崎市 建築住宅課｜補助金｜管理助成：費用の1/2。他は要確認</p>
-            <p class="area-meta">期間：申請受付：4月15日から（令和8年度）</p>
-            <p>空き家の管理・解体・活用の助成。解体助成は予算到達と案内。</p>
-            
-            <p><a href="https://www.city.takasaki.gunma.jp/page/3293.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="takasaki-hei-jokyaku-kaishu">
-            <h3>高崎市塀除却・改修工事補助</h3>
-            <p class="area-meta">高崎市 建築指導課｜補助金｜塀の除却：一律2万円、築造工事：費用の1/2（上限あり）</p>
-            <p class="area-meta">期間：令和8年度（期間は要確認）</p>
-            <p>道路沿いの劣化した塀の除却・改修工事の補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>道路沿いで高さ0.8m以上かつ延長5m以上の劣化した塀</li></ul>
-            <p><a href="https://www.city.takasaki.gunma.jp/page/6033.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
-          <div class="area-program" id="takasaki-jutaku-kaizo">
-            <h3>住宅改造費の補助（障害福祉課）</h3>
-            <p class="area-meta">群馬県高崎市｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>障害のある人の住宅改造費の補助。</p>
-            
-            <p><a href="https://www.city.takasaki.gunma.jp/page/4265.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program is-ended" id="takasaki-jukankyo-kaizen">
-            <h3>高崎市住環境改善助成事業 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">群馬県高崎市｜助成金｜工事経費の30%（上限20万円）</p>
-            <p class="area-meta">期間：令和8年度は受付終了（次年度は要確認）</p>
-            <p>市内業者を利用した住宅改修費の一部を助成。令和8年度は予算到達により9月14日に本申請受付終了。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内業者を利用して自宅を改修する市民</li><li>交付決定前の着工は対象外</li></ul>
-            <p><a href="https://www.city.takasaki.gunma.jp/page/3352.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-6">子育て</h3>
-          <div class="area-program" id="takasaki-ninka-daisanshi-hoikuryo">
-            <h3>認可外保育施設第3子以降3歳未満児保育料等補助事業</h3>
-            <p class="area-meta">高崎市 保育課｜補助金｜1か月当たり24,000円を上限</p>
-            <p class="area-meta">期間：令和8年度</p>
-            <p>就労や介護・疾病等の理由により認可外保育施設に通園する、第3子以降で3歳未満のお子さんの保育料等を補助します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>保護者・お子さんともに高崎市に住民登録があること</li><li>保護者に現に扶養されている兄又は姉が2人以上いる（第3子以降のお子さんである）こと</li><li>令和8年3月31日における満年齢が3歳に達していないこと</li></ul>
-            <p><a href="https://www.city.takasaki.gunma.jp/page/5795.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="takasaki-ninpu-shokai-sanka">
-            <h3>高崎市妊婦初回産科受診料助成金</h3>
-            <p class="area-meta">高崎市 保健所健康課｜助成金｜初回の産科受診料の費用と10,000円のいずれか少ない額</p>
-            <p class="area-meta">期間：申請は妊娠届提出日からおおむね3か月以内</p>
-            <p>妊娠にかかる経済的負担を軽減し、安心した妊娠期を支援するために、妊婦さんを対象に初回の産科受診料の一部を助成します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>初回産科受診時及び助成金交付申請時において高崎市に住民登録があり、母子健康手帳の交付を受けた人</li><li>他の公的助成制度による初回産科受診料の助成金の交付を受けていない人</li></ul>
-            <p><a href="https://www.city.takasaki.gunma.jp/page/3449.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="takasaki-shussan-oiwaikin">
-            <h3>高崎市出産お祝い金</h3>
-            <p class="area-meta">高崎市 保健所健康課｜給付｜新生児1人につき3万円分（高崎通貨で交付）</p>
-            <p class="area-meta">期間：令和8年4月1日以降に出生したお子さんが対象／申請期限は出生届を出した日から概ね3か月以内</p>
-            <p>お子さんの誕生をお祝いし、安心して子育てができる環境づくりのため、出産お祝い金を交付します。令和8年4月開始です。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>令和8年4月1日以降に出生したお子さんの母（産婦）であること</li><li>お子さんの初めての住民登録地が高崎市であること</li></ul>
-            <p><a href="https://www.city.takasaki.gunma.jp/page/85440.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-7">医療・福祉</h3>
-          <div class="area-program" id="takasaki-nanbyo-mimaikin">
-            <h3>難病患者見舞金制度</h3>
-            <p class="area-meta">高崎市 保健予防課｜給付｜月額3,000円</p>
-            <p class="area-meta">期間：申請があった月の翌月分から対象／4月、8月、12月の各月末頃に前4か月分を支給</p>
-            <p>特定医療費（指定難病）受給者証などが交付されている方に対して、申請に基づき難病患者見舞金を支給します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>特定医療費（指定難病）受給者証、小児慢性特定疾病医療受給者証、特定疾患医療受給者証（スモン）、先天性血液凝固因子障害等医療受給者証が交付されている方</li></ul>
-            <p><a href="https://www.city.takasaki.gunma.jp/page/5731.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="takasaki-ninyosei-ondon">
-            <h3>がん患者等妊孕性温存治療費等助成事業</h3>
-            <p class="area-meta">高崎市｜助成金｜治療の種類により2万5千円〜5万円を上限（群馬県の助成額を上回る場合のみ）</p>
-            <p class="area-meta">期間：通年（要確認）</p>
-            <p>小児、思春期・若年がん患者等の妊孕性温存治療費の一部を助成します。先に群馬県への申請が必要です。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>ガイドラインに基づき、がん治療等により生殖機能が低下する、又は失う恐れがあると医師に診断された方</li><li>治療終了日、更新日、申請日に年齢が43歳未満であり、高崎市に住所を有する方</li></ul>
-            <p><a href="https://www.city.takasaki.gunma.jp/page/3132.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="takasaki-wig-hojo">
-            <h3>医療用ウィッグ等の補助事業</h3>
-            <p class="area-meta">高崎市｜補助金｜購入費用1回30,000円まで（1人につき2回まで）</p>
-            <p class="area-meta">期間：補整具を購入した日の翌日から起算して1年以内のものが対象</p>
-            <p>がん治療等に伴う外見の変化をカバーする補整具（ウィッグ、胸部補整具、エピテーゼなど）の購入費用を補助します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>申請時点で本市に住民登録している人</li><li>がん治療等に伴う脱毛や手術、傷病等により、外見の変化に対する補整具が必要な人、または先天性の身体欠損により補整具が必要な人</li></ul>
-            <p><a href="https://www.city.takasaki.gunma.jp/page/2042.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-8">教育・学び</h3>
-          <div class="area-program" id="takasaki-shugaku-enjo">
-            <h3>就学援助制度</h3>
-            <p class="area-meta">高崎市 教育委員会教職員課｜給付｜学用品費 小学校11,630円・中学校22,730円、新入学児童生徒学用品費 64,300円（小学校）・81,000円（中学校） など（支給限度額）</p>
-            <p class="area-meta">期間：令和8年度</p>
-            <p>経済的な理由でお子様に義務教育を受けさせることが困難な保護者に、学校生活で必要な費用の一部を援助する制度です。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>義務教育を受けることが困難であると判断される程度の経済状況であること</li><li>児童扶養手当を支給されている方など、該当する可能性がある世帯あり</li></ul>
-            <p><a href="https://www.city.takasaki.gunma.jp/page/4237.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-9">移住</h3>
-          <div class="area-program" id="takasaki-iju-rishi-hokyu">
-            <h3>高崎市移住促進資金利子補給</h3>
-            <p class="area-meta">群馬県高崎市｜融資｜融資利子5年（60か月）分を全額補給</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>倉渕・榛名・吉井地域で住宅を取得する場合の融資利子を補給する制度。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>倉渕・榛名・吉井地域で住宅を取得する移住者</li><li>詳細は要確認</li></ul>
-            <p><a href="https://www.city.takasaki.gunma.jp/page/3254.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="takasaki-iju-shienkin">
-            <h3>高崎市移住支援金</h3>
-            <p class="area-meta">群馬県高崎市｜給付｜単身60万円、世帯100万円（18歳未満の世帯員1人につき30万円加算）｜締切：2027-02-05</p>
-            <p class="area-meta">期間：令和8年度（受付期限は2027年2月5日と記載）</p>
-            <p>東京圏から移住し対象法人に就業等した方への支援金。転入後1年以内に窓口申請。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>東京23区在住・通勤者が東京圏から高崎市へ移住</li><li>対象法人への就業等の要件あり</li></ul>
-            <p><a href="https://www.city.takasaki.gunma.jp/page/3253.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="takasaki-iju-yushi-riho">
-            <h3>移住者の住宅取得融資 利子補給</h3>
-            <p class="area-meta">群馬県高崎市｜融資｜融資利子5年分を全額補給</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>倉渕・榛名・吉井地域に移住して住宅を取得する場合に融資の利子を補給する（移住情報ページ記載）。</p>
-            
-            <p><a href="https://www.city.takasaki.gunma.jp/site/iju/4260.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>群馬県の制度</strong></p>
-          <ul><li><a href="pref-gunma.html#gunma-bev-konyu">群馬県電気自動車（BEV）購入補助金</a></li><li><a href="pref-gunma.html#gunma-iju-shienkin">群馬県移住支援金事業</a></li><li><a href="pref-gunma.html#gunma-jutaku-solar-yushi">住宅用太陽光発電設備等導入資金融資</a></li><li><a href="pref-gunma.html#gunma-mokuzo-taishin-kyocho">木造住宅耐震改修促進支援事業</a></li><li><a href="pref-gunma.html#gunma-zero-sengen-jutaku-kosodate">ぐんまゼロ宣言住宅促進事業（子育て世帯への補助）</a></li></ul>
-          <p><a href="pref-gunma.html#pref-resident">群馬県の制度6件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-gunma.html#gunma-cross-start">ぐんまクロススタート補助金（起業支援金）</a></li><li><a href="pref-gunma.html#gunma-dx-gijutsu-kakushin">ぐんまDX技術革新補助金</a></li><li><a href="pref-gunma.html#gunma-jigyo-shokei-yushi">群馬県制度融資 事業承継支援資金</a></li><li><a href="pref-gunma.html#gunma-power-up-shikin">群馬県制度融資 中小企業パワーアップ資金</a></li><li><a href="pref-gunma.html#gunma-seicho-ma-hojo">群馬県成長実現型M&amp;A補助金</a></li></ul>
+          <p><a href="pref-gunma.html#pref-business">群馬県の制度5件を、県のページで見る →</a></p>
       </div>
     </section>
 

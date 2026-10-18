@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"伊勢市","item":"https://hojyokin.net/area/ise.html"}]}</script>
@@ -165,105 +207,86 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 伊勢市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b05.webp')"><h1 class="pb-title">伊勢市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-mie.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">三重県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">三重県 伊勢市</p>
+        <h1>伊勢市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度6件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-mie.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（伊勢市）<b>2件</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（三重県）<b>5件（うち受付終了3件）</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>4件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <span class="is-none"><i aria-hidden="true">👶</i><b>子育て</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>掲載なし</small></span>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>4件</small></a>
+      <span class="is-none"><i aria-hidden="true">🌱</i><b>移住</b><small>掲載なし</small></span>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市2件＋県5件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">伊勢市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="ise-city-sogyo-iten-sokushin">
-            <h3>伊勢市創業・移転促進補助金</h3>
-            <p class="area-meta">伊勢市 商工労政課｜補助金｜要確認（募集要領に記載。民間情報では補助率1/2・上限100万円程度）</p>
-            <p class="area-meta">期間：随時受付（予算額に達し次第終了）</p>
-            <p>市内での創業や市外からの本店移転、事業承継にかかる経費の一部を補助する。申請前に商工労政課への事前連絡が必要。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内で創業する個人・中小企業者・NPO法人</li><li>市外から本店等を市内に移す個人・法人</li><li>事前連絡・事前相談を行うこと</li></ul>
-            <p><a href="https://www.city.ise.mie.jp/sangyo/syoukou/sangyoshien/1002972.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/ise-city-sogyo-iten-sokushin.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>4件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="ise-akiya-kounyu">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>伊勢市空家購入促進事業補助金</b><small>市内の空き家購入費を補助する。空家リフォーム促進事業補助金との併用不可。<br>対象：耐震基準を満たす市内の空き家を購入／3年以上居住</small><span class="ar-prov">三重県伊勢市</span></div>
+            <div class="ar-amt">購入費の1/2、上限50万円(移住者・子育て世帯)/30万円(一般世帯)</div>
+            <a class="ar-go" href="https://www.city.ise.mie.jp/kurashi/hikkoshi_sumai/akiya/hojo/1016905.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="ise-city-sogyo-saichosen-risoku">
-            <h3>創業・再挑戦アシスト資金利子補給補助金</h3>
-            <p class="area-meta">伊勢市 商工労政課｜融資｜金額は公式で確認</p>
-            
-            <p>創業や再挑戦のための資金を借り入れた事業者に対し、利子の一部を補給する制度。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内で創業または再挑戦する事業者</li><li>対象の融資を利用していること（詳細は要確認）</li></ul>
-            <p><a href="https://www.city.ise.mie.jp/sangyo/syoukou/sangyoshien/1009569/1009573.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="ise-akiya-reform">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>伊勢市空家リフォーム促進事業補助金</b><small>空き家のリフォーム費用を補助する。<br>対象：空き家をリフォームし10年以上居住</small><span class="ar-prov">三重県伊勢市</span></div>
+            <div class="ar-amt">工事費の1/2、上限30万円(一般世帯)/50万円(子育て・移住世帯)</div>
+            <a class="ar-go" href="https://www.city.ise.mie.jp/kurashi/hikkoshi_sumai/akiya/hojo/1015022.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          <div class="ar-row" id="ise-solar">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>伊勢市自家消費型太陽光発電設備等設置費補助金</b><small>住宅の太陽光発電設備・定置型蓄電池の設置費を補助する。令和8年度分は予算額(1,751万円)に達し受付終了。<br>対象：住宅への設置／詳細は要確認<br>期間：令和8年度分は受付終了</small><span class="ar-prov">三重県伊勢市</span></div>
+            <div class="ar-amt">蓄電池:容量×15.5万円と購入設置費(税抜)の1/3の少ない方、太陽光:出力×7万円等</div>
+            <a class="ar-go" href="https://www.city.ise.mie.jp/kurashi/kankyo/hozen/1016396.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="ise-taishin">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>伊勢市木造住宅耐震補強・耐震シェルター・空き家除却補助</b><small>旧耐震の木造住宅の耐震補強、シェルター設置、空き家除却費を補助する。<br>対象：昭和56年5月31日以前着工の木造住宅／耐震診断で評点が低いこと</small><span class="ar-prov">三重県伊勢市</span></div>
+            <div class="ar-amt">耐震補強工事上限157.5万円、耐震シェルター等上限100万円、空き家除却上限30万円</div>
+            <a class="ar-go" href="https://www.city.ise.mie.jp/bousai_kyukyu/bousai/hojo/1013783.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>三重県の制度</strong></p>
+          <ul><li><a href="pref-mie.html#mie-akiya-taisaku-shien">三重県空き家対策支援事業</a></li><li><a href="pref-mie.html#mie-ev-donyu-r8">令和8年度電気自動車等導入費補助金</a></li><li><a href="pref-mie.html#mie-taishin-hokyo-kouji">木造住宅の耐震補強工事補助</a></li><li><a href="pref-mie.html#mie-taishin-reform">耐震：木造住宅のリフォーム工事補助</a></li><li><a href="pref-mie.html#mie-taishin-sekkei">木造住宅の耐震補強設計補助</a></li></ul>
+          <p><a href="pref-mie.html#pref-resident">三重県の制度7件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">三重県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">伊勢市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-mie.html#mie-kaigai-business">三重県 海外ビジネス展開支援補助金</a></li><li><a href="pref-mie.html#mie-sogyo-saichosen-shikin">三重県 創業・再挑戦アシスト資金</a></li><li><a href="pref-mie.html#mie-incubation-shisetsu">三重県 みえインキュベーション施設整備補助金</a></li><li><a href="pref-mie.html#mie-kigyo-shienkin">三重県起業支援金</a></li><li><a href="pref-mie.html#mie-startup-shien">三重県スタートアップ支援補助金</a></li></ul>
-          <p><a href="pref-mie.html#pref-business">三重県の制度5件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="ise-city-sogyo-iten-sokushin">
+            <div class="ar-name"><b>伊勢市創業・移転促進補助金</b><small>市内での創業や市外からの本店移転、事業承継にかかる経費の一部を補助する。申請前に商工労政課への事前連絡が必要。<br>対象：市内で創業する個人・中小企業者・NPO法人／市外から本店等を市内に移す個人・法人<br>期間：随時受付（予算額に達し次第終了）</small><span class="ar-prov">伊勢市 商工労政課</span></div>
+            <div class="ar-amt">要確認（募集要領に記載。民間情報では補助率1/2・上限100万円程度）</div>
+            <a class="ar-go" href="https://www.city.ise.mie.jp/sangyo/syoukou/sangyoshien/1002972.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="ise-city-sogyo-saichosen-risoku">
+            <div class="ar-name"><b>創業・再挑戦アシスト資金利子補給補助金</b><small>創業や再挑戦のための資金を借り入れた事業者に対し、利子の一部を補給する制度。<br>対象：市内で創業または再挑戦する事業者／対象の融資を利用していること（詳細は要確認）</small><span class="ar-prov">伊勢市 商工労政課</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.ise.mie.jp/sangyo/syoukou/sangyoshien/1009569/1009573.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">三重県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>伊勢市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="ise-taishin">
-            <h3>伊勢市木造住宅耐震補強・耐震シェルター・空き家除却補助</h3>
-            <p class="area-meta">三重県伊勢市｜補助金｜耐震補強工事上限157.5万円、耐震シェルター等上限100万円、空き家除却上限30万円</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>旧耐震の木造住宅の耐震補強、シェルター設置、空き家除却費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>昭和56年5月31日以前着工の木造住宅</li><li>耐震診断で評点が低いこと</li><li>契約前に申請</li></ul>
-            <p><a href="https://www.city.ise.mie.jp/bousai_kyukyu/bousai/hojo/1013783.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program" id="ise-solar">
-            <h3>伊勢市自家消費型太陽光発電設備等設置費補助金</h3>
-            <p class="area-meta">三重県伊勢市｜補助金｜蓄電池:容量×15.5万円と購入設置費(税抜)の1/3の少ない方、太陽光:出力×7万円等</p>
-            <p class="area-meta">期間：令和8年度分は受付終了</p>
-            <p>住宅の太陽光発電設備・定置型蓄電池の設置費を補助する。令和8年度分は予算額(1,751万円)に達し受付終了。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>住宅への設置</li><li>詳細は要確認</li></ul>
-            <p><a href="https://www.city.ise.mie.jp/kurashi/kankyo/hozen/1016396.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="ise-akiya-kounyu">
-            <h3>伊勢市空家購入促進事業補助金</h3>
-            <p class="area-meta">三重県伊勢市｜補助金｜購入費の1/2、上限50万円(移住者・子育て世帯)/30万円(一般世帯)</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>市内の空き家購入費を補助する。空家リフォーム促進事業補助金との併用不可。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>耐震基準を満たす市内の空き家を購入</li><li>3年以上居住</li></ul>
-            <p><a href="https://www.city.ise.mie.jp/kurashi/hikkoshi_sumai/akiya/hojo/1016905.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="ise-akiya-reform">
-            <h3>伊勢市空家リフォーム促進事業補助金</h3>
-            <p class="area-meta">三重県伊勢市｜補助金｜工事費の1/2、上限30万円(一般世帯)/50万円(子育て・移住世帯)</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>空き家のリフォーム費用を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>空き家をリフォームし10年以上居住</li></ul>
-            <p><a href="https://www.city.ise.mie.jp/kurashi/hikkoshi_sumai/akiya/hojo/1015022.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>三重県の制度</strong></p>
-          <ul><li><a href="pref-mie.html#mie-akiya-taisaku-shien">三重県空き家対策支援事業</a></li><li><a href="pref-mie.html#mie-ev-donyu-r8">令和8年度電気自動車等導入費補助金</a></li><li><a href="pref-mie.html#mie-taishin-hokyo-kouji">木造住宅の耐震補強工事補助</a></li><li><a href="pref-mie.html#mie-taishin-reform">耐震：木造住宅のリフォーム工事補助</a></li><li><a href="pref-mie.html#mie-taishin-sekkei">木造住宅の耐震補強設計補助</a></li></ul>
-          <p><a href="pref-mie.html#pref-resident">三重県の制度7件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-mie.html#mie-kaigai-business">三重県 海外ビジネス展開支援補助金</a></li><li><a href="pref-mie.html#mie-sogyo-saichosen-shikin">三重県 創業・再挑戦アシスト資金</a></li><li><a href="pref-mie.html#mie-incubation-shisetsu">三重県 みえインキュベーション施設整備補助金</a></li><li><a href="pref-mie.html#mie-kigyo-shienkin">三重県起業支援金</a></li><li><a href="pref-mie.html#mie-startup-shien">三重県スタートアップ支援補助金</a></li></ul>
+          <p><a href="pref-mie.html#pref-business">三重県の制度5件を、県のページで見る →</a></p>
       </div>
     </section>
 

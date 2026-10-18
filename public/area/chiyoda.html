@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"千代田区","item":"https://hojyokin.net/area/chiyoda.html"}]}</script>
@@ -165,185 +207,135 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 千代田区</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b07.webp')"><h1 class="pb-title">千代田区の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-tokyo.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">東京都・特別区。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">東京都 千代田区</p>
+        <h1>千代田区で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度15件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-tokyo.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（千代田区）<b>4件</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（東京都）<b>6件（うち受付終了1件）</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>11件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 3</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-2">EV・充電 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-5">バリアフリー・介護 3</a><a href="#res-cat-6">子育て 1</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <a href="#res-g-kosodate"><i aria-hidden="true">👶</i><b>子育て</b><small>1件</small></a>
+      <span class="is-none"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>掲載なし</small></span>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>10件</small></a>
+      <span class="is-none"><i aria-hidden="true">🌱</i><b>移住</b><small>掲載なし</small></span>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市4件＋県6件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">千代田区の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="chiyoda-hanrokakudai">
-            <h3>中小企業販路拡大事業支援補助（展示会出展に対する補助金）</h3>
-            <p class="area-meta">千代田区 産業振興課｜補助金｜補助率：補助対象経費の3分の2（千円未満切捨て）。補助限度額：10万円（条件を満たす場合は20万円）</p>
-            <p class="area-meta">期間：令和8年度（オンライン申請。受付期間は要確認）</p>
-            <p>区内中小企業者が販路拡大のために展示会等へ出展する際の出展経費の一部を補助します。申請は事業者ポータルサイトからのオンライン申請です。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>区内に事業所を有する中小企業者</li><li>展示会等への出展による販路拡大を目的とすること</li></ul>
-            <p><a href="https://www.city.chiyoda.lg.jp/koho/shigoto/jigyosho/josei/hanrokakudai.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-kosodate">子育て<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="chiyoda-jisedai-ikusei">
+            <div class="ar-name"><b>千代田区 次世代育成住宅助成</b><small>区内の民間賃貸に住む子育て世帯や、マイホームへ住み替える子育て世帯に家賃等を助成する。<br>対象：区内の民間賃貸住宅に住む世帯、またはマイホームへ住み替える世帯／3人世帯は専有面積40平方メートル以上など</small><span class="ar-prov">千代田区 住宅課</span></div>
+            <div class="ar-amt">家賃助成は年々減額。例：親元近居の3人世帯は1年目に月5万円</div>
+            <a class="ar-go" href="https://www.city.chiyoda.lg.jp/koho/machizukuri/sumai/jose/jisedai.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="chiyoda-zaisanshutoku">
-            <h3>産業財産権取得支援事業</h3>
-            <p class="area-meta">千代田区 産業振興課｜補助金｜補助対象経費の2分の1、または補助限度額20万円のいずれか低い額（令和8年度の適用条件は要確認）</p>
-            <p class="area-meta">期間：令和8年度（要確認）</p>
-            <p>区内中小企業者が特許・商標・意匠などの産業財産権を取得する際の費用の一部を補助します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>区内に事業所を有する中小企業者</li><li>産業財産権の取得費用が対象</li></ul>
-            <p><a href="https://www.city.chiyoda.lg.jp/koho/shigoto/jigyosho/josei/zaisanshutoku.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <div class="area-program" id="chiyoda-shotengai-sogyo">
-            <h3>商店街区域での創業者向け補助金（千代田区創業支援事業）</h3>
-            <p class="area-meta">千代田区 産業振興課｜補助金｜要確認（資料により記載が異なる。2024年版ガイドブックでは50万円の記載あり。最新の額は窓口で要確認）</p>
-            <p class="area-meta">期間：令和8年度（要確認）</p>
-            <p>区内の商店街区域で創業し、商店街で活動する事業者の創業経費（商店街会費、人件費、備品・消耗品費、内装工事費など）の一部を補助します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>区内の商店街区域で創業する者</li><li>特定創業支援事業の証明書の有無により限度額区分あり</li></ul>
-            <p><a href="https://www.city.chiyoda.lg.jp/documents/18295/2024guidebook7.pdf" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>10件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="chiyoda-block-kaizen">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>千代田区要除却ブロック塀等の改善工事助成</b><small>道路等に面する要除却ブロック塀等の撤去と、撤去後の塀の設置費用を助成する。<br>対象：工事契約前に事前相談・申請が必要／二者以上の見積りが必要<br>期間：令和8年4月時点の案内（予算額に達し次第終了）</small><span class="ar-prov">千代田区 建築指導課</span></div>
+            <div class="ar-amt">撤去工事は10分の10（上限40万円）、撤去後の設置工事は2分の1（上限30万円）</div>
+            <a class="ar-go" href="https://www.city.chiyoda.lg.jp/koho/machizukuri/kenchiku/taishin/block-josei.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="chiyoda-shoken-yushi">
-            <h3>千代田区商工融資あっせん制度（含 特別資金）</h3>
-            <p class="area-meta">千代田区 産業振興課｜融資｜区・信用保証協会・指定金融機関の協調による融資あっせん。利子補給と信用保証料の補助あり。上限額・利率は資金ごとに要確認</p>
-            <p class="area-meta">期間：通年（令和8年度の受付条件は要確認）</p>
-            <p>区内中小企業者の経営安定化のため、営業資金・設備資金・小規模企業特別資金・起業資金などを区が融資あっせんし、利子と信用保証料の一部を補助します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>区内に本店または事務所を有する中小企業者</li><li>資金ごとに利用条件が異なる</li></ul>
-            <p><a href="https://www.city.chiyoda.lg.jp/koho/shigoto/jigyosho/yushi/assen/joken.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="chiyoda-ev-judensetsubi">
+            <div class="ar-name"><b><span class="ar-tag">EV・充電</span>千代田区クリーンエネルギー自動車充電設備等導入費助成制度</b><small>充電設備、V2Hの導入費用を助成する。国・都の助成と併用できる。<br>期間：令和8年度（先着順、予算がなくなり次第終了）</small><span class="ar-prov">千代田区 環境政策課</span></div>
+            <div class="ar-amt">急速充電設備：最大50万円/台、普通充電設備（充電用コンセント等）：最大30万円、V2H：最大50万円</div>
+            <a class="ar-go" href="https://www.city.chiyoda.lg.jp/koho/machizukuri/kankyo/hojo/clean-ene-judensetsubijosei.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          <div class="ar-row" id="chiyoda-jutakutsuki-taishin">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>千代田区 住宅付建築物の耐震化促進助成</b><small>住宅部分のある建築物で、所有者が居住している場合の耐震改修費等を助成する。<br>対象：昭和56年5月31日以前に建築確認を得た建築物など</small><span class="ar-prov">千代田区 建築指導課</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.chiyoda.lg.jp/koho/machizukuri/kenchiku/taishin/jutakutsukikenchikubutsu-josei.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="chiyoda-kaigoyobo-jutaku-kaishu">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>千代田区 （介護予防）住宅改修費の支給</b><small>手すり設置や段差解消などの住宅改修の費用を支給する。要介護・要支援の方は介護保険で上限20万円。<br>対象：介護認定を受けていない65歳以上の方（介護予防）／事前申請が必要（工事後の申請は不可）</small><span class="ar-prov">千代田区 高齢介護課</span></div>
+            <div class="ar-amt">同じ住宅で合計20万円までの工事費が対象。利用者負担は1割</div>
+            <a class="ar-go" href="https://www.city.chiyoda.lg.jp/koho/kurashi/hoken/riyosha/kyufu/kaishuhi.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="chiyoda-koreisha-fukushi-jutaku">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>千代田区 高齢者福祉住環境整備</b><small>高齢者の住環境整備（バリアフリー工事等）に関する区の制度。</small><span class="ar-prov">千代田区 高齢介護課</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.chiyoda.lg.jp/koho/kenko/koresha/dokuji-kaigo/sebi.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="chiyoda-mansion-taishin">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>千代田区 マンションの耐震化促進助成</b><small>マンションの耐震化に要する費用を助成する。<br>期間：令和7年度実施分は終了。令和8年度実施分の相談を受付中</small><span class="ar-prov">千代田区 建築指導課</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.chiyoda.lg.jp/koho/machizukuri/kenchiku/taishin/mansion-josei.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="chiyoda-mokuzo-taishin">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>千代田区 木造住宅の耐震化促進助成</b><small>高齢者等が居住する木造住宅の耐震診断・耐震改修等に要する費用を助成する。<br>対象：高齢者等が居住する木造住宅</small><span class="ar-prov">千代田区 建築指導課</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.chiyoda.lg.jp/koho/machizukuri/kenchiku/taishin/mokuzojutaku-josei.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="chiyoda-shoene-mado">
+            <div class="ar-name"><b><span class="ar-tag">省エネ住宅</span>千代田区省エネルギー改修等助成制度（窓断熱・高効率給湯器）</b><small>住宅の窓断熱（二重窓・複層ガラス）や高効率ガス給湯器の設置費用を助成する。<br>対象：申請者は大企業者でないこと／施工業者による改修であること<br>期間：令和8年度。予算額に達したため今年度分の受付は一旦終了。工事完了報告の期限：令和9年3月15日<br>締切：2027-03-15</small><span class="ar-prov">千代田区 環境政策課</span></div>
+            <div class="ar-amt">住宅の窓断熱は窓の大きさ・性能に応じた単価で上限100万円。高効率ガス給湯器（潜熱回収型）は1台あたり3万円</div>
+            <a class="ar-go" href="https://www.city.chiyoda.lg.jp/koho/machizukuri/kankyo/hojo/sho-ene.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="chiyoda-shoene-solar">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>千代田区省エネルギー改修等助成制度（太陽光・蓄電池・エネファーム）</b><small>太陽光発電システム、蓄電システム、燃料電池システム（エネファーム）の設置費用を助成する。同制度の窓断熱・給湯器は別項目。<br>対象：申請者は大企業者でないこと／施工業者による改修であること<br>期間：令和8年度。予算額に達したため今年度分の受付は一旦終了。工事完了報告の期限：令和9年3月15日</small><span class="ar-prov">千代田区 環境政策課</span></div>
+            <div class="ar-amt">対象経費の20％</div>
+            <a class="ar-go" href="https://www.city.chiyoda.lg.jp/koho/machizukuri/kankyo/hojo/sho-ene.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="chiyoda-shogaisha-jutaku-setsubi">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>千代田区 日常生活用具費および住宅設備改善費の支給</b><small>障害のある人の日常生活用具や住宅設備の改善費用を支給する。</small><span class="ar-prov">千代田区 障害者福祉課</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.chiyoda.lg.jp/koho/kenko/shogaisha/techo/zaitaku-nichijo-shien/shikyu.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>東京都の制度</strong></p>
+          <ul><li><a href="pref-tokyo.html#tokyo-akachan-first">東京都出産・子育て応援事業（赤ちゃんファースト）</a></li><li><a href="pref-tokyo.html#tokyo-akiya-kazai-kaitai">東京都空き家家財整理・解体促進事業</a></li><li><a href="pref-tokyo.html#tokyo-dannetsu-solar-jutaku">災害にも強く健康にも資する断熱・太陽光住宅普及拡大事業</a></li><li><a href="pref-tokyo.html#tokyo-home-evcharge">戸建住宅向け充電設備普及促進事業（令和8年度）</a></li><li><a href="pref-tokyo.html#tokyo-kodomo-mamoru-jutaku">子育て世帯向け補助事業（「子供を守る」住宅確保促進事業）</a></li></ul>
+          <p><a href="pref-tokyo.html#pref-resident">東京都の制度9件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">東京都の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">千代田区の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-tokyo.html#tokyo-jigyoshokei-josei">事業承継支援助成金（第3回）</a></li><li><a href="pref-tokyo.html#tokyo-kadai-kaiketsu-gijutsu">課題解決型技術開発促進事業</a></li><li><a href="pref-tokyo.html#tokyo-seidoyushi-sogyo">東京都中小企業制度融資「創業」</a></li><li><a href="pref-tokyo.html#tokyo-seihin-chakushu">製品開発着手支援助成事業</a></li><li><a href="pref-tokyo.html#tokyo-souikufuu-challenge">経営力強化に向けた創意工夫チャレンジ促進事業</a></li></ul>
-          <p><a href="pref-tokyo.html#pref-business">東京都の制度6件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="chiyoda-hanrokakudai">
+            <div class="ar-name"><b>中小企業販路拡大事業支援補助（展示会出展に対する補助金）</b><small>区内中小企業者が販路拡大のために展示会等へ出展する際の出展経費の一部を補助します。申請は事業者ポータルサイトからのオンライン申請です。<br>対象：区内に事業所を有する中小企業者／展示会等への出展による販路拡大を目的とすること</small><span class="ar-prov">千代田区 産業振興課</span></div>
+            <div class="ar-amt">補助率：補助対象経費の3分の2（千円未満切捨て）。補助限度額：10万円（条件を満たす場合は20万円）</div>
+            <a class="ar-go" href="https://www.city.chiyoda.lg.jp/koho/shigoto/jigyosho/josei/hanrokakudai.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="chiyoda-zaisanshutoku">
+            <div class="ar-name"><b>産業財産権取得支援事業</b><small>区内中小企業者が特許・商標・意匠などの産業財産権を取得する際の費用の一部を補助します。<br>対象：区内に事業所を有する中小企業者／産業財産権の取得費用が対象</small><span class="ar-prov">千代田区 産業振興課</span></div>
+            <div class="ar-amt">補助対象経費の2分の1、または補助限度額20万円のいずれか低い額（令和8年度の適用条件は要確認）</div>
+            <a class="ar-go" href="https://www.city.chiyoda.lg.jp/koho/shigoto/jigyosho/josei/zaisanshutoku.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="chiyoda-shotengai-sogyo">
+            <div class="ar-name"><b>商店街区域での創業者向け補助金（千代田区創業支援事業）</b><small>区内の商店街区域で創業し、商店街で活動する事業者の創業経費（商店街会費、人件費、備品・消耗品費、内装工事費など）の一部を補助します。<br>対象：区内の商店街区域で創業する者／特定創業支援事業の証明書の有無により限度額区分あり</small><span class="ar-prov">千代田区 産業振興課</span></div>
+            <div class="ar-amt">要確認（資料により記載が異なる。2024年版ガイドブックでは50万円の記載あり。最新の額は窓口で要確認）</div>
+            <a class="ar-go" href="https://www.city.chiyoda.lg.jp/documents/18295/2024guidebook7.pdf" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="chiyoda-shoken-yushi">
+            <div class="ar-name"><b>千代田区商工融資あっせん制度（含 特別資金）</b><small>区内中小企業者の経営安定化のため、営業資金・設備資金・小規模企業特別資金・起業資金などを区が融資あっせんし、利子と信用保証料の一部を補助します。<br>対象：区内に本店または事務所を有する中小企業者／資金ごとに利用条件が異なる</small><span class="ar-prov">千代田区 産業振興課</span></div>
+            <div class="ar-amt">区・信用保証協会・指定金融機関の協調による融資あっせん。利子補給と信用保証料の補助あり。上限額・利率は資金ごとに要確認</div>
+            <a class="ar-go" href="https://www.city.chiyoda.lg.jp/koho/shigoto/jigyosho/yushi/assen/joken.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">東京都の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>千代田区の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="chiyoda-jutakutsuki-taishin">
-            <h3>千代田区 住宅付建築物の耐震化促進助成</h3>
-            <p class="area-meta">千代田区 建築指導課｜助成金｜金額は公式で確認</p>
-            
-            <p>住宅部分のある建築物で、所有者が居住している場合の耐震改修費等を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>昭和56年5月31日以前に建築確認を得た建築物など</li></ul>
-            <p><a href="https://www.city.chiyoda.lg.jp/koho/machizukuri/kenchiku/taishin/jutakutsukikenchikubutsu-josei.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="chiyoda-mansion-taishin">
-            <h3>千代田区 マンションの耐震化促進助成</h3>
-            <p class="area-meta">千代田区 建築指導課｜助成金｜金額は公式で確認</p>
-            <p class="area-meta">期間：令和7年度実施分は終了。令和8年度実施分の相談を受付中</p>
-            <p>マンションの耐震化に要する費用を助成する。</p>
-            
-            <p><a href="https://www.city.chiyoda.lg.jp/koho/machizukuri/kenchiku/taishin/mansion-josei.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="chiyoda-mokuzo-taishin">
-            <h3>千代田区 木造住宅の耐震化促進助成</h3>
-            <p class="area-meta">千代田区 建築指導課｜助成金｜金額は公式で確認</p>
-            
-            <p>高齢者等が居住する木造住宅の耐震診断・耐震改修等に要する費用を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>高齢者等が居住する木造住宅</li></ul>
-            <p><a href="https://www.city.chiyoda.lg.jp/koho/machizukuri/kenchiku/taishin/mokuzojutaku-josei.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program" id="chiyoda-shoene-solar">
-            <h3>千代田区省エネルギー改修等助成制度（太陽光・蓄電池・エネファーム）</h3>
-            <p class="area-meta">千代田区 環境政策課｜助成金｜対象経費の20％</p>
-            <p class="area-meta">期間：令和8年度。予算額に達したため今年度分の受付は一旦終了。工事完了報告の期限：令和9年3月15日</p>
-            <p>太陽光発電システム、蓄電システム、燃料電池システム（エネファーム）の設置費用を助成する。同制度の窓断熱・給湯器は別項目。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>申請者は大企業者でないこと</li><li>施工業者による改修であること</li></ul>
-            <p><a href="https://www.city.chiyoda.lg.jp/koho/machizukuri/kankyo/hojo/sho-ene.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
-          <div class="area-program" id="chiyoda-ev-judensetsubi">
-            <h3>千代田区クリーンエネルギー自動車充電設備等導入費助成制度</h3>
-            <p class="area-meta">千代田区 環境政策課｜助成金｜急速充電設備：最大50万円/台、普通充電設備（充電用コンセント等）：最大30万円、V2H：最大50万円</p>
-            <p class="area-meta">期間：令和8年度（先着順、予算がなくなり次第終了）</p>
-            <p>充電設備、V2Hの導入費用を助成する。国・都の助成と併用できる。</p>
-            
-            <p><a href="https://www.city.chiyoda.lg.jp/koho/machizukuri/kankyo/hojo/clean-ene-judensetsubijosei.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
-          <div class="area-program" id="chiyoda-shoene-mado">
-            <h3>千代田区省エネルギー改修等助成制度（窓断熱・高効率給湯器）</h3>
-            <p class="area-meta">千代田区 環境政策課｜助成金｜住宅の窓断熱は窓の大きさ・性能に応じた単価で上限100万円。高効率ガス給湯器（潜熱回収型）は1台あたり3万円｜締切：2027-03-15</p>
-            <p class="area-meta">期間：令和8年度。予算額に達したため今年度分の受付は一旦終了。工事完了報告の期限：令和9年3月15日</p>
-            <p>住宅の窓断熱（二重窓・複層ガラス）や高効率ガス給湯器の設置費用を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>申請者は大企業者でないこと</li><li>施工業者による改修であること</li></ul>
-            <p><a href="https://www.city.chiyoda.lg.jp/koho/machizukuri/kankyo/hojo/sho-ene.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="chiyoda-block-kaizen">
-            <h3>千代田区要除却ブロック塀等の改善工事助成</h3>
-            <p class="area-meta">千代田区 建築指導課｜助成金｜撤去工事は10分の10（上限40万円）、撤去後の設置工事は2分の1（上限30万円）</p>
-            <p class="area-meta">期間：令和8年4月時点の案内（予算額に達し次第終了）</p>
-            <p>道路等に面する要除却ブロック塀等の撤去と、撤去後の塀の設置費用を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>工事契約前に事前相談・申請が必要</li><li>二者以上の見積りが必要</li></ul>
-            <p><a href="https://www.city.chiyoda.lg.jp/koho/machizukuri/kenchiku/taishin/block-josei.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
-          <div class="area-program" id="chiyoda-kaigoyobo-jutaku-kaishu">
-            <h3>千代田区 （介護予防）住宅改修費の支給</h3>
-            <p class="area-meta">千代田区 高齢介護課｜給付｜同じ住宅で合計20万円までの工事費が対象。利用者負担は1割</p>
-            
-            <p>手すり設置や段差解消などの住宅改修の費用を支給する。要介護・要支援の方は介護保険で上限20万円。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>介護認定を受けていない65歳以上の方（介護予防）</li><li>事前申請が必要（工事後の申請は不可）</li></ul>
-            <p><a href="https://www.city.chiyoda.lg.jp/koho/kurashi/hoken/riyosha/kyufu/kaishuhi.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="chiyoda-koreisha-fukushi-jutaku">
-            <h3>千代田区 高齢者福祉住環境整備</h3>
-            <p class="area-meta">千代田区 高齢介護課｜助成金｜金額は公式で確認</p>
-            
-            <p>高齢者の住環境整備（バリアフリー工事等）に関する区の制度。</p>
-            
-            <p><a href="https://www.city.chiyoda.lg.jp/koho/kenko/koresha/dokuji-kaigo/sebi.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="chiyoda-shogaisha-jutaku-setsubi">
-            <h3>千代田区 日常生活用具費および住宅設備改善費の支給</h3>
-            <p class="area-meta">千代田区 障害者福祉課｜給付｜金額は公式で確認</p>
-            
-            <p>障害のある人の日常生活用具や住宅設備の改善費用を支給する。</p>
-            
-            <p><a href="https://www.city.chiyoda.lg.jp/koho/kenko/shogaisha/techo/zaitaku-nichijo-shien/shikyu.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-6">子育て</h3>
-          <div class="area-program" id="chiyoda-jisedai-ikusei">
-            <h3>千代田区 次世代育成住宅助成</h3>
-            <p class="area-meta">千代田区 住宅課｜助成金｜家賃助成は年々減額。例：親元近居の3人世帯は1年目に月5万円</p>
-            
-            <p>区内の民間賃貸に住む子育て世帯や、マイホームへ住み替える子育て世帯に家賃等を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>区内の民間賃貸住宅に住む世帯、またはマイホームへ住み替える世帯</li><li>3人世帯は専有面積40平方メートル以上など</li></ul>
-            <p><a href="https://www.city.chiyoda.lg.jp/koho/machizukuri/sumai/jose/jisedai.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>東京都の制度</strong></p>
-          <ul><li><a href="pref-tokyo.html#tokyo-akachan-first">東京都出産・子育て応援事業（赤ちゃんファースト）</a></li><li><a href="pref-tokyo.html#tokyo-akiya-kazai-kaitai">東京都空き家家財整理・解体促進事業</a></li><li><a href="pref-tokyo.html#tokyo-dannetsu-solar-jutaku">災害にも強く健康にも資する断熱・太陽光住宅普及拡大事業</a></li><li><a href="pref-tokyo.html#tokyo-home-evcharge">戸建住宅向け充電設備普及促進事業（令和8年度）</a></li><li><a href="pref-tokyo.html#tokyo-kodomo-mamoru-jutaku">子育て世帯向け補助事業（「子供を守る」住宅確保促進事業）</a></li></ul>
-          <p><a href="pref-tokyo.html#pref-resident">東京都の制度9件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-tokyo.html#tokyo-jigyoshokei-josei">事業承継支援助成金（第3回）</a></li><li><a href="pref-tokyo.html#tokyo-kadai-kaiketsu-gijutsu">課題解決型技術開発促進事業</a></li><li><a href="pref-tokyo.html#tokyo-seidoyushi-sogyo">東京都中小企業制度融資「創業」</a></li><li><a href="pref-tokyo.html#tokyo-seihin-chakushu">製品開発着手支援助成事業</a></li><li><a href="pref-tokyo.html#tokyo-souikufuu-challenge">経営力強化に向けた創意工夫チャレンジ促進事業</a></li></ul>
+          <p><a href="pref-tokyo.html#pref-business">東京都の制度6件を、県のページで見る →</a></p>
       </div>
     </section>
 

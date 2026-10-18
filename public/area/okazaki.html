@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"岡崎市","item":"https://hojyokin.net/area/okazaki.html"}]}</script>
@@ -165,209 +207,153 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 岡崎市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b02.webp')"><h1 class="pb-title">岡崎市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-aichi.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">愛知県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">愛知県 岡崎市</p>
+        <h1>岡崎市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度17件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-aichi.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（岡崎市）<b>4件</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（愛知県）<b>5件</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>13件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-2">EV・充電 1</a><a href="#res-cat-4">空き家・ブロック塀 3</a><a href="#res-cat-6">子育て 1</a><a href="#res-cat-7">医療・福祉 4</a><a href="#res-cat-8">教育・学び 2</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <a href="#res-g-kosodate"><i aria-hidden="true">👶</i><b>子育て</b><small>1件</small></a>
+      <a href="#res-g-iryo"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>4件</small></a>
+      <a href="#res-g-kyoiku"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>2件</small></a>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>6件</small></a>
+      <span class="is-none"><i aria-hidden="true">🌱</i><b>移住</b><small>掲載なし</small></span>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市4件＋県5件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">岡崎市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="okazaki-city-chusho-hosyoryo">
-            <h3>岡崎市中小企業事業資金保証料補助金</h3>
-            <p class="area-meta">岡崎市 産業労働部 商工労政課｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>マル岡・振・振小などの市融資あっせん制度を利用した場合の信用保証料を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市の融資あっせん制度（マル岡、振、振小）の利用者</li></ul>
-            <p><a href="https://www.city.okazaki.lg.jp/1400/1404/1415/p034319.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-kosodate">子育て<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="okazaki-kodomo-iryo-kakudai">
+            <div class="ar-name"><b>子ども医療費助成（令和9年4月から高校生世代まで拡大）</b><small>令和9年4月1日から子ども医療費受給者証の対象を高校生世代まで拡大します。<br>対象：岡崎市に住所がある、18歳の年度末までのかた／学生でないかたも対象<br>期間：令和9年4月1日から使用できる受給者証を令和9年3月中旬を目途に送付</small><span class="ar-prov">岡崎市 福祉部 福祉医療課</span></div>
+            <div class="ar-amt">医療機関等の窓口で受給者証を提示すると保険診療分の自己負担額が無料</div>
+            <a class="ar-go" href="https://www.city.okazaki.lg.jp/kosodate/ninshin/1012190/1012192/1016636.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="okazaki-city-monozukuri-shien">
-            <h3>岡崎ものづくり支援補助金（見本市出展・共同研究・知財取得等）</h3>
-            <p class="area-meta">岡崎市 商工労政課ものづくり支援係／岡崎ものづくり推進協議会｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>共同研究・依頼試験、見本市出展、専門家派遣、知的財産権取得などの費用を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内のものづくり企業</li></ul>
-            <p><a href="https://www.city.okazaki.lg.jp/1550/1565/1627/p027948.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <div class="area-program" id="okazaki-city-sogyo-hosyoryo">
-            <h3>岡崎市創業資金保証料補助金</h3>
-            <p class="area-meta">岡崎市 産業労働部 商工労政課｜補助金｜保証料の45%（上限20万円）</p>
-            <p class="area-meta">期間：融資実行日から60日以内に申請（令和8年度要綱あり）</p>
-            <p>愛知県経済環境適応資金（創業等支援資金）で創業した方の信用保証料を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>愛知県経済環境適応資金（創業等支援資金）を利用して創業した方</li><li>市内で創業</li></ul>
-            <p><a href="https://www.city.okazaki.lg.jp/1400/1404/1415/p034319.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/okazaki-city-sogyo-hosyoryo.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+          <h3 class="area-cat" id="res-g-iryo">医療・福祉<span>4件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="okazaki-appearance">
+            <div class="ar-name"><b>アピアランスケア用品購入費補助金</b><small>がん治療に伴う脱毛等により医療用ウィッグや補整具を購入した方に、購入費の一部を補助します。<br>対象：申請日時点で岡崎市に住民票があるかた／がん治療に伴う脱毛に対するウィッグ、乳房の変形等に対する補整具を購入したかた<br>期間：補整具を購入した日の翌日から1年以内（令和8年度の受付は令和9年3月31日まで）<br>締切：2027-03-31</small><span class="ar-prov">岡崎市 保健所 健康増進課</span></div>
+            <div class="ar-amt">ウィッグ、乳房補整具またはエピテーゼのそれぞれにおいて上限20,000円（購入金額の1/2）</div>
+            <a class="ar-go" href="https://www.city.okazaki.lg.jp/kenko/kenko_iryo/1012508/1002047.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="okazaki-city-sogyo-risokyu">
-            <h3>岡崎市創業資金利子補給補助金</h3>
-            <p class="area-meta">岡崎市 産業労働部 商工労政課｜補助金｜返済2〜7回目の利子の45%（上限20万円）、ウィズ認証取得で60%</p>
-            <p class="area-meta">期間：2回目の利子支払日までに申請</p>
-            <p>日本政策金融公庫の創業融資を受けた方に利子の一部を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>新たに事業を始める方または開業5年未満</li><li>市内に住所（本店）と主たる事業所がある</li></ul>
-            <p><a href="https://www.city.okazaki.lg.jp/1400/1404/1415/p034319.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/okazaki-city-sogyo-risokyu.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+          <div class="ar-row" id="okazaki-fuikusho">
+            <div class="ar-name"><b>不育症検査に要する費用の補助</b><small>先進医療に位置付けられた不育症検査を対象に、検査に要する費用の一部を補助します。<br>対象：申請時に岡崎市に住所を有するかた／既往流死産回数が合計2回以上あるかた<br>期間：【令和8年度】令和9年（2027年）3月31日まで<br>締切：2027-03-31</small><span class="ar-prov">岡崎市 保健所</span></div>
+            <div class="ar-amt">1回の検査につき費用の7割に相当する額と6万円のいずれか少ない方の額（1,000円未満は切り捨て）</div>
+            <a class="ar-go" href="https://www.city.okazaki.lg.jp/kenko/kenko_iryo/1012508/1004411.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          <div class="ar-row" id="okazaki-funin-senshin">
+            <div class="ar-name"><b>不妊治療（先進医療）に要する費用の補助</b><small>健康保険適用の生殖補助医療と併用して実施した先進医療の費用を補助します（令和8年6月1日開始）。<br>対象：夫婦の両方またはいずれかが岡崎市に住民票を有する／治療を開始した日の妻の年齢が43歳未満<br>期間：申請開始日は令和8年6月1日。令和8年4月1日から5月31日に治療終了の方は令和8年11月30日までに申請<br>締切：2026-11-30</small><span class="ar-prov">岡崎市 保健所</span></div>
+            <div class="ar-amt">対象費用の10分の7に相当する額（上限額5万円）</div>
+            <a class="ar-go" href="https://www.city.okazaki.lg.jp/kenko/kenko_iryo/1012508/1014786.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="okazaki-fushin-kotai">
+            <div class="ar-name"><b>風しん抗体検査・予防接種費用助成（妊娠を希望する女性等対象）</b><small>先天性風しん症候群を予防するため、風しん抗体検査と風しん予防接種の費用を補助します。<br>対象：岡崎市に住民登録があり、過去に風しん抗体検査・予防接種を受けたことがないかた／妊娠を予定又は希望する女性（妊婦は除く）やその同居者などが対象<br>期間：抗体検査・予防接種ともに令和8年4月1日から令和9年3月31日まで<br>締切：2027-03-31</small><span class="ar-prov">岡崎市</span></div>
+            <div class="ar-amt">抗体検査は自己負担無料。予防接種はMRワクチン5,100円、風しんワクチン3,400円（市民税非課税世帯・生活保護世帯は無料）</div>
+            <a class="ar-go" href="https://www.city.okazaki.lg.jp/kosodate/ninshin/1012185/1013860/1003573.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-kyoiku">教育・学び<span>2件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="okazaki-shogaku-kashitsuke">
+            <div class="ar-name"><b>岡崎市奨学資金貸付け</b><small>経済的な理由で大学等への修学が困難な学生に、無利子で奨学資金を貸し付けます（令和9年度の新規貸付け申請）。<br>対象：申請日現在で岡崎市内に引き続き1年以上住所がある方の子／令和9年度に大学・専修学校（専門課程に限る）に在学又は入学予定<br>期間：申請期間は令和8年9月1日から令和8年11月30日（必着）まで<br>締切：2026-11-30</small><span class="ar-prov">岡崎市 教育委員会事務局 教育政策課</span></div>
+            <div class="ar-amt">年額400,000円（無利子）</div>
+            <a class="ar-go" href="https://www.city.okazaki.lg.jp/kosodate/kyouiku/1012239/1003703.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="okazaki-shugaku-enjo">
+            <div class="ar-name"><b>就学援助制度</b><small>経済的な理由で小・中学校への就学にお困りの方に、学用品費や学校給食費などの費用の一部を援助します。<br>対象：原則、岡崎市にお住まいの、小学校・中学校に在籍する児童生徒の保護者／生活保護を受給している、市民税が非課税または減免されている、児童扶養手当を受給しているなどのいずれかに該当<br>期間：令和9年4月入学予定者の新入学児童生徒学用品費の入学前支給の案内あり</small><span class="ar-prov">岡崎市 教育委員会</span></div>
+            <div class="ar-amt">新入学児童生徒学用品費は小学校64,300円、中学校81,000円。学校給食費は支払免除（令和8年4月時点の内容）</div>
+            <a class="ar-go" href="https://www.city.okazaki.lg.jp/kosodate/kyouiku/1012240/1003700.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>6件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="okazaki-akiya-jokyaku">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>岡崎市 空き家の除却に関する補助制度</b><small>危険な空き家の除却費を補助する。交付決定前の契約・着工は対象外。<br>対象：危険空き家<br>期間：令和8年度の交付申請期限は12月28日<br>締切：2026-12-28</small><span class="ar-prov">愛知県岡崎市</span></div>
+            <div class="ar-amt">危険空き家は上限10万円、無接道等の危険空き家は上限60万円</div>
+            <a class="ar-go" href="https://www.city.okazaki.lg.jp/kurashi/hikkoshi/1012273/1012281/1003083/1003090.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="okazaki-akiya-kaishu">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>岡崎市 空き家の改修に関する補助制度</b><small>地域コミュニティの維持・再生等に活用する空き家の改修費を補助する。<br>対象：用途は地域コミュニティ維持・再生などに限る／耐震性の条件あり<br>期間：令和8年度は受付終了。令和9年度は4月中旬開始予定</small><span class="ar-prov">愛知県岡崎市</span></div>
+            <div class="ar-amt">上限50万円</div>
+            <a class="ar-go" href="https://www.city.okazaki.lg.jp/kurashi/hikkoshi/1012273/1012281/1003083/1003091.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="okazaki-block-tekkyo">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>岡崎市 転倒のおそれのあるブロック塀等の撤去費補助</b><small>道路沿いで転倒のおそれのあるブロック塀の撤去費を補助する。事前相談と現地調査が必要。<br>対象：道路沿いで転倒のおそれのあるブロック塀等</small><span class="ar-prov">愛知県岡崎市</span></div>
+            <div class="ar-amt">撤去費用と長さ×1万円の低い方の1/2（避難路に面する場合2/3）、上限10万円</div>
+            <a class="ar-go" href="https://www.city.okazaki.lg.jp/1100/1184/1165/p022900.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="okazaki-jisedai-jidosha">
+            <div class="ar-name"><b><span class="ar-tag">EV・充電</span>次世代自動車の購入費補助</b><small>電気自動車・プラグインハイブリッド車の購入費を補助する。<br>対象：個人は市内に180日以上居住などの要件あり</small><span class="ar-prov">岡崎市</span></div>
+            <div class="ar-amt">BEVまたはPHEV 35万円</div>
+            <a class="ar-go" href="https://www.city.okazaki.lg.jp/kurashi/gomi/1002338/1002481/1011421.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="okazaki-juutaku-jokyaku">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>岡崎市 倒壊のおそれのある住宅の除却費補助</b><small>昭和56年5月以前の耐震性のない住宅の除却費を補助する。<br>対象：昭和56年5月以前に建築された耐震性のない住宅</small><span class="ar-prov">愛知県岡崎市</span></div>
+            <div class="ar-amt">除却費用の23%（上限10万円）</div>
+            <a class="ar-go" href="https://www.city.okazaki.lg.jp/kurashi/bosai/1012542/1002798/1002809.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="okazaki-ondanka-setsubi">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>岡崎市地球温暖化対策設備設置費補助金</b><small>住宅への太陽光発電や蓄電システムなど地球温暖化対策設備の設置費用を補助する。<br>対象：太陽光は発電量の30％以上を自家消費／発電量の記録を3年間提出</small><span class="ar-prov">岡崎市</span></div>
+            <div class="ar-amt">住宅用太陽光は上限63万円、蓄電システムは上限35万円（重点対策加速化事業活用型）・15万円（岡崎産再エネ電気活用型）・2万円（一般型）</div>
+            <a class="ar-go" href="https://www.city.okazaki.lg.jp/1100/1108/1156/p043395.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>愛知県の制度</strong></p>
+          <ul><li><a href="pref-aichi.html#aichi-iju-shienkin">愛知県 移住支援金（東京圏からのUIJターン）</a></li><li><a href="pref-aichi.html#aichi-jutaku-ondanka-setsubi">愛知県住宅用地球温暖化対策設備導入促進費補助金（市町村との協調補助）</a></li><li><a href="pref-aichi.html#aichi-jutaku-taishin">住宅・建築物の耐震診断・耐震改修の補助制度（市町村実施）</a></li></ul>
+          <p><a href="pref-aichi.html#pref-resident">愛知県の制度3件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">愛知県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">岡崎市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-aichi.html#aichi-digital-dx">愛知県 中小企業デジタル化・DX促進補助金</a></li><li><a href="pref-aichi.html#aichi-kakushin-jigyo">愛知県 革新事業創造事業費補助金</a></li><li><a href="pref-aichi.html#aichi-shogyo-shinko">愛知県 商業振興事業費補助金（地域商業活動活性化事業）</a></li><li><a href="pref-aichi.html#aichi-sogyo-shikin">愛知県中小企業融資制度 創業等支援資金</a></li><li><a href="pref-aichi.html#aichi-startup-sogyo">あいちスタートアップ創業支援事業費補助金（起業支援金）</a></li></ul>
-          <p><a href="pref-aichi.html#pref-business">愛知県の制度5件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="okazaki-city-chusho-hosyoryo">
+            <div class="ar-name"><b>岡崎市中小企業事業資金保証料補助金</b><small>マル岡・振・振小などの市融資あっせん制度を利用した場合の信用保証料を補助する。<br>対象：市の融資あっせん制度（マル岡、振、振小）の利用者</small><span class="ar-prov">岡崎市 産業労働部 商工労政課</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.okazaki.lg.jp/1400/1404/1415/p034319.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="okazaki-city-monozukuri-shien">
+            <div class="ar-name"><b>岡崎ものづくり支援補助金（見本市出展・共同研究・知財取得等）</b><small>共同研究・依頼試験、見本市出展、専門家派遣、知的財産権取得などの費用を補助する。<br>対象：市内のものづくり企業</small><span class="ar-prov">岡崎市 商工労政課ものづくり支援係／岡崎ものづくり推進協議会</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.okazaki.lg.jp/1550/1565/1627/p027948.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="okazaki-city-sogyo-hosyoryo">
+            <div class="ar-name"><b>岡崎市創業資金保証料補助金</b><small>愛知県経済環境適応資金（創業等支援資金）で創業した方の信用保証料を補助する。<br>対象：愛知県経済環境適応資金（創業等支援資金）を利用して創業した方／市内で創業<br>期間：融資実行日から60日以内に申請（令和8年度要綱あり）</small><span class="ar-prov">岡崎市 産業労働部 商工労政課</span></div>
+            <div class="ar-amt">保証料の45%（上限20万円）</div>
+            <a class="ar-go" href="https://www.city.okazaki.lg.jp/1400/1404/1415/p034319.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="okazaki-city-sogyo-risokyu">
+            <div class="ar-name"><b>岡崎市創業資金利子補給補助金</b><small>日本政策金融公庫の創業融資を受けた方に利子の一部を補助する。<br>対象：新たに事業を始める方または開業5年未満／市内に住所（本店）と主たる事業所がある<br>期間：2回目の利子支払日までに申請</small><span class="ar-prov">岡崎市 産業労働部 商工労政課</span></div>
+            <div class="ar-amt">返済2〜7回目の利子の45%（上限20万円）、ウィズ認証取得で60%</div>
+            <a class="ar-go" href="https://www.city.okazaki.lg.jp/1400/1404/1415/p034319.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">愛知県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>岡崎市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="okazaki-juutaku-jokyaku">
-            <h3>岡崎市 倒壊のおそれのある住宅の除却費補助</h3>
-            <p class="area-meta">愛知県岡崎市｜補助金｜除却費用の23%（上限10万円）</p>
-            <p class="area-meta">期間：令和8年度（最新は要確認）</p>
-            <p>昭和56年5月以前の耐震性のない住宅の除却費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>昭和56年5月以前に建築された耐震性のない住宅</li></ul>
-            <p><a href="https://www.city.okazaki.lg.jp/kurashi/bosai/1012542/1002798/1002809.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program" id="okazaki-ondanka-setsubi">
-            <h3>岡崎市地球温暖化対策設備設置費補助金</h3>
-            <p class="area-meta">岡崎市｜補助金｜住宅用太陽光は上限63万円、蓄電システムは上限35万円（重点対策加速化事業活用型）・15万円（岡崎産再エネ電気活用型）・2万円（一般型）</p>
-            <p class="area-meta">期間：令和8年度（予算残額は要確認）</p>
-            <p>住宅への太陽光発電や蓄電システムなど地球温暖化対策設備の設置費用を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>太陽光は発電量の30％以上を自家消費</li><li>発電量の記録を3年間提出</li></ul>
-            <p><a href="https://www.city.okazaki.lg.jp/1100/1108/1156/p043395.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
-          <div class="area-program" id="okazaki-jisedai-jidosha">
-            <h3>次世代自動車の購入費補助</h3>
-            <p class="area-meta">岡崎市｜補助金｜BEVまたはPHEV 35万円</p>
-            <p class="area-meta">期間：令和8年度（詳細は要確認）</p>
-            <p>電気自動車・プラグインハイブリッド車の購入費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>個人は市内に180日以上居住などの要件あり</li></ul>
-            <p><a href="https://www.city.okazaki.lg.jp/kurashi/gomi/1002338/1002481/1011421.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="okazaki-akiya-jokyaku">
-            <h3>岡崎市 空き家の除却に関する補助制度</h3>
-            <p class="area-meta">愛知県岡崎市｜補助金｜危険空き家は上限10万円、無接道等の危険空き家は上限60万円｜締切：2026-12-28</p>
-            <p class="area-meta">期間：令和8年度の交付申請期限は12月28日</p>
-            <p>危険な空き家の除却費を補助する。交付決定前の契約・着工は対象外。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>危険空き家</li></ul>
-            <p><a href="https://www.city.okazaki.lg.jp/kurashi/hikkoshi/1012273/1012281/1003083/1003090.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="okazaki-akiya-kaishu">
-            <h3>岡崎市 空き家の改修に関する補助制度</h3>
-            <p class="area-meta">愛知県岡崎市｜補助金｜上限50万円</p>
-            <p class="area-meta">期間：令和8年度は受付終了。令和9年度は4月中旬開始予定</p>
-            <p>地域コミュニティの維持・再生等に活用する空き家の改修費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>用途は地域コミュニティ維持・再生などに限る</li><li>耐震性の条件あり</li></ul>
-            <p><a href="https://www.city.okazaki.lg.jp/kurashi/hikkoshi/1012273/1012281/1003083/1003091.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="okazaki-block-tekkyo">
-            <h3>岡崎市 転倒のおそれのあるブロック塀等の撤去費補助</h3>
-            <p class="area-meta">愛知県岡崎市｜補助金｜撤去費用と長さ×1万円の低い方の1/2（避難路に面する場合2/3）、上限10万円</p>
-            <p class="area-meta">期間：令和8年度（最新は要確認）</p>
-            <p>道路沿いで転倒のおそれのあるブロック塀の撤去費を補助する。事前相談と現地調査が必要。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>道路沿いで転倒のおそれのあるブロック塀等</li></ul>
-            <p><a href="https://www.city.okazaki.lg.jp/1100/1184/1165/p022900.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-6">子育て</h3>
-          <div class="area-program" id="okazaki-kodomo-iryo-kakudai">
-            <h3>子ども医療費助成（令和9年4月から高校生世代まで拡大）</h3>
-            <p class="area-meta">岡崎市 福祉部 福祉医療課｜助成金｜医療機関等の窓口で受給者証を提示すると保険診療分の自己負担額が無料</p>
-            <p class="area-meta">期間：令和9年4月1日から使用できる受給者証を令和9年3月中旬を目途に送付</p>
-            <p>令和9年4月1日から子ども医療費受給者証の対象を高校生世代まで拡大します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>岡崎市に住所がある、18歳の年度末までのかた</li><li>学生でないかたも対象</li><li>平成21年4月2日から平成23年4月1日までに出生されたかたは申請が必要</li></ul>
-            <p><a href="https://www.city.okazaki.lg.jp/kosodate/ninshin/1012190/1012192/1016636.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-7">医療・福祉</h3>
-          <div class="area-program" id="okazaki-appearance">
-            <h3>アピアランスケア用品購入費補助金</h3>
-            <p class="area-meta">岡崎市 保健所 健康増進課｜補助金｜ウィッグ、乳房補整具またはエピテーゼのそれぞれにおいて上限20,000円（購入金額の1/2）｜締切：2027-03-31</p>
-            <p class="area-meta">期間：補整具を購入した日の翌日から1年以内（令和8年度の受付は令和9年3月31日まで）</p>
-            <p>がん治療に伴う脱毛等により医療用ウィッグや補整具を購入した方に、購入費の一部を補助します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>申請日時点で岡崎市に住民票があるかた</li><li>がん治療に伴う脱毛に対するウィッグ、乳房の変形等に対する補整具を購入したかた</li><li>過去に県内市町村において同種の補整具について補助金を受けていないかた</li></ul>
-            <p><a href="https://www.city.okazaki.lg.jp/kenko/kenko_iryo/1012508/1002047.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="okazaki-fuikusho">
-            <h3>不育症検査に要する費用の補助</h3>
-            <p class="area-meta">岡崎市 保健所｜補助金｜1回の検査につき費用の7割に相当する額と6万円のいずれか少ない方の額（1,000円未満は切り捨て）｜締切：2027-03-31</p>
-            <p class="area-meta">期間：【令和8年度】令和9年（2027年）3月31日まで</p>
-            <p>先進医療に位置付けられた不育症検査を対象に、検査に要する費用の一部を補助します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>申請時に岡崎市に住所を有するかた</li><li>既往流死産回数が合計2回以上あるかた</li></ul>
-            <p><a href="https://www.city.okazaki.lg.jp/kenko/kenko_iryo/1012508/1004411.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="okazaki-funin-senshin">
-            <h3>不妊治療（先進医療）に要する費用の補助</h3>
-            <p class="area-meta">岡崎市 保健所｜補助金｜対象費用の10分の7に相当する額（上限額5万円）｜締切：2026-11-30</p>
-            <p class="area-meta">期間：申請開始日は令和8年6月1日。令和8年4月1日から5月31日に治療終了の方は令和8年11月30日までに申請</p>
-            <p>健康保険適用の生殖補助医療と併用して実施した先進医療の費用を補助します（令和8年6月1日開始）。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>夫婦の両方またはいずれかが岡崎市に住民票を有する</li><li>治療を開始した日の妻の年齢が43歳未満</li><li>先進医療の実施が令和8年4月1日以降のもの</li></ul>
-            <p><a href="https://www.city.okazaki.lg.jp/kenko/kenko_iryo/1012508/1014786.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="okazaki-fushin-kotai">
-            <h3>風しん抗体検査・予防接種費用助成（妊娠を希望する女性等対象）</h3>
-            <p class="area-meta">岡崎市｜助成金｜抗体検査は自己負担無料。予防接種はMRワクチン5,100円、風しんワクチン3,400円（市民税非課税世帯・生活保護世帯は無料）｜締切：2027-03-31</p>
-            <p class="area-meta">期間：抗体検査・予防接種ともに令和8年4月1日から令和9年3月31日まで</p>
-            <p>先天性風しん症候群を予防するため、風しん抗体検査と風しん予防接種の費用を補助します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>岡崎市に住民登録があり、過去に風しん抗体検査・予防接種を受けたことがないかた</li><li>妊娠を予定又は希望する女性（妊婦は除く）やその同居者などが対象</li></ul>
-            <p><a href="https://www.city.okazaki.lg.jp/kosodate/ninshin/1012185/1013860/1003573.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-8">教育・学び</h3>
-          <div class="area-program" id="okazaki-shogaku-kashitsuke">
-            <h3>岡崎市奨学資金貸付け</h3>
-            <p class="area-meta">岡崎市 教育委員会事務局 教育政策課｜融資｜年額400,000円（無利子）｜締切：2026-11-30</p>
-            <p class="area-meta">期間：申請期間は令和8年9月1日から令和8年11月30日（必着）まで</p>
-            <p>経済的な理由で大学等への修学が困難な学生に、無利子で奨学資金を貸し付けます（令和9年度の新規貸付け申請）。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>申請日現在で岡崎市内に引き続き1年以上住所がある方の子</li><li>令和9年度に大学・専修学校（専門課程に限る）に在学又は入学予定</li><li>経済的な理由で修学が困難で、成績優秀な方</li></ul>
-            <p><a href="https://www.city.okazaki.lg.jp/kosodate/kyouiku/1012239/1003703.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="okazaki-shugaku-enjo">
-            <h3>就学援助制度</h3>
-            <p class="area-meta">岡崎市 教育委員会｜給付｜新入学児童生徒学用品費は小学校64,300円、中学校81,000円。学校給食費は支払免除（令和8年4月時点の内容）</p>
-            <p class="area-meta">期間：令和9年4月入学予定者の新入学児童生徒学用品費の入学前支給の案内あり</p>
-            <p>経済的な理由で小・中学校への就学にお困りの方に、学用品費や学校給食費などの費用の一部を援助します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>原則、岡崎市にお住まいの、小学校・中学校に在籍する児童生徒の保護者</li><li>生活保護を受給している、市民税が非課税または減免されている、児童扶養手当を受給しているなどのいずれかに該当</li><li>所得基準額は2人世帯2,460,000円、4人世帯3,030,000円など</li></ul>
-            <p><a href="https://www.city.okazaki.lg.jp/kosodate/kyouiku/1012240/1003700.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>愛知県の制度</strong></p>
-          <ul><li><a href="pref-aichi.html#aichi-iju-shienkin">愛知県 移住支援金（東京圏からのUIJターン）</a></li><li><a href="pref-aichi.html#aichi-jutaku-ondanka-setsubi">愛知県住宅用地球温暖化対策設備導入促進費補助金（市町村との協調補助）</a></li><li><a href="pref-aichi.html#aichi-jutaku-taishin">住宅・建築物の耐震診断・耐震改修の補助制度（市町村実施）</a></li></ul>
-          <p><a href="pref-aichi.html#pref-resident">愛知県の制度3件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-aichi.html#aichi-digital-dx">愛知県 中小企業デジタル化・DX促進補助金</a></li><li><a href="pref-aichi.html#aichi-kakushin-jigyo">愛知県 革新事業創造事業費補助金</a></li><li><a href="pref-aichi.html#aichi-shogyo-shinko">愛知県 商業振興事業費補助金（地域商業活動活性化事業）</a></li><li><a href="pref-aichi.html#aichi-sogyo-shikin">愛知県中小企業融資制度 創業等支援資金</a></li><li><a href="pref-aichi.html#aichi-startup-sogyo">あいちスタートアップ創業支援事業費補助金（起業支援金）</a></li></ul>
+          <p><a href="pref-aichi.html#pref-business">愛知県の制度5件を、県のページで見る →</a></p>
       </div>
     </section>
 

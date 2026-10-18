@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"鶴岡市","item":"https://hojyokin.net/area/tsuruoka.html"}]}</script>
@@ -165,125 +207,100 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 鶴岡市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b14.webp')"><h1 class="pb-title">鶴岡市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-yamagata.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">山形県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">山形県 鶴岡市</p>
+        <h1>鶴岡市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度8件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-yamagata.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（鶴岡市）<b>3件（うち受付終了1件）</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（山形県）<b>4件</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>5件（うち受付終了1件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-5">バリアフリー・介護 1</a><a href="#res-cat-9">移住 1</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <span class="is-none"><i aria-hidden="true">👶</i><b>子育て</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>掲載なし</small></span>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>4件</small></a>
+      <a href="#res-g-iju"><i aria-hidden="true">🌱</i><b>移住</b><small>1件</small></a>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市3件＋県4件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">鶴岡市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="tsuruoka-city-shinki-sogyo-shien">
-            <h3>鶴岡市新規創業等支援補助金（新規創業・移住開業型／事業構想等事業化型）</h3>
-            <p class="area-meta">鶴岡市 商工課｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>市内で新規創業・移住開業する人や事業構想の事業化に取り組む人を支援する補助金。令和8年度の案内が市ページに2区分で掲載されている。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内で創業・開業する個人または法人（区分ごとの詳細は要確認）</li></ul>
-            <p><a href="https://www.city.tsuruoka.yamagata.jp/sangyo/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>4件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="tsuruoka-reform">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>住宅リフォーム支援事業補助金</b><small>バリアフリー化等の要件工事を含む30万円以上のリフォーム工事を補助。<br>対象：要件工事(バリアフリー化等)を含む30万円以上の工事／移住・空き家特別枠は先着順で予算残額に注意<br>期間：令和8年度(第1回募集は締切済み。移住・空き家特別枠は令和8年12月18日または予算上限まで)</small><span class="ar-prov">山形県鶴岡市</span></div>
+            <div class="ar-amt">移住・新婚・子育て世帯は工事費の1/3(上限30万円)、一般世帯は1/5(上限24万円)。移住・空き家特別枠は1/3、上限200万円</div>
+            <a class="ar-go" href="https://www.city.tsuruoka.lg.jp/kurashi/jyutaku/kenchiku/kenthiku0320220.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="tsuruoka-city-shokogyo-shinko-yushi">
-            <h3>鶴岡市商工業振興資金融資あっせん制度</h3>
-            <p class="area-meta">鶴岡市 商工課｜融資｜金額は公式で確認</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>市が金融機関への融資をあっせんする制度。市の産業・経済ページに項目が掲載されている。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内で事業を営む中小企業者（詳細は要確認）</li></ul>
-            <p><a href="https://www.city.tsuruoka.yamagata.jp/sangyo/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="tsuruoka-saiene">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>再生可能エネルギー設備普及促進事業費補助金</b><small>家庭等への再エネ設備導入費用を補助。予算に達し次第終了。<br>対象：市内の住宅等に設備を導入する方／着工前・未完了の工事が対象<br>期間：令和8年4月1日〜令和9年2月26日(予算に達し次第終了)<br>締切：2027-02-26</small><span class="ar-prov">山形県鶴岡市</span></div>
+            <div class="ar-amt">太陽光1kWあたり1.5万円、上限12万円(蓄電池等は要確認)</div>
+            <a class="ar-go" href="https://www.city.tsuruoka.lg.jp/seibi/kankyo/recycleenergy/kankyoene.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <h3 class="area-cat">受付が終了した制度（次回の公募の参考に）</h3>
-          <div class="area-program is-ended" id="tsuruoka-city-ganbaru-chusho-oen">
-            <h3>鶴岡市がんばる中小企業応援事業補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">鶴岡市 商工課｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：令和8年度は2次募集まで受付終了（来年度は要確認）</p>
-            <p>市内中小企業の前向きな取り組みを支援する補助金。令和8年度は2次募集も終了し、採択者が公表されている。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の中小企業者（詳細は要確認）</li></ul>
-            <p><a href="https://www.city.tsuruoka.yamagata.jp/sangyo/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="tsuruoka-taishin">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>木造住宅耐震改修補助金</b><small>平成12年5月以前着工の木造住宅の耐震改修工事を補助。先着順。<br>対象：平成12年5月以前に着工した木造住宅／耐震性が低いと判定された住宅<br>期間：令和8年4月15日〜令和8年12月11日(先着順)<br>締切：2026-12-11</small><span class="ar-prov">山形県鶴岡市</span></div>
+            <div class="ar-amt">補助率4/5、耐震改修工事の上限140万円</div>
+            <a class="ar-go" href="https://www.city.tsuruoka.lg.jp/anzen/saigai/kenth-taisin20250417.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          <div class="ar-row is-ended" id="tsuruoka-akiya-kaitai">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>危険空き家等解体補助金 <span class="area-ended-tag">受付終了</span></b><small>危険な状態の空き家等の除却費用の一部を補助。<br>対象：危険な空き家等の所有者／事前調査の申込が必要</small><span class="ar-prov">山形県鶴岡市</span></div>
+            <div class="ar-amt">個人型は最大50万円</div>
+            <a class="ar-go" href="https://www.city.tsuruoka.lg.jp/kurashi/jyutaku/akiya/akiya_hojokin/kankyo-kaitaihojyo.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-iju">移住<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="tsuruoka-otameshi">
+            <div class="ar-name"><b>移住希望者向けお試し住宅</b><small>県外から移住を希望する成人向けに、市営住宅の一部をお試し居住として貸し出し。<br>対象：県外から移住を希望する成人</small><span class="ar-prov">山形県鶴岡市</span></div>
+            <div class="ar-amt">要確認(市営住宅を最長6か月貸出)</div>
+            <a class="ar-go" href="https://www.city.tsuruoka.lg.jp/kurashi/ijuteiju/otameshi-aparttype.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>山形県の制度</strong></p>
+          <ul><li><a href="pref-yamagata.html#yamagata-chuko-jutaku-ryutsu">中古住宅流通促進事業費補助金</a></li><li><a href="pref-yamagata.html#yamagata-jutaku-reform-shien">山形県 住宅リフォーム支援（バリアフリー化等・市町村補助）</a></li><li><a href="pref-yamagata.html#yamagata-jutaku-taiyoko-jikasho">住宅用太陽光発電設備（自家消費型）導入事業費補助金</a></li><li><a href="pref-yamagata.html#yamagata-shoene-kenko-shinchiku">やまがた省エネ健康住宅新築支援事業費補助金</a></li><li><a href="pref-yamagata.html#yamagata-shoene-saiene-package">やまがた省エネ健康住宅・再エネ設備パッケージ補助金</a></li></ul>
+          <p><a href="pref-yamagata.html#pref-resident">山形県の制度5件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">山形県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">鶴岡市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-yamagata.html#yamagata-challenge-sogyo-ouen">やまがたチャレンジ創業応援事業</a></li><li><a href="pref-yamagata.html#yamagata-marusapo-hojokin">山形県中小企業まるっとサポート補助金</a></li><li><a href="pref-yamagata.html#yamagata-monozukuri-startup-hojokin">山形県ものづくりスタートアップ支援事業費補助金</a></li><li><a href="pref-yamagata.html#yamagata-shokogyo-shinko-shikin">山形県商工業振興資金（開業支援資金ほか）</a></li></ul>
-          <p><a href="pref-yamagata.html#pref-business">山形県の制度4件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="tsuruoka-city-shinki-sogyo-shien">
+            <div class="ar-name"><b>鶴岡市新規創業等支援補助金（新規創業・移住開業型／事業構想等事業化型）</b><small>市内で新規創業・移住開業する人や事業構想の事業化に取り組む人を支援する補助金。令和8年度の案内が市ページに2区分で掲載されている。<br>対象：市内で創業・開業する個人または法人（区分ごとの詳細は要確認）</small><span class="ar-prov">鶴岡市 商工課</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.tsuruoka.yamagata.jp/sangyo/index.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="tsuruoka-city-shokogyo-shinko-yushi">
+            <div class="ar-name"><b>鶴岡市商工業振興資金融資あっせん制度</b><small>市が金融機関への融資をあっせんする制度。市の産業・経済ページに項目が掲載されている。<br>対象：市内で事業を営む中小企業者（詳細は要確認）</small><span class="ar-prov">鶴岡市 商工課</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.tsuruoka.yamagata.jp/sangyo/index.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="tsuruoka-city-ganbaru-chusho-oen">
+            <div class="ar-name"><b>鶴岡市がんばる中小企業応援事業補助金 <span class="area-ended-tag">受付終了</span></b><small>市内中小企業の前向きな取り組みを支援する補助金。令和8年度は2次募集も終了し、採択者が公表されている。<br>対象：市内の中小企業者（詳細は要確認）</small><span class="ar-prov">鶴岡市 商工課</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.tsuruoka.yamagata.jp/sangyo/index.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">山形県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>鶴岡市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="tsuruoka-taishin">
-            <h3>木造住宅耐震改修補助金</h3>
-            <p class="area-meta">山形県鶴岡市｜補助金｜補助率4/5、耐震改修工事の上限140万円｜締切：2026-12-11</p>
-            <p class="area-meta">期間：令和8年4月15日〜令和8年12月11日(先着順)</p>
-            <p>平成12年5月以前着工の木造住宅の耐震改修工事を補助。先着順。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>平成12年5月以前に着工した木造住宅</li><li>耐震性が低いと判定された住宅</li></ul>
-            <p><a href="https://www.city.tsuruoka.lg.jp/anzen/saigai/kenth-taisin20250417.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program" id="tsuruoka-saiene">
-            <h3>再生可能エネルギー設備普及促進事業費補助金</h3>
-            <p class="area-meta">山形県鶴岡市｜補助金｜太陽光1kWあたり1.5万円、上限12万円(蓄電池等は要確認)｜締切：2027-02-26</p>
-            <p class="area-meta">期間：令和8年4月1日〜令和9年2月26日(予算に達し次第終了)</p>
-            <p>家庭等への再エネ設備導入費用を補助。予算に達し次第終了。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の住宅等に設備を導入する方</li><li>着工前・未完了の工事が対象</li></ul>
-            <p><a href="https://www.city.tsuruoka.lg.jp/seibi/kankyo/recycleenergy/kankyoene.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program is-ended" id="tsuruoka-akiya-kaitai">
-            <h3>危険空き家等解体補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">山形県鶴岡市｜補助金｜個人型は最大50万円</p>
-            <p class="area-meta">期間：最新は要確認(個人型の事前調査申込は受付終了との記載あり)</p>
-            <p>危険な状態の空き家等の除却費用の一部を補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>危険な空き家等の所有者</li><li>事前調査の申込が必要</li></ul>
-            <p><a href="https://www.city.tsuruoka.lg.jp/kurashi/jyutaku/akiya/akiya_hojokin/kankyo-kaitaihojyo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
-          <div class="area-program" id="tsuruoka-reform">
-            <h3>住宅リフォーム支援事業補助金</h3>
-            <p class="area-meta">山形県鶴岡市｜補助金｜移住・新婚・子育て世帯は工事費の1/3(上限30万円)、一般世帯は1/5(上限24万円)。移住・空き家特別枠は1/3、上限200万円</p>
-            <p class="area-meta">期間：令和8年度(第1回募集は締切済み。移住・空き家特別枠は令和8年12月18日または予算上限まで)</p>
-            <p>バリアフリー化等の要件工事を含む30万円以上のリフォーム工事を補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>要件工事(バリアフリー化等)を含む30万円以上の工事</li><li>移住・空き家特別枠は先着順で予算残額に注意</li></ul>
-            <p><a href="https://www.city.tsuruoka.lg.jp/kurashi/jyutaku/kenchiku/kenthiku0320220.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-9">移住</h3>
-          <div class="area-program" id="tsuruoka-otameshi">
-            <h3>移住希望者向けお試し住宅</h3>
-            <p class="area-meta">山形県鶴岡市｜給付｜要確認(市営住宅を最長6か月貸出)</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>県外から移住を希望する成人向けに、市営住宅の一部をお試し居住として貸し出し。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>県外から移住を希望する成人</li></ul>
-            <p><a href="https://www.city.tsuruoka.lg.jp/kurashi/ijuteiju/otameshi-aparttype.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>山形県の制度</strong></p>
-          <ul><li><a href="pref-yamagata.html#yamagata-chuko-jutaku-ryutsu">中古住宅流通促進事業費補助金</a></li><li><a href="pref-yamagata.html#yamagata-jutaku-reform-shien">山形県 住宅リフォーム支援（バリアフリー化等・市町村補助）</a></li><li><a href="pref-yamagata.html#yamagata-jutaku-taiyoko-jikasho">住宅用太陽光発電設備（自家消費型）導入事業費補助金</a></li><li><a href="pref-yamagata.html#yamagata-shoene-kenko-shinchiku">やまがた省エネ健康住宅新築支援事業費補助金</a></li><li><a href="pref-yamagata.html#yamagata-shoene-saiene-package">やまがた省エネ健康住宅・再エネ設備パッケージ補助金</a></li></ul>
-          <p><a href="pref-yamagata.html#pref-resident">山形県の制度5件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-yamagata.html#yamagata-challenge-sogyo-ouen">やまがたチャレンジ創業応援事業</a></li><li><a href="pref-yamagata.html#yamagata-marusapo-hojokin">山形県中小企業まるっとサポート補助金</a></li><li><a href="pref-yamagata.html#yamagata-monozukuri-startup-hojokin">山形県ものづくりスタートアップ支援事業費補助金</a></li><li><a href="pref-yamagata.html#yamagata-shokogyo-shinko-shikin">山形県商工業振興資金（開業支援資金ほか）</a></li></ul>
+          <p><a href="pref-yamagata.html#pref-business">山形県の制度4件を、県のページで見る →</a></p>
       </div>
     </section>
 

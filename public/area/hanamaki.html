@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"花巻市","item":"https://hojyokin.net/area/hanamaki.html"}]}</script>
@@ -165,113 +207,95 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 花巻市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b14.webp')"><h1 class="pb-title">花巻市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-iwate.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">岩手県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">岩手県 花巻市</p>
+        <h1>花巻市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度7件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-iwate.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（花巻市）<b>2件</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（岩手県）<b>4件</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>5件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-9">移住 2</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <span class="is-none"><i aria-hidden="true">👶</i><b>子育て</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>掲載なし</small></span>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>3件</small></a>
+      <a href="#res-g-iju"><i aria-hidden="true">🌱</i><b>移住</b><small>2件</small></a>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市2件＋県4件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">花巻市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="hanamaki-city-kigyo-kyosoryoku-kyoka">
-            <h3>企業競争力強化支援事業補助金</h3>
-            <p class="area-meta">花巻市 商工労政課｜補助金｜補助率は原則1/2以内（上限額はメニューにより異なる。要確認）</p>
-            <p class="area-meta">期間：要確認（予算がなくなり次第終了）</p>
-            <p>市内中小企業者の付加価値創造・販路開拓として、共同研究開発、展示会出展、人材確保、リスキリング、ブランド化、省力化投資などの取組を支援する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>花巻市内の中小企業者等</li><li>事業開始の10日前までに申請すること</li></ul>
-            <p><a href="https://www.city.hanamaki.iwate.jp/business/sangyoshien/keieihojo/1017682.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>3件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="hanamaki-akiya-kaitai">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>花巻市空家等解体活用補助金</b><small>市内の空家(空き店舗等含む)を解体し、新たに建築物を新築する人に解体工事費の一部を補助する。<br>対象：空家等を解体し新築を行う方</small><span class="ar-prov">岩手県花巻市</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.hanamaki.iwate.jp/kurashi/kenchiku_jyutaku/1001152/1014167.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="hanamaki-city-machinaka-sogyo-shien">
-            <h3>まちなか創業支援補助金</h3>
-            <p class="area-meta">花巻市 商工労政課 商業係｜補助金｜上限50万円（補助率は要確認）</p>
-            
-            <p>中心市街地の空き店舗で新たに創業する中小企業者の改装費・広告宣伝費の一部を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>中心市街地の空き店舗で新たに創業する中小企業者</li><li>事業着手日の2週間前までに交付申請すること</li></ul>
-            <p><a href="https://www.city.hanamaki.iwate.jp/business/sangyoshien/keieihojo/1002207.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="hanamaki-rokyu-kiken-jutaku">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>花巻市老朽危険住宅除却費補助金</b><small>老朽危険住宅の除却費の一部を補助する。<br>対象：老朽危険住宅の所有者等(詳細は要確認)</small><span class="ar-prov">岩手県花巻市</span></div>
+            <div class="ar-amt">上限50万円</div>
+            <a class="ar-go" href="https://www.city.hanamaki.iwate.jp/kurashi/kenchiku_jyutaku/1001152/1001156.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          <div class="ar-row" id="hanamaki-taishin-hokyo">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>花巻市木造住宅耐震補強工事等助成事業</b><small>木造住宅の耐震補強工事費の一部を助成する制度。耐震診断事業(自己負担3,000円)もある。<br>対象：耐震診断の結果等の要件あり(詳細は要確認)</small><span class="ar-prov">岩手県花巻市</span></div>
+            <div class="ar-amt">補助率4/5・上限100万円(簡易補強は1/2・上限30万円)。市の別ページでは最大115万円の記載もあり要確認</div>
+            <a class="ar-go" href="https://www.city.hanamaki.iwate.jp/kurashi/sumai_seikatsu/kenchiku_jyutaku/1001159/1001161.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-iju">移住<span>2件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="hanamaki-teiju-jutaku">
+            <div class="ar-name"><b>花巻市定住促進住宅取得等補助金</b><small>移住者の住宅取得およびリフォーム費用などを支援する。<br>対象：県外からの移住者(子育て世帯)や空き家バンク利用者など</small><span class="ar-prov">岩手県花巻市</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.hanamaki.iwate.jp/kurashi/ijyu_teijyu/shien/1000985.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="hanamaki-wakamono-akiya">
+            <div class="ar-name"><b>花巻市若者世代等空き家取得奨励金等</b><small>空き家を取得し居住した39歳以下または県外からの移住者に奨励金及び補助金を交付する。<br>対象：39歳以下または県外からの移住者／空き家を取得し居住</small><span class="ar-prov">岩手県花巻市</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.hanamaki.iwate.jp/kurashi/ijyu_teijyu/shien/1015064.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>岩手県の制度</strong></p>
+          <ul><li><a href="pref-iwate.html#iwate-kidukai-jutaku">いわて木づかい住宅普及促進事業</a></li><li><a href="pref-iwate.html#iwate-otameshi-kyoju">いわてお試し居住体験事業</a></li><li><a href="pref-iwate.html#iwate-shoene-kaishu">住まいの省エネルギー改修推進事業費補助金</a></li><li><a href="pref-iwate.html#iwate-shoene-shinchiku">いわて省エネルギー住宅建設推進事業費補助金（新築向け）</a></li><li><a href="pref-iwate.html#iwate-sumitai-iwate-iezukuri">住みたい岩手の家づくり促進事業</a></li></ul>
+          <p><a href="pref-iwate.html#pref-resident">岩手県の制度6件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">岩手県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">花巻市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-iwate.html#iwate-chiiki-sosei-kigyo-shienkin">岩手県地方創生起業支援金</a></li><li><a href="pref-iwate.html#iwate-kibo-ouen-fund">いわて希望応援ファンド地域活性化支援事業</a></li><li><a href="pref-iwate.html#iwate-seido-yushi">岩手県制度融資（中小企業向け融資制度）</a></li><li><a href="pref-iwate.html#iwate-wakamono-joshi-sogyo-shikin">岩手県 若者・女性創業支援資金</a></li></ul>
-          <p><a href="pref-iwate.html#pref-business">岩手県の制度4件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="hanamaki-city-kigyo-kyosoryoku-kyoka">
+            <div class="ar-name"><b>企業競争力強化支援事業補助金</b><small>市内中小企業者の付加価値創造・販路開拓として、共同研究開発、展示会出展、人材確保、リスキリング、ブランド化、省力化投資などの取組を支援する。<br>対象：花巻市内の中小企業者等／事業開始の10日前までに申請すること</small><span class="ar-prov">花巻市 商工労政課</span></div>
+            <div class="ar-amt">補助率は原則1/2以内（上限額はメニューにより異なる。要確認）</div>
+            <a class="ar-go" href="https://www.city.hanamaki.iwate.jp/business/sangyoshien/keieihojo/1017682.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="hanamaki-city-machinaka-sogyo-shien">
+            <div class="ar-name"><b>まちなか創業支援補助金</b><small>中心市街地の空き店舗で新たに創業する中小企業者の改装費・広告宣伝費の一部を補助する。<br>対象：中心市街地の空き店舗で新たに創業する中小企業者／事業着手日の2週間前までに交付申請すること</small><span class="ar-prov">花巻市 商工労政課 商業係</span></div>
+            <div class="ar-amt">上限50万円（補助率は要確認）</div>
+            <a class="ar-go" href="https://www.city.hanamaki.iwate.jp/business/sangyoshien/keieihojo/1002207.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">岩手県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>花巻市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="hanamaki-taishin-hokyo">
-            <h3>花巻市木造住宅耐震補強工事等助成事業</h3>
-            <p class="area-meta">岩手県花巻市｜補助金｜補助率4/5・上限100万円(簡易補強は1/2・上限30万円)。市の別ページでは最大115万円の記載もあり要確認</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>木造住宅の耐震補強工事費の一部を助成する制度。耐震診断事業(自己負担3,000円)もある。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>耐震診断の結果等の要件あり(詳細は要確認)</li></ul>
-            <p><a href="https://www.city.hanamaki.iwate.jp/kurashi/sumai_seikatsu/kenchiku_jyutaku/1001159/1001161.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="hanamaki-akiya-kaitai">
-            <h3>花巻市空家等解体活用補助金</h3>
-            <p class="area-meta">岩手県花巻市｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>市内の空家(空き店舗等含む)を解体し、新たに建築物を新築する人に解体工事費の一部を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>空家等を解体し新築を行う方</li></ul>
-            <p><a href="https://www.city.hanamaki.iwate.jp/kurashi/kenchiku_jyutaku/1001152/1014167.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="hanamaki-rokyu-kiken-jutaku">
-            <h3>花巻市老朽危険住宅除却費補助金</h3>
-            <p class="area-meta">岩手県花巻市｜補助金｜上限50万円</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>老朽危険住宅の除却費の一部を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>老朽危険住宅の所有者等(詳細は要確認)</li></ul>
-            <p><a href="https://www.city.hanamaki.iwate.jp/kurashi/kenchiku_jyutaku/1001152/1001156.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-9">移住</h3>
-          <div class="area-program" id="hanamaki-teiju-jutaku">
-            <h3>花巻市定住促進住宅取得等補助金</h3>
-            <p class="area-meta">岩手県花巻市｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>移住者の住宅取得およびリフォーム費用などを支援する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>県外からの移住者(子育て世帯)や空き家バンク利用者など</li></ul>
-            <p><a href="https://www.city.hanamaki.iwate.jp/kurashi/ijyu_teijyu/shien/1000985.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="hanamaki-wakamono-akiya">
-            <h3>花巻市若者世代等空き家取得奨励金等</h3>
-            <p class="area-meta">岩手県花巻市｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>空き家を取得し居住した39歳以下または県外からの移住者に奨励金及び補助金を交付する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>39歳以下または県外からの移住者</li><li>空き家を取得し居住</li></ul>
-            <p><a href="https://www.city.hanamaki.iwate.jp/kurashi/ijyu_teijyu/shien/1015064.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>岩手県の制度</strong></p>
-          <ul><li><a href="pref-iwate.html#iwate-kidukai-jutaku">いわて木づかい住宅普及促進事業</a></li><li><a href="pref-iwate.html#iwate-otameshi-kyoju">いわてお試し居住体験事業</a></li><li><a href="pref-iwate.html#iwate-shoene-kaishu">住まいの省エネルギー改修推進事業費補助金</a></li><li><a href="pref-iwate.html#iwate-shoene-shinchiku">いわて省エネルギー住宅建設推進事業費補助金（新築向け）</a></li><li><a href="pref-iwate.html#iwate-sumitai-iwate-iezukuri">住みたい岩手の家づくり促進事業</a></li></ul>
-          <p><a href="pref-iwate.html#pref-resident">岩手県の制度6件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-iwate.html#iwate-chiiki-sosei-kigyo-shienkin">岩手県地方創生起業支援金</a></li><li><a href="pref-iwate.html#iwate-kibo-ouen-fund">いわて希望応援ファンド地域活性化支援事業</a></li><li><a href="pref-iwate.html#iwate-seido-yushi">岩手県制度融資（中小企業向け融資制度）</a></li><li><a href="pref-iwate.html#iwate-wakamono-joshi-sogyo-shikin">岩手県 若者・女性創業支援資金</a></li></ul>
+          <p><a href="pref-iwate.html#pref-business">岩手県の制度4件を、県のページで見る →</a></p>
       </div>
     </section>
 

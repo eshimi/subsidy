@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"川越市","item":"https://hojyokin.net/area/kawagoe.html"}]}</script>
@@ -165,181 +207,134 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 川越市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b05.webp')"><h1 class="pb-title">川越市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-saitama.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">埼玉県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">埼玉県 川越市</p>
+        <h1>川越市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度14件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-saitama.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（川越市）<b>3件（うち受付終了1件）</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（埼玉県）<b>5件</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>11件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-5">バリアフリー・介護 1</a><a href="#res-cat-7">医療・福祉 5</a><a href="#res-cat-8">教育・学び 1</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <span class="is-none"><i aria-hidden="true">👶</i><b>子育て</b><small>掲載なし</small></span>
+      <a href="#res-g-iryo"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>5件</small></a>
+      <a href="#res-g-kyoiku"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>1件</small></a>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>5件</small></a>
+      <span class="is-none"><i aria-hidden="true">🌱</i><b>移住</b><small>掲載なし</small></span>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市3件＋県5件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">川越市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="kawagoe-city-jigyoshokei-tenpo">
-            <h3>川越市事業承継店舗改修等補助金</h3>
-            <p class="area-meta">川越市 産業振興課｜補助金｜補助率1/3、上限40万円（市外業者施工は30万円）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>事業承継に伴う店舗改修や設備整備費用の一部を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>事業承継を行う市内事業者</li></ul>
-            <p><a href="https://www.city.kawagoe.saitama.jp/sangyo/sangyo/1012133/1012148.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-iryo">医療・福祉<span>5件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="kawagoe-appearance-care">
+            <div class="ar-name"><b>川越市アピアランスケア用品購入支援事業</b><small>がん治療に伴う外見の変化を補い、治療と社会参加の両立を支援するため、アピアランスケア用品の購入費の一部を助成する。<br>対象：申請日時点で川越市に在住し、住民基本台帳に登録されている／がんと診断され、がん治療を受けている、又は受けていた<br>期間：令和8年4月1日以降に購入した用品が対象（領収書の日付が年度内のものが申請できる）</small><span class="ar-prov">川越市 健康管理課</span></div>
+            <div class="ar-amt">ウィッグ・乳房補整具の区分ごとに限度額1万円（補助対象経費又は1万円のいずれか低い額）</div>
+            <a class="ar-go" href="https://www.city.kawagoe.saitama.jp/kenko/iryo/1006606/1020983.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="kawagoe-city-shinki-sogyo-yushi">
-            <h3>川越市新規創業者支援資金融資</h3>
-            <p class="area-meta">川越市 産業振興課｜融資｜限度額3,500万円、期間10年以内、利率は利子補給後年1.3%以内、保証料補助40%（上限10万円）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>創業予定者・開業後5年以内の事業者向けの制度融資。信用保証料の補助あり。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>創業予定者</li><li>開業後5年以内の事業者</li></ul>
-            <p><a href="https://www.city.kawagoe.saitama.jp/sangyo/shushoku/chushokigyo/1012044/1012048/1012050.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="kawagoe-fuikushou-kensa">
+            <div class="ar-name"><b>川越市不育症検査費助成事業</b><small>不育症検査を受けた方を対象に、検査費用の一部を助成する。男女1組につき生涯1回まで。<br>対象：2回以上の流産、死産、あるいは早期新生児死亡の既往がある方など／婚姻関係にある男女（事実婚を含む）で、双方または一方が川越市に住民登録がある<br>期間：令和8年4月1日から令和9年3月31日までに終了した検査が対象</small><span class="ar-prov">川越市</span></div>
+            <div class="ar-amt">自己負担額に対して、女性が35歳未満は上限3万円、それ以外は上限2万円</div>
+            <a class="ar-go" href="https://www.city.kawagoe.saitama.jp/kenko/iryo/1006606/1006627/1006629.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <h3 class="area-cat">受付が終了した制度（次回の公募の参考に）</h3>
-          <div class="area-program is-ended" id="kawagoe-city-bukka-keiei-kaizen">
-            <h3>川越市中小企業者等物価高騰対策経営改善支援金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">川越市 産業振興課｜給付金｜新規認定10万円、変更認定5万円</p>
-            <p class="area-meta">期間：申請期間は令和8年3月16日で終了。受付終了</p>
-            <p>経営革新計画または先端設備等導入計画の承認を受けた市内中小企業への支援金。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>計画の承認・認定を受けた市内中小企業</li></ul>
-            <p><a href="https://www.city.kawagoe.saitama.jp/sangyo/sangyo/1012082/1014755/1018018.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="kawagoe-fushin-kougaku-joseikin">
+            <div class="ar-name"><b>妊娠を希望する女性等の風しん抗体検査・予防接種の費用助成</b><small>妊娠を希望する女性やそのパートナー等に対し、風しんの抗体検査・予防接種の費用助成を行う。<br>対象：検査日（接種日）時点で川越市に住民登録がある／妊娠を希望する女性、そのパートナー、または妊婦のパートナー等<br>期間：令和8年4月1日から令和9年3月31日</small><span class="ar-prov">川越市</span></div>
+            <div class="ar-amt">抗体検査は無料、予防接種の自己負担額は麻しん風しん混合ワクチン5,800円・風しん単抗原ワクチン4,100円</div>
+            <a class="ar-go" href="https://www.city.kawagoe.saitama.jp/kenko/m-kenshin/1006098/1006108.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          <div class="ar-row" id="kawagoe-juudo-shinshin-iryohi">
+            <div class="ar-name"><b>重度心身障害者医療費支給制度</b><small>重度心身障害者に対し、医療費の一部負担金等について助成金を支給する制度。令和8年8月1日から所得制限の基準額が変更された。<br>対象：川越市に住所があり、健康保険に加入している重度心身障害者／受給資格の登録が必要<br>期間：登録手続きを行った翌月から医療費助成を受けることができる</small><span class="ar-prov">川越市 高齢・障害医療課</span></div>
+            <div class="ar-amt">医療費の一部負担金等について助成金を支給（所得制限あり）</div>
+            <a class="ar-go" href="https://www.city.kawagoe.saitama.jp/kenko/fukushi/1006736/1006800/1006805.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kawagoe-soki-funin-kensa">
+            <div class="ar-name"><b>川越市早期不妊検査費助成事業</b><small>不妊検査を受けた方を対象に、検査費用の一部を助成する。男女1組につき生涯1回まで。<br>対象：婚姻関係にある男女（事実婚を含む）で、双方または一方が川越市に住民登録がある／男女ともに不妊検査を受け、検査開始日時点で女性の年齢が43歳未満<br>期間：令和8年4月1日から令和9年3月31日までに終了した検査が対象</small><span class="ar-prov">川越市</span></div>
+            <div class="ar-amt">自己負担額に対して、女性が35歳未満は上限3万円、それ以外は上限2万円</div>
+            <a class="ar-go" href="https://www.city.kawagoe.saitama.jp/kenko/iryo/1006606/1006627/1006630.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-kyoiku">教育・学び<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="kawagoe-shugaku-enjo">
+            <div class="ar-name"><b>就学援助（令和8年7月から令和9年6月分）</b><small>経済的理由で公立小中学校への就学が困難なご家庭に対し、学用品費など就学に必要な費用の一部を援助する。申請は毎年必要。<br>対象：川越市に住民登録があり、公立小中学校に通学している児童生徒の保護者／世帯全員の所得額の合計が教育委員会の定める基準額未満の方、児童扶養手当を受給中の方など<br>期間：令和8年7月から令和9年6月分（在校生は随時受付、新入学児童は令和8年12月1日から令和9年1月29日）</small><span class="ar-prov">川越市 教育財務課</span></div>
+            <div class="ar-amt">新入学児童生徒学用品費等は年額 小学生64,300円・中学生81,000円（費目により異なる）</div>
+            <a class="ar-go" href="https://www.city.kawagoe.saitama.jp/kosodate/jyosei/1004159/1004161.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>5件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="kawagoe-block-hei">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>川越市ブロック塀等撤去費補助</b><small>ブロック塀等の撤去費用の補助。<br>対象：契約前の申請が必要<br>期間：令和8年4月1日～12月下旬（先着順）</small><span class="ar-prov">川越市</span></div>
+            <div class="ar-amt">撤去費用又は1㎡あたり1万3千円で算出した額のいずれか少ない額の1/2、上限10万円</div>
+            <a class="ar-go" href="https://www.city.kawagoe.saitama.jp/shisei/toshikei/1010554/1010750/1010774/1010782/1010784.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kawagoe-jutaku-datsutanso">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>令和8年度川越市住宅用脱炭素化設備等導入奨励金</b><small>住宅への太陽光発電と蓄電池・V2H導入の奨励金。<br>対象：蓄電池・V2H単独は不可／全量売電の太陽光は対象外</small><span class="ar-prov">川越市</span></div>
+            <div class="ar-amt">太陽光（既存住宅・3kW以上）：定額3万円（蓄電池又はV2Hの同時設置が条件）</div>
+            <a class="ar-go" href="https://www.city.kawagoe.saitama.jp/kurashi/kankyo/1002642/1002702/1020760.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kawagoe-jutaku-kaishu">
+            <div class="ar-name"><b><span class="ar-tag">省エネ住宅</span>令和8年度川越市住宅改修補助金制度</b><small>住宅改修工事費の補助。<br>対象：市内に本店があり要件を満たす事業者の施工</small><span class="ar-prov">川越市</span></div>
+            <div class="ar-amt">改修工事費（税抜）の5%、上限5万円</div>
+            <a class="ar-go" href="https://www.city.kawagoe.saitama.jp/kurashi/jyutaku/1003030.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kawagoe-kyotaku-kaizen">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>川越市居宅改善費助成</b><small>要介護認定を受けていない在宅高齢者の手すり設置・段差解消などの工事費を助成する。<br>対象：65歳以上で要介護認定を受けていない在宅高齢者／手すり設置・段差解消等の工事</small><span class="ar-prov">埼玉県川越市</span></div>
+            <div class="ar-amt">対象経費の1/3以内（限度額10万円）</div>
+            <a class="ar-go" href="https://www.city.kawagoe.saitama.jp/kenko/fukushi/1006679/1006705/1006715.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kawagoe-taishin-mokuzo">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>川越市旧耐震建築物の耐震診断・耐震改修補助（木造住宅）</b><small>旧耐震の木造住宅の耐震診断・耐震改修費を補助する。<br>対象：旧耐震基準の木造住宅／事前に申請して交付決定を受ける<br>期間：令和8年度は4月1日〜12月4日<br>締切：2026-12-04</small><span class="ar-prov">埼玉県川越市</span></div>
+            <div class="ar-amt">耐震改修は改修費の23%、最大30万円</div>
+            <a class="ar-go" href="https://www.city.kawagoe.saitama.jp/shisei/toshikei/1010554/1010750/1010774/1010775/1010780.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>埼玉県の制度</strong></p>
+          <ul><li><a href="pref-saitama.html#saitama-katei-shoene-saiene">家庭における省エネ・再エネ活用設備導入補助金</a></li><li><a href="pref-saitama.html#saitama-pref-iju-shienkin">埼玉県移住支援金</a></li></ul>
+          <p><a href="pref-saitama.html#pref-resident">埼玉県の制度2件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">埼玉県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">川越市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-saitama.html#saitama-dx-donyu-hojo">埼玉県中小企業DX導入支援補助金（追加募集）</a></li><li><a href="pref-saitama.html#saitama-jinzai-katsuyo-hojo">埼玉県人材活用促進事業補助金</a></li><li><a href="pref-saitama.html#saitama-kigyoka-ikusei-shikin">埼玉県制度融資 起業家育成資金</a></li><li><a href="pref-saitama.html#saitama-shokibo-jigyo-shikin">埼玉県制度融資 小規模事業資金</a></li><li><a href="pref-saitama.html#saitama-shoryokuka-hojo">埼玉県中小企業省力化支援事業補助金【新規導入】</a></li></ul>
-          <p><a href="pref-saitama.html#pref-business">埼玉県の制度5件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="kawagoe-city-jigyoshokei-tenpo">
+            <div class="ar-name"><b>川越市事業承継店舗改修等補助金</b><small>事業承継に伴う店舗改修や設備整備費用の一部を補助する。<br>対象：事業承継を行う市内事業者</small><span class="ar-prov">川越市 産業振興課</span></div>
+            <div class="ar-amt">補助率1/3、上限40万円（市外業者施工は30万円）</div>
+            <a class="ar-go" href="https://www.city.kawagoe.saitama.jp/sangyo/sangyo/1012133/1012148.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kawagoe-city-shinki-sogyo-yushi">
+            <div class="ar-name"><b>川越市新規創業者支援資金融資</b><small>創業予定者・開業後5年以内の事業者向けの制度融資。信用保証料の補助あり。<br>対象：創業予定者／開業後5年以内の事業者</small><span class="ar-prov">川越市 産業振興課</span></div>
+            <div class="ar-amt">限度額3,500万円、期間10年以内、利率は利子補給後年1.3%以内、保証料補助40%（上限10万円）</div>
+            <a class="ar-go" href="https://www.city.kawagoe.saitama.jp/sangyo/shushoku/chushokigyo/1012044/1012048/1012050.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="kawagoe-city-bukka-keiei-kaizen">
+            <div class="ar-name"><b>川越市中小企業者等物価高騰対策経営改善支援金 <span class="area-ended-tag">受付終了</span></b><small>経営革新計画または先端設備等導入計画の承認を受けた市内中小企業への支援金。<br>対象：計画の承認・認定を受けた市内中小企業<br>期間：申請期間は令和8年3月16日で終了。受付終了</small><span class="ar-prov">川越市 産業振興課</span></div>
+            <div class="ar-amt">新規認定10万円、変更認定5万円</div>
+            <a class="ar-go" href="https://www.city.kawagoe.saitama.jp/sangyo/sangyo/1012082/1014755/1018018.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">埼玉県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>川越市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="kawagoe-taishin-mokuzo">
-            <h3>川越市旧耐震建築物の耐震診断・耐震改修補助（木造住宅）</h3>
-            <p class="area-meta">埼玉県川越市｜補助金｜耐震改修は改修費の23%、最大30万円｜締切：2026-12-04</p>
-            <p class="area-meta">期間：令和8年度は4月1日〜12月4日</p>
-            <p>旧耐震の木造住宅の耐震診断・耐震改修費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>旧耐震基準の木造住宅</li><li>事前に申請して交付決定を受ける</li><li>診断の補助額は要確認</li></ul>
-            <p><a href="https://www.city.kawagoe.saitama.jp/shisei/toshikei/1010554/1010750/1010774/1010775/1010780.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program" id="kawagoe-jutaku-datsutanso">
-            <h3>令和8年度川越市住宅用脱炭素化設備等導入奨励金</h3>
-            <p class="area-meta">川越市｜補助金｜太陽光（既存住宅・3kW以上）：定額3万円（蓄電池又はV2Hの同時設置が条件）</p>
-            <p class="area-meta">期間：令和8年度前期（期間は要確認）</p>
-            <p>住宅への太陽光発電と蓄電池・V2H導入の奨励金。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>蓄電池・V2H単独は不可</li><li>全量売電の太陽光は対象外</li></ul>
-            <p><a href="https://www.city.kawagoe.saitama.jp/kurashi/kankyo/1002642/1002702/1020760.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
-          <div class="area-program" id="kawagoe-jutaku-kaishu">
-            <h3>令和8年度川越市住宅改修補助金制度</h3>
-            <p class="area-meta">川越市｜補助金｜改修工事費（税抜）の5%、上限5万円</p>
-            <p class="area-meta">期間：令和8年度（期間は要確認）</p>
-            <p>住宅改修工事費の補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内に本店があり要件を満たす事業者の施工</li></ul>
-            <p><a href="https://www.city.kawagoe.saitama.jp/kurashi/jyutaku/1003030.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="kawagoe-block-hei">
-            <h3>川越市ブロック塀等撤去費補助</h3>
-            <p class="area-meta">川越市｜補助金｜撤去費用又は1㎡あたり1万3千円で算出した額のいずれか少ない額の1/2、上限10万円</p>
-            <p class="area-meta">期間：令和8年4月1日～12月下旬（先着順）</p>
-            <p>ブロック塀等の撤去費用の補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>契約前の申請が必要</li></ul>
-            <p><a href="https://www.city.kawagoe.saitama.jp/shisei/toshikei/1010554/1010750/1010774/1010782/1010784.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
-          <div class="area-program" id="kawagoe-kyotaku-kaizen">
-            <h3>川越市居宅改善費助成</h3>
-            <p class="area-meta">埼玉県川越市｜助成金｜対象経費の1/3以内（限度額10万円）</p>
-            <p class="area-meta">期間：毎年4月1日から受付（予算超過で終了。令和8年度の状況は要確認）</p>
-            <p>要介護認定を受けていない在宅高齢者の手すり設置・段差解消などの工事費を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>65歳以上で要介護認定を受けていない在宅高齢者</li><li>手すり設置・段差解消等の工事</li><li>毎年4月1日から受付、予算超過で終了</li></ul>
-            <p><a href="https://www.city.kawagoe.saitama.jp/kenko/fukushi/1006679/1006705/1006715.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-7">医療・福祉</h3>
-          <div class="area-program" id="kawagoe-appearance-care">
-            <h3>川越市アピアランスケア用品購入支援事業</h3>
-            <p class="area-meta">川越市 健康管理課｜補助金｜ウィッグ・乳房補整具の区分ごとに限度額1万円（補助対象経費又は1万円のいずれか低い額）</p>
-            <p class="area-meta">期間：令和8年4月1日以降に購入した用品が対象（領収書の日付が年度内のものが申請できる）</p>
-            <p>がん治療に伴う外見の変化を補い、治療と社会参加の両立を支援するため、アピアランスケア用品の購入費の一部を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>申請日時点で川越市に在住し、住民基本台帳に登録されている</li><li>がんと診断され、がん治療を受けている、又は受けていた</li><li>がん治療に起因する脱毛又は乳房の切除に伴い医療用補整具を購入した</li></ul>
-            <p><a href="https://www.city.kawagoe.saitama.jp/kenko/iryo/1006606/1020983.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="kawagoe-fuikushou-kensa">
-            <h3>川越市不育症検査費助成事業</h3>
-            <p class="area-meta">川越市｜助成金｜自己負担額に対して、女性が35歳未満は上限3万円、それ以外は上限2万円</p>
-            <p class="area-meta">期間：令和8年4月1日から令和9年3月31日までに終了した検査が対象</p>
-            <p>不育症検査を受けた方を対象に、検査費用の一部を助成する。男女1組につき生涯1回まで。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>2回以上の流産、死産、あるいは早期新生児死亡の既往がある方など</li><li>婚姻関係にある男女（事実婚を含む）で、双方または一方が川越市に住民登録がある</li><li>検査開始日時点で女性の年齢が43歳未満</li></ul>
-            <p><a href="https://www.city.kawagoe.saitama.jp/kenko/iryo/1006606/1006627/1006629.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="kawagoe-fushin-kougaku-joseikin">
-            <h3>妊娠を希望する女性等の風しん抗体検査・予防接種の費用助成</h3>
-            <p class="area-meta">川越市｜助成金｜抗体検査は無料、予防接種の自己負担額は麻しん風しん混合ワクチン5,800円・風しん単抗原ワクチン4,100円</p>
-            <p class="area-meta">期間：令和8年4月1日から令和9年3月31日</p>
-            <p>妊娠を希望する女性やそのパートナー等に対し、風しんの抗体検査・予防接種の費用助成を行う。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>検査日（接種日）時点で川越市に住民登録がある</li><li>妊娠を希望する女性、そのパートナー、または妊婦のパートナー等</li></ul>
-            <p><a href="https://www.city.kawagoe.saitama.jp/kenko/m-kenshin/1006098/1006108.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="kawagoe-juudo-shinshin-iryohi">
-            <h3>重度心身障害者医療費支給制度</h3>
-            <p class="area-meta">川越市 高齢・障害医療課｜助成金｜医療費の一部負担金等について助成金を支給（所得制限あり）</p>
-            <p class="area-meta">期間：登録手続きを行った翌月から医療費助成を受けることができる</p>
-            <p>重度心身障害者に対し、医療費の一部負担金等について助成金を支給する制度。令和8年8月1日から所得制限の基準額が変更された。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>川越市に住所があり、健康保険に加入している重度心身障害者</li><li>受給資格の登録が必要</li></ul>
-            <p><a href="https://www.city.kawagoe.saitama.jp/kenko/fukushi/1006736/1006800/1006805.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="kawagoe-soki-funin-kensa">
-            <h3>川越市早期不妊検査費助成事業</h3>
-            <p class="area-meta">川越市｜助成金｜自己負担額に対して、女性が35歳未満は上限3万円、それ以外は上限2万円</p>
-            <p class="area-meta">期間：令和8年4月1日から令和9年3月31日までに終了した検査が対象</p>
-            <p>不妊検査を受けた方を対象に、検査費用の一部を助成する。男女1組につき生涯1回まで。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>婚姻関係にある男女（事実婚を含む）で、双方または一方が川越市に住民登録がある</li><li>男女ともに不妊検査を受け、検査開始日時点で女性の年齢が43歳未満</li></ul>
-            <p><a href="https://www.city.kawagoe.saitama.jp/kenko/iryo/1006606/1006627/1006630.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-8">教育・学び</h3>
-          <div class="area-program" id="kawagoe-shugaku-enjo">
-            <h3>就学援助（令和8年7月から令和9年6月分）</h3>
-            <p class="area-meta">川越市 教育財務課｜給付｜新入学児童生徒学用品費等は年額 小学生64,300円・中学生81,000円（費目により異なる）</p>
-            <p class="area-meta">期間：令和8年7月から令和9年6月分（在校生は随時受付、新入学児童は令和8年12月1日から令和9年1月29日）</p>
-            <p>経済的理由で公立小中学校への就学が困難なご家庭に対し、学用品費など就学に必要な費用の一部を援助する。申請は毎年必要。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>川越市に住民登録があり、公立小中学校に通学している児童生徒の保護者</li><li>世帯全員の所得額の合計が教育委員会の定める基準額未満の方、児童扶養手当を受給中の方など</li></ul>
-            <p><a href="https://www.city.kawagoe.saitama.jp/kosodate/jyosei/1004159/1004161.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>埼玉県の制度</strong></p>
-          <ul><li><a href="pref-saitama.html#saitama-katei-shoene-saiene">家庭における省エネ・再エネ活用設備導入補助金</a></li><li><a href="pref-saitama.html#saitama-pref-iju-shienkin">埼玉県移住支援金</a></li></ul>
-          <p><a href="pref-saitama.html#pref-resident">埼玉県の制度2件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-saitama.html#saitama-dx-donyu-hojo">埼玉県中小企業DX導入支援補助金（追加募集）</a></li><li><a href="pref-saitama.html#saitama-jinzai-katsuyo-hojo">埼玉県人材活用促進事業補助金</a></li><li><a href="pref-saitama.html#saitama-kigyoka-ikusei-shikin">埼玉県制度融資 起業家育成資金</a></li><li><a href="pref-saitama.html#saitama-shokibo-jigyo-shikin">埼玉県制度融資 小規模事業資金</a></li><li><a href="pref-saitama.html#saitama-shoryokuka-hojo">埼玉県中小企業省力化支援事業補助金【新規導入】</a></li></ul>
+          <p><a href="pref-saitama.html#pref-business">埼玉県の制度5件を、県のページで見る →</a></p>
       </div>
     </section>
 

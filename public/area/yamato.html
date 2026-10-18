@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"大和市","item":"https://hojyokin.net/area/yamato.html"}]}</script>
@@ -165,143 +207,106 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 大和市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b01.webp')"><h1 class="pb-title">大和市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-kanagawa.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">神奈川県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">神奈川県 大和市</p>
+        <h1>大和市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度10件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-kanagawa.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（大和市）<b>4件（うち受付終了2件）</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（神奈川県）<b>5件（うち受付終了2件）</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>6件（うち受付終了1件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 2</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-5">バリアフリー・介護 1</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <span class="is-none"><i aria-hidden="true">👶</i><b>子育て</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>掲載なし</small></span>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>6件</small></a>
+      <span class="is-none"><i aria-hidden="true">🌱</i><b>移住</b><small>掲載なし</small></span>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市4件＋県5件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">大和市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="yamato-city-chusho-yushi-kigyo-shikin">
-            <h3>大和市中小企業融資制度（起業支援資金・小規模企業事業資金ほか）</h3>
-            <p class="area-meta">大和市 産業活性課｜融資｜起業支援資金は上限2,000万円・10年・年2.0%以内、小規模企業事業資金は上限3,000万円・年2.2%以内（令和8年4月1日現在）</p>
-            <p class="area-meta">期間：通年（最新は要確認）</p>
-            <p>市が金融機関に資金を預託して行う間接融資。起業前や創業5年以内の事業者向けの起業支援資金がある。信用保証の利用が必須。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>起業前の個人、または市内で事業開始から5年以内の事業者（起業支援資金）</li><li>市内の中小企業者</li></ul>
-            <p><a href="https://www.city.yamato.lg.jp/gyosei/soshik/40/sangyo/kigyoushien/hojokintou/4242.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>6件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="yamato-dannetsu">
+            <div class="ar-name"><b><span class="ar-tag">省エネ住宅</span>既存住宅の断熱改修工事への補助</b><small>既存住宅の断熱改修工事費を補助する(地域脱炭素移行・再エネ推進交付金活用)。<br>対象：市内の既存住宅(詳細は要確認)<br>期間：令和8年4月10日〜令和9年1月29日</small><span class="ar-prov">神奈川県大和市</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.yamato.lg.jp/gyosei/soshik/24/sumai/hojo_josei/21788.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="yamato-city-risihokyu-hoshoryo-hojo">
-            <h3>大和市 融資の利子補給・信用保証料補助</h3>
-            <p class="area-meta">大和市 産業活性課｜補助金｜保証料は50%以内（小規模企業事業資金は上限10万円）、利子補給は年間約定利子の30%以内・上限30万円・36か月（資金により異なる。要確認）</p>
-            <p class="area-meta">期間：通年（最新は要確認）</p>
-            <p>市の融資制度を利用した事業者に、信用保証料補助と利子補給を行う。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>大和市中小企業融資制度の利用者</li></ul>
-            <p><a href="https://www.city.yamato.lg.jp/gyosei/soshik/40/sangyo/kigyoushien/hojokintou/4242.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="yamato-fukunenka-barrierfree">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>不燃化・バリアフリー化改修工事費補助金</b><small>既存木造住宅の不燃化、ブロック塀撤去、段差解消・手すり設置等のバリアフリー改修を助成する。<br>対象：既存の木造住宅／交付決定前の着工は対象外</small><span class="ar-prov">神奈川県大和市</span></div>
+            <div class="ar-amt">工事費の1/2(原則上限10万円)</div>
+            <a class="ar-go" href="https://www.city.yamato.lg.jp/gyosei/soshik/35/taisinka/4708.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <h3 class="area-cat">受付が終了した制度（次回の公募の参考に）</h3>
-          <div class="area-program is-ended" id="yamato-city-miryoku-ten-shien">
-            <h3>大和市魅力ある個店支援事業 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">大和市 産業活性課｜補助金｜補助率1/2、上限50万円</p>
-            <p class="area-meta">期間：令和8年度の募集は終了（来年度は要確認）</p>
-            <p>個店の魅力向上に向けた取組を支援する補助金。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内で店舗を営む事業者</li></ul>
-            <p><a href="https://www.city.yamato.lg.jp/gyosei/soshik/40/sangyo/shogyo/shien_seibi_todokede/23892.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="yamato-solar-battery">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>住宅用太陽光発電システム等設置費補助金(太陽光・蓄電池)</b><small>住宅用の太陽光発電設備・蓄電池の設置費を補助する。<br>対象：市内の住宅(詳細は要確認)</small><span class="ar-prov">神奈川県大和市</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.yamato.lg.jp/gyosei/soshik/24/sumai/hojo_josei/11916.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program is-ended" id="yamato-city-shinki-shuten-shien">
-            <h3>大和市新規出店支援事業 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">大和市 産業活性課｜補助金｜対象経費の1/2または100万円の少ない方</p>
-            <p class="area-meta">期間：令和8年度は募集終了（来年度は要確認）</p>
-            <p>商店街などの空き店舗を活用して出店する事業者の出店経費の一部を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内商店街などの空き店舗で新たに出店する事業者</li></ul>
-            <p><a href="https://www.city.yamato.lg.jp/gyosei/soshik/40/sangyo/shogyo/shien_seibi_todokede/23950.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="yamato-taishin-kaishu">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>木造住宅耐震改修工事費等補助金</b><small>旧耐震の木造住宅の耐震改修工事費等を補助する。改修後の総合評点1.0以上が条件。<br>対象：昭和56年5月31日以前着工の木造住宅／改修後の総合評点1.0以上</small><span class="ar-prov">神奈川県大和市</span></div>
+            <div class="ar-amt">耐震補強工事費の1/5と工事監理費等の1/2の合計(上限50万円)</div>
+            <a class="ar-go" href="https://www.city.yamato.lg.jp/gyosei/soshik/35/taisinka/4702.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          <div class="ar-row" id="yamato-taishin-shindan">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>木造住宅耐震診断費補助金(精密診断)</b><small>旧耐震木造住宅の精密耐震診断費を助成する。<br>対象：昭和56年5月31日以前着工の2階建て以下の在来軸組木造住宅／市登録の建築士による診断</small><span class="ar-prov">神奈川県大和市</span></div>
+            <div class="ar-amt">精密診断費用を全額助成(上限66,000円)</div>
+            <a class="ar-go" href="https://www.city.yamato.lg.jp/gyosei/soshik/35/taisinka/4796.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="yamato-block">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>ブロック塀等撤去費及び改善費補助金 <span class="area-ended-tag">受付終了</span></b><small>道路に面する危険なブロック塀の撤去・フェンス等への改善を助成する。令和8年度は受付終了との表示あり。<br>対象：道路に面するブロック塀等／交付決定前の着工は対象外</small><span class="ar-prov">神奈川県大和市</span></div>
+            <div class="ar-amt">撤去費と改善費を合わせ最大30万円</div>
+            <a class="ar-go" href="https://www.city.yamato.lg.jp/gyosei/soshik/35/taisinka/4711.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>神奈川県の制度</strong></p>
+          <ul><li><a href="pref-kanagawa.html#kanagawa-ev-futsu-juden-r8">令和8年度神奈川県EV普通充電設備整備費補助金</a></li><li><a href="pref-kanagawa.html#kanagawa-iju-shienkin">神奈川県移住支援事業（移住支援金）</a></li><li><a href="pref-kanagawa.html#kanagawa-zeh-r8">令和8年度神奈川県ネット・ゼロ・エネルギー・ハウス導入費補助金</a></li><li><a href="pref-kanagawa.html#kanagawa-jutaku-taiyoko-chikuden">令和8年度神奈川県住宅用太陽光発電・蓄電池導入費補助金</a></li><li><a href="pref-kanagawa.html#kanagawa-kizon-shoene-kaishu-r8">令和8年度神奈川県既存住宅省エネ改修事業費補助金</a></li></ul>
+          <p><a href="pref-kanagawa.html#pref-resident">神奈川県の制度5件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">神奈川県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">大和市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-kanagawa.html#kanagawa-fukugyo-jinzai">神奈川県副業・兼業人材活用補助金</a></li><li><a href="pref-kanagawa.html#kanagawa-jigyoshokei">神奈川県事業承継補助金（令和8年度）</a></li><li><a href="pref-kanagawa.html#kanagawa-sogyo-shien-yushi">創業支援融資（神奈川県中小企業制度融資）</a></li><li><a href="pref-kanagawa.html#kanagawa-shokibo-digital">小規模事業者デジタル化支援推進事業費補助金（令和8年度）</a></li><li><a href="pref-kanagawa.html#kanagawa-sogyosha-seicho">生産性向上促進事業費補助金（創業者成長支援枠）</a></li></ul>
-          <p><a href="pref-kanagawa.html#pref-business">神奈川県の制度5件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="yamato-city-chusho-yushi-kigyo-shikin">
+            <div class="ar-name"><b>大和市中小企業融資制度（起業支援資金・小規模企業事業資金ほか）</b><small>市が金融機関に資金を預託して行う間接融資。起業前や創業5年以内の事業者向けの起業支援資金がある。信用保証の利用が必須。<br>対象：起業前の個人、または市内で事業開始から5年以内の事業者（起業支援資金）／市内の中小企業者</small><span class="ar-prov">大和市 産業活性課</span></div>
+            <div class="ar-amt">起業支援資金は上限2,000万円・10年・年2.0%以内、小規模企業事業資金は上限3,000万円・年2.2%以内（令和8年4月1日現在）</div>
+            <a class="ar-go" href="https://www.city.yamato.lg.jp/gyosei/soshik/40/sangyo/kigyoushien/hojokintou/4242.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="yamato-city-risihokyu-hoshoryo-hojo">
+            <div class="ar-name"><b>大和市 融資の利子補給・信用保証料補助</b><small>市の融資制度を利用した事業者に、信用保証料補助と利子補給を行う。<br>対象：大和市中小企業融資制度の利用者</small><span class="ar-prov">大和市 産業活性課</span></div>
+            <div class="ar-amt">保証料は50%以内（小規模企業事業資金は上限10万円）、利子補給は年間約定利子の30%以内・上限30万円・36か月（資金により異なる。要確認）</div>
+            <a class="ar-go" href="https://www.city.yamato.lg.jp/gyosei/soshik/40/sangyo/kigyoushien/hojokintou/4242.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="yamato-city-miryoku-ten-shien">
+            <div class="ar-name"><b>大和市魅力ある個店支援事業 <span class="area-ended-tag">受付終了</span></b><small>個店の魅力向上に向けた取組を支援する補助金。<br>対象：市内で店舗を営む事業者</small><span class="ar-prov">大和市 産業活性課</span></div>
+            <div class="ar-amt">補助率1/2、上限50万円</div>
+            <a class="ar-go" href="https://www.city.yamato.lg.jp/gyosei/soshik/40/sangyo/shogyo/shien_seibi_todokede/23892.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="yamato-city-shinki-shuten-shien">
+            <div class="ar-name"><b>大和市新規出店支援事業 <span class="area-ended-tag">受付終了</span></b><small>商店街などの空き店舗を活用して出店する事業者の出店経費の一部を助成する。<br>対象：市内商店街などの空き店舗で新たに出店する事業者</small><span class="ar-prov">大和市 産業活性課</span></div>
+            <div class="ar-amt">対象経費の1/2または100万円の少ない方</div>
+            <a class="ar-go" href="https://www.city.yamato.lg.jp/gyosei/soshik/40/sangyo/shogyo/shien_seibi_todokede/23950.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">神奈川県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>大和市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="yamato-taishin-kaishu">
-            <h3>木造住宅耐震改修工事費等補助金</h3>
-            <p class="area-meta">神奈川県大和市｜補助金｜耐震補強工事費の1/5と工事監理費等の1/2の合計(上限50万円)</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>旧耐震の木造住宅の耐震改修工事費等を補助する。改修後の総合評点1.0以上が条件。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>昭和56年5月31日以前着工の木造住宅</li><li>改修後の総合評点1.0以上</li></ul>
-            <p><a href="https://www.city.yamato.lg.jp/gyosei/soshik/35/taisinka/4702.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="yamato-taishin-shindan">
-            <h3>木造住宅耐震診断費補助金(精密診断)</h3>
-            <p class="area-meta">神奈川県大和市｜補助金｜精密診断費用を全額助成(上限66,000円)</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>旧耐震木造住宅の精密耐震診断費を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>昭和56年5月31日以前着工の2階建て以下の在来軸組木造住宅</li><li>市登録の建築士による診断</li></ul>
-            <p><a href="https://www.city.yamato.lg.jp/gyosei/soshik/35/taisinka/4796.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program" id="yamato-solar-battery">
-            <h3>住宅用太陽光発電システム等設置費補助金(太陽光・蓄電池)</h3>
-            <p class="area-meta">神奈川県大和市｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>住宅用の太陽光発電設備・蓄電池の設置費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の住宅(詳細は要確認)</li></ul>
-            <p><a href="https://www.city.yamato.lg.jp/gyosei/soshik/24/sumai/hojo_josei/11916.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
-          <div class="area-program" id="yamato-dannetsu">
-            <h3>既存住宅の断熱改修工事への補助</h3>
-            <p class="area-meta">神奈川県大和市｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：令和8年4月10日〜令和9年1月29日</p>
-            <p>既存住宅の断熱改修工事費を補助する(地域脱炭素移行・再エネ推進交付金活用)。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の既存住宅(詳細は要確認)</li></ul>
-            <p><a href="https://www.city.yamato.lg.jp/gyosei/soshik/24/sumai/hojo_josei/21788.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program is-ended" id="yamato-block">
-            <h3>ブロック塀等撤去費及び改善費補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">神奈川県大和市｜補助金｜撤去費と改善費を合わせ最大30万円</p>
-            <p class="area-meta">期間：令和8年度は受付終了と表示(次年度は要確認)</p>
-            <p>道路に面する危険なブロック塀の撤去・フェンス等への改善を助成する。令和8年度は受付終了との表示あり。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>道路に面するブロック塀等</li><li>交付決定前の着工は対象外</li></ul>
-            <p><a href="https://www.city.yamato.lg.jp/gyosei/soshik/35/taisinka/4711.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
-          <div class="area-program" id="yamato-fukunenka-barrierfree">
-            <h3>不燃化・バリアフリー化改修工事費補助金</h3>
-            <p class="area-meta">神奈川県大和市｜補助金｜工事費の1/2(原則上限10万円)</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>既存木造住宅の不燃化、ブロック塀撤去、段差解消・手すり設置等のバリアフリー改修を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>既存の木造住宅</li><li>交付決定前の着工は対象外</li><li>補助は1回限り</li></ul>
-            <p><a href="https://www.city.yamato.lg.jp/gyosei/soshik/35/taisinka/4708.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>神奈川県の制度</strong></p>
-          <ul><li><a href="pref-kanagawa.html#kanagawa-ev-futsu-juden-r8">令和8年度神奈川県EV普通充電設備整備費補助金</a></li><li><a href="pref-kanagawa.html#kanagawa-iju-shienkin">神奈川県移住支援事業（移住支援金）</a></li><li><a href="pref-kanagawa.html#kanagawa-zeh-r8">令和8年度神奈川県ネット・ゼロ・エネルギー・ハウス導入費補助金</a></li><li><a href="pref-kanagawa.html#kanagawa-jutaku-taiyoko-chikuden">令和8年度神奈川県住宅用太陽光発電・蓄電池導入費補助金</a></li><li><a href="pref-kanagawa.html#kanagawa-kizon-shoene-kaishu-r8">令和8年度神奈川県既存住宅省エネ改修事業費補助金</a></li></ul>
-          <p><a href="pref-kanagawa.html#pref-resident">神奈川県の制度5件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-kanagawa.html#kanagawa-fukugyo-jinzai">神奈川県副業・兼業人材活用補助金</a></li><li><a href="pref-kanagawa.html#kanagawa-jigyoshokei">神奈川県事業承継補助金（令和8年度）</a></li><li><a href="pref-kanagawa.html#kanagawa-sogyo-shien-yushi">創業支援融資（神奈川県中小企業制度融資）</a></li><li><a href="pref-kanagawa.html#kanagawa-shokibo-digital">小規模事業者デジタル化支援推進事業費補助金（令和8年度）</a></li><li><a href="pref-kanagawa.html#kanagawa-sogyosha-seicho">生産性向上促進事業費補助金（創業者成長支援枠）</a></li></ul>
+          <p><a href="pref-kanagawa.html#pref-business">神奈川県の制度5件を、県のページで見る →</a></p>
       </div>
     </section>
 

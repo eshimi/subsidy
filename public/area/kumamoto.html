@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"熊本市","item":"https://hojyokin.net/area/kumamoto.html"}]}</script>
@@ -165,149 +207,111 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 熊本市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b09.webp')"><h1 class="pb-title">熊本市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-kumamoto.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">熊本県・政令指定都市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">熊本県 熊本市</p>
+        <h1>熊本市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度11件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-kumamoto.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（熊本市）<b>3件</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（熊本県）<b>5件（うち受付終了1件）</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>8件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-2">EV・充電 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-5">バリアフリー・介護 3</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <span class="is-none"><i aria-hidden="true">👶</i><b>子育て</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>掲載なし</small></span>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>8件</small></a>
+      <span class="is-none"><i aria-hidden="true">🌱</i><b>移住</b><small>掲載なし</small></span>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市3件＋県5件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">熊本市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="kumamoto-shotengai-shutsuten">
-            <h3>熊本市商店街出店支援事業（令和8年度）</h3>
-            <p class="area-meta">熊本市 所管課（要確認）｜補助金｜補助率1/2以内、補助上限50万円（各支援区分とも）｜締切：2026-10-23</p>
-            <p class="area-meta">期間：令和8年度 二次募集 2026年10月2日〜10月23日（17時必着）</p>
-            <p>商店街の空き店舗等への出店に伴う改装費等を補助します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>商店街の空き店舗等への出店を行う事業者（詳細は要確認）</li></ul>
-            <p><a href="https://www.city.kumamoto.jp/kiji00338591/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>8件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="kumamoto-city-akiya-josyaku">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>熊本市老朽危険空家等除却促進事業補助金</b><small>老朽危険空家の除却（ブロック塀の撤去を含む敷地全体の更地化）の費用を補助する。<br>期間：令和9年1月29日まで（予算がなくなり次第終了）<br>締切：2027-01-29</small><span class="ar-prov">熊本市</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.kumamoto.jp/kiji00324944/index.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="kumamoto-hojokin-katsuyo-yushi">
-            <h3>熊本市中小企業補助金活用支援資金（制度融資）</h3>
-            <p class="area-meta">熊本市 商業金融課（要確認）｜融資｜要確認（融資限度額・利率は未確認。信用保証料率の3/4を市が助成）</p>
-            <p class="area-meta">期間：令和8年度 取扱継続（予算に達し次第終了の場合あり）</p>
-            <p>生産性向上や賃上げに取り組む事業者が補助金を活用する際の資金調達を支援し、信用保証料を助成します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>生産性向上や賃上げに取り組む中小企業者（詳細は要確認）</li><li>熊本市中小企業融資制度の要件を満たすこと（要確認）</li></ul>
-            <p><a href="https://www.city.kumamoto.jp/kiji003485/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="kumamoto-city-block">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>熊本市 公道等に面するブロック塀等の撤去に関する補助制度</b><small>避難路などに面した危険なブロック塀の撤去費用を補助する。<br>対象：契約・事業実施前の申込みと交付決定が必要<br>期間：令和8年4月1日から12月28日（10件程度の先着順）<br>締切：2026-12-28</small><span class="ar-prov">熊本市</span></div>
+            <div class="ar-amt">1敷地あたり最大20万円</div>
+            <a class="ar-go" href="https://www.city.kumamoto.jp/dynamic/hpkiji/pub/Detail.aspx?c_id=3&amp;id=22684" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="kumamoto-kenshu-haken">
-            <h3>熊本市 中小企業研修派遣助成制度（令和8年度）</h3>
-            <p class="area-meta">熊本市 所管課（要確認）｜助成金｜受講料（税抜）の1/2以内、上限3万円（1事業者につき年度内1回）｜締切：2027-03-24</p>
-            <p class="area-meta">期間：令和8年4月6日〜令和9年3月24日（予算に達し次第終了）</p>
-            <p>中小企業大学校やポリテクセンター熊本の研修受講料を助成します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>中小企業者（詳細は要確認）</li><li>1事業者につき年度内1回限り</li></ul>
-            <p><a href="https://www.city.kumamoto.jp/kiji003757/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="kumamoto-city-ev">
+            <div class="ar-name"><b><span class="ar-tag">EV・充電</span>熊本市省エネルギー機器等導入推進事業補助金（電気自動車等）</b><small>電気自動車等の購入費を補助する。<br>対象：国のクリーンエネルギー自動車導入促進補助金の対象車両で給電機能を持つもの<br>期間：令和8年度は前期・後期の2期制。後期は10月19日から受付</small><span class="ar-prov">熊本市 脱炭素戦略課</span></div>
+            <div class="ar-amt">1件10万円</div>
+            <a class="ar-go" href="https://www.city.kumamoto.jp/kiji00369554/index.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          <div class="ar-row" id="kumamoto-city-koreisha-barrierfree">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>熊本市 高齢者住宅バリアフリー化改修費補助金</b><small>65歳以上の方がいる世帯の住宅のバリアフリー改修費を補助する。<br>対象：満65歳以上で熊本市に居住／世帯全員が要支援・要介護認定を受けていない<br>期間：令和8年度は2026年12月18日まで<br>締切：2026-12-18</small><span class="ar-prov">熊本市</span></div>
+            <div class="ar-amt">補助対象経費上限18万円。非課税世帯2/3（上限12万円）、その他1/3（上限6万円）</div>
+            <a class="ar-go" href="https://www.city.kumamoto.jp/hpKiji/pub/detail.aspx?c_id=5&amp;id=34855&amp;class_set_id=2&amp;class_id=304" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kumamoto-city-koreisha-jutaku-kaizo">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>熊本市 高齢者住宅改造費助成事業（要介護・要支援認定者向け）</b><small>在宅の要介護・要支援認定者が安全に暮らすための住宅改造費を助成する。<br>対象：要介護・要支援認定を受けた在宅の高齢者／相談は区役所福祉課または地域包括支援センター</small><span class="ar-prov">熊本市</span></div>
+            <div class="ar-amt">基準額40万円（65歳以上の要介護認定者）。助成率は要確認</div>
+            <a class="ar-go" href="https://www.city.kumamoto.jp/kiji00364088/index.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kumamoto-city-shogaisha-jutaku-kaizo">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>熊本市 障害者住宅改造費助成事業</b><small>障がいのある方の住宅改造経費を助成する。<br>対象：65歳未満で身体障害者手帳1・2級などを持つ方</small><span class="ar-prov">熊本市</span></div>
+            <div class="ar-amt">基準額90万円（助成率は要確認）</div>
+            <a class="ar-go" href="https://www.city.kumamoto.jp/kiji00329663/index.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kumamoto-city-taishin-kaishu">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>熊本市 戸建木造住宅の耐震改修等事業（改修一括メニュー）</b><small>戸建木造住宅の耐震改修等の費用を補助する。</small><span class="ar-prov">熊本市</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.kumamoto.jp/kiji0031284/index.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kumamoto-city-taiyoko-chikudenchi">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>熊本市省エネルギー機器等導入推進事業補助金（太陽光発電設備・蓄電池）</b><small>住宅の太陽光発電設備と蓄電池の導入費用を補助する。<br>対象：太陽光併設型の蓄電池は環境省の蓄電池補助金の対象製品<br>期間：令和8年度は2期制。後期は11月2日から受付</small><span class="ar-prov">熊本市 脱炭素戦略課</span></div>
+            <div class="ar-amt">太陽光発電設備（蓄電池併設型）1件8万円、蓄電池（FIT満了世帯対象）1件8万円</div>
+            <a class="ar-go" href="https://www.city.kumamoto.jp/kiji00369554/index.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>熊本県の制度</strong></p>
+          <ul><li><a href="pref-kumamoto.html#kumamoto-akiya-katsuyo-model">熊本県空き家活用促進モデル事業補助金</a></li><li><a href="pref-kumamoto.html#kumamoto-pref-iju-shien">熊本県移住支援事業（移住支援金）</a></li><li><a href="pref-kumamoto.html#kumamoto-pref-taishin">熊本県 住宅耐震化支援事業</a></li></ul>
+          <p><a href="pref-kumamoto.html#pref-resident">熊本県の制度3件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">熊本県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">熊本市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-kumamoto.html#kumamoto-fukugyo-kengyo-jinzai">熊本県副業・兼業人材活用促進事業費補助金</a></li><li><a href="pref-kumamoto.html#kumamoto-jigyo-shokei-atotsugi">熊本県事業承継・後継ぎ支援事業補助金</a></li><li><a href="pref-kumamoto.html#kumamoto-shokibo-ouen-shikin">熊本県融資制度 小規模事業者おうえん資金</a></li><li><a href="pref-kumamoto.html#kumamoto-sogyosha-shien-shikin">熊本県融資制度 創業者支援資金</a></li><li><a href="pref-kumamoto.html#kumamoto-chiiki-kadai-kigyo">熊本県地域課題解決型起業支援補助金</a></li></ul>
-          <p><a href="pref-kumamoto.html#pref-business">熊本県の制度5件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="kumamoto-shotengai-shutsuten">
+            <div class="ar-name"><b>熊本市商店街出店支援事業（令和8年度）</b><small>商店街の空き店舗等への出店に伴う改装費等を補助します。<br>対象：商店街の空き店舗等への出店を行う事業者（詳細は要確認）<br>期間：令和8年度 二次募集 2026年10月2日〜10月23日（17時必着）<br>締切：2026-10-23</small><span class="ar-prov">熊本市 所管課（要確認）</span></div>
+            <div class="ar-amt">補助率1/2以内、補助上限50万円（各支援区分とも）</div>
+            <a class="ar-go" href="https://www.city.kumamoto.jp/kiji00338591/index.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kumamoto-hojokin-katsuyo-yushi">
+            <div class="ar-name"><b>熊本市中小企業補助金活用支援資金（制度融資）</b><small>生産性向上や賃上げに取り組む事業者が補助金を活用する際の資金調達を支援し、信用保証料を助成します。<br>対象：生産性向上や賃上げに取り組む中小企業者（詳細は要確認）／熊本市中小企業融資制度の要件を満たすこと（要確認）<br>期間：令和8年度 取扱継続（予算に達し次第終了の場合あり）</small><span class="ar-prov">熊本市 商業金融課（要確認）</span></div>
+            <div class="ar-amt">要確認（融資限度額・利率は未確認。信用保証料率の3/4を市が助成）</div>
+            <a class="ar-go" href="https://www.city.kumamoto.jp/kiji003485/index.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kumamoto-kenshu-haken">
+            <div class="ar-name"><b>熊本市 中小企業研修派遣助成制度（令和8年度）</b><small>中小企業大学校やポリテクセンター熊本の研修受講料を助成します。<br>対象：中小企業者（詳細は要確認）／1事業者につき年度内1回限り<br>期間：令和8年4月6日〜令和9年3月24日（予算に達し次第終了）<br>締切：2027-03-24</small><span class="ar-prov">熊本市 所管課（要確認）</span></div>
+            <div class="ar-amt">受講料（税抜）の1/2以内、上限3万円（1事業者につき年度内1回）</div>
+            <a class="ar-go" href="https://www.city.kumamoto.jp/kiji003757/index.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">熊本県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>熊本市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="kumamoto-city-taishin-kaishu">
-            <h3>熊本市 戸建木造住宅の耐震改修等事業（改修一括メニュー）</h3>
-            <p class="area-meta">熊本市｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：令和8年度（2026年8月20日付で、予算調整のため今後の相談案件を一旦預かりとする案内あり。要確認）</p>
-            <p>戸建木造住宅の耐震改修等の費用を補助する。</p>
-            
-            <p><a href="https://www.city.kumamoto.jp/kiji0031284/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program" id="kumamoto-city-taiyoko-chikudenchi">
-            <h3>熊本市省エネルギー機器等導入推進事業補助金（太陽光発電設備・蓄電池）</h3>
-            <p class="area-meta">熊本市 脱炭素戦略課｜補助金｜太陽光発電設備（蓄電池併設型）1件8万円、蓄電池（FIT満了世帯対象）1件8万円</p>
-            <p class="area-meta">期間：令和8年度は2期制。後期は11月2日から受付</p>
-            <p>住宅の太陽光発電設備と蓄電池の導入費用を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>太陽光併設型の蓄電池は環境省の蓄電池補助金の対象製品</li></ul>
-            <p><a href="https://www.city.kumamoto.jp/kiji00369554/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
-          <div class="area-program" id="kumamoto-city-ev">
-            <h3>熊本市省エネルギー機器等導入推進事業補助金（電気自動車等）</h3>
-            <p class="area-meta">熊本市 脱炭素戦略課｜補助金｜1件10万円</p>
-            <p class="area-meta">期間：令和8年度は前期・後期の2期制。後期は10月19日から受付</p>
-            <p>電気自動車等の購入費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>国のクリーンエネルギー自動車導入促進補助金の対象車両で給電機能を持つもの</li></ul>
-            <p><a href="https://www.city.kumamoto.jp/kiji00369554/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="kumamoto-city-akiya-josyaku">
-            <h3>熊本市老朽危険空家等除却促進事業補助金</h3>
-            <p class="area-meta">熊本市｜補助金｜金額は公式で確認｜締切：2027-01-29</p>
-            <p class="area-meta">期間：令和9年1月29日まで（予算がなくなり次第終了）</p>
-            <p>老朽危険空家の除却（ブロック塀の撤去を含む敷地全体の更地化）の費用を補助する。</p>
-            
-            <p><a href="https://www.city.kumamoto.jp/kiji00324944/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="kumamoto-city-block">
-            <h3>熊本市 公道等に面するブロック塀等の撤去に関する補助制度</h3>
-            <p class="area-meta">熊本市｜補助金｜1敷地あたり最大20万円｜締切：2026-12-28</p>
-            <p class="area-meta">期間：令和8年4月1日から12月28日（10件程度の先着順）</p>
-            <p>避難路などに面した危険なブロック塀の撤去費用を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>契約・事業実施前の申込みと交付決定が必要</li></ul>
-            <p><a href="https://www.city.kumamoto.jp/dynamic/hpkiji/pub/Detail.aspx?c_id=3&amp;id=22684" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
-          <div class="area-program" id="kumamoto-city-koreisha-barrierfree">
-            <h3>熊本市 高齢者住宅バリアフリー化改修費補助金</h3>
-            <p class="area-meta">熊本市｜補助金｜補助対象経費上限18万円。非課税世帯2/3（上限12万円）、その他1/3（上限6万円）｜締切：2026-12-18</p>
-            <p class="area-meta">期間：令和8年度は2026年12月18日まで</p>
-            <p>65歳以上の方がいる世帯の住宅のバリアフリー改修費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>満65歳以上で熊本市に居住</li><li>世帯全員が要支援・要介護認定を受けていない</li><li>契約前の申請が必要</li></ul>
-            <p><a href="https://www.city.kumamoto.jp/hpKiji/pub/detail.aspx?c_id=5&amp;id=34855&amp;class_set_id=2&amp;class_id=304" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="kumamoto-city-koreisha-jutaku-kaizo">
-            <h3>熊本市 高齢者住宅改造費助成事業（要介護・要支援認定者向け）</h3>
-            <p class="area-meta">熊本市｜助成金｜基準額40万円（65歳以上の要介護認定者）。助成率は要確認</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>在宅の要介護・要支援認定者が安全に暮らすための住宅改造費を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>要介護・要支援認定を受けた在宅の高齢者</li><li>相談は区役所福祉課または地域包括支援センター</li></ul>
-            <p><a href="https://www.city.kumamoto.jp/kiji00364088/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="kumamoto-city-shogaisha-jutaku-kaizo">
-            <h3>熊本市 障害者住宅改造費助成事業</h3>
-            <p class="area-meta">熊本市｜助成金｜基準額90万円（助成率は要確認）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>障がいのある方の住宅改造経費を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>65歳未満で身体障害者手帳1・2級などを持つ方</li></ul>
-            <p><a href="https://www.city.kumamoto.jp/kiji00329663/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>熊本県の制度</strong></p>
-          <ul><li><a href="pref-kumamoto.html#kumamoto-akiya-katsuyo-model">熊本県空き家活用促進モデル事業補助金</a></li><li><a href="pref-kumamoto.html#kumamoto-pref-iju-shien">熊本県移住支援事業（移住支援金）</a></li><li><a href="pref-kumamoto.html#kumamoto-pref-taishin">熊本県 住宅耐震化支援事業</a></li></ul>
-          <p><a href="pref-kumamoto.html#pref-resident">熊本県の制度3件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-kumamoto.html#kumamoto-fukugyo-kengyo-jinzai">熊本県副業・兼業人材活用促進事業費補助金</a></li><li><a href="pref-kumamoto.html#kumamoto-jigyo-shokei-atotsugi">熊本県事業承継・後継ぎ支援事業補助金</a></li><li><a href="pref-kumamoto.html#kumamoto-shokibo-ouen-shikin">熊本県融資制度 小規模事業者おうえん資金</a></li><li><a href="pref-kumamoto.html#kumamoto-sogyosha-shien-shikin">熊本県融資制度 創業者支援資金</a></li><li><a href="pref-kumamoto.html#kumamoto-chiiki-kadai-kigyo">熊本県地域課題解決型起業支援補助金</a></li></ul>
+          <p><a href="pref-kumamoto.html#pref-business">熊本県の制度5件を、県のページで見る →</a></p>
       </div>
     </section>
 

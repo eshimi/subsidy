@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"大阪市","item":"https://hojyokin.net/area/osaka.html"}]}</script>
@@ -165,124 +207,100 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 大阪市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b13.webp')"><h1 class="pb-title">大阪市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-osaka.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">大阪府・政令指定都市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">大阪府 大阪市</p>
+        <h1>大阪市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度8件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-osaka.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（大阪市）<b>2件</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（大阪府）<b>4件</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>6件（うち受付終了1件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-2">EV・充電 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-6">子育て 1</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <a href="#res-g-kosodate"><i aria-hidden="true">👶</i><b>子育て</b><small>1件</small></a>
+      <span class="is-none"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>掲載なし</small></span>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>5件</small></a>
+      <span class="is-none"><i aria-hidden="true">🌱</i><b>移住</b><small>掲載なし</small></span>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市2件＋県4件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">大阪市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="osaka-innovation-subsidy">
-            <h3>大阪市イノベーション創出支援補助金（令和8年度）</h3>
-            <p class="area-meta">大阪市 経済戦略局 産業振興部 企業支援課｜補助金｜補助率：補助対象経費の1/2。補助金上限額：200万円（要確認）</p>
-            <p class="area-meta">期間：要確認（令和8年度の募集期間は公式ページで要確認）</p>
-            <p>大学等と連携した産学連携の研究開発を行う市内企業を支援します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>大阪市内の事業者</li><li>大学等と連携した研究開発であること</li><li>詳細な対象要件は公式要綱で要確認</li></ul>
-            <p><a href="https://www.city.osaka.lg.jp/keizaisenryaku/page/0000668847.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-kosodate">子育て<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row is-ended" id="osaka-city-kosodate-chintai-kaishu">
+            <div class="ar-name"><b>大阪市 子育て世帯等向け民間賃貸住宅改修費補助 <span class="area-ended-tag">受付終了</span></b><small>子育て世帯等向けに賃貸住宅のバリアフリー・省エネ改修を行う賃貸オーナーへの補助。<br>対象：民間賃貸住宅のオーナー等／令和8年度の募集は未確認</small><span class="ar-prov">大阪市</span></div>
+            <div class="ar-amt">補助率1/3、上限75万円/戸（令和7年度）</div>
+            <a class="ar-go" href="https://www.city.osaka.lg.jp/toshiseibi/page/0000267596.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="osaka-setsubi-oen-loan">
-            <h3>大阪市設備投資応援融資</h3>
-            <p class="area-meta">大阪市 経済戦略局 産業振興部 企業支援課資金支援担当｜融資｜融資利率：要確認（案内は年1.25%以下、要綱は年1.0%以下と記載が不一致）。信用保証料：年0.7%（大阪信用保証協会所定）。融資限度額は要確認</p>
-            <p class="area-meta">期間：要確認（随時受付か期間指定かは公式ページで要確認）</p>
-            <p>経営基盤の強化に必要な設備を導入する市内中小企業者に対し、大阪信用保証協会の保証付きで設備資金を融資します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>大阪市内の中小企業者</li><li>経営基盤の強化に必要な設備導入であること</li><li>希望する金融機関を通じて申込む</li></ul>
-            <p><a href="https://www.city.osaka.lg.jp/keizaisenryaku/page/0000445555.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>5件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="osaka-city-akiya-riyo-kaishu">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>大阪市 空家利活用改修補助制度</b><small>空き家のバリアフリー・省エネ・耐震等の改修費を補助する（令和8年度より耐震改修の限度額を拡充）。<br>対象：大阪市内の対象空き家の改修／要綱の要件あり（詳細は要確認）<br>期間：令和8年度受付中（工事系は12月15日、診断等は12月28日が締切）<br>締切：2026-12-15</small><span class="ar-prov">大阪市</span></div>
+            <div class="ar-amt">性能向上工事は補助率1/2、限度額75万円/戸</div>
+            <a class="ar-go" href="https://www.city.osaka.lg.jp/toshiseibi/page/0000470652.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="osaka-city-block-tekkyo">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>ブロック塀等の撤去を促進する補助制度</b><small>道路等に面した一定の高さ（80cm以上）で安全性が確認できないブロック塀等の撤去と、軽量フェンス等の新設費用を補助する。<br>対象：道路等に面した高さ80cm以上のブロック塀等／安全性が確認できないもの<br>期間：申請書の提出期限は令和8年12月28日<br>締切：2026-12-28</small><span class="ar-prov">大阪市 都市整備局</span></div>
+            <div class="ar-amt">補助率1/2。撤去の上限15万円、軽量フェンス等の新設の上限25万円</div>
+            <a class="ar-go" href="https://www.city.osaka.lg.jp/toshiseibi/page/0000440127.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="osaka-city-ev-jukyo-juden">
+            <div class="ar-name"><b><span class="ar-tag">EV・充電</span>大阪市電気自動車用充電設備設置費補助事業（集合住宅対象）</b><small>集合住宅に電気自動車用充電設備を設置する費用を補助する。<br>対象：集合住宅への充電設備設置／国補助の交付決定を受けること</small><span class="ar-prov">大阪市</span></div>
+            <div class="ar-amt">国補助と合わせて1件100万円が上限</div>
+            <a class="ar-go" href="https://www.city.osaka.lg.jp/kankyo/page/0000680905.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="osaka-city-jutaku-shoene-kaishu">
+            <div class="ar-name"><b><span class="ar-tag">省エネ住宅</span>大阪市住宅省エネ改修促進事業</b><small>大阪市内の住宅の省エネ改修（蓄電池や太陽熱利用システムなどの設備を含む）に対する補助。<br>対象：昭和56年6月1日以降に着工した建物など／他の補助との重複不可</small><span class="ar-prov">大阪市 都市整備局</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.osaka.lg.jp/toshiseibi/page/0000675872.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="osaka-city-taishin-kaishu-jokyaku">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>民間戸建住宅等の耐震診断・改修等補助制度</b><small>耐震診断で耐震性が不足すると判断された旧耐震基準の民間戸建住宅等の、耐震改修・除却に対する補助。<br>対象：旧耐震基準（昭和56年5月31日以前）の住宅／耐震診断で耐震性不足と判断されたこと<br>期間：令和8年度。申請締切は12月28日<br>締切：2026-12-28</small><span class="ar-prov">大阪市 都市整備局</span></div>
+            <div class="ar-amt">除却（解体）工事：補助率1/3、1戸あたり70万円・1棟あたり140万円が上限。耐震改修工事の上限も令和8年度に拡充（金額は要確認）</div>
+            <a class="ar-go" href="https://www.city.osaka.lg.jp/toshiseibi/page/0000370839.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>大阪府の制度</strong></p>
+          <ul><li><a href="pref-osaka.html#osaka-koiki-blockbei">大阪府広域緊急交通路沿道ブロック塀補助制度</a></li><li><a href="pref-osaka.html#osaka-kouiki-cb-hojo">大阪府広域緊急交通路沿道ブロック塀補助制度（耐震診断義務付けブロック塀等）</a></li><li><a href="pref-osaka.html#osaka-taishin-mokuzo-hojo">木造住宅の耐震化（耐震診断・設計・改修・除却の補助）</a></li></ul>
+          <p><a href="pref-osaka.html#pref-resident">大阪府の制度3件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">大阪府の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">大阪市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-osaka.html#osaka-datsutanso-jishu">大阪府 中小事業者の脱炭素化に係る自主的取組支援補助金</a></li><li><a href="pref-osaka.html#osaka-gyomukaizen-chinage">大阪府 業務改善・賃上げ促進補助金</a></li><li><a href="pref-osaka.html#osaka-kaigyo-startup-shikin">大阪府制度融資「開業・スタートアップ応援資金」</a></li><li><a href="pref-osaka.html#osaka-tenjikai-shuttenshien">大阪府 中小企業展示商談会出展支援事業補助金</a></li></ul>
-          <p><a href="pref-osaka.html#pref-business">大阪府の制度4件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="osaka-innovation-subsidy">
+            <div class="ar-name"><b>大阪市イノベーション創出支援補助金（令和8年度）</b><small>大学等と連携した産学連携の研究開発を行う市内企業を支援します。<br>対象：大阪市内の事業者／大学等と連携した研究開発であること</small><span class="ar-prov">大阪市 経済戦略局 産業振興部 企業支援課</span></div>
+            <div class="ar-amt">補助率：補助対象経費の1/2。補助金上限額：200万円（要確認）</div>
+            <a class="ar-go" href="https://www.city.osaka.lg.jp/keizaisenryaku/page/0000668847.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="osaka-setsubi-oen-loan">
+            <div class="ar-name"><b>大阪市設備投資応援融資</b><small>経営基盤の強化に必要な設備を導入する市内中小企業者に対し、大阪信用保証協会の保証付きで設備資金を融資します。<br>対象：大阪市内の中小企業者／経営基盤の強化に必要な設備導入であること</small><span class="ar-prov">大阪市 経済戦略局 産業振興部 企業支援課資金支援担当</span></div>
+            <div class="ar-amt">融資利率：要確認（案内は年1.25%以下、要綱は年1.0%以下と記載が不一致）。信用保証料：年0.7%（大阪信用保証協会所定）。融資限度額は要確認</div>
+            <a class="ar-go" href="https://www.city.osaka.lg.jp/keizaisenryaku/page/0000445555.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">大阪府の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>大阪市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="osaka-city-taishin-kaishu-jokyaku">
-            <h3>民間戸建住宅等の耐震診断・改修等補助制度</h3>
-            <p class="area-meta">大阪市 都市整備局｜補助金｜除却（解体）工事：補助率1/3、1戸あたり70万円・1棟あたり140万円が上限。耐震改修工事の上限も令和8年度に拡充（金額は要確認）｜締切：2026-12-28</p>
-            <p class="area-meta">期間：令和8年度。申請締切は12月28日</p>
-            <p>耐震診断で耐震性が不足すると判断された旧耐震基準の民間戸建住宅等の、耐震改修・除却に対する補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>旧耐震基準（昭和56年5月31日以前）の住宅</li><li>耐震診断で耐震性不足と判断されたこと</li><li>交付申請前の工事契約は原則対象外</li></ul>
-            <p><a href="https://www.city.osaka.lg.jp/toshiseibi/page/0000370839.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
-          <div class="area-program" id="osaka-city-ev-jukyo-juden">
-            <h3>大阪市電気自動車用充電設備設置費補助事業（集合住宅対象）</h3>
-            <p class="area-meta">大阪市｜補助金｜国補助と合わせて1件100万円が上限</p>
-            <p class="area-meta">期間：令和8年7月7日開始（締切は要確認）</p>
-            <p>集合住宅に電気自動車用充電設備を設置する費用を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>集合住宅への充電設備設置</li><li>国補助の交付決定を受けること</li></ul>
-            <p><a href="https://www.city.osaka.lg.jp/kankyo/page/0000680905.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
-          <div class="area-program" id="osaka-city-jutaku-shoene-kaishu">
-            <h3>大阪市住宅省エネ改修促進事業</h3>
-            <p class="area-meta">大阪市 都市整備局｜補助金｜金額は公式で確認</p>
-            
-            <p>大阪市内の住宅の省エネ改修（蓄電池や太陽熱利用システムなどの設備を含む）に対する補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>昭和56年6月1日以降に着工した建物など</li><li>他の補助との重複不可</li></ul>
-            <p><a href="https://www.city.osaka.lg.jp/toshiseibi/page/0000675872.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="osaka-city-akiya-riyo-kaishu">
-            <h3>大阪市 空家利活用改修補助制度</h3>
-            <p class="area-meta">大阪市｜補助金｜性能向上工事は補助率1/2、限度額75万円/戸｜締切：2026-12-15</p>
-            <p class="area-meta">期間：令和8年度受付中（工事系は12月15日、診断等は12月28日が締切）</p>
-            <p>空き家のバリアフリー・省エネ・耐震等の改修費を補助する（令和8年度より耐震改修の限度額を拡充）。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>大阪市内の対象空き家の改修</li><li>要綱の要件あり（詳細は要確認）</li></ul>
-            <p><a href="https://www.city.osaka.lg.jp/toshiseibi/page/0000470652.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="osaka-city-block-tekkyo">
-            <h3>ブロック塀等の撤去を促進する補助制度</h3>
-            <p class="area-meta">大阪市 都市整備局｜補助金｜補助率1/2。撤去の上限15万円、軽量フェンス等の新設の上限25万円｜締切：2026-12-28</p>
-            <p class="area-meta">期間：申請書の提出期限は令和8年12月28日</p>
-            <p>道路等に面した一定の高さ（80cm以上）で安全性が確認できないブロック塀等の撤去と、軽量フェンス等の新設費用を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>道路等に面した高さ80cm以上のブロック塀等</li><li>安全性が確認できないもの</li></ul>
-            <p><a href="https://www.city.osaka.lg.jp/toshiseibi/page/0000440127.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-6">子育て</h3>
-          <div class="area-program is-ended" id="osaka-city-kosodate-chintai-kaishu">
-            <h3>大阪市 子育て世帯等向け民間賃貸住宅改修費補助 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">大阪市｜補助金｜補助率1/3、上限75万円/戸（令和7年度）</p>
-            <p class="area-meta">期間：最新は要確認（令和7年度は受付終了）</p>
-            <p>子育て世帯等向けに賃貸住宅のバリアフリー・省エネ改修を行う賃貸オーナーへの補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>民間賃貸住宅のオーナー等</li><li>令和8年度の募集は未確認</li></ul>
-            <p><a href="https://www.city.osaka.lg.jp/toshiseibi/page/0000267596.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>大阪府の制度</strong></p>
-          <ul><li><a href="pref-osaka.html#osaka-koiki-blockbei">大阪府広域緊急交通路沿道ブロック塀補助制度</a></li><li><a href="pref-osaka.html#osaka-kouiki-cb-hojo">大阪府広域緊急交通路沿道ブロック塀補助制度（耐震診断義務付けブロック塀等）</a></li><li><a href="pref-osaka.html#osaka-taishin-mokuzo-hojo">木造住宅の耐震化（耐震診断・設計・改修・除却の補助）</a></li></ul>
-          <p><a href="pref-osaka.html#pref-resident">大阪府の制度3件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-osaka.html#osaka-datsutanso-jishu">大阪府 中小事業者の脱炭素化に係る自主的取組支援補助金</a></li><li><a href="pref-osaka.html#osaka-gyomukaizen-chinage">大阪府 業務改善・賃上げ促進補助金</a></li><li><a href="pref-osaka.html#osaka-kaigyo-startup-shikin">大阪府制度融資「開業・スタートアップ応援資金」</a></li><li><a href="pref-osaka.html#osaka-tenjikai-shuttenshien">大阪府 中小企業展示商談会出展支援事業補助金</a></li></ul>
+          <p><a href="pref-osaka.html#pref-business">大阪府の制度4件を、県のページで見る →</a></p>
       </div>
     </section>
 

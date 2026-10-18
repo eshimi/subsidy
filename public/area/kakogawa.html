@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"加古川市","item":"https://hojyokin.net/area/kakogawa.html"}]}</script>
@@ -165,170 +207,129 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 加古川市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b18.webp')"><h1 class="pb-title">加古川市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-hyogo.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">兵庫県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">兵庫県 加古川市</p>
+        <h1>加古川市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度13件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-hyogo.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（加古川市）<b>3件</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（兵庫県）<b>4件（うち受付終了1件）</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>10件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 2</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-5">バリアフリー・介護 1</a><a href="#res-cat-6">子育て 2</a><a href="#res-cat-9">移住 2</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <a href="#res-g-kosodate"><i aria-hidden="true">👶</i><b>子育て</b><small>2件</small></a>
+      <span class="is-none"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>掲載なし</small></span>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>6件</small></a>
+      <a href="#res-g-iju"><i aria-hidden="true">🌱</i><b>移住</b><small>2件</small></a>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市3件＋県4件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">加古川市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="kakogawa-city-akitenpo-katsuyo">
-            <h3>令和8年度 空き店舗等活用支援事業補助金</h3>
-            <p class="area-meta">加古川市 地域振興部 商工労政課｜補助金｜店舗賃借料1/2（月額上限5万円・最大24か月）、店舗改装費2/3（上限25万円）、広告宣伝費2/3（上限10万円）</p>
-            <p class="area-meta">期間：最新は要確認（令和8年度分として公開、期限は要確認）</p>
-            <p>中心市街地・東加古川・別府エリアの空き店舗に出店する事業者の賃借料・改装費・広告宣伝費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>令和8年4月1日以降に対象エリアの空き店舗等で開業した事業者</li><li>令和7年度開業者は店舗賃借料のみ申請可</li><li>敷金・礼金・共益費・備品購入費等は対象外</li></ul>
-            <p><a href="https://www.city.kakogawa.lg.jp/jigyoshanokatae/shoko_norinsuisangyo_rodo/shogyo/43717.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-kosodate">子育て<span>2件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="kakogawa-kekkon-shinseikatsu">
+            <div class="ar-name"><b>加古川市結婚新生活支援補助金</b><small>新婚世帯の住居費・リフォーム費・引越費用を補助。<br>対象：新婚世帯／夫婦の年齢要件あり（所得要件等は要確認）<br>期間：2026年6月1日〜2027年3月31日（先着）<br>締切：2027-03-31</small><span class="ar-prov">兵庫県加古川市</span></div>
+            <div class="ar-amt">最大60万円（夫婦とも29歳以下）／最大30万円（夫婦とも39歳以下）</div>
+            <a class="ar-go" href="https://www.city.kakogawa.lg.jp/soshikikarasagasu/kodomo/kodomoseisaku/kekkonshinseikatsu/31177.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="kakogawa-city-miryoku-hasshin">
-            <h3>加古川市中小企業魅力発信支援補助金</h3>
-            <p class="area-meta">加古川市 地域振興部 商工労政課｜補助金｜展示会出展費用の1/2以内（上限15万円）、年度内1回限り</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>市内中小企業の展示会出展費用の一部を助成し、販路開拓・新規市場開拓を支援する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の中小企業者（建設業・製造業・情報通信サービス業等が中心）</li><li>展示会等への出展費用</li></ul>
-            <p><a href="https://www.city.kakogawa.lg.jp/soshikikarasagasu/chiikishinkobu/shokorosei/syogyo_kogyo/monodukurishien/50383.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="kakogawa-ninpu-kyufu">
+            <div class="ar-name"><b>加古川市妊婦支援給付金</b><small>妊娠届出後および出産後の面談等に応じて給付。<br>対象：市に妊娠届出をした妊婦</small><span class="ar-prov">兵庫県加古川市</span></div>
+            <div class="ar-amt">1回目5万円、2回目5万円×子どもの数</div>
+            <a class="ar-go" href="https://www.city.kakogawa.lg.jp/soshikikarasagasu/kodomo/ikujishienka/37903.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="kakogawa-city-yushi-assen">
-            <h3>加古川市 中小企業者への融資あっせん制度（創業支援融資ほか）</h3>
-            <p class="area-meta">加古川市 地域振興部 商工労政課｜融資｜創業支援融資：年0.7%、限度額1,000万円（特定創業支援等事業を受けた場合1,500万円）、保証料の1/2を市が負担。小規模企業支援融資は限度額1,250万円・保証料1/2負担、一般融資は限度額3,000万円・年1.5%</p>
-            <p class="area-meta">期間：通年（令和8年4月1日現在の条件）</p>
-            <p>市内中小企業者向けの制度融資。創業支援融資・小規模企業支援融資は信用保証料の1/2を市が負担する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内に住所または事業所がある中小企業者</li><li>市税を滞納していないこと</li></ul>
-            <p><a href="https://www.city.kakogawa.lg.jp/jigyoshanokatae/shoko_norinsuisangyo_rodo/shogyo/1415854272500.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>6件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="kakogawa-akiya-josyaku">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>加古川市隣接空き家一体利用除却補助</b><small>自己所有地に隣接する狭小宅地等の空き家の除却費を補助。<br>対象：個人のみ／自己所有地と接する空き家<br>期間：令和8年度は12月25日まで<br>締切：2026-12-25</small><span class="ar-prov">兵庫県加古川市</span></div>
+            <div class="ar-amt">除却工事費の1/5・上限25万円</div>
+            <a class="ar-go" href="https://www.city.kakogawa.lg.jp/soshikikarasagasu/tosi_kekaku/jyutaku/akiya_akichi/1562032385484.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kakogawa-akiya-kaishu">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>加古川市空き家活用改修費補助</b><small>空き家バンク登録の市街化区域内住宅の改修費を補助。<br>対象：空き家バンク登録物件／築20年以上など<br>期間：令和8年度は12月25日まで（予算到達で終了）<br>締切：2026-12-25</small><span class="ar-prov">兵庫県加古川市</span></div>
+            <div class="ar-amt">改修工事費の1/3・上限50万円</div>
+            <a class="ar-go" href="https://www.city.kakogawa.lg.jp/soshikikarasagasu/tosi_kekaku/jyutaku/akiya_akichi/1562034551362.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kakogawa-chikudenchi">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>加古川市家庭用蓄電池導入補助金</b><small>太陽光設置から10年経過した住宅の家庭用蓄電池導入を補助。<br>対象：市内に住民登録のある個人／SII登録の蓄電システム<br>期間：令和8年4月20日〜令和9年3月31日（予算1,750万円・先着。10月2日時点で申請額1,495万円）<br>締切：2027-03-31</small><span class="ar-prov">兵庫県加古川市</span></div>
+            <div class="ar-amt">1kWhあたり5万円（上限7kWh・35万円）</div>
+            <a class="ar-go" href="https://www.city.kakogawa.lg.jp/soshikikarasagasu/kankyobu/kankyo_sesaku/seisaku/hojo_josei/49703.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kakogawa-jutaku-kaizo">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>加古川市住宅改造費助成事業</b><small>要介護・要支援認定者や障害者手帳所持者のいる世帯のバリアフリー改造費を助成。<br>対象：要介護・要支援認定または障害者手帳等／所得要件あり</small><span class="ar-prov">兵庫県加古川市</span></div>
+            <div class="ar-amt">助成率1/3〜全額・上限100万円</div>
+            <a class="ar-go" href="https://www.city.kakogawa.lg.jp/soshikikarasagasu/fukushibu/kaigohokenka/kakushushinseisho/j_kaisyu_kaizo/1413872945470.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kakogawa-solar">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>加古川市再生可能エネルギー利用設備設置事業補助金（住宅用太陽光）</b><small>住宅用太陽光発電設備の設置費を補助。<br>対象：市内の住宅への設置／交付決定前の契約は対象外<br>期間：令和8年4月20日〜令和9年3月31日（先着・予算到達で終了）<br>締切：2027-03-31</small><span class="ar-prov">兵庫県加古川市</span></div>
+            <div class="ar-amt">1kWあたり14万円（上限3kW・42万円）</div>
+            <a class="ar-go" href="https://www.city.kakogawa.lg.jp/soshikikarasagasu/kankyobu/kankyo_sesaku/seisaku/hojo_josei/43146.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kakogawa-taishin">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>加古川市住宅耐震化等促進事業補助金</b><small>昭和56年5月以前着工の住宅の耐震化工事等を補助。<br>対象：昭和56年5月31日以前に着工された住宅<br>期間：令和8年4月20日〜12月25日（予算到達で終了）<br>締切：2026-12-25</small><span class="ar-prov">兵庫県加古川市</span></div>
+            <div class="ar-amt">要確認（耐震改修・簡易改修・屋根軽量化・シェルター・防災ベッド等）</div>
+            <a class="ar-go" href="https://www.city.kakogawa.lg.jp/soshikikarasagasu/tosi_kekaku/kenchikushidoka/taishin/1490770118951.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-iju">移住<span>2件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="kakogawa-ijuu-shienkin">
+            <div class="ar-name"><b>加古川市移住支援金（東京圏からの移住）</b><small>兵庫県と協働し、東京圏から移住した人に支援金を交付。<br>対象：転入後1年以内の申請／5年以上継続して居住する意思<br>期間：令和8年度の申請受付は2027年2月26日まで<br>締切：2027-02-26</small><span class="ar-prov">兵庫県加古川市</span></div>
+            <div class="ar-amt">世帯100万円・単身60万円（18歳未満の同行者1人につき100万円加算）</div>
+            <a class="ar-go" href="https://www.city.kakogawa.lg.jp/soshikikarasagasu/chiikishinkobu/shokoroseika_rousei/1573436789098.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kakogawa-ijuu-teijuu">
+            <div class="ar-name"><b>加古川市移住・定住助成金（田園まちづくり地区）</b><small>田園まちづくり計画策定地区の住宅への移住・定住を助成。<br>対象：市外からの転入者／田園まちづくり計画策定地区の住宅</small><span class="ar-prov">兵庫県加古川市</span></div>
+            <div class="ar-amt">市外転入者は最大50万円、空き家活用は最大100万円</div>
+            <a class="ar-go" href="https://www.city.kakogawa.lg.jp/soshikikarasagasu/tosi_kekaku/kaihatsushidoka/denenmatidukuri/ijuu_teijuujosei/40176.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>兵庫県の制度</strong></p>
+          <ul><li><a href="pref-hyogo.html#hyogo-akiya-katsuyo-shien">空き家活用支援事業</a></li><li><a href="pref-hyogo.html#hyogo-awaji-chikudenchi-r8">（淡路地域）令和8年度「家庭用蓄電池導入支援補助金」</a></li><li><a href="pref-hyogo.html#hyogo-awaji-ev-r8">（淡路地域）令和8年度電気自動車、燃料電池バス・トラック導入補助制度</a></li><li><a href="pref-hyogo.html#hyogo-iju-shienkin">兵庫県移住支援金（移住支援事業）</a></li><li><a href="pref-hyogo.html#hyogo-jikashohi-taiyoko-r8">令和8年度自家消費型住宅用太陽光発電設備等導入補助事業</a></li></ul>
+          <p><a href="pref-hyogo.html#pref-resident">兵庫県の制度8件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">兵庫県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">加古川市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-hyogo.html#hyogo-gxdx-setsubi-taiyo">兵庫県 GX・DX促進設備導入推進事業</a></li><li><a href="pref-hyogo.html#hyogo-kasegu-chikara-setsubi">兵庫県 稼ぐ力の強化に向けた設備投資支援事業</a></li><li><a href="pref-hyogo.html#hyogo-seidoyuushi">兵庫県中小企業融資制度（制度融資）</a></li><li><a href="pref-hyogo.html#hyogo-kigyoka-shien">兵庫県 起業家支援事業（一般事業枠・ふるさと・事業承継枠・若者枠・社会的事業枠）</a></li></ul>
-          <p><a href="pref-hyogo.html#pref-business">兵庫県の制度4件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="kakogawa-city-akitenpo-katsuyo">
+            <div class="ar-name"><b>令和8年度 空き店舗等活用支援事業補助金</b><small>中心市街地・東加古川・別府エリアの空き店舗に出店する事業者の賃借料・改装費・広告宣伝費を補助する。<br>対象：令和8年4月1日以降に対象エリアの空き店舗等で開業した事業者／令和7年度開業者は店舗賃借料のみ申請可</small><span class="ar-prov">加古川市 地域振興部 商工労政課</span></div>
+            <div class="ar-amt">店舗賃借料1/2（月額上限5万円・最大24か月）、店舗改装費2/3（上限25万円）、広告宣伝費2/3（上限10万円）</div>
+            <a class="ar-go" href="https://www.city.kakogawa.lg.jp/jigyoshanokatae/shoko_norinsuisangyo_rodo/shogyo/43717.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kakogawa-city-miryoku-hasshin">
+            <div class="ar-name"><b>加古川市中小企業魅力発信支援補助金</b><small>市内中小企業の展示会出展費用の一部を助成し、販路開拓・新規市場開拓を支援する。<br>対象：市内の中小企業者（建設業・製造業・情報通信サービス業等が中心）／展示会等への出展費用</small><span class="ar-prov">加古川市 地域振興部 商工労政課</span></div>
+            <div class="ar-amt">展示会出展費用の1/2以内（上限15万円）、年度内1回限り</div>
+            <a class="ar-go" href="https://www.city.kakogawa.lg.jp/soshikikarasagasu/chiikishinkobu/shokorosei/syogyo_kogyo/monodukurishien/50383.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kakogawa-city-yushi-assen">
+            <div class="ar-name"><b>加古川市 中小企業者への融資あっせん制度（創業支援融資ほか）</b><small>市内中小企業者向けの制度融資。創業支援融資・小規模企業支援融資は信用保証料の1/2を市が負担する。<br>対象：市内に住所または事業所がある中小企業者／市税を滞納していないこと<br>期間：通年（令和8年4月1日現在の条件）</small><span class="ar-prov">加古川市 地域振興部 商工労政課</span></div>
+            <div class="ar-amt">創業支援融資：年0.7%、限度額1,000万円（特定創業支援等事業を受けた場合1,500万円）、保証料の1/2を市が負担。小規模企業支援融資は限度額1,250万円・保証料1/2負担、一般融資は限度額3,000万円・年1.5%</div>
+            <a class="ar-go" href="https://www.city.kakogawa.lg.jp/jigyoshanokatae/shoko_norinsuisangyo_rodo/shogyo/1415854272500.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">兵庫県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>加古川市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="kakogawa-taishin">
-            <h3>加古川市住宅耐震化等促進事業補助金</h3>
-            <p class="area-meta">兵庫県加古川市｜補助金｜要確認（耐震改修・簡易改修・屋根軽量化・シェルター・防災ベッド等）｜締切：2026-12-25</p>
-            <p class="area-meta">期間：令和8年4月20日〜12月25日（予算到達で終了）</p>
-            <p>昭和56年5月以前着工の住宅の耐震化工事等を補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>昭和56年5月31日以前に着工された住宅</li></ul>
-            <p><a href="https://www.city.kakogawa.lg.jp/soshikikarasagasu/tosi_kekaku/kenchikushidoka/taishin/1490770118951.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program" id="kakogawa-chikudenchi">
-            <h3>加古川市家庭用蓄電池導入補助金</h3>
-            <p class="area-meta">兵庫県加古川市｜補助金｜1kWhあたり5万円（上限7kWh・35万円）｜締切：2027-03-31</p>
-            <p class="area-meta">期間：令和8年4月20日〜令和9年3月31日（予算1,750万円・先着。10月2日時点で申請額1,495万円）</p>
-            <p>太陽光設置から10年経過した住宅の家庭用蓄電池導入を補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内に住民登録のある個人</li><li>SII登録の蓄電システム</li><li>太陽光設置から10年経過</li></ul>
-            <p><a href="https://www.city.kakogawa.lg.jp/soshikikarasagasu/kankyobu/kankyo_sesaku/seisaku/hojo_josei/49703.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="kakogawa-solar">
-            <h3>加古川市再生可能エネルギー利用設備設置事業補助金（住宅用太陽光）</h3>
-            <p class="area-meta">兵庫県加古川市｜補助金｜1kWあたり14万円（上限3kW・42万円）｜締切：2027-03-31</p>
-            <p class="area-meta">期間：令和8年4月20日〜令和9年3月31日（先着・予算到達で終了）</p>
-            <p>住宅用太陽光発電設備の設置費を補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の住宅への設置</li><li>交付決定前の契約は対象外</li></ul>
-            <p><a href="https://www.city.kakogawa.lg.jp/soshikikarasagasu/kankyobu/kankyo_sesaku/seisaku/hojo_josei/43146.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="kakogawa-akiya-josyaku">
-            <h3>加古川市隣接空き家一体利用除却補助</h3>
-            <p class="area-meta">兵庫県加古川市｜補助金｜除却工事費の1/5・上限25万円｜締切：2026-12-25</p>
-            <p class="area-meta">期間：令和8年度は12月25日まで</p>
-            <p>自己所有地に隣接する狭小宅地等の空き家の除却費を補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>個人のみ</li><li>自己所有地と接する空き家</li></ul>
-            <p><a href="https://www.city.kakogawa.lg.jp/soshikikarasagasu/tosi_kekaku/jyutaku/akiya_akichi/1562032385484.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="kakogawa-akiya-kaishu">
-            <h3>加古川市空き家活用改修費補助</h3>
-            <p class="area-meta">兵庫県加古川市｜補助金｜改修工事費の1/3・上限50万円｜締切：2026-12-25</p>
-            <p class="area-meta">期間：令和8年度は12月25日まで（予算到達で終了）</p>
-            <p>空き家バンク登録の市街化区域内住宅の改修費を補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>空き家バンク登録物件</li><li>築20年以上など</li></ul>
-            <p><a href="https://www.city.kakogawa.lg.jp/soshikikarasagasu/tosi_kekaku/jyutaku/akiya_akichi/1562034551362.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
-          <div class="area-program" id="kakogawa-jutaku-kaizo">
-            <h3>加古川市住宅改造費助成事業</h3>
-            <p class="area-meta">兵庫県加古川市｜助成金｜助成率1/3〜全額・上限100万円</p>
-            <p class="area-meta">期間：最新は要確認（手引きは令和7年度版。予算到達で休止の場合あり）</p>
-            <p>要介護・要支援認定者や障害者手帳所持者のいる世帯のバリアフリー改造費を助成。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>要介護・要支援認定または障害者手帳等</li><li>所得要件あり</li><li>着工前の申請</li></ul>
-            <p><a href="https://www.city.kakogawa.lg.jp/soshikikarasagasu/fukushibu/kaigohokenka/kakushushinseisho/j_kaisyu_kaizo/1413872945470.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-6">子育て</h3>
-          <div class="area-program" id="kakogawa-kekkon-shinseikatsu">
-            <h3>加古川市結婚新生活支援補助金</h3>
-            <p class="area-meta">兵庫県加古川市｜補助金｜最大60万円（夫婦とも29歳以下）／最大30万円（夫婦とも39歳以下）｜締切：2027-03-31</p>
-            <p class="area-meta">期間：2026年6月1日〜2027年3月31日（先着）</p>
-            <p>新婚世帯の住居費・リフォーム費・引越費用を補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>新婚世帯</li><li>夫婦の年齢要件あり（所得要件等は要確認）</li></ul>
-            <p><a href="https://www.city.kakogawa.lg.jp/soshikikarasagasu/kodomo/kodomoseisaku/kekkonshinseikatsu/31177.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="kakogawa-ninpu-kyufu">
-            <h3>加古川市妊婦支援給付金</h3>
-            <p class="area-meta">兵庫県加古川市｜給付｜1回目5万円、2回目5万円×子どもの数</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>妊娠届出後および出産後の面談等に応じて給付。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市に妊娠届出をした妊婦</li></ul>
-            <p><a href="https://www.city.kakogawa.lg.jp/soshikikarasagasu/kodomo/ikujishienka/37903.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-9">移住</h3>
-          <div class="area-program" id="kakogawa-ijuu-shienkin">
-            <h3>加古川市移住支援金（東京圏からの移住）</h3>
-            <p class="area-meta">兵庫県加古川市｜給付｜世帯100万円・単身60万円（18歳未満の同行者1人につき100万円加算）｜締切：2027-02-26</p>
-            <p class="area-meta">期間：令和8年度の申請受付は2027年2月26日まで</p>
-            <p>兵庫県と協働し、東京圏から移住した人に支援金を交付。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>転入後1年以内の申請</li><li>5年以上継続して居住する意思</li><li>就業等の要件あり</li></ul>
-            <p><a href="https://www.city.kakogawa.lg.jp/soshikikarasagasu/chiikishinkobu/shokoroseika_rousei/1573436789098.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="kakogawa-ijuu-teijuu">
-            <h3>加古川市移住・定住助成金（田園まちづくり地区）</h3>
-            <p class="area-meta">兵庫県加古川市｜助成金｜市外転入者は最大50万円、空き家活用は最大100万円</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>田園まちづくり計画策定地区の住宅への移住・定住を助成。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市外からの転入者</li><li>田園まちづくり計画策定地区の住宅</li></ul>
-            <p><a href="https://www.city.kakogawa.lg.jp/soshikikarasagasu/tosi_kekaku/kaihatsushidoka/denenmatidukuri/ijuu_teijuujosei/40176.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>兵庫県の制度</strong></p>
-          <ul><li><a href="pref-hyogo.html#hyogo-akiya-katsuyo-shien">空き家活用支援事業</a></li><li><a href="pref-hyogo.html#hyogo-awaji-chikudenchi-r8">（淡路地域）令和8年度「家庭用蓄電池導入支援補助金」</a></li><li><a href="pref-hyogo.html#hyogo-awaji-ev-r8">（淡路地域）令和8年度電気自動車、燃料電池バス・トラック導入補助制度</a></li><li><a href="pref-hyogo.html#hyogo-iju-shienkin">兵庫県移住支援金（移住支援事業）</a></li><li><a href="pref-hyogo.html#hyogo-jikashohi-taiyoko-r8">令和8年度自家消費型住宅用太陽光発電設備等導入補助事業</a></li></ul>
-          <p><a href="pref-hyogo.html#pref-resident">兵庫県の制度8件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-hyogo.html#hyogo-gxdx-setsubi-taiyo">兵庫県 GX・DX促進設備導入推進事業</a></li><li><a href="pref-hyogo.html#hyogo-kasegu-chikara-setsubi">兵庫県 稼ぐ力の強化に向けた設備投資支援事業</a></li><li><a href="pref-hyogo.html#hyogo-seidoyuushi">兵庫県中小企業融資制度（制度融資）</a></li><li><a href="pref-hyogo.html#hyogo-kigyoka-shien">兵庫県 起業家支援事業（一般事業枠・ふるさと・事業承継枠・若者枠・社会的事業枠）</a></li></ul>
+          <p><a href="pref-hyogo.html#pref-business">兵庫県の制度4件を、県のページで見る →</a></p>
       </div>
     </section>
 

@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"名古屋市","item":"https://hojyokin.net/area/nagoya.html"}]}</script>
@@ -165,170 +207,129 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 名古屋市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b15.webp')"><h1 class="pb-title">名古屋市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-aichi.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">愛知県・政令指定都市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">愛知県 名古屋市</p>
+        <h1>名古屋市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度13件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-aichi.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（名古屋市）<b>2件（うち受付終了1件）</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（愛知県）<b>5件</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>11件（うち受付終了2件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 2</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-2">EV・充電 1</a><a href="#res-cat-5">バリアフリー・介護 1</a><a href="#res-cat-6">子育て 3</a><a href="#res-cat-8">教育・学び 3</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <a href="#res-g-kosodate"><i aria-hidden="true">👶</i><b>子育て</b><small>3件</small></a>
+      <span class="is-none"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>掲載なし</small></span>
+      <a href="#res-g-kyoiku"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>3件</small></a>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>5件</small></a>
+      <span class="is-none"><i aria-hidden="true">🌱</i><b>移住</b><small>掲載なし</small></span>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市2件＋県5件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">名古屋市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="nagoya-customer-harassment-support">
-            <h3>中小企業カスタマーハラスメント対策支援補助金</h3>
-            <p class="area-meta">名古屋市 経済局 産業労働部 労働企画課｜補助金｜補助率：補助対象経費の1/2以内。補助限度額：5万円から30万円以内｜締切：2026-10-30</p>
-            <p class="area-meta">期間：令和8年6月22日（月）〜令和8年10月30日（金）17時</p>
-            <p>カスタマーハラスメント対策に取り組む市内中小企業者が、管理用カメラや通話録音装置の導入費、対応マニュアル作成の謝金などを補助します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>名古屋市内の中小企業者（令和8年度からは従業員を雇用していない事業者も対象）</li><li>申請前にセミナーの受講と個別相談を受けていること</li><li>予算上限に達し次第受付終了</li></ul>
-            <p><a href="https://www.city.nagoya.jp/jigyou/sangyou/1026356/1026425/1040789/1035725.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-kosodate">子育て<span>3件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="nagoya-kodomo-anshin-sumairu">
+            <div class="ar-name"><b>名古屋市 子どもあんしん住まいる補助金</b><small>補助錠・チャイルドゲートの購入や転落防止手すり等の設置費を補助する。<br>対象：12歳に達する日以降の最初の3月31日までの子がいる世帯または妊娠中の人がいる世帯／2階以上の全開口部に転落防止対策を行うこと<br>期間：令和8年4月1日〜令和9年2月28日（予算上限で終了）<br>締切：2027-02-28</small><span class="ar-prov">愛知県名古屋市</span></div>
+            <div class="ar-amt">工事費等の1/2、最大20万円/戸</div>
+            <a class="ar-go" href="https://www.city.nagoya.jp/kurashi/juutaku/1014710/1014581.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <h3 class="area-cat">受付が終了した制度（次回の公募の参考に）</h3>
-          <div class="area-program is-ended" id="nagoya-startup">
-            <h3>名古屋市スタートアップ企業支援補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">名古屋市｜補助金｜上限100万円／補助率 1/3（要件により1/2）｜締切：2026-06-01</p>
-            <p class="area-meta">期間：例年5月頃に公募（令和8年度は5月1日〜6月1日）</p>
-            <p>成長が見込まれるスタートアップの創業を促進するため、創業時などの経費の一部を補助します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内で創業する成長志向の企業 など</li></ul>
-            
+          <div class="ar-row" id="nagoya-kodomo-influenza-josei">
+            <div class="ar-name"><b>子どものインフルエンザ予防接種費用の助成事業</b><small>令和8年度中に12歳・15歳・18歳を迎える子どものインフルエンザ予防接種の費用を、全額助成する事業です。<br>対象：名古屋市に実施日時点で住民登録があること／令和8年度中に12歳、15歳または18歳を迎える方<br>期間：令和8年10月1日（木曜日）から令和9年1月31日（日曜日）まで<br>締切：2027-01-31</small><span class="ar-prov">名古屋市 子ども青少年局 子育て支援課</span></div>
+            <div class="ar-amt">接種費用を全額助成（無償化）</div>
+            <a class="ar-go" href="https://www.city.nagoya.jp/kodomo/kosodate/1009307/1035123/1037482.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          <div class="ar-row" id="nagoya-ninpu-taxi">
+            <div class="ar-name"><b>妊婦のための緊急時タクシー利用支援事業</b><small>妊婦の緊急時の移動の負担を軽くするため、タクシー利用ポイント（または紙の利用券）を交付する事業です。<br>対象：名古屋市内に住所を有し、母子健康手帳の交付を受けた妊婦の方／出産予定日が令和5年1月1日以降の方<br>期間：通年（令和8年9月以降に妊娠届出をした方は電子のタクシー利用ポイントを交付）</small><span class="ar-prov">名古屋市 子ども青少年局 子育て支援課</span></div>
+            <div class="ar-amt">11,000円分</div>
+            <a class="ar-go" href="https://www.city.nagoya.jp/kodomo/ninshin/1008958/1008961.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-kyoiku">教育・学び<span>3件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="nagoya-mirai-manabi-ouenkin">
+            <div class="ar-name"><b>未来まなび応援金（就学援助制度）</b><small>国公立の小・中学校就学に必要な学用品費や修学旅行費などをサポートする就学援助制度です。令和8年9月から令和9年8月までの概要と申請手続きが案内されています。<br>対象：児童生徒が名古屋市在住であること／生活保護法に規定する要保護者、児童扶養手当が支給された方など<br>期間：令和8年9月から令和9年8月まで（3月は申請受付を行いません）</small><span class="ar-prov">名古屋市</span></div>
+            <div class="ar-amt">学用品費や修学旅行費など就学に必要な費用をサポート</div>
+            <a class="ar-go" href="https://www.city.nagoya.jp/kodomo/schools/1016760/1016781.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="nagoya-nyugaku-shienkin">
+            <div class="ar-name"><b>名古屋市入学支援金（高等学校等入学支援金）</b><small>高等学校等への入学に必要な費用（制服・教科書など）の負担を軽くするため、中学3年生に給付する入学支援金です。令和8年度分の申請を受け付けています。<br>対象：基準日（令和8年7月1日）時点で生徒・保護者等が名古屋市在住で、愛知県内の中学校などに在学している中学3年生／生徒は令和9年3月末時点で16歳未満であること<br>期間：令和8年7月24日（金曜日）から令和8年11月30日（月曜日）まで申請受付<br>締切：2026-11-30</small><span class="ar-prov">名古屋市教育委員会事務局 学事課</span></div>
+            <div class="ar-amt">生徒1人あたり 70,000円（給付型）</div>
+            <a class="ar-go" href="https://www.city.nagoya.jp/kodomo/schools/1016760/1016797/1036101.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="nagoya-shogakukin-koko-kyufu">
+            <div class="ar-name"><b>名古屋市奨学金（高等学校給付型奨学金）</b><small>高等学校等で修学するために必要な学資を支給する、返済不要の給付型奨学金です。令和8年度の申請を受け付けています。<br>対象：生徒及び保護者等が令和8年7月1日現在、名古屋市内に住所を有すること／愛知県内の高等学校及び中等教育学校の後期課程に在学していること<br>期間：令和8年7月24日（金曜日）から令和8年10月20日（火曜日）まで<br>締切：2026-10-20</small><span class="ar-prov">名古屋市教育委員会 学事課</span></div>
+            <div class="ar-amt">国公立 年額60,000円／私立 年額72,000円（返済不要）</div>
+            <a class="ar-go" href="https://www.city.nagoya.jp/kodomo/schools/1016760/1016797/1016801.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>5件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="nagoya-shogaisha-jutaku-kaizo">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>名古屋市 障害者住宅改造補助金</b><small>障害のある人の住宅改造費を助成する。<br>対象：身体障害者手帳等の等級が要件を満たすこと／所得が一定以上の場合は対象外</small><span class="ar-prov">愛知県名古屋市</span></div>
+            <div class="ar-amt">上限80万円（介護保険の要支援・要介護認定者は60万円）。助成率は所得により異なる</div>
+            <a class="ar-go" href="https://www.kaigo-wel.city.nagoya.jp/view/wel/shiori/jyutaku/jyutaku_hojyokin.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="nagoya-taishin-kaishu">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>木造住宅耐震改修助成</b><small>無料耐震診断で判定値1.0未満（段階的改修は0.7未満）の木造住宅の耐震改修工事費を助成する。<br>対象：昭和56年5月31日以前に着工された2階建て以下の住宅／無料耐震診断で判定値1.0未満</small><span class="ar-prov">名古屋市</span></div>
+            <div class="ar-amt">工事費の5分の4以内。一般改修は一般世帯115万円・非課税世帯165万円が上限（段階的改修は別額）</div>
+            <a class="ar-go" href="https://www.city.nagoya.jp/kurashi/juutaku/1014710/1014649/1034739/1014652/1034014.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="nagoya-taishin-shelter">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>耐震シェルター・防災ベッドの設置助成</b><small>耐震シェルターや防災ベッドの設置費用を助成する。</small><span class="ar-prov">名古屋市</span></div>
+            <div class="ar-amt">補助対象経費の2分の1以内で30万円以内（非課税世帯は4分の3、45万円以内）</div>
+            <a class="ar-go" href="https://www.city.nagoya.jp/kurashi/category/15-14-9-7-0-0-0-0-0-0.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="nagoya-jutaku-datsutanso">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>住宅等の脱炭素化促進補助 <span class="area-ended-tag">受付終了</span></b><small>住宅への太陽光発電設備、蓄電システム、ZEH等の導入費用を補助する。令和8年10月5日に蓄電システムの受付は予算到達で終了。<br>対象：市内の住宅に居住する個人など／戸建は「なごや太陽光倶楽部」への入会申請が必要<br>期間：令和8年度（対象は令和8年4月1日〜令和9年2月12日に設置・引渡し完了したもの。蓄電システムは受付終了）</small><span class="ar-prov">名古屋市</span></div>
+            <div class="ar-amt">太陽光（一体的導入）築10年以内2万円/kW・築10年超3万円/kW（上限9.99kW）、蓄電システム1万5千円/kWh（上限10kWh）</div>
+            <a class="ar-go" href="https://www.city.nagoya.jp/kurashi/kankyou/1012424/1012443/1012445.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="nagoya-zev-kounyu">
+            <div class="ar-name"><b><span class="ar-tag">EV・充電</span>ゼロエミッション車の購入補助金 <span class="area-ended-tag">受付終了</span></b><small>電気自動車・PHV・燃料電池自動車の購入補助。個人向けで事業者は対象外。令和8年度分は受付終了と案内されている。<br>対象：外部給電機能を備えた車両／個人（事業者は対象外）<br>期間：令和8年度（受付終了）</small><span class="ar-prov">名古屋市</span></div>
+            <div class="ar-amt">電気自動車10万円（外部給電機能が必要）</div>
+            <a class="ar-go" href="https://www.city.nagoya.jp/shisei/keikaku/1008387/1008424/1008431/1046948.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>愛知県の制度</strong></p>
+          <ul><li><a href="pref-aichi.html#aichi-iju-shienkin">愛知県 移住支援金（東京圏からのUIJターン）</a></li><li><a href="pref-aichi.html#aichi-jutaku-ondanka-setsubi">愛知県住宅用地球温暖化対策設備導入促進費補助金（市町村との協調補助）</a></li><li><a href="pref-aichi.html#aichi-jutaku-taishin">住宅・建築物の耐震診断・耐震改修の補助制度（市町村実施）</a></li></ul>
+          <p><a href="pref-aichi.html#pref-resident">愛知県の制度3件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">愛知県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">名古屋市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-aichi.html#aichi-digital-dx">愛知県 中小企業デジタル化・DX促進補助金</a></li><li><a href="pref-aichi.html#aichi-kakushin-jigyo">愛知県 革新事業創造事業費補助金</a></li><li><a href="pref-aichi.html#aichi-shogyo-shinko">愛知県 商業振興事業費補助金（地域商業活動活性化事業）</a></li><li><a href="pref-aichi.html#aichi-sogyo-shikin">愛知県中小企業融資制度 創業等支援資金</a></li><li><a href="pref-aichi.html#aichi-startup-sogyo">あいちスタートアップ創業支援事業費補助金（起業支援金）</a></li></ul>
-          <p><a href="pref-aichi.html#pref-business">愛知県の制度5件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="nagoya-customer-harassment-support">
+            <div class="ar-name"><b>中小企業カスタマーハラスメント対策支援補助金</b><small>カスタマーハラスメント対策に取り組む市内中小企業者が、管理用カメラや通話録音装置の導入費、対応マニュアル作成の謝金などを補助します。<br>対象：名古屋市内の中小企業者（令和8年度からは従業員を雇用していない事業者も対象）／申請前にセミナーの受講と個別相談を受けていること<br>期間：令和8年6月22日（月）〜令和8年10月30日（金）17時<br>締切：2026-10-30</small><span class="ar-prov">名古屋市 経済局 産業労働部 労働企画課</span></div>
+            <div class="ar-amt">補助率：補助対象経費の1/2以内。補助限度額：5万円から30万円以内</div>
+            <a class="ar-go" href="https://www.city.nagoya.jp/jigyou/sangyou/1026356/1026425/1040789/1035725.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="nagoya-startup">
+            <div class="ar-name"><b>名古屋市スタートアップ企業支援補助金 <span class="area-ended-tag">受付終了</span></b><small>成長が見込まれるスタートアップの創業を促進するため、創業時などの経費の一部を補助します。<br>対象：市内で創業する成長志向の企業 など<br>期間：例年5月頃に公募（令和8年度は5月1日〜6月1日）<br>締切：2026-06-01</small><span class="ar-prov">名古屋市</span></div>
+            <div class="ar-amt">上限100万円／補助率 1/3（要件により1/2）</div>
+            
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">愛知県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>名古屋市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="nagoya-taishin-kaishu">
-            <h3>木造住宅耐震改修助成</h3>
-            <p class="area-meta">名古屋市｜補助金｜工事費の5分の4以内。一般改修は一般世帯115万円・非課税世帯165万円が上限（段階的改修は別額）</p>
-            <p class="area-meta">期間：受付は4月から翌年1月末まで（確認できた年度は不明、最新は要確認）</p>
-            <p>無料耐震診断で判定値1.0未満（段階的改修は0.7未満）の木造住宅の耐震改修工事費を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>昭和56年5月31日以前に着工された2階建て以下の住宅</li><li>無料耐震診断で判定値1.0未満</li><li>交付決定後に契約・着手</li></ul>
-            <p><a href="https://www.city.nagoya.jp/kurashi/juutaku/1014710/1014649/1034739/1014652/1034014.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="nagoya-taishin-shelter">
-            <h3>耐震シェルター・防災ベッドの設置助成</h3>
-            <p class="area-meta">名古屋市｜補助金｜補助対象経費の2分の1以内で30万円以内（非課税世帯は4分の3、45万円以内）</p>
-            <p class="area-meta">期間：確認できた年度：不明（最新は要確認）</p>
-            <p>耐震シェルターや防災ベッドの設置費用を助成する。</p>
-            
-            <p><a href="https://www.city.nagoya.jp/kurashi/category/15-14-9-7-0-0-0-0-0-0.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program is-ended" id="nagoya-jutaku-datsutanso">
-            <h3>住宅等の脱炭素化促進補助 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">名古屋市｜補助金｜太陽光（一体的導入）築10年以内2万円/kW・築10年超3万円/kW（上限9.99kW）、蓄電システム1万5千円/kWh（上限10kWh）</p>
-            <p class="area-meta">期間：令和8年度（対象は令和8年4月1日〜令和9年2月12日に設置・引渡し完了したもの。蓄電システムは受付終了）</p>
-            <p>住宅への太陽光発電設備、蓄電システム、ZEH等の導入費用を補助する。令和8年10月5日に蓄電システムの受付は予算到達で終了。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の住宅に居住する個人など</li><li>戸建は「なごや太陽光倶楽部」への入会申請が必要</li></ul>
-            <p><a href="https://www.city.nagoya.jp/kurashi/kankyou/1012424/1012443/1012445.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
-          <div class="area-program is-ended" id="nagoya-zev-kounyu">
-            <h3>ゼロエミッション車の購入補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">名古屋市｜補助金｜電気自動車10万円（外部給電機能が必要）</p>
-            <p class="area-meta">期間：令和8年度（受付終了）</p>
-            <p>電気自動車・PHV・燃料電池自動車の購入補助。個人向けで事業者は対象外。令和8年度分は受付終了と案内されている。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>外部給電機能を備えた車両</li><li>個人（事業者は対象外）</li></ul>
-            <p><a href="https://www.city.nagoya.jp/shisei/keikaku/1008387/1008424/1008431/1046948.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
-          <div class="area-program" id="nagoya-shogaisha-jutaku-kaizo">
-            <h3>名古屋市 障害者住宅改造補助金</h3>
-            <p class="area-meta">愛知県名古屋市｜補助金｜上限80万円（介護保険の要支援・要介護認定者は60万円）。助成率は所得により異なる</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>障害のある人の住宅改造費を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>身体障害者手帳等の等級が要件を満たすこと</li><li>所得が一定以上の場合は対象外</li><li>改造前の申請が必要</li></ul>
-            <p><a href="https://www.kaigo-wel.city.nagoya.jp/view/wel/shiori/jyutaku/jyutaku_hojyokin.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-6">子育て</h3>
-          <div class="area-program" id="nagoya-kodomo-anshin-sumairu">
-            <h3>名古屋市 子どもあんしん住まいる補助金</h3>
-            <p class="area-meta">愛知県名古屋市｜補助金｜工事費等の1/2、最大20万円/戸｜締切：2027-02-28</p>
-            <p class="area-meta">期間：令和8年4月1日〜令和9年2月28日（予算上限で終了）</p>
-            <p>補助錠・チャイルドゲートの購入や転落防止手すり等の設置費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>12歳に達する日以降の最初の3月31日までの子がいる世帯または妊娠中の人がいる世帯</li><li>2階以上の全開口部に転落防止対策を行うこと</li></ul>
-            <p><a href="https://www.city.nagoya.jp/kurashi/juutaku/1014710/1014581.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="nagoya-kodomo-influenza-josei">
-            <h3>子どものインフルエンザ予防接種費用の助成事業</h3>
-            <p class="area-meta">名古屋市 子ども青少年局 子育て支援課｜助成金｜接種費用を全額助成（無償化）｜締切：2027-01-31</p>
-            <p class="area-meta">期間：令和8年10月1日（木曜日）から令和9年1月31日（日曜日）まで</p>
-            <p>令和8年度中に12歳・15歳・18歳を迎える子どものインフルエンザ予防接種の費用を、全額助成する事業です。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>名古屋市に実施日時点で住民登録があること</li><li>令和8年度中に12歳、15歳または18歳を迎える方</li><li>名古屋市内の指定医療機関で接種すること</li></ul>
-            <p><a href="https://www.city.nagoya.jp/kodomo/kosodate/1009307/1035123/1037482.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="nagoya-ninpu-taxi">
-            <h3>妊婦のための緊急時タクシー利用支援事業</h3>
-            <p class="area-meta">名古屋市 子ども青少年局 子育て支援課｜給付｜11,000円分</p>
-            <p class="area-meta">期間：通年（令和8年9月以降に妊娠届出をした方は電子のタクシー利用ポイントを交付）</p>
-            <p>妊婦の緊急時の移動の負担を軽くするため、タクシー利用ポイント（または紙の利用券）を交付する事業です。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>名古屋市内に住所を有し、母子健康手帳の交付を受けた妊婦の方</li><li>出産予定日が令和5年1月1日以降の方</li></ul>
-            <p><a href="https://www.city.nagoya.jp/kodomo/ninshin/1008958/1008961.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-8">教育・学び</h3>
-          <div class="area-program" id="nagoya-mirai-manabi-ouenkin">
-            <h3>未来まなび応援金（就学援助制度）</h3>
-            <p class="area-meta">名古屋市｜給付｜学用品費や修学旅行費など就学に必要な費用をサポート</p>
-            <p class="area-meta">期間：令和8年9月から令和9年8月まで（3月は申請受付を行いません）</p>
-            <p>国公立の小・中学校就学に必要な学用品費や修学旅行費などをサポートする就学援助制度です。令和8年9月から令和9年8月までの概要と申請手続きが案内されています。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>児童生徒が名古屋市在住であること</li><li>生活保護法に規定する要保護者、児童扶養手当が支給された方など</li><li>所得が基準額以下であること</li></ul>
-            <p><a href="https://www.city.nagoya.jp/kodomo/schools/1016760/1016781.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="nagoya-nyugaku-shienkin">
-            <h3>名古屋市入学支援金（高等学校等入学支援金）</h3>
-            <p class="area-meta">名古屋市教育委員会事務局 学事課｜給付｜生徒1人あたり 70,000円（給付型）｜締切：2026-11-30</p>
-            <p class="area-meta">期間：令和8年7月24日（金曜日）から令和8年11月30日（月曜日）まで申請受付</p>
-            <p>高等学校等への入学に必要な費用（制服・教科書など）の負担を軽くするため、中学3年生に給付する入学支援金です。令和8年度分の申請を受け付けています。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>基準日（令和8年7月1日）時点で生徒・保護者等が名古屋市在住で、愛知県内の中学校などに在学している中学3年生</li><li>生徒は令和9年3月末時点で16歳未満であること</li></ul>
-            <p><a href="https://www.city.nagoya.jp/kodomo/schools/1016760/1016797/1036101.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="nagoya-shogakukin-koko-kyufu">
-            <h3>名古屋市奨学金（高等学校給付型奨学金）</h3>
-            <p class="area-meta">名古屋市教育委員会 学事課｜給付｜国公立 年額60,000円／私立 年額72,000円（返済不要）｜締切：2026-10-20</p>
-            <p class="area-meta">期間：令和8年7月24日（金曜日）から令和8年10月20日（火曜日）まで</p>
-            <p>高等学校等で修学するために必要な学資を支給する、返済不要の給付型奨学金です。令和8年度の申請を受け付けています。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>生徒及び保護者等が令和8年7月1日現在、名古屋市内に住所を有すること</li><li>愛知県内の高等学校及び中等教育学校の後期課程に在学していること</li><li>保護者等の令和8年度の市町村民税所得割が非課税であること</li></ul>
-            <p><a href="https://www.city.nagoya.jp/kodomo/schools/1016760/1016797/1016801.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>愛知県の制度</strong></p>
-          <ul><li><a href="pref-aichi.html#aichi-iju-shienkin">愛知県 移住支援金（東京圏からのUIJターン）</a></li><li><a href="pref-aichi.html#aichi-jutaku-ondanka-setsubi">愛知県住宅用地球温暖化対策設備導入促進費補助金（市町村との協調補助）</a></li><li><a href="pref-aichi.html#aichi-jutaku-taishin">住宅・建築物の耐震診断・耐震改修の補助制度（市町村実施）</a></li></ul>
-          <p><a href="pref-aichi.html#pref-resident">愛知県の制度3件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-aichi.html#aichi-digital-dx">愛知県 中小企業デジタル化・DX促進補助金</a></li><li><a href="pref-aichi.html#aichi-kakushin-jigyo">愛知県 革新事業創造事業費補助金</a></li><li><a href="pref-aichi.html#aichi-shogyo-shinko">愛知県 商業振興事業費補助金（地域商業活動活性化事業）</a></li><li><a href="pref-aichi.html#aichi-sogyo-shikin">愛知県中小企業融資制度 創業等支援資金</a></li><li><a href="pref-aichi.html#aichi-startup-sogyo">あいちスタートアップ創業支援事業費補助金（起業支援金）</a></li></ul>
+          <p><a href="pref-aichi.html#pref-business">愛知県の制度5件を、県のページで見る →</a></p>
       </div>
     </section>
 

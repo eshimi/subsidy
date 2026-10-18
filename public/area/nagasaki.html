@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"長崎市","item":"https://hojyokin.net/area/nagasaki.html"}]}</script>
@@ -165,191 +207,143 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 長崎市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b15.webp')"><h1 class="pb-title">長崎市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-nagasaki.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">長崎県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">長崎県 長崎市</p>
+        <h1>長崎市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度15件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-nagasaki.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（長崎市）<b>4件（うち受付終了2件）</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（長崎県）<b>5件（うち受付終了2件）</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>11件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-2">EV・充電 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-5">バリアフリー・介護 1</a><a href="#res-cat-6">子育て 1</a><a href="#res-cat-7">医療・福祉 1</a><a href="#res-cat-8">教育・学び 3</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <a href="#res-g-kosodate"><i aria-hidden="true">👶</i><b>子育て</b><small>1件</small></a>
+      <a href="#res-g-iryo"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>1件</small></a>
+      <a href="#res-g-kyoiku"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>3件</small></a>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>6件</small></a>
+      <span class="is-none"><i aria-hidden="true">🌱</i><b>移住</b><small>掲載なし</small></span>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市4件＋県5件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">長崎市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="nagasaki-city-bansogata-dx">
-            <h3>令和8年度長崎市伴走型DX化支援補助金</h3>
-            <p class="area-meta">長崎市 新産業推進課｜補助金｜要確認（前年度は補助率1/2・上限50万円）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>DXに知見を持つ外部専門家による相談・助言など伴走型支援の費用を補助する（システム・機器導入費は対象外）。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の中小企業者（詳細は要確認）</li></ul>
-            <p><a href="https://www.city.nagasaki.lg.jp/page/83459.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-kosodate">子育て<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="nagasaki-kajidaiko">
+            <div class="ar-name"><b>妊娠期・乳児期家事代行サービス事業</b><small>登録された民間事業者の家事代行サービスを1回500円で利用できる事業。令和8年4月1日から妊娠期も利用できる。<br>対象：市内に住所を有する妊婦がいる世帯もしくは1歳未満の子どもがいる世帯<br>期間：妊娠期～1歳の誕生日の前日まで（母子手帳交付日から）</small><span class="ar-prov">長崎市</span></div>
+            <div class="ar-amt">1回500円で利用（クーポン6回分を配布）</div>
+            <a class="ar-go" href="https://www.city.nagasaki.lg.jp/site/e-kao/6524.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="nagasaki-city-sogyosha-seicho">
-            <h3>長崎市創業者成長支援補助金</h3>
-            <p class="area-meta">長崎市 新産業推進課｜補助金｜補助率1/2、上限25万円（訪問客還元事業は上限50万円）｜締切：2026-11-30</p>
-            <p class="area-meta">期間：令和8年11月30日まで（予算がなくなり次第終了）</p>
-            <p>創業サポート長崎の特定創業支援を受けて事業計画を作成した創業者の、広報費・外部委託費・備品購入費・展示会出展費等を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>創業サポート長崎による特定創業支援等事業を受けた創業者</li><li>交付決定前の契約・購入は対象外</li></ul>
-            <p><a href="https://www.city.nagasaki.lg.jp/page/55890.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/nagasaki-city-sogyosha-seicho.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
           </div>
-          <h3 class="area-cat">受付が終了した制度（次回の公募の参考に）</h3>
-          <div class="area-program is-ended" id="nagasaki-city-challenge-kigyo">
-            <h3>長崎市チャレンジ企業応援事業費補助金（令和8年物価高騰対策関連） <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">長崎市 新産業推進課｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：申請期限は令和8年9月30日とされ、受付終了の可能性あり。最新は要確認</p>
-            <p>賃上げ環境の整備に向け、新製品・新サービス開発、事業拡大、DX推進による生産性向上、機械設備導入等の経費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の中小企業者（詳細は要確認）</li></ul>
-            <p><a href="https://www.city.nagasaki.lg.jp/page/76401.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <h3 class="area-cat" id="res-g-iryo">医療・福祉<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="nagasaki-kodomo-influenza">
+            <div class="ar-name"><b>こどもインフルエンザ予防接種費用の一部助成</b><small>長崎市に住民票がある生後6か月から中学生までのこどもを対象に、インフルエンザ予防接種費用の一部を助成する。<br>対象：長崎市に住民票があり、生後6か月から中学生までのこども<br>期間：2026年10月1日～2027年2月28日</small><span class="ar-prov">長崎市 こども政策課</span></div>
+            <div class="ar-amt">自己負担 注射1回1,750円、経鼻1回3,500円（生活保護世帯・市民税非課税世帯は無料）</div>
+            <a class="ar-go" href="https://www.city.nagasaki.lg.jp/site/e-kao/91085.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program is-ended" id="nagasaki-city-jinzai-kakuho">
-            <h3>長崎市人材確保支援費補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">長崎市 新産業推進課｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：予算上限に達し募集終了（令和8年度か要確認）</p>
-            <p>市内中小企業者の人材確保の取組費用を支援する補助金。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内中小企業者</li></ul>
-            <p><a href="https://city.nagasaki.lg.jp/jigyo/340000/341000/p031467.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
+          <h3 class="area-cat" id="res-g-kyoiku">教育・学び<span>3件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="nagasaki-hitorioya-shingaku">
+            <div class="ar-name"><b>ひとり親家庭等進学支援事業</b><small>ひとり親家庭等のこどもの大学等の受験料と模擬試験料にかかる費用を補助する。<br>対象：長崎市に住所を有するひとり親家庭の親等で児童扶養手当受給者と同等の所得水準、または市町村民税の非課税世帯／長崎市の「子どもの学習・生活支援事業」に登録している大学等の受験生（20歳未満）または中学3年生<br>期間：受験日の属する年度の3月15日まで（令和8年度に受験した費用は令和8年度中に申請）</small><span class="ar-prov">長崎市 こども政策課</span></div>
+            <div class="ar-amt">大学等受験料53,000円/人、高校3年生等模擬試験8,000円/人、中学3年生模擬試験6,000円/人</div>
+            <a class="ar-go" href="https://www.city.nagasaki.lg.jp/site/e-kao/87501.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="nagasaki-shugaku-enjo">
+            <div class="ar-name"><b>就学援助制度（令和8年度）</b><small>経済的にお困りの方に、小・中学校に通う子の学用品費・給食費など学校教育で必要な経費の一部を援助する。申請は毎年度必要。<br>対象：令和7年中の世帯員全員の合計所得金額が所得基準以下の場合など／申請は毎年度必要<br>期間：令和8年度当初申請 2月16日～4月15日、随時申請 4月16日以降</small><span class="ar-prov">長崎市 教育委員会学務課</span></div>
+            <div class="ar-amt">新入学用品費 小学校1年生64,300円・中学校1年生81,000円、学用品費等 小学校2～6年生13,900円など</div>
+            <a class="ar-go" href="https://www.city.nagasaki.lg.jp/page/5992.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="nagasaki-shushoku-shikaku">
+            <div class="ar-name"><b>自立支援教育訓練給付金・高等職業訓練促進給付金等</b><small>母子・父子家庭の親が教育訓練講座を受講した場合の費用や、資格取得のための養成機関での修業中の生活費負担軽減のための給付金を支給する。<br>対象：20歳未満のこどもを扶養している方で長崎市に住所がある方／所得制限等あり、入学・受講前の申請・相談が必要</small><span class="ar-prov">長崎市 こども政策課</span></div>
+            <div class="ar-amt">受講費用の最大60パーセント（上限20万円、下限12,001円）／高等職業訓練促進給付金 月額100,000円（非課税世帯）・70,500円（課税世帯）</div>
+            <a class="ar-go" href="https://www.city.nagasaki.lg.jp/site/e-kao/6440.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>6件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="nagasaki-city-block-jokyaku">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>長崎市 ブロック塀等除却費補助金制度</b><small>小中学校の通学路に面する倒壊の危険があるブロック塀等の除却費を補助する。<br>対象：通学路に面する危険なブロック塀等</small><span class="ar-prov">長崎市</span></div>
+            <div class="ar-amt">除却工事費の1/2（上限1敷地12万円）</div>
+            <a class="ar-go" href="https://www.city.nagasaki.lg.jp/sumai/620000/625000/p034544.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="nagasaki-city-ev">
+            <div class="ar-name"><b><span class="ar-tag">EV・充電</span>長崎市 電気自動車等購入補助金（ゼロカーボンシティ推進事業費補助金）</b><small>市内に使用の本拠地を置く新車のEV購入を補助する。<br>対象：長崎市民／市内を使用の本拠地とする新車<br>期間：令和8年7月1日〜令和9年1月31日（先着、予算上限で終了）<br>締切：2027-01-31</small><span class="ar-prov">長崎市</span></div>
+            <div class="ar-amt">軽自動車10万円、普通自動車20万円</div>
+            <a class="ar-go" href="https://www.city.nagasaki.lg.jp/page/52115.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="nagasaki-city-kaiteki-sumai">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>長崎市快適住まいづくり支援費補助金</b><small>バリアフリー化を含む住宅リフォーム工事費を補助する。令和8年度版要綱が公開されている。<br>対象：住宅の所有者（予定者）または2親等以内の親族／税抜20万円以上の工事</small><span class="ar-prov">長崎市</span></div>
+            <div class="ar-amt">補助対象経費の20%（上限10万円）</div>
+            <a class="ar-go" href="https://www.city.nagasaki.lg.jp/sumai/620000/625000/p003838.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="nagasaki-city-taishin-mokuzo">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>長崎市 耐震改修の助成制度（木造戸建住宅）</b><small>木造戸建住宅の耐震診断・耐震改修の費用を助成する。<br>対象：過去に耐震化の補助を受けていない／交付決定前の契約・着手は対象外</small><span class="ar-prov">長崎市</span></div>
+            <div class="ar-amt">耐震改修は費用の80%、上限100万円。耐震診断は費用136,000円のうち113,000円を助成</div>
+            <a class="ar-go" href="https://www.city.nagasaki.lg.jp/sumai/620000/625000/p004252.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="nagasaki-city-taiyoko-chikudenchi">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>長崎市 太陽光発電設備等導入補助金（ゼロカーボンシティ推進事業費補助金）</b><small>住宅の太陽光発電設備と蓄電池の導入費用を補助する。<br>対象：蓄電池は1kWh以上の定置式で太陽光と同時設置（単独は対象外）／交付決定日以降に契約</small><span class="ar-prov">長崎市</span></div>
+            <div class="ar-amt">個人の場合、太陽光は7万円/kW（上限35万円）、蓄電池は5万円/kWh（上限25万円）</div>
+            <a class="ar-go" href="https://www.city.nagasaki.lg.jp/page/52113.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="nagasaki-city-tokutei-akiya">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>長崎市特定空家等除却費補助金</b><small>老朽化した危険な空き家の除却費の一部を補助する。</small><span class="ar-prov">長崎市</span></div>
+            <div class="ar-amt">最大50万円</div>
+            <a class="ar-go" href="https://www.city.nagasaki.lg.jp/page/1921.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>長崎県の制度</strong></p>
+          <ul><li><a href="pref-nagasaki.html#nagasaki-iju-shienkin">長崎県 移住支援金（東京圏からのUIJターン）</a></li><li><a href="pref-nagasaki.html#nagasaki-pref-taishin-anshin">長崎県耐震・安心住まいづくり支援事業</a></li><li><a href="pref-nagasaki.html#nagasaki-pref-saiene-kofukin-jutaku">自家消費型太陽光発電等の補助金（再エネ交付金・住宅向け）</a></li></ul>
+          <p><a href="pref-nagasaki.html#pref-resident">長崎県の制度3件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">長崎県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">長崎市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-nagasaki.html#nagasaki-chinage-kinkyu-shienkin">中小・小規模事業者賃上げ緊急支援金</a></li><li><a href="pref-nagasaki.html#nagasaki-digital-koujou">長崎県デジタル力向上支援事業費補助金</a></li><li><a href="pref-nagasaki.html#nagasaki-kokkyoritou-sogyo">長崎県国境離島創業・事業拡大等支援事業（雇用機会拡充事業）</a></li><li><a href="pref-nagasaki.html#nagasaki-jigyo-shokei-sokushin">事業承継促進・後継者事業展開支援補助金</a></li><li><a href="pref-nagasaki.html#nagasaki-sogyo-shienkin">長崎県創業支援金（創業支援事業）</a></li></ul>
-          <p><a href="pref-nagasaki.html#pref-business">長崎県の制度5件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="nagasaki-city-bansogata-dx">
+            <div class="ar-name"><b>令和8年度長崎市伴走型DX化支援補助金</b><small>DXに知見を持つ外部専門家による相談・助言など伴走型支援の費用を補助する（システム・機器導入費は対象外）。<br>対象：市内の中小企業者（詳細は要確認）</small><span class="ar-prov">長崎市 新産業推進課</span></div>
+            <div class="ar-amt">要確認（前年度は補助率1/2・上限50万円）</div>
+            <a class="ar-go" href="https://www.city.nagasaki.lg.jp/page/83459.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="nagasaki-city-sogyosha-seicho">
+            <div class="ar-name"><b>長崎市創業者成長支援補助金</b><small>創業サポート長崎の特定創業支援を受けて事業計画を作成した創業者の、広報費・外部委託費・備品購入費・展示会出展費等を補助する。<br>対象：創業サポート長崎による特定創業支援等事業を受けた創業者／交付決定前の契約・購入は対象外<br>期間：令和8年11月30日まで（予算がなくなり次第終了）<br>締切：2026-11-30</small><span class="ar-prov">長崎市 新産業推進課</span></div>
+            <div class="ar-amt">補助率1/2、上限25万円（訪問客還元事業は上限50万円）</div>
+            <a class="ar-go" href="https://www.city.nagasaki.lg.jp/page/55890.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="nagasaki-city-challenge-kigyo">
+            <div class="ar-name"><b>長崎市チャレンジ企業応援事業費補助金（令和8年物価高騰対策関連） <span class="area-ended-tag">受付終了</span></b><small>賃上げ環境の整備に向け、新製品・新サービス開発、事業拡大、DX推進による生産性向上、機械設備導入等の経費を補助する。<br>対象：市内の中小企業者（詳細は要確認）</small><span class="ar-prov">長崎市 新産業推進課</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.nagasaki.lg.jp/page/76401.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="nagasaki-city-jinzai-kakuho">
+            <div class="ar-name"><b>長崎市人材確保支援費補助金 <span class="area-ended-tag">受付終了</span></b><small>市内中小企業者の人材確保の取組費用を支援する補助金。<br>対象：市内中小企業者</small><span class="ar-prov">長崎市 新産業推進課</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://city.nagasaki.lg.jp/jigyo/340000/341000/p031467.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">長崎県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>長崎市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="nagasaki-city-taishin-mokuzo">
-            <h3>長崎市 耐震改修の助成制度（木造戸建住宅）</h3>
-            <p class="area-meta">長崎市｜補助金｜耐震改修は費用の80%、上限100万円。耐震診断は費用136,000円のうち113,000円を助成</p>
-            
-            <p>木造戸建住宅の耐震診断・耐震改修の費用を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>過去に耐震化の補助を受けていない</li><li>交付決定前の契約・着手は対象外</li></ul>
-            <p><a href="https://www.city.nagasaki.lg.jp/sumai/620000/625000/p004252.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program" id="nagasaki-city-taiyoko-chikudenchi">
-            <h3>長崎市 太陽光発電設備等導入補助金（ゼロカーボンシティ推進事業費補助金）</h3>
-            <p class="area-meta">長崎市｜補助金｜個人の場合、太陽光は7万円/kW（上限35万円）、蓄電池は5万円/kWh（上限25万円）</p>
-            <p class="area-meta">期間：令和8年度（受付状況は要確認）</p>
-            <p>住宅の太陽光発電設備と蓄電池の導入費用を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>蓄電池は1kWh以上の定置式で太陽光と同時設置（単独は対象外）</li><li>交付決定日以降に契約</li></ul>
-            <p><a href="https://www.city.nagasaki.lg.jp/page/52113.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
-          <div class="area-program" id="nagasaki-city-ev">
-            <h3>長崎市 電気自動車等購入補助金（ゼロカーボンシティ推進事業費補助金）</h3>
-            <p class="area-meta">長崎市｜補助金｜軽自動車10万円、普通自動車20万円｜締切：2027-01-31</p>
-            <p class="area-meta">期間：令和8年7月1日〜令和9年1月31日（先着、予算上限で終了）</p>
-            <p>市内に使用の本拠地を置く新車のEV購入を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>長崎市民</li><li>市内を使用の本拠地とする新車</li></ul>
-            <p><a href="https://www.city.nagasaki.lg.jp/page/52115.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="nagasaki-city-block-jokyaku">
-            <h3>長崎市 ブロック塀等除却費補助金制度</h3>
-            <p class="area-meta">長崎市｜補助金｜除却工事費の1/2（上限1敷地12万円）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>小中学校の通学路に面する倒壊の危険があるブロック塀等の除却費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>通学路に面する危険なブロック塀等</li></ul>
-            <p><a href="https://www.city.nagasaki.lg.jp/sumai/620000/625000/p034544.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="nagasaki-city-tokutei-akiya">
-            <h3>長崎市特定空家等除却費補助金</h3>
-            <p class="area-meta">長崎市｜補助金｜最大50万円</p>
-            
-            <p>老朽化した危険な空き家の除却費の一部を補助する。</p>
-            
-            <p><a href="https://www.city.nagasaki.lg.jp/page/1921.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
-          <div class="area-program" id="nagasaki-city-kaiteki-sumai">
-            <h3>長崎市快適住まいづくり支援費補助金</h3>
-            <p class="area-meta">長崎市｜補助金｜補助対象経費の20%（上限10万円）</p>
-            <p class="area-meta">期間：令和8年度（予算に達し次第終了）。受付状況は要確認</p>
-            <p>バリアフリー化を含む住宅リフォーム工事費を補助する。令和8年度版要綱が公開されている。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>住宅の所有者（予定者）または2親等以内の親族</li><li>税抜20万円以上の工事</li><li>交付決定後90日以内に着手</li></ul>
-            <p><a href="https://www.city.nagasaki.lg.jp/sumai/620000/625000/p003838.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-6">子育て</h3>
-          <div class="area-program" id="nagasaki-kajidaiko">
-            <h3>妊娠期・乳児期家事代行サービス事業</h3>
-            <p class="area-meta">長崎市｜助成金｜1回500円で利用（クーポン6回分を配布）</p>
-            <p class="area-meta">期間：妊娠期～1歳の誕生日の前日まで（母子手帳交付日から）</p>
-            <p>登録された民間事業者の家事代行サービスを1回500円で利用できる事業。令和8年4月1日から妊娠期も利用できる。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内に住所を有する妊婦がいる世帯もしくは1歳未満の子どもがいる世帯</li></ul>
-            <p><a href="https://www.city.nagasaki.lg.jp/site/e-kao/6524.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-7">医療・福祉</h3>
-          <div class="area-program" id="nagasaki-kodomo-influenza">
-            <h3>こどもインフルエンザ予防接種費用の一部助成</h3>
-            <p class="area-meta">長崎市 こども政策課｜助成金｜自己負担 注射1回1,750円、経鼻1回3,500円（生活保護世帯・市民税非課税世帯は無料）</p>
-            <p class="area-meta">期間：2026年10月1日～2027年2月28日</p>
-            <p>長崎市に住民票がある生後6か月から中学生までのこどもを対象に、インフルエンザ予防接種費用の一部を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>長崎市に住民票があり、生後6か月から中学生までのこども</li></ul>
-            <p><a href="https://www.city.nagasaki.lg.jp/site/e-kao/91085.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-8">教育・学び</h3>
-          <div class="area-program" id="nagasaki-hitorioya-shingaku">
-            <h3>ひとり親家庭等進学支援事業</h3>
-            <p class="area-meta">長崎市 こども政策課｜補助金｜大学等受験料53,000円/人、高校3年生等模擬試験8,000円/人、中学3年生模擬試験6,000円/人</p>
-            <p class="area-meta">期間：受験日の属する年度の3月15日まで（令和8年度に受験した費用は令和8年度中に申請）</p>
-            <p>ひとり親家庭等のこどもの大学等の受験料と模擬試験料にかかる費用を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>長崎市に住所を有するひとり親家庭の親等で児童扶養手当受給者と同等の所得水準、または市町村民税の非課税世帯</li><li>長崎市の「子どもの学習・生活支援事業」に登録している大学等の受験生（20歳未満）または中学3年生</li></ul>
-            <p><a href="https://www.city.nagasaki.lg.jp/site/e-kao/87501.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="nagasaki-shugaku-enjo">
-            <h3>就学援助制度（令和8年度）</h3>
-            <p class="area-meta">長崎市 教育委員会学務課｜給付｜新入学用品費 小学校1年生64,300円・中学校1年生81,000円、学用品費等 小学校2～6年生13,900円など</p>
-            <p class="area-meta">期間：令和8年度当初申請 2月16日～4月15日、随時申請 4月16日以降</p>
-            <p>経済的にお困りの方に、小・中学校に通う子の学用品費・給食費など学校教育で必要な経費の一部を援助する。申請は毎年度必要。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>令和7年中の世帯員全員の合計所得金額が所得基準以下の場合など</li><li>申請は毎年度必要</li></ul>
-            <p><a href="https://www.city.nagasaki.lg.jp/page/5992.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="nagasaki-shushoku-shikaku">
-            <h3>自立支援教育訓練給付金・高等職業訓練促進給付金等</h3>
-            <p class="area-meta">長崎市 こども政策課｜給付｜受講費用の最大60パーセント（上限20万円、下限12,001円）／高等職業訓練促進給付金 月額100,000円（非課税世帯）・70,500円（課税世帯）</p>
-            <p class="area-meta">期間：通年（要確認）。令和8年度から看護師の資格取得の支給期間が5年間に</p>
-            <p>母子・父子家庭の親が教育訓練講座を受講した場合の費用や、資格取得のための養成機関での修業中の生活費負担軽減のための給付金を支給する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>20歳未満のこどもを扶養している方で長崎市に住所がある方</li><li>所得制限等あり、入学・受講前の申請・相談が必要</li></ul>
-            <p><a href="https://www.city.nagasaki.lg.jp/site/e-kao/6440.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>長崎県の制度</strong></p>
-          <ul><li><a href="pref-nagasaki.html#nagasaki-iju-shienkin">長崎県 移住支援金（東京圏からのUIJターン）</a></li><li><a href="pref-nagasaki.html#nagasaki-pref-taishin-anshin">長崎県耐震・安心住まいづくり支援事業</a></li><li><a href="pref-nagasaki.html#nagasaki-pref-saiene-kofukin-jutaku">自家消費型太陽光発電等の補助金（再エネ交付金・住宅向け）</a></li></ul>
-          <p><a href="pref-nagasaki.html#pref-resident">長崎県の制度3件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-nagasaki.html#nagasaki-chinage-kinkyu-shienkin">中小・小規模事業者賃上げ緊急支援金</a></li><li><a href="pref-nagasaki.html#nagasaki-digital-koujou">長崎県デジタル力向上支援事業費補助金</a></li><li><a href="pref-nagasaki.html#nagasaki-kokkyoritou-sogyo">長崎県国境離島創業・事業拡大等支援事業（雇用機会拡充事業）</a></li><li><a href="pref-nagasaki.html#nagasaki-jigyo-shokei-sokushin">事業承継促進・後継者事業展開支援補助金</a></li><li><a href="pref-nagasaki.html#nagasaki-sogyo-shienkin">長崎県創業支援金（創業支援事業）</a></li></ul>
+          <p><a href="pref-nagasaki.html#pref-business">長崎県の制度5件を、県のページで見る →</a></p>
       </div>
     </section>
 

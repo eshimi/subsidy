@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"鹿屋市","item":"https://hojyokin.net/area/kanoya.html"}]}</script>
@@ -165,160 +207,120 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 鹿屋市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b11.webp')"><h1 class="pb-title">鹿屋市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-kagoshima.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">鹿児島県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">鹿児島県 鹿屋市</p>
+        <h1>鹿屋市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度12件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-kagoshima.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（鹿屋市）<b>4件</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（鹿児島県）<b>5件（うち受付終了2件）</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>8件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-9">移住 3</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <span class="is-none"><i aria-hidden="true">👶</i><b>子育て</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>掲載なし</small></span>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>5件</small></a>
+      <a href="#res-g-iju"><i aria-hidden="true">🌱</i><b>移住</b><small>3件</small></a>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市4件＋県5件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">鹿屋市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="kanoya-city-chusho-bukka-kotou-setsubi">
-            <h3>鹿屋市中小企業等物価高騰対策支援事業（設備導入支援）</h3>
-            <p class="area-meta">鹿屋市 商工振興課｜補助金｜小規模事業者：2/3、上限50万円／中小企業者：1/2、上限100万円</p>
-            <p class="area-meta">期間：令和8年度に実施（受付期限は要確認）</p>
-            <p>エネルギー・資材価格高騰の影響を受けた商工業者の生産性向上・省力化のための設備導入費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内に本社があること</li><li>市税の滞納がないこと</li><li>価格高騰の影響を受けた商工業者</li></ul>
-            <p><a href="https://www.city.kanoya.lg.jp/syoukoushinkou/bukkakoutoushienjigyou.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>5件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="kanoya-akiya-kaitai">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>危険空き家解体撤去費補助金</b><small>危険な空き家の解体撤去費用を補助する。<br>対象：危険空き家の所有者等（詳細は要確認）<br>期間：令和8年4月15日〜11月30日の平日（予定）<br>締切：2026-11-30</small><span class="ar-prov">鹿児島県鹿屋市</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.kanoya.lg.jp/bouhan/kurashi/tochi/sonota/kaitaitekkyo.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="kanoya-city-chusho-shikin-hoshoryo-hojo">
-            <h3>鹿屋市中小企業資金保証料補助金</h3>
-            <p class="area-meta">鹿屋市 商工振興課｜補助金｜信用保証料の1/2、上限年度30万円</p>
-            
-            <p>融資を受ける際に支払う信用保証料の一部を補助する制度。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>鹿屋商工会議所またはかのや市商工会に加入している中小企業者等</li></ul>
-            <p><a href="https://www.city.kanoya.lg.jp/syoukoushinkou/sangyo/shokogyo/hojokin/shikinhoshoryo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="kanoya-block">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>危険ブロック塀等の安全対策補助</b><small>道路沿いの危険なブロック塀等の撤去・改修費用を補助する。<br>対象：道路沿いの高さ80cm以上の危険ブロック塀等</small><span class="ar-prov">鹿児島県鹿屋市</span></div>
+            <div class="ar-amt">費用の2分の1（上限20万円）</div>
+            <a class="ar-go" href="https://www.city.kanoya.lg.jp/shidou/blockhojyo.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="kanoya-city-shogakukin-henkan-shien-hojo">
-            <h3>鹿屋市奨学金返還支援補助金</h3>
-            <p class="area-meta">鹿屋市 雇用関連担当｜補助金｜金額は公式で確認</p>
-            
-            <p>従業員の奨学金を代理返還している市内事業所を支援し、人材確保と若年者の地元就職を促進する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>従業員の奨学金を代理返還している市内事業所</li></ul>
-            <p><a href="https://www.city.kanoya.lg.jp/koyou/hozyokin/shougakukinhenkan.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="kanoya-sasaeai-reform">
+            <div class="ar-name"><b><span class="ar-tag">省エネ住宅</span>支え愛ファミリー住宅改修応援事業（リフォーム）</b><small>子育て世帯・高齢者・障害者世帯等の持家リフォームを補助する。事前申込・抽選あり。<br>対象：持家を有する子育て世帯、65歳以上または障害のある方のいる世帯等／事前申込後に抽選</small><span class="ar-prov">鹿児島県鹿屋市</span></div>
+            <div class="ar-amt">改修費の20%（上限20万円）。耐震改修を伴う場合30%（上限30万円）</div>
+            <a class="ar-go" href="https://www.city.kanoya.lg.jp/kenchikukakari/kurashi/tochi/kenchiku/sasaeai.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="kanoya-city-shohin-kaihatsu-shien-hojo">
-            <h3>鹿屋市商品開発支援事業補助金</h3>
-            <p class="area-meta">鹿屋市 商工振興課（市ページは産業系部署）｜補助金｜対象経費の1/2以内、上限30万円</p>
-            
-            <p>市内産の農林水産物を使った商品開発の経費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内で生産された農林水産物を使用した商品開発であること</li><li>市内事業者（詳細は要確認）</li></ul>
-            <p><a href="https://www.city.kanoya.lg.jp/syokunou/sangyo/shokogyo/6jisangyo/urerusyouhindukuri.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="kanoya-sasaeai-taishin">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>支え愛ファミリー住宅改修応援事業（耐震診断・耐震改修）</b><small>昭和56年5月31日以前の住宅の耐震診断・耐震改修を補助する。<br>対象：昭和56年5月31日以前に建築・着工された住宅／改修は診断で倒壊の危険ありと判定された住宅</small><span class="ar-prov">鹿児島県鹿屋市</span></div>
+            <div class="ar-amt">耐震診断：費用の3分の2（上限10万円）、耐震改修：補助率3分の2（上限200万円）との記載あり</div>
+            <a class="ar-go" href="https://www.city.kanoya.lg.jp/kenchikukakari/kurashi/tochi/kenchiku/sasaeai.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          <div class="ar-row" id="kanoya-solar-battery">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>太陽光発電設備・蓄電池の設置費用補助</b><small>自家消費型の住宅用太陽光発電設備と蓄電池の設置費用を補助する（蓄電池単体は対象外）。<br>対象：自ら所有し居住する戸建住宅等（集合住宅は対象外）／FIT/FIP認定を受けない自家消費型<br>期間：令和8年度の交付申請期限は11月16日（予算残に注意）<br>締切：2026-11-16</small><span class="ar-prov">鹿児島県鹿屋市</span></div>
+            <div class="ar-amt">太陽光1kWあたり7万円、蓄電池は価格の3分の1が目安</div>
+            <a class="ar-go" href="https://www.city.kanoya.lg.jp/kankyou/taiyoukouhojo.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-iju">移住<span>3件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="kanoya-akiyabank-kaishu">
+            <div class="ar-name"><b>空き家バンク登録物件の改修費補助</b><small>空き家バンク登録物件の改修費用を補助する。<br>対象：空き家バンク登録物件の取得者等（詳細は要確認）</small><span class="ar-prov">鹿児島県鹿屋市</span></div>
+            <div class="ar-amt">対象経費の2分の1以内（上限額は要確認）</div>
+            <a class="ar-go" href="https://www.city.kanoya.lg.jp/iju/akiyabank/kaishu.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kanoya-compact-city">
+            <div class="ar-name"><b>コンパクトシティ推進住宅取得支援事業</b><small>居住誘導区域内等で住宅を新築・購入した世帯に取得経費の一部を補助する。<br>対象：居住誘導区域内等に定住するため1年以内に住宅を新築・購入／加算は移住者・子育て世帯・空き家バンク登録住宅等<br>期間：令和8年4月1日〜令和9年3月19日（先着順）<br>締切：2027-03-19</small><span class="ar-prov">鹿児島県鹿屋市</span></div>
+            <div class="ar-amt">基本額新築30万円・中古30万円。移住者加算30万円、子育て世帯加算20万円等。合計上限100万円</div>
+            <a class="ar-go" href="https://www.city.kanoya.lg.jp/kenchikukakari/kurashi/tochi/kenchiku/connpakutocity.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kanoya-iju-shienkin">
+            <div class="ar-name"><b>移住支援金</b><small>東京23区在住者等が市内企業に就業して移住した場合に支給する。<br>対象：東京圏からの移住者等／市内企業への就業等の要件あり</small><span class="ar-prov">鹿児島県鹿屋市</span></div>
+            <div class="ar-amt">単身60万円、世帯100万円（18歳未満の子1人につき加算あり）</div>
+            <a class="ar-go" href="https://www.city.kanoya.lg.jp/iju/shigoto/ijushienkin.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>鹿児島県の制度</strong></p>
+          <ul><li><a href="pref-kagoshima.html#kagoshima-iju-shienkin">鹿児島県移住支援金</a></li><li><a href="pref-kagoshima.html#kagoshima-ken-ijyu-shienkin">鹿児島県移住支援金</a></li><li><a href="pref-kagoshima.html#kagoshima-ken-ui-shukatsu-ouen">令和8年度UIターン就活応援事業</a></li><li><a href="pref-kagoshima.html#kagoshima-ritou-ev">鹿児島県 離島における電気自動車等購入支援事業</a></li><li><a href="pref-kagoshima.html#kagoshima-ritou-ev-kounyu">離島における電気自動車等購入支援事業</a></li></ul>
+          <p><a href="pref-kagoshima.html#pref-resident">鹿児島県の制度5件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">鹿児島県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">鹿屋市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-kagoshima.html#kagoshima-jigyo-shokei-kasokuka">鹿児島県中小企業事業承継加速化事業費補助金</a></li><li><a href="pref-kagoshima.html#kagoshima-kasegu-chikara">かごしまの「稼ぐ力」加速化総合補助金</a></li><li><a href="pref-kagoshima.html#kagoshima-sogyo-shien-shikin">鹿児島県 創業支援資金（県制度融資）</a></li><li><a href="pref-kagoshima.html#kagoshima-chiiki-kadai-kigyo">かごしま地域課題解決型起業支援金</a></li><li><a href="pref-kagoshima.html#kagoshima-chusho-dx">かごしま中小企業DX推進事業費補助金</a></li></ul>
-          <p><a href="pref-kagoshima.html#pref-business">鹿児島県の制度5件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="kanoya-city-chusho-bukka-kotou-setsubi">
+            <div class="ar-name"><b>鹿屋市中小企業等物価高騰対策支援事業（設備導入支援）</b><small>エネルギー・資材価格高騰の影響を受けた商工業者の生産性向上・省力化のための設備導入費を補助する。<br>対象：市内に本社があること／市税の滞納がないこと</small><span class="ar-prov">鹿屋市 商工振興課</span></div>
+            <div class="ar-amt">小規模事業者：2/3、上限50万円／中小企業者：1/2、上限100万円</div>
+            <a class="ar-go" href="https://www.city.kanoya.lg.jp/syoukoushinkou/bukkakoutoushienjigyou.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kanoya-city-chusho-shikin-hoshoryo-hojo">
+            <div class="ar-name"><b>鹿屋市中小企業資金保証料補助金</b><small>融資を受ける際に支払う信用保証料の一部を補助する制度。<br>対象：鹿屋商工会議所またはかのや市商工会に加入している中小企業者等</small><span class="ar-prov">鹿屋市 商工振興課</span></div>
+            <div class="ar-amt">信用保証料の1/2、上限年度30万円</div>
+            <a class="ar-go" href="https://www.city.kanoya.lg.jp/syoukoushinkou/sangyo/shokogyo/hojokin/shikinhoshoryo.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kanoya-city-shogakukin-henkan-shien-hojo">
+            <div class="ar-name"><b>鹿屋市奨学金返還支援補助金</b><small>従業員の奨学金を代理返還している市内事業所を支援し、人材確保と若年者の地元就職を促進する。<br>対象：従業員の奨学金を代理返還している市内事業所</small><span class="ar-prov">鹿屋市 雇用関連担当</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.kanoya.lg.jp/koyou/hozyokin/shougakukinhenkan.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kanoya-city-shohin-kaihatsu-shien-hojo">
+            <div class="ar-name"><b>鹿屋市商品開発支援事業補助金</b><small>市内産の農林水産物を使った商品開発の経費を補助する。<br>対象：市内で生産された農林水産物を使用した商品開発であること／市内事業者（詳細は要確認）</small><span class="ar-prov">鹿屋市 商工振興課（市ページは産業系部署）</span></div>
+            <div class="ar-amt">対象経費の1/2以内、上限30万円</div>
+            <a class="ar-go" href="https://www.city.kanoya.lg.jp/syokunou/sangyo/shokogyo/6jisangyo/urerusyouhindukuri.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">鹿児島県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>鹿屋市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="kanoya-sasaeai-taishin">
-            <h3>支え愛ファミリー住宅改修応援事業（耐震診断・耐震改修）</h3>
-            <p class="area-meta">鹿児島県鹿屋市｜補助金｜耐震診断：費用の3分の2（上限10万円）、耐震改修：補助率3分の2（上限200万円）との記載あり</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>昭和56年5月31日以前の住宅の耐震診断・耐震改修を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>昭和56年5月31日以前に建築・着工された住宅</li><li>改修は診断で倒壊の危険ありと判定された住宅</li></ul>
-            <p><a href="https://www.city.kanoya.lg.jp/kenchikukakari/kurashi/tochi/kenchiku/sasaeai.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program" id="kanoya-solar-battery">
-            <h3>太陽光発電設備・蓄電池の設置費用補助</h3>
-            <p class="area-meta">鹿児島県鹿屋市｜補助金｜太陽光1kWあたり7万円、蓄電池は価格の3分の1が目安｜締切：2026-11-16</p>
-            <p class="area-meta">期間：令和8年度の交付申請期限は11月16日（予算残に注意）</p>
-            <p>自家消費型の住宅用太陽光発電設備と蓄電池の設置費用を補助する（蓄電池単体は対象外）。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>自ら所有し居住する戸建住宅等（集合住宅は対象外）</li><li>FIT/FIP認定を受けない自家消費型</li><li>蓄電池はkWh単価の上限あり</li></ul>
-            <p><a href="https://www.city.kanoya.lg.jp/kankyou/taiyoukouhojo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
-          <div class="area-program" id="kanoya-sasaeai-reform">
-            <h3>支え愛ファミリー住宅改修応援事業（リフォーム）</h3>
-            <p class="area-meta">鹿児島県鹿屋市｜補助金｜改修費の20%（上限20万円）。耐震改修を伴う場合30%（上限30万円）</p>
-            <p class="area-meta">期間：令和8年度に事前申込・抽選・完了期限（令和9年2月）が設定されている。詳細は要確認</p>
-            <p>子育て世帯・高齢者・障害者世帯等の持家リフォームを補助する。事前申込・抽選あり。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>持家を有する子育て世帯、65歳以上または障害のある方のいる世帯等</li><li>事前申込後に抽選</li></ul>
-            <p><a href="https://www.city.kanoya.lg.jp/kenchikukakari/kurashi/tochi/kenchiku/sasaeai.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="kanoya-akiya-kaitai">
-            <h3>危険空き家解体撤去費補助金</h3>
-            <p class="area-meta">鹿児島県鹿屋市｜補助金｜金額は公式で確認｜締切：2026-11-30</p>
-            <p class="area-meta">期間：令和8年4月15日〜11月30日の平日（予定）</p>
-            <p>危険な空き家の解体撤去費用を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>危険空き家の所有者等（詳細は要確認）</li></ul>
-            <p><a href="https://www.city.kanoya.lg.jp/bouhan/kurashi/tochi/sonota/kaitaitekkyo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="kanoya-block">
-            <h3>危険ブロック塀等の安全対策補助</h3>
-            <p class="area-meta">鹿児島県鹿屋市｜補助金｜費用の2分の1（上限20万円）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>道路沿いの危険なブロック塀等の撤去・改修費用を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>道路沿いの高さ80cm以上の危険ブロック塀等</li></ul>
-            <p><a href="https://www.city.kanoya.lg.jp/shidou/blockhojyo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-9">移住</h3>
-          <div class="area-program" id="kanoya-akiyabank-kaishu">
-            <h3>空き家バンク登録物件の改修費補助</h3>
-            <p class="area-meta">鹿児島県鹿屋市｜補助金｜対象経費の2分の1以内（上限額は要確認）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>空き家バンク登録物件の改修費用を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>空き家バンク登録物件の取得者等（詳細は要確認）</li></ul>
-            <p><a href="https://www.city.kanoya.lg.jp/iju/akiyabank/kaishu.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="kanoya-compact-city">
-            <h3>コンパクトシティ推進住宅取得支援事業</h3>
-            <p class="area-meta">鹿児島県鹿屋市｜補助金｜基本額新築30万円・中古30万円。移住者加算30万円、子育て世帯加算20万円等。合計上限100万円｜締切：2027-03-19</p>
-            <p class="area-meta">期間：令和8年4月1日〜令和9年3月19日（先着順）</p>
-            <p>居住誘導区域内等で住宅を新築・購入した世帯に取得経費の一部を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>居住誘導区域内等に定住するため1年以内に住宅を新築・購入</li><li>加算は移住者・子育て世帯・空き家バンク登録住宅等</li></ul>
-            <p><a href="https://www.city.kanoya.lg.jp/kenchikukakari/kurashi/tochi/kenchiku/connpakutocity.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="kanoya-iju-shienkin">
-            <h3>移住支援金</h3>
-            <p class="area-meta">鹿児島県鹿屋市｜給付｜単身60万円、世帯100万円（18歳未満の子1人につき加算あり）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>東京23区在住者等が市内企業に就業して移住した場合に支給する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>東京圏からの移住者等</li><li>市内企業への就業等の要件あり</li></ul>
-            <p><a href="https://www.city.kanoya.lg.jp/iju/shigoto/ijushienkin.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>鹿児島県の制度</strong></p>
-          <ul><li><a href="pref-kagoshima.html#kagoshima-iju-shienkin">鹿児島県移住支援金</a></li><li><a href="pref-kagoshima.html#kagoshima-ken-ijyu-shienkin">鹿児島県移住支援金</a></li><li><a href="pref-kagoshima.html#kagoshima-ken-ui-shukatsu-ouen">令和8年度UIターン就活応援事業</a></li><li><a href="pref-kagoshima.html#kagoshima-ritou-ev">鹿児島県 離島における電気自動車等購入支援事業</a></li><li><a href="pref-kagoshima.html#kagoshima-ritou-ev-kounyu">離島における電気自動車等購入支援事業</a></li></ul>
-          <p><a href="pref-kagoshima.html#pref-resident">鹿児島県の制度5件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-kagoshima.html#kagoshima-jigyo-shokei-kasokuka">鹿児島県中小企業事業承継加速化事業費補助金</a></li><li><a href="pref-kagoshima.html#kagoshima-kasegu-chikara">かごしまの「稼ぐ力」加速化総合補助金</a></li><li><a href="pref-kagoshima.html#kagoshima-sogyo-shien-shikin">鹿児島県 創業支援資金（県制度融資）</a></li><li><a href="pref-kagoshima.html#kagoshima-chiiki-kadai-kigyo">かごしま地域課題解決型起業支援金</a></li><li><a href="pref-kagoshima.html#kagoshima-chusho-dx">かごしま中小企業DX推進事業費補助金</a></li></ul>
+          <p><a href="pref-kagoshima.html#pref-business">鹿児島県の制度5件を、県のページで見る →</a></p>
       </div>
     </section>
 

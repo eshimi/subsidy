@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"中野区","item":"https://hojyokin.net/area/nakano.html"}]}</script>
@@ -165,169 +207,125 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 中野区</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b02.webp')"><h1 class="pb-title">中野区の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-tokyo.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">東京都・特別区。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">東京都 中野区</p>
+        <h1>中野区で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度13件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-tokyo.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（中野区）<b>3件</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（東京都）<b>6件（うち受付終了1件）</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>10件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 4</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-5">バリアフリー・介護 1</a><a href="#res-cat-6">子育て 1</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <a href="#res-g-kosodate"><i aria-hidden="true">👶</i><b>子育て</b><small>1件</small></a>
+      <span class="is-none"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>掲載なし</small></span>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>9件</small></a>
+      <span class="is-none"><i aria-hidden="true">🌱</i><b>移住</b><small>掲載なし</small></span>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市3件＋県6件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">中野区の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="nakano-city-keieiryoku-kyoka">
-            <h3>令和8年度中野区経営力強化支援事業補助金</h3>
-            <p class="area-meta">中野区 区民部産業振興課｜補助金｜上限20万円（販路開拓・創業期広報・IT/DX・多様性対応・子育て環境整備の合算）。補助率は要確認｜締切：2027-01-31</p>
-            <p class="area-meta">期間：2026-04-01〜2027-01-31（予算上限に達し次第終了）</p>
-            <p>ビジネスフェア出展費、創業5年未満の広報（HP・チラシ等）、IT・DX対応などの経費を補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>中野区内の中小企業者・個人事業主</li><li>交付決定前の支払経費は対象外</li></ul>
-            <p><a href="https://www.city.tokyo-nakano.lg.jp/jigyosha/sangyoshinko/josei/chusho_r8keieiryoku.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-kosodate">子育て<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="nakano-hitorioya-jutaku-shien">
+            <div class="ar-name"><b>中野区ひとり親家庭住宅支援補助金(転居費用補助)</b><small>区内で住み替えるひとり親世帯の引越費用や初期費用を補助する。物件を探す前の事前相談が必要。<br>対象：区内で住み替えるひとり親家庭／事前相談が必要</small><span class="ar-prov">東京都中野区</span></div>
+            <div class="ar-amt">上限30万円</div>
+            <a class="ar-go" href="https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/mokuteki/hitorioya/sumai/hitorioyazyuutakushien.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="nakano-city-sangyo-keizai-yushi">
-            <h3>中野区産業経済融資（利子補給）</h3>
-            <p class="area-meta">中野区 区民部産業振興課｜融資｜金利の一部を区が利子補給（年4回金融機関へ）。限度額・利率は資金ごとに要確認</p>
-            <p class="area-meta">期間：通年（最新は要確認）</p>
-            <p>区内中小企業者が区のあっせんで金融機関から低利で借りられ、金利の一部を区が補給。IT・DX導入資金など資金メニュー多数。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>区内に本店または主たる事業所がある中小企業者</li><li>金融機関・信用保証協会の審査あり</li></ul>
-            <p><a href="https://www.city.tokyo-nakano.lg.jp/jigyosha/sangyoshinko/yushi/sangyou-yushi.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <div class="area-program" id="nakano-city-sogyo-shienshikin">
-            <h3>中野区産業経済融資 創業支援資金（保証料補助あり）</h3>
-            <p class="area-meta">中野区 区民部産業振興課｜融資｜貸付限度額2,000万円、償還7年以内。信用保証料の1/3を区が補助（都の2/3補助と併せ実質0）</p>
-            <p class="area-meta">期間：通年（最新は要確認）</p>
-            <p>創業前または創業5年未満の方向けの融資あっせん。創業計画書が必要で、区が保証料の一部を補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>区内で創業予定または創業5年未満</li><li>創業計画書を作成</li></ul>
-            <p><a href="https://www.city.tokyo-nakano.lg.jp/jigyosha/sangyoshinko/yushi/yushiichiran/sougyou-shienkin.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>9件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="nakano-block-tekkyo">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>ブロック塀等撤去・フェンス等設置助成</b><small>道路等に面したブロック塀等の撤去工事と、撤去後のフェンス等設置にかかる費用の一部を助成する。<br>対象：道路等に面したブロック塀・万年塀・一体の門柱など／工事契約前に区へ相談すること</small><span class="ar-prov">中野区</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.tokyo-nakano.lg.jp/machizukuri/kenchiku/taishin/blockbei-tekkyo.files/r7burokku.pdf" target="_blank" rel="noopener">公式 →</a>
           </div>
+          <div class="ar-row" id="nakano-bosai-bed">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>中野区防災ベッド設置助成金</b><small>耐震改修が困難な木造住宅に防災ベッドを設置する費用を助成する。<br>対象：65歳以上のみの世帯など／耐震改修が困難な木造住宅</small><span class="ar-prov">東京都中野区</span></div>
+            <div class="ar-amt">限度額50万円(世帯所得合計500万円以上は25万円)</div>
+            <a class="ar-go" href="https://www.city.tokyo-nakano.lg.jp/bosai/jishin-sonae/taisaku/bosaibed.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="nakano-hi-mokuzo-taishin">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>非木造住宅の耐震改修等助成</b><small>非木造住宅の補強設計・耐震補強・建替え/除却を助成する。<br>対象：1981年5月31日以前に着工／耐火・準耐火建築物であること</small><span class="ar-prov">中野区 都市基盤部 建築課</span></div>
+            <div class="ar-amt">補助率3分の1、限度額7,500万円</div>
+            <a class="ar-go" href="https://www.city.tokyo-nakano.lg.jp/machizukuri/kenchiku/taishin/0686114820240116114027656.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="nakano-koreisha-jiritsu-jutaku-kaishu">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>中野区高齢者自立支援住宅改修等給付事業</b><small>介護保険の住宅改修とは別に、高齢者の住宅設備の改善費用を区が給付する。同一種目は1世帯1回限り。<br>対象：区内在住で要支援・要介護認定を受けた65歳以上／世帯全員の合計所得金額が基準未満(200万円未満と案内)</small><span class="ar-prov">東京都中野区</span></div>
+            <div class="ar-amt">浴室改善20万円、台所13万円、便所洋式化9万円が限度(非該当の方の予防給付は20万円限度)</div>
+            <a class="ar-go" href="https://www.city.tokyo-nakano.lg.jp/kenko_hukushi/kourei/hokenhukushi/jiritsushienjyutaku.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="nakano-mokuzo-shindan">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>木造住宅の耐震診断支援</b><small>木造住宅の耐震診断を支援する（無料診断）。</small><span class="ar-prov">中野区 都市基盤部 建築課</span></div>
+            <div class="ar-amt">区が派遣する耐震診断士による無料診断</div>
+            <a class="ar-go" href="https://www.city.tokyo-nakano.lg.jp/machizukuri/kenchiku/taishin/taishinshindan.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="nakano-mokuzo-taishin-hokyo">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>木造住宅耐震補強工事助成</b><small>木造住宅の耐震補強工事費を助成する。令和7年4月1日から新耐震木造住宅も助成開始。<br>対象：2000年5月31日以前に建てられた木造在来工法の2階建て以下／区の診断助成を事前に受けていること</small><span class="ar-prov">中野区 都市基盤部 建築課</span></div>
+            <div class="ar-amt">対象経費の2分の1、上限250万円</div>
+            <a class="ar-go" href="https://www.city.tokyo-nakano.lg.jp/machizukuri/kenchiku/taishin/mokuzojyutaku-hokyo.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="nakano-safetynet-kaishu">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>中野区セーフティネット住宅改修費補助</b><small>住宅確保要配慮者向けのセーフティネット住宅として登録する賃貸住宅の改修費を補助する。工事着手前の申請・交付決定が必要。<br>対象：セーフティネット住宅の所有者等／工事着手前に申請<br>期間：事前相談は令和8年10月30日まで、申請は令和8年11月30日まで<br>締切：2026-11-30</small><span class="ar-prov">東京都中野区</span></div>
+            <div class="ar-amt">改修費の2/3(1戸あたり上限100万円)</div>
+            <a class="ar-go" href="https://www.city.tokyo-nakano.lg.jp/machizukuri/jyutaku/saftynet/safetynet.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="nakano-shoene-setsubi">
+            <div class="ar-name"><b><span class="ar-tag">省エネ住宅</span>省エネルギー設備等の設置に係る費用の補助（断熱窓・給湯器等）</b><small>省エネ設備の設置費の一部を補助する。令和8年度からハイブリッド給湯器が新たに対象、高断熱ドアは対象外。<br>対象：過去に補助を受けた設備は申請不可／ハイブリッド給湯器は設置完了日が令和8年4月1日〜令和9年1月31日<br>期間：前期：令和8年5月15日〜／後期：令和8年11月30日〜令和9年2月28日（予算91,450,000円）<br>締切：2027-02-28</small><span class="ar-prov">中野区 環境課</span></div>
+            <div class="ar-amt">令和8年度の額は要確認（令和5年度要綱：高断熱窓は対象経費の2分の1または15万円の少ない額、家庭用燃料電池は経費または10万円の少ない額）</div>
+            <a class="ar-go" href="https://www.city.tokyo-nakano.lg.jp/kurashi/kankyo/ondankataisaku/0686241120240301112636655.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="nakano-taiyoko-chikuden">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>省エネルギー設備等の設置に係る費用の補助（太陽光発電・蓄電システム）</b><small>太陽光発電システムと蓄電システムの設置費の一部を補助する。<br>対象：蓄電池は蓄電容量4kWh以上で太陽光発電と連携（令和5年度要件）／過去に補助を受けた設備は申請不可<br>締切：2027-02-28</small><span class="ar-prov">中野区 環境課</span></div>
+            <div class="ar-amt">令和8年度の額は要確認（令和5年度要綱：太陽光1戸あたり上限15万円、蓄電池上限10万円）</div>
+            <a class="ar-go" href="https://www.city.tokyo-nakano.lg.jp/kurashi/kankyo/ondankataisaku/0686241120240301112636655.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>東京都の制度</strong></p>
+          <ul><li><a href="pref-tokyo.html#tokyo-akachan-first">東京都出産・子育て応援事業（赤ちゃんファースト）</a></li><li><a href="pref-tokyo.html#tokyo-akiya-kazai-kaitai">東京都空き家家財整理・解体促進事業</a></li><li><a href="pref-tokyo.html#tokyo-dannetsu-solar-jutaku">災害にも強く健康にも資する断熱・太陽光住宅普及拡大事業</a></li><li><a href="pref-tokyo.html#tokyo-home-evcharge">戸建住宅向け充電設備普及促進事業（令和8年度）</a></li><li><a href="pref-tokyo.html#tokyo-kodomo-mamoru-jutaku">子育て世帯向け補助事業（「子供を守る」住宅確保促進事業）</a></li></ul>
+          <p><a href="pref-tokyo.html#pref-resident">東京都の制度9件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">東京都の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">中野区の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-tokyo.html#tokyo-jigyoshokei-josei">事業承継支援助成金（第3回）</a></li><li><a href="pref-tokyo.html#tokyo-kadai-kaiketsu-gijutsu">課題解決型技術開発促進事業</a></li><li><a href="pref-tokyo.html#tokyo-seidoyushi-sogyo">東京都中小企業制度融資「創業」</a></li><li><a href="pref-tokyo.html#tokyo-seihin-chakushu">製品開発着手支援助成事業</a></li><li><a href="pref-tokyo.html#tokyo-souikufuu-challenge">経営力強化に向けた創意工夫チャレンジ促進事業</a></li></ul>
-          <p><a href="pref-tokyo.html#pref-business">東京都の制度6件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="nakano-city-keieiryoku-kyoka">
+            <div class="ar-name"><b>令和8年度中野区経営力強化支援事業補助金</b><small>ビジネスフェア出展費、創業5年未満の広報（HP・チラシ等）、IT・DX対応などの経費を補助。<br>対象：中野区内の中小企業者・個人事業主／交付決定前の支払経費は対象外<br>期間：2026-04-01〜2027-01-31（予算上限に達し次第終了）<br>締切：2027-01-31</small><span class="ar-prov">中野区 区民部産業振興課</span></div>
+            <div class="ar-amt">上限20万円（販路開拓・創業期広報・IT/DX・多様性対応・子育て環境整備の合算）。補助率は要確認</div>
+            <a class="ar-go" href="https://www.city.tokyo-nakano.lg.jp/jigyosha/sangyoshinko/josei/chusho_r8keieiryoku.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="nakano-city-sangyo-keizai-yushi">
+            <div class="ar-name"><b>中野区産業経済融資（利子補給）</b><small>区内中小企業者が区のあっせんで金融機関から低利で借りられ、金利の一部を区が補給。IT・DX導入資金など資金メニュー多数。<br>対象：区内に本店または主たる事業所がある中小企業者／金融機関・信用保証協会の審査あり</small><span class="ar-prov">中野区 区民部産業振興課</span></div>
+            <div class="ar-amt">金利の一部を区が利子補給（年4回金融機関へ）。限度額・利率は資金ごとに要確認</div>
+            <a class="ar-go" href="https://www.city.tokyo-nakano.lg.jp/jigyosha/sangyoshinko/yushi/sangyou-yushi.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="nakano-city-sogyo-shienshikin">
+            <div class="ar-name"><b>中野区産業経済融資 創業支援資金（保証料補助あり）</b><small>創業前または創業5年未満の方向けの融資あっせん。創業計画書が必要で、区が保証料の一部を補助。<br>対象：区内で創業予定または創業5年未満／創業計画書を作成</small><span class="ar-prov">中野区 区民部産業振興課</span></div>
+            <div class="ar-amt">貸付限度額2,000万円、償還7年以内。信用保証料の1/3を区が補助（都の2/3補助と併せ実質0）</div>
+            <a class="ar-go" href="https://www.city.tokyo-nakano.lg.jp/jigyosha/sangyoshinko/yushi/yushiichiran/sougyou-shienkin.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">東京都の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>中野区の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="nakano-bosai-bed">
-            <h3>中野区防災ベッド設置助成金</h3>
-            <p class="area-meta">東京都中野区｜助成金｜限度額50万円(世帯所得合計500万円以上は25万円)</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>耐震改修が困難な木造住宅に防災ベッドを設置する費用を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>65歳以上のみの世帯など</li><li>耐震改修が困難な木造住宅</li></ul>
-            <p><a href="https://www.city.tokyo-nakano.lg.jp/bosai/jishin-sonae/taisaku/bosaibed.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="nakano-hi-mokuzo-taishin">
-            <h3>非木造住宅の耐震改修等助成</h3>
-            <p class="area-meta">中野区 都市基盤部 建築課｜補助金｜補助率3分の1、限度額7,500万円</p>
-            
-            <p>非木造住宅の補強設計・耐震補強・建替え/除却を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>1981年5月31日以前に着工</li><li>耐火・準耐火建築物であること</li></ul>
-            <p><a href="https://www.city.tokyo-nakano.lg.jp/machizukuri/kenchiku/taishin/0686114820240116114027656.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="nakano-mokuzo-shindan">
-            <h3>木造住宅の耐震診断支援</h3>
-            <p class="area-meta">中野区 都市基盤部 建築課｜補助金｜区が派遣する耐震診断士による無料診断</p>
-            
-            <p>木造住宅の耐震診断を支援する（無料診断）。</p>
-            
-            <p><a href="https://www.city.tokyo-nakano.lg.jp/machizukuri/kenchiku/taishin/taishinshindan.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="nakano-mokuzo-taishin-hokyo">
-            <h3>木造住宅耐震補強工事助成</h3>
-            <p class="area-meta">中野区 都市基盤部 建築課｜補助金｜対象経費の2分の1、上限250万円</p>
-            
-            <p>木造住宅の耐震補強工事費を助成する。令和7年4月1日から新耐震木造住宅も助成開始。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>2000年5月31日以前に建てられた木造在来工法の2階建て以下</li><li>区の診断助成を事前に受けていること</li><li>工事契約前に事前相談</li></ul>
-            <p><a href="https://www.city.tokyo-nakano.lg.jp/machizukuri/kenchiku/taishin/mokuzojyutaku-hokyo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program" id="nakano-taiyoko-chikuden">
-            <h3>省エネルギー設備等の設置に係る費用の補助（太陽光発電・蓄電システム）</h3>
-            <p class="area-meta">中野区 環境課｜補助金｜令和8年度の額は要確認（令和5年度要綱：太陽光1戸あたり上限15万円、蓄電池上限10万円）｜締切：2027-02-28</p>
-            <p class="area-meta">期間：前期：令和8年5月15日〜／後期：令和8年11月30日〜令和9年2月28日（太陽光・蓄電池の個別の期間は要確認）</p>
-            <p>太陽光発電システムと蓄電システムの設置費の一部を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>蓄電池は蓄電容量4kWh以上で太陽光発電と連携（令和5年度要件）</li><li>過去に補助を受けた設備は申請不可</li></ul>
-            <p><a href="https://www.city.tokyo-nakano.lg.jp/kurashi/kankyo/ondankataisaku/0686241120240301112636655.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
-          <div class="area-program" id="nakano-shoene-setsubi">
-            <h3>省エネルギー設備等の設置に係る費用の補助（断熱窓・給湯器等）</h3>
-            <p class="area-meta">中野区 環境課｜補助金｜令和8年度の額は要確認（令和5年度要綱：高断熱窓は対象経費の2分の1または15万円の少ない額、家庭用燃料電池は経費または10万円の少ない額）｜締切：2027-02-28</p>
-            <p class="area-meta">期間：前期：令和8年5月15日〜／後期：令和8年11月30日〜令和9年2月28日（予算91,450,000円）</p>
-            <p>省エネ設備の設置費の一部を補助する。令和8年度からハイブリッド給湯器が新たに対象、高断熱ドアは対象外。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>過去に補助を受けた設備は申請不可</li><li>ハイブリッド給湯器は設置完了日が令和8年4月1日〜令和9年1月31日</li></ul>
-            <p><a href="https://www.city.tokyo-nakano.lg.jp/kurashi/kankyo/ondankataisaku/0686241120240301112636655.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="nakano-block-tekkyo">
-            <h3>ブロック塀等撤去・フェンス等設置助成</h3>
-            <p class="area-meta">中野区｜助成金｜金額は公式で確認</p>
-            <p class="area-meta">期間：確認できた年度：令和7年度の案内資料（最新は要確認）</p>
-            <p>道路等に面したブロック塀等の撤去工事と、撤去後のフェンス等設置にかかる費用の一部を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>道路等に面したブロック塀・万年塀・一体の門柱など</li><li>工事契約前に区へ相談すること</li></ul>
-            <p><a href="https://www.city.tokyo-nakano.lg.jp/machizukuri/kenchiku/taishin/blockbei-tekkyo.files/r7burokku.pdf" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="nakano-safetynet-kaishu">
-            <h3>中野区セーフティネット住宅改修費補助</h3>
-            <p class="area-meta">東京都中野区｜補助金｜改修費の2/3(1戸あたり上限100万円)｜締切：2026-11-30</p>
-            <p class="area-meta">期間：事前相談は令和8年10月30日まで、申請は令和8年11月30日まで</p>
-            <p>住宅確保要配慮者向けのセーフティネット住宅として登録する賃貸住宅の改修費を補助する。工事着手前の申請・交付決定が必要。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>セーフティネット住宅の所有者等</li><li>工事着手前に申請</li></ul>
-            <p><a href="https://www.city.tokyo-nakano.lg.jp/machizukuri/jyutaku/saftynet/safetynet.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
-          <div class="area-program" id="nakano-koreisha-jiritsu-jutaku-kaishu">
-            <h3>中野区高齢者自立支援住宅改修等給付事業</h3>
-            <p class="area-meta">東京都中野区｜給付｜浴室改善20万円、台所13万円、便所洋式化9万円が限度(非該当の方の予防給付は20万円限度)</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>介護保険の住宅改修とは別に、高齢者の住宅設備の改善費用を区が給付する。同一種目は1世帯1回限り。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>区内在住で要支援・要介護認定を受けた65歳以上</li><li>世帯全員の合計所得金額が基準未満(200万円未満と案内)</li></ul>
-            <p><a href="https://www.city.tokyo-nakano.lg.jp/kenko_hukushi/kourei/hokenhukushi/jiritsushienjyutaku.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-6">子育て</h3>
-          <div class="area-program" id="nakano-hitorioya-jutaku-shien">
-            <h3>中野区ひとり親家庭住宅支援補助金(転居費用補助)</h3>
-            <p class="area-meta">東京都中野区｜補助金｜上限30万円</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>区内で住み替えるひとり親世帯の引越費用や初期費用を補助する。物件を探す前の事前相談が必要。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>区内で住み替えるひとり親家庭</li><li>事前相談が必要</li><li>申請は転居日から6か月以内</li></ul>
-            <p><a href="https://www.city.tokyo-nakano.lg.jp/kosodate/kosodatesite_ohirune/mokuteki/hitorioya/sumai/hitorioyazyuutakushien.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>東京都の制度</strong></p>
-          <ul><li><a href="pref-tokyo.html#tokyo-akachan-first">東京都出産・子育て応援事業（赤ちゃんファースト）</a></li><li><a href="pref-tokyo.html#tokyo-akiya-kazai-kaitai">東京都空き家家財整理・解体促進事業</a></li><li><a href="pref-tokyo.html#tokyo-dannetsu-solar-jutaku">災害にも強く健康にも資する断熱・太陽光住宅普及拡大事業</a></li><li><a href="pref-tokyo.html#tokyo-home-evcharge">戸建住宅向け充電設備普及促進事業（令和8年度）</a></li><li><a href="pref-tokyo.html#tokyo-kodomo-mamoru-jutaku">子育て世帯向け補助事業（「子供を守る」住宅確保促進事業）</a></li></ul>
-          <p><a href="pref-tokyo.html#pref-resident">東京都の制度9件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-tokyo.html#tokyo-jigyoshokei-josei">事業承継支援助成金（第3回）</a></li><li><a href="pref-tokyo.html#tokyo-kadai-kaiketsu-gijutsu">課題解決型技術開発促進事業</a></li><li><a href="pref-tokyo.html#tokyo-seidoyushi-sogyo">東京都中小企業制度融資「創業」</a></li><li><a href="pref-tokyo.html#tokyo-seihin-chakushu">製品開発着手支援助成事業</a></li><li><a href="pref-tokyo.html#tokyo-souikufuu-challenge">経営力強化に向けた創意工夫チャレンジ促進事業</a></li></ul>
+          <p><a href="pref-tokyo.html#pref-business">東京都の制度6件を、県のページで見る →</a></p>
       </div>
     </section>
 

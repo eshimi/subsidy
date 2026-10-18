@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"越谷市","item":"https://hojyokin.net/area/koshigaya.html"}]}</script>
@@ -165,132 +207,101 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 越谷市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b10.webp')"><h1 class="pb-title">越谷市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-saitama.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">埼玉県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">埼玉県 越谷市</p>
+        <h1>越谷市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度9件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-saitama.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（越谷市）<b>4件（うち受付終了2件）</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（埼玉県）<b>5件</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>5件（うち受付終了2件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-2">EV・充電 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <span class="is-none"><i aria-hidden="true">👶</i><b>子育て</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>掲載なし</small></span>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>5件</small></a>
+      <span class="is-none"><i aria-hidden="true">🌱</i><b>移住</b><small>掲載なし</small></span>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市4件＋県5件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">越谷市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="koshigaya-city-business-powerup">
-            <h3>越谷市ビジネスパワーアップ補助金</h3>
-            <p class="area-meta">越谷市 経済振興課｜補助金｜令和7年度は補助率2分の1以内・上限100万円（令和8年度は要確認）</p>
-            <p class="area-meta">期間：令和8年度の申請期間は要確認</p>
-            <p>新商品・新サービス開発、販路開拓、人材育成、多様な働き方推進、DX推進、事業承継推進の取組を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内に事業所を有し、1年以上事業を営んでいる中小企業者</li><li>交付決定後に着手し2027年2月28日までに完了する事業</li></ul>
-            <p><a href="https://www.city.koshigaya.saitama.jp/kurashi_shisei/jigyosha/shienyushi/hojokin/koshigaya_contents_bp.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>5件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="koshigaya-akiya">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>越谷市空家の改修・除却費補助</b><small>空家の改修・除却費用の一部を補助する。</small><span class="ar-prov">埼玉県越谷市</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.koshigaya.saitama.jp/kurashi_shisei/kurashi/sumai/akiya/koshigaya_contents_akiyakaisyuu.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="koshigaya-city-chusho-yushi-risi">
-            <h3>越谷市中小企業資金融資（利子助成）</h3>
-            <p class="area-meta">越谷市 経済振興課｜融資｜金融機関に支払った普通利子の一部を助成（助成率は小口・中口資金40％、起業家育成資金35％、年度ごとに見直し）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>市の制度融資で、支払利子の一部を助成する。起業家育成資金は商工会議所会員などで保証料率が0.1％割引。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内で事業を営む中小企業者</li><li>借入前に事前相談が必要</li></ul>
-            <p><a href="https://www.city.koshigaya.saitama.jp/kurashi_shisei/jigyosha/shienyushi/yuushiseido/yuusi.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="koshigaya-reform">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>越谷市住宅・店舗改修促進補助金（ブロック塀・外構含む）</b><small>市内施工業者による住宅改修等の費用を補助する。外構のブロック塀・フェンス・門扉の改修・撤去も対象。<br>対象：市内の施工業者を使う工事であること／他の市補助金と同一箇所で併用不可</small><span class="ar-prov">埼玉県越谷市</span></div>
+            <div class="ar-amt">工事費の20%（上限10万円）</div>
+            <a class="ar-go" href="https://www.city.koshigaya.saitama.jp/kurashi_shisei/kurashi/sumai/sien/kaisyusokusin2026-1.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <h3 class="area-cat">受付が終了した制度（次回の公募の参考に）</h3>
-          <div class="area-program is-ended" id="koshigaya-city-bukka-setsubi">
-            <h3>物価高騰対策中小企業設備導入等支援補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">越谷市 経済振興課｜補助金｜市内事業者調達・施工は2/3以内、市外事業者は1/2以内、上限200万円｜締切：2026-04-24</p>
-            <p class="area-meta">期間：令和8年度は2026年4月13日〜24日（受付終了。次回は要確認）</p>
-            <p>物価高騰対策として中小企業の設備導入等の経費を補助する。予算超過の場合は抽選。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の中小企業者（詳細は要確認）</li></ul>
-            <p><a href="https://www.city.koshigaya.saitama.jp/kurashi_shisei/jigyosha/shienyushi/hojokin/koshigaya_contents_buxtukakoutou.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="koshigaya-taishin">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>越谷市木造住宅耐震診断・耐震改修補助</b><small>旧耐震の木造住宅の耐震診断・改修費の一部を補助する。<br>対象：昭和56年5月31日以前の木造戸建て／市の簡易診断の総合評価が1.0未満</small><span class="ar-prov">埼玉県越谷市</span></div>
+            <div class="ar-amt">診断：費用の2/3（上限7万円）、改修：費用の23%（上限50万円、平成12年5月31日以前の基準の住宅は上限35万円）</div>
+            <a class="ar-go" href="https://www.city.koshigaya.saitama.jp/kurashi_shisei/kurashi/sumai/taisinsindasn/taishintorikumi_jose/taisinsindankaisyuunohojyo.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program is-ended" id="koshigaya-city-sogyosha-shien">
-            <h3>越谷市創業者支援補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">越谷市 経済振興課｜補助金｜補助率2分の1以内、上限100万円｜締切：2026-07-10</p>
-            <p class="area-meta">期間：令和8年度は2026年6月29日〜7月10日（受付終了。来年度は要確認）</p>
-            <p>市内で創業・第二創業する中小企業者の初期費用（機械器具、外注、広告宣伝、商品開発、家賃等）を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>創業から1年を経過していない、または年度内に開始予定の中小企業者</li><li>市内で新たに事業所の開設を伴う事業</li><li>交付決定前の発注・契約は原則対象外</li></ul>
-            <p><a href="https://www.city.koshigaya.saitama.jp/kurashi_shisei/jigyosha/shienyushi/hojokin/sogyouhojokinn.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row is-ended" id="koshigaya-zerocarbon-ev">
+            <div class="ar-name"><b><span class="ar-tag">EV・充電</span>越谷市ゼロカーボン推進補助金（EV・PHEV・V2H） <span class="area-ended-tag">受付終了</span></b><small>外部給電機能を持つEV・PHEVやV2H設備の導入費を補助する。<br>対象：市内居住者または申請年度内に越谷市へ居住予定の方／EV/PHEVは外部給電機能を有する車両に限る<br>期間：令和8年度後期：2026年10月5日～10月16日<br>締切：2026-10-16</small><span class="ar-prov">埼玉県越谷市</span></div>
+            <div class="ar-amt">EV/PHEV 5万円/件、V2H 5万円/件</div>
+            <a class="ar-go" href="https://www.city.koshigaya.saitama.jp/net/kankyoseisakuka/zerocarbon_katei_shinsei_r7zenki.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          <div class="ar-row is-ended" id="koshigaya-zerocarbon-home">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>越谷市家庭用ゼロカーボン推進補助金（太陽光・蓄電池・ZEH） <span class="area-ended-tag">受付終了</span></b><small>家庭用の太陽光発電・蓄電池・ZEHの導入費を補助する。令和8年度後期の受付がある。<br>対象：市内居住者または申請年度内に越谷市へ居住予定の方／対象設備を令和9年3月15日までに設置すること<br>期間：令和8年度後期：2026年10月5日～10月16日<br>締切：2026-10-16</small><span class="ar-prov">埼玉県越谷市</span></div>
+            <div class="ar-amt">太陽光1kWあたり2万円（戸建上限8万円、市内事業者契約で上限10万円）、蓄電池5万円/件、ZEH20万円/件（太陽光との併用不可）</div>
+            <a class="ar-go" href="https://www.city.koshigaya.saitama.jp/kurashi_shisei/kurashi/kankyo/kankyoseisaku/zerocarbon.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>埼玉県の制度</strong></p>
+          <ul><li><a href="pref-saitama.html#saitama-katei-shoene-saiene">家庭における省エネ・再エネ活用設備導入補助金</a></li><li><a href="pref-saitama.html#saitama-pref-iju-shienkin">埼玉県移住支援金</a></li></ul>
+          <p><a href="pref-saitama.html#pref-resident">埼玉県の制度2件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">埼玉県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">越谷市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-saitama.html#saitama-dx-donyu-hojo">埼玉県中小企業DX導入支援補助金（追加募集）</a></li><li><a href="pref-saitama.html#saitama-jinzai-katsuyo-hojo">埼玉県人材活用促進事業補助金</a></li><li><a href="pref-saitama.html#saitama-kigyoka-ikusei-shikin">埼玉県制度融資 起業家育成資金</a></li><li><a href="pref-saitama.html#saitama-shokibo-jigyo-shikin">埼玉県制度融資 小規模事業資金</a></li><li><a href="pref-saitama.html#saitama-shoryokuka-hojo">埼玉県中小企業省力化支援事業補助金【新規導入】</a></li></ul>
-          <p><a href="pref-saitama.html#pref-business">埼玉県の制度5件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="koshigaya-city-business-powerup">
+            <div class="ar-name"><b>越谷市ビジネスパワーアップ補助金</b><small>新商品・新サービス開発、販路開拓、人材育成、多様な働き方推進、DX推進、事業承継推進の取組を補助する。<br>対象：市内に事業所を有し、1年以上事業を営んでいる中小企業者／交付決定後に着手し2027年2月28日までに完了する事業</small><span class="ar-prov">越谷市 経済振興課</span></div>
+            <div class="ar-amt">令和7年度は補助率2分の1以内・上限100万円（令和8年度は要確認）</div>
+            <a class="ar-go" href="https://www.city.koshigaya.saitama.jp/kurashi_shisei/jigyosha/shienyushi/hojokin/koshigaya_contents_bp.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="koshigaya-city-chusho-yushi-risi">
+            <div class="ar-name"><b>越谷市中小企業資金融資（利子助成）</b><small>市の制度融資で、支払利子の一部を助成する。起業家育成資金は商工会議所会員などで保証料率が0.1％割引。<br>対象：市内で事業を営む中小企業者／借入前に事前相談が必要</small><span class="ar-prov">越谷市 経済振興課</span></div>
+            <div class="ar-amt">金融機関に支払った普通利子の一部を助成（助成率は小口・中口資金40％、起業家育成資金35％、年度ごとに見直し）</div>
+            <a class="ar-go" href="https://www.city.koshigaya.saitama.jp/kurashi_shisei/jigyosha/shienyushi/yuushiseido/yuusi.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="koshigaya-city-bukka-setsubi">
+            <div class="ar-name"><b>物価高騰対策中小企業設備導入等支援補助金 <span class="area-ended-tag">受付終了</span></b><small>物価高騰対策として中小企業の設備導入等の経費を補助する。予算超過の場合は抽選。<br>対象：市内の中小企業者（詳細は要確認）<br>締切：2026-04-24</small><span class="ar-prov">越谷市 経済振興課</span></div>
+            <div class="ar-amt">市内事業者調達・施工は2/3以内、市外事業者は1/2以内、上限200万円</div>
+            <a class="ar-go" href="https://www.city.koshigaya.saitama.jp/kurashi_shisei/jigyosha/shienyushi/hojokin/koshigaya_contents_buxtukakoutou.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="koshigaya-city-sogyosha-shien">
+            <div class="ar-name"><b>越谷市創業者支援補助金 <span class="area-ended-tag">受付終了</span></b><small>市内で創業・第二創業する中小企業者の初期費用（機械器具、外注、広告宣伝、商品開発、家賃等）を補助する。<br>対象：創業から1年を経過していない、または年度内に開始予定の中小企業者／市内で新たに事業所の開設を伴う事業<br>締切：2026-07-10</small><span class="ar-prov">越谷市 経済振興課</span></div>
+            <div class="ar-amt">補助率2分の1以内、上限100万円</div>
+            <a class="ar-go" href="https://www.city.koshigaya.saitama.jp/kurashi_shisei/jigyosha/shienyushi/hojokin/sogyouhojokinn.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">埼玉県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>越谷市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="koshigaya-taishin">
-            <h3>越谷市木造住宅耐震診断・耐震改修補助</h3>
-            <p class="area-meta">埼玉県越谷市｜補助金｜診断：費用の2/3（上限7万円）、改修：費用の23%（上限50万円、平成12年5月31日以前の基準の住宅は上限35万円）</p>
-            <p class="area-meta">期間：令和8年度は4月6日から受付（予算がなくなり次第終了）。最新は要確認</p>
-            <p>旧耐震の木造住宅の耐震診断・改修費の一部を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>昭和56年5月31日以前の木造戸建て</li><li>市の簡易診断の総合評価が1.0未満</li><li>適合通知前の契約・着工は対象外</li></ul>
-            <p><a href="https://www.city.koshigaya.saitama.jp/kurashi_shisei/kurashi/sumai/taisinsindasn/taishintorikumi_jose/taisinsindankaisyuunohojyo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program is-ended" id="koshigaya-zerocarbon-home">
-            <h3>越谷市家庭用ゼロカーボン推進補助金（太陽光・蓄電池・ZEH） <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">埼玉県越谷市｜補助金｜太陽光1kWあたり2万円（戸建上限8万円、市内事業者契約で上限10万円）、蓄電池5万円/件、ZEH20万円/件（太陽光との併用不可）｜締切：2026-10-16</p>
-            <p class="area-meta">期間：令和8年度後期：2026年10月5日～10月16日</p>
-            <p>家庭用の太陽光発電・蓄電池・ZEHの導入費を補助する。令和8年度後期の受付がある。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内居住者または申請年度内に越谷市へ居住予定の方</li><li>対象設備を令和9年3月15日までに設置すること</li></ul>
-            <p><a href="https://www.city.koshigaya.saitama.jp/kurashi_shisei/kurashi/kankyo/kankyoseisaku/zerocarbon.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
-          <div class="area-program is-ended" id="koshigaya-zerocarbon-ev">
-            <h3>越谷市ゼロカーボン推進補助金（EV・PHEV・V2H） <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">埼玉県越谷市｜補助金｜EV/PHEV 5万円/件、V2H 5万円/件｜締切：2026-10-16</p>
-            <p class="area-meta">期間：令和8年度後期：2026年10月5日～10月16日</p>
-            <p>外部給電機能を持つEV・PHEVやV2H設備の導入費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内居住者または申請年度内に越谷市へ居住予定の方</li><li>EV/PHEVは外部給電機能を有する車両に限る</li></ul>
-            <p><a href="https://www.city.koshigaya.saitama.jp/net/kankyoseisakuka/zerocarbon_katei_shinsei_r7zenki.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="koshigaya-akiya">
-            <h3>越谷市空家の改修・除却費補助</h3>
-            <p class="area-meta">埼玉県越谷市｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>空家の改修・除却費用の一部を補助する。</p>
-            
-            <p><a href="https://www.city.koshigaya.saitama.jp/kurashi_shisei/kurashi/sumai/akiya/koshigaya_contents_akiyakaisyuu.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="koshigaya-reform">
-            <h3>越谷市住宅・店舗改修促進補助金（ブロック塀・外構含む）</h3>
-            <p class="area-meta">埼玉県越谷市｜補助金｜工事費の20%（上限10万円）</p>
-            <p class="area-meta">期間：令和8年度第1期は抽選終了。第2期は2026年11月予定（最新は要確認）</p>
-            <p>市内施工業者による住宅改修等の費用を補助する。外構のブロック塀・フェンス・門扉の改修・撤去も対象。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の施工業者を使う工事であること</li><li>他の市補助金と同一箇所で併用不可</li></ul>
-            <p><a href="https://www.city.koshigaya.saitama.jp/kurashi_shisei/kurashi/sumai/sien/kaisyusokusin2026-1.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>埼玉県の制度</strong></p>
-          <ul><li><a href="pref-saitama.html#saitama-katei-shoene-saiene">家庭における省エネ・再エネ活用設備導入補助金</a></li><li><a href="pref-saitama.html#saitama-pref-iju-shienkin">埼玉県移住支援金</a></li></ul>
-          <p><a href="pref-saitama.html#pref-resident">埼玉県の制度2件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-saitama.html#saitama-dx-donyu-hojo">埼玉県中小企業DX導入支援補助金（追加募集）</a></li><li><a href="pref-saitama.html#saitama-jinzai-katsuyo-hojo">埼玉県人材活用促進事業補助金</a></li><li><a href="pref-saitama.html#saitama-kigyoka-ikusei-shikin">埼玉県制度融資 起業家育成資金</a></li><li><a href="pref-saitama.html#saitama-shokibo-jigyo-shikin">埼玉県制度融資 小規模事業資金</a></li><li><a href="pref-saitama.html#saitama-shoryokuka-hojo">埼玉県中小企業省力化支援事業補助金【新規導入】</a></li></ul>
+          <p><a href="pref-saitama.html#pref-business">埼玉県の制度5件を、県のページで見る →</a></p>
       </div>
     </section>
 

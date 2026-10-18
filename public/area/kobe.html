@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"神戸市","item":"https://hojyokin.net/area/kobe.html"}]}</script>
@@ -165,121 +207,104 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 神戸市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b15.webp')"><h1 class="pb-title">神戸市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-hyogo.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">兵庫県・政令指定都市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">兵庫県 神戸市</p>
+        <h1>神戸市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度8件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-hyogo.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（神戸市）<b>3件</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（兵庫県）<b>4件（うち受付終了1件）</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>5件</b></a><span class="area-toc-cats"><a href="#res-cat-2">EV・充電 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-6">子育て 2</a><a href="#res-cat-9">移住 1</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <a href="#res-g-kosodate"><i aria-hidden="true">👶</i><b>子育て</b><small>2件</small></a>
+      <span class="is-none"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>掲載なし</small></span>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>2件</small></a>
+      <a href="#res-g-iju"><i aria-hidden="true">🌱</i><b>移住</b><small>1件</small></a>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市3件＋県4件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">神戸市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="kobe-jutakuchi-tenpo">
-            <h3>神戸市 住宅地における店舗等立地支援事業</h3>
-            <p class="area-meta">神戸市｜補助金｜上限100万円／補助率 1/2</p>
-            <p class="area-meta">期間：令和8年度：2026年4月1日〜</p>
-            <p>ニュータウンなどの住宅地で新たに店舗等を出店する方に、店舗の新築・リフォーム費用を補助します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の対象住宅地で店舗等を新規出店</li></ul>
-            
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-kosodate">子育て<span>2件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="kobe-sumikaeru-danchi">
+            <div class="ar-name"><b>住みかえーる（団地ぐらし：郊外団地への住み替え）</b><small>未就学児のいる世帯が郊外団地へ住み替える際の費用を補助する。<br>対象：未就学児のいる世帯／対象団地へ住み替えること<br>期間：令和8年6月1日〜令和9年3月31日（予算上限に達し次第終了）<br>締切：2027-03-31</small><span class="ar-prov">神戸市</span></div>
+            <div class="ar-amt">親世帯と近居・同居の場合35万円、それ以外30万円</div>
+            <a class="ar-go" href="https://www.city.kobe.lg.jp/a01110/kurashi/sumai/jutaku/information/shinkonportal/chintai-danchikatuyou/seidonaiyou-danchikatuyou.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="kobe-investment-promotion">
-            <h3>神戸市中小企業投資促進等助成制度（令和8年度版）</h3>
-            <p class="area-meta">神戸市 産業振興関係局｜助成金｜2025年度版の数値（令和8年度版の条件は要確認）：一般の設備投資は対象事業費1,000万円以上で助成率10%以内、限度額500万円。IoT・AI・ロボット導入は助成率3分の1以内、限度額1,000万円</p>
-            <p class="area-meta">期間：令和8年度版ページあり。受付期間は要確認</p>
-            <p>技術力や生産性の向上、受注拡大、研究開発機能の強化に向けて設備投資等を行う神戸市内事業者を支援します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>神戸市内で設備投資等を行う事業者</li><li>令和8年度の詳細要件は公式ページで要確認</li></ul>
-            <p><a href="https://www.city.kobe.lg.jp/a93457/business/sangyoshinko/shokogyo/venture/monodukuri/toshisokushin/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="kobe-sumikaeru-oyako">
+            <div class="ar-name"><b>こうべぐらし応援補助金「住みかえーる」（親・子世帯の近居・同居）</b><small>未就学児のいる子育て世帯等が親世帯と近居・同居するための住み替えに対し補助する。<br>対象：未就学児がいる子育て世帯など／住み替え後に住民票を異動してから申請<br>期間：令和8年6月1日〜令和9年3月31日（予算上限に達し次第終了）<br>締切：2027-03-31</small><span class="ar-prov">神戸市</span></div>
+            <div class="ar-amt">子世帯が市外から転入する場合20万円、それ以外10万円</div>
+            <a class="ar-go" href="https://www.city.kobe.lg.jp/a01110/kurashi/sumai/jutaku/information/shinkonportal/oyako/r3_oyako.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="kobe-energy-equipment-upgrade">
-            <h3>神戸市省エネ設備更新補助金（国の交付金を活用した物価高対策）</h3>
-            <p class="area-meta">神戸市｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：第2期：令和8年8月3日から受付開始（終了日は要確認）</p>
-            <p>国の交付金を活用した物価高対策として、市内事業者の省エネ設備更新費用を補助します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>神戸市内の事業者（詳細要件は要確認）</li><li>第1期は予算上限に達して締切、第2期の受付あり</li></ul>
-            <p><a href="https://www.city.kobe.lg.jp/a57337/bukkadaka.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>2件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="kobe-akiya-kaitai-hojo">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>神戸市 老朽空家等解体補助制度</b><small>老朽空き家の解体に対する補助。神戸市の「住宅支援や補助金など」のページに掲載されている（このページには耐震診断・耐震改修補助、空き家活用応援制度なども掲載）。</small><span class="ar-prov">神戸市</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.kobe.lg.jp/a01110/hojokin.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kobe-fcv-fukyu">
+            <div class="ar-name"><b><span class="ar-tag">EV・充電</span>燃料電池自動車（FCV）普及促進補助金</b><small>燃料電池自動車の購入を補助する。2026年度は電気自動車が対象から外れ、燃料電池自動車のみが対象。</small><span class="ar-prov">神戸市 環境局</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.kobe.lg.jp/a73498/business/kankyotaisaku/kotuukougai/jisedaicar.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-iju">移住<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="kobe-sumikaeru-koubeijyu">
+            <div class="ar-name"><b>住みかえーる（こうべ移住型：子育て世帯の市外からの転入）</b><small>市外から神戸市内の賃貸住宅へ転入する子育て世帯の費用を補助する。<br>対象：子育て世帯／市外から転入すること</small><span class="ar-prov">神戸市</span></div>
+            <div class="ar-amt">基礎額20万円、親子近居・同居加算5万円（最大25万円）※掲載は旧年度情報</div>
+            <a class="ar-go" href="https://www.city.kobe.lg.jp/a01110/kurashi/sumai/jutaku/information/shinkonportal/chintai-koubeijyu/koubeijyugata-seidoannai.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>兵庫県の制度</strong></p>
+          <ul><li><a href="pref-hyogo.html#hyogo-akiya-katsuyo-shien">空き家活用支援事業</a></li><li><a href="pref-hyogo.html#hyogo-awaji-chikudenchi-r8">（淡路地域）令和8年度「家庭用蓄電池導入支援補助金」</a></li><li><a href="pref-hyogo.html#hyogo-awaji-ev-r8">（淡路地域）令和8年度電気自動車、燃料電池バス・トラック導入補助制度</a></li><li><a href="pref-hyogo.html#hyogo-iju-shienkin">兵庫県移住支援金（移住支援事業）</a></li><li><a href="pref-hyogo.html#hyogo-jikashohi-taiyoko-r8">令和8年度自家消費型住宅用太陽光発電設備等導入補助事業</a></li></ul>
+          <p><a href="pref-hyogo.html#pref-resident">兵庫県の制度8件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">兵庫県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">神戸市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-hyogo.html#hyogo-gxdx-setsubi-taiyo">兵庫県 GX・DX促進設備導入推進事業</a></li><li><a href="pref-hyogo.html#hyogo-kasegu-chikara-setsubi">兵庫県 稼ぐ力の強化に向けた設備投資支援事業</a></li><li><a href="pref-hyogo.html#hyogo-seidoyuushi">兵庫県中小企業融資制度（制度融資）</a></li><li><a href="pref-hyogo.html#hyogo-kigyoka-shien">兵庫県 起業家支援事業（一般事業枠・ふるさと・事業承継枠・若者枠・社会的事業枠）</a></li></ul>
-          <p><a href="pref-hyogo.html#pref-business">兵庫県の制度4件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="kobe-jutakuchi-tenpo">
+            <div class="ar-name"><b>神戸市 住宅地における店舗等立地支援事業</b><small>ニュータウンなどの住宅地で新たに店舗等を出店する方に、店舗の新築・リフォーム費用を補助します。<br>対象：市内の対象住宅地で店舗等を新規出店<br>期間：令和8年度：2026年4月1日〜</small><span class="ar-prov">神戸市</span></div>
+            <div class="ar-amt">上限100万円／補助率 1/2</div>
+            
+          </div>
+          <div class="ar-row" id="kobe-investment-promotion">
+            <div class="ar-name"><b>神戸市中小企業投資促進等助成制度（令和8年度版）</b><small>技術力や生産性の向上、受注拡大、研究開発機能の強化に向けて設備投資等を行う神戸市内事業者を支援します。<br>対象：神戸市内で設備投資等を行う事業者／令和8年度の詳細要件は公式ページで要確認</small><span class="ar-prov">神戸市 産業振興関係局</span></div>
+            <div class="ar-amt">2025年度版の数値（令和8年度版の条件は要確認）：一般の設備投資は対象事業費1,000万円以上で助成率10%以内、限度額500万円。IoT・AI・ロボット導入は助成率3分の1以内、限度額1,000万円</div>
+            <a class="ar-go" href="https://www.city.kobe.lg.jp/a93457/business/sangyoshinko/shokogyo/venture/monodukuri/toshisokushin/index.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kobe-energy-equipment-upgrade">
+            <div class="ar-name"><b>神戸市省エネ設備更新補助金（国の交付金を活用した物価高対策）</b><small>国の交付金を活用した物価高対策として、市内事業者の省エネ設備更新費用を補助します。<br>対象：神戸市内の事業者（詳細要件は要確認）／第1期は予算上限に達して締切、第2期の受付あり</small><span class="ar-prov">神戸市</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.kobe.lg.jp/a57337/bukkadaka.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">兵庫県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>神戸市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
-          <div class="area-program" id="kobe-fcv-fukyu">
-            <h3>燃料電池自動車（FCV）普及促進補助金</h3>
-            <p class="area-meta">神戸市 環境局｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：2026年度（受付期間は要確認）</p>
-            <p>燃料電池自動車の購入を補助する。2026年度は電気自動車が対象から外れ、燃料電池自動車のみが対象。</p>
-            
-            <p><a href="https://www.city.kobe.lg.jp/a73498/business/kankyotaisaku/kotuukougai/jisedaicar.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="kobe-akiya-kaitai-hojo">
-            <h3>神戸市 老朽空家等解体補助制度</h3>
-            <p class="area-meta">神戸市｜補助金｜金額は公式で確認</p>
-            
-            <p>老朽空き家の解体に対する補助。神戸市の「住宅支援や補助金など」のページに掲載されている（このページには耐震診断・耐震改修補助、空き家活用応援制度なども掲載）。</p>
-            
-            <p><a href="https://www.city.kobe.lg.jp/a01110/hojokin.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-6">子育て</h3>
-          <div class="area-program" id="kobe-sumikaeru-danchi">
-            <h3>住みかえーる（団地ぐらし：郊外団地への住み替え）</h3>
-            <p class="area-meta">神戸市｜補助金｜親世帯と近居・同居の場合35万円、それ以外30万円｜締切：2027-03-31</p>
-            <p class="area-meta">期間：令和8年6月1日〜令和9年3月31日（予算上限に達し次第終了）</p>
-            <p>未就学児のいる世帯が郊外団地へ住み替える際の費用を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>未就学児のいる世帯</li><li>対象団地へ住み替えること</li></ul>
-            <p><a href="https://www.city.kobe.lg.jp/a01110/kurashi/sumai/jutaku/information/shinkonportal/chintai-danchikatuyou/seidonaiyou-danchikatuyou.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="kobe-sumikaeru-oyako">
-            <h3>こうべぐらし応援補助金「住みかえーる」（親・子世帯の近居・同居）</h3>
-            <p class="area-meta">神戸市｜補助金｜子世帯が市外から転入する場合20万円、それ以外10万円｜締切：2027-03-31</p>
-            <p class="area-meta">期間：令和8年6月1日〜令和9年3月31日（予算上限に達し次第終了）</p>
-            <p>未就学児のいる子育て世帯等が親世帯と近居・同居するための住み替えに対し補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>未就学児がいる子育て世帯など</li><li>住み替え後に住民票を異動してから申請</li></ul>
-            <p><a href="https://www.city.kobe.lg.jp/a01110/kurashi/sumai/jutaku/information/shinkonportal/oyako/r3_oyako.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-9">移住</h3>
-          <div class="area-program" id="kobe-sumikaeru-koubeijyu">
-            <h3>住みかえーる（こうべ移住型：子育て世帯の市外からの転入）</h3>
-            <p class="area-meta">神戸市｜補助金｜基礎額20万円、親子近居・同居加算5万円（最大25万円）※掲載は旧年度情報</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>市外から神戸市内の賃貸住宅へ転入する子育て世帯の費用を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>子育て世帯</li><li>市外から転入すること</li><li>詳細条件は要確認</li></ul>
-            <p><a href="https://www.city.kobe.lg.jp/a01110/kurashi/sumai/jutaku/information/shinkonportal/chintai-koubeijyu/koubeijyugata-seidoannai.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>兵庫県の制度</strong></p>
-          <ul><li><a href="pref-hyogo.html#hyogo-akiya-katsuyo-shien">空き家活用支援事業</a></li><li><a href="pref-hyogo.html#hyogo-awaji-chikudenchi-r8">（淡路地域）令和8年度「家庭用蓄電池導入支援補助金」</a></li><li><a href="pref-hyogo.html#hyogo-awaji-ev-r8">（淡路地域）令和8年度電気自動車、燃料電池バス・トラック導入補助制度</a></li><li><a href="pref-hyogo.html#hyogo-iju-shienkin">兵庫県移住支援金（移住支援事業）</a></li><li><a href="pref-hyogo.html#hyogo-jikashohi-taiyoko-r8">令和8年度自家消費型住宅用太陽光発電設備等導入補助事業</a></li></ul>
-          <p><a href="pref-hyogo.html#pref-resident">兵庫県の制度8件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-hyogo.html#hyogo-gxdx-setsubi-taiyo">兵庫県 GX・DX促進設備導入推進事業</a></li><li><a href="pref-hyogo.html#hyogo-kasegu-chikara-setsubi">兵庫県 稼ぐ力の強化に向けた設備投資支援事業</a></li><li><a href="pref-hyogo.html#hyogo-seidoyuushi">兵庫県中小企業融資制度（制度融資）</a></li><li><a href="pref-hyogo.html#hyogo-kigyoka-shien">兵庫県 起業家支援事業（一般事業枠・ふるさと・事業承継枠・若者枠・社会的事業枠）</a></li></ul>
+          <p><a href="pref-hyogo.html#pref-business">兵庫県の制度4件を、県のページで見る →</a></p>
       </div>
     </section>
 

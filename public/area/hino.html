@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"日野市","item":"https://hojyokin.net/area/hino.html"}]}</script>
@@ -165,154 +207,111 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 日野市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b06.webp')"><h1 class="pb-title">日野市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-tokyo.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">東京都・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">東京都 日野市</p>
+        <h1>日野市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度11件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-tokyo.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（日野市）<b>6件（うち受付終了1件）</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（東京都）<b>6件（うち受付終了1件）</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>5件（うち受付終了1件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-5">バリアフリー・介護 2</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <span class="is-none"><i aria-hidden="true">👶</i><b>子育て</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>掲載なし</small></span>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>5件</small></a>
+      <span class="is-none"><i aria-hidden="true">🌱</i><b>移住</b><small>掲載なし</small></span>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市6件＋県6件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">日野市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="hino-city-hanro-kaitaku-shien">
-            <h3>日野市販路開拓支援事業補助金</h3>
-            <p class="area-meta">日野市 産業振興課｜補助金｜対象経費の1/2以内（上限30万円）｜締切：2027-01-29</p>
-            <p class="area-meta">期間：令和8年4月1日〜令和9年1月29日17時（予算枠に達し次第終了）</p>
-            <p>展示品の運搬委託費、オンライン展示会用のデジタル営業資料の外注制作費など、販路開拓の経費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内に事業所等を持つ中小企業者（ものづくり基盤産業など）</li><li>市内に本部・支部がある産業団体</li><li>市税を滞納していない</li></ul>
-            <p><a href="https://www.city.hino.lg.jp/sangyo/1020464/1003536.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/hino-city-hanro-kaitaku-shien.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>5件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="hino-akiya-chiiki">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>空き家活用に伴う地域貢献改修費補助</b><small>空き家を地域貢献に活用する方の改修・跡地整備・耐震診断費の一部を補助。<br>対象：空き家を地域貢献に活用する方／事前相談が必要</small><span class="ar-prov">東京都日野市</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.hino.lg.jp/shisei/machidukuri/akiya/1013313.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="hino-city-jigyo-kakudai-shien">
-            <h3>日野市事業拡大支援事業補助金</h3>
-            <p class="area-meta">日野市 産業振興課｜補助金｜対象経費の1/2以内（一般型100万円、成長促進型400万円まで）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>新製品・新技術の開発、人材育成、特許取得、研究機関との共同開発などの経費を補助する。審査会（書類とプレゼン）で決定。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内に事業所を持つものづくり基盤産業の中小企業者</li><li>市内に本部・支部を持つ産業団体</li><li>市税を滞納していない</li></ul>
-            <p><a href="https://www.city.hino.lg.jp/sangyo/1020464/1008374.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="hino-jiritsu-kaishu">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>高齢者自立支援住宅改修給付</b><small>日常生活に支障のある高齢者の手すり取付・段差解消・設備改修の費用を給付。<br>対象：市内在住の65歳以上／1世帯1回限り</small><span class="ar-prov">東京都日野市</span></div>
+            <div class="ar-amt">予防給付上限20万円、設備給付は浴槽37.9万円・流し洗面15.6万円・便器10.6万円が上限(自己負担1〜3割)</div>
+            <a class="ar-go" href="https://www.city.hino.lg.jp/fukushi/kourei/1003597.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="hino-city-jigyo-shikin-assen">
-            <h3>日野市中小企業・小規模企業事業資金融資あっせん制度</h3>
-            <p class="area-meta">日野市 産業振興課｜融資｜限度額は多くの資金で2,000万円。利子補給率は一部1.0%、SDGs推進資金等は1.2%（令和7年度の条件）。保証料は市が1/2補助する区分あり</p>
-            <p class="area-meta">期間：最新は要確認（確認できた条件は令和7年4月〜令和8年3月申込分）</p>
-            <p>東京信用保証協会の保証を受けて利用する市の制度融資。利子補給と信用保証料補助がある。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の中小企業者・小規模事業者</li><li>東京信用保証協会の保証を受けること</li></ul>
-            <p><a href="https://www.city.hino.lg.jp/sangyo/1020464/1003541.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/hino-city-jigyo-shikin-assen.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+          <div class="ar-row" id="hino-shoene-kaden">
+            <div class="ar-name"><b><span class="ar-tag">省エネ住宅</span>省エネ家電買換え促進補助金</b><small>省エネエアコン・冷蔵庫への買換えを補助。<br>対象：市内在住の方(詳細は要確認)<br>期間：令和8年6月1日〜令和9年2月26日<br>締切：2027-02-26</small><span class="ar-prov">東京都日野市</span></div>
+            <div class="ar-amt">本体費用の1/4(上限2万円)</div>
+            <a class="ar-go" href="https://www.city.hino.lg.jp/kurashi/kankyo/co2/1027463.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="hino-city-monozukuri-sangyo-kaihatsu">
-            <h3>日野市ものづくり産業開発支援事業補助金</h3>
-            <p class="area-meta">日野市 産業振興課｜補助金｜対象経費の1/2（1事業者年間上限6万円）</p>
-            <p class="area-meta">期間：最新は要確認（確認できた募集要項は令和7年4月1日〜令和8年2月27日）</p>
-            <p>東京都立産業技術研究センターなど大学等の施設での依頼試験・機器利用・技術相談の費用を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内のものづくり企業</li><li>大学等の試験研究機関を利用した新製品・新技術の開発</li></ul>
-            <p><a href="https://www.city.hino.lg.jp/sangyo/1020464/1003515.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/hino-city-monozukuri-sangyo-kaihatsu.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+          <div class="ar-row" id="hino-taishin">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>木造住宅耐震診断・耐震改修補助</b><small>旧耐震の木造住宅の耐震診断・改修費を補助。<br>対象：昭和56年5月31日以前着工の木造住宅／改修は評点1.0未満を1.0以上にする工事または建替え</small><span class="ar-prov">東京都日野市</span></div>
+            <div class="ar-amt">診断は2/3以内(上限8.8万円)、改修は4/5以内(上限95万円、市内業者は115万円)、太陽光付改修は加算30万円</div>
+            <a class="ar-go" href="https://www.city.hino.lg.jp/kurashi/annzen/saigai/sonae/taishin/1008357.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="hino-city-tokutei-sogyo-shikin">
-            <h3>日野市 特定創業資金（融資あっせん）</h3>
-            <p class="area-meta">日野市 産業振興課｜融資｜融資限度額1,000万円</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>市の特定創業支援等事業を受けて証明書を得た創業者が利用できる融資あっせん。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>日野市の特定創業支援等事業を受け、証明書を持つ方</li></ul>
-            <p><a href="https://www.city.hino.lg.jp/sangyo/sougyo/1027261.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row is-ended" id="hino-barrierfree-dannetsu">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>バリアフリー改修・断熱改修工事補助 <span class="area-ended-tag">受付終了</span></b><small>住宅のバリアフリー改修・断熱改修を補助。令和8年度は予算上限に達し受付終了(7月16日時点)。<br>対象：市内の対象住宅(詳細は要確認)<br>期間：令和8年度は受付終了</small><span class="ar-prov">東京都日野市</span></div>
+            <div class="ar-amt">断熱改修は工事費の1/6以内(上限20万円)、バリアフリー額は要確認</div>
+            <a class="ar-go" href="https://www.city.hino.lg.jp/kurashi/annzen/saigai/sonae/taishin/1008357.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <h3 class="area-cat">受付が終了した制度（次回の公募の参考に）</h3>
-          <div class="area-program is-ended" id="hino-city-miryoku-ten-zukuri">
-            <h3>日野市魅力ある個店創り支援事業補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">日野市 産業振興課｜補助金｜対象経費の2/3以内（上限100万円）｜締切：2026-05-29</p>
-            <p class="area-meta">期間：令和8年度の受付は終了（令和8年4月1日〜5月29日）</p>
-            <p>店舗の魅力や集客力・販売力を高める新たな取り組みを補助する。維持管理や老朽化のみを理由とする工事は対象外。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内に店舗を持つ中小企業者</li><li>申請年度に新たに取り組む事業で、交付決定後に完了するもの</li><li>地域商業に好影響を与える事業</li></ul>
-            <p><a href="https://www.city.hino.lg.jp/sangyo/1020464/1013987.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
+          <p><strong>東京都の制度</strong></p>
+          <ul><li><a href="pref-tokyo.html#tokyo-akachan-first">東京都出産・子育て応援事業（赤ちゃんファースト）</a></li><li><a href="pref-tokyo.html#tokyo-akiya-kazai-kaitai">東京都空き家家財整理・解体促進事業</a></li><li><a href="pref-tokyo.html#tokyo-dannetsu-solar-jutaku">災害にも強く健康にも資する断熱・太陽光住宅普及拡大事業</a></li><li><a href="pref-tokyo.html#tokyo-home-evcharge">戸建住宅向け充電設備普及促進事業（令和8年度）</a></li><li><a href="pref-tokyo.html#tokyo-kodomo-mamoru-jutaku">子育て世帯向け補助事業（「子供を守る」住宅確保促進事業）</a></li></ul>
+          <p><a href="pref-tokyo.html#pref-resident">東京都の制度9件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">東京都の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">日野市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-tokyo.html#tokyo-jigyoshokei-josei">事業承継支援助成金（第3回）</a></li><li><a href="pref-tokyo.html#tokyo-kadai-kaiketsu-gijutsu">課題解決型技術開発促進事業</a></li><li><a href="pref-tokyo.html#tokyo-seidoyushi-sogyo">東京都中小企業制度融資「創業」</a></li><li><a href="pref-tokyo.html#tokyo-seihin-chakushu">製品開発着手支援助成事業</a></li><li><a href="pref-tokyo.html#tokyo-souikufuu-challenge">経営力強化に向けた創意工夫チャレンジ促進事業</a></li></ul>
-          <p><a href="pref-tokyo.html#pref-business">東京都の制度6件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="hino-city-hanro-kaitaku-shien">
+            <div class="ar-name"><b>日野市販路開拓支援事業補助金</b><small>展示品の運搬委託費、オンライン展示会用のデジタル営業資料の外注制作費など、販路開拓の経費を補助する。<br>対象：市内に事業所等を持つ中小企業者（ものづくり基盤産業など）／市内に本部・支部がある産業団体<br>期間：令和8年4月1日〜令和9年1月29日17時（予算枠に達し次第終了）<br>締切：2027-01-29</small><span class="ar-prov">日野市 産業振興課</span></div>
+            <div class="ar-amt">対象経費の1/2以内（上限30万円）</div>
+            <a class="ar-go" href="https://www.city.hino.lg.jp/sangyo/1020464/1003536.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="hino-city-jigyo-kakudai-shien">
+            <div class="ar-name"><b>日野市事業拡大支援事業補助金</b><small>新製品・新技術の開発、人材育成、特許取得、研究機関との共同開発などの経費を補助する。審査会（書類とプレゼン）で決定。<br>対象：市内に事業所を持つものづくり基盤産業の中小企業者／市内に本部・支部を持つ産業団体</small><span class="ar-prov">日野市 産業振興課</span></div>
+            <div class="ar-amt">対象経費の1/2以内（一般型100万円、成長促進型400万円まで）</div>
+            <a class="ar-go" href="https://www.city.hino.lg.jp/sangyo/1020464/1008374.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="hino-city-jigyo-shikin-assen">
+            <div class="ar-name"><b>日野市中小企業・小規模企業事業資金融資あっせん制度</b><small>東京信用保証協会の保証を受けて利用する市の制度融資。利子補給と信用保証料補助がある。<br>対象：市内の中小企業者・小規模事業者／東京信用保証協会の保証を受けること</small><span class="ar-prov">日野市 産業振興課</span></div>
+            <div class="ar-amt">限度額は多くの資金で2,000万円。利子補給率は一部1.0%、SDGs推進資金等は1.2%（令和7年度の条件）。保証料は市が1/2補助する区分あり</div>
+            <a class="ar-go" href="https://www.city.hino.lg.jp/sangyo/1020464/1003541.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="hino-city-monozukuri-sangyo-kaihatsu">
+            <div class="ar-name"><b>日野市ものづくり産業開発支援事業補助金</b><small>東京都立産業技術研究センターなど大学等の施設での依頼試験・機器利用・技術相談の費用を補助する。<br>対象：市内のものづくり企業／大学等の試験研究機関を利用した新製品・新技術の開発</small><span class="ar-prov">日野市 産業振興課</span></div>
+            <div class="ar-amt">対象経費の1/2（1事業者年間上限6万円）</div>
+            <a class="ar-go" href="https://www.city.hino.lg.jp/sangyo/1020464/1003515.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="hino-city-tokutei-sogyo-shikin">
+            <div class="ar-name"><b>日野市 特定創業資金（融資あっせん）</b><small>市の特定創業支援等事業を受けて証明書を得た創業者が利用できる融資あっせん。<br>対象：日野市の特定創業支援等事業を受け、証明書を持つ方</small><span class="ar-prov">日野市 産業振興課</span></div>
+            <div class="ar-amt">融資限度額1,000万円</div>
+            <a class="ar-go" href="https://www.city.hino.lg.jp/sangyo/sougyo/1027261.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="hino-city-miryoku-ten-zukuri">
+            <div class="ar-name"><b>日野市魅力ある個店創り支援事業補助金 <span class="area-ended-tag">受付終了</span></b><small>店舗の魅力や集客力・販売力を高める新たな取り組みを補助する。維持管理や老朽化のみを理由とする工事は対象外。<br>対象：市内に店舗を持つ中小企業者／申請年度に新たに取り組む事業で、交付決定後に完了するもの<br>期間：令和8年度の受付は終了（令和8年4月1日〜5月29日）<br>締切：2026-05-29</small><span class="ar-prov">日野市 産業振興課</span></div>
+            <div class="ar-amt">対象経費の2/3以内（上限100万円）</div>
+            <a class="ar-go" href="https://www.city.hino.lg.jp/sangyo/1020464/1013987.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">東京都の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>日野市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="hino-taishin">
-            <h3>木造住宅耐震診断・耐震改修補助</h3>
-            <p class="area-meta">東京都日野市｜補助金｜診断は2/3以内(上限8.8万円)、改修は4/5以内(上限95万円、市内業者は115万円)、太陽光付改修は加算30万円</p>
-            <p class="area-meta">期間：令和8年度(申請受付は12月28日までと案内、年は要確認)</p>
-            <p>旧耐震の木造住宅の耐震診断・改修費を補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>昭和56年5月31日以前着工の木造住宅</li><li>改修は評点1.0未満を1.0以上にする工事または建替え</li><li>交付決定前に契約しないこと</li></ul>
-            <p><a href="https://www.city.hino.lg.jp/kurashi/annzen/saigai/sonae/taishin/1008357.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
-          <div class="area-program" id="hino-shoene-kaden">
-            <h3>省エネ家電買換え促進補助金</h3>
-            <p class="area-meta">東京都日野市｜補助金｜本体費用の1/4(上限2万円)｜締切：2027-02-26</p>
-            <p class="area-meta">期間：令和8年6月1日〜令和9年2月26日</p>
-            <p>省エネエアコン・冷蔵庫への買換えを補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内在住の方(詳細は要確認)</li></ul>
-            <p><a href="https://www.city.hino.lg.jp/kurashi/kankyo/co2/1027463.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="hino-akiya-chiiki">
-            <h3>空き家活用に伴う地域貢献改修費補助</h3>
-            <p class="area-meta">東京都日野市｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>空き家を地域貢献に活用する方の改修・跡地整備・耐震診断費の一部を補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>空き家を地域貢献に活用する方</li><li>事前相談が必要</li></ul>
-            <p><a href="https://www.city.hino.lg.jp/shisei/machidukuri/akiya/1013313.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
-          <div class="area-program" id="hino-jiritsu-kaishu">
-            <h3>高齢者自立支援住宅改修給付</h3>
-            <p class="area-meta">東京都日野市｜給付｜予防給付上限20万円、設備給付は浴槽37.9万円・流し洗面15.6万円・便器10.6万円が上限(自己負担1〜3割)</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>日常生活に支障のある高齢者の手すり取付・段差解消・設備改修の費用を給付。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内在住の65歳以上</li><li>1世帯1回限り</li></ul>
-            <p><a href="https://www.city.hino.lg.jp/fukushi/kourei/1003597.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program is-ended" id="hino-barrierfree-dannetsu">
-            <h3>バリアフリー改修・断熱改修工事補助 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">東京都日野市｜補助金｜断熱改修は工事費の1/6以内(上限20万円)、バリアフリー額は要確認</p>
-            <p class="area-meta">期間：令和8年度は受付終了</p>
-            <p>住宅のバリアフリー改修・断熱改修を補助。令和8年度は予算上限に達し受付終了(7月16日時点)。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の対象住宅(詳細は要確認)</li></ul>
-            <p><a href="https://www.city.hino.lg.jp/kurashi/annzen/saigai/sonae/taishin/1008357.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>東京都の制度</strong></p>
-          <ul><li><a href="pref-tokyo.html#tokyo-akachan-first">東京都出産・子育て応援事業（赤ちゃんファースト）</a></li><li><a href="pref-tokyo.html#tokyo-akiya-kazai-kaitai">東京都空き家家財整理・解体促進事業</a></li><li><a href="pref-tokyo.html#tokyo-dannetsu-solar-jutaku">災害にも強く健康にも資する断熱・太陽光住宅普及拡大事業</a></li><li><a href="pref-tokyo.html#tokyo-home-evcharge">戸建住宅向け充電設備普及促進事業（令和8年度）</a></li><li><a href="pref-tokyo.html#tokyo-kodomo-mamoru-jutaku">子育て世帯向け補助事業（「子供を守る」住宅確保促進事業）</a></li></ul>
-          <p><a href="pref-tokyo.html#pref-resident">東京都の制度9件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-tokyo.html#tokyo-jigyoshokei-josei">事業承継支援助成金（第3回）</a></li><li><a href="pref-tokyo.html#tokyo-kadai-kaiketsu-gijutsu">課題解決型技術開発促進事業</a></li><li><a href="pref-tokyo.html#tokyo-seidoyushi-sogyo">東京都中小企業制度融資「創業」</a></li><li><a href="pref-tokyo.html#tokyo-seihin-chakushu">製品開発着手支援助成事業</a></li><li><a href="pref-tokyo.html#tokyo-souikufuu-challenge">経営力強化に向けた創意工夫チャレンジ促進事業</a></li></ul>
+          <p><a href="pref-tokyo.html#pref-business">東京都の制度6件を、県のページで見る →</a></p>
       </div>
     </section>
 

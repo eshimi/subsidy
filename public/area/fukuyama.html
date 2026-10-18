@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"福山市","item":"https://hojyokin.net/area/fukuyama.html"}]}</script>
@@ -165,125 +207,100 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 福山市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b07.webp')"><h1 class="pb-title">福山市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-hiroshima.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">広島県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">広島県 福山市</p>
+        <h1>福山市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度8件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-hiroshima.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（福山市）<b>5件</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（広島県）<b>6件（うち受付終了1件）</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>3件</b></a><span class="area-toc-cats"><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-9">移住 1</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <span class="is-none"><i aria-hidden="true">👶</i><b>子育て</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>掲載なし</small></span>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>2件</small></a>
+      <a href="#res-g-iju"><i aria-hidden="true">🌱</i><b>移住</b><small>1件</small></a>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市5件＋県6件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">福山市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="fukuyama-city-chushokigyo-yushi">
-            <h3>福山市 中小企業融資制度・マル経融資利子補給</h3>
-            <p class="area-meta">福山市 産業振興課｜融資｜要確認(金融のしおり参照)</p>
-            <p class="area-meta">期間：随時(最新は要確認)</p>
-            <p>市の中小企業融資制度。小規模事業者経営改善資金(マル経融資)への利子補給もある。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の中小企業者</li></ul>
-            <p><a href="https://www.city.fukuyama.hiroshima.jp/soshiki/sangyou/41752.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>2件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="fukuyama-block-anzen">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>福山市 ブロック塀等の安全確保事業補助金</b><small>避難路（通学路・緊急輸送道路）に面した倒壊のおそれのあるブロック塀の除却・建替え費を補助する。<br>対象：避難路に面した倒壊のおそれのあるブロック塀</small><span class="ar-prov">広島県福山市</span></div>
+            <div class="ar-amt">事業費の2/3（延長1mあたり8万円を上限に算出、除却15万円・建替え30万円が上限）</div>
+            <a class="ar-go" href="https://www.city.fukuyama.hiroshima.jp/soshiki/kenchiku/327860.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="fukuyama-city-green-chingin">
-            <h3>福山市 グリーンな企業賃上げ環境整備支援事業補助金</h3>
-            <p class="area-meta">福山市 産業振興課｜補助金｜金額は公式で確認｜締切：2026-12-11</p>
-            <p class="area-meta">期間：〜2026年12月11日(申請額が予算の8割超・9/17時点)</p>
-            <p>賃上げに向けた環境整備(設備投資等)を行う市内中小事業者を支援する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内に本社または事業所がある中小事業者</li></ul>
-            <p><a href="https://www.city.fukuyama.hiroshima.jp/soshiki/sangyou/391140.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/fukuyama-city-green-chingin.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+          <div class="ar-row" id="fukuyama-kateimuke-souene">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>福山市 家庭向け創エネ・蓄エネ設備導入補助金（令和8年度）</b><small>太陽光と蓄電池の同時設置を補助する。蓄電池のみは対象外。<br>対象：太陽光と蓄電池を同時設置／FIT・FIP認定設備は対象外<br>期間：令和8年6月1日〜令和9年1月8日（予算残りわずか：8月20日時点）<br>締切：2027-01-08</small><span class="ar-prov">福山市</span></div>
+            <div class="ar-amt">太陽光は1kWあたり10.5万円（上限5kW）、蓄電池は費用の1/3（15.5万円/kWhが上限）</div>
+            <a class="ar-go" href="https://www.city.fukuyama.hiroshima.jp/site/kankyo/394079.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="fukuyama-city-hanro-kaitaku">
-            <h3>福山市 販路開拓支援事業補助金(国内販路開拓)</h3>
-            <p class="area-meta">福山市 産業振興課｜補助金｜補助率1/2・上限20万円(国内・オンライン)</p>
-            <p class="area-meta">期間：令和8年度は二次募集が8月3日開始(最新は要確認)</p>
-            <p>首都圏等の全国規模の展示会出展費用(小間料・装飾料・搬送費)を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の中小企業者</li><li>過去2か年度に同補助金を受けていないこと</li></ul>
-            <p><a href="https://www.city.fukuyama.hiroshima.jp/soshiki/sangyou/42038.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <div class="area-program" id="fukuyama-city-josei-hatarakukankyo">
-            <h3>福山市 女性の働く環境改善補助金</h3>
-            <p class="area-meta">福山市 産業振興課｜補助金｜補助率1/2以内・上限35万円</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>女性専用トイレ・更衣室・休憩室等の改修費や備品購入費を補助する(2026年度から賃借建物も対象)。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の中小企業等</li></ul>
-            <p><a href="https://www.city.fukuyama.hiroshima.jp/soshiki/sangyou/68920.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/fukuyama-city-josei-hatarakukankyo.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+          <h3 class="area-cat" id="res-g-iju">移住<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="fukuyama-akiya-renovation">
+            <div class="ar-name"><b>福山市 空家リノベーション事業補助</b><small>新婚・子育て世帯、若者夫婦世帯、市外からの移住者が空き家を取得・賃借して改修する費用を補助する。<br>対象：空き家は1年以上居住者がなく耐震性を有すること／改修後10年以上居住<br>期間：2026年度受付中（2027年1月末まで・先着）<br>締切：2027-01-31</small><span class="ar-prov">広島県福山市</span></div>
+            <div class="ar-amt">改修費の1/2以内（子育て・新婚・若者夫婦世帯は上限50万円、移住・定住者は上限30万円、親との同居・近居で10万円加算）</div>
+            <a class="ar-go" href="https://www.city.fukuyama.hiroshima.jp/soshiki/kenchiku/359704.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="fukuyama-city-saiene-shoene">
-            <h3>福山市 事業者向け創エネ・蓄エネ・省エネ設備導入等補助金(令和8年度)</h3>
-            <p class="area-meta">福山市 環境部局｜補助金｜金額は公式で確認｜締切：2027-01-08</p>
-            <p class="area-meta">期間：〜2027年1月8日(先着順・省エネは予算上限に近い)</p>
-            <p>事業者向けの創エネ・蓄エネ・省エネ設備の導入費用を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内で事業を行う法人・個人事業者</li></ul>
-            <p><a href="https://www.city.fukuyama.hiroshima.jp/site/kankyo/394078.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/fukuyama-city-saiene-shoene.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
           </div>
+          <p><strong>広島県の制度</strong></p>
+          <ul><li><a href="pref-hiroshima.html#hiroshima-ijyu-shienkin">広島県 移住支援金</a></li><li><a href="pref-hiroshima.html#hiroshima-madoreno-uwanose">広島県 先進的窓リノベ上乗せ補助（断熱窓）</a></li><li><a href="pref-hiroshima.html#hiroshima-taishin-sokushin">広島県住宅耐震化促進支援制度</a></li></ul>
+          <p><a href="pref-hiroshima.html#pref-resident">広島県の制度3件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">広島県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">福山市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-hiroshima.html#hiroshima-chinage-kankyo">広島県賃上げ環境整備支援事業補助金</a></li><li><a href="pref-hiroshima.html#hiroshima-pro-jinzai">中小企業等プロフェッショナル人材確保支援事業補助金</a></li><li><a href="pref-hiroshima.html#hiroshima-shoene-setsubi">広島県中小企業省エネ設備等導入支援補助金</a></li><li><a href="pref-hiroshima.html#hiroshima-shogakukin-hensai">Go！ひろしま奨学金返済支援制度導入企業応援補助金</a></li><li><a href="pref-hiroshima.html#hiroshima-sogyo-shien-shikin">広島県 創業支援資金</a></li></ul>
-          <p><a href="pref-hiroshima.html#pref-business">広島県の制度6件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="fukuyama-city-chushokigyo-yushi">
+            <div class="ar-name"><b>福山市 中小企業融資制度・マル経融資利子補給</b><small>市の中小企業融資制度。小規模事業者経営改善資金(マル経融資)への利子補給もある。<br>対象：市内の中小企業者</small><span class="ar-prov">福山市 産業振興課</span></div>
+            <div class="ar-amt">要確認(金融のしおり参照)</div>
+            <a class="ar-go" href="https://www.city.fukuyama.hiroshima.jp/soshiki/sangyou/41752.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="fukuyama-city-green-chingin">
+            <div class="ar-name"><b>福山市 グリーンな企業賃上げ環境整備支援事業補助金</b><small>賃上げに向けた環境整備(設備投資等)を行う市内中小事業者を支援する。<br>対象：市内に本社または事業所がある中小事業者<br>期間：〜2026年12月11日(申請額が予算の8割超・9/17時点)<br>締切：2026-12-11</small><span class="ar-prov">福山市 産業振興課</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.fukuyama.hiroshima.jp/soshiki/sangyou/391140.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="fukuyama-city-hanro-kaitaku">
+            <div class="ar-name"><b>福山市 販路開拓支援事業補助金(国内販路開拓)</b><small>首都圏等の全国規模の展示会出展費用(小間料・装飾料・搬送費)を補助する。<br>対象：市内の中小企業者／過去2か年度に同補助金を受けていないこと</small><span class="ar-prov">福山市 産業振興課</span></div>
+            <div class="ar-amt">補助率1/2・上限20万円(国内・オンライン)</div>
+            <a class="ar-go" href="https://www.city.fukuyama.hiroshima.jp/soshiki/sangyou/42038.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="fukuyama-city-josei-hatarakukankyo">
+            <div class="ar-name"><b>福山市 女性の働く環境改善補助金</b><small>女性専用トイレ・更衣室・休憩室等の改修費や備品購入費を補助する(2026年度から賃借建物も対象)。<br>対象：市内の中小企業等</small><span class="ar-prov">福山市 産業振興課</span></div>
+            <div class="ar-amt">補助率1/2以内・上限35万円</div>
+            <a class="ar-go" href="https://www.city.fukuyama.hiroshima.jp/soshiki/sangyou/68920.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="fukuyama-city-saiene-shoene">
+            <div class="ar-name"><b>福山市 事業者向け創エネ・蓄エネ・省エネ設備導入等補助金(令和8年度)</b><small>事業者向けの創エネ・蓄エネ・省エネ設備の導入費用を補助する。<br>対象：市内で事業を行う法人・個人事業者<br>期間：〜2027年1月8日(先着順・省エネは予算上限に近い)<br>締切：2027-01-08</small><span class="ar-prov">福山市 環境部局</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.fukuyama.hiroshima.jp/site/kankyo/394078.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">広島県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>福山市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program" id="fukuyama-kateimuke-souene">
-            <h3>福山市 家庭向け創エネ・蓄エネ設備導入補助金（令和8年度）</h3>
-            <p class="area-meta">福山市｜補助金｜太陽光は1kWあたり10.5万円（上限5kW）、蓄電池は費用の1/3（15.5万円/kWhが上限）｜締切：2027-01-08</p>
-            <p class="area-meta">期間：令和8年6月1日〜令和9年1月8日（予算残りわずか：8月20日時点）</p>
-            <p>太陽光と蓄電池の同時設置を補助する。蓄電池のみは対象外。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>太陽光と蓄電池を同時設置</li><li>FIT・FIP認定設備は対象外</li></ul>
-            <p><a href="https://www.city.fukuyama.hiroshima.jp/site/kankyo/394079.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="fukuyama-block-anzen">
-            <h3>福山市 ブロック塀等の安全確保事業補助金</h3>
-            <p class="area-meta">広島県福山市｜補助金｜事業費の2/3（延長1mあたり8万円を上限に算出、除却15万円・建替え30万円が上限）</p>
-            <p class="area-meta">期間：令和7年度分は受付終了。2026年度は要確認</p>
-            <p>避難路（通学路・緊急輸送道路）に面した倒壊のおそれのあるブロック塀の除却・建替え費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>避難路に面した倒壊のおそれのあるブロック塀</li></ul>
-            <p><a href="https://www.city.fukuyama.hiroshima.jp/soshiki/kenchiku/327860.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-9">移住</h3>
-          <div class="area-program" id="fukuyama-akiya-renovation">
-            <h3>福山市 空家リノベーション事業補助</h3>
-            <p class="area-meta">広島県福山市｜補助金｜改修費の1/2以内（子育て・新婚・若者夫婦世帯は上限50万円、移住・定住者は上限30万円、親との同居・近居で10万円加算）｜締切：2027-01-31</p>
-            <p class="area-meta">期間：2026年度受付中（2027年1月末まで・先着）</p>
-            <p>新婚・子育て世帯、若者夫婦世帯、市外からの移住者が空き家を取得・賃借して改修する費用を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>空き家は1年以上居住者がなく耐震性を有すること</li><li>改修後10年以上居住</li></ul>
-            <p><a href="https://www.city.fukuyama.hiroshima.jp/soshiki/kenchiku/359704.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>広島県の制度</strong></p>
-          <ul><li><a href="pref-hiroshima.html#hiroshima-ijyu-shienkin">広島県 移住支援金</a></li><li><a href="pref-hiroshima.html#hiroshima-madoreno-uwanose">広島県 先進的窓リノベ上乗せ補助（断熱窓）</a></li><li><a href="pref-hiroshima.html#hiroshima-taishin-sokushin">広島県住宅耐震化促進支援制度</a></li></ul>
-          <p><a href="pref-hiroshima.html#pref-resident">広島県の制度3件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-hiroshima.html#hiroshima-chinage-kankyo">広島県賃上げ環境整備支援事業補助金</a></li><li><a href="pref-hiroshima.html#hiroshima-pro-jinzai">中小企業等プロフェッショナル人材確保支援事業補助金</a></li><li><a href="pref-hiroshima.html#hiroshima-shoene-setsubi">広島県中小企業省エネ設備等導入支援補助金</a></li><li><a href="pref-hiroshima.html#hiroshima-shogakukin-hensai">Go！ひろしま奨学金返済支援制度導入企業応援補助金</a></li><li><a href="pref-hiroshima.html#hiroshima-sogyo-shien-shikin">広島県 創業支援資金</a></li></ul>
+          <p><a href="pref-hiroshima.html#pref-business">広島県の制度6件を、県のページで見る →</a></p>
       </div>
     </section>
 

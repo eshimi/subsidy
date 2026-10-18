@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"松山市","item":"https://hojyokin.net/area/matsuyama.html"}]}</script>
@@ -165,193 +207,143 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 松山市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b08.webp')"><h1 class="pb-title">松山市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-ehime.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">愛媛県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">愛媛県 松山市</p>
+        <h1>松山市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度15件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-ehime.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（松山市）<b>5件（うち受付終了1件）</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（愛媛県）<b>4件（うち受付終了1件）</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>10件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-2">EV・充電 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-6">子育て 3</a><a href="#res-cat-7">医療・福祉 1</a><a href="#res-cat-8">教育・学び 1</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <a href="#res-g-kosodate"><i aria-hidden="true">👶</i><b>子育て</b><small>3件</small></a>
+      <a href="#res-g-iryo"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>1件</small></a>
+      <a href="#res-g-kyoiku"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>1件</small></a>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>5件</small></a>
+      <span class="is-none"><i aria-hidden="true">🌱</i><b>移住</b><small>掲載なし</small></span>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市5件＋県4件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">松山市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="matsuyama-city-jigyo-shokei-risi">
-            <h3>松山市事業承継利子補助金（日本政策金融公庫分）</h3>
-            <p class="area-meta">松山市 産業経済部｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>日本政策金融公庫の事業承継関連融資の利子の一部を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>事業承継を行う市内事業者（詳細は要確認）</li></ul>
-            <p><a href="https://www.city.matsuyama.ehime.jp/kurashi/sangyo/chusyoukigyou/shoukeirisi.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/matsuyama-city-jigyo-shokei-risi.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-kosodate">子育て<span>3件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="matsuyama-egaokko-ouenken">
+            <div class="ar-name"><b>松山市愛顔っ子応援券（おむつ）</b><small>第2子以降のこどもを出生し養育している保護者に、県内企業3社の乳児用紙おむつを市内の登録店舗で購入できる応援券を交付する。<br>対象：本市に住民登録のある第2子以降の満1歳未満のこどもの保護者／申請は対象乳児の1歳の誕生日の前日まで<br>期間：令和8年度に交付された応援券の有効期限は令和10年（2028年）3月31日まで</small><span class="ar-prov">松山市 子育て支援課</span></div>
+            <div class="ar-amt">愛顔っ子応援券50,000円分（1,000円券×50枚綴り）</div>
+            <a class="ar-go" href="https://www.city.matsuyama.ehime.jp/kurashi/fukushi/jido/egaokko-ouenken.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="matsuyama-city-setsubi-risi">
-            <h3>松山市設備投資利子補助金</h3>
-            <p class="area-meta">松山市 産業経済部｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>設備投資に係る融資の利子を補助する制度。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内中小企業者（詳細は要確認）</li></ul>
-            <p><a href="https://www.city.matsuyama.ehime.jp/kurashi/sangyo/chusyoukigyou/setsubitoushi.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="matsuyama-shussan-sewai-ouen">
+            <div class="ar-name"><b>出産世帯応援事業（県市連携事業）</b><small>出産したこどもの育児用品や時短・省エネ家電の購入経費の一部を助成し、こどもを希望する世帯の経済的負担の軽減を図る。<br>対象：2026年度出産世帯（2025年度出産世帯も条件つきで対象）／対象児童を監護し生計を同じくする父母のどちらか<br>期間：2026年度出産世帯が対象（申請期限は公式ページで確認）</small><span class="ar-prov">松山市 子育て支援課 出産世帯給付金室</span></div>
+            <div class="ar-amt">補助対象経費の限度額 両親とも35歳以下は30万円、36歳以上を含む場合は20万円</div>
+            <a class="ar-go" href="https://www.city.matsuyama.ehime.jp/kurashi/fukushi/jido/syussannouen.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="matsuyama-city-shikin-yushi">
-            <h3>松山市中小企業資金融資制度</h3>
-            <p class="area-meta">松山市 産業経済部｜融資｜要確認（令和8年度から限度額・期間・利率変更、信用保証料は市が1/2負担、利子補助あり）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>市の預託と信用保証協会の保証による制度融資。令和8年度から経営安定化資金にも利子補助を開始。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内中小企業者</li></ul>
-            <p><a href="https://www.city.matsuyama.ehime.jp/kurashi/sangyo/chusyoukigyou/shikinyuushiseido.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/matsuyama-city-shikin-yushi.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+          <div class="ar-row" id="matsuyama-shussan-shogakukin-henkan">
+            <div class="ar-name"><b>出産世帯奨学金返還支援事業（県市連携事業）</b><small>奨学金返還費用の一部を補助することで、こどもを希望する夫婦の経済的負担の軽減を図る。<br>対象：2026年度出産世帯（2025年度出産世帯も条件つきで対象）／大学等に在学している期間に対象奨学金の貸与を受けた者<br>期間：2026年度出産世帯が対象（補助対象期間は公式ページで確認）</small><span class="ar-prov">松山市 子育て支援課 出産世帯給付金室</span></div>
+            <div class="ar-amt">補助対象経費の限度額 20万円</div>
+            <a class="ar-go" href="https://www.city.matsuyama.ehime.jp/kurashi/fukushi/jido/syougakukinn.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="matsuyama-city-sogyo-risi">
-            <h3>松山市創業資金利子補助金（日本政策金融公庫分）</h3>
-            <p class="area-meta">松山市 産業経済部｜補助金｜利子補助 年1.0%以内・利払開始月から2年間</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>日本政策金融公庫の創業融資を受け市内で開業した事業者の利子の一部を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>日本政策金融公庫の新規開業・スタートアップ支援資金等の利用者</li><li>事業開始後6か月以内に融資を受けていること</li><li>市税の滞納がないこと</li></ul>
-            <p><a href="https://www.city.matsuyama.ehime.jp/kurashi/sangyo/chusyoukigyou/sougyo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/matsuyama-city-sogyo-risi.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
           </div>
-          <h3 class="area-cat">受付が終了した制度（次回の公募の参考に）</h3>
-          <div class="area-program is-ended" id="matsuyama-city-dx-suishin">
-            <h3>松山市DX推進補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">松山市 産業経済部｜補助金｜金額は公式で確認｜締切：2026-07-31</p>
-            <p class="area-meta">期間：令和8年5月25日〜7月31日（受付終了の可能性が高い）</p>
-            <p>中小企業のDX推進に要する経費を補助する。令和8年度の受付は終了見込み。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内中小企業者</li></ul>
-            <p><a href="https://www.city.matsuyama.ehime.jp/kurashi/sangyo/chusyoukigyou/DXsuishin.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <h3 class="area-cat" id="res-g-iryo">医療・福祉<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="matsuyama-huiku-kensa-josei">
+            <div class="ar-name"><b>不育症検査費用助成事業</b><small>不育症検査のうち先進医療に指定されたものを対象に、検査費用の一部を助成する。<br>対象：既往流死産回数が2回以上の方／助成の申請時に松山市に住民登録がある方<br>期間：検査を受けた日の属する年度内（3月末日まで）に申請</small><span class="ar-prov">松山市 すくすく支援課</span></div>
+            <div class="ar-amt">一回の不育症検査に係る費用の7割、上限額6万円</div>
+            <a class="ar-go" href="https://www.city.matsuyama.ehime.jp/kurashi/iryo/bosikenko/huikujosei.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          </div>
+          <h3 class="area-cat" id="res-g-kyoiku">教育・学び<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="matsuyama-shugaku-enjo">
+            <div class="ar-name"><b>就学援助</b><small>経済的な理由で就学が困難な小・中学校の児童生徒の保護者に、学用品費、給食費、修学旅行費などを給付する制度。<br>対象：松山市内に住所を有し、公立小・中学校に在籍する児童生徒等の保護者／市町村民税が非課税の方、児童扶養手当を受給されている方など、いずれかに該当する方<br>期間：令和8年度の援助内容（入学準備金の受付は10月から11月頃を予定）</small><span class="ar-prov">松山市</span></div>
+            <div class="ar-amt">学用品費等 小学校1年生13,230円・2年生～15,500円、中学校1年生25,040円・2年生～27,310円（年額）ほか</div>
+            <a class="ar-go" href="https://www.city.matsuyama.ehime.jp/kurashi/kosodate/gakkokyoiku/syugakuenjyo.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>5件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="matsuyama-block-anzen">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>松山市 ブロック塀等安全対策補助事業</b><small>避難路・通学路に面した危険なブロック塀等の除却または建替え費を補助する。<br>対象：避難路・通学路に面した危険なブロック塀等の所有者／市税の滞納がないこと<br>期間：令和8年4月15日～2027年1月29日（先着）<br>締切：2027-01-29</small><span class="ar-prov">愛媛県松山市</span></div>
+            <div class="ar-amt">工事費（税抜）の2/3（1mあたり10万円まで、上限30万円）。基礎のない特に危険な塀の除却は1/2（上限7.5万円）</div>
+            <a class="ar-go" href="https://www.city.matsuyama.ehime.jp/kurashi/kurashi/hojokin/concrete-block.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="matsuyama-mokuzo-taishin-kaishu">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>松山市 木造住宅耐震改修等補助事業</b><small>耐震診断で補強が必要と判定された昭和56年5月31日以前着工の木造住宅の耐震改修を補助する。<br>対象：昭和56年5月31日以前着工の一戸建て木造住宅等／耐震診断で補強が必要と判定<br>期間：2026年4月15日から受付（先着）</small><span class="ar-prov">愛媛県松山市</span></div>
+            <div class="ar-amt">工事費の80%（上限115万円）、設計費上限20万円、耐風改修上限69万円（最大204万円）</div>
+            <a class="ar-go" href="https://www.city.matsuyama.ehime.jp/kurashi/kurashi/hojokin/taishin_kaisyu2.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="matsuyama-roukyu-akiya-jokyaku">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>松山市 老朽危険空家除却事業補助金</b><small>老朽危険空き家の解体費を補助する。交付決定前の契約は対象外。<br>対象：老朽危険空家の所有者等／事前相談が必要<br>期間：令和8年度（事前相談は令和9年1月12日まで）<br>締切：2027-01-12</small><span class="ar-prov">愛媛県松山市</span></div>
+            <div class="ar-amt">解体費の4/5（上限100万円、島しょ部160万円）</div>
+            <a class="ar-go" href="https://www.city.matsuyama.ehime.jp/kurashi/kurashi/hojokin/akiyajokyaku.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="matsuyama-shi-zerocarbon">
+            <div class="ar-name"><b><span class="ar-tag">EV・充電</span>松山市ゼロカーボンシティ推進補助金（令和8年度）</b><small>EV・FCV、住宅用蓄電池、家庭用燃料電池の導入を補助する。<br>対象：交付決定前の契約・着工は対象外／過去に同種で補助を受けていないこと</small><span class="ar-prov">松山市 環境・ゼロカーボンシティ推進課</span></div>
+            <div class="ar-amt">EV・FCVは車両単独で10万円（太陽光設備あり加算10万円、V2H導入でさらに10万円）。住宅用蓄電池上限10万円、家庭用燃料電池上限6万円</div>
+            <a class="ar-go" href="https://www.city.matsuyama.ehime.jp/kurashi/kurashi/hojokin/zero-carbon.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="matsuyama-wagaya-reform">
+            <div class="ar-name"><b><span class="ar-tag">省エネ住宅</span>松山市 わが家のリフォーム応援事業</b><small>50万円（税抜）以上のリフォーム工事を支援する。令和8年度は抽選制。<br>対象：補助対象工事が合計50万円（税抜）以上</small><span class="ar-prov">愛媛県松山市</span></div>
+            <div class="ar-amt">対象工事費×10%（上限20万円）＋加算（空き家バンク加算・省エネ化加算は各30万円）</div>
+            <a class="ar-go" href="https://www.city.matsuyama.ehime.jp/bosyu/wagaya.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>愛媛県の制度</strong></p>
+          <ul><li><a href="pref-ehime.html#ehime-ev-kounyu">愛媛県 電気自動車（EV）購入支援補助金</a></li><li><a href="pref-ehime.html#ehime-ijyusha-jutaku-kaishu">愛媛県移住者住宅改修支援事業</a></li><li><a href="pref-ehime.html#ehime-mokuzo-taishin">愛媛県 木造住宅耐震化補助制度</a></li></ul>
+          <p><a href="pref-ehime.html#pref-resident">愛媛県の制度3件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">愛媛県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">松山市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-ehime.html#ehime-dx-hajime">愛媛県DXはじめの一歩補助金</a></li><li><a href="pref-ehime.html#ehime-koukeisha-shinjigyo">愛媛県後継者新事業展開支援事業費補助金</a></li><li><a href="pref-ehime.html#ehime-shinjigyo-sozo-shikin">新事業創出支援資金（創業向け県制度融資・保証料全額補助）</a></li><li><a href="pref-ehime.html#ehime-chinage-shokibo">賃上げ対応型小規模事業者経営力強化支援事業費補助金</a></li></ul>
-          <p><a href="pref-ehime.html#pref-business">愛媛県の制度4件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="matsuyama-city-jigyo-shokei-risi">
+            <div class="ar-name"><b>松山市事業承継利子補助金（日本政策金融公庫分）</b><small>日本政策金融公庫の事業承継関連融資の利子の一部を補助する。<br>対象：事業承継を行う市内事業者（詳細は要確認）</small><span class="ar-prov">松山市 産業経済部</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.matsuyama.ehime.jp/kurashi/sangyo/chusyoukigyou/shoukeirisi.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="matsuyama-city-setsubi-risi">
+            <div class="ar-name"><b>松山市設備投資利子補助金</b><small>設備投資に係る融資の利子を補助する制度。<br>対象：市内中小企業者（詳細は要確認）</small><span class="ar-prov">松山市 産業経済部</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.matsuyama.ehime.jp/kurashi/sangyo/chusyoukigyou/setsubitoushi.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="matsuyama-city-shikin-yushi">
+            <div class="ar-name"><b>松山市中小企業資金融資制度</b><small>市の預託と信用保証協会の保証による制度融資。令和8年度から経営安定化資金にも利子補助を開始。<br>対象：市内中小企業者</small><span class="ar-prov">松山市 産業経済部</span></div>
+            <div class="ar-amt">要確認（令和8年度から限度額・期間・利率変更、信用保証料は市が1/2負担、利子補助あり）</div>
+            <a class="ar-go" href="https://www.city.matsuyama.ehime.jp/kurashi/sangyo/chusyoukigyou/shikinyuushiseido.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="matsuyama-city-sogyo-risi">
+            <div class="ar-name"><b>松山市創業資金利子補助金（日本政策金融公庫分）</b><small>日本政策金融公庫の創業融資を受け市内で開業した事業者の利子の一部を補助する。<br>対象：日本政策金融公庫の新規開業・スタートアップ支援資金等の利用者／事業開始後6か月以内に融資を受けていること</small><span class="ar-prov">松山市 産業経済部</span></div>
+            <div class="ar-amt">利子補助 年1.0%以内・利払開始月から2年間</div>
+            <a class="ar-go" href="https://www.city.matsuyama.ehime.jp/kurashi/sangyo/chusyoukigyou/sougyo.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="matsuyama-city-dx-suishin">
+            <div class="ar-name"><b>松山市DX推進補助金 <span class="area-ended-tag">受付終了</span></b><small>中小企業のDX推進に要する経費を補助する。令和8年度の受付は終了見込み。<br>対象：市内中小企業者<br>期間：令和8年5月25日〜7月31日（受付終了の可能性が高い）<br>締切：2026-07-31</small><span class="ar-prov">松山市 産業経済部</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.matsuyama.ehime.jp/kurashi/sangyo/chusyoukigyou/DXsuishin.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">愛媛県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>松山市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="matsuyama-mokuzo-taishin-kaishu">
-            <h3>松山市 木造住宅耐震改修等補助事業</h3>
-            <p class="area-meta">愛媛県松山市｜補助金｜工事費の80%（上限115万円）、設計費上限20万円、耐風改修上限69万円（最大204万円）</p>
-            <p class="area-meta">期間：2026年4月15日から受付（先着）</p>
-            <p>耐震診断で補強が必要と判定された昭和56年5月31日以前着工の木造住宅の耐震改修を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>昭和56年5月31日以前着工の一戸建て木造住宅等</li><li>耐震診断で補強が必要と判定</li></ul>
-            <p><a href="https://www.city.matsuyama.ehime.jp/kurashi/kurashi/hojokin/taishin_kaisyu2.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
-          <div class="area-program" id="matsuyama-shi-zerocarbon">
-            <h3>松山市ゼロカーボンシティ推進補助金（令和8年度）</h3>
-            <p class="area-meta">松山市 環境・ゼロカーボンシティ推進課｜補助金｜EV・FCVは車両単独で10万円（太陽光設備あり加算10万円、V2H導入でさらに10万円）。住宅用蓄電池上限10万円、家庭用燃料電池上限6万円</p>
-            <p class="area-meta">期間：令和8年度（期間は要確認）</p>
-            <p>EV・FCV、住宅用蓄電池、家庭用燃料電池の導入を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>交付決定前の契約・着工は対象外</li><li>過去に同種で補助を受けていないこと</li></ul>
-            <p><a href="https://www.city.matsuyama.ehime.jp/kurashi/kurashi/hojokin/zero-carbon.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
-          <div class="area-program" id="matsuyama-wagaya-reform">
-            <h3>松山市 わが家のリフォーム応援事業</h3>
-            <p class="area-meta">愛媛県松山市｜補助金｜対象工事費×10%（上限20万円）＋加算（空き家バンク加算・省エネ化加算は各30万円）</p>
-            <p class="area-meta">期間：令和8年度の第1期・第2期は終了。次回は要確認</p>
-            <p>50万円（税抜）以上のリフォーム工事を支援する。令和8年度は抽選制。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>補助対象工事が合計50万円（税抜）以上</li></ul>
-            <p><a href="https://www.city.matsuyama.ehime.jp/bosyu/wagaya.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="matsuyama-block-anzen">
-            <h3>松山市 ブロック塀等安全対策補助事業</h3>
-            <p class="area-meta">愛媛県松山市｜補助金｜工事費（税抜）の2/3（1mあたり10万円まで、上限30万円）。基礎のない特に危険な塀の除却は1/2（上限7.5万円）｜締切：2027-01-29</p>
-            <p class="area-meta">期間：令和8年4月15日～2027年1月29日（先着）</p>
-            <p>避難路・通学路に面した危険なブロック塀等の除却または建替え費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>避難路・通学路に面した危険なブロック塀等の所有者</li><li>市税の滞納がないこと</li></ul>
-            <p><a href="https://www.city.matsuyama.ehime.jp/kurashi/kurashi/hojokin/concrete-block.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="matsuyama-roukyu-akiya-jokyaku">
-            <h3>松山市 老朽危険空家除却事業補助金</h3>
-            <p class="area-meta">愛媛県松山市｜補助金｜解体費の4/5（上限100万円、島しょ部160万円）｜締切：2027-01-12</p>
-            <p class="area-meta">期間：令和8年度（事前相談は令和9年1月12日まで）</p>
-            <p>老朽危険空き家の解体費を補助する。交付決定前の契約は対象外。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>老朽危険空家の所有者等</li><li>事前相談が必要</li></ul>
-            <p><a href="https://www.city.matsuyama.ehime.jp/kurashi/kurashi/hojokin/akiyajokyaku.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-6">子育て</h3>
-          <div class="area-program" id="matsuyama-egaokko-ouenken">
-            <h3>松山市愛顔っ子応援券（おむつ）</h3>
-            <p class="area-meta">松山市 子育て支援課｜給付｜愛顔っ子応援券50,000円分（1,000円券×50枚綴り）</p>
-            <p class="area-meta">期間：令和8年度に交付された応援券の有効期限は令和10年（2028年）3月31日まで</p>
-            <p>第2子以降のこどもを出生し養育している保護者に、県内企業3社の乳児用紙おむつを市内の登録店舗で購入できる応援券を交付する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>本市に住民登録のある第2子以降の満1歳未満のこどもの保護者</li><li>申請は対象乳児の1歳の誕生日の前日まで</li></ul>
-            <p><a href="https://www.city.matsuyama.ehime.jp/kurashi/fukushi/jido/egaokko-ouenken.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="matsuyama-shussan-sewai-ouen">
-            <h3>出産世帯応援事業（県市連携事業）</h3>
-            <p class="area-meta">松山市 子育て支援課 出産世帯給付金室｜補助金｜補助対象経費の限度額 両親とも35歳以下は30万円、36歳以上を含む場合は20万円</p>
-            <p class="area-meta">期間：2026年度出産世帯が対象（申請期限は公式ページで確認）</p>
-            <p>出産したこどもの育児用品や時短・省エネ家電の購入経費の一部を助成し、こどもを希望する世帯の経済的負担の軽減を図る。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>2026年度出産世帯（2025年度出産世帯も条件つきで対象）</li><li>対象児童を監護し生計を同じくする父母のどちらか</li><li>申請日から起算して1年以上継続して本市に居住する意思がある者</li></ul>
-            <p><a href="https://www.city.matsuyama.ehime.jp/kurashi/fukushi/jido/syussannouen.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="matsuyama-shussan-shogakukin-henkan">
-            <h3>出産世帯奨学金返還支援事業（県市連携事業）</h3>
-            <p class="area-meta">松山市 子育て支援課 出産世帯給付金室｜補助金｜補助対象経費の限度額 20万円</p>
-            <p class="area-meta">期間：2026年度出産世帯が対象（補助対象期間は公式ページで確認）</p>
-            <p>奨学金返還費用の一部を補助することで、こどもを希望する夫婦の経済的負担の軽減を図る。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>2026年度出産世帯（2025年度出産世帯も条件つきで対象）</li><li>大学等に在学している期間に対象奨学金の貸与を受けた者</li><li>補助対象期間に自ら対象奨学金を返還したことを確認できる者</li></ul>
-            <p><a href="https://www.city.matsuyama.ehime.jp/kurashi/fukushi/jido/syougakukinn.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-7">医療・福祉</h3>
-          <div class="area-program" id="matsuyama-huiku-kensa-josei">
-            <h3>不育症検査費用助成事業</h3>
-            <p class="area-meta">松山市 すくすく支援課｜助成金｜一回の不育症検査に係る費用の7割、上限額6万円</p>
-            <p class="area-meta">期間：検査を受けた日の属する年度内（3月末日まで）に申請</p>
-            <p>不育症検査のうち先進医療に指定されたものを対象に、検査費用の一部を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>既往流死産回数が2回以上の方</li><li>助成の申請時に松山市に住民登録がある方</li></ul>
-            <p><a href="https://www.city.matsuyama.ehime.jp/kurashi/iryo/bosikenko/huikujosei.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-8">教育・学び</h3>
-          <div class="area-program" id="matsuyama-shugaku-enjo">
-            <h3>就学援助</h3>
-            <p class="area-meta">松山市｜給付｜学用品費等 小学校1年生13,230円・2年生～15,500円、中学校1年生25,040円・2年生～27,310円（年額）ほか</p>
-            <p class="area-meta">期間：令和8年度の援助内容（入学準備金の受付は10月から11月頃を予定）</p>
-            <p>経済的な理由で就学が困難な小・中学校の児童生徒の保護者に、学用品費、給食費、修学旅行費などを給付する制度。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>松山市内に住所を有し、公立小・中学校に在籍する児童生徒等の保護者</li><li>市町村民税が非課税の方、児童扶養手当を受給されている方など、いずれかに該当する方</li></ul>
-            <p><a href="https://www.city.matsuyama.ehime.jp/kurashi/kosodate/gakkokyoiku/syugakuenjyo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>愛媛県の制度</strong></p>
-          <ul><li><a href="pref-ehime.html#ehime-ev-kounyu">愛媛県 電気自動車（EV）購入支援補助金</a></li><li><a href="pref-ehime.html#ehime-ijyusha-jutaku-kaishu">愛媛県移住者住宅改修支援事業</a></li><li><a href="pref-ehime.html#ehime-mokuzo-taishin">愛媛県 木造住宅耐震化補助制度</a></li></ul>
-          <p><a href="pref-ehime.html#pref-resident">愛媛県の制度3件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-ehime.html#ehime-dx-hajime">愛媛県DXはじめの一歩補助金</a></li><li><a href="pref-ehime.html#ehime-koukeisha-shinjigyo">愛媛県後継者新事業展開支援事業費補助金</a></li><li><a href="pref-ehime.html#ehime-shinjigyo-sozo-shikin">新事業創出支援資金（創業向け県制度融資・保証料全額補助）</a></li><li><a href="pref-ehime.html#ehime-chinage-shokibo">賃上げ対応型小規模事業者経営力強化支援事業費補助金</a></li></ul>
+          <p><a href="pref-ehime.html#pref-business">愛媛県の制度4件を、県のページで見る →</a></p>
       </div>
     </section>
 

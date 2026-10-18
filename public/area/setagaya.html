@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"世田谷区","item":"https://hojyokin.net/area/setagaya.html"}]}</script>
@@ -165,180 +207,134 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 世田谷区</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b13.webp')"><h1 class="pb-title">世田谷区の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-tokyo.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">東京都・特別区。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">東京都 世田谷区</p>
+        <h1>世田谷区で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度14件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-tokyo.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（世田谷区）<b>2件</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（東京都）<b>6件（うち受付終了1件）</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>12件（うち受付終了1件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 2</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-5">バリアフリー・介護 1</a><a href="#res-cat-6">子育て 4</a><a href="#res-cat-7">医療・福祉 1</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <a href="#res-g-kosodate"><i aria-hidden="true">👶</i><b>子育て</b><small>4件</small></a>
+      <a href="#res-g-iryo"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>1件</small></a>
+      <span class="is-none"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>掲載なし</small></span>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>7件</small></a>
+      <span class="is-none"><i aria-hidden="true">🌱</i><b>移住</b><small>掲載なし</small></span>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市2件＋県6件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">世田谷区の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="setagaya-keiei-shien">
-            <h3>世田谷区中小事業者経営支援補助金</h3>
-            <p class="area-meta">世田谷区｜補助金｜上限40万円／補助率 1/2</p>
-            <p class="area-meta">期間：令和8年度：2026年6月1日〜（予算上限に達し次第終了）</p>
-            <p>区内の中小事業者が経営改善や販路拡大に取り組む経費の一部を補助します。予算上限に達し次第、受付終了となります。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>区内の中小事業者（開業済み）</li></ul>
-            
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-kosodate">子育て<span>4件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="setagaya-birthday-support">
+            <div class="ar-name"><b>世田谷区バースデーサポート事業</b><small>1歳のお誕生日を迎えるお子さんのいるご家庭が、子育てに関するアンケートに回答すると、子育て支援用品等の購入に使えるデジタルギフトが届きます。<br>対象：1歳の誕生月に世田谷区に住民登録のあるお子さんとその保護者／アンケート回答月に世田谷区に住民登録のあるお子さんとその保護者<br>期間：アンケート回答日の翌月末日までにギフトを送付（令和8年度の送付状況を掲載）</small><span class="ar-prov">世田谷区 子ども・若者部</span></div>
+            <div class="ar-amt">第1子：6万円分、第2子：7万円分、第3子以降：8万円分（東京都子育て支援専用QUOカードPay）</div>
+            <a class="ar-go" href="https://www.city.setagaya.lg.jp/02413/1284.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="setagaya-chuto-emergency-yushi">
-            <h3>世田谷区中東情勢対応緊急資金（融資あっせん）</h3>
-            <p class="area-meta">世田谷区（受付：公益財団法人世田谷区産業振興公社）｜融資｜限度額1,000万円、利用者負担利率0.0%、信用保証料の2分の1補助｜締切：2027-03-31</p>
-            <p class="area-meta">期間：令和8年8月3日〜令和9年3月31日（申込期間）</p>
-            <p>中東情勢の緊迫化による原油・原材料価格高騰で売上が減少した区内中小企業者の運転資金などを融資あっせんします。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>申込月の前々月から申込月までの3か月間の売上高が前年同期比で20%以上減少</li><li>区内で1年以上営業していること</li><li>住民税・事業税の滞納がないこと</li></ul>
-            <p><a href="https://www.city.setagaya.lg.jp/01004/33825.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="setagaya-hitorioya-yachin-teirenka">
+            <div class="ar-name"><b>世田谷区 ひとり親世帯家賃低廉化補助事業</b><small>対象住宅に入居するひとり親世帯の家賃を減額する補助。賃貸人を通じて家賃が低廉化される。<br>対象：ひとり親世帯であること／区内に1年以上居住</small><span class="ar-prov">東京都世田谷区</span></div>
+            <div class="ar-amt">家賃の減額 月額最大4万円・最長10年間</div>
+            <a class="ar-go" href="https://www.city.setagaya.lg.jp/03665/3722.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          <div class="ar-row" id="setagaya-zutto-sumikae-oen">
+            <div class="ar-name"><b>“ずっと、世田谷。”子育て・若者夫婦世帯住み替え応援事業</b><small>未就学児のいる子育て世帯または39歳以下の若者夫婦のみの世帯が、区内の民間賃貸住宅へ転居した場合に交付。<br>対象：令和8年4月1日以降の賃貸借契約で転居／夫婦のいずれかが転居時点で区内に1年以上居住</small><span class="ar-prov">東京都世田谷区</span></div>
+            <div class="ar-amt">住み替え応援金 せたがやPay10万ポイント（近居・同居応援事業と併用で最大40万円相当）</div>
+            <a class="ar-go" href="https://www.city.setagaya.lg.jp/03665/31164.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="setagaya-zutto-teiju-oen">
+            <div class="ar-name"><b>“ずっと、世田谷。”子育て・若者夫婦世帯定住応援事業</b><small>未就学児のいる子育て世帯または夫婦のいずれかが39歳以下の若者夫婦のみの世帯が、区内で住宅を建築・購入して転居した場合に交付。<br>対象：未就学児を養育する世帯、または夫婦のいずれかが39歳以下の若者夫婦のみの世帯／令和8年4月1日以降に売買または建築工事請負の契約を締結</small><span class="ar-prov">東京都世田谷区</span></div>
+            <div class="ar-amt">定住応援金30万円とせたがやPay10万ポイント</div>
+            <a class="ar-go" href="https://www.city.setagaya.lg.jp/03665/31163.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-iryo">医療・福祉<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="setagaya-kamiomutsu-shikyu">
+            <div class="ar-name"><b>紙おむつの支給・助成</b><small>失禁状態で2か月以上おむつを使用している、ねたきり等で要介護3～5に認定された方に紙おむつを支給します。病院に入院中の方にはおむつ代の助成を選ぶこともできます。<br>対象：世田谷区に住所のある65歳以上の方、または40歳から64歳の介護保険の第2号被保険者の方／要介護3から5の方、または65歳以上で入院中の方（おむつ代助成は医療型病床に入院中の方）<br>期間：申請した月以降から支給または助成の対象（令和8年度世田谷区紙おむつ支給事業）</small><span class="ar-prov">世田谷区 高齢福祉課</span></div>
+            <div class="ar-amt">紙おむつ支給は1か月500円の利用者負担金あり／入院中のおむつ代助成は月額5,000円を限度</div>
+            <a class="ar-go" href="https://www.city.setagaya.lg.jp/02082/2415.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>7件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="setagaya-akiya-chiiki-koken">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>世田谷区 空き家等地域貢献活用助成事業</b><small>区内の空き家・空室を活用して地域活動を行う団体の改修費等を助成。運営は世田谷トラストまちづくりの相談窓口。<br>対象：空き家等を活用する地域活動団体／助成後5年以上の活動継続</small><span class="ar-prov">東京都世田谷区</span></div>
+            <div class="ar-amt">1件最大300万円（改修工事費最大200万円、住居以外の用途の耐震改修費最大100万円）※令和6年の案内</div>
+            <a class="ar-go" href="https://www.city.setagaya.lg.jp/03665/3738.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="setagaya-block-tekkyo">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>ブロック塀等の撤去工事費用に対する助成制度</b><small>道路に面した高さ80cm超で安全性が確認できないコンクリートブロック塀等の撤去工事費用を助成する。<br>対象：塀または土地の所有者で工事の発注者／助成決定通知前に着工しないこと</small><span class="ar-prov">世田谷区</span></div>
+            <div class="ar-amt">「撤去する塀の長さ×1万円＋10万円」「撤去費用の2/3」「50万円」のうち最も低い額</div>
+            <a class="ar-go" href="https://www.city.setagaya.lg.jp/02067/3889.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="setagaya-eco-jutaku">
+            <div class="ar-name"><b><span class="ar-tag">省エネ住宅</span>世田谷区エコ住宅補助金（断熱改修等）</b><small>区内住民が区内事業者の施工で行う窓・ドア・浴槽・屋根の省エネ改修を助成する。太陽光・蓄電池・断熱材・断熱フィルムは令和8年度は対象外。<br>対象：区内住民が区内の建物に対して区内事業者の施工で行う工事／工事前の事前登録が必須<br>期間：後期：令和8年10月1日〜令和9年1月31日（対象工事は令和8年9月1日〜完了分）<br>締切：2027-01-31</small><span class="ar-prov">世田谷区 気候危機対策課</span></div>
+            <div class="ar-amt">窓の断熱改修15,000円/1窓、高断熱ドア15,000円/1ドア、高断熱浴槽70,000円/1台、屋根の高反射改修（後期分から10万円）。最大20万円</div>
+            <a class="ar-go" href="https://www.city.setagaya.lg.jp/02240/31250.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="setagaya-koreisha-jutaku-kaishu">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>世田谷区 高齢者向け住宅改修の助成（予防改修・設備改修）</b><small>65歳以上で住宅改修が必要な方に改修費の一部を助成。介護保険認定者は介護保険の住宅改修が優先。工事前の相談が必要。<br>対象：65歳以上で住宅改修が必要な方／着工前に相談・申請</small><span class="ar-prov">東京都世田谷区</span></div>
+            <div class="ar-amt">予防改修の助成基準額は合計20万円（手すり取付け・段差解消等）、自己負担は1〜3割。設備改修は浴槽・流し・洋式便器取替えが対象</div>
+            <a class="ar-go" href="https://www.city.setagaya.lg.jp/02082/2405.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="setagaya-mokuzo-taishin-56to12">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>木造住宅の耐震化支援（昭和56年6月〜平成12年5月に着工）</b><small>昭和56年6月〜平成12年5月に着工した木造住宅の耐震化を助成する。<br>対象：昭和56年6月〜平成12年5月に着工した木造住宅／個人所有であること</small><span class="ar-prov">世田谷区 防災街づくり課</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.setagaya.lg.jp/02067/10906.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="setagaya-mokuzo-taishin-shinki56">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>木造住宅の耐震化支援（昭和56年5月31日までに着工）</b><small>旧耐震の木造住宅の補強設計・耐震改修工事・簡易改修工事などを助成する。<br>対象：昭和56年5月31日以前に着工した木造住宅（地上2階以下）／個人所有で住宅のまま改修すること<br>期間：令和8年度（木造住宅耐震改修助成の受付は令和8年12月28日まで）<br>締切：2026-12-28</small><span class="ar-prov">世田谷区 防災街づくり課</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.setagaya.lg.jp/02067/3893.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="setagaya-flexible-solar">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>薄型・軽量フレキシブルソーラー設備等の購入促進実証事業 <span class="area-ended-tag">受付終了</span></b><small>建物構造等の理由で従来型の太陽光発電設備の設置が難しい住宅向けに、軽量・薄型のフレキシブルソーラーパネルの導入費用を補助する実証事業。5件程度の募集。<br>対象：従来型の太陽光発電設備の設置が難しい住宅であること／詳細要件は要確認<br>締切：2026-08-21</small><span class="ar-prov">東京都世田谷区</span></div>
+            <div class="ar-amt">太陽光モジュール公称最大出力1kWあたり4万円、上限20万円</div>
+            <a class="ar-go" href="https://www.city.setagaya.lg.jp/02240/34600.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>東京都の制度</strong></p>
+          <ul><li><a href="pref-tokyo.html#tokyo-akachan-first">東京都出産・子育て応援事業（赤ちゃんファースト）</a></li><li><a href="pref-tokyo.html#tokyo-akiya-kazai-kaitai">東京都空き家家財整理・解体促進事業</a></li><li><a href="pref-tokyo.html#tokyo-dannetsu-solar-jutaku">災害にも強く健康にも資する断熱・太陽光住宅普及拡大事業</a></li><li><a href="pref-tokyo.html#tokyo-home-evcharge">戸建住宅向け充電設備普及促進事業（令和8年度）</a></li><li><a href="pref-tokyo.html#tokyo-kodomo-mamoru-jutaku">子育て世帯向け補助事業（「子供を守る」住宅確保促進事業）</a></li></ul>
+          <p><a href="pref-tokyo.html#pref-resident">東京都の制度9件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">東京都の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">世田谷区の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-tokyo.html#tokyo-jigyoshokei-josei">事業承継支援助成金（第3回）</a></li><li><a href="pref-tokyo.html#tokyo-kadai-kaiketsu-gijutsu">課題解決型技術開発促進事業</a></li><li><a href="pref-tokyo.html#tokyo-seidoyushi-sogyo">東京都中小企業制度融資「創業」</a></li><li><a href="pref-tokyo.html#tokyo-seihin-chakushu">製品開発着手支援助成事業</a></li><li><a href="pref-tokyo.html#tokyo-souikufuu-challenge">経営力強化に向けた創意工夫チャレンジ促進事業</a></li></ul>
-          <p><a href="pref-tokyo.html#pref-business">東京都の制度6件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="setagaya-keiei-shien">
+            <div class="ar-name"><b>世田谷区中小事業者経営支援補助金</b><small>区内の中小事業者が経営改善や販路拡大に取り組む経費の一部を補助します。予算上限に達し次第、受付終了となります。<br>対象：区内の中小事業者（開業済み）<br>期間：令和8年度：2026年6月1日〜（予算上限に達し次第終了）</small><span class="ar-prov">世田谷区</span></div>
+            <div class="ar-amt">上限40万円／補助率 1/2</div>
+            
+          </div>
+          <div class="ar-row" id="setagaya-chuto-emergency-yushi">
+            <div class="ar-name"><b>世田谷区中東情勢対応緊急資金（融資あっせん）</b><small>中東情勢の緊迫化による原油・原材料価格高騰で売上が減少した区内中小企業者の運転資金などを融資あっせんします。<br>対象：申込月の前々月から申込月までの3か月間の売上高が前年同期比で20%以上減少／区内で1年以上営業していること<br>期間：令和8年8月3日〜令和9年3月31日（申込期間）<br>締切：2027-03-31</small><span class="ar-prov">世田谷区（受付：公益財団法人世田谷区産業振興公社）</span></div>
+            <div class="ar-amt">限度額1,000万円、利用者負担利率0.0%、信用保証料の2分の1補助</div>
+            <a class="ar-go" href="https://www.city.setagaya.lg.jp/01004/33825.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">東京都の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>世田谷区の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="setagaya-mokuzo-taishin-56to12">
-            <h3>木造住宅の耐震化支援（昭和56年6月〜平成12年5月に着工）</h3>
-            <p class="area-meta">世田谷区 防災街づくり課｜補助金｜金額は公式で確認</p>
-            
-            <p>昭和56年6月〜平成12年5月に着工した木造住宅の耐震化を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>昭和56年6月〜平成12年5月に着工した木造住宅</li><li>個人所有であること</li><li>助成金交付決定前の契約は対象外</li></ul>
-            <p><a href="https://www.city.setagaya.lg.jp/02067/10906.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="setagaya-mokuzo-taishin-shinki56">
-            <h3>木造住宅の耐震化支援（昭和56年5月31日までに着工）</h3>
-            <p class="area-meta">世田谷区 防災街づくり課｜補助金｜金額は公式で確認｜締切：2026-12-28</p>
-            <p class="area-meta">期間：令和8年度（木造住宅耐震改修助成の受付は令和8年12月28日まで）</p>
-            <p>旧耐震の木造住宅の補強設計・耐震改修工事・簡易改修工事などを助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>昭和56年5月31日以前に着工した木造住宅（地上2階以下）</li><li>個人所有で住宅のまま改修すること</li><li>助成金交付決定前の契約は対象外</li></ul>
-            <p><a href="https://www.city.setagaya.lg.jp/02067/3893.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program is-ended" id="setagaya-flexible-solar">
-            <h3>薄型・軽量フレキシブルソーラー設備等の購入促進実証事業 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">東京都世田谷区｜補助金｜太陽光モジュール公称最大出力1kWあたり4万円、上限20万円｜締切：2026-08-21</p>
-            <p class="area-meta">期間：令和8年8月21日まで（募集終了の可能性あり、最新は要確認）</p>
-            <p>建物構造等の理由で従来型の太陽光発電設備の設置が難しい住宅向けに、軽量・薄型のフレキシブルソーラーパネルの導入費用を補助する実証事業。5件程度の募集。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>従来型の太陽光発電設備の設置が難しい住宅であること</li><li>詳細要件は要確認</li></ul>
-            <p><a href="https://www.city.setagaya.lg.jp/02240/34600.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
-          <div class="area-program" id="setagaya-eco-jutaku">
-            <h3>世田谷区エコ住宅補助金（断熱改修等）</h3>
-            <p class="area-meta">世田谷区 気候危機対策課｜補助金｜窓の断熱改修15,000円/1窓、高断熱ドア15,000円/1ドア、高断熱浴槽70,000円/1台、屋根の高反射改修（後期分から10万円）。最大20万円｜締切：2027-01-31</p>
-            <p class="area-meta">期間：後期：令和8年10月1日〜令和9年1月31日（対象工事は令和8年9月1日〜完了分）</p>
-            <p>区内住民が区内事業者の施工で行う窓・ドア・浴槽・屋根の省エネ改修を助成する。太陽光・蓄電池・断熱材・断熱フィルムは令和8年度は対象外。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>区内住民が区内の建物に対して区内事業者の施工で行う工事</li><li>工事前の事前登録が必須</li></ul>
-            <p><a href="https://www.city.setagaya.lg.jp/02240/31250.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="setagaya-akiya-chiiki-koken">
-            <h3>世田谷区 空き家等地域貢献活用助成事業</h3>
-            <p class="area-meta">東京都世田谷区｜助成金｜1件最大300万円（改修工事費最大200万円、住居以外の用途の耐震改修費最大100万円）※令和6年の案内</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>区内の空き家・空室を活用して地域活動を行う団体の改修費等を助成。運営は世田谷トラストまちづくりの相談窓口。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>空き家等を活用する地域活動団体</li><li>助成後5年以上の活動継続</li></ul>
-            <p><a href="https://www.city.setagaya.lg.jp/03665/3738.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="setagaya-block-tekkyo">
-            <h3>ブロック塀等の撤去工事費用に対する助成制度</h3>
-            <p class="area-meta">世田谷区｜助成金｜「撤去する塀の長さ×1万円＋10万円」「撤去費用の2/3」「50万円」のうち最も低い額</p>
-            <p class="area-meta">期間：年度は要確認</p>
-            <p>道路に面した高さ80cm超で安全性が確認できないコンクリートブロック塀等の撤去工事費用を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>塀または土地の所有者で工事の発注者</li><li>助成決定通知前に着工しないこと</li><li>住民税を滞納していないこと</li></ul>
-            <p><a href="https://www.city.setagaya.lg.jp/02067/3889.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
-          <div class="area-program" id="setagaya-koreisha-jutaku-kaishu">
-            <h3>世田谷区 高齢者向け住宅改修の助成（予防改修・設備改修）</h3>
-            <p class="area-meta">東京都世田谷区｜助成金｜予防改修の助成基準額は合計20万円（手すり取付け・段差解消等）、自己負担は1〜3割。設備改修は浴槽・流し・洋式便器取替えが対象</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>65歳以上で住宅改修が必要な方に改修費の一部を助成。介護保険認定者は介護保険の住宅改修が優先。工事前の相談が必要。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>65歳以上で住宅改修が必要な方</li><li>着工前に相談・申請</li></ul>
-            <p><a href="https://www.city.setagaya.lg.jp/02082/2405.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-6">子育て</h3>
-          <div class="area-program" id="setagaya-birthday-support">
-            <h3>世田谷区バースデーサポート事業</h3>
-            <p class="area-meta">世田谷区 子ども・若者部｜給付｜第1子：6万円分、第2子：7万円分、第3子以降：8万円分（東京都子育て支援専用QUOカードPay）</p>
-            <p class="area-meta">期間：アンケート回答日の翌月末日までにギフトを送付（令和8年度の送付状況を掲載）</p>
-            <p>1歳のお誕生日を迎えるお子さんのいるご家庭が、子育てに関するアンケートに回答すると、子育て支援用品等の購入に使えるデジタルギフトが届きます。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>1歳の誕生月に世田谷区に住民登録のあるお子さんとその保護者</li><li>アンケート回答月に世田谷区に住民登録のあるお子さんとその保護者</li></ul>
-            <p><a href="https://www.city.setagaya.lg.jp/02413/1284.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="setagaya-hitorioya-yachin-teirenka">
-            <h3>世田谷区 ひとり親世帯家賃低廉化補助事業</h3>
-            <p class="area-meta">東京都世田谷区｜補助金｜家賃の減額 月額最大4万円・最長10年間</p>
-            <p class="area-meta">期間：令和8年度（最新は要確認）</p>
-            <p>対象住宅に入居するひとり親世帯の家賃を減額する補助。賃貸人を通じて家賃が低廉化される。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>ひとり親世帯であること</li><li>区内に1年以上居住</li><li>世帯所得が基準以下</li></ul>
-            <p><a href="https://www.city.setagaya.lg.jp/03665/3722.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="setagaya-zutto-sumikae-oen">
-            <h3>“ずっと、世田谷。”子育て・若者夫婦世帯住み替え応援事業</h3>
-            <p class="area-meta">東京都世田谷区｜給付｜住み替え応援金 せたがやPay10万ポイント（近居・同居応援事業と併用で最大40万円相当）</p>
-            <p class="area-meta">期間：令和8年度（最新は要確認）</p>
-            <p>未就学児のいる子育て世帯または39歳以下の若者夫婦のみの世帯が、区内の民間賃貸住宅へ転居した場合に交付。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>令和8年4月1日以降の賃貸借契約で転居</li><li>夫婦のいずれかが転居時点で区内に1年以上居住</li><li>法人名義の契約は対象外</li></ul>
-            <p><a href="https://www.city.setagaya.lg.jp/03665/31164.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="setagaya-zutto-teiju-oen">
-            <h3>“ずっと、世田谷。”子育て・若者夫婦世帯定住応援事業</h3>
-            <p class="area-meta">東京都世田谷区｜給付｜定住応援金30万円とせたがやPay10万ポイント</p>
-            <p class="area-meta">期間：令和8年度（月ごとの申請枠。最新は要確認）</p>
-            <p>未就学児のいる子育て世帯または夫婦のいずれかが39歳以下の若者夫婦のみの世帯が、区内で住宅を建築・購入して転居した場合に交付。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>未就学児を養育する世帯、または夫婦のいずれかが39歳以下の若者夫婦のみの世帯</li><li>令和8年4月1日以降に売買または建築工事請負の契約を締結</li><li>転居後5年以上区内に居住する意思があること</li></ul>
-            <p><a href="https://www.city.setagaya.lg.jp/03665/31163.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-7">医療・福祉</h3>
-          <div class="area-program" id="setagaya-kamiomutsu-shikyu">
-            <h3>紙おむつの支給・助成</h3>
-            <p class="area-meta">世田谷区 高齢福祉課｜給付｜紙おむつ支給は1か月500円の利用者負担金あり／入院中のおむつ代助成は月額5,000円を限度</p>
-            <p class="area-meta">期間：申請した月以降から支給または助成の対象（令和8年度世田谷区紙おむつ支給事業）</p>
-            <p>失禁状態で2か月以上おむつを使用している、ねたきり等で要介護3～5に認定された方に紙おむつを支給します。病院に入院中の方にはおむつ代の助成を選ぶこともできます。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>世田谷区に住所のある65歳以上の方、または40歳から64歳の介護保険の第2号被保険者の方</li><li>要介護3から5の方、または65歳以上で入院中の方（おむつ代助成は医療型病床に入院中の方）</li><li>現在、介護保険施設に入所されていない方（紙おむつ支給の場合）</li></ul>
-            <p><a href="https://www.city.setagaya.lg.jp/02082/2415.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>東京都の制度</strong></p>
-          <ul><li><a href="pref-tokyo.html#tokyo-akachan-first">東京都出産・子育て応援事業（赤ちゃんファースト）</a></li><li><a href="pref-tokyo.html#tokyo-akiya-kazai-kaitai">東京都空き家家財整理・解体促進事業</a></li><li><a href="pref-tokyo.html#tokyo-dannetsu-solar-jutaku">災害にも強く健康にも資する断熱・太陽光住宅普及拡大事業</a></li><li><a href="pref-tokyo.html#tokyo-home-evcharge">戸建住宅向け充電設備普及促進事業（令和8年度）</a></li><li><a href="pref-tokyo.html#tokyo-kodomo-mamoru-jutaku">子育て世帯向け補助事業（「子供を守る」住宅確保促進事業）</a></li></ul>
-          <p><a href="pref-tokyo.html#pref-resident">東京都の制度9件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-tokyo.html#tokyo-jigyoshokei-josei">事業承継支援助成金（第3回）</a></li><li><a href="pref-tokyo.html#tokyo-kadai-kaiketsu-gijutsu">課題解決型技術開発促進事業</a></li><li><a href="pref-tokyo.html#tokyo-seidoyushi-sogyo">東京都中小企業制度融資「創業」</a></li><li><a href="pref-tokyo.html#tokyo-seihin-chakushu">製品開発着手支援助成事業</a></li><li><a href="pref-tokyo.html#tokyo-souikufuu-challenge">経営力強化に向けた創意工夫チャレンジ促進事業</a></li></ul>
+          <p><a href="pref-tokyo.html#pref-business">東京都の制度6件を、県のページで見る →</a></p>
       </div>
     </section>
 

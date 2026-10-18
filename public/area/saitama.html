@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"さいたま市","item":"https://hojyokin.net/area/saitama.html"}]}</script>
@@ -165,150 +207,115 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ さいたま市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b04.webp')"><h1 class="pb-title">さいたま市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-saitama.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">埼玉県・政令指定都市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">埼玉県 さいたま市</p>
+        <h1>さいたま市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度11件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-saitama.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（さいたま市）<b>1件</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（埼玉県）<b>5件</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>10件（うち受付終了1件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-2">EV・充電 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-5">バリアフリー・介護 1</a><a href="#res-cat-8">教育・学び 5</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <span class="is-none"><i aria-hidden="true">👶</i><b>子育て</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>掲載なし</small></span>
+      <a href="#res-g-kyoiku"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>5件</small></a>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>5件</small></a>
+      <span class="is-none"><i aria-hidden="true">🌱</i><b>移住</b><small>掲載なし</small></span>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市1件＋県5件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">さいたま市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="saitama-chuso-yushi">
-            <h3>さいたま市中小企業融資制度</h3>
-            <p class="area-meta">さいたま市 産業支援担当課｜融資｜要確認（融資限度額は未確認。令和8年10月1日受付分から利率改定：中口資金 1.70%→1.90%、小口資金 1.0%→1.20%）</p>
-            <p class="area-meta">期間：令和8年度（令和8年10月1日受付分から利率改定）</p>
-            <p>市が金融機関と連携し、市内で事業を営む中小企業者及び創業者に経営の安定・向上に必要な資金を低利で融資します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内で事業を営む中小企業者</li><li>市内で事業を始めようとする創業者</li></ul>
-            <p><a href="https://www.city.saitama.lg.jp/005/002/010/001/p056580.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-kyoiku">教育・学び<span>5件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="saitama-nyugaku-junbikin">
+            <div class="ar-name"><b>小学校入学準備金の支給（就学援助制度）</b><small>経済的な理由により入学用品の購入でお困りの、令和9年4月に小学校に入学する予定のお子さまがいるご家庭に、費用の一部を入学前に支給します。<br>対象：さいたま市に住所があり、令和9年4月に小学校に入学する予定のお子さまを養育している／市が令和8年11月時点で就学援助の認定をしたご家庭<br>期間：申請期間：令和8年11月2日(月曜日)から11月30日(月曜日)まで（支給予定は令和9年1月29日）<br>締切：2026-11-30</small><span class="ar-prov">さいたま市 教育委員会事務局 学事課</span></div>
+            <div class="ar-amt">入学準備金 64，300円</div>
+            <a class="ar-go" href="https://www.city.saitama.lg.jp/003/002/003/p061055.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          <div class="ar-row" id="saitama-shingaku-shienkin">
+            <div class="ar-name"><b>低所得の子育て家庭児童進学支援金</b><small>低所得の子育て家庭等の児童の進学に向けた経済的支援として、模試費用や受験料を助成するとともに、大学等入学時に入学一時金を助成します。<br>対象：令和8年度さいたま市学習支援教室に登録している中学3年生、高校3年生の子がいる世帯／児童扶養手当全額受給世帯又は、住民税非課税世帯<br>期間：令和8年度に支払った模試費用・受験料が対象</small><span class="ar-prov">さいたま市</span></div>
+            <div class="ar-amt">模試費用 上限 中学3年生6,000円・高校3年生8,000円、受験料 上限53,000円、入学一時金250,000円</div>
+            <a class="ar-go" href="https://www.city.saitama.lg.jp/003/001/011/p114046.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="saitama-shugaku-enjo">
+            <div class="ar-name"><b>就学援助制度（学用品費等の援助）</b><small>小・中学校、中等教育学校（前期課程）へ通うお子さまの、学用品の購入や学校給食費の支払いでお困りのご家庭に対して、その費用の一部を援助する制度です。<br>対象：さいたま市に住所があり、小・中学校、中等教育学校（前期課程）に通うお子さまを養育している／経済要件等に基づき、市が認定した方<br>期間：申請期間：令和8年2月13日（金曜日）から令和9年1月29日（金曜日）まで<br>締切：2027-01-29</small><span class="ar-prov">さいたま市 教育委員会事務局 学事課</span></div>
+            <div class="ar-amt">学用品費、学校給食費、修学旅行費、医療費などの一部</div>
+            <a class="ar-go" href="https://www.city.saitama.lg.jp/003/002/003/p000694.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="saitama-yogo-shogakukin">
+            <div class="ar-name"><b>児童養護施設等を退所した方を対象としたさいたま市の給付型奨学金（大学等進学奨学金）</b><small>児童養護施設等を退所し大学等へ進学する方を対象とした、さいたま市の給付型奨学金です。<br>対象：さいたま市の児童相談所長の措置により児童養護施設等に入所した方／満18歳に達した日の属する年度の4月1日以降に退所し大学等に進学した方<br>期間：随時申請受付中（令和8年度版の案内）</small><span class="ar-prov">さいたま市</span></div>
+            <div class="ar-amt">月額3万円（返済義務なし）</div>
+            <a class="ar-go" href="https://www.city.saitama.lg.jp/003/002/003/p120294.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="saitama-yume-shien">
+            <div class="ar-name"><b>さいたま市大学等進学「夢」支援（給付型奨学金）</b><small>市内在住の高校3年生等に対し、審査の上、大学等の受験料と合格後の入学一時金を支給する返還不要の給付型奨学金です。<br>対象：市内在住の高校3年生等／支給額算定基準額の合計が51,300円未満<br>期間：申請受付は令和8年9月18日(金曜日)から令和8年10月30日(金曜日)まで<br>締切：2026-10-30</small><span class="ar-prov">さいたま市 教育委員会事務局 学事課</span></div>
+            <div class="ar-amt">受験料：5万3千円（上限）、入学一時金：25万円</div>
+            <a class="ar-go" href="https://www.city.saitama.lg.jp/003/002/003/p114651.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>5件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="saitama-city-block-hei">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>さいたま市既存ブロック塀等改善事業助成</b><small>道路に面したブロック塀等の除却・建替え工事費の助成。<br>対象：高さ80cm超で、道路側から見て境界までの距離より高いブロック塀等</small><span class="ar-prov">さいたま市</span></div>
+            <div class="ar-amt">費用の合計と単価表による額のいずれか低い方の2/3、上限30万円</div>
+            <a class="ar-go" href="https://www.city.saitama.lg.jp/001/154/007/002/p063311.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="saitama-city-ev-v2h">
+            <div class="ar-name"><b><span class="ar-tag">EV・充電</span>令和8年度さいたま市電気自動車等普及促進対策補助金</b><small>電気自動車・燃料電池自動車・V2H充放電機器の導入費用の補助。<br>期間：交付決定日～令和9年3月26日（予算到達で終了。10月5日時点で執行率70%）<br>締切：2027-03-26</small><span class="ar-prov">さいたま市</span></div>
+            <div class="ar-amt">EV（普通車）上限5万円、EV（軽・小型）3万円、燃料電池自動車50万円、V2H充放電機器10万円（PHEVは対象外）</div>
+            <a class="ar-go" href="https://www.city.saitama.lg.jp/001/009/015/e-kizuna/juyou/p065260.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="saitama-city-koreisha-jukankyo">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>さいたま市介護予防高齢者住環境改善支援事業</b><small>要介護認定のない高齢者の転倒防止等の住宅改修費を補助する。<br>対象：市内に1年以上居住し在宅で生活する65歳以上の介護保険被保険者／着工前に交付決定を受けること</small><span class="ar-prov">埼玉県さいたま市</span></div>
+            <div class="ar-amt">保険料第1〜2段階は対象経費相当額（上限15万円）、第3段階以上は対象経費の2/3（上限10万円）</div>
+            <a class="ar-go" href="https://www.city.saitama.lg.jp/007/007/007/p018981.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="saitama-city-taishin-tatekae">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>さいたま市耐震補強等助成事業（戸建住宅の建替え工事）</b><small>昭和56年5月31日以前に建築された戸建住宅の建替え工事費の一部を助成する。<br>対象：昭和56年5月31日以前建築の戸建住宅／所有者または2親等以内の親族で建替え後に居住する方<br>期間：令和8年度は4月1日受付開始（予算枠で途中終了あり）</small><span class="ar-prov">埼玉県さいたま市</span></div>
+            <div class="ar-amt">除却建築物の床面積×39,900円/㎡×23%と建替え工事費×23%の低い方（上限30万円。上限額は要確認）</div>
+            <a class="ar-go" href="https://www.city.saitama.lg.jp/001/154/007/002/p022086.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="saitama-city-shoene-dannetsu">
+            <div class="ar-name"><b><span class="ar-tag">省エネ住宅</span>令和8年度 省エネ・断熱住宅普及促進補助金 <span class="area-ended-tag">受付終了</span></b><small>省エネ・断熱住宅の普及を促進する補助。交付申請の受付は終了。<br>期間：受付終了（令和8年度）</small><span class="ar-prov">さいたま市</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.saitama.lg.jp/001/009/015/010/002/p119491.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>埼玉県の制度</strong></p>
+          <ul><li><a href="pref-saitama.html#saitama-katei-shoene-saiene">家庭における省エネ・再エネ活用設備導入補助金</a></li><li><a href="pref-saitama.html#saitama-pref-iju-shienkin">埼玉県移住支援金</a></li></ul>
+          <p><a href="pref-saitama.html#pref-resident">埼玉県の制度2件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">埼玉県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">さいたま市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-saitama.html#saitama-dx-donyu-hojo">埼玉県中小企業DX導入支援補助金（追加募集）</a></li><li><a href="pref-saitama.html#saitama-jinzai-katsuyo-hojo">埼玉県人材活用促進事業補助金</a></li><li><a href="pref-saitama.html#saitama-kigyoka-ikusei-shikin">埼玉県制度融資 起業家育成資金</a></li><li><a href="pref-saitama.html#saitama-shokibo-jigyo-shikin">埼玉県制度融資 小規模事業資金</a></li><li><a href="pref-saitama.html#saitama-shoryokuka-hojo">埼玉県中小企業省力化支援事業補助金【新規導入】</a></li></ul>
-          <p><a href="pref-saitama.html#pref-business">埼玉県の制度5件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="saitama-chuso-yushi">
+            <div class="ar-name"><b>さいたま市中小企業融資制度</b><small>市が金融機関と連携し、市内で事業を営む中小企業者及び創業者に経営の安定・向上に必要な資金を低利で融資します。<br>対象：市内で事業を営む中小企業者／市内で事業を始めようとする創業者<br>期間：令和8年度（令和8年10月1日受付分から利率改定）</small><span class="ar-prov">さいたま市 産業支援担当課</span></div>
+            <div class="ar-amt">要確認（融資限度額は未確認。令和8年10月1日受付分から利率改定：中口資金 1.70%→1.90%、小口資金 1.0%→1.20%）</div>
+            <a class="ar-go" href="https://www.city.saitama.lg.jp/005/002/010/001/p056580.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">埼玉県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>さいたま市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="saitama-city-taishin-tatekae">
-            <h3>さいたま市耐震補強等助成事業（戸建住宅の建替え工事）</h3>
-            <p class="area-meta">埼玉県さいたま市｜助成金｜除却建築物の床面積×39,900円/㎡×23%と建替え工事費×23%の低い方（上限30万円。上限額は要確認）</p>
-            <p class="area-meta">期間：令和8年度は4月1日受付開始（予算枠で途中終了あり）</p>
-            <p>昭和56年5月31日以前に建築された戸建住宅の建替え工事費の一部を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>昭和56年5月31日以前建築の戸建住宅</li><li>所有者または2親等以内の親族で建替え後に居住する方</li><li>交付決定前に解体契約・着工しないこと</li></ul>
-            <p><a href="https://www.city.saitama.lg.jp/001/154/007/002/p022086.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
-          <div class="area-program" id="saitama-city-ev-v2h">
-            <h3>令和8年度さいたま市電気自動車等普及促進対策補助金</h3>
-            <p class="area-meta">さいたま市｜補助金｜EV（普通車）上限5万円、EV（軽・小型）3万円、燃料電池自動車50万円、V2H充放電機器10万円（PHEVは対象外）｜締切：2027-03-26</p>
-            <p class="area-meta">期間：交付決定日～令和9年3月26日（予算到達で終了。10月5日時点で執行率70%）</p>
-            <p>電気自動車・燃料電池自動車・V2H充放電機器の導入費用の補助。</p>
-            
-            <p><a href="https://www.city.saitama.lg.jp/001/009/015/e-kizuna/juyou/p065260.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
-          <div class="area-program is-ended" id="saitama-city-shoene-dannetsu">
-            <h3>令和8年度 省エネ・断熱住宅普及促進補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">さいたま市｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：受付終了（令和8年度）</p>
-            <p>省エネ・断熱住宅の普及を促進する補助。交付申請の受付は終了。</p>
-            
-            <p><a href="https://www.city.saitama.lg.jp/001/009/015/010/002/p119491.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="saitama-city-block-hei">
-            <h3>さいたま市既存ブロック塀等改善事業助成</h3>
-            <p class="area-meta">さいたま市｜助成金｜費用の合計と単価表による額のいずれか低い方の2/3、上限30万円</p>
-            <p class="area-meta">期間：令和8年度（期間は要確認）</p>
-            <p>道路に面したブロック塀等の除却・建替え工事費の助成。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>高さ80cm超で、道路側から見て境界までの距離より高いブロック塀等</li></ul>
-            <p><a href="https://www.city.saitama.lg.jp/001/154/007/002/p063311.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
-          <div class="area-program" id="saitama-city-koreisha-jukankyo">
-            <h3>さいたま市介護予防高齢者住環境改善支援事業</h3>
-            <p class="area-meta">埼玉県さいたま市｜補助金｜保険料第1〜2段階は対象経費相当額（上限15万円）、第3段階以上は対象経費の2/3（上限10万円）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>要介護認定のない高齢者の転倒防止等の住宅改修費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内に1年以上居住し在宅で生活する65歳以上の介護保険被保険者</li><li>着工前に交付決定を受けること</li><li>詳細は要確認</li></ul>
-            <p><a href="https://www.city.saitama.lg.jp/007/007/007/p018981.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-8">教育・学び</h3>
-          <div class="area-program" id="saitama-nyugaku-junbikin">
-            <h3>小学校入学準備金の支給（就学援助制度）</h3>
-            <p class="area-meta">さいたま市 教育委員会事務局 学事課｜給付｜入学準備金 64，300円｜締切：2026-11-30</p>
-            <p class="area-meta">期間：申請期間：令和8年11月2日(月曜日)から11月30日(月曜日)まで（支給予定は令和9年1月29日）</p>
-            <p>経済的な理由により入学用品の購入でお困りの、令和9年4月に小学校に入学する予定のお子さまがいるご家庭に、費用の一部を入学前に支給します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>さいたま市に住所があり、令和9年4月に小学校に入学する予定のお子さまを養育している</li><li>市が令和8年11月時点で就学援助の認定をしたご家庭</li></ul>
-            <p><a href="https://www.city.saitama.lg.jp/003/002/003/p061055.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="saitama-shingaku-shienkin">
-            <h3>低所得の子育て家庭児童進学支援金</h3>
-            <p class="area-meta">さいたま市｜助成金｜模試費用 上限 中学3年生6,000円・高校3年生8,000円、受験料 上限53,000円、入学一時金250,000円</p>
-            <p class="area-meta">期間：令和8年度に支払った模試費用・受験料が対象</p>
-            <p>低所得の子育て家庭等の児童の進学に向けた経済的支援として、模試費用や受験料を助成するとともに、大学等入学時に入学一時金を助成します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>令和8年度さいたま市学習支援教室に登録している中学3年生、高校3年生の子がいる世帯</li><li>児童扶養手当全額受給世帯又は、住民税非課税世帯</li></ul>
-            <p><a href="https://www.city.saitama.lg.jp/003/001/011/p114046.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="saitama-shugaku-enjo">
-            <h3>就学援助制度（学用品費等の援助）</h3>
-            <p class="area-meta">さいたま市 教育委員会事務局 学事課｜給付｜学用品費、学校給食費、修学旅行費、医療費などの一部｜締切：2027-01-29</p>
-            <p class="area-meta">期間：申請期間：令和8年2月13日（金曜日）から令和9年1月29日（金曜日）まで</p>
-            <p>小・中学校、中等教育学校（前期課程）へ通うお子さまの、学用品の購入や学校給食費の支払いでお困りのご家庭に対して、その費用の一部を援助する制度です。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>さいたま市に住所があり、小・中学校、中等教育学校（前期課程）に通うお子さまを養育している</li><li>経済要件等に基づき、市が認定した方</li></ul>
-            <p><a href="https://www.city.saitama.lg.jp/003/002/003/p000694.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="saitama-yogo-shogakukin">
-            <h3>児童養護施設等を退所した方を対象としたさいたま市の給付型奨学金（大学等進学奨学金）</h3>
-            <p class="area-meta">さいたま市｜給付｜月額3万円（返済義務なし）</p>
-            <p class="area-meta">期間：随時申請受付中（令和8年度版の案内）</p>
-            <p>児童養護施設等を退所し大学等へ進学する方を対象とした、さいたま市の給付型奨学金です。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>さいたま市の児童相談所長の措置により児童養護施設等に入所した方</li><li>満18歳に達した日の属する年度の4月1日以降に退所し大学等に進学した方</li><li>家族等からの経済的援助がなく、自ら生計を立てている方</li></ul>
-            <p><a href="https://www.city.saitama.lg.jp/003/002/003/p120294.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="saitama-yume-shien">
-            <h3>さいたま市大学等進学「夢」支援（給付型奨学金）</h3>
-            <p class="area-meta">さいたま市 教育委員会事務局 学事課｜給付｜受験料：5万3千円（上限）、入学一時金：25万円｜締切：2026-10-30</p>
-            <p class="area-meta">期間：申請受付は令和8年9月18日(金曜日)から令和8年10月30日(金曜日)まで</p>
-            <p>市内在住の高校3年生等に対し、審査の上、大学等の受験料と合格後の入学一時金を支給する返還不要の給付型奨学金です。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内在住の高校3年生等</li><li>支給額算定基準額の合計が51,300円未満</li><li>学力評定3.0以上</li></ul>
-            <p><a href="https://www.city.saitama.lg.jp/003/002/003/p114651.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>埼玉県の制度</strong></p>
-          <ul><li><a href="pref-saitama.html#saitama-katei-shoene-saiene">家庭における省エネ・再エネ活用設備導入補助金</a></li><li><a href="pref-saitama.html#saitama-pref-iju-shienkin">埼玉県移住支援金</a></li></ul>
-          <p><a href="pref-saitama.html#pref-resident">埼玉県の制度2件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-saitama.html#saitama-dx-donyu-hojo">埼玉県中小企業DX導入支援補助金（追加募集）</a></li><li><a href="pref-saitama.html#saitama-jinzai-katsuyo-hojo">埼玉県人材活用促進事業補助金</a></li><li><a href="pref-saitama.html#saitama-kigyoka-ikusei-shikin">埼玉県制度融資 起業家育成資金</a></li><li><a href="pref-saitama.html#saitama-shokibo-jigyo-shikin">埼玉県制度融資 小規模事業資金</a></li><li><a href="pref-saitama.html#saitama-shoryokuka-hojo">埼玉県中小企業省力化支援事業補助金【新規導入】</a></li></ul>
+          <p><a href="pref-saitama.html#pref-business">埼玉県の制度5件を、県のページで見る →</a></p>
       </div>
     </section>
 

@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"静岡市","item":"https://hojyokin.net/area/shizuoka.html"}]}</script>
@@ -165,207 +207,157 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 静岡市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b18.webp')"><h1 class="pb-title">静岡市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-shizuoka.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">静岡県・政令指定都市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">静岡県 静岡市</p>
+        <h1>静岡市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度17件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-shizuoka.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（静岡市）<b>3件</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（静岡県）<b>5件（うち受付終了2件）</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>14件（うち受付終了1件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 2</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-5">バリアフリー・介護 1</a><a href="#res-cat-6">子育て 3</a><a href="#res-cat-7">医療・福祉 3</a><a href="#res-cat-8">教育・学び 1</a><a href="#res-cat-9">移住 2</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <a href="#res-g-kosodate"><i aria-hidden="true">👶</i><b>子育て</b><small>3件</small></a>
+      <a href="#res-g-iryo"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>3件</small></a>
+      <a href="#res-g-kyoiku"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>1件</small></a>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>5件</small></a>
+      <a href="#res-g-iju"><i aria-hidden="true">🌱</i><b>移住</b><small>2件</small></a>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市3件＋県5件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">静岡市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="shizuoka-kikai-setsubi">
-            <h3>中小企業事業高度化機械設備設置事業補助金</h3>
-            <p class="area-meta">静岡市 経済局商工部産業振興課｜補助金｜補助率5〜15%（要件による）、上限500万円〜750万円（要確認）</p>
-            <p class="area-meta">期間：令和8年度 申請受付は5月12日から（終了日は要確認）</p>
-            <p>市内に製造拠点を持つ中小製造事業者が機械設備を設置する費用を補助します。他の補助金との併用はできません。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内に製造拠点を持つ中小製造事業者</li><li>令和8年4月1日から令和9年3月末までに支払いを終えるものに限る</li><li>他の補助金との併用不可</li></ul>
-            <p><a href="https://www.city.shizuoka.lg.jp/s2746/s003785.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-kosodate">子育て<span>3件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="shizuoka-kodomo-iryohi">
+            <div class="ar-name"><b>子ども医療費助成制度</b><small>病気やケガなどで医療機関に入院・通院したときの医療費（保険診療分）の全部または一部を助成する。令和8年7月から助成内容を拡充した。<br>対象：静岡市の子ども（18歳到達後の最初の3月31日まで）／令和8年7月から中学生年代までの日中の通院費と高校生年代までの入院時の食事代を無償化<br>期間：令和8年7月からの助成内容</small><span class="ar-prov">静岡市 こども未来局 こども家庭福祉課</span></div>
+            <div class="ar-amt">保険診療分の入院は全額助成、通院は年齢により全額助成または1回500円まで自己負担</div>
+            <a class="ar-go" href="https://www.city.shizuoka.lg.jp/s2873/s001931.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="shizuoka-dx-jinzai">
-            <h3>中小企業DX人材等育成支援事業補助金</h3>
-            <p class="area-meta">静岡市 経済局商工部産業振興課｜補助金｜上限10万円（補助率は要確認）</p>
-            <p class="area-meta">期間：令和8年度 交付申請受付中（終了日は要確認）</p>
-            <p>社員に研修を受けさせる経費を補助します。対象研修は県立の工科短期大学校、ポリテクセンター、県産業振興財団などの研修です。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の中小企業（要確認）</li><li>対象研修を受講させる事業者</li></ul>
-            <p><a href="https://www.city.shizuoka.lg.jp/s2746/s013081.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="shizuoka-ninpu-kenshin-kotsuhi">
+            <div class="ar-name"><b>妊婦健康診査時における遠方の産科医療機関等までの交通費に対する補助金</b><small>居住地から最も近い妊婦健康診査の実施が可能な産科医療機関等までの移動に概ね60分以上を要する妊婦を対象に、交通費の助成を行う。<br>対象：居住地から最も近い妊婦健康診査の実施が可能な産科医療機関等までの移動に、概ね60分以上を要する妊婦<br>期間：令和8年4月1日以降のタクシー移動等が対象。申請期限は分娩の翌日から起算して1年を経過する日まで</small><span class="ar-prov">静岡市 こども未来局 こども家庭福祉課</span></div>
+            <div class="ar-amt">交通費の助成（タクシーは実費額×0.8など、最大14往復分）</div>
+            <a class="ar-go" href="https://www.city.shizuoka.lg.jp/s2873/s009129.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="shizuoka-keizai-henka-rishi">
-            <h3>静岡市経済変動対策資金特別利子助成金</h3>
-            <p class="area-meta">静岡市 経済局商工部産業振興課｜助成金｜要確認（助成率・上限は未確認）</p>
-            <p class="area-meta">期間：令和8年10月1日より受付開始（終了日は要確認）</p>
-            <p>経済変動対策資金の利子負担を助成します。令和8年10月1日から受付が始まっています。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>静岡市経済変動対策資金の利用者（要確認）</li></ul>
-            <p><a href="https://www.city.shizuoka.lg.jp/s2746/s003782.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="shizuoka-shussan-kotsuhi">
+            <div class="ar-name"><b>出産時における遠方の分娩取扱施設までの交通費及び宿泊費に対する補助金</b><small>居住地から最も近い分娩施設までの移動に概ね60分以上を要する妊婦を対象に、交通費・宿泊費の助成を行う。<br>対象：居住地から最も近い分娩施設（病院・助産所）までの移動に、概ね60分以上を要する妊婦<br>期間：令和8年4月1日以降に発生した交通費の補助額あり。申請期限は分娩の翌日から1年を経過する日まで</small><span class="ar-prov">静岡市 こども未来局 こども家庭福祉課</span></div>
+            <div class="ar-amt">宿泊費は一泊あたり実費額-2,000円（上限11,100円／一泊、最大14泊分）、交通費は実費額×0.8など</div>
+            <a class="ar-go" href="https://www.city.shizuoka.lg.jp/s2873/s009124.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          </div>
+          <h3 class="area-cat" id="res-g-iryo">医療・福祉<span>3件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="shizuoka-fuiku-chiryo">
+            <div class="ar-name"><b>不育症治療費補助金</b><small>不育症の治療および検査の費用を対象とした補助。<br>対象：ご夫婦または一方の方が静岡市に住民登録がある／ご夫婦の一方の方が医師に不育症またはそのおそれがあると診断されている<br>期間：治療が終了した日の属する年度が申請期限（詳細は本文参照）</small><span class="ar-prov">静岡市 こども未来局 こども家庭福祉課</span></div>
+            <div class="ar-amt">保険診療は自己負担額の2分の1（1年度につき上限10万円）、先進医療の検査は費用の7割（一夫婦1回の検査あたり上限6万円）</div>
+            <a class="ar-go" href="https://www.city.shizuoka.lg.jp/s2873/s001910.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="shizuoka-funin-senshin-iryo">
+            <div class="ar-name"><b>不妊治療費（先進医療）補助金</b><small>保険診療による生殖補助医療と併用して先進医療による不妊治療を受けた夫婦等に、治療費の一部を補助する。<br>対象：申請時に夫婦またはどちらか一方が静岡市に住民登録のある方（事実婚を含む）／治療期間の初日における妻の年齢が43歳未満<br>期間：令和6(2024)年4月1日以降に治療が終了したものが対象</small><span class="ar-prov">静岡市 こども未来局 こども家庭福祉課</span></div>
+            <div class="ar-amt">対象経費の10分の7（上限5万円、ひと組の夫婦1回の治療につき）</div>
+            <a class="ar-go" href="https://www.city.shizuoka.lg.jp/s2873/s009118.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="shizuoka-nancho-koreisha-hochouki">
+            <div class="ar-name"><b>難聴高齢者補聴器購入費補助金</b><small>2026年度に、医療機関で補聴器の装用が必要と診断された65歳以上の方へ、補聴器購入費の一部を補助する。<br>対象：市内に住所を有する、65歳以上の方／補聴器相談医において補聴器装用が必要と診断された方<br>期間：2026年度</small><span class="ar-prov">静岡市 高齢者支援課</span></div>
+            <div class="ar-amt">補聴器の購入に必要な費用 上限3万円（補助金の交付は1回限り）</div>
+            <a class="ar-go" href="https://www.city.shizuoka.lg.jp/s2837/s012997.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-kyoiku">教育・学び<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="shizuoka-shugaku-enjo">
+            <div class="ar-name"><b>就学援助制度</b><small>経済的な理由で小・中学校へ通学させるのにお困りの方に、学用品費・給食費などの一部を援助する。<br>対象：静岡市に居住し、公立小・中学校に通うお子さんがいる保護者／同居の家族全員の所得の合計額が、市が定める認定基準（生活保護基準の約1.3倍以下）に満たない方<br>期間：令和8年7月から令和9年6月まで</small><span class="ar-prov">静岡市 教育委員会</span></div>
+            <div class="ar-amt">学用品費・給食費などの一部を援助（入学準備金は小学校64,300円、中学校81,000円）</div>
+            <a class="ar-go" href="https://www.city.shizuoka.lg.jp/kyoiku/s002285.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>5件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="shizuoka-city-akiya-taikai">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>静岡市空き家建替え促進事業補助金</b><small>1年以上使われていない耐震性のない一戸建ての解体費を補助。ブロック塀等の工作物撤去費は対象外。<br>対象：耐震性のない空き家の所有者</small><span class="ar-prov">静岡県静岡市</span></div>
+            <div class="ar-amt">解体費の1/2以内、上限100万円</div>
+            <a class="ar-go" href="https://www.city.shizuoka.lg.jp/s7345/s013027.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="shizuoka-city-block-taishin">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>静岡市ブロック塀等耐震化促進事業</b><small>通学路・避難路沿いの危険なブロック塀の撤去や、安全な塀への改善を補助。<br>対象：通学路・避難路・避難地沿いのブロック塀等の所有者</small><span class="ar-prov">静岡県静岡市</span></div>
+            <div class="ar-amt">撤去：見積額と基準額の少ない額の2/3以内・上限10万円、改善：上限25万円</div>
+            <a class="ar-go" href="https://www.city.shizuoka.lg.jp/s2574/s007798.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="shizuoka-city-kaigo-jutaku-kaishu-shien">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>静岡市 介護住宅改修支援事業補助金</b><small>要介護・要支援認定者が手すり取付けや段差解消などの小規模改修をした費用の一部を補助する。<br>対象：要介護または要支援認定を受けていること／介護保険の住宅改修を優先して利用</small><span class="ar-prov">静岡県静岡市</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.shizuoka.lg.jp/youkou/s2984/s011510.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="shizuoka-city-mokuzou-taishin">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>木造住宅耐震事業（補強計画・補強工事への補助）</b><small>昭和56年5月以前に建築された木造住宅の耐震補強計画と補強工事の費用を補助する。代理受領制度あり。<br>対象：1981年5月31日以前に建築された木造住宅／静岡県耐震診断補強相談士が作成した補強計画で評点1.0未満を1.0以上にする工事<br>期間：令和8年度：2026年4月6日受付開始、2026年11月30日まで（2027年1月末までに工事完了するもの）<br>締切：2026-11-30</small><span class="ar-prov">静岡市</span></div>
+            <div class="ar-amt">事業費の10分の8と115万円のいずれか少ない額</div>
+            <a class="ar-go" href="https://www.city.shizuoka.lg.jp/s2574/s007794.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="shizuoka-city-taishin-shelter">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>耐震シェルター整備事業 <span class="area-ended-tag">受付終了</span></b><small>1階の耐震評点が1.0未満の昭和56年5月以前の木造住宅に、耐震シェルターを設置する工事費を補助する。<br>対象：1981年5月31日以前の木造住宅／1階の耐震評点が1.0未満<br>期間：終了（令和7年度分の受付は終了。令和8年度分の受付開始時期は未定と案内）</small><span class="ar-prov">静岡市</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.shizuoka.lg.jp/s2574/s007809.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-iju">移住<span>2件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="shizuoka-city-akiya-kaishu">
+            <div class="ar-name"><b>静岡市空き家改修事業補助金</b><small>空き家情報バンク登録物件を改修する方への補助。予算がなくなり次第終了。中山間地域は別制度。<br>対象：空き家情報バンク登録物件の改修／契約前に申請</small><span class="ar-prov">静岡県静岡市</span></div>
+            <div class="ar-amt">対象経費の2/3以内、上限100万円（市外移住者等は200万円）</div>
+            <a class="ar-go" href="https://www.city.shizuoka.lg.jp/s7345/s000894.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="shizuoka-city-iju-hojokin">
+            <div class="ar-name"><b>静岡市移住者住宅確保応援補助金・移住補助金</b><small>移住者の住宅確保や就業を支援する市の移住補助。<br>対象：東京圏等からの移住者（詳細は要確認）</small><span class="ar-prov">静岡県静岡市</span></div>
+            <div class="ar-amt">東京圏からの移住で単身60万円・2人以上100万円（移住補助金）</div>
+            <a class="ar-go" href="https://www.city.shizuoka.lg.jp/ijuteiju/p000001.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>静岡県の制度</strong></p>
+          <ul><li><a href="pref-shizuoka.html#shizuoka-blockbei-tekkyo">ブロック塀等撤去事業・ブロック塀等改善事業</a></li><li><a href="pref-shizuoka.html#shizuoka-taishin-hokyo-keikaku">木造住宅耐震補強助成事業（補強計画一体型）</a></li><li><a href="pref-shizuoka.html#shizuoka-taishin-senmonka-shindan">わが家の専門家診断事業（専門家による無料耐震診断）</a></li></ul>
+          <p><a href="pref-shizuoka.html#pref-resident">静岡県の制度3件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">静岡県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">静岡市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-shizuoka.html#shizuoka-jigyo-shokei-shikin">静岡県 事業承継資金</a></li><li><a href="pref-shizuoka.html#shizuoka-kaigyo-power-up">静岡県 開業パワーアップ支援資金</a></li><li><a href="pref-shizuoka.html#shizuoka-shokibo-keieiryoku">静岡県 小規模企業経営力向上事業費補助金</a></li><li><a href="pref-shizuoka.html#shizuoka-chiiki-sosei-kigyo">静岡県 地域創生起業支援金</a></li><li><a href="pref-shizuoka.html#shizuoka-shuekiryoku">静岡県 中小企業等収益力向上（賃上げ環境整備）事業費補助金</a></li></ul>
-          <p><a href="pref-shizuoka.html#pref-business">静岡県の制度5件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="shizuoka-kikai-setsubi">
+            <div class="ar-name"><b>中小企業事業高度化機械設備設置事業補助金</b><small>市内に製造拠点を持つ中小製造事業者が機械設備を設置する費用を補助します。他の補助金との併用はできません。<br>対象：市内に製造拠点を持つ中小製造事業者／令和8年4月1日から令和9年3月末までに支払いを終えるものに限る</small><span class="ar-prov">静岡市 経済局商工部産業振興課</span></div>
+            <div class="ar-amt">補助率5〜15%（要件による）、上限500万円〜750万円（要確認）</div>
+            <a class="ar-go" href="https://www.city.shizuoka.lg.jp/s2746/s003785.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="shizuoka-dx-jinzai">
+            <div class="ar-name"><b>中小企業DX人材等育成支援事業補助金</b><small>社員に研修を受けさせる経費を補助します。対象研修は県立の工科短期大学校、ポリテクセンター、県産業振興財団などの研修です。<br>対象：市内の中小企業（要確認）／対象研修を受講させる事業者</small><span class="ar-prov">静岡市 経済局商工部産業振興課</span></div>
+            <div class="ar-amt">上限10万円（補助率は要確認）</div>
+            <a class="ar-go" href="https://www.city.shizuoka.lg.jp/s2746/s013081.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="shizuoka-keizai-henka-rishi">
+            <div class="ar-name"><b>静岡市経済変動対策資金特別利子助成金</b><small>経済変動対策資金の利子負担を助成します。令和8年10月1日から受付が始まっています。<br>対象：静岡市経済変動対策資金の利用者（要確認）</small><span class="ar-prov">静岡市 経済局商工部産業振興課</span></div>
+            <div class="ar-amt">要確認（助成率・上限は未確認）</div>
+            <a class="ar-go" href="https://www.city.shizuoka.lg.jp/s2746/s003782.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">静岡県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>静岡市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="shizuoka-city-mokuzou-taishin">
-            <h3>木造住宅耐震事業（補強計画・補強工事への補助）</h3>
-            <p class="area-meta">静岡市｜補助金｜事業費の10分の8と115万円のいずれか少ない額｜締切：2026-11-30</p>
-            <p class="area-meta">期間：令和8年度：2026年4月6日受付開始、2026年11月30日まで（2027年1月末までに工事完了するもの）</p>
-            <p>昭和56年5月以前に建築された木造住宅の耐震補強計画と補強工事の費用を補助する。代理受領制度あり。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>1981年5月31日以前に建築された木造住宅</li><li>静岡県耐震診断補強相談士が作成した補強計画で評点1.0未満を1.0以上にする工事</li><li>事業着手前に申請</li></ul>
-            <p><a href="https://www.city.shizuoka.lg.jp/s2574/s007794.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program is-ended" id="shizuoka-city-taishin-shelter">
-            <h3>耐震シェルター整備事業 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">静岡市｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：終了（令和7年度分の受付は終了。令和8年度分の受付開始時期は未定と案内）</p>
-            <p>1階の耐震評点が1.0未満の昭和56年5月以前の木造住宅に、耐震シェルターを設置する工事費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>1981年5月31日以前の木造住宅</li><li>1階の耐震評点が1.0未満</li><li>同じ住宅で木造住宅耐震補強事業の補助を受けていない</li></ul>
-            <p><a href="https://www.city.shizuoka.lg.jp/s2574/s007809.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="shizuoka-city-akiya-taikai">
-            <h3>静岡市空き家建替え促進事業補助金</h3>
-            <p class="area-meta">静岡県静岡市｜補助金｜解体費の1/2以内、上限100万円</p>
-            <p class="area-meta">期間：申請受付中の掲載（最新は要確認）</p>
-            <p>1年以上使われていない耐震性のない一戸建ての解体費を補助。ブロック塀等の工作物撤去費は対象外。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>耐震性のない空き家の所有者</li></ul>
-            <p><a href="https://www.city.shizuoka.lg.jp/s7345/s013027.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="shizuoka-city-block-taishin">
-            <h3>静岡市ブロック塀等耐震化促進事業</h3>
-            <p class="area-meta">静岡県静岡市｜補助金｜撤去：見積額と基準額の少ない額の2/3以内・上限10万円、改善：上限25万円</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>通学路・避難路沿いの危険なブロック塀の撤去や、安全な塀への改善を補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>通学路・避難路・避難地沿いのブロック塀等の所有者</li></ul>
-            <p><a href="https://www.city.shizuoka.lg.jp/s2574/s007798.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
-          <div class="area-program" id="shizuoka-city-kaigo-jutaku-kaishu-shien">
-            <h3>静岡市 介護住宅改修支援事業補助金</h3>
-            <p class="area-meta">静岡県静岡市｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>要介護・要支援認定者が手すり取付けや段差解消などの小規模改修をした費用の一部を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>要介護または要支援認定を受けていること</li><li>介護保険の住宅改修を優先して利用</li></ul>
-            <p><a href="https://www.city.shizuoka.lg.jp/youkou/s2984/s011510.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-6">子育て</h3>
-          <div class="area-program" id="shizuoka-kodomo-iryohi">
-            <h3>子ども医療費助成制度</h3>
-            <p class="area-meta">静岡市 こども未来局 こども家庭福祉課｜助成金｜保険診療分の入院は全額助成、通院は年齢により全額助成または1回500円まで自己負担</p>
-            <p class="area-meta">期間：令和8年7月からの助成内容</p>
-            <p>病気やケガなどで医療機関に入院・通院したときの医療費（保険診療分）の全部または一部を助成する。令和8年7月から助成内容を拡充した。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>静岡市の子ども（18歳到達後の最初の3月31日まで）</li><li>令和8年7月から中学生年代までの日中の通院費と高校生年代までの入院時の食事代を無償化</li></ul>
-            <p><a href="https://www.city.shizuoka.lg.jp/s2873/s001931.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="shizuoka-ninpu-kenshin-kotsuhi">
-            <h3>妊婦健康診査時における遠方の産科医療機関等までの交通費に対する補助金</h3>
-            <p class="area-meta">静岡市 こども未来局 こども家庭福祉課｜補助金｜交通費の助成（タクシーは実費額×0.8など、最大14往復分）</p>
-            <p class="area-meta">期間：令和8年4月1日以降のタクシー移動等が対象。申請期限は分娩の翌日から起算して1年を経過する日まで</p>
-            <p>居住地から最も近い妊婦健康診査の実施が可能な産科医療機関等までの移動に概ね60分以上を要する妊婦を対象に、交通費の助成を行う。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>居住地から最も近い妊婦健康診査の実施が可能な産科医療機関等までの移動に、概ね60分以上を要する妊婦</li></ul>
-            <p><a href="https://www.city.shizuoka.lg.jp/s2873/s009129.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="shizuoka-shussan-kotsuhi">
-            <h3>出産時における遠方の分娩取扱施設までの交通費及び宿泊費に対する補助金</h3>
-            <p class="area-meta">静岡市 こども未来局 こども家庭福祉課｜補助金｜宿泊費は一泊あたり実費額-2,000円（上限11,100円／一泊、最大14泊分）、交通費は実費額×0.8など</p>
-            <p class="area-meta">期間：令和8年4月1日以降に発生した交通費の補助額あり。申請期限は分娩の翌日から1年を経過する日まで</p>
-            <p>居住地から最も近い分娩施設までの移動に概ね60分以上を要する妊婦を対象に、交通費・宿泊費の助成を行う。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>居住地から最も近い分娩施設（病院・助産所）までの移動に、概ね60分以上を要する妊婦</li></ul>
-            <p><a href="https://www.city.shizuoka.lg.jp/s2873/s009124.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-7">医療・福祉</h3>
-          <div class="area-program" id="shizuoka-fuiku-chiryo">
-            <h3>不育症治療費補助金</h3>
-            <p class="area-meta">静岡市 こども未来局 こども家庭福祉課｜補助金｜保険診療は自己負担額の2分の1（1年度につき上限10万円）、先進医療の検査は費用の7割（一夫婦1回の検査あたり上限6万円）</p>
-            <p class="area-meta">期間：治療が終了した日の属する年度が申請期限（詳細は本文参照）</p>
-            <p>不育症の治療および検査の費用を対象とした補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>ご夫婦または一方の方が静岡市に住民登録がある</li><li>ご夫婦の一方の方が医師に不育症またはそのおそれがあると診断されている</li><li>各種健康保険に加入している</li></ul>
-            <p><a href="https://www.city.shizuoka.lg.jp/s2873/s001910.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="shizuoka-funin-senshin-iryo">
-            <h3>不妊治療費（先進医療）補助金</h3>
-            <p class="area-meta">静岡市 こども未来局 こども家庭福祉課｜補助金｜対象経費の10分の7（上限5万円、ひと組の夫婦1回の治療につき）</p>
-            <p class="area-meta">期間：令和6(2024)年4月1日以降に治療が終了したものが対象</p>
-            <p>保険診療による生殖補助医療と併用して先進医療による不妊治療を受けた夫婦等に、治療費の一部を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>申請時に夫婦またはどちらか一方が静岡市に住民登録のある方（事実婚を含む）</li><li>治療期間の初日における妻の年齢が43歳未満</li><li>令和6(2024)年4月1日以降に治療が終了した方</li></ul>
-            <p><a href="https://www.city.shizuoka.lg.jp/s2873/s009118.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="shizuoka-nancho-koreisha-hochouki">
-            <h3>難聴高齢者補聴器購入費補助金</h3>
-            <p class="area-meta">静岡市 高齢者支援課｜補助金｜補聴器の購入に必要な費用 上限3万円（補助金の交付は1回限り）</p>
-            <p class="area-meta">期間：2026年度</p>
-            <p>2026年度に、医療機関で補聴器の装用が必要と診断された65歳以上の方へ、補聴器購入費の一部を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内に住所を有する、65歳以上の方</li><li>補聴器相談医において補聴器装用が必要と診断された方</li><li>聴覚に関する身体障害者手帳の交付対象外の方</li></ul>
-            <p><a href="https://www.city.shizuoka.lg.jp/s2837/s012997.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-8">教育・学び</h3>
-          <div class="area-program" id="shizuoka-shugaku-enjo">
-            <h3>就学援助制度</h3>
-            <p class="area-meta">静岡市 教育委員会｜給付｜学用品費・給食費などの一部を援助（入学準備金は小学校64,300円、中学校81,000円）</p>
-            <p class="area-meta">期間：令和8年7月から令和9年6月まで</p>
-            <p>経済的な理由で小・中学校へ通学させるのにお困りの方に、学用品費・給食費などの一部を援助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>静岡市に居住し、公立小・中学校に通うお子さんがいる保護者</li><li>同居の家族全員の所得の合計額が、市が定める認定基準（生活保護基準の約1.3倍以下）に満たない方</li></ul>
-            <p><a href="https://www.city.shizuoka.lg.jp/kyoiku/s002285.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-9">移住</h3>
-          <div class="area-program" id="shizuoka-city-akiya-kaishu">
-            <h3>静岡市空き家改修事業補助金</h3>
-            <p class="area-meta">静岡県静岡市｜補助金｜対象経費の2/3以内、上限100万円（市外移住者等は200万円）</p>
-            <p class="area-meta">期間：予算に達し次第終了（最新は要確認）</p>
-            <p>空き家情報バンク登録物件を改修する方への補助。予算がなくなり次第終了。中山間地域は別制度。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>空き家情報バンク登録物件の改修</li><li>契約前に申請</li></ul>
-            <p><a href="https://www.city.shizuoka.lg.jp/s7345/s000894.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="shizuoka-city-iju-hojokin">
-            <h3>静岡市移住者住宅確保応援補助金・移住補助金</h3>
-            <p class="area-meta">静岡県静岡市｜補助金｜東京圏からの移住で単身60万円・2人以上100万円（移住補助金）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>移住者の住宅確保や就業を支援する市の移住補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>東京圏等からの移住者（詳細は要確認）</li></ul>
-            <p><a href="https://www.city.shizuoka.lg.jp/ijuteiju/p000001.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>静岡県の制度</strong></p>
-          <ul><li><a href="pref-shizuoka.html#shizuoka-blockbei-tekkyo">ブロック塀等撤去事業・ブロック塀等改善事業</a></li><li><a href="pref-shizuoka.html#shizuoka-taishin-hokyo-keikaku">木造住宅耐震補強助成事業（補強計画一体型）</a></li><li><a href="pref-shizuoka.html#shizuoka-taishin-senmonka-shindan">わが家の専門家診断事業（専門家による無料耐震診断）</a></li></ul>
-          <p><a href="pref-shizuoka.html#pref-resident">静岡県の制度3件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-shizuoka.html#shizuoka-jigyo-shokei-shikin">静岡県 事業承継資金</a></li><li><a href="pref-shizuoka.html#shizuoka-kaigyo-power-up">静岡県 開業パワーアップ支援資金</a></li><li><a href="pref-shizuoka.html#shizuoka-shokibo-keieiryoku">静岡県 小規模企業経営力向上事業費補助金</a></li><li><a href="pref-shizuoka.html#shizuoka-chiiki-sosei-kigyo">静岡県 地域創生起業支援金</a></li><li><a href="pref-shizuoka.html#shizuoka-shuekiryoku">静岡県 中小企業等収益力向上（賃上げ環境整備）事業費補助金</a></li></ul>
+          <p><a href="pref-shizuoka.html#pref-business">静岡県の制度5件を、県のページで見る →</a></p>
       </div>
     </section>
 

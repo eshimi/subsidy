@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"練馬区","item":"https://hojyokin.net/area/nerima.html"}]}</script>
@@ -165,224 +207,159 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 練馬区</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b02.webp')"><h1 class="pb-title">練馬区の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-tokyo.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">東京都・特別区。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">東京都 練馬区</p>
+        <h1>練馬区で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度19件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-tokyo.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（練馬区）<b>5件</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（東京都）<b>6件（うち受付終了1件）</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>14件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-5">バリアフリー・介護 2</a><a href="#res-cat-6">子育て 5</a><a href="#res-cat-8">教育・学び 3</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <a href="#res-g-kosodate"><i aria-hidden="true">👶</i><b>子育て</b><small>5件</small></a>
+      <span class="is-none"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>掲載なし</small></span>
+      <a href="#res-g-kyoiku"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>3件</small></a>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>6件</small></a>
+      <span class="is-none"><i aria-hidden="true">🌱</i><b>移住</b><small>掲載なし</small></span>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市5件＋県6件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">練馬区の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="nerima-sangyo-yushi-assen">
-            <h3>産業融資あっせん（練馬区産業融資制度）</h3>
-            <p class="area-meta">練馬区 産業経済部 経済課 融資係｜融資｜利用者負担金利0.9%以下（区が利子の一部を負担）。融資限度額は貸付種類ごとに要確認</p>
-            <p class="area-meta">期間：令和8年度（通年の申込受付。詳細は要確認）</p>
-            <p>区が金融機関に融資をあっせんし、区内中小企業の事業資金を低利で借りられるようにする制度です。普通貸付、創業支援貸付、景気対策特別貸付、災害貸付などがあります。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>区内中小企業者</li><li>小口貸付は東京信用保証協会の保証付きが条件</li></ul>
-            <p><a href="https://www.city.nerima.tokyo.jp/kusei/sangyo/jigyosha/yushi/" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-kosodate">子育て<span>5件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="nerima-babysitter-riyo-shien">
+            <div class="ar-name"><b>ベビーシッター利用支援事業（一時預かり利用支援）</b><small>東京都が認定したベビーシッターを利用した際の利用料の一部を補助します。<br>対象：練馬区に住民登録があり、対象児童と同居している保護者／小学3年生まで（障害児は小学6年生まで）のお子さんを養育する方<br>期間：令和8年度：令和8年4月1日から令和9年3月31日まで</small><span class="ar-prov">練馬区</span></div>
+            <div class="ar-amt">1時間あたり日中2,500円・夜間3,500円まで／年度あたり児童1人144時間（障害児・ひとり親家庭・多胎児は288時間）</div>
+            <a class="ar-go" href="https://www.city.nerima.tokyo.jp/kosodatekyoiku/kodomo/hoiku/itijiteki_hoiku/babysitter.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="nerima-sogyo-tokubetsu-yushi">
-            <h3>創業支援特別貸付</h3>
-            <p class="area-meta">練馬区 産業経済部 経済課 融資係｜融資｜要確認（限度額は公式ページで確認が必要）</p>
-            <p class="area-meta">期間：令和8年度（受付期間は要確認）</p>
-            <p>区の産業融資あっせんの一種で、創業する事業者の事業資金を低利で融資します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>練馬区内で創業する事業者（詳細要件は公式ページで要確認）</li></ul>
-            <p><a href="https://www.city.nerima.tokyo.jp/kusei/sangyo/jigyosha/yushi/sogyo-tokubetu.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="nerima-hitorioya-tentaku">
+            <div class="ar-name"><b>ひとり親家庭転宅支援給付金</b><small>今より家賃の安い住宅へ転宅するひとり親家庭の、契約費用と引越し費用を助成する。<br>対象：児童扶養手当などを受けている方／住宅契約の前に家計相談を受けること</small><span class="ar-prov">東京都練馬区</span></div>
+            <div class="ar-amt">上限40万円（敷金・礼金などの契約費用と引越し費用）</div>
+            <a class="ar-go" href="https://www.city.nerima.tokyo.jp/kurashi/jinken/hitorioya/tentakushien.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="nerima-marukei-rishi-hojo">
-            <h3>小規模事業者経営改善資金（マル経融資）利子補助金</h3>
-            <p class="area-meta">練馬区 産業経済部 経済課｜融資｜支払利子の40％を補助（要確認）</p>
-            <p class="area-meta">期間：令和8年度（受付期間は要確認）</p>
-            <p>東京商工会議所練馬支部の推薦を受けて日本政策金融公庫のマル経融資を利用した小規模事業者の支払利子の一部を区が補助します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>区内の小規模事業者</li><li>東京商工会議所練馬支部の推薦を受けてマル経融資を利用していること</li></ul>
-            <p><a href="https://www.city.nerima.tokyo.jp/jigyoshamuke/jigyosha/yushi/2403marukeiyuusi.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="nerima-kodomoen-teinenrei-hoikuryo-hojo">
+            <div class="ar-name"><b>練馬こども園低年齢型定期利用保育料補助金</b><small>練馬こども園低年齢型（0から2歳）の預かり保育を定期利用している保護者に、定期利用保育料の一部を補助します。<br>対象：幼児の住民登録が練馬区にあり、当該住所地から通園していること／対象の幼稚園の練馬こども園低年齢型を定期利用していること<br>期間：令和8年度（0歳児は令和7年4月2日から令和8年4月1日生まれなど）</small><span class="ar-prov">練馬区 教育振興部 学務課</span></div>
+            <div class="ar-amt">定期利用保育料の補助額は上限月額42,000円</div>
+            <a class="ar-go" href="https://www.city.nerima.tokyo.jp/kosodatekyoiku/kyoiku/enjo/kodomoen_teinenrei.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="nerima-bizi-challe">
-            <h3>新規ビジネスチャレンジ補助金</h3>
-            <p class="area-meta">練馬区 産業経済部 経済課｜補助金｜補助率・上限額は公式ページで確認できず（要確認）</p>
-            <p class="area-meta">期間：令和8年度（受付期間は要確認）</p>
-            <p>新市場への参入や新商品・新サービスの開発に取り組む区内中小企業者等の経費の一部を補助し、事業計画の作成と実行を伴走支援します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>区内の中小企業者等</li><li>新市場参入または新商品・新サービス開発に取り組むこと</li></ul>
-            <p><a href="https://www.city.nerima.tokyo.jp/kusei/sangyo/jigyosha/bizichalle.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="nerima-ninpu-kenshin-josei">
+            <div class="ar-name"><b>妊婦健康診査費用助成</b><small>母子健康手帳交付時に渡す受診票を医療機関に提出すると、妊婦健康診査費用の一部が助成されます。<br>対象：受診票（妊婦健康診査14回分、妊婦超音波検査4回分、妊婦子宮頸がん検診1回分）を使用する方／助産所での受診は原則7回が上限（令和6年10月1日以降に妊娠届を提出した方）<br>期間：妊娠届提出後の受診時</small><span class="ar-prov">練馬区</span></div>
+            <div class="ar-amt">令和8年度助成上限額：1回目11,670円、2～14回目5,460円、超音波検査5,300円、子宮頸がん検診3,400円</div>
+            <a class="ar-go" href="https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/sukoyaka/kenkoshinsa.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="nerima-homepage-hojo">
-            <h3>ホームページ作成補助金</h3>
-            <p class="area-meta">練馬区 産業経済部 経済課｜補助金｜委託費の2分の1以内、上限5万円</p>
-            <p class="area-meta">期間：令和8年度（受付期間は要確認）</p>
-            <p>区内中小企業者が専門業者へホームページ作成を委託する費用の一部を補助します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>区内の中小企業者</li><li>専門業者への委託による作成であること</li></ul>
-            <p><a href="https://www.city.nerima.tokyo.jp/jigyoshamuke/jigyosha/shoko/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="nerima-shiritsu-yochien-hojo">
+            <div class="ar-name"><b>私立幼稚園等補助金</b><small>私立幼稚園等に満3歳から5歳児を通園させ、入園料・保育料等を支払った保護者に、一部を補助します。<br>対象：幼児の住民登録が練馬区にあり、当該住所地から通園していること／認可を受けた私立幼稚園等に通園し、入園料や保育料等を納入していること<br>期間：令和8年度（最終期限は令和9年3月31日）</small><span class="ar-prov">練馬区</span></div>
+            <div class="ar-amt">要確認（新制度移行園・未移行園で上限額や補助方法が異なる）</div>
+            <a class="ar-go" href="https://www.city.nerima.tokyo.jp/kosodatekyoiku/kyoiku/enjo/R4shirituyou_hojyo.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          </div>
+          <h3 class="area-cat" id="res-g-kyoiku">教育・学び<span>3件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="nerima-kyushoku-miriyo-hojo">
+            <div class="ar-name"><b>練馬区立小中学校給食未利用者補助事業</b><small>長期欠席等のやむを得ない事情により継続的に学校給食を利用していない児童・生徒を対象に、給食費相当額を補助します。<br>対象：練馬区立小中学校に在籍する児童・生徒／ひと月をとおして継続的に学校給食を利用していないこと<br>期間：令和8年度の支給対象は令和8年10月から令和9年3月分</small><span class="ar-prov">練馬区 教育振興部 保健給食課</span></div>
+            <div class="ar-amt">月額 小学生6,400円、中学生7,900円</div>
+            <a class="ar-go" href="https://www.city.nerima.tokyo.jp/kosodatekyoiku/kyoiku/enjo/tyoukikesseki.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="nerima-shugaku-enjohi">
+            <div class="ar-name"><b>就学援助費（学校でかかる費用の援助）</b><small>経済的に困窮していると認められる児童・生徒の保護者に、区が学用品費等の費用の一部を援助します。<br>対象：練馬区に住所を有し、国公立小中学校（一部を除く）に通学している児童・生徒の保護者／生活保護を受けている方、または認定基準を満たす方<br>期間：令和8年度の申請を随時受け付け（支給は申請書を受付した月から）</small><span class="ar-prov">練馬区 教育振興部 学務課</span></div>
+            <div class="ar-amt">要確認（支給額は就学援助費支給費目表に記載）</div>
+            <a class="ar-go" href="https://www.city.nerima.tokyo.jp/kosodatekyoiku/kyoiku/enjo/enjo.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="nerima-tokubetsu-shien-kyushokuhi-hojo">
+            <div class="ar-name"><b>特別支援学校給食費等補助金</b><small>特別支援学校に通学する児童・生徒の保護者の経済的負担を軽減するため、学校給食費相当を補助します。<br>対象：練馬区内に在住していること／県立、国立、私立いずれかの特別支援学校に在籍していること<br>期間：申請受付期限：令和8年11月30日（月）<br>締切：2026-11-30</small><span class="ar-prov">練馬区 教育振興部 保健給食課</span></div>
+            <div class="ar-amt">年間上限 小学校低学年66,900円、中学年71,500円、高学年77,400円、中学生87,800円（弁当持参は1回あたり350円から467円）</div>
+            <a class="ar-go" href="https://www.city.nerima.tokyo.jp/kosodatekyoiku/kyoiku/enjo/tokusikyuusyoku.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>6件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="nerima-akiya-chiikikoken">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>練馬区空き家地域貢献事業</b><small>空き家を地域交流など公益的な目的で活用する場合に、アドバイザー派遣や改修等の初期整備費用の補助などの支援を行う。<br>対象：登録や補助金には要件あり（詳細は要確認）</small><span class="ar-prov">東京都練馬区</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.nerima.tokyo.jp/kurashi/sumai/akiya/katsuyou.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="nerima-block-tekkyo">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>ブロック塀等撤去費用助成</b><small>倒壊の恐れがあるブロック塀等の撤去費用を助成する。<br>対象：対象ブロック塀の所有者またはマンション管理組合／撤去工事の契約前に申請すること<br>期間：令和8年度（申請書の提出は令和9年1月末日まで）<br>締切：2027-01-31</small><span class="ar-prov">東京都練馬区</span></div>
+            <div class="ar-amt">1mあたり限度額：安全性に疑いがある塀8,000円、危険性が高い塀17,000円（17,000円は令和9年3月31日まで）</div>
+            <a class="ar-go" href="https://www.city.nerima.tokyo.jp/kurashi/bosai/jishinsonae/burokkubeitekyyo.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="nerima-carbon-neutral">
+            <div class="ar-name"><b><span class="ar-tag">省エネ住宅</span>令和8年度練馬区カーボンニュートラル化設備設置補助金</b><small>太陽光、エネファーム、エコキュート、高断熱窓・ドア、LED照明の設置費用を補助。<br>対象：令和8年4月1日〜令和9年3月31日に設置完了した設備<br>期間：申請受付：令和8年4月15日〜令和9年3月31日<br>締切：2027-03-31</small><span class="ar-prov">練馬区 環境課</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.nerima.tokyo.jp/kurashi/shigoto/kankyo/hojo.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="nerima-jiritsu-jutaku-setsubi">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>自立支援住宅改修給付（設備改修）</b><small>既存の浴槽や便器などの使用が困難な高齢者の、設備改修費用（浴槽・便器の洋式化など）を給付する。<br>対象：65歳以上で要支援1・2または要介護1〜5の認定を受けた方／既存設備の使用が困難な方</small><span class="ar-prov">東京都練馬区</span></div>
+            <div class="ar-amt">要確認（利用者負担は限度額内の費用の1割。生活保護世帯などは負担なし）</div>
+            <a class="ar-go" href="https://www.city.nerima.tokyo.jp/hokenfukushi/koreisha/jutaku/setsubi_kaishu.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="nerima-jiritsu-jutaku-yobo">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>自立支援住宅改修給付（予防給付）</b><small>要介護・要支援の認定で非該当となった高齢者の、介護予防のための住宅改修費用を給付する。<br>対象：65歳以上で要介護・要支援認定の結果が非該当の方／身体状況などに関する一定の要件を満たすこと</small><span class="ar-prov">東京都練馬区</span></div>
+            <div class="ar-amt">要確認（利用者負担は限度額内の費用の1割）</div>
+            <a class="ar-go" href="https://www.city.nerima.tokyo.jp/hokenfukushi/koreisha/jutaku/yobo_kaishu.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="nerima-taishin-kaishu">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>住宅の耐震改修工事等の助成</b><small>昭和56年5月31日以前の建築物と、昭和56年6月〜平成12年5月31日の木造住宅の耐震改修工事等を助成。<br>対象：木造は耐震診断の評点（Iw値）が1.0相当未満／業者契約・診断等は交付決定後</small><span class="ar-prov">練馬区 防災まちづくり課</span></div>
+            <div class="ar-amt">助成率4分の3。上限は耐震改修工事130万円（総合支援170万円）、障害者手帳等のある方がいる住宅は200万円（総合支援240万円）</div>
+            <a class="ar-go" href="https://www.city.nerima.tokyo.jp/kurashi/sumai/takuchi/taishin/kodate.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>東京都の制度</strong></p>
+          <ul><li><a href="pref-tokyo.html#tokyo-akachan-first">東京都出産・子育て応援事業（赤ちゃんファースト）</a></li><li><a href="pref-tokyo.html#tokyo-akiya-kazai-kaitai">東京都空き家家財整理・解体促進事業</a></li><li><a href="pref-tokyo.html#tokyo-dannetsu-solar-jutaku">災害にも強く健康にも資する断熱・太陽光住宅普及拡大事業</a></li><li><a href="pref-tokyo.html#tokyo-home-evcharge">戸建住宅向け充電設備普及促進事業（令和8年度）</a></li><li><a href="pref-tokyo.html#tokyo-kodomo-mamoru-jutaku">子育て世帯向け補助事業（「子供を守る」住宅確保促進事業）</a></li></ul>
+          <p><a href="pref-tokyo.html#pref-resident">東京都の制度9件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">東京都の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">練馬区の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-tokyo.html#tokyo-jigyoshokei-josei">事業承継支援助成金（第3回）</a></li><li><a href="pref-tokyo.html#tokyo-kadai-kaiketsu-gijutsu">課題解決型技術開発促進事業</a></li><li><a href="pref-tokyo.html#tokyo-seidoyushi-sogyo">東京都中小企業制度融資「創業」</a></li><li><a href="pref-tokyo.html#tokyo-seihin-chakushu">製品開発着手支援助成事業</a></li><li><a href="pref-tokyo.html#tokyo-souikufuu-challenge">経営力強化に向けた創意工夫チャレンジ促進事業</a></li></ul>
-          <p><a href="pref-tokyo.html#pref-business">東京都の制度6件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="nerima-sangyo-yushi-assen">
+            <div class="ar-name"><b>産業融資あっせん（練馬区産業融資制度）</b><small>区が金融機関に融資をあっせんし、区内中小企業の事業資金を低利で借りられるようにする制度です。普通貸付、創業支援貸付、景気対策特別貸付、災害貸付などがあります。<br>対象：区内中小企業者／小口貸付は東京信用保証協会の保証付きが条件</small><span class="ar-prov">練馬区 産業経済部 経済課 融資係</span></div>
+            <div class="ar-amt">利用者負担金利0.9%以下（区が利子の一部を負担）。融資限度額は貸付種類ごとに要確認</div>
+            <a class="ar-go" href="https://www.city.nerima.tokyo.jp/kusei/sangyo/jigyosha/yushi/" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="nerima-sogyo-tokubetsu-yushi">
+            <div class="ar-name"><b>創業支援特別貸付</b><small>区の産業融資あっせんの一種で、創業する事業者の事業資金を低利で融資します。<br>対象：練馬区内で創業する事業者（詳細要件は公式ページで要確認）</small><span class="ar-prov">練馬区 産業経済部 経済課 融資係</span></div>
+            <div class="ar-amt">要確認（限度額は公式ページで確認が必要）</div>
+            <a class="ar-go" href="https://www.city.nerima.tokyo.jp/kusei/sangyo/jigyosha/yushi/sogyo-tokubetu.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="nerima-marukei-rishi-hojo">
+            <div class="ar-name"><b>小規模事業者経営改善資金（マル経融資）利子補助金</b><small>東京商工会議所練馬支部の推薦を受けて日本政策金融公庫のマル経融資を利用した小規模事業者の支払利子の一部を区が補助します。<br>対象：区内の小規模事業者／東京商工会議所練馬支部の推薦を受けてマル経融資を利用していること</small><span class="ar-prov">練馬区 産業経済部 経済課</span></div>
+            <div class="ar-amt">支払利子の40％を補助（要確認）</div>
+            <a class="ar-go" href="https://www.city.nerima.tokyo.jp/jigyoshamuke/jigyosha/yushi/2403marukeiyuusi.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="nerima-bizi-challe">
+            <div class="ar-name"><b>新規ビジネスチャレンジ補助金</b><small>新市場への参入や新商品・新サービスの開発に取り組む区内中小企業者等の経費の一部を補助し、事業計画の作成と実行を伴走支援します。<br>対象：区内の中小企業者等／新市場参入または新商品・新サービス開発に取り組むこと</small><span class="ar-prov">練馬区 産業経済部 経済課</span></div>
+            <div class="ar-amt">補助率・上限額は公式ページで確認できず（要確認）</div>
+            <a class="ar-go" href="https://www.city.nerima.tokyo.jp/kusei/sangyo/jigyosha/bizichalle.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="nerima-homepage-hojo">
+            <div class="ar-name"><b>ホームページ作成補助金</b><small>区内中小企業者が専門業者へホームページ作成を委託する費用の一部を補助します。<br>対象：区内の中小企業者／専門業者への委託による作成であること</small><span class="ar-prov">練馬区 産業経済部 経済課</span></div>
+            <div class="ar-amt">委託費の2分の1以内、上限5万円</div>
+            <a class="ar-go" href="https://www.city.nerima.tokyo.jp/jigyoshamuke/jigyosha/shoko/index.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">東京都の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>練馬区の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="nerima-taishin-kaishu">
-            <h3>住宅の耐震改修工事等の助成</h3>
-            <p class="area-meta">練馬区 防災まちづくり課｜補助金｜助成率4分の3。上限は耐震改修工事130万円（総合支援170万円）、障害者手帳等のある方がいる住宅は200万円（総合支援240万円）</p>
-            <p class="area-meta">期間：令和7年度に拡充と案内（令和8年度の期間は要確認）</p>
-            <p>昭和56年5月31日以前の建築物と、昭和56年6月〜平成12年5月31日の木造住宅の耐震改修工事等を助成。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>木造は耐震診断の評点（Iw値）が1.0相当未満</li><li>業者契約・診断等は交付決定後</li></ul>
-            <p><a href="https://www.city.nerima.tokyo.jp/kurashi/sumai/takuchi/taishin/kodate.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
-          <div class="area-program" id="nerima-carbon-neutral">
-            <h3>令和8年度練馬区カーボンニュートラル化設備設置補助金</h3>
-            <p class="area-meta">練馬区 環境課｜補助金｜金額は公式で確認｜締切：2027-03-31</p>
-            <p class="area-meta">期間：申請受付：令和8年4月15日〜令和9年3月31日</p>
-            <p>太陽光、エネファーム、エコキュート、高断熱窓・ドア、LED照明の設置費用を補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>令和8年4月1日〜令和9年3月31日に設置完了した設備</li></ul>
-            <p><a href="https://www.city.nerima.tokyo.jp/kurashi/shigoto/kankyo/hojo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="nerima-akiya-chiikikoken">
-            <h3>練馬区空き家地域貢献事業</h3>
-            <p class="area-meta">東京都練馬区｜補助金｜金額は公式で確認</p>
-            
-            <p>空き家を地域交流など公益的な目的で活用する場合に、アドバイザー派遣や改修等の初期整備費用の補助などの支援を行う。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>登録や補助金には要件あり（詳細は要確認）</li></ul>
-            <p><a href="https://www.city.nerima.tokyo.jp/kurashi/sumai/akiya/katsuyou.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="nerima-block-tekkyo">
-            <h3>ブロック塀等撤去費用助成</h3>
-            <p class="area-meta">東京都練馬区｜助成金｜1mあたり限度額：安全性に疑いがある塀8,000円、危険性が高い塀17,000円（17,000円は令和9年3月31日まで）｜締切：2027-01-31</p>
-            <p class="area-meta">期間：令和8年度（申請書の提出は令和9年1月末日まで）</p>
-            <p>倒壊の恐れがあるブロック塀等の撤去費用を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>対象ブロック塀の所有者またはマンション管理組合</li><li>撤去工事の契約前に申請すること</li><li>道路に面する塀は高さ60cm以下に撤去すること</li></ul>
-            <p><a href="https://www.city.nerima.tokyo.jp/kurashi/bosai/jishinsonae/burokkubeitekyyo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
-          <div class="area-program" id="nerima-jiritsu-jutaku-setsubi">
-            <h3>自立支援住宅改修給付（設備改修）</h3>
-            <p class="area-meta">東京都練馬区｜給付｜要確認（利用者負担は限度額内の費用の1割。生活保護世帯などは負担なし）</p>
-            
-            <p>既存の浴槽や便器などの使用が困難な高齢者の、設備改修費用（浴槽・便器の洋式化など）を給付する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>65歳以上で要支援1・2または要介護1〜5の認定を受けた方</li><li>既存設備の使用が困難な方</li></ul>
-            <p><a href="https://www.city.nerima.tokyo.jp/hokenfukushi/koreisha/jutaku/setsubi_kaishu.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="nerima-jiritsu-jutaku-yobo">
-            <h3>自立支援住宅改修給付（予防給付）</h3>
-            <p class="area-meta">東京都練馬区｜給付｜要確認（利用者負担は限度額内の費用の1割）</p>
-            
-            <p>要介護・要支援の認定で非該当となった高齢者の、介護予防のための住宅改修費用を給付する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>65歳以上で要介護・要支援認定の結果が非該当の方</li><li>身体状況などに関する一定の要件を満たすこと</li></ul>
-            <p><a href="https://www.city.nerima.tokyo.jp/hokenfukushi/koreisha/jutaku/yobo_kaishu.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-6">子育て</h3>
-          <div class="area-program" id="nerima-babysitter-riyo-shien">
-            <h3>ベビーシッター利用支援事業（一時預かり利用支援）</h3>
-            <p class="area-meta">練馬区｜補助金｜1時間あたり日中2,500円・夜間3,500円まで／年度あたり児童1人144時間（障害児・ひとり親家庭・多胎児は288時間）</p>
-            <p class="area-meta">期間：令和8年度：令和8年4月1日から令和9年3月31日まで</p>
-            <p>東京都が認定したベビーシッターを利用した際の利用料の一部を補助します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>練馬区に住民登録があり、対象児童と同居している保護者</li><li>小学3年生まで（障害児は小学6年生まで）のお子さんを養育する方</li></ul>
-            <p><a href="https://www.city.nerima.tokyo.jp/kosodatekyoiku/kodomo/hoiku/itijiteki_hoiku/babysitter.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="nerima-hitorioya-tentaku">
-            <h3>ひとり親家庭転宅支援給付金</h3>
-            <p class="area-meta">東京都練馬区｜給付｜上限40万円（敷金・礼金などの契約費用と引越し費用）</p>
-            <p class="area-meta">期間：確認できた年度：令和7年度（最新は要確認）</p>
-            <p>今より家賃の安い住宅へ転宅するひとり親家庭の、契約費用と引越し費用を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>児童扶養手当などを受けている方</li><li>住宅契約の前に家計相談を受けること</li></ul>
-            <p><a href="https://www.city.nerima.tokyo.jp/kurashi/jinken/hitorioya/tentakushien.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="nerima-kodomoen-teinenrei-hoikuryo-hojo">
-            <h3>練馬こども園低年齢型定期利用保育料補助金</h3>
-            <p class="area-meta">練馬区 教育振興部 学務課｜補助金｜定期利用保育料の補助額は上限月額42,000円</p>
-            <p class="area-meta">期間：令和8年度（0歳児は令和7年4月2日から令和8年4月1日生まれなど）</p>
-            <p>練馬こども園低年齢型（0から2歳）の預かり保育を定期利用している保護者に、定期利用保育料の一部を補助します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>幼児の住民登録が練馬区にあり、当該住所地から通園していること</li><li>対象の幼稚園の練馬こども園低年齢型を定期利用していること</li><li>保育の必要性があること</li></ul>
-            <p><a href="https://www.city.nerima.tokyo.jp/kosodatekyoiku/kyoiku/enjo/kodomoen_teinenrei.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="nerima-ninpu-kenshin-josei">
-            <h3>妊婦健康診査費用助成</h3>
-            <p class="area-meta">練馬区｜助成金｜令和8年度助成上限額：1回目11,670円、2～14回目5,460円、超音波検査5,300円、子宮頸がん検診3,400円</p>
-            <p class="area-meta">期間：妊娠届提出後の受診時</p>
-            <p>母子健康手帳交付時に渡す受診票を医療機関に提出すると、妊婦健康診査費用の一部が助成されます。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>受診票（妊婦健康診査14回分、妊婦超音波検査4回分、妊婦子宮頸がん検診1回分）を使用する方</li><li>助産所での受診は原則7回が上限（令和6年10月1日以降に妊娠届を提出した方）</li></ul>
-            <p><a href="https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/sukoyaka/kenkoshinsa.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="nerima-shiritsu-yochien-hojo">
-            <h3>私立幼稚園等補助金</h3>
-            <p class="area-meta">練馬区｜補助金｜要確認（新制度移行園・未移行園で上限額や補助方法が異なる）</p>
-            <p class="area-meta">期間：令和8年度（最終期限は令和9年3月31日）</p>
-            <p>私立幼稚園等に満3歳から5歳児を通園させ、入園料・保育料等を支払った保護者に、一部を補助します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>幼児の住民登録が練馬区にあり、当該住所地から通園していること</li><li>認可を受けた私立幼稚園等に通園し、入園料や保育料等を納入していること</li><li>満3歳児から5歳児クラスであること</li></ul>
-            <p><a href="https://www.city.nerima.tokyo.jp/kosodatekyoiku/kyoiku/enjo/R4shirituyou_hojyo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-8">教育・学び</h3>
-          <div class="area-program" id="nerima-kyushoku-miriyo-hojo">
-            <h3>練馬区立小中学校給食未利用者補助事業</h3>
-            <p class="area-meta">練馬区 教育振興部 保健給食課｜補助金｜月額 小学生6,400円、中学生7,900円</p>
-            <p class="area-meta">期間：令和8年度の支給対象は令和8年10月から令和9年3月分</p>
-            <p>長期欠席等のやむを得ない事情により継続的に学校給食を利用していない児童・生徒を対象に、給食費相当額を補助します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>練馬区立小中学校に在籍する児童・生徒</li><li>ひと月をとおして継続的に学校給食を利用していないこと</li><li>学校へ給食停止の届け出を行い、給食用食材の発注が停止されていること</li></ul>
-            <p><a href="https://www.city.nerima.tokyo.jp/kosodatekyoiku/kyoiku/enjo/tyoukikesseki.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="nerima-shugaku-enjohi">
-            <h3>就学援助費（学校でかかる費用の援助）</h3>
-            <p class="area-meta">練馬区 教育振興部 学務課｜給付｜要確認（支給額は就学援助費支給費目表に記載）</p>
-            <p class="area-meta">期間：令和8年度の申請を随時受け付け（支給は申請書を受付した月から）</p>
-            <p>経済的に困窮していると認められる児童・生徒の保護者に、区が学用品費等の費用の一部を援助します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>練馬区に住所を有し、国公立小中学校（一部を除く）に通学している児童・生徒の保護者</li><li>生活保護を受けている方、または認定基準を満たす方</li></ul>
-            <p><a href="https://www.city.nerima.tokyo.jp/kosodatekyoiku/kyoiku/enjo/enjo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="nerima-tokubetsu-shien-kyushokuhi-hojo">
-            <h3>特別支援学校給食費等補助金</h3>
-            <p class="area-meta">練馬区 教育振興部 保健給食課｜補助金｜年間上限 小学校低学年66,900円、中学年71,500円、高学年77,400円、中学生87,800円（弁当持参は1回あたり350円から467円）｜締切：2026-11-30</p>
-            <p class="area-meta">期間：申請受付期限：令和8年11月30日（月）</p>
-            <p>特別支援学校に通学する児童・生徒の保護者の経済的負担を軽減するため、学校給食費相当を補助します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>練馬区内に在住していること</li><li>県立、国立、私立いずれかの特別支援学校に在籍していること</li><li>対象世帯の所得制限はありません</li></ul>
-            <p><a href="https://www.city.nerima.tokyo.jp/kosodatekyoiku/kyoiku/enjo/tokusikyuusyoku.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>東京都の制度</strong></p>
-          <ul><li><a href="pref-tokyo.html#tokyo-akachan-first">東京都出産・子育て応援事業（赤ちゃんファースト）</a></li><li><a href="pref-tokyo.html#tokyo-akiya-kazai-kaitai">東京都空き家家財整理・解体促進事業</a></li><li><a href="pref-tokyo.html#tokyo-dannetsu-solar-jutaku">災害にも強く健康にも資する断熱・太陽光住宅普及拡大事業</a></li><li><a href="pref-tokyo.html#tokyo-home-evcharge">戸建住宅向け充電設備普及促進事業（令和8年度）</a></li><li><a href="pref-tokyo.html#tokyo-kodomo-mamoru-jutaku">子育て世帯向け補助事業（「子供を守る」住宅確保促進事業）</a></li></ul>
-          <p><a href="pref-tokyo.html#pref-resident">東京都の制度9件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-tokyo.html#tokyo-jigyoshokei-josei">事業承継支援助成金（第3回）</a></li><li><a href="pref-tokyo.html#tokyo-kadai-kaiketsu-gijutsu">課題解決型技術開発促進事業</a></li><li><a href="pref-tokyo.html#tokyo-seidoyushi-sogyo">東京都中小企業制度融資「創業」</a></li><li><a href="pref-tokyo.html#tokyo-seihin-chakushu">製品開発着手支援助成事業</a></li><li><a href="pref-tokyo.html#tokyo-souikufuu-challenge">経営力強化に向けた創意工夫チャレンジ促進事業</a></li></ul>
+          <p><a href="pref-tokyo.html#pref-business">東京都の制度6件を、県のページで見る →</a></p>
       </div>
     </section>
 

@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"宜野湾市","item":"https://hojyokin.net/area/ginowan.html"}]}</script>
@@ -165,85 +207,80 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 宜野湾市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b01.webp')"><h1 class="pb-title">宜野湾市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-okinawa.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">沖縄県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">沖縄県 宜野湾市</p>
+        <h1>宜野湾市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度4件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-okinawa.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（宜野湾市）<b>1件</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（沖縄県）<b>4件（うち受付終了2件）</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>3件（うち受付終了1件）</b></a><span class="area-toc-cats"><a href="#res-cat-5">バリアフリー・介護 2</a><a href="#res-cat-6">子育て 1</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <a href="#res-g-kosodate"><i aria-hidden="true">👶</i><b>子育て</b><small>1件</small></a>
+      <span class="is-none"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>掲載なし</small></span>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>2件</small></a>
+      <span class="is-none"><i aria-hidden="true">🌱</i><b>移住</b><small>掲載なし</small></span>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市1件＋県4件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">宜野湾市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="ginowan-city-tokusanhin-hanro-kakudai">
-            <h3>宜野湾市特産品等販路拡大支援事業補助金</h3>
-            <p class="area-meta">宜野湾市 経済課｜補助金｜展示会参加費用の2/3。県内5万円以内・県外10万円以内（市長賞認定品の販路開拓費は上限20万円）｜締切：2027-03-31</p>
-            <p class="area-meta">期間：令和8年4月15日〜令和9年3月31日（予算額に達し次第終了）</p>
-            <p>市内の中小企業者が県内外の展示会等に特産品を出品する費用の一部を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内で事業を営む中小企業者</li><li>展示会等へ特産品を出品する事業</li><li>市区町村税を完納していること</li></ul>
-            <p><a href="https://www.city.ginowan.lg.jp/soshiki/keizai/3/3/2/sienjouhou_1/5765.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-kosodate">子育て<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row is-ended" id="ginowan-kosodate-teate">
+            <div class="ar-name"><b>物価高対応子育て応援手当 <span class="area-ended-tag">受付終了</span></b><small>児童手当受給世帯の0〜18歳の児童に支給する物価高対応の給付。<br>対象：児童手当を受給している世帯の0歳〜18歳の児童<br>期間：申請が必要な場合は令和8年6月30日まで（受付終了の可能性）<br>締切：2026-06-30</small><span class="ar-prov">沖縄県宜野湾市</span></div>
+            <div class="ar-amt">児童1人あたり2万円</div>
+            <a class="ar-go" href="https://www.city.ginowan.lg.jp/soshiki/kodomo/3/4/19074.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          </div>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>2件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="ginowan-reform">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>住宅リフォーム支援事業（令和8年度）</b><small>バリアフリー・断熱工事など既存住宅のリフォームを市内施工業者で行う場合に補助する。<br>対象：申請者が居住する住宅／工事費20万円以上（税込）</small><span class="ar-prov">沖縄県宜野湾市</span></div>
+            <div class="ar-amt">対象工事費の20%（上限20万円）</div>
+            <a class="ar-go" href="https://www.city.ginowan.lg.jp/soshiki/kensetsu/kenchikushido/1/1/2/20263.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="ginowan-tentou">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>転倒予防のための住宅改修費助成</b><small>手すり設置や段差緩和など転倒予防の住宅改修費を、市から業者へ直接支払う形で助成する。<br>対象：65歳以上で市内在住／基本チェックリストで事業対象者と承認された方</small><span class="ar-prov">沖縄県宜野湾市</span></div>
+            <div class="ar-amt">上限75,000円（令和7年度に5万円から引上げ）</div>
+            <a class="ar-go" href="https://www.city.ginowan.lg.jp/soshiki/kenko/1/kaigoyobou/17730.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>沖縄県の制度</strong></p>
+          <ul><li><a href="pref-okinawa.html#okinawa-hitorioya-jutaku-shikin">ひとり親家庭住宅支援資金貸付</a></li><li><a href="pref-okinawa.html#okinawa-ken-churatturn-kotsuhi">ちゅらっとターン交通費補助金</a></li><li><a href="pref-okinawa.html#okinawa-ken-ijyu-shienkin">沖縄県移住支援金</a></li></ul>
+          <p><a href="pref-okinawa.html#pref-resident">沖縄県の制度3件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">沖縄県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">宜野湾市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-okinawa.html#okinawa-shokibo-taisaku-shikin">沖縄県 小規模企業対策資金（一般貸付）</a></li><li><a href="pref-okinawa.html#okinawa-sogyosha-shien-kashitsuke">沖縄県 創業者・事業承継支援資金（創業者支援貸付）</a></li><li><a href="pref-okinawa.html#okinawa-keiei-kakushin-hojo">沖縄県中小企業等経営革新強化支援事業費補助金</a></li><li><a href="pref-okinawa.html#okinawa-startup-kigyo-shienkin">沖縄県スタートアップ起業支援金</a></li></ul>
-          <p><a href="pref-okinawa.html#pref-business">沖縄県の制度4件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="ginowan-city-tokusanhin-hanro-kakudai">
+            <div class="ar-name"><b>宜野湾市特産品等販路拡大支援事業補助金</b><small>市内の中小企業者が県内外の展示会等に特産品を出品する費用の一部を補助する。<br>対象：市内で事業を営む中小企業者／展示会等へ特産品を出品する事業<br>期間：令和8年4月15日〜令和9年3月31日（予算額に達し次第終了）<br>締切：2027-03-31</small><span class="ar-prov">宜野湾市 経済課</span></div>
+            <div class="ar-amt">展示会参加費用の2/3。県内5万円以内・県外10万円以内（市長賞認定品の販路開拓費は上限20万円）</div>
+            <a class="ar-go" href="https://www.city.ginowan.lg.jp/soshiki/keizai/3/3/2/sienjouhou_1/5765.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">沖縄県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>宜野湾市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
-          <div class="area-program" id="ginowan-reform">
-            <h3>住宅リフォーム支援事業（令和8年度）</h3>
-            <p class="area-meta">沖縄県宜野湾市｜補助金｜対象工事費の20%（上限20万円）</p>
-            <p class="area-meta">期間：事前申込7/1〜24、交付申請8/3〜31。追加で8件程度を先着受付との記載あり（残枠は要確認）</p>
-            <p>バリアフリー・断熱工事など既存住宅のリフォームを市内施工業者で行う場合に補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>申請者が居住する住宅</li><li>工事費20万円以上（税込）</li><li>市内施工業者の利用</li></ul>
-            <p><a href="https://www.city.ginowan.lg.jp/soshiki/kensetsu/kenchikushido/1/1/2/20263.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="ginowan-tentou">
-            <h3>転倒予防のための住宅改修費助成</h3>
-            <p class="area-meta">沖縄県宜野湾市｜助成金｜上限75,000円（令和7年度に5万円から引上げ）</p>
-            <p class="area-meta">期間：令和8年度の上限・期間は最新は要確認</p>
-            <p>手すり設置や段差緩和など転倒予防の住宅改修費を、市から業者へ直接支払う形で助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>65歳以上で市内在住</li><li>基本チェックリストで事業対象者と承認された方</li><li>介護保険の認定申請をしていないこと</li></ul>
-            <p><a href="https://www.city.ginowan.lg.jp/soshiki/kenko/1/kaigoyobou/17730.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-6">子育て</h3>
-          <div class="area-program is-ended" id="ginowan-kosodate-teate">
-            <h3>物価高対応子育て応援手当 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">沖縄県宜野湾市｜給付｜児童1人あたり2万円｜締切：2026-06-30</p>
-            <p class="area-meta">期間：申請が必要な場合は令和8年6月30日まで（受付終了の可能性）</p>
-            <p>児童手当受給世帯の0〜18歳の児童に支給する物価高対応の給付。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>児童手当を受給している世帯の0歳〜18歳の児童</li></ul>
-            <p><a href="https://www.city.ginowan.lg.jp/soshiki/kodomo/3/4/19074.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>沖縄県の制度</strong></p>
-          <ul><li><a href="pref-okinawa.html#okinawa-hitorioya-jutaku-shikin">ひとり親家庭住宅支援資金貸付</a></li><li><a href="pref-okinawa.html#okinawa-ken-churatturn-kotsuhi">ちゅらっとターン交通費補助金</a></li><li><a href="pref-okinawa.html#okinawa-ken-ijyu-shienkin">沖縄県移住支援金</a></li></ul>
-          <p><a href="pref-okinawa.html#pref-resident">沖縄県の制度3件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-okinawa.html#okinawa-shokibo-taisaku-shikin">沖縄県 小規模企業対策資金（一般貸付）</a></li><li><a href="pref-okinawa.html#okinawa-sogyosha-shien-kashitsuke">沖縄県 創業者・事業承継支援資金（創業者支援貸付）</a></li><li><a href="pref-okinawa.html#okinawa-keiei-kakushin-hojo">沖縄県中小企業等経営革新強化支援事業費補助金</a></li><li><a href="pref-okinawa.html#okinawa-startup-kigyo-shienkin">沖縄県スタートアップ起業支援金</a></li></ul>
+          <p><a href="pref-okinawa.html#pref-business">沖縄県の制度4件を、県のページで見る →</a></p>
       </div>
     </section>
 

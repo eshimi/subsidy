@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"新居浜市","item":"https://hojyokin.net/area/niihama.html"}]}</script>
@@ -165,124 +207,100 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 新居浜市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b09.webp')"><h1 class="pb-title">新居浜市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-ehime.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">愛媛県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">愛媛県 新居浜市</p>
+        <h1>新居浜市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度8件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-ehime.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（新居浜市）<b>3件</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（愛媛県）<b>4件（うち受付終了1件）</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>5件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-9">移住 2</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <span class="is-none"><i aria-hidden="true">👶</i><b>子育て</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>掲載なし</small></span>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>3件</small></a>
+      <a href="#res-g-iju"><i aria-hidden="true">🌱</i><b>移住</b><small>2件</small></a>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市3件＋県4件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">新居浜市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="niihama-city-akitenpo-katsuyo-shien-hojo">
-            <h3>新居浜市空き店舗活用支援事業補助金</h3>
-            <p class="area-meta">新居浜市 産業振興課｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：令和8年度（要確認）</p>
-            <p>市内の空き店舗を活用して出店する事業者を支援する補助制度（令和8年度）。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の空き店舗を活用して出店すること</li><li>詳細な対象要件は公式ページで要確認</li></ul>
-            <p><a href="https://www.city.niihama.lg.jp/soshiki/sanshin/akitenpokatsuyou.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>3件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="niihama-akiya-jokyaku">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>新居浜市老朽危険空家除却補助</b><small>倒壊のおそれがある老朽危険空家の除却費用を補助する。交付決定前の解体は対象外。<br>対象：老朽危険空家と判定されたもの</small><span class="ar-prov">愛媛県新居浜市</span></div>
+            <div class="ar-amt">対象経費の8/10、上限80万円</div>
+            <a class="ar-go" href="https://www.city.niihama.lg.jp/soshiki/kensido/uketukesyuuryoureiwa6jyokyakutuika.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="niihama-city-chushokigyo-shinko-hojo">
-            <h3>新居浜市中小企業振興補助金</h3>
-            <p class="area-meta">新居浜市 産業振興課｜補助金｜メニューごとに異なる（例：デジタル技術導入10万円定額、企業価値向上は補助率50%・上限30万円、生産性向上機器導入は上限100万円、事業所設置は上限1,000万円）｜締切：2027-03-01</p>
-            <p class="area-meta">期間：令和8年度、事業完了日の区分ごとに申請期限あり（2027年3月1日までなど）</p>
-            <p>事業所設置、産業財産権取得、人材養成、市場開拓、生産性向上機器導入、デジタル技術導入、人材確保、企業価値向上、住宅環境整備の9メニューで中小企業の取組を支援する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内に本店や事業所を持つ中小企業者等であること</li><li>市税の滞納がないこと</li><li>メニューごとの申請期限内に申請すること（2026年8月31日、2027年3月1日など）</li></ul>
-            <p><a href="https://www.city.niihama.lg.jp/soshiki/sanshin/shinkoujyosei.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="niihama-solar">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>新居浜市個人向け太陽光発電設備導入補助</b><small>一戸建て専用住宅への10kW未満の自家消費型太陽光発電設備の導入を補助する。令和8年10月9日時点で予算残りわずか(受付再開)。<br>対象：市内の一戸建て専用住宅／交付決定前の契約は対象外<br>期間：2026年7月1日〜12月25日(予算残額わずか)<br>締切：2026-12-25</small><span class="ar-prov">愛媛県新居浜市</span></div>
+            <div class="ar-amt">1kWあたり7万円、上限35万円(5kW分)</div>
+            <a class="ar-go" href="https://www.city.niihama.lg.jp/soshiki/hozen/jyuutakutaiyoukouhojo2026.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="niihama-city-sogyo-sokushin-hojo">
-            <h3>新居浜市創業促進補助金</h3>
-            <p class="area-meta">新居浜市 産業振興課｜補助金｜上限30万円。補助率は特定創業支援等事業の支援を受けた人2/3、それ以外1/2</p>
-            <p class="area-meta">期間：令和8年度（創業の日から180日以内に申請。予算の範囲内）</p>
-            <p>創業にかかる事業拠点費（家賃・不動産購入費）、改装費、機械器具費、広告宣伝費などの一部を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内で創業した（する）人</li><li>申請は創業の日から180日以内</li><li>業種によっては対象外となる場合あり</li></ul>
-            <p><a href="https://www.city.niihama.lg.jp/soshiki/sanshin/sougyoushien.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/niihama-city-sogyo-sokushin-hojo.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+          <div class="ar-row" id="niihama-taishin">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>新居浜市木造住宅耐震改修補助</b><small>耐震診断で評点1.0未満の木造住宅の耐震改修を補助する。<br>対象：市の耐震診断で上部構造評点1.0未満の木造住宅／登録事業者による設計・施工<br>期間：令和8年度 2026年4月1日から先着順(予算の範囲内)</small><span class="ar-prov">愛媛県新居浜市</span></div>
+            <div class="ar-amt">設計2/3(上限20万円)、工事4/5(上限115万円)、工事監理1/2(上限3万円)</div>
+            <a class="ar-go" href="https://www.city.niihama.lg.jp/soshiki/kensido/taishinkaisyuu.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          </div>
+          <h3 class="area-cat" id="res-g-iju">移住<span>2件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="niihama-iju-kaishu">
+            <div class="ar-name"><b>新居浜市移住者住宅改修支援事業</b><small>県外から移住して住宅を改修する働き手世帯・子育て世帯を支援する。<br>対象：県外からの移住者／働き手世帯または子育て世帯</small><span class="ar-prov">愛媛県新居浜市</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.niihama.lg.jp/soshiki/promo/ijuushajuutakukaishuu2020.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="niihama-shuto-iju">
+            <div class="ar-name"><b>新居浜市首都圏移住支援事業</b><small>東京23区等から移住し就業等の要件を満たす方への移住支援金。<br>対象：首都圏からの移住／就業等の要件あり</small><span class="ar-prov">愛媛県新居浜市</span></div>
+            <div class="ar-amt">単身60万円、世帯100万円</div>
+            <a class="ar-go" href="https://www.city.niihama.lg.jp/soshiki/promo/izyuusiennkin.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>愛媛県の制度</strong></p>
+          <ul><li><a href="pref-ehime.html#ehime-ev-kounyu">愛媛県 電気自動車（EV）購入支援補助金</a></li><li><a href="pref-ehime.html#ehime-ijyusha-jutaku-kaishu">愛媛県移住者住宅改修支援事業</a></li><li><a href="pref-ehime.html#ehime-mokuzo-taishin">愛媛県 木造住宅耐震化補助制度</a></li></ul>
+          <p><a href="pref-ehime.html#pref-resident">愛媛県の制度3件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">愛媛県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">新居浜市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-ehime.html#ehime-dx-hajime">愛媛県DXはじめの一歩補助金</a></li><li><a href="pref-ehime.html#ehime-koukeisha-shinjigyo">愛媛県後継者新事業展開支援事業費補助金</a></li><li><a href="pref-ehime.html#ehime-shinjigyo-sozo-shikin">新事業創出支援資金（創業向け県制度融資・保証料全額補助）</a></li><li><a href="pref-ehime.html#ehime-chinage-shokibo">賃上げ対応型小規模事業者経営力強化支援事業費補助金</a></li></ul>
-          <p><a href="pref-ehime.html#pref-business">愛媛県の制度4件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="niihama-city-akitenpo-katsuyo-shien-hojo">
+            <div class="ar-name"><b>新居浜市空き店舗活用支援事業補助金</b><small>市内の空き店舗を活用して出店する事業者を支援する補助制度（令和8年度）。<br>対象：市内の空き店舗を活用して出店すること／詳細な対象要件は公式ページで要確認</small><span class="ar-prov">新居浜市 産業振興課</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.niihama.lg.jp/soshiki/sanshin/akitenpokatsuyou.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="niihama-city-chushokigyo-shinko-hojo">
+            <div class="ar-name"><b>新居浜市中小企業振興補助金</b><small>事業所設置、産業財産権取得、人材養成、市場開拓、生産性向上機器導入、デジタル技術導入、人材確保、企業価値向上、住宅環境整備の9メニューで中小企業の取組を支援する。<br>対象：市内に本店や事業所を持つ中小企業者等であること／市税の滞納がないこと<br>期間：令和8年度、事業完了日の区分ごとに申請期限あり（2027年3月1日までなど）<br>締切：2027-03-01</small><span class="ar-prov">新居浜市 産業振興課</span></div>
+            <div class="ar-amt">メニューごとに異なる（例：デジタル技術導入10万円定額、企業価値向上は補助率50%・上限30万円、生産性向上機器導入は上限100万円、事業所設置は上限1,000万円）</div>
+            <a class="ar-go" href="https://www.city.niihama.lg.jp/soshiki/sanshin/shinkoujyosei.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="niihama-city-sogyo-sokushin-hojo">
+            <div class="ar-name"><b>新居浜市創業促進補助金</b><small>創業にかかる事業拠点費（家賃・不動産購入費）、改装費、機械器具費、広告宣伝費などの一部を補助する。<br>対象：市内で創業した（する）人／申請は創業の日から180日以内<br>期間：令和8年度（創業の日から180日以内に申請。予算の範囲内）</small><span class="ar-prov">新居浜市 産業振興課</span></div>
+            <div class="ar-amt">上限30万円。補助率は特定創業支援等事業の支援を受けた人2/3、それ以外1/2</div>
+            <a class="ar-go" href="https://www.city.niihama.lg.jp/soshiki/sanshin/sougyoushien.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">愛媛県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>新居浜市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="niihama-taishin">
-            <h3>新居浜市木造住宅耐震改修補助</h3>
-            <p class="area-meta">愛媛県新居浜市｜補助金｜設計2/3(上限20万円)、工事4/5(上限115万円)、工事監理1/2(上限3万円)</p>
-            <p class="area-meta">期間：令和8年度 2026年4月1日から先着順(予算の範囲内)</p>
-            <p>耐震診断で評点1.0未満の木造住宅の耐震改修を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市の耐震診断で上部構造評点1.0未満の木造住宅</li><li>登録事業者による設計・施工</li></ul>
-            <p><a href="https://www.city.niihama.lg.jp/soshiki/kensido/taishinkaisyuu.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program" id="niihama-solar">
-            <h3>新居浜市個人向け太陽光発電設備導入補助</h3>
-            <p class="area-meta">愛媛県新居浜市｜補助金｜1kWあたり7万円、上限35万円(5kW分)｜締切：2026-12-25</p>
-            <p class="area-meta">期間：2026年7月1日〜12月25日(予算残額わずか)</p>
-            <p>一戸建て専用住宅への10kW未満の自家消費型太陽光発電設備の導入を補助する。令和8年10月9日時点で予算残りわずか(受付再開)。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の一戸建て専用住宅</li><li>交付決定前の契約は対象外</li></ul>
-            <p><a href="https://www.city.niihama.lg.jp/soshiki/hozen/jyuutakutaiyoukouhojo2026.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="niihama-akiya-jokyaku">
-            <h3>新居浜市老朽危険空家除却補助</h3>
-            <p class="area-meta">愛媛県新居浜市｜補助金｜対象経費の8/10、上限80万円</p>
-            <p class="area-meta">期間：令和8年度(受付期間は要確認)</p>
-            <p>倒壊のおそれがある老朽危険空家の除却費用を補助する。交付決定前の解体は対象外。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>老朽危険空家と判定されたもの</li></ul>
-            <p><a href="https://www.city.niihama.lg.jp/soshiki/kensido/uketukesyuuryoureiwa6jyokyakutuika.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-9">移住</h3>
-          <div class="area-program" id="niihama-iju-kaishu">
-            <h3>新居浜市移住者住宅改修支援事業</h3>
-            <p class="area-meta">愛媛県新居浜市｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>県外から移住して住宅を改修する働き手世帯・子育て世帯を支援する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>県外からの移住者</li><li>働き手世帯または子育て世帯</li></ul>
-            <p><a href="https://www.city.niihama.lg.jp/soshiki/promo/ijuushajuutakukaishuu2020.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="niihama-shuto-iju">
-            <h3>新居浜市首都圏移住支援事業</h3>
-            <p class="area-meta">愛媛県新居浜市｜給付｜単身60万円、世帯100万円</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>東京23区等から移住し就業等の要件を満たす方への移住支援金。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>首都圏からの移住</li><li>就業等の要件あり</li></ul>
-            <p><a href="https://www.city.niihama.lg.jp/soshiki/promo/izyuusiennkin.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>愛媛県の制度</strong></p>
-          <ul><li><a href="pref-ehime.html#ehime-ev-kounyu">愛媛県 電気自動車（EV）購入支援補助金</a></li><li><a href="pref-ehime.html#ehime-ijyusha-jutaku-kaishu">愛媛県移住者住宅改修支援事業</a></li><li><a href="pref-ehime.html#ehime-mokuzo-taishin">愛媛県 木造住宅耐震化補助制度</a></li></ul>
-          <p><a href="pref-ehime.html#pref-resident">愛媛県の制度3件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-ehime.html#ehime-dx-hajime">愛媛県DXはじめの一歩補助金</a></li><li><a href="pref-ehime.html#ehime-koukeisha-shinjigyo">愛媛県後継者新事業展開支援事業費補助金</a></li><li><a href="pref-ehime.html#ehime-shinjigyo-sozo-shikin">新事業創出支援資金（創業向け県制度融資・保証料全額補助）</a></li><li><a href="pref-ehime.html#ehime-chinage-shokibo">賃上げ対応型小規模事業者経営力強化支援事業費補助金</a></li></ul>
+          <p><a href="pref-ehime.html#pref-business">愛媛県の制度4件を、県のページで見る →</a></p>
       </div>
     </section>
 

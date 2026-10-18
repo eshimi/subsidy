@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"宇部市","item":"https://hojyokin.net/area/ube.html"}]}</script>
@@ -165,153 +207,115 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 宇部市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b14.webp')"><h1 class="pb-title">宇部市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-yamaguchi.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">山口県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">山口県 宇部市</p>
+        <h1>宇部市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度11件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-yamaguchi.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（宇部市）<b>5件（うち受付終了2件）</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（山口県）<b>5件（うち受付終了2件）</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>6件</b></a><span class="area-toc-cats"><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-9">移住 2</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <span class="is-none"><i aria-hidden="true">👶</i><b>子育て</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>掲載なし</small></span>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>4件</small></a>
+      <a href="#res-g-iju"><i aria-hidden="true">🌱</i><b>移住</b><small>2件</small></a>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市5件＋県5件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">宇部市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="ube-city-chushin-renovation">
-            <h3>宇部市中心市街地建物リノベーション事業補助金</h3>
-            <p class="area-meta">宇部市 産業政策課｜補助金｜改修費は1/2（上限100万円）、賃借料は1/2（月3万円・合計30万円まで、最長12か月）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>中心市街地の建物を改修して出店する事業者の改修費と賃借料を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>中心市街地で出店する事業者</li><li>市内業者による改修、3年以上の事業継続</li><li>宇部商工会議所の経営相談を受けること</li></ul>
-            <p><a href="https://www.city.ube.yamaguchi.jp/shisei/hojyojyosei/1010994/1010990.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/ube-city-chushin-renovation.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>4件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="ube-akiya-atochi">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>空家等跡地活用促進事業補助金</b><small>居住誘導区域内の不良住宅の解体費用を補助(地域活性化に使う跡地の場合)。<br>対象：居住誘導区域内の不良住宅の所有者等<br>期間：令和8年4月1日〜令和8年11月30日<br>締切：2026-11-30</small><span class="ar-prov">山口県宇部市</span></div>
+            <div class="ar-amt">補助対象経費の1/2、上限50万円(予算の範囲内)</div>
+            <a class="ar-go" href="https://www.city.ube.yamaguchi.jp/kurashi/sumai/sumai/1002190/1002191.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="ube-city-jinzai-kakuho-shien">
-            <h3>宇部市人材確保支援事業費補助金</h3>
-            <p class="area-meta">宇部市 産業政策課｜補助金｜上限10万円（補助率は要確認）</p>
-            <p class="area-meta">期間：令和7年度は6月20日〜10月31日。令和8年度は最新は要確認</p>
-            <p>求人サイト掲載、県外合同説明会参加、採用ホームページ作成、採用PR動画制作などの経費を支援する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の事業者</li></ul>
-            <p><a href="https://www.city.ube.yamaguchi.jp/shisei/hojyojyosei/1010994/1009201.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/ube-city-jinzai-kakuho-shien.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+          <div class="ar-row" id="ube-block">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>ブロック塀等の撤去費補助</b><small>倒壊の危険性の高いブロック塀等の撤去費の一部を補助。<br>対象：倒壊の危険性が高いブロック塀等の所有者<br>期間：2026年5月11日〜2026年11月30日<br>締切：2026-11-30</small><span class="ar-prov">山口県宇部市</span></div>
+            <div class="ar-amt">要確認(費用の一部、予算の範囲内)</div>
+            <a class="ar-go" href="https://www.city.ube.yamaguchi.jp/shisei/hojyojyosei/hojyojyosei_kojin/1009207.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="ube-city-wakamono-kigyoka-challenge">
-            <h3>宇部市若者起業家チャレンジ補助金</h3>
-            <p class="area-meta">宇部市 産業政策課｜補助金｜補助対象経費の9/10以内、上限150万円</p>
-            <p class="area-meta">期間：令和8年度は月ごと締切（第5回は令和8年9月30日で終了、以降の回は要確認）</p>
-            <p>若い起業家の創業経費を支援する補助金。令和8年度は月ごと締切制で、第5回（9月）は9月30日に締切済み。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>18歳以上40歳未満</li><li>起業時に市内に事業所等を置く意思があること</li></ul>
-            <p><a href="https://www.city.ube.yamaguchi.jp/shisei/hojyojyosei/1010994/1028888.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="ube-reform">
+            <div class="ar-name"><b><span class="ar-tag">省エネ住宅</span>健康・省エネ住宅リフォーム助成</b><small>バリアフリー化(段差解消・手すり等)や省エネ改修を含む住宅リフォームを助成。<br>対象：対象工事・世帯要件は要確認</small><span class="ar-prov">山口県宇部市</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.ube.yamaguchi.jp/shisei/hojyojyosei/hojyojyosei_kojin/1009208.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <h3 class="area-cat">受付が終了した制度（次回の公募の参考に）</h3>
-          <div class="area-program is-ended" id="ube-city-chusho-kyoso-kyoka">
-            <h3>宇部市中小企業競争力強化支援事業費補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">宇部市 産業政策課｜補助金｜補助率1/2以内、上限50万円｜締切：2026-07-10</p>
-            <p class="area-meta">期間：令和8年5月15日〜7月10日（受付終了）</p>
-            <p>市内中小企業者や市内で起業を計画する人の競争力強化の取り組みを支援する。令和8年度の募集は終了。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の中小企業者</li><li>市内での起業を計画する人</li></ul>
-            <p><a href="https://www.city.ube.yamaguchi.jp/machizukuri/sangyou/shougyou/1005907/1029216.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="ube-saiene">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>再生可能エネルギー設備導入支援補助金</b><small>住宅への太陽光発電と蓄電池導入を補助。予算750万円に達し次第終了。蓄電池単独は対象外とみられる。<br>対象：最低申請額の要件あり(太陽光+蓄電池は100万円(税抜)以上)／詳細は要確認</small><span class="ar-prov">山口県宇部市</span></div>
+            <div class="ar-amt">太陽光のみ10万円(定額)、太陽光と蓄電池30万円(定額)</div>
+            <a class="ar-go" href="https://www.city.ube.yamaguchi.jp/kurashi/kankyouhozen/shouene/1002690/1018608.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program is-ended" id="ube-city-dx-suishin-ippan">
-            <h3>宇部市中小企業等DX推進事業費補助金（一般枠） <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">宇部市 産業政策課｜補助金｜補助率2/3以内、上限100万円（申請下限30万円）｜締切：2026-08-31</p>
-            <p class="area-meta">期間：令和8年4月13日〜8月31日（受付終了）</p>
-            <p>中小企業等のDX推進の取り組みを支援する。令和8年度一般枠は8月31日で受付終了。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の中小企業者等</li><li>1事業者につき年度内1回の申請</li></ul>
-            <p><a href="https://www.city.ube.yamaguchi.jp/shisei/hojyojyosei/1010994/1028886.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
+          <h3 class="area-cat" id="res-g-iju">移住<span>2件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="ube-iju-tokyo">
+            <div class="ar-name"><b>移住支援事業(東京圏等向け)補助金</b><small>東京圏等からの移住者への支援金。<br>対象：移住元・就業等の要件あり(詳細は要確認)</small><span class="ar-prov">山口県宇部市</span></div>
+            <div class="ar-amt">東京圏からの移住は2人以上世帯100万円(18歳未満1人につき100万円加算)、単身60万円。東京圏以外は世帯50万円・単身30万円</div>
+            <a class="ar-go" href="https://www.city.ube.yamaguchi.jp/kurashi/iju/iju_yakudadchi/1002597.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="ube-uij">
+            <div class="ar-name"><b>UIJターン奨励助成金</b><small>県外からの転入に必要な経費の一部を助成。<br>対象：県外からの転入者／子育て支援助成は住宅購入助成と同時申請</small><span class="ar-prov">山口県宇部市</span></div>
+            <div class="ar-amt">住宅購入助成に加え、39歳以下の世帯員がいる場合は上限10万円加算、子育て支援助成は中学生以下1人5万円</div>
+            <a class="ar-go" href="https://www.city.ube.yamaguchi.jp/kurashi/sumai/sumai/1010471/1010761.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>山口県の制度</strong></p>
+          <ul><li><a href="pref-yamaguchi.html#yamaguchi-ijyu-shienkin">山口県 移住支援金</a></li><li><a href="pref-yamaguchi.html#yamaguchi-taishin-hojo">山口県 木造住宅耐震診断・耐震改修補助</a></li><li><a href="pref-yamaguchi.html#yamaguchi-telework-iju-hojo">Uジターン・やまぐち創生テレワーク移住補助金</a></li><li><a href="pref-yamaguchi.html#yamaguchi-zeh-hojo">山口県 ZEH補助（令和8年度）</a></li></ul>
+          <p><a href="pref-yamaguchi.html#pref-resident">山口県の制度4件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">山口県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">宇部市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-yamaguchi.html#yamaguchi-dx-tool">山口県中小企業DX推進補助金（DXツール導入型）</a></li><li><a href="pref-yamaguchi.html#yamaguchi-gaikokujin-zairyu">山口県外国人材確保定着支援補助金</a></li><li><a href="pref-yamaguchi.html#yamaguchi-seido-yuushi">山口県中小企業制度融資</a></li><li><a href="pref-yamaguchi.html#yamaguchi-shoene-setsubi">山口県中小企業者等向け省・創・蓄エネ設備設置補助金</a></li><li><a href="pref-yamaguchi.html#yamaguchi-sogyo-hojokin">やまぐち創業補助金</a></li></ul>
-          <p><a href="pref-yamaguchi.html#pref-business">山口県の制度5件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="ube-city-chushin-renovation">
+            <div class="ar-name"><b>宇部市中心市街地建物リノベーション事業補助金</b><small>中心市街地の建物を改修して出店する事業者の改修費と賃借料を補助する。<br>対象：中心市街地で出店する事業者／市内業者による改修、3年以上の事業継続</small><span class="ar-prov">宇部市 産業政策課</span></div>
+            <div class="ar-amt">改修費は1/2（上限100万円）、賃借料は1/2（月3万円・合計30万円まで、最長12か月）</div>
+            <a class="ar-go" href="https://www.city.ube.yamaguchi.jp/shisei/hojyojyosei/1010994/1010990.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="ube-city-jinzai-kakuho-shien">
+            <div class="ar-name"><b>宇部市人材確保支援事業費補助金</b><small>求人サイト掲載、県外合同説明会参加、採用ホームページ作成、採用PR動画制作などの経費を支援する。<br>対象：市内の事業者</small><span class="ar-prov">宇部市 産業政策課</span></div>
+            <div class="ar-amt">上限10万円（補助率は要確認）</div>
+            <a class="ar-go" href="https://www.city.ube.yamaguchi.jp/shisei/hojyojyosei/1010994/1009201.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="ube-city-wakamono-kigyoka-challenge">
+            <div class="ar-name"><b>宇部市若者起業家チャレンジ補助金</b><small>若い起業家の創業経費を支援する補助金。令和8年度は月ごと締切制で、第5回（9月）は9月30日に締切済み。<br>対象：18歳以上40歳未満／起業時に市内に事業所等を置く意思があること</small><span class="ar-prov">宇部市 産業政策課</span></div>
+            <div class="ar-amt">補助対象経費の9/10以内、上限150万円</div>
+            <a class="ar-go" href="https://www.city.ube.yamaguchi.jp/shisei/hojyojyosei/1010994/1028888.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="ube-city-chusho-kyoso-kyoka">
+            <div class="ar-name"><b>宇部市中小企業競争力強化支援事業費補助金 <span class="area-ended-tag">受付終了</span></b><small>市内中小企業者や市内で起業を計画する人の競争力強化の取り組みを支援する。令和8年度の募集は終了。<br>対象：市内の中小企業者／市内での起業を計画する人<br>期間：令和8年5月15日〜7月10日（受付終了）<br>締切：2026-07-10</small><span class="ar-prov">宇部市 産業政策課</span></div>
+            <div class="ar-amt">補助率1/2以内、上限50万円</div>
+            <a class="ar-go" href="https://www.city.ube.yamaguchi.jp/machizukuri/sangyou/shougyou/1005907/1029216.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="ube-city-dx-suishin-ippan">
+            <div class="ar-name"><b>宇部市中小企業等DX推進事業費補助金（一般枠） <span class="area-ended-tag">受付終了</span></b><small>中小企業等のDX推進の取り組みを支援する。令和8年度一般枠は8月31日で受付終了。<br>対象：市内の中小企業者等／1事業者につき年度内1回の申請<br>期間：令和8年4月13日〜8月31日（受付終了）<br>締切：2026-08-31</small><span class="ar-prov">宇部市 産業政策課</span></div>
+            <div class="ar-amt">補助率2/3以内、上限100万円（申請下限30万円）</div>
+            <a class="ar-go" href="https://www.city.ube.yamaguchi.jp/shisei/hojyojyosei/1010994/1028886.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">山口県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>宇部市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program" id="ube-saiene">
-            <h3>再生可能エネルギー設備導入支援補助金</h3>
-            <p class="area-meta">山口県宇部市｜補助金｜太陽光のみ10万円(定額)、太陽光と蓄電池30万円(定額)</p>
-            <p class="area-meta">期間：最新は要確認(予算に達し次第終了)</p>
-            <p>住宅への太陽光発電と蓄電池導入を補助。予算750万円に達し次第終了。蓄電池単独は対象外とみられる。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>最低申請額の要件あり(太陽光+蓄電池は100万円(税抜)以上)</li><li>詳細は要確認</li></ul>
-            <p><a href="https://www.city.ube.yamaguchi.jp/kurashi/kankyouhozen/shouene/1002690/1018608.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
-          <div class="area-program" id="ube-reform">
-            <h3>健康・省エネ住宅リフォーム助成</h3>
-            <p class="area-meta">山口県宇部市｜助成金｜金額は公式で確認</p>
-            <p class="area-meta">期間：令和8年5月11日午前9時から受付開始(終了時期は要確認)</p>
-            <p>バリアフリー化(段差解消・手すり等)や省エネ改修を含む住宅リフォームを助成。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>対象工事・世帯要件は要確認</li></ul>
-            <p><a href="https://www.city.ube.yamaguchi.jp/shisei/hojyojyosei/hojyojyosei_kojin/1009208.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="ube-akiya-atochi">
-            <h3>空家等跡地活用促進事業補助金</h3>
-            <p class="area-meta">山口県宇部市｜補助金｜補助対象経費の1/2、上限50万円(予算の範囲内)｜締切：2026-11-30</p>
-            <p class="area-meta">期間：令和8年4月1日〜令和8年11月30日</p>
-            <p>居住誘導区域内の不良住宅の解体費用を補助(地域活性化に使う跡地の場合)。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>居住誘導区域内の不良住宅の所有者等</li></ul>
-            <p><a href="https://www.city.ube.yamaguchi.jp/kurashi/sumai/sumai/1002190/1002191.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="ube-block">
-            <h3>ブロック塀等の撤去費補助</h3>
-            <p class="area-meta">山口県宇部市｜補助金｜要確認(費用の一部、予算の範囲内)｜締切：2026-11-30</p>
-            <p class="area-meta">期間：2026年5月11日〜2026年11月30日</p>
-            <p>倒壊の危険性の高いブロック塀等の撤去費の一部を補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>倒壊の危険性が高いブロック塀等の所有者</li></ul>
-            <p><a href="https://www.city.ube.yamaguchi.jp/shisei/hojyojyosei/hojyojyosei_kojin/1009207.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-9">移住</h3>
-          <div class="area-program" id="ube-iju-tokyo">
-            <h3>移住支援事業(東京圏等向け)補助金</h3>
-            <p class="area-meta">山口県宇部市｜補助金｜東京圏からの移住は2人以上世帯100万円(18歳未満1人につき100万円加算)、単身60万円。東京圏以外は世帯50万円・単身30万円</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>東京圏等からの移住者への支援金。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>移住元・就業等の要件あり(詳細は要確認)</li></ul>
-            <p><a href="https://www.city.ube.yamaguchi.jp/kurashi/iju/iju_yakudadchi/1002597.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="ube-uij">
-            <h3>UIJターン奨励助成金</h3>
-            <p class="area-meta">山口県宇部市｜助成金｜住宅購入助成に加え、39歳以下の世帯員がいる場合は上限10万円加算、子育て支援助成は中学生以下1人5万円</p>
-            <p class="area-meta">期間：令和8年度の新規受付は再開(期限は要確認)</p>
-            <p>県外からの転入に必要な経費の一部を助成。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>県外からの転入者</li><li>子育て支援助成は住宅購入助成と同時申請</li></ul>
-            <p><a href="https://www.city.ube.yamaguchi.jp/kurashi/sumai/sumai/1010471/1010761.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>山口県の制度</strong></p>
-          <ul><li><a href="pref-yamaguchi.html#yamaguchi-ijyu-shienkin">山口県 移住支援金</a></li><li><a href="pref-yamaguchi.html#yamaguchi-taishin-hojo">山口県 木造住宅耐震診断・耐震改修補助</a></li><li><a href="pref-yamaguchi.html#yamaguchi-telework-iju-hojo">Uジターン・やまぐち創生テレワーク移住補助金</a></li><li><a href="pref-yamaguchi.html#yamaguchi-zeh-hojo">山口県 ZEH補助（令和8年度）</a></li></ul>
-          <p><a href="pref-yamaguchi.html#pref-resident">山口県の制度4件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-yamaguchi.html#yamaguchi-dx-tool">山口県中小企業DX推進補助金（DXツール導入型）</a></li><li><a href="pref-yamaguchi.html#yamaguchi-gaikokujin-zairyu">山口県外国人材確保定着支援補助金</a></li><li><a href="pref-yamaguchi.html#yamaguchi-seido-yuushi">山口県中小企業制度融資</a></li><li><a href="pref-yamaguchi.html#yamaguchi-shoene-setsubi">山口県中小企業者等向け省・創・蓄エネ設備設置補助金</a></li><li><a href="pref-yamaguchi.html#yamaguchi-sogyo-hojokin">やまぐち創業補助金</a></li></ul>
+          <p><a href="pref-yamaguchi.html#pref-business">山口県の制度5件を、県のページで見る →</a></p>
       </div>
     </section>
 

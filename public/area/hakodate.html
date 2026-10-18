@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"函館市","item":"https://hojyokin.net/area/hakodate.html"}]}</script>
@@ -165,143 +207,114 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 函館市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b15.webp')"><h1 class="pb-title">函館市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-hokkaido.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">北海道・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">北海道 函館市</p>
+        <h1>函館市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度10件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-hokkaido.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（函館市）<b>4件（うち受付終了2件）</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（北海道）<b>5件（うち受付終了2件）</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>6件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-6">子育て 1</a><a href="#res-cat-9">移住 2</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <a href="#res-g-kosodate"><i aria-hidden="true">👶</i><b>子育て</b><small>1件</small></a>
+      <span class="is-none"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>掲載なし</small></span>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>3件</small></a>
+      <a href="#res-g-iju"><i aria-hidden="true">🌱</i><b>移住</b><small>2件</small></a>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市4件＋県5件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">函館市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="hakodate-city-chusho-yushi">
-            <h3>函館市中小企業融資制度</h3>
-            <p class="area-meta">函館市 経済部｜融資｜資金種別ごとに異なる（要確認）｜締切：2027-03-31</p>
-            <p class="area-meta">期間：現行の一覧は2026年10月1日〜2027年3月31日の期間で案内</p>
-            <p>北海道信用保証協会と金融機関の協力による市の制度融資。運転資金・設備資金などの各資金が用意されている。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>函館市内の中小企業者</li><li>金融機関・信用保証協会の審査を通ること</li></ul>
-            <p><a href="https://www.city.hakodate.hokkaido.jp/docs/2014021300412/" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-kosodate">子育て<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="hakodate-young-family">
+            <div class="ar-name"><b>函館市ヤングファミリー住まいりんぐ支援事業（家賃補助）</b><small>補助対象地区内の民間賃貸住宅に転入した、中学校卒業前の子と同居する子育て世帯の家賃を補助する。<br>対象：中学校卒業前の子と同居する世帯／対象地区内の民間賃貸住宅へ転入</small><span class="ar-prov">北海道函館市</span></div>
+            <div class="ar-amt">家賃から住宅手当を差し引き3万円を超えた分（上限月額1万5千円）</div>
+            <a class="ar-go" href="https://www.city.hakodate.hokkaido.jp/docs/2014020500059/" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="hakodate-city-kaigai-tenji">
-            <h3>函館市海外向け展示商談会等出展補助金</h3>
-            <p class="area-meta">函館市 経済部 食産業振興課｜補助金｜補助率2分の1以内、上限は海外開催40万円・国内開催20万円｜締切：2027-02-28</p>
-            <p class="area-meta">期間：2026年4月1日〜2027年2月28日（予算上限に達し次第終了）</p>
-            <p>海外向けの展示商談会等への出展経費の一部を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>函館市内の事業者（食関連事業者など、募集要項で要確認）</li><li>同一年度1回限り</li></ul>
-            <p><a href="https://www.city.hakodate.hokkaido.jp/docs/2026020500052/" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">受付が終了した制度（次回の公募の参考に）</h3>
-          <div class="area-program is-ended" id="hakodate-city-sogyo-backup">
-            <h3>創業バックアップ助成金（一般枠・若者枠） <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">函館市 経済部（函館地域産業振興財団）｜助成金｜一般枠は上限300万円、若者枠（35歳未満）は上限100万円（資料により額が異なるため最新は要確認）｜締切：2026-05-15</p>
-            <p class="area-meta">期間：令和8年度は2026年4月1日〜5月15日（受付終了。来年度は要確認）</p>
-            <p>函館地域に拠点を置いて創業する優れた事業計画に、費用の一部を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>函館地域で年度内に創業予定、または創業から5年以内の個人・中小企業者</li><li>市内に事業拠点を設けること</li></ul>
-            <p><a href="https://www.city.hakodate.hokkaido.jp/docs/2018030700027/" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>3件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="hakodate-akiya-jokyaku">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>函館市空家等除却支援補助金</b><small>事前の市の建物調査で特定空家に該当する個人所有の空家を除却して更地にする工事費を補助する。敷地内の門塀等も除却対象に含まれる。<br>対象：対象空家を所有する個人（法人は対象外）／木造または鉄骨造の一戸建て住宅等<br>期間：令和8年6月1日〜12月4日<br>締切：2026-12-04</small><span class="ar-prov">北海道函館市</span></div>
+            <div class="ar-amt">除却工事費の1/2（上限30万円）</div>
+            <a class="ar-go" href="https://www.city.hakodate.hokkaido.jp/docs/2016042700059/" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program is-ended" id="hakodate-city-tokusanhin-kaihatsu">
-            <h3>函館市特産品開発支援事業補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">函館市 経済部｜補助金｜補助率2/3、上限500万円｜締切：2026-04-15</p>
-            <p class="area-meta">期間：令和8年4月1日〜4月15日（交付申請書受付）</p>
-            <p>新たな商品開発に係る機械等の導入経費、パッケージデザイン費、商標登録等の経費の一部を支援する（令和8年度募集の案内あり）。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>函館市内で特産品の開発を行う事業者（詳細は要確認）</li></ul>
-            <p><a href="https://www.city.hakodate.hokkaido.jp/docs/2026012600012/" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="hakodate-reform">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>函館市住宅リフォーム補助制度（耐震改修・省エネ・バリアフリー）</b><small>既存住宅の耐震改修、バリアフリー化、省エネ化等の工事費の一部を補助する。耐震改修の受付は令和8年5月7日〜9月30日（終了）。<br>対象：函館市内の既存住宅の所有者等／耐震改修は昭和56年5月31日以前の住宅など<br>期間：令和8年5月7日〜12月18日（耐震改修は5月7日〜9月30日）<br>締切：2026-12-18</small><span class="ar-prov">北海道函館市</span></div>
+            <div class="ar-amt">耐震改修は工事費の20%以内（上限40万円）、工事費合計30万円以上が条件。他区分は要確認</div>
+            <a class="ar-go" href="https://www.city.hakodate.hokkaido.jp/docs/2024040900135/" target="_blank" rel="noopener">公式 →</a>
           </div>
+          <div class="ar-row" id="hakodate-shinenergy">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>函館市新エネルギーシステム導入補助金</b><small>太陽光発電システム、定置用リチウムイオン蓄電池等の購入費の一部を補助する。令和8年度からEV・PHEV・エネファームは対象外。先着順で予算到達次第終了。<br>対象：自ら居住する函館市内の住宅に設置する個人／設置工事に着手していないこと<br>期間：令和8年4月1日〜令和9年3月1日（予算到達で終了）<br>締切：2027-03-01</small><span class="ar-prov">北海道函館市</span></div>
+            <div class="ar-amt">太陽光・蓄電池それぞれ最大5万円</div>
+            <a class="ar-go" href="https://www.city.hakodate.hokkaido.jp/docs/2020032700097/" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-iju">移住<span>2件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="hakodate-akiya-kaishu">
+            <div class="ar-name"><b>函館市空家等改修支援補助金</b><small>移住者等が補助対象地区の築10年超の木造一戸建て空家を改修する費用を補助する。家庭用新エネ設備も対象経費に含まれる。<br>対象：本市への移住者等／対象地区内の築10年超の木造一戸建て空家など<br>期間：令和8年6月1日〜12月4日<br>締切：2026-12-04</small><span class="ar-prov">北海道函館市</span></div>
+            <div class="ar-amt">対象経費の2/3以内（上限200万円）</div>
+            <a class="ar-go" href="https://www.city.hakodate.hokkaido.jp/docs/2021042200010/" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="hakodate-ijushienkin">
+            <div class="ar-name"><b>函館市移住支援金（UIJターン新規就業支援事業）</b><small>東京圏からの移住者で就業等の要件を満たす方に支給。早期に予算上限に達する見込みと案内されている。<br>対象：東京圏から函館市へ移住した方／就業等の要件あり（要確認）</small><span class="ar-prov">北海道函館市</span></div>
+            <div class="ar-amt">世帯100万円、単身60万円（移住定住ナビ記載）、18歳未満の帯同者1人につき100万円加算</div>
+            <a class="ar-go" href="https://www.city.hakodate.hokkaido.jp/docs/2020043000070/" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>北海道の制度</strong></p>
+          <ul><li><a href="pref-hokkaido.html#hokkaido-iju-shienkin">北海道 移住支援金（UIJターン新規就業支援事業）</a></li><li><a href="pref-hokkaido.html#hokkaido-zerocarbon-sumai">住まいのゼロカーボン化推進事業</a></li></ul>
+          <p><a href="pref-hokkaido.html#pref-resident">北海道の制度2件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">北海道の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">函館市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-hokkaido.html#hokkaido-sogyo-kasitsuke">中小企業総合振興資金 創業貸付</a></li><li><a href="pref-hokkaido.html#hokkaido-sogyo-sokushin">創業促進支援事業（北海道中小企業総合支援センター）</a></li><li><a href="pref-hokkaido.html#hokkaido-step-up-koyo">中小企業総合振興資金 ステップアップ貸付（事業活性化・雇用）</a></li><li><a href="pref-hokkaido.html#hokkaido-chiiki-kadai-kigyo">地域課題解決型起業支援事業（起業支援金）</a></li><li><a href="pref-hokkaido.html#hokkaido-chusho-kyosoryoku-marketing">中小企業競争力強化促進事業（マーケティング支援）</a></li></ul>
-          <p><a href="pref-hokkaido.html#pref-business">北海道の制度5件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="hakodate-city-chusho-yushi">
+            <div class="ar-name"><b>函館市中小企業融資制度</b><small>北海道信用保証協会と金融機関の協力による市の制度融資。運転資金・設備資金などの各資金が用意されている。<br>対象：函館市内の中小企業者／金融機関・信用保証協会の審査を通ること<br>期間：現行の一覧は2026年10月1日〜2027年3月31日の期間で案内<br>締切：2027-03-31</small><span class="ar-prov">函館市 経済部</span></div>
+            <div class="ar-amt">資金種別ごとに異なる（要確認）</div>
+            <a class="ar-go" href="https://www.city.hakodate.hokkaido.jp/docs/2014021300412/" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="hakodate-city-kaigai-tenji">
+            <div class="ar-name"><b>函館市海外向け展示商談会等出展補助金</b><small>海外向けの展示商談会等への出展経費の一部を補助する。<br>対象：函館市内の事業者（食関連事業者など、募集要項で要確認）／同一年度1回限り<br>期間：2026年4月1日〜2027年2月28日（予算上限に達し次第終了）<br>締切：2027-02-28</small><span class="ar-prov">函館市 経済部 食産業振興課</span></div>
+            <div class="ar-amt">補助率2分の1以内、上限は海外開催40万円・国内開催20万円</div>
+            <a class="ar-go" href="https://www.city.hakodate.hokkaido.jp/docs/2026020500052/" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="hakodate-city-sogyo-backup">
+            <div class="ar-name"><b>創業バックアップ助成金（一般枠・若者枠） <span class="area-ended-tag">受付終了</span></b><small>函館地域に拠点を置いて創業する優れた事業計画に、費用の一部を助成する。<br>対象：函館地域で年度内に創業予定、または創業から5年以内の個人・中小企業者／市内に事業拠点を設けること<br>締切：2026-05-15</small><span class="ar-prov">函館市 経済部（函館地域産業振興財団）</span></div>
+            <div class="ar-amt">一般枠は上限300万円、若者枠（35歳未満）は上限100万円（資料により額が異なるため最新は要確認）</div>
+            <a class="ar-go" href="https://www.city.hakodate.hokkaido.jp/docs/2018030700027/" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="hakodate-city-tokusanhin-kaihatsu">
+            <div class="ar-name"><b>函館市特産品開発支援事業補助金 <span class="area-ended-tag">受付終了</span></b><small>新たな商品開発に係る機械等の導入経費、パッケージデザイン費、商標登録等の経費の一部を支援する（令和8年度募集の案内あり）。<br>対象：函館市内で特産品の開発を行う事業者（詳細は要確認）<br>期間：令和8年4月1日〜4月15日（交付申請書受付）<br>締切：2026-04-15</small><span class="ar-prov">函館市 経済部</span></div>
+            <div class="ar-amt">補助率2/3、上限500万円</div>
+            <a class="ar-go" href="https://www.city.hakodate.hokkaido.jp/docs/2026012600012/" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">北海道の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>函館市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="hakodate-reform">
-            <h3>函館市住宅リフォーム補助制度（耐震改修・省エネ・バリアフリー）</h3>
-            <p class="area-meta">北海道函館市｜補助金｜耐震改修は工事費の20%以内（上限40万円）、工事費合計30万円以上が条件。他区分は要確認｜締切：2026-12-18</p>
-            <p class="area-meta">期間：令和8年5月7日〜12月18日（耐震改修は5月7日〜9月30日）</p>
-            <p>既存住宅の耐震改修、バリアフリー化、省エネ化等の工事費の一部を補助する。耐震改修の受付は令和8年5月7日〜9月30日（終了）。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>函館市内の既存住宅の所有者等</li><li>耐震改修は昭和56年5月31日以前の住宅など</li><li>工事は申請年度の2月末日までに完了</li></ul>
-            <p><a href="https://www.city.hakodate.hokkaido.jp/docs/2024040900135/" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program" id="hakodate-shinenergy">
-            <h3>函館市新エネルギーシステム導入補助金</h3>
-            <p class="area-meta">北海道函館市｜補助金｜太陽光・蓄電池それぞれ最大5万円｜締切：2027-03-01</p>
-            <p class="area-meta">期間：令和8年4月1日〜令和9年3月1日（予算到達で終了）</p>
-            <p>太陽光発電システム、定置用リチウムイオン蓄電池等の購入費の一部を補助する。令和8年度からEV・PHEV・エネファームは対象外。先着順で予算到達次第終了。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>自ら居住する函館市内の住宅に設置する個人</li><li>設置工事に着手していないこと</li><li>国・北海道の補助金との併用不可</li></ul>
-            <p><a href="https://www.city.hakodate.hokkaido.jp/docs/2020032700097/" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="hakodate-akiya-jokyaku">
-            <h3>函館市空家等除却支援補助金</h3>
-            <p class="area-meta">北海道函館市｜補助金｜除却工事費の1/2（上限30万円）｜締切：2026-12-04</p>
-            <p class="area-meta">期間：令和8年6月1日〜12月4日</p>
-            <p>事前の市の建物調査で特定空家に該当する個人所有の空家を除却して更地にする工事費を補助する。敷地内の門塀等も除却対象に含まれる。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>対象空家を所有する個人（法人は対象外）</li><li>木造または鉄骨造の一戸建て住宅等</li><li>契約・着工前に申請</li></ul>
-            <p><a href="https://www.city.hakodate.hokkaido.jp/docs/2016042700059/" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-6">子育て</h3>
-          <div class="area-program" id="hakodate-young-family">
-            <h3>函館市ヤングファミリー住まいりんぐ支援事業（家賃補助）</h3>
-            <p class="area-meta">北海道函館市｜補助金｜家賃から住宅手当を差し引き3万円を超えた分（上限月額1万5千円）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>補助対象地区内の民間賃貸住宅に転入した、中学校卒業前の子と同居する子育て世帯の家賃を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>中学校卒業前の子と同居する世帯</li><li>対象地区内の民間賃貸住宅へ転入</li></ul>
-            <p><a href="https://www.city.hakodate.hokkaido.jp/docs/2014020500059/" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-9">移住</h3>
-          <div class="area-program" id="hakodate-akiya-kaishu">
-            <h3>函館市空家等改修支援補助金</h3>
-            <p class="area-meta">北海道函館市｜補助金｜対象経費の2/3以内（上限200万円）｜締切：2026-12-04</p>
-            <p class="area-meta">期間：令和8年6月1日〜12月4日</p>
-            <p>移住者等が補助対象地区の築10年超の木造一戸建て空家を改修する費用を補助する。家庭用新エネ設備も対象経費に含まれる。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>本市への移住者等</li><li>対象地区内の築10年超の木造一戸建て空家など</li><li>詳細要件は要確認</li></ul>
-            <p><a href="https://www.city.hakodate.hokkaido.jp/docs/2021042200010/" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="hakodate-ijushienkin">
-            <h3>函館市移住支援金（UIJターン新規就業支援事業）</h3>
-            <p class="area-meta">北海道函館市｜給付｜世帯100万円、単身60万円（移住定住ナビ記載）、18歳未満の帯同者1人につき100万円加算</p>
-            <p class="area-meta">期間：令和8年度受付中（予算上限に達し次第終了、最新は要確認）</p>
-            <p>東京圏からの移住者で就業等の要件を満たす方に支給。早期に予算上限に達する見込みと案内されている。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>東京圏から函館市へ移住した方</li><li>就業等の要件あり（要確認）</li></ul>
-            <p><a href="https://www.city.hakodate.hokkaido.jp/docs/2020043000070/" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>北海道の制度</strong></p>
-          <ul><li><a href="pref-hokkaido.html#hokkaido-iju-shienkin">北海道 移住支援金（UIJターン新規就業支援事業）</a></li><li><a href="pref-hokkaido.html#hokkaido-zerocarbon-sumai">住まいのゼロカーボン化推進事業</a></li></ul>
-          <p><a href="pref-hokkaido.html#pref-resident">北海道の制度2件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-hokkaido.html#hokkaido-sogyo-kasitsuke">中小企業総合振興資金 創業貸付</a></li><li><a href="pref-hokkaido.html#hokkaido-sogyo-sokushin">創業促進支援事業（北海道中小企業総合支援センター）</a></li><li><a href="pref-hokkaido.html#hokkaido-step-up-koyo">中小企業総合振興資金 ステップアップ貸付（事業活性化・雇用）</a></li><li><a href="pref-hokkaido.html#hokkaido-chiiki-kadai-kigyo">地域課題解決型起業支援事業（起業支援金）</a></li><li><a href="pref-hokkaido.html#hokkaido-chusho-kyosoryoku-marketing">中小企業競争力強化促進事業（マーケティング支援）</a></li></ul>
+          <p><a href="pref-hokkaido.html#pref-business">北海道の制度5件を、県のページで見る →</a></p>
       </div>
     </section>
 

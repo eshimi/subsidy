@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"高松市","item":"https://hojyokin.net/area/takamatsu.html"}]}</script>
@@ -165,210 +207,153 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 高松市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b05.webp')"><h1 class="pb-title">高松市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-kagawa.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">香川県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">香川県 高松市</p>
+        <h1>高松市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度17件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-kagawa.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（高松市）<b>6件</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（香川県）<b>4件（うち受付終了1件）</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>11件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-6">子育て 5</a><a href="#res-cat-7">医療・福祉 1</a><a href="#res-cat-8">教育・学び 2</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <a href="#res-g-kosodate"><i aria-hidden="true">👶</i><b>子育て</b><small>5件</small></a>
+      <a href="#res-g-iryo"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>1件</small></a>
+      <a href="#res-g-kyoiku"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>2件</small></a>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>3件</small></a>
+      <span class="is-none"><i aria-hidden="true">🌱</i><b>移住</b><small>掲載なし</small></span>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市6件＋県4件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">高松市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="takamatsu-city-chuo-shotengai-sogyo">
-            <h3>高松市高松中央商店街創業新規出店補助金</h3>
-            <p class="area-meta">高松市 創造都市推進局｜補助金｜補助率1/4・上限50万円（特定創業支援等事業の支援を受けた場合は補助率1/2・上限100万円）｜締切：2027-01-29</p>
-            <p class="area-meta">期間：令和8年4月1日〜令和9年1月29日（窓口持参のみ）</p>
-            <p>高松中央商店街の空き店舗に新規出店する創業者の出店経費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>高松中央商店街の空き店舗に出店する創業者</li></ul>
-            <p><a href="https://www.city.takamatsu.kagawa.jp/jigyosha/sangyou/shoukougyou/syoutenngai/syoutenngaisien/sougyousinnkisyutten.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/takamatsu-city-chuo-shotengai-sogyo.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-kosodate">子育て<span>5件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="takamatsu-daisanshi-kyushoku">
+            <div class="ar-name"><b>高松市第3子以降学校給食費無償化制度（中学校）</b><small>多子世帯の子育てに対する経済的負担軽減を図るため、高松市立中学校に通う第3子以降の学校給食費を無償化します。<br>対象：平成26年（2014）年4月1日以前に生まれた子を3人以上扶養している／3番目以降の子が高松市立中学校で学校給食の提供を受けている<br>期間：令和8年9月から令和9年3月までの学校給食費が対象。令和8年度分の申請受付は6月22日から</small><span class="ar-prov">高松市 教育委員会 保健体育課</span></div>
+            <div class="ar-amt">令和8年9月から令和9年3月までの学校給食費（3番目以降の子の分）が無償</div>
+            <a class="ar-go" href="https://www.city.takamatsu.kagawa.jp/kurashi/kosodate/shouchugakkou/kyushoku/kyusyokutetuduki/daisanshimusyouka.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="takamatsu-city-datsutanso-finance">
-            <h3>高松市中小企業向け脱炭素ファイナンス利用補助金</h3>
-            <p class="area-meta">高松市 ゼロカーボンシティ推進課｜補助金｜補助率1/2・上限25万円｜締切：2027-02-26</p>
-            <p class="area-meta">期間：令和8年7月15日〜令和9年2月26日</p>
-            <p>脱炭素関連のサステナブルファイナンス利用時の手数料を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内中小企業者</li></ul>
-            <p><a href="https://www.city.takamatsu.kagawa.jp/kurashi/kurashi/kankyo/zerocarboncity_tkmt/decarbonized-leader/datutansofinance.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/takamatsu-city-datsutanso-finance.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+          <div class="ar-row" id="takamatsu-famisapo-tashi">
+            <div class="ar-name"><b>たかまつファミリー・サポート・センターの利用料助成（多子世帯）</b><small>3人以上の児童を扶養する多子世帯のおねがい会員を対象に、ファミリー・サポート・センターの利用料を助成します。<br>対象：高松市在住で、3人以上の児童（18歳に達する日以後最初の3月31日まで）を扶養している世帯／センターのおねがい会員登録をしている方<br>期間：助成の対象は令和8年4月以降の援助活動。交付申請は援助活動を行った年度末まで</small><span class="ar-prov">高松市 子育て支援課</span></div>
+            <div class="ar-amt">1時間あたりの利用料金のうち児童1人につき200円、2人目以降は100円</div>
+            <a class="ar-go" href="https://www.city.takamatsu.kagawa.jp/kurashi/kosodate/hitorioya/kosodate/boshi_up2026030.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="takamatsu-city-jigyo-koudoka">
-            <h3>高松市事業高度化等支援補助金</h3>
-            <p class="area-meta">高松市 創造都市推進局｜補助金｜金額は公式で確認｜締切：2026-12-25</p>
-            <p class="area-meta">期間：事前申請 令和8年4月10日〜12月25日</p>
-            <p>Webマーケティングの高度化など事業の高度化を支援する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内中小企業者（詳細は要確認）</li></ul>
-            <p><a href="https://www.city.takamatsu.kagawa.jp/jigyosha/sangyou/shoukougyou/seityousokushin/koudoka.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/takamatsu-city-jigyo-koudoka.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+          <div class="ar-row" id="takamatsu-kyushoku-hikishoku">
+            <div class="ar-name"><b>令和8年度高松市立小学校等における学校給食非喫食者補助金</b><small>食物アレルギーその他やむを得ない理由で連続して学校給食を食べない児童について、補助金を交付します。<br>対象：高松市立小学校又は香川大学教育学部附属高松小学校に在籍する児童／食物アレルギー、不登校、宗教上の配慮などやむを得ない理由がある<br>期間：補助対象期間は令和8年4月1日から令和9年3月31日（ただし、8月を除く）</small><span class="ar-prov">高松市 教育委員会 保健体育課</span></div>
+            <div class="ar-amt">要確認（一か月当たりの補助額は区分に応じる。金額の記載は本文に見当たらない）</div>
+            <a class="ar-go" href="https://www.city.takamatsu.kagawa.jp/kurashi/kosodate/shouchugakkou/kyushoku/hotai_up20260518.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="takamatsu-city-jigyo-yushi">
-            <h3>高松市事業資金融資（保証料補給）</h3>
-            <p class="area-meta">高松市 創造都市推進局｜融資｜融資700万円以内・利率2.1%・保証料補給は500万円まで｜締切：2027-03-31</p>
-            <p class="area-meta">期間：令和8年4月1日〜令和9年3月31日申込分</p>
-            <p>運転・設備資金の市融資。完済翌年度に保証料を補給する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内中小企業者</li></ul>
-            <p><a href="https://www.city.takamatsu.kagawa.jp/smph/jigyosha/shien_josei/yushi/jigyoyushi/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="takamatsu-ninkagai-dai2shi">
+            <div class="ar-name"><b>高松市認可外保育施設入所第2子等保育料助成金</b><small>認可外保育施設に入所している第2子又は第3子以降の児童の保育料について助成を行います。<br>対象：高松市内の認可外保育施設を利用した、住民登録がある保育を必要とする0～2歳児／同一世帯で保育所などを利用している就学前の兄又は姉が1人いる児童等<br>期間：申請対象期間は令和8年4月1日から令和8年9月30日。申請期限は令和8年10月31日<br>締切：2026-10-31</small><span class="ar-prov">高松市</span></div>
+            <div class="ar-amt">上限月額15,000円～37,100円（兄姉の状況・施設により異なる）</div>
+            <a class="ar-go" href="https://www.city.takamatsu.kagawa.jp/kurashi/kosodate/youchien_hoiku/kodomoen/hoiku/h28genmen.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="takamatsu-city-shinshijo-hanro">
-            <h3>高松市新市場販路開拓事業補助金（たかまつ販路開拓チャレンジ補助金）</h3>
-            <p class="area-meta">高松市 創造都市推進局｜補助金｜補助率2/3・上限 国内35万円／国外55万円／オンライン35万円｜締切：2027-01-29</p>
-            <p class="area-meta">期間：事前相談受付 令和8年4月23日〜令和9年1月29日</p>
-            <p>見本市や越境ECモールへの出展費用を補助する。事前相談が必要。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内中小企業者</li><li>国内は香川県外での出展に限る</li></ul>
-            <p><a href="https://www.city.takamatsu.kagawa.jp/jigyosha/sangyou/shoukougyou/seityousokushin/hannrokaitaku.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/takamatsu-city-shinshijo-hanro.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+          <div class="ar-row" id="takamatsu-sango-care">
+            <div class="ar-name"><b>産後ケア事業</b><small>出産後の産婦及び乳児が、母乳管理・沐浴・赤ちゃんのお世話について助産師等から指導を受けることができる事業です。<br>対象：高松市内に住所があり、出産後に退院した産後1年未満の産婦及び乳児／非課税世帯又は生活保護世帯は利用者負担額の免除申請が必要<br>期間：令和8年度から、高松市への初回利用前の申請は不要</small><span class="ar-prov">高松市</span></div>
+            <div class="ar-amt">利用者負担額は通所型1日500円、訪問型1回300円、宿泊型1泊2日10,000円（通算5日以内）</div>
+            <a class="ar-go" href="https://www.city.takamatsu.kagawa.jp/kurashi/kosodate/ninshin_shussan/syussan/sango_care.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="takamatsu-city-tokusanhin-hanbai">
-            <h3>高松市特産品・伝統的ものづくり販売促進事業補助金</h3>
-            <p class="area-meta">高松市 創造都市推進局｜補助金｜上限15万円（特産品1/2、伝統的ものづくり3/4）｜締切：2027-01-29</p>
-            <p class="area-meta">期間：令和8年4月17日〜令和9年1月29日（窓口受付のみ）</p>
-            <p>特産品や伝統的ものづくり製品の販路開拓・広告宣伝等の経費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>特産品・伝統的ものづくり製品の事業者</li></ul>
-            <p><a href="https://www.city.takamatsu.kagawa.jp/jigyosha/sangyou/shoukougyou/tokusan/tenjikaihojyo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/takamatsu-city-tokusanhin-hanbai.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
           </div>
+          <h3 class="area-cat" id="res-g-iryo">医療・福祉<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="takamatsu-gan-hoseigu">
+            <div class="ar-name"><b>高松市がん患者等医療用補整具助成事業</b><small>がん患者の方などへ、医療用ウィッグや乳房補整具等の購入費用の一部を助成します。<br>対象：申請日に高松市内に住民登録のある方／がんの治療を受けた方又は現に受けている方<br>期間：対象となる補整具を購入した日の翌日から1年以内</small><span class="ar-prov">高松市</span></div>
+            <div class="ar-amt">補整具購入費の3分の2。医療用ウィッグ・乳房補整具とも上限20,000円</div>
+            <a class="ar-go" href="https://www.city.takamatsu.kagawa.jp/kurashi/kenkou/kenkonotameni/seijin/gan_hoseigu.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-kyoiku">教育・学び<span>2件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="takamatsu-shogakukin">
+            <div class="ar-name"><b>高松市奨学金</b><small>成績優秀でかつ向学心のおう盛な生徒で、家庭の経済的理由のため高等学校などへの修学が困難な方に、奨学金を支給します。<br>対象：令和9年4月に高等学校等に入学を希望している生徒（現中学校3年生）／現在、高等学校等に在籍している生徒（令和9年3月に卒業予定の者を除く）<br>期間：令和9年度新規募集の提出期限は令和8年12月14日。支給開始は令和9年6月頃（予定）<br>締切：2026-12-14</small><span class="ar-prov">高松市</span></div>
+            <div class="ar-amt">1人月額9，000円（予定）、返済不要</div>
+            <a class="ar-go" href="https://www.city.takamatsu.kagawa.jp/kurashi/kurashi/josei/kosodate/shogakukin.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="takamatsu-shugakuenjo">
+            <div class="ar-name"><b>就学援助制度</b><small>経済的な理由で子どもの就学が困難な場合に、学校で必要な経費の一部を援助する制度です。<br>対象：高松市在住の児童生徒の保護者で、高松市教育委員会が援助を必要と認めた方／市民税の非課税世帯、児童扶養手当の支給を受けている方など<br>期間：令和8年度就学援助制度2期は令和8年10月～令和9年3月。令和9年4月入学の新小学校1年生の申請を受付中</small><span class="ar-prov">高松市 教育委員会 学校教育課</span></div>
+            <div class="ar-amt">学用品費・通学用品費などを援助（金額は本文に記載なし）</div>
+            <a class="ar-go" href="https://www.city.takamatsu.kagawa.jp/kurashi/kurashi/josei/kosodate/shugakushien.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>3件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="takamatsu-shi-akiya-kaishu">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>高松市空き家改修補助事業</b><small>空き家バンクに登録された市内の一戸建て空き家の改修費を補助する。<br>対象：空き家バンク登録物件</small><span class="ar-prov">高松市</span></div>
+            <div class="ar-amt">補助対象事業費の1/2（限度額50万円、居住誘導区域内は60万円の場合あり）</div>
+            <a class="ar-go" href="https://www.city.takamatsu.kagawa.jp/smph/kurashi/kurashi/sumai/akiya/kaishu_hojyo.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="takamatsu-shi-jikashohi-solar">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>高松市自家消費型家庭用太陽光発電設備等設置費補助事業（令和8年度）</b><small>既存住宅への太陽光発電と蓄電システムの新設を補助する。太陽光単独枠は受付終了。<br>対象：FIT等の認定を取得しない設備／国・県・市の他補助との併用不可<br>期間：予約申請：令和8年5月25日〜11月30日<br>締切：2026-11-30</small><span class="ar-prov">高松市</span></div>
+            <div class="ar-amt">太陽光8万円/kW（上限45万円）、蓄電システムは補助対象経費の1/3か20万円のいずれか低い額</div>
+            <a class="ar-go" href="https://www.city.takamatsu.kagawa.jp/smph/kurashi/kurashi/kankyo/ondanka/scPVR7.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="takamatsu-shi-jutaku-taishin">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>高松市住宅耐震改修等事業</b><small>民間住宅の耐震診断・耐震改修工事等の費用を補助する。</small><span class="ar-prov">高松市 建築指導課</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.takamatsu.kagawa.jp/smph/kurashi/kurashi/shobo/sonae/taisin.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>香川県の制度</strong></p>
+          <ul><li><a href="pref-kagawa.html#kagawa-ijyu-shienkin">東京圏からの移住支援金（香川県）</a></li><li><a href="pref-kagawa.html#kagawa-jutaku-kaizo-josei">住宅改造の助成（身体障害者向け）</a></li><li><a href="pref-kagawa.html#kagawa-smarthouse-r8">かがわスマートハウス促進事業補助金</a></li></ul>
+          <p><a href="pref-kagawa.html#pref-resident">香川県の制度3件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">香川県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">高松市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-kagawa.html#kagawa-business-challenge-compe">香川県ビジネスチャレンジコンペ2026</a></li><li><a href="pref-kagawa.html#kagawa-shin-ouen-fund">新かがわ中小企業応援ファンド等事業（新分野等チャレンジ支援・海外見本市出展支援）</a></li><li><a href="pref-kagawa.html#kagawa-sogyo-yushi">新規創業融資（香川県中小企業者融資制度）</a></li><li><a href="pref-kagawa.html#kagawa-startup-shien">起業等スタートアップ支援補助金（地域課題解決型）</a></li></ul>
-          <p><a href="pref-kagawa.html#pref-business">香川県の制度4件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="takamatsu-city-chuo-shotengai-sogyo">
+            <div class="ar-name"><b>高松市高松中央商店街創業新規出店補助金</b><small>高松中央商店街の空き店舗に新規出店する創業者の出店経費を補助する。<br>対象：高松中央商店街の空き店舗に出店する創業者<br>期間：令和8年4月1日〜令和9年1月29日（窓口持参のみ）<br>締切：2027-01-29</small><span class="ar-prov">高松市 創造都市推進局</span></div>
+            <div class="ar-amt">補助率1/4・上限50万円（特定創業支援等事業の支援を受けた場合は補助率1/2・上限100万円）</div>
+            <a class="ar-go" href="https://www.city.takamatsu.kagawa.jp/jigyosha/sangyou/shoukougyou/syoutenngai/syoutenngaisien/sougyousinnkisyutten.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="takamatsu-city-datsutanso-finance">
+            <div class="ar-name"><b>高松市中小企業向け脱炭素ファイナンス利用補助金</b><small>脱炭素関連のサステナブルファイナンス利用時の手数料を補助する。<br>対象：市内中小企業者<br>期間：令和8年7月15日〜令和9年2月26日<br>締切：2027-02-26</small><span class="ar-prov">高松市 ゼロカーボンシティ推進課</span></div>
+            <div class="ar-amt">補助率1/2・上限25万円</div>
+            <a class="ar-go" href="https://www.city.takamatsu.kagawa.jp/kurashi/kurashi/kankyo/zerocarboncity_tkmt/decarbonized-leader/datutansofinance.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="takamatsu-city-jigyo-koudoka">
+            <div class="ar-name"><b>高松市事業高度化等支援補助金</b><small>Webマーケティングの高度化など事業の高度化を支援する。<br>対象：市内中小企業者（詳細は要確認）<br>期間：事前申請 令和8年4月10日〜12月25日<br>締切：2026-12-25</small><span class="ar-prov">高松市 創造都市推進局</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.takamatsu.kagawa.jp/jigyosha/sangyou/shoukougyou/seityousokushin/koudoka.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="takamatsu-city-jigyo-yushi">
+            <div class="ar-name"><b>高松市事業資金融資（保証料補給）</b><small>運転・設備資金の市融資。完済翌年度に保証料を補給する。<br>対象：市内中小企業者<br>期間：令和8年4月1日〜令和9年3月31日申込分<br>締切：2027-03-31</small><span class="ar-prov">高松市 創造都市推進局</span></div>
+            <div class="ar-amt">融資700万円以内・利率2.1%・保証料補給は500万円まで</div>
+            <a class="ar-go" href="https://www.city.takamatsu.kagawa.jp/smph/jigyosha/shien_josei/yushi/jigyoyushi/index.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="takamatsu-city-shinshijo-hanro">
+            <div class="ar-name"><b>高松市新市場販路開拓事業補助金（たかまつ販路開拓チャレンジ補助金）</b><small>見本市や越境ECモールへの出展費用を補助する。事前相談が必要。<br>対象：市内中小企業者／国内は香川県外での出展に限る<br>期間：事前相談受付 令和8年4月23日〜令和9年1月29日<br>締切：2027-01-29</small><span class="ar-prov">高松市 創造都市推進局</span></div>
+            <div class="ar-amt">補助率2/3・上限 国内35万円／国外55万円／オンライン35万円</div>
+            <a class="ar-go" href="https://www.city.takamatsu.kagawa.jp/jigyosha/sangyou/shoukougyou/seityousokushin/hannrokaitaku.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="takamatsu-city-tokusanhin-hanbai">
+            <div class="ar-name"><b>高松市特産品・伝統的ものづくり販売促進事業補助金</b><small>特産品や伝統的ものづくり製品の販路開拓・広告宣伝等の経費を補助する。<br>対象：特産品・伝統的ものづくり製品の事業者<br>期間：令和8年4月17日〜令和9年1月29日（窓口受付のみ）<br>締切：2027-01-29</small><span class="ar-prov">高松市 創造都市推進局</span></div>
+            <div class="ar-amt">上限15万円（特産品1/2、伝統的ものづくり3/4）</div>
+            <a class="ar-go" href="https://www.city.takamatsu.kagawa.jp/jigyosha/sangyou/shoukougyou/tokusan/tenjikaihojyo.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">香川県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>高松市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="takamatsu-shi-jutaku-taishin">
-            <h3>高松市住宅耐震改修等事業</h3>
-            <p class="area-meta">高松市 建築指導課｜補助金｜金額は公式で確認</p>
-            
-            <p>民間住宅の耐震診断・耐震改修工事等の費用を補助する。</p>
-            
-            <p><a href="https://www.city.takamatsu.kagawa.jp/smph/kurashi/kurashi/shobo/sonae/taisin.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program" id="takamatsu-shi-jikashohi-solar">
-            <h3>高松市自家消費型家庭用太陽光発電設備等設置費補助事業（令和8年度）</h3>
-            <p class="area-meta">高松市｜補助金｜太陽光8万円/kW（上限45万円）、蓄電システムは補助対象経費の1/3か20万円のいずれか低い額｜締切：2026-11-30</p>
-            <p class="area-meta">期間：予約申請：令和8年5月25日〜11月30日</p>
-            <p>既存住宅への太陽光発電と蓄電システムの新設を補助する。太陽光単独枠は受付終了。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>FIT等の認定を取得しない設備</li><li>国・県・市の他補助との併用不可</li></ul>
-            <p><a href="https://www.city.takamatsu.kagawa.jp/smph/kurashi/kurashi/kankyo/ondanka/scPVR7.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="takamatsu-shi-akiya-kaishu">
-            <h3>高松市空き家改修補助事業</h3>
-            <p class="area-meta">高松市｜補助金｜補助対象事業費の1/2（限度額50万円、居住誘導区域内は60万円の場合あり）</p>
-            <p class="area-meta">期間：令和8年度（期間は要確認）</p>
-            <p>空き家バンクに登録された市内の一戸建て空き家の改修費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>空き家バンク登録物件</li></ul>
-            <p><a href="https://www.city.takamatsu.kagawa.jp/smph/kurashi/kurashi/sumai/akiya/kaishu_hojyo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-6">子育て</h3>
-          <div class="area-program" id="takamatsu-daisanshi-kyushoku">
-            <h3>高松市第3子以降学校給食費無償化制度（中学校）</h3>
-            <p class="area-meta">高松市 教育委員会 保健体育課｜給付｜令和8年9月から令和9年3月までの学校給食費（3番目以降の子の分）が無償</p>
-            <p class="area-meta">期間：令和8年9月から令和9年3月までの学校給食費が対象。令和8年度分の申請受付は6月22日から</p>
-            <p>多子世帯の子育てに対する経済的負担軽減を図るため、高松市立中学校に通う第3子以降の学校給食費を無償化します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>平成26年（2014）年4月1日以前に生まれた子を3人以上扶養している</li><li>3番目以降の子が高松市立中学校で学校給食の提供を受けている</li><li>生活保護・就学援助制度等で学校給食費の支援を受けていない又は申請中</li></ul>
-            <p><a href="https://www.city.takamatsu.kagawa.jp/kurashi/kosodate/shouchugakkou/kyushoku/kyusyokutetuduki/daisanshimusyouka.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="takamatsu-famisapo-tashi">
-            <h3>たかまつファミリー・サポート・センターの利用料助成（多子世帯）</h3>
-            <p class="area-meta">高松市 子育て支援課｜助成金｜1時間あたりの利用料金のうち児童1人につき200円、2人目以降は100円</p>
-            <p class="area-meta">期間：助成の対象は令和8年4月以降の援助活動。交付申請は援助活動を行った年度末まで</p>
-            <p>3人以上の児童を扶養する多子世帯のおねがい会員を対象に、ファミリー・サポート・センターの利用料を助成します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>高松市在住で、3人以上の児童（18歳に達する日以後最初の3月31日まで）を扶養している世帯</li><li>センターのおねがい会員登録をしている方</li><li>申請者の世帯全員が市税を滞納していない方</li></ul>
-            <p><a href="https://www.city.takamatsu.kagawa.jp/kurashi/kosodate/hitorioya/kosodate/boshi_up2026030.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="takamatsu-kyushoku-hikishoku">
-            <h3>令和8年度高松市立小学校等における学校給食非喫食者補助金</h3>
-            <p class="area-meta">高松市 教育委員会 保健体育課｜補助金｜要確認（一か月当たりの補助額は区分に応じる。金額の記載は本文に見当たらない）</p>
-            <p class="area-meta">期間：補助対象期間は令和8年4月1日から令和9年3月31日（ただし、8月を除く）</p>
-            <p>食物アレルギーその他やむを得ない理由で連続して学校給食を食べない児童について、補助金を交付します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>高松市立小学校又は香川大学教育学部附属高松小学校に在籍する児童</li><li>食物アレルギー、不登校、宗教上の配慮などやむを得ない理由がある</li><li>生活保護を受けている場合は対象外</li></ul>
-            <p><a href="https://www.city.takamatsu.kagawa.jp/kurashi/kosodate/shouchugakkou/kyushoku/hotai_up20260518.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="takamatsu-ninkagai-dai2shi">
-            <h3>高松市認可外保育施設入所第2子等保育料助成金</h3>
-            <p class="area-meta">高松市｜助成金｜上限月額15,000円～37,100円（兄姉の状況・施設により異なる）｜締切：2026-10-31</p>
-            <p class="area-meta">期間：申請対象期間は令和8年4月1日から令和8年9月30日。申請期限は令和8年10月31日</p>
-            <p>認可外保育施設に入所している第2子又は第3子以降の児童の保育料について助成を行います。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>高松市内の認可外保育施設を利用した、住民登録がある保育を必要とする0～2歳児</li><li>同一世帯で保育所などを利用している就学前の兄又は姉が1人いる児童等</li><li>市税を滞納していない方</li></ul>
-            <p><a href="https://www.city.takamatsu.kagawa.jp/kurashi/kosodate/youchien_hoiku/kodomoen/hoiku/h28genmen.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="takamatsu-sango-care">
-            <h3>産後ケア事業</h3>
-            <p class="area-meta">高松市｜給付｜利用者負担額は通所型1日500円、訪問型1回300円、宿泊型1泊2日10,000円（通算5日以内）</p>
-            <p class="area-meta">期間：令和8年度から、高松市への初回利用前の申請は不要</p>
-            <p>出産後の産婦及び乳児が、母乳管理・沐浴・赤ちゃんのお世話について助産師等から指導を受けることができる事業です。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>高松市内に住所があり、出産後に退院した産後1年未満の産婦及び乳児</li><li>非課税世帯又は生活保護世帯は利用者負担額の免除申請が必要</li></ul>
-            <p><a href="https://www.city.takamatsu.kagawa.jp/kurashi/kosodate/ninshin_shussan/syussan/sango_care.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-7">医療・福祉</h3>
-          <div class="area-program" id="takamatsu-gan-hoseigu">
-            <h3>高松市がん患者等医療用補整具助成事業</h3>
-            <p class="area-meta">高松市｜助成金｜補整具購入費の3分の2。医療用ウィッグ・乳房補整具とも上限20,000円</p>
-            <p class="area-meta">期間：対象となる補整具を購入した日の翌日から1年以内</p>
-            <p>がん患者の方などへ、医療用ウィッグや乳房補整具等の購入費用の一部を助成します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>申請日に高松市内に住民登録のある方</li><li>がんの治療を受けた方又は現に受けている方</li><li>がん以外の患者の方は令和8年4月1日以降に購入した医療用ウィッグに限る</li></ul>
-            <p><a href="https://www.city.takamatsu.kagawa.jp/kurashi/kenkou/kenkonotameni/seijin/gan_hoseigu.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-8">教育・学び</h3>
-          <div class="area-program" id="takamatsu-shogakukin">
-            <h3>高松市奨学金</h3>
-            <p class="area-meta">高松市｜給付｜1人月額9，000円（予定）、返済不要｜締切：2026-12-14</p>
-            <p class="area-meta">期間：令和9年度新規募集の提出期限は令和8年12月14日。支給開始は令和9年6月頃（予定）</p>
-            <p>成績優秀でかつ向学心のおう盛な生徒で、家庭の経済的理由のため高等学校などへの修学が困難な方に、奨学金を支給します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>令和9年4月に高等学校等に入学を希望している生徒（現中学校3年生）</li><li>現在、高等学校等に在籍している生徒（令和9年3月に卒業予定の者を除く）</li><li>高松市在住予定で、学業が優秀（評定平均値が3．5以上）</li></ul>
-            <p><a href="https://www.city.takamatsu.kagawa.jp/kurashi/kurashi/josei/kosodate/shogakukin.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="takamatsu-shugakuenjo">
-            <h3>就学援助制度</h3>
-            <p class="area-meta">高松市 教育委員会 学校教育課｜給付｜学用品費・通学用品費などを援助（金額は本文に記載なし）</p>
-            <p class="area-meta">期間：令和8年度就学援助制度2期は令和8年10月～令和9年3月。令和9年4月入学の新小学校1年生の申請を受付中</p>
-            <p>経済的な理由で子どもの就学が困難な場合に、学校で必要な経費の一部を援助する制度です。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>高松市在住の児童生徒の保護者で、高松市教育委員会が援助を必要と認めた方</li><li>市民税の非課税世帯、児童扶養手当の支給を受けている方など</li><li>世帯の所得の合計金額が生活保護基準の1.3倍以下の方</li></ul>
-            <p><a href="https://www.city.takamatsu.kagawa.jp/kurashi/kurashi/josei/kosodate/shugakushien.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>香川県の制度</strong></p>
-          <ul><li><a href="pref-kagawa.html#kagawa-ijyu-shienkin">東京圏からの移住支援金（香川県）</a></li><li><a href="pref-kagawa.html#kagawa-jutaku-kaizo-josei">住宅改造の助成（身体障害者向け）</a></li><li><a href="pref-kagawa.html#kagawa-smarthouse-r8">かがわスマートハウス促進事業補助金</a></li></ul>
-          <p><a href="pref-kagawa.html#pref-resident">香川県の制度3件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-kagawa.html#kagawa-business-challenge-compe">香川県ビジネスチャレンジコンペ2026</a></li><li><a href="pref-kagawa.html#kagawa-shin-ouen-fund">新かがわ中小企業応援ファンド等事業（新分野等チャレンジ支援・海外見本市出展支援）</a></li><li><a href="pref-kagawa.html#kagawa-sogyo-yushi">新規創業融資（香川県中小企業者融資制度）</a></li><li><a href="pref-kagawa.html#kagawa-startup-shien">起業等スタートアップ支援補助金（地域課題解決型）</a></li></ul>
+          <p><a href="pref-kagawa.html#pref-business">香川県の制度4件を、県のページで見る →</a></p>
       </div>
     </section>
 

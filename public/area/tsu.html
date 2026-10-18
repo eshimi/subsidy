@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"津市","item":"https://hojyokin.net/area/tsu.html"}]}</script>
@@ -165,178 +207,130 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 津市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b16.webp')"><h1 class="pb-title">津市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-mie.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">三重県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">三重県 津市</p>
+        <h1>津市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度14件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-mie.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（津市）<b>5件（うち受付終了2件）</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（三重県）<b>5件（うち受付終了3件）</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>9件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 3</a><a href="#res-cat-1">太陽光・蓄電池 2</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-9">移住 2</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <span class="is-none"><i aria-hidden="true">👶</i><b>子育て</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>掲載なし</small></span>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>7件</small></a>
+      <a href="#res-g-iju"><i aria-hidden="true">🌱</i><b>移住</b><small>2件</small></a>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市5件＋県5件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">津市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="tsu-city-jinzai-ikusei">
-            <h3>津市中小企業振興事業補助金（人材育成支援事業）</h3>
-            <p class="area-meta">津市 商業振興労政課｜補助金｜補助率1/2以内、同一事業者10万円上限</p>
-            <p class="area-meta">期間：令和8年度（最新は要確認）</p>
-            <p>従業員の人材育成にかかる費用の一部を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内で1年以上事業を営む中小企業者</li></ul>
-            <p><a href="https://www.info.city.tsu.mie.jp/sangyou_shigoto/shoukougyou/1004195/1009870/1004207.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>7件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="tsu-akiya-yuko-katsuyo">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>津市空き家有効活用推進事業補助金</b><small>市外から移住する人が空き家を改修する費用等の一部を補助する。<br>対象：市外から市内へ移住すること／耐震基準を満たし土砂災害特別警戒区域外の空き家であること</small><span class="ar-prov">三重県津市</span></div>
+            <div class="ar-amt">改修費の3分の1（上限100万円）、家財道具処分は2分の1（上限5万円）</div>
+            <a class="ar-go" href="https://www.info.city.tsu.mie.jp/ijuuouen/kurasu/1007946/1009758/1008331.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="tsu-city-sogyo-hokyukin">
-            <h3>津市創業資金融資に係る補給金</h3>
-            <p class="area-meta">津市 商業振興労政課｜融資｜保証料補給金:上限10万円、利子補給金あり</p>
-            <p class="area-meta">期間：常設（保証料は融資実行から3か月以内、利子補給は毎年2月末）</p>
-            <p>創業融資の信用保証料または日本公庫融資の利子を補給する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>創業後5年未満等</li><li>保証協会保証または日本公庫の融資を受けた人</li></ul>
-            <p><a href="https://www.info.city.tsu.mie.jp/sangyou_shigoto/shoukougyou/1004195/1004201.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="tsu-block-tekkyo-kaishu">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>津市ブロック塀等撤去改修事業補助金</b><small>災害時の避難経路確保のため、道路に面するブロック塀等の撤去・改修費用の一部を補助する。<br>対象：道路に面するブロック塀等であること／工事契約・着工前に申請し、市の現地調査を受けること</small><span class="ar-prov">三重県津市</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.info.city.tsu.mie.jp/shisei/keikaku_matizukuri_torikumi/1005750/1005854/1005880/1005886.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="tsu-city-tenjikai-shuttenn">
-            <h3>津市中小企業振興事業補助金（展示会等出展支援事業）</h3>
-            <p class="area-meta">津市 商業振興労政課｜補助金｜20万円以内</p>
-            <p class="area-meta">期間：令和8年度（ページにより予算到達で終了とも10/30までとも記載、要確認）</p>
-            <p>展示会等への出展費用の一部を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内で1年以上事業を営む中小企業者</li></ul>
-            <p><a href="https://www.info.city.tsu.mie.jp/sangyou_shigoto/shoukougyou/1004195/1009870/1004205.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="tsu-jikasyohi-taiyoko">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>津市自家消費型家庭用太陽光発電設備等設置費補助金</b><small>自家消費型の家庭用太陽光発電設備と蓄電池の設置費用の一部を補助する。<br>対象：蓄電池は定格容量20kWh以下でZEH支援事業の登録製品であること</small><span class="ar-prov">三重県津市</span></div>
+            <div class="ar-amt">太陽光は1kWあたり7万円または価格の低い方が基準。蓄電池は価格の3分の1が上限の目安など（詳細は要確認）</div>
+            <a class="ar-go" href="https://www.info.city.tsu.mie.jp/kurashi/gomi_kankyo/1001800/1001806.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <h3 class="area-cat">受付が終了した制度（次回の公募の参考に）</h3>
-          <div class="area-program is-ended" id="tsu-city-seisansei-setsubi">
-            <h3>津市中小企業振興事業補助金（生産性向上設備支援事業） <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">津市 商業振興労政課｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：令和8年4月2日～6月12日（受付終了、来年度は要確認）</p>
-            <p>生産性向上のための設備導入費の一部を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内で1年以上事業を営む中小企業者</li></ul>
-            <p><a href="https://www.info.city.tsu.mie.jp/sangyou_shigoto/shoukougyou/1004195/1009870/1004206.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="tsu-shinenergy-setchi">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>津市新エネルギー利用設備設置費補助金（太陽光・蓄電池）</b><small>住宅への太陽光発電設備や定置型蓄電池の設置費用の一部を補助する。令和8年度は4月1日から先着順で受付。<br>対象：定置型蓄電池は国のZEH支援事業の対象製品であること／蓄電池は太陽光と同時に設置する場合のみ対象</small><span class="ar-prov">三重県津市</span></div>
+            <div class="ar-amt">個人住宅の太陽光は5kW以上10kW未満で6万円（表の記載）、蓄電池は太陽光と同時設置の場合1件6万円。詳細は要確認</div>
+            <a class="ar-go" href="https://www.info.city.tsu.mie.jp/kurashi/gomi_kankyo/1001800/1001739.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program is-ended" id="tsu-city-shinshohin-kaihatsu">
-            <h3>津市中小企業振興事業補助金（新商品等開発支援事業） <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">津市 商業振興労政課｜補助金｜製造業100万円以内、その他50万円以内</p>
-            <p class="area-meta">期間：令和8年4月2日～6月12日（受付終了、来年度は要確認）</p>
-            <p>新商品等の開発費の一部を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内で1年以上事業を営む中小企業者</li></ul>
-            <p><a href="https://www.info.city.tsu.mie.jp/sangyou_shigoto/shoukougyou/1004195/1009870/1004208.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="tsu-taishin-hokyo">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>津市木造住宅耐震補強事業補助金</b><small>耐震診断で評点0.7未満の昭和56年5月31日以前の木造住宅の耐震補強工事費を補助する。<br>対象：昭和56年5月31日以前に建築または着工された3階建て以下の木造住宅／耐震診断の評点が0.7未満</small><span class="ar-prov">津市</span></div>
+            <div class="ar-amt">評点1.0以上になる場合は最高157.5万円、0.7以上1.0未満は最高30万円（機能向上リフォームを併せて行う場合は最高20万円加算）</div>
+            <a class="ar-go" href="https://www.info.city.tsu.mie.jp/www/contents/1001000009275/simple/kozi1-2.pdf" target="_blank" rel="noopener">公式 →</a>
           </div>
+          <div class="ar-row" id="tsu-taishin-jokyaku">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>津市木造住宅除却事業補助金</b><small>耐震性の低い木造住宅の除却工事費を補助する。<br>対象：耐震診断で評点0.7未満などの昭和56年5月31日以前の木造住宅</small><span class="ar-prov">津市</span></div>
+            <div class="ar-amt">除却工事費の23％（最高30万円）</div>
+            <a class="ar-go" href="https://www.info.city.tsu.mie.jp/www/contents/1001000009275/simple/jyokyakurpamphlet.pdf" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="tsu-taishin-keikaku">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>津市木造住宅耐震補強計画事業補助金</b><small>木造住宅の耐震補強計画の作成費用を補助する。<br>対象：耐震診断の評点が0.7未満の昭和56年5月31日以前の木造住宅</small><span class="ar-prov">津市</span></div>
+            <div class="ar-amt">最高18万円（精密診断法で設計する場合は最高34万円）</div>
+            <a class="ar-go" href="https://www.info.city.tsu.mie.jp/www/contents/1001000009275/simple/keikaku1-1.pdf" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-iju">移住<span>2件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="tsu-iju-shienkin">
+            <div class="ar-name"><b>津市移住支援補助金</b><small>東京23区在住者等が津市に移住し要件を満たす場合に支給される。<br>対象：東京23区在住または東京圏から23区へ通勤していたこと／移住後5年以内に市外へ転出すると返還の場合あり</small><span class="ar-prov">三重県津市</span></div>
+            <div class="ar-amt">単身60万円、世帯100万円（18歳未満の帯同者1人につき30万円加算）</div>
+            <a class="ar-go" href="https://www.info.city.tsu.mie.jp/ijuuouen/hataraku/1007942/1007943.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="tsu-kosodate-iju-akiya">
+            <div class="ar-name"><b>津市子育て世帯移住促進空き家活用助成事業</b><small>市外から移住する子育て世帯が市内の空き家を購入する費用の一部を助成する。<br>対象：18歳未満の子を養育する世帯で、購入した空き家に10年以上居住／転入日が申請日から1年以内で、転入前1年以上市外に居住</small><span class="ar-prov">三重県津市</span></div>
+            <div class="ar-amt">居住誘導区域内の空き家は上限150万円、その他の市内空き家は上限100万円</div>
+            <a class="ar-go" href="https://www.info.city.tsu.mie.jp/kurashi/seikatsu_sumai/1009879/1001984/1002003.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>三重県の制度</strong></p>
+          <ul><li><a href="pref-mie.html#mie-akiya-taisaku-shien">三重県空き家対策支援事業</a></li><li><a href="pref-mie.html#mie-ev-donyu-r8">令和8年度電気自動車等導入費補助金</a></li><li><a href="pref-mie.html#mie-taishin-hokyo-kouji">木造住宅の耐震補強工事補助</a></li><li><a href="pref-mie.html#mie-taishin-reform">耐震：木造住宅のリフォーム工事補助</a></li><li><a href="pref-mie.html#mie-taishin-sekkei">木造住宅の耐震補強設計補助</a></li></ul>
+          <p><a href="pref-mie.html#pref-resident">三重県の制度7件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">三重県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">津市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-mie.html#mie-kaigai-business">三重県 海外ビジネス展開支援補助金</a></li><li><a href="pref-mie.html#mie-sogyo-saichosen-shikin">三重県 創業・再挑戦アシスト資金</a></li><li><a href="pref-mie.html#mie-incubation-shisetsu">三重県 みえインキュベーション施設整備補助金</a></li><li><a href="pref-mie.html#mie-kigyo-shienkin">三重県起業支援金</a></li><li><a href="pref-mie.html#mie-startup-shien">三重県スタートアップ支援補助金</a></li></ul>
-          <p><a href="pref-mie.html#pref-business">三重県の制度5件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="tsu-city-jinzai-ikusei">
+            <div class="ar-name"><b>津市中小企業振興事業補助金（人材育成支援事業）</b><small>従業員の人材育成にかかる費用の一部を補助する。<br>対象：市内で1年以上事業を営む中小企業者</small><span class="ar-prov">津市 商業振興労政課</span></div>
+            <div class="ar-amt">補助率1/2以内、同一事業者10万円上限</div>
+            <a class="ar-go" href="https://www.info.city.tsu.mie.jp/sangyou_shigoto/shoukougyou/1004195/1009870/1004207.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="tsu-city-sogyo-hokyukin">
+            <div class="ar-name"><b>津市創業資金融資に係る補給金</b><small>創業融資の信用保証料または日本公庫融資の利子を補給する。<br>対象：創業後5年未満等／保証協会保証または日本公庫の融資を受けた人<br>期間：常設（保証料は融資実行から3か月以内、利子補給は毎年2月末）</small><span class="ar-prov">津市 商業振興労政課</span></div>
+            <div class="ar-amt">保証料補給金:上限10万円、利子補給金あり</div>
+            <a class="ar-go" href="https://www.info.city.tsu.mie.jp/sangyou_shigoto/shoukougyou/1004195/1004201.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="tsu-city-tenjikai-shuttenn">
+            <div class="ar-name"><b>津市中小企業振興事業補助金（展示会等出展支援事業）</b><small>展示会等への出展費用の一部を補助する。<br>対象：市内で1年以上事業を営む中小企業者</small><span class="ar-prov">津市 商業振興労政課</span></div>
+            <div class="ar-amt">20万円以内</div>
+            <a class="ar-go" href="https://www.info.city.tsu.mie.jp/sangyou_shigoto/shoukougyou/1004195/1009870/1004205.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="tsu-city-seisansei-setsubi">
+            <div class="ar-name"><b>津市中小企業振興事業補助金（生産性向上設備支援事業） <span class="area-ended-tag">受付終了</span></b><small>生産性向上のための設備導入費の一部を補助する。<br>対象：市内で1年以上事業を営む中小企業者</small><span class="ar-prov">津市 商業振興労政課</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.info.city.tsu.mie.jp/sangyou_shigoto/shoukougyou/1004195/1009870/1004206.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="tsu-city-shinshohin-kaihatsu">
+            <div class="ar-name"><b>津市中小企業振興事業補助金（新商品等開発支援事業） <span class="area-ended-tag">受付終了</span></b><small>新商品等の開発費の一部を補助する。<br>対象：市内で1年以上事業を営む中小企業者</small><span class="ar-prov">津市 商業振興労政課</span></div>
+            <div class="ar-amt">製造業100万円以内、その他50万円以内</div>
+            <a class="ar-go" href="https://www.info.city.tsu.mie.jp/sangyou_shigoto/shoukougyou/1004195/1009870/1004208.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">三重県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>津市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="tsu-taishin-hokyo">
-            <h3>津市木造住宅耐震補強事業補助金</h3>
-            <p class="area-meta">津市｜補助金｜評点1.0以上になる場合は最高157.5万円、0.7以上1.0未満は最高30万円（機能向上リフォームを併せて行う場合は最高20万円加算）</p>
-            <p class="area-meta">期間：確認できた年度：令和7年度（最新は要確認）</p>
-            <p>耐震診断で評点0.7未満の昭和56年5月31日以前の木造住宅の耐震補強工事費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>昭和56年5月31日以前に建築または着工された3階建て以下の木造住宅</li><li>耐震診断の評点が0.7未満</li><li>津市の無料耐震診断等を受けていること</li></ul>
-            <p><a href="https://www.info.city.tsu.mie.jp/www/contents/1001000009275/simple/kozi1-2.pdf" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="tsu-taishin-jokyaku">
-            <h3>津市木造住宅除却事業補助金</h3>
-            <p class="area-meta">津市｜補助金｜除却工事費の23％（最高30万円）</p>
-            <p class="area-meta">期間：確認できた年度：令和7年度（最新は要確認）</p>
-            <p>耐震性の低い木造住宅の除却工事費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>耐震診断で評点0.7未満などの昭和56年5月31日以前の木造住宅</li></ul>
-            <p><a href="https://www.info.city.tsu.mie.jp/www/contents/1001000009275/simple/jyokyakurpamphlet.pdf" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="tsu-taishin-keikaku">
-            <h3>津市木造住宅耐震補強計画事業補助金</h3>
-            <p class="area-meta">津市｜補助金｜最高18万円（精密診断法で設計する場合は最高34万円）</p>
-            <p class="area-meta">期間：確認できた年度：令和7年度（最新は要確認）</p>
-            <p>木造住宅の耐震補強計画の作成費用を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>耐震診断の評点が0.7未満の昭和56年5月31日以前の木造住宅</li></ul>
-            <p><a href="https://www.info.city.tsu.mie.jp/www/contents/1001000009275/simple/keikaku1-1.pdf" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program" id="tsu-jikasyohi-taiyoko">
-            <h3>津市自家消費型家庭用太陽光発電設備等設置費補助金</h3>
-            <p class="area-meta">三重県津市｜補助金｜太陽光は1kWあたり7万円または価格の低い方が基準。蓄電池は価格の3分の1が上限の目安など（詳細は要確認）</p>
-            <p class="area-meta">期間：令和8年6月1日から（予算がなくなり次第終了。最新は要確認）</p>
-            <p>自家消費型の家庭用太陽光発電設備と蓄電池の設置費用の一部を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>蓄電池は定格容量20kWh以下でZEH支援事業の登録製品であること</li></ul>
-            <p><a href="https://www.info.city.tsu.mie.jp/kurashi/gomi_kankyo/1001800/1001806.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="tsu-shinenergy-setchi">
-            <h3>津市新エネルギー利用設備設置費補助金（太陽光・蓄電池）</h3>
-            <p class="area-meta">三重県津市｜補助金｜個人住宅の太陽光は5kW以上10kW未満で6万円（表の記載）、蓄電池は太陽光と同時設置の場合1件6万円。詳細は要確認</p>
-            <p class="area-meta">期間：令和8年4月1日から先着順（予算に達し次第終了。最新は要確認）</p>
-            <p>住宅への太陽光発電設備や定置型蓄電池の設置費用の一部を補助する。令和8年度は4月1日から先着順で受付。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>定置型蓄電池は国のZEH支援事業の対象製品であること</li><li>蓄電池は太陽光と同時に設置する場合のみ対象</li></ul>
-            <p><a href="https://www.info.city.tsu.mie.jp/kurashi/gomi_kankyo/1001800/1001739.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="tsu-akiya-yuko-katsuyo">
-            <h3>津市空き家有効活用推進事業補助金</h3>
-            <p class="area-meta">三重県津市｜補助金｜改修費の3分の1（上限100万円）、家財道具処分は2分の1（上限5万円）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>市外から移住する人が空き家を改修する費用等の一部を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市外から市内へ移住すること</li><li>耐震基準を満たし土砂災害特別警戒区域外の空き家であること</li><li>改修後10年以上定住する予定</li></ul>
-            <p><a href="https://www.info.city.tsu.mie.jp/ijuuouen/kurasu/1007946/1009758/1008331.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="tsu-block-tekkyo-kaishu">
-            <h3>津市ブロック塀等撤去改修事業補助金</h3>
-            <p class="area-meta">三重県津市｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>災害時の避難経路確保のため、道路に面するブロック塀等の撤去・改修費用の一部を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>道路に面するブロック塀等であること</li><li>工事契約・着工前に申請し、市の現地調査を受けること</li></ul>
-            <p><a href="https://www.info.city.tsu.mie.jp/shisei/keikaku_matizukuri_torikumi/1005750/1005854/1005880/1005886.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-9">移住</h3>
-          <div class="area-program" id="tsu-iju-shienkin">
-            <h3>津市移住支援補助金</h3>
-            <p class="area-meta">三重県津市｜給付｜単身60万円、世帯100万円（18歳未満の帯同者1人につき30万円加算）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>東京23区在住者等が津市に移住し要件を満たす場合に支給される。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>東京23区在住または東京圏から23区へ通勤していたこと</li><li>移住後5年以内に市外へ転出すると返還の場合あり</li></ul>
-            <p><a href="https://www.info.city.tsu.mie.jp/ijuuouen/hataraku/1007942/1007943.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="tsu-kosodate-iju-akiya">
-            <h3>津市子育て世帯移住促進空き家活用助成事業</h3>
-            <p class="area-meta">三重県津市｜助成金｜居住誘導区域内の空き家は上限150万円、その他の市内空き家は上限100万円</p>
-            <p class="area-meta">期間：予算の範囲内（年度途中で終了あり。最新は要確認）</p>
-            <p>市外から移住する子育て世帯が市内の空き家を購入する費用の一部を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>18歳未満の子を養育する世帯で、購入した空き家に10年以上居住</li><li>転入日が申請日から1年以内で、転入前1年以上市外に居住</li><li>令和7年4月1日以降に売買契約した一戸建て</li></ul>
-            <p><a href="https://www.info.city.tsu.mie.jp/kurashi/seikatsu_sumai/1009879/1001984/1002003.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>三重県の制度</strong></p>
-          <ul><li><a href="pref-mie.html#mie-akiya-taisaku-shien">三重県空き家対策支援事業</a></li><li><a href="pref-mie.html#mie-ev-donyu-r8">令和8年度電気自動車等導入費補助金</a></li><li><a href="pref-mie.html#mie-taishin-hokyo-kouji">木造住宅の耐震補強工事補助</a></li><li><a href="pref-mie.html#mie-taishin-reform">耐震：木造住宅のリフォーム工事補助</a></li><li><a href="pref-mie.html#mie-taishin-sekkei">木造住宅の耐震補強設計補助</a></li></ul>
-          <p><a href="pref-mie.html#pref-resident">三重県の制度7件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-mie.html#mie-kaigai-business">三重県 海外ビジネス展開支援補助金</a></li><li><a href="pref-mie.html#mie-sogyo-saichosen-shikin">三重県 創業・再挑戦アシスト資金</a></li><li><a href="pref-mie.html#mie-incubation-shisetsu">三重県 みえインキュベーション施設整備補助金</a></li><li><a href="pref-mie.html#mie-kigyo-shienkin">三重県起業支援金</a></li><li><a href="pref-mie.html#mie-startup-shien">三重県スタートアップ支援補助金</a></li></ul>
+          <p><a href="pref-mie.html#pref-business">三重県の制度5件を、県のページで見る →</a></p>
       </div>
     </section>
 

@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"川口市","item":"https://hojyokin.net/area/kawaguchi.html"}]}</script>
@@ -165,228 +207,167 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 川口市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b08.webp')"><h1 class="pb-title">川口市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-saitama.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">埼玉県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">埼玉県 川口市</p>
+        <h1>川口市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度19件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-saitama.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（川口市）<b>5件</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（埼玉県）<b>5件</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>14件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 2</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-2">EV・充電 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-6">子育て 1</a><a href="#res-cat-7">医療・福祉 4</a><a href="#res-cat-8">教育・学び 1</a><a href="#res-cat-9">移住 1</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <a href="#res-g-kosodate"><i aria-hidden="true">👶</i><b>子育て</b><small>1件</small></a>
+      <a href="#res-g-iryo"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>4件</small></a>
+      <a href="#res-g-kyoiku"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>1件</small></a>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>7件</small></a>
+      <a href="#res-g-iju"><i aria-hidden="true">🌱</i><b>移住</b><small>1件</small></a>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市5件＋県5件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">川口市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="kawaguchi-city-akitenpo-katsuyo">
-            <h3>川口市空き店舗活用事業補助金</h3>
-            <p class="area-meta">川口市 商業観光課｜補助金｜補助率1/2以内、上限200万円</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>商店街区域の空き店舗を改修して新たに事業を始める際の改修工事費を補助する。予算上限まで。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>商店街区域の空き店舗で開業する事業者</li><li>商店街・商工会議所に加入</li></ul>
-            <p><a href="https://www.city.kawaguchi.lg.jp/soshiki/01110/030/2/2075.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-kosodate">子育て<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="kawaguchi-nyuen-hojo">
+            <div class="ar-name"><b>川口市園児保護者入園料補助金（令和8年度）</b><small>新制度未移行幼稚園・認定こども園・新制度幼稚園の園児の保護者に対し、市独自に入園料を補助する。<br>対象：お子さまを新制度未移行幼稚園・認定こども園・新制度幼稚園に通園させている保護者／入園日時点でお子さまの川口市への住民登録が必要<br>期間：第1回：4月～9月入園者、第2回：10月～3月入園者（令和8年度10月～3月入園者の案内は令和9年1月中旬予定）</small><span class="ar-prov">川口市 保育幼稚園課</span></div>
+            <div class="ar-amt">40,000円（所得制限なし）</div>
+            <a class="ar-go" href="https://www.city.kawaguchi.lg.jp/kosodate_gakkou/hoikusyo/2/11185.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="kawaguchi-city-dx-suishin">
-            <h3>川口市DX推進補助金</h3>
-            <p class="area-meta">川口市 経営支援課｜補助金｜要確認（国補助金への上乗せ、採択予定25件程度）</p>
-            <p class="area-meta">期間：令和8年5月1日から申請受付開始。最新は要確認</p>
-            <p>国の補助金を受けてDX・デジタル化に取り組む事業者に市が上乗せ補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>国の補助金の交付を受けた市内事業者</li></ul>
-            <p><a href="https://www.city.kawaguchi.lg.jp/soshiki/01110/021/12/38430.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/kawaguchi-city-dx-suishin.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
           </div>
-          <div class="area-program" id="kawaguchi-city-sogyo-shikin">
-            <h3>川口市中小企業創業支援資金融資</h3>
-            <p class="area-meta">川口市 経営支援課｜融資｜限度額3,500万円（自己資金の10倍まで）、固定金利年1.0%</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>許認可を受けて事業を始める方、開始後5年以内の方向けの制度融資。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>創業予定者</li><li>事業開始後5年以内の事業者</li></ul>
-            <p><a href="https://www.city.kawaguchi.lg.jp/soshiki/01110/021/11/11_2/11_2_1/7628.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <h3 class="area-cat" id="res-g-iryo">医療・福祉<span>4件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="kawaguchi-hochoki-koreisha">
+            <div class="ar-name"><b>令和8年度高齢者補聴器購入費補助事業</b><small>聴力の低下で生活に支障がある高齢者が補聴器を利用できるよう、補聴器購入費の一部を補助する。<br>対象：市内に住所を有する満65歳以上／本人が市民税非課税または生活保護受給世帯<br>期間：令和8年4月1日（水曜日）から令和9年3月31日（水曜日）まで<br>締切：2027-03-31</small><span class="ar-prov">川口市 長寿支援課</span></div>
+            <div class="ar-amt">上限20,000円（1人1回）</div>
+            <a class="ar-go" href="https://www.city.kawaguchi.lg.jp/soshiki/01070/040/4/44600.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="kawaguchi-city-tenjikai-shuppin">
-            <h3>川口市展示会等出展事業補助金</h3>
-            <p class="area-meta">川口市 工業施策担当｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：令和8年度の実績報告案内あり。募集状況は要確認</p>
-            <p>展示会等に出展する市内事業者の出展費用を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の中小企業者</li></ul>
-            <p><a href="https://www.city.kawaguchi.lg.jp/soshiki/01110/030/kougyousisaku/50873.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="kawaguchi-keiro-kyufu">
+            <div class="ar-name"><b>重度要介護高齢者福祉手当・敬老祝金</b><small>要介護認定4または5などの条件を満たす高齢者への福祉手当と、米寿・白寿を迎える方への敬老祝金を給付する。<br>対象：手当：65歳以上で要介護4または5、住民税非課税／祝金：令和8年8月31日現在、引き続き1年以上市内に住所がある米寿・白寿の方<br>期間：手当は年6回奇数月に支給。敬老祝金の申請期限は令和9年3月31日<br>締切：2027-03-31</small><span class="ar-prov">川口市</span></div>
+            <div class="ar-amt">重度要介護高齢者福祉手当は月額5,000円、米寿10,000円・白寿30,000円</div>
+            <a class="ar-go" href="https://www.city.kawaguchi.lg.jp/kenko_kaigo/koreishanoho/1/10799.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="kawaguchi-city-tenpo-kaishu">
-            <h3>川口市商店改修事業補助金</h3>
-            <p class="area-meta">川口市 商業観光課｜補助金｜補助率30%以内、上限50万円/店舗</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>集客力や買い物環境を高める店舗改修工事費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の店舗事業者</li></ul>
-            <p><a href="https://www.city.kawaguchi.lg.jp/soshiki/01110/030/2/2055.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/kawaguchi-city-tenpo-kaishu.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+          <div class="ar-row" id="kawaguchi-seishoku-hojo-iryo">
+            <div class="ar-name"><b>川口市生殖補助医療費助成事業</b><small>体外受精・顕微授精で、保険診療または保険診療と併用した先進医療の治療に要した費用の一部を助成する。<br>対象：治療開始日に治療を受ける女性の年齢が43歳未満／婚姻関係または事実婚関係にある男女で、いずれかが川口市に住民登録がある<br>期間：令和8年1月1日以降に終了した治療が対象。申請期限は治療の終了時期ごとに設定</small><span class="ar-prov">川口市 保健所健康増進課</span></div>
+            <div class="ar-amt">上限3万円</div>
+            <a class="ar-go" href="https://www.city.kawaguchi.lg.jp/soshiki/01090/055/hunin/41588.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          <div class="ar-row" id="kawaguchi-souki-funin-kensa">
+            <div class="ar-name"><b>早期不妊検査費・不育症検査費助成事業</b><small>男女で不妊検査・不育症検査を受けたかたに、検査費用の一部を予算の範囲内で助成する。<br>対象：婚姻関係または事実婚関係にある男女で、いずれかが川口市に住民登録がある／検査開始時点で女性の年齢が43歳未満<br>期間：令和8年1月1日以降に終了した検査が対象。申請期限は検査の終了時期ごとに設定</small><span class="ar-prov">川口市 保健所健康増進課</span></div>
+            <div class="ar-amt">女性が35歳未満は上限3万円、35歳以上は上限2万円</div>
+            <a class="ar-go" href="https://www.city.kawaguchi.lg.jp/soshiki/01090/055/hunin/41586.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-kyoiku">教育・学び<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="kawaguchi-shugaku-enjo">
+            <div class="ar-name"><b>就学援助（川口市）</b><small>児童生徒の保護者に、学用品費・給食費・修学旅行費・学校病医療費など、就学費用の一部を援助する。<br>対象：川口市に住所があり就学援助を必要としている／生計が同一なかた全員の合計所得額が認定基準を下回る<br>期間：随時受付（令和8年度）</small><span class="ar-prov">川口市 教育委員会 指導課</span></div>
+            <div class="ar-amt">学用品費・給食費・修学旅行費・学校病医療費など就学費用の一部</div>
+            <a class="ar-go" href="https://www.city.kawaguchi.lg.jp/kenko_kaigo/seikatsuniokomarinokata/11292.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>7件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="kawaguchi-akiya-jokyaku">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>川口市空家除却補助金</b><small>接道がなく建替えができない老朽空き家の解体費用の一部を補助する。<br>対象：接道がなく建替えのできない老朽空き家／事前診断を受けること<br>期間：事前診断依頼：令和8年7月1日〜10月30日、工事申請：11月13日まで<br>締切：2026-11-13</small><span class="ar-prov">埼玉県川口市</span></div>
+            <div class="ar-amt">補助対象工事費の4/5と床面積1㎡あたり2万5千円のいずれか低い方（上限100万円）</div>
+            <a class="ar-go" href="https://www.city.kawaguchi.lg.jp/soshiki/01130/040/akiyatoutaisaku/27633.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kawaguchi-block-hei">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>川口市既存ブロック塀等安全対策補助事業</b><small>通学路に面した危険なブロック塀等の撤去・改修費の補助。</small><span class="ar-prov">川口市</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.kawaguchi.lg.jp/soshiki/01130/060/2/25716.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kawaguchi-chikuden-ev">
+            <div class="ar-name"><b><span class="ar-tag">EV・充電</span>川口市地球温暖化対策活動支援金（蓄電池・EV）</b><small>定置用蓄電池やEV購入に対する支援金。PHEVは対象外。<br>対象：市内在住の個人／蓄電池はZEH支援事業の対象機器であること</small><span class="ar-prov">埼玉県川口市</span></div>
+            <div class="ar-amt">蓄電池は上限16万円（市内業者）／8万円（市外業者）、EVは1台上限5万円</div>
+            <a class="ar-go" href="https://www.city.kawaguchi.lg.jp/soshiki/01100/010/2/1/38420.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kawaguchi-jutaku-reform">
+            <div class="ar-name"><b><span class="ar-tag">省エネ住宅</span>令和8年度川口市住宅リフォーム補助金</b><small>住宅リフォームの補助（蓄電池の購入・附帯工事も対象）。<br>対象：昭和56年6月1日以降の建築、又はそれ以前で耐震基準への適合が確認できる住宅<br>期間：令和8年度</small><span class="ar-prov">川口市</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.kawaguchi.lg.jp/soshiki/01130/040/2_2/48993.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kawaguchi-ondanka-shienkin">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>令和8年度 川口市地球温暖化対策活動支援金</b><small>太陽光発電システム・定置用リチウムイオン蓄電池等の設置の支援金。<br>対象：ZEH支援事業の補助対象機器であること／引渡日が令和8年3月1日以降<br>期間：令和8年度（予算6,118万円）</small><span class="ar-prov">川口市</span></div>
+            <div class="ar-amt">蓄電池：設置費の1/2、上限16万円（市内業者）又は8万円（それ以外）。太陽光は要確認</div>
+            <a class="ar-go" href="https://www.city.kawaguchi.lg.jp/soshiki/01100/010/2/1/34382.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kawaguchi-taishin-kaishu">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>川口市住宅の耐震改修補助金</b><small>住宅の耐震改修費の補助。<br>対象：改修後の上部構造評点が基準を満たすこと<br>期間：令和8年度新規受付中</small><span class="ar-prov">川口市</span></div>
+            <div class="ar-amt">戸建て：改修費の23%相当額、上限60万円</div>
+            <a class="ar-go" href="https://www.city.kawaguchi.lg.jp/soshiki/01130/060/2/5446.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kawaguchi-taishin-shindan">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>川口市住宅の耐震診断補助金</b><small>住宅の耐震診断費の補助。<br>対象：原則として平成12年5月31日以前に建築された住宅<br>期間：令和8年度新規受付中</small><span class="ar-prov">川口市</span></div>
+            <div class="ar-amt">戸建て：診断費用の2/3、上限6万5千円</div>
+            <a class="ar-go" href="https://www.city.kawaguchi.lg.jp/soshiki/01130/060/2/2236.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-iju">移住<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="kawaguchi-jakunensha-yachin">
+            <div class="ar-name"><b>川口市若年者定住就労促進家賃補助金（令和8年度）</b><small>市内中小企業等で働く30歳以下の正社員の賃貸住宅の家賃を補助し、定住を促進する。<br>対象：令和8年4月1日時点で30歳以下、市内中小企業等の正社員／市内の民間賃貸住宅に居住し本人が契約者<br>期間：令和8年10月1日〜11月30日（必着。予算上限で終了）<br>締切：2026-11-30</small><span class="ar-prov">埼玉県川口市</span></div>
+            <div class="ar-amt">月額1万円、12カ月分最大12万円（累積上限36カ月）</div>
+            <a class="ar-go" href="https://www.city.kawaguchi.lg.jp/soshiki/01110/021/10/41133.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>埼玉県の制度</strong></p>
+          <ul><li><a href="pref-saitama.html#saitama-katei-shoene-saiene">家庭における省エネ・再エネ活用設備導入補助金</a></li><li><a href="pref-saitama.html#saitama-pref-iju-shienkin">埼玉県移住支援金</a></li></ul>
+          <p><a href="pref-saitama.html#pref-resident">埼玉県の制度2件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">埼玉県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">川口市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-saitama.html#saitama-dx-donyu-hojo">埼玉県中小企業DX導入支援補助金（追加募集）</a></li><li><a href="pref-saitama.html#saitama-jinzai-katsuyo-hojo">埼玉県人材活用促進事業補助金</a></li><li><a href="pref-saitama.html#saitama-kigyoka-ikusei-shikin">埼玉県制度融資 起業家育成資金</a></li><li><a href="pref-saitama.html#saitama-shokibo-jigyo-shikin">埼玉県制度融資 小規模事業資金</a></li><li><a href="pref-saitama.html#saitama-shoryokuka-hojo">埼玉県中小企業省力化支援事業補助金【新規導入】</a></li></ul>
-          <p><a href="pref-saitama.html#pref-business">埼玉県の制度5件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="kawaguchi-city-akitenpo-katsuyo">
+            <div class="ar-name"><b>川口市空き店舗活用事業補助金</b><small>商店街区域の空き店舗を改修して新たに事業を始める際の改修工事費を補助する。予算上限まで。<br>対象：商店街区域の空き店舗で開業する事業者／商店街・商工会議所に加入</small><span class="ar-prov">川口市 商業観光課</span></div>
+            <div class="ar-amt">補助率1/2以内、上限200万円</div>
+            <a class="ar-go" href="https://www.city.kawaguchi.lg.jp/soshiki/01110/030/2/2075.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kawaguchi-city-dx-suishin">
+            <div class="ar-name"><b>川口市DX推進補助金</b><small>国の補助金を受けてDX・デジタル化に取り組む事業者に市が上乗せ補助する。<br>対象：国の補助金の交付を受けた市内事業者</small><span class="ar-prov">川口市 経営支援課</span></div>
+            <div class="ar-amt">要確認（国補助金への上乗せ、採択予定25件程度）</div>
+            <a class="ar-go" href="https://www.city.kawaguchi.lg.jp/soshiki/01110/021/12/38430.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kawaguchi-city-sogyo-shikin">
+            <div class="ar-name"><b>川口市中小企業創業支援資金融資</b><small>許認可を受けて事業を始める方、開始後5年以内の方向けの制度融資。<br>対象：創業予定者／事業開始後5年以内の事業者</small><span class="ar-prov">川口市 経営支援課</span></div>
+            <div class="ar-amt">限度額3,500万円（自己資金の10倍まで）、固定金利年1.0%</div>
+            <a class="ar-go" href="https://www.city.kawaguchi.lg.jp/soshiki/01110/021/11/11_2/11_2_1/7628.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kawaguchi-city-tenjikai-shuppin">
+            <div class="ar-name"><b>川口市展示会等出展事業補助金</b><small>展示会等に出展する市内事業者の出展費用を補助する。<br>対象：市内の中小企業者</small><span class="ar-prov">川口市 工業施策担当</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.kawaguchi.lg.jp/soshiki/01110/030/kougyousisaku/50873.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kawaguchi-city-tenpo-kaishu">
+            <div class="ar-name"><b>川口市商店改修事業補助金</b><small>集客力や買い物環境を高める店舗改修工事費を補助する。<br>対象：市内の店舗事業者</small><span class="ar-prov">川口市 商業観光課</span></div>
+            <div class="ar-amt">補助率30%以内、上限50万円/店舗</div>
+            <a class="ar-go" href="https://www.city.kawaguchi.lg.jp/soshiki/01110/030/2/2055.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">埼玉県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>川口市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="kawaguchi-taishin-kaishu">
-            <h3>川口市住宅の耐震改修補助金</h3>
-            <p class="area-meta">川口市｜補助金｜戸建て：改修費の23%相当額、上限60万円</p>
-            <p class="area-meta">期間：令和8年度新規受付中</p>
-            <p>住宅の耐震改修費の補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>改修後の上部構造評点が基準を満たすこと</li></ul>
-            <p><a href="https://www.city.kawaguchi.lg.jp/soshiki/01130/060/2/5446.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="kawaguchi-taishin-shindan">
-            <h3>川口市住宅の耐震診断補助金</h3>
-            <p class="area-meta">川口市｜補助金｜戸建て：診断費用の2/3、上限6万5千円</p>
-            <p class="area-meta">期間：令和8年度新規受付中</p>
-            <p>住宅の耐震診断費の補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>原則として平成12年5月31日以前に建築された住宅</li></ul>
-            <p><a href="https://www.city.kawaguchi.lg.jp/soshiki/01130/060/2/2236.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program" id="kawaguchi-ondanka-shienkin">
-            <h3>令和8年度 川口市地球温暖化対策活動支援金</h3>
-            <p class="area-meta">川口市｜補助金｜蓄電池：設置費の1/2、上限16万円（市内業者）又は8万円（それ以外）。太陽光は要確認</p>
-            <p class="area-meta">期間：令和8年度（予算6,118万円）</p>
-            <p>太陽光発電システム・定置用リチウムイオン蓄電池等の設置の支援金。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>ZEH支援事業の補助対象機器であること</li><li>引渡日が令和8年3月1日以降</li></ul>
-            <p><a href="https://www.city.kawaguchi.lg.jp/soshiki/01100/010/2/1/34382.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
-          <div class="area-program" id="kawaguchi-chikuden-ev">
-            <h3>川口市地球温暖化対策活動支援金（蓄電池・EV）</h3>
-            <p class="area-meta">埼玉県川口市｜補助金｜蓄電池は上限16万円（市内業者）／8万円（市外業者）、EVは1台上限5万円</p>
-            <p class="area-meta">期間：令和8年度（予算に達し次第終了・最新は要確認）</p>
-            <p>定置用蓄電池やEV購入に対する支援金。PHEVは対象外。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内在住の個人</li><li>蓄電池はZEH支援事業の対象機器であること</li></ul>
-            <p><a href="https://www.city.kawaguchi.lg.jp/soshiki/01100/010/2/1/38420.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
-          <div class="area-program" id="kawaguchi-jutaku-reform">
-            <h3>令和8年度川口市住宅リフォーム補助金</h3>
-            <p class="area-meta">川口市｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：令和8年度</p>
-            <p>住宅リフォームの補助（蓄電池の購入・附帯工事も対象）。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>昭和56年6月1日以降の建築、又はそれ以前で耐震基準への適合が確認できる住宅</li></ul>
-            <p><a href="https://www.city.kawaguchi.lg.jp/soshiki/01130/040/2_2/48993.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="kawaguchi-akiya-jokyaku">
-            <h3>川口市空家除却補助金</h3>
-            <p class="area-meta">埼玉県川口市｜補助金｜補助対象工事費の4/5と床面積1㎡あたり2万5千円のいずれか低い方（上限100万円）｜締切：2026-11-13</p>
-            <p class="area-meta">期間：事前診断依頼：令和8年7月1日〜10月30日、工事申請：11月13日まで</p>
-            <p>接道がなく建替えができない老朽空き家の解体費用の一部を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>接道がなく建替えのできない老朽空き家</li><li>事前診断を受けること</li><li>工事申請が必要</li></ul>
-            <p><a href="https://www.city.kawaguchi.lg.jp/soshiki/01130/040/akiyatoutaisaku/27633.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="kawaguchi-block-hei">
-            <h3>川口市既存ブロック塀等安全対策補助事業</h3>
-            <p class="area-meta">川口市｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：令和8年度受付開始済み（期間は要確認）</p>
-            <p>通学路に面した危険なブロック塀等の撤去・改修費の補助。</p>
-            
-            <p><a href="https://www.city.kawaguchi.lg.jp/soshiki/01130/060/2/25716.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-6">子育て</h3>
-          <div class="area-program" id="kawaguchi-nyuen-hojo">
-            <h3>川口市園児保護者入園料補助金（令和8年度）</h3>
-            <p class="area-meta">川口市 保育幼稚園課｜補助金｜40,000円（所得制限なし）</p>
-            <p class="area-meta">期間：第1回：4月～9月入園者、第2回：10月～3月入園者（令和8年度10月～3月入園者の案内は令和9年1月中旬予定）</p>
-            <p>新制度未移行幼稚園・認定こども園・新制度幼稚園の園児の保護者に対し、市独自に入園料を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>お子さまを新制度未移行幼稚園・認定こども園・新制度幼稚園に通園させている保護者</li><li>入園日時点でお子さまの川口市への住民登録が必要</li></ul>
-            <p><a href="https://www.city.kawaguchi.lg.jp/kosodate_gakkou/hoikusyo/2/11185.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-7">医療・福祉</h3>
-          <div class="area-program" id="kawaguchi-hochoki-koreisha">
-            <h3>令和8年度高齢者補聴器購入費補助事業</h3>
-            <p class="area-meta">川口市 長寿支援課｜補助金｜上限20,000円（1人1回）｜締切：2027-03-31</p>
-            <p class="area-meta">期間：令和8年4月1日（水曜日）から令和9年3月31日（水曜日）まで</p>
-            <p>聴力の低下で生活に支障がある高齢者が補聴器を利用できるよう、補聴器購入費の一部を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内に住所を有する満65歳以上</li><li>本人が市民税非課税または生活保護受給世帯</li><li>耳鼻咽喉科の医師から補聴器が必要と認められたかた</li></ul>
-            <p><a href="https://www.city.kawaguchi.lg.jp/soshiki/01070/040/4/44600.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="kawaguchi-keiro-kyufu">
-            <h3>重度要介護高齢者福祉手当・敬老祝金</h3>
-            <p class="area-meta">川口市｜給付｜重度要介護高齢者福祉手当は月額5,000円、米寿10,000円・白寿30,000円｜締切：2027-03-31</p>
-            <p class="area-meta">期間：手当は年6回奇数月に支給。敬老祝金の申請期限は令和9年3月31日</p>
-            <p>要介護認定4または5などの条件を満たす高齢者への福祉手当と、米寿・白寿を迎える方への敬老祝金を給付する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>手当：65歳以上で要介護4または5、住民税非課税</li><li>祝金：令和8年8月31日現在、引き続き1年以上市内に住所がある米寿・白寿の方</li></ul>
-            <p><a href="https://www.city.kawaguchi.lg.jp/kenko_kaigo/koreishanoho/1/10799.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="kawaguchi-seishoku-hojo-iryo">
-            <h3>川口市生殖補助医療費助成事業</h3>
-            <p class="area-meta">川口市 保健所健康増進課｜助成金｜上限3万円</p>
-            <p class="area-meta">期間：令和8年1月1日以降に終了した治療が対象。申請期限は治療の終了時期ごとに設定</p>
-            <p>体外受精・顕微授精で、保険診療または保険診療と併用した先進医療の治療に要した費用の一部を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>治療開始日に治療を受ける女性の年齢が43歳未満</li><li>婚姻関係または事実婚関係にある男女で、いずれかが川口市に住民登録がある</li></ul>
-            <p><a href="https://www.city.kawaguchi.lg.jp/soshiki/01090/055/hunin/41588.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="kawaguchi-souki-funin-kensa">
-            <h3>早期不妊検査費・不育症検査費助成事業</h3>
-            <p class="area-meta">川口市 保健所健康増進課｜助成金｜女性が35歳未満は上限3万円、35歳以上は上限2万円</p>
-            <p class="area-meta">期間：令和8年1月1日以降に終了した検査が対象。申請期限は検査の終了時期ごとに設定</p>
-            <p>男女で不妊検査・不育症検査を受けたかたに、検査費用の一部を予算の範囲内で助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>婚姻関係または事実婚関係にある男女で、いずれかが川口市に住民登録がある</li><li>検査開始時点で女性の年齢が43歳未満</li></ul>
-            <p><a href="https://www.city.kawaguchi.lg.jp/soshiki/01090/055/hunin/41586.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-8">教育・学び</h3>
-          <div class="area-program" id="kawaguchi-shugaku-enjo">
-            <h3>就学援助（川口市）</h3>
-            <p class="area-meta">川口市 教育委員会 指導課｜給付｜学用品費・給食費・修学旅行費・学校病医療費など就学費用の一部</p>
-            <p class="area-meta">期間：随時受付（令和8年度）</p>
-            <p>児童生徒の保護者に、学用品費・給食費・修学旅行費・学校病医療費など、就学費用の一部を援助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>川口市に住所があり就学援助を必要としている</li><li>生計が同一なかた全員の合計所得額が認定基準を下回る</li><li>生活保護を受給している世帯と私立の小中学校は対象外</li></ul>
-            <p><a href="https://www.city.kawaguchi.lg.jp/kenko_kaigo/seikatsuniokomarinokata/11292.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-9">移住</h3>
-          <div class="area-program" id="kawaguchi-jakunensha-yachin">
-            <h3>川口市若年者定住就労促進家賃補助金（令和8年度）</h3>
-            <p class="area-meta">埼玉県川口市｜補助金｜月額1万円、12カ月分最大12万円（累積上限36カ月）｜締切：2026-11-30</p>
-            <p class="area-meta">期間：令和8年10月1日〜11月30日（必着。予算上限で終了）</p>
-            <p>市内中小企業等で働く30歳以下の正社員の賃貸住宅の家賃を補助し、定住を促進する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>令和8年4月1日時点で30歳以下、市内中小企業等の正社員</li><li>市内の民間賃貸住宅に居住し本人が契約者</li><li>5年以上市内に居住・就労する意思</li></ul>
-            <p><a href="https://www.city.kawaguchi.lg.jp/soshiki/01110/021/10/41133.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>埼玉県の制度</strong></p>
-          <ul><li><a href="pref-saitama.html#saitama-katei-shoene-saiene">家庭における省エネ・再エネ活用設備導入補助金</a></li><li><a href="pref-saitama.html#saitama-pref-iju-shienkin">埼玉県移住支援金</a></li></ul>
-          <p><a href="pref-saitama.html#pref-resident">埼玉県の制度2件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-saitama.html#saitama-dx-donyu-hojo">埼玉県中小企業DX導入支援補助金（追加募集）</a></li><li><a href="pref-saitama.html#saitama-jinzai-katsuyo-hojo">埼玉県人材活用促進事業補助金</a></li><li><a href="pref-saitama.html#saitama-kigyoka-ikusei-shikin">埼玉県制度融資 起業家育成資金</a></li><li><a href="pref-saitama.html#saitama-shokibo-jigyo-shikin">埼玉県制度融資 小規模事業資金</a></li><li><a href="pref-saitama.html#saitama-shoryokuka-hojo">埼玉県中小企業省力化支援事業補助金【新規導入】</a></li></ul>
+          <p><a href="pref-saitama.html#pref-business">埼玉県の制度5件を、県のページで見る →</a></p>
       </div>
     </section>
 

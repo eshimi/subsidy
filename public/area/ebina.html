@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"海老名市","item":"https://hojyokin.net/area/ebina.html"}]}</script>
@@ -165,154 +207,115 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 海老名市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b17.webp')"><h1 class="pb-title">海老名市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-kanagawa.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">神奈川県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">神奈川県 海老名市</p>
+        <h1>海老名市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度11件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-kanagawa.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（海老名市）<b>5件</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（神奈川県）<b>5件（うち受付終了2件）</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>6件（うち受付終了1件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-3">省エネ住宅 2</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-9">移住 1</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <span class="is-none"><i aria-hidden="true">👶</i><b>子育て</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>掲載なし</small></span>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>5件</small></a>
+      <a href="#res-g-iju"><i aria-hidden="true">🌱</i><b>移住</b><small>1件</small></a>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市5件＋県5件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">海老名市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="ebina-city-chusho-shinko-shien">
-            <h3>海老名市中小企業振興支援事業</h3>
-            <p class="area-meta">海老名市 経済環境部 商工課｜補助金｜展示会出展1/2（上限30万円）、HP制作1/2（上限15万円）、BCP策定1/2（上限10万円）、研修受講1/2（上限5万円）、求人広告1/2（上限10万円）、設備導入10〜50万円など</p>
-            <p class="area-meta">期間：令和8年4月1日から先着順（予算上限に達し次第終了）</p>
-            <p>中小企業者の展示会出展・ホームページ制作・BCP策定・人材育成・設備導入などの費用の一部を補助する10メニューの制度。令和8年度は4月1日から先着順。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>海老名市内の中小企業者</li><li>メニューごとの要件を満たすこと</li></ul>
-            <p><a href="https://www.city.ebina.kanagawa.jp/guide/shoko/chusho/1003742.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/ebina-city-chusho-shinko-shien.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>5件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="ebina-block">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>海老名市ブロック塀等撤去費補助事業</b><small>道路に面したブロック塀等の撤去費の一部を補助する。交付決定前の着工は対象外。<br>対象：道路面から0.6m以上のブロック塀／撤去後に0.6m超の塀を新設しない</small><span class="ar-prov">神奈川県海老名市</span></div>
+            <div class="ar-amt">上限20万円(通学路等に面する場合は上限30万円)。標準工事単価1㎡あたり10,500円と見積額の低い方</div>
+            <a class="ar-go" href="https://www.city.ebina.kanagawa.jp/guide/sumai/jutaku/1007682.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="ebina-city-chusho-yushi-sogyo">
-            <h3>海老名市中小企業事業資金融資（創業等資金）</h3>
-            <p class="area-meta">海老名市 商工課｜融資｜貸付限度額1,000万円以内、利率1.0%、期間60月以内（据置6月以内含む）</p>
-            <p class="area-meta">期間：令和8年度制度</p>
-            <p>営業実績1年未満の中小企業者・小規模企業者や市内での創業予定者向けの市の制度融資。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内で営業実績1年未満、または市内で創業予定の中小企業者・小規模企業者</li></ul>
-            <p><a href="https://www.city.ebina.kanagawa.jp/guide/shoko/chusho/1003740.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/ebina-city-chusho-yushi-sogyo.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+          <div class="ar-row" id="ebina-dannetsu">
+            <div class="ar-name"><b><span class="ar-tag">省エネ住宅</span>令和8年度海老名市住宅断熱改修促進事業補助金</b><small>断熱リフォーム費用の補助。金額は公式ページで確認してください。<br>対象：市内の住宅の断熱改修(詳細は要確認)</small><span class="ar-prov">神奈川県海老名市</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.ebina.kanagawa.jp/guide/sumai/jutaku/1017796.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="ebina-city-office-kyoten-shien">
-            <h3>海老名市オフィス拠点形成支援事業</h3>
-            <p class="area-meta">海老名市 商工課｜補助金｜費用の1/2（限度額200万円。見出しは最大300万円の記載で要確認）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>市内に新たにオフィスを構える法人の費用を補助する。従業員増加や5年間の継続入居などが要件。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内に新たにオフィスを構える法人</li><li>従業員数の増加、5年間の継続入居など</li></ul>
-            <p><a href="https://www.city.ebina.kanagawa.jp/guide/shoko/sougyo/1013652.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="ebina-jutaku-kaishu">
+            <div class="ar-name"><b><span class="ar-tag">省エネ住宅</span>令和8年度海老名市住宅改修支援事業補助金</b><small>市内の戸建て住宅やマンション専有部分のリフォーム費用を補助する。他のリフォーム助成との併用に制限あり。<br>対象：市内の個人所有住宅の改修</small><span class="ar-prov">神奈川県海老名市</span></div>
+            <div class="ar-amt">一般住宅改修20万円、多世代同居住宅改修30万円</div>
+            <a class="ar-go" href="https://www.city.ebina.kanagawa.jp/guide/sumai/jutaku/1017814.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="ebina-city-shinyo-hoshoryo-hojo">
-            <h3>海老名市信用保証料補助制度</h3>
-            <p class="area-meta">海老名市 商工課｜補助金｜保証料の全額（限度額10万円）</p>
-            <p class="area-meta">期間：令和8年度制度</p>
-            <p>市の融資制度を利用した際に神奈川県信用保証協会へ支払った保証料を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>海老名市中小企業事業資金融資を利用した事業者</li></ul>
-            <p><a href="https://www.city.ebina.kanagawa.jp/guide/shoko/chusho/1003740.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/ebina-city-shinyo-hoshoryo-hojo.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+          <div class="ar-row" id="ebina-taishin">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>海老名市 木造住宅の耐震化支援制度</b><small>木造住宅の耐震診断(無料派遣)、耐震改修、解体工事を支援する。<br>対象：改修は平成12年5月31日以前の基準の木造住宅／解体は昭和56年5月31日以前の建築<br>期間：耐震診断派遣は令和8年4月15日〜12月28日<br>締切：2026-12-28</small><span class="ar-prov">神奈川県海老名市</span></div>
+            <div class="ar-amt">耐震改修は工事費の2分の1で最大90万円、解体は工事費の2分の1で最大50万円、耐震診断派遣は無料</div>
+            <a class="ar-go" href="https://www.city.ebina.kanagawa.jp/guide/sumai/jutaku/1003437.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="ebina-city-sogyo-shien-joseikin">
-            <h3>海老名商工会議所 創業支援助成金（海老名市の創業支援）</h3>
-            <p class="area-meta">海老名商工会議所（海老名市 商工課案内）｜助成金｜創業時の内外装工事費等に最大50万円（対象経費20万円以上の部分の1/2）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>市内で創業する人の内外装工事費等を助成する。市内の会社設立では登録免許税の軽減も受けられる。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>海老名市内で創業する人</li><li>対象経費が20万円以上であること</li></ul>
-            <p><a href="https://www.city.ebina.kanagawa.jp/guide/shoko/sougyo/1003750.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row is-ended" id="ebina-env-hozen">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>令和8年度海老名市環境保全対策支援事業補助金 <span class="area-ended-tag">受付終了</span></b><small>太陽光、蓄電池、エネファーム、HEMS、V2H、EV、FCV等の設置に対する補助。令和8年度は予算上限に達し受付終了。<br>対象：市内の自宅に新たに設備を設置する人／令和9年3月31日までに設置・完了届提出<br>期間：令和8年度は受付終了(予算上限到達)</small><span class="ar-prov">神奈川県海老名市</span></div>
+            <div class="ar-amt">太陽光1kWあたり2万円(上限20万円)、蓄電池1設備7万円。いずれも設置費の3分の1以内</div>
+            <a class="ar-go" href="https://www.city.ebina.kanagawa.jp/guide/kurashi/hozen/1016412.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          </div>
+          <h3 class="area-cat" id="res-g-iju">移住<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="ebina-jutaku-shutoku">
+            <div class="ar-name"><b>令和8年度海老名市住宅取得支援事業補助金(中古住宅取得)</b><small>子育て世帯の中古住宅取得費用の一部を補助する。<br>対象：世帯主と配偶者が50歳未満で18歳以下の子がいる／築10年以上の戸建てまたは築20年以上の分譲マンション、取得費500万円以上</small><span class="ar-prov">神奈川県海老名市</span></div>
+            <div class="ar-amt">基本30万円。市外転入や流通促進区域等で加算あり、近居・同居は最大50万円</div>
+            <a class="ar-go" href="https://www.city.ebina.kanagawa.jp/guide/sumai/jutaku/1013758.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>神奈川県の制度</strong></p>
+          <ul><li><a href="pref-kanagawa.html#kanagawa-ev-futsu-juden-r8">令和8年度神奈川県EV普通充電設備整備費補助金</a></li><li><a href="pref-kanagawa.html#kanagawa-iju-shienkin">神奈川県移住支援事業（移住支援金）</a></li><li><a href="pref-kanagawa.html#kanagawa-zeh-r8">令和8年度神奈川県ネット・ゼロ・エネルギー・ハウス導入費補助金</a></li><li><a href="pref-kanagawa.html#kanagawa-jutaku-taiyoko-chikuden">令和8年度神奈川県住宅用太陽光発電・蓄電池導入費補助金</a></li><li><a href="pref-kanagawa.html#kanagawa-kizon-shoene-kaishu-r8">令和8年度神奈川県既存住宅省エネ改修事業費補助金</a></li></ul>
+          <p><a href="pref-kanagawa.html#pref-resident">神奈川県の制度5件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">神奈川県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">海老名市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-kanagawa.html#kanagawa-fukugyo-jinzai">神奈川県副業・兼業人材活用補助金</a></li><li><a href="pref-kanagawa.html#kanagawa-jigyoshokei">神奈川県事業承継補助金（令和8年度）</a></li><li><a href="pref-kanagawa.html#kanagawa-sogyo-shien-yushi">創業支援融資（神奈川県中小企業制度融資）</a></li><li><a href="pref-kanagawa.html#kanagawa-shokibo-digital">小規模事業者デジタル化支援推進事業費補助金（令和8年度）</a></li><li><a href="pref-kanagawa.html#kanagawa-sogyosha-seicho">生産性向上促進事業費補助金（創業者成長支援枠）</a></li></ul>
-          <p><a href="pref-kanagawa.html#pref-business">神奈川県の制度5件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="ebina-city-chusho-shinko-shien">
+            <div class="ar-name"><b>海老名市中小企業振興支援事業</b><small>中小企業者の展示会出展・ホームページ制作・BCP策定・人材育成・設備導入などの費用の一部を補助する10メニューの制度。令和8年度は4月1日から先着順。<br>対象：海老名市内の中小企業者／メニューごとの要件を満たすこと<br>期間：令和8年4月1日から先着順（予算上限に達し次第終了）</small><span class="ar-prov">海老名市 経済環境部 商工課</span></div>
+            <div class="ar-amt">展示会出展1/2（上限30万円）、HP制作1/2（上限15万円）、BCP策定1/2（上限10万円）、研修受講1/2（上限5万円）、求人広告1/2（上限10万円）、設備導入10〜50万円など</div>
+            <a class="ar-go" href="https://www.city.ebina.kanagawa.jp/guide/shoko/chusho/1003742.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="ebina-city-chusho-yushi-sogyo">
+            <div class="ar-name"><b>海老名市中小企業事業資金融資（創業等資金）</b><small>営業実績1年未満の中小企業者・小規模企業者や市内での創業予定者向けの市の制度融資。<br>対象：市内で営業実績1年未満、または市内で創業予定の中小企業者・小規模企業者<br>期間：令和8年度制度</small><span class="ar-prov">海老名市 商工課</span></div>
+            <div class="ar-amt">貸付限度額1,000万円以内、利率1.0%、期間60月以内（据置6月以内含む）</div>
+            <a class="ar-go" href="https://www.city.ebina.kanagawa.jp/guide/shoko/chusho/1003740.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="ebina-city-office-kyoten-shien">
+            <div class="ar-name"><b>海老名市オフィス拠点形成支援事業</b><small>市内に新たにオフィスを構える法人の費用を補助する。従業員増加や5年間の継続入居などが要件。<br>対象：市内に新たにオフィスを構える法人／従業員数の増加、5年間の継続入居など</small><span class="ar-prov">海老名市 商工課</span></div>
+            <div class="ar-amt">費用の1/2（限度額200万円。見出しは最大300万円の記載で要確認）</div>
+            <a class="ar-go" href="https://www.city.ebina.kanagawa.jp/guide/shoko/sougyo/1013652.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="ebina-city-shinyo-hoshoryo-hojo">
+            <div class="ar-name"><b>海老名市信用保証料補助制度</b><small>市の融資制度を利用した際に神奈川県信用保証協会へ支払った保証料を補助する。<br>対象：海老名市中小企業事業資金融資を利用した事業者<br>期間：令和8年度制度</small><span class="ar-prov">海老名市 商工課</span></div>
+            <div class="ar-amt">保証料の全額（限度額10万円）</div>
+            <a class="ar-go" href="https://www.city.ebina.kanagawa.jp/guide/shoko/chusho/1003740.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="ebina-city-sogyo-shien-joseikin">
+            <div class="ar-name"><b>海老名商工会議所 創業支援助成金（海老名市の創業支援）</b><small>市内で創業する人の内外装工事費等を助成する。市内の会社設立では登録免許税の軽減も受けられる。<br>対象：海老名市内で創業する人／対象経費が20万円以上であること</small><span class="ar-prov">海老名商工会議所（海老名市 商工課案内）</span></div>
+            <div class="ar-amt">創業時の内外装工事費等に最大50万円（対象経費20万円以上の部分の1/2）</div>
+            <a class="ar-go" href="https://www.city.ebina.kanagawa.jp/guide/shoko/sougyo/1003750.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">神奈川県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>海老名市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="ebina-taishin">
-            <h3>海老名市 木造住宅の耐震化支援制度</h3>
-            <p class="area-meta">神奈川県海老名市｜補助金｜耐震改修は工事費の2分の1で最大90万円、解体は工事費の2分の1で最大50万円、耐震診断派遣は無料｜締切：2026-12-28</p>
-            <p class="area-meta">期間：耐震診断派遣は令和8年4月15日〜12月28日</p>
-            <p>木造住宅の耐震診断(無料派遣)、耐震改修、解体工事を支援する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>改修は平成12年5月31日以前の基準の木造住宅</li><li>解体は昭和56年5月31日以前の建築</li></ul>
-            <p><a href="https://www.city.ebina.kanagawa.jp/guide/sumai/jutaku/1003437.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program is-ended" id="ebina-env-hozen">
-            <h3>令和8年度海老名市環境保全対策支援事業補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">神奈川県海老名市｜補助金｜太陽光1kWあたり2万円(上限20万円)、蓄電池1設備7万円。いずれも設置費の3分の1以内</p>
-            <p class="area-meta">期間：令和8年度は受付終了(予算上限到達)</p>
-            <p>太陽光、蓄電池、エネファーム、HEMS、V2H、EV、FCV等の設置に対する補助。令和8年度は予算上限に達し受付終了。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の自宅に新たに設備を設置する人</li><li>令和9年3月31日までに設置・完了届提出</li></ul>
-            <p><a href="https://www.city.ebina.kanagawa.jp/guide/kurashi/hozen/1016412.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
-          <div class="area-program" id="ebina-dannetsu">
-            <h3>令和8年度海老名市住宅断熱改修促進事業補助金</h3>
-            <p class="area-meta">神奈川県海老名市｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：令和8年度(受付状況は要確認)</p>
-            <p>断熱リフォーム費用の補助。金額は公式ページで確認してください。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の住宅の断熱改修(詳細は要確認)</li></ul>
-            <p><a href="https://www.city.ebina.kanagawa.jp/guide/sumai/jutaku/1017796.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="ebina-jutaku-kaishu">
-            <h3>令和8年度海老名市住宅改修支援事業補助金</h3>
-            <p class="area-meta">神奈川県海老名市｜補助金｜一般住宅改修20万円、多世代同居住宅改修30万円</p>
-            <p class="area-meta">期間：令和8年度(詳細な受付期間は要確認)</p>
-            <p>市内の戸建て住宅やマンション専有部分のリフォーム費用を補助する。他のリフォーム助成との併用に制限あり。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の個人所有住宅の改修</li></ul>
-            <p><a href="https://www.city.ebina.kanagawa.jp/guide/sumai/jutaku/1017814.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="ebina-block">
-            <h3>海老名市ブロック塀等撤去費補助事業</h3>
-            <p class="area-meta">神奈川県海老名市｜補助金｜上限20万円(通学路等に面する場合は上限30万円)。標準工事単価1㎡あたり10,500円と見積額の低い方</p>
-            <p class="area-meta">期間：予算に達し次第終了(令和8年度の期間は要確認)</p>
-            <p>道路に面したブロック塀等の撤去費の一部を補助する。交付決定前の着工は対象外。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>道路面から0.6m以上のブロック塀</li><li>撤去後に0.6m超の塀を新設しない</li></ul>
-            <p><a href="https://www.city.ebina.kanagawa.jp/guide/sumai/jutaku/1007682.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-9">移住</h3>
-          <div class="area-program" id="ebina-jutaku-shutoku">
-            <h3>令和8年度海老名市住宅取得支援事業補助金(中古住宅取得)</h3>
-            <p class="area-meta">神奈川県海老名市｜補助金｜基本30万円。市外転入や流通促進区域等で加算あり、近居・同居は最大50万円</p>
-            <p class="area-meta">期間：令和8年度(詳細な受付期間は要確認)</p>
-            <p>子育て世帯の中古住宅取得費用の一部を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>世帯主と配偶者が50歳未満で18歳以下の子がいる</li><li>築10年以上の戸建てまたは築20年以上の分譲マンション、取得費500万円以上</li></ul>
-            <p><a href="https://www.city.ebina.kanagawa.jp/guide/sumai/jutaku/1013758.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>神奈川県の制度</strong></p>
-          <ul><li><a href="pref-kanagawa.html#kanagawa-ev-futsu-juden-r8">令和8年度神奈川県EV普通充電設備整備費補助金</a></li><li><a href="pref-kanagawa.html#kanagawa-iju-shienkin">神奈川県移住支援事業（移住支援金）</a></li><li><a href="pref-kanagawa.html#kanagawa-zeh-r8">令和8年度神奈川県ネット・ゼロ・エネルギー・ハウス導入費補助金</a></li><li><a href="pref-kanagawa.html#kanagawa-jutaku-taiyoko-chikuden">令和8年度神奈川県住宅用太陽光発電・蓄電池導入費補助金</a></li><li><a href="pref-kanagawa.html#kanagawa-kizon-shoene-kaishu-r8">令和8年度神奈川県既存住宅省エネ改修事業費補助金</a></li></ul>
-          <p><a href="pref-kanagawa.html#pref-resident">神奈川県の制度5件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-kanagawa.html#kanagawa-fukugyo-jinzai">神奈川県副業・兼業人材活用補助金</a></li><li><a href="pref-kanagawa.html#kanagawa-jigyoshokei">神奈川県事業承継補助金（令和8年度）</a></li><li><a href="pref-kanagawa.html#kanagawa-sogyo-shien-yushi">創業支援融資（神奈川県中小企業制度融資）</a></li><li><a href="pref-kanagawa.html#kanagawa-shokibo-digital">小規模事業者デジタル化支援推進事業費補助金（令和8年度）</a></li><li><a href="pref-kanagawa.html#kanagawa-sogyosha-seicho">生産性向上促進事業費補助金（創業者成長支援枠）</a></li></ul>
+          <p><a href="pref-kanagawa.html#pref-business">神奈川県の制度5件を、県のページで見る →</a></p>
       </div>
     </section>
 

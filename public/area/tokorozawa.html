@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"所沢市","item":"https://hojyokin.net/area/tokorozawa.html"}]}</script>
@@ -165,194 +207,143 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 所沢市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b13.webp')"><h1 class="pb-title">所沢市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-saitama.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">埼玉県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">埼玉県 所沢市</p>
+        <h1>所沢市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度15件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-saitama.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（所沢市）<b>5件（うち受付終了1件）</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（埼玉県）<b>5件</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>10件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 2</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-2">EV・充電 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-6">子育て 2</a><a href="#res-cat-7">医療・福祉 1</a><a href="#res-cat-8">教育・学び 2</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <a href="#res-g-kosodate"><i aria-hidden="true">👶</i><b>子育て</b><small>2件</small></a>
+      <a href="#res-g-iryo"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>1件</small></a>
+      <a href="#res-g-kyoiku"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>2件</small></a>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>5件</small></a>
+      <span class="is-none"><i aria-hidden="true">🌱</i><b>移住</b><small>掲載なし</small></span>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市5件＋県5件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">所沢市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="tokorozawa-city-akitenpo-shuten">
-            <h3>所沢市空き店舗活用・新規創業支援出店補助金</h3>
-            <p class="area-meta">所沢市 産業振興課｜補助金｜補助率3分の1、上限120万円</p>
-            <p class="area-meta">期間：令和8年度の募集は最新は要確認</p>
-            <p>市内商店街の空き店舗で新規開業する事業の開業費用を補助する。予算がなくなり次第終了。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>商店街の空き店舗で新規開業する事業者</li><li>空き店舗が所在する商店街の活動に参加すること</li></ul>
-            <p><a href="https://www.city.tokorozawa.saitama.jp/kurashi/shigotojyoho/syogyo/akitennpo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/tokorozawa-city-akitenpo-shuten.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-kosodate">子育て<span>2件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="tokorozawa-kodomo-iryohi">
+            <div class="ar-name"><b>子ども医療費助成制度</b><small>0歳から高校生年代までの子どもの、保険診療分の医療費（一部負担金）を助成する制度です。受給資格の登録手続きが必要です。<br>対象：所沢市内に住所を有し、社会保険または国民健康保険に加入している児童の保護者または児童本人／0歳から高校生年代まで（18歳に達した日の属する年度の末日まで）</small><span class="ar-prov">所沢市 こども支援課</span></div>
+            <div class="ar-amt">保険診療分の医療費一部負担金を助成（所得制限なし）</div>
+            <a class="ar-go" href="https://www.city.tokorozawa.saitama.jp/kosodatekyouiku/kosodate/kodomonoteate/iryohijyosei/kodomoiryojoseihoho.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="tokorozawa-city-chiiki-monodukuri">
-            <h3>所沢市地域資源活用・ものづくり総合支援補助金</h3>
-            <p class="area-meta">所沢市 産業振興課｜補助金｜設備改修等は上限100万円、展示商談会出展は上限10万円など（詳細は要確認）｜締切：2027-02-26</p>
-            <p class="area-meta">期間：令和8年度3次募集は2026年10月1日〜2027年2月26日</p>
-            <p>地域資源の活用やものづくり事業者の販路開拓・設備改修等を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内に本店登記のある法人または住民登録のある個人で、事業を1年以上営んでいる者</li><li>連携事業でない場合は製造業または農業を営む者</li></ul>
-            <p><a href="https://www.city.tokorozawa.saitama.jp/kurashi/shigotojyoho/sangyo/kogyo/chiikishigen-monodukuri.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/tokorozawa-city-chiiki-monodukuri.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+          <div class="ar-row" id="tokorozawa-ninpu-kenshin">
+            <div class="ar-name"><b>妊産婦健康診査・新生児聴覚検査の公費助成</b><small>妊婦健康診査（14回分）、産婦健康診査（2回分）及び新生児聴覚検査の費用の一部を助成します。妊娠の届出時に助成券を渡します。<br>対象：日本国内の医療機関・助産院で受診し、受診日に所沢市の住民登録がある方</small><span class="ar-prov">所沢市 こども家庭センター</span></div>
+            <div class="ar-amt">助成券に記載された金額まで助成（金額は本文に記載なし）</div>
+            <a class="ar-go" href="https://www.city.tokorozawa.saitama.jp/kosodatekyouiku/kosodate/shussan/ninsanpukenshinjosei.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="tokorozawa-city-setsubi-risihokyu">
-            <h3>所沢市中小企業設備投資融資利子補給事業</h3>
-            <p class="area-meta">所沢市 産業振興課｜融資｜支払利子の30％を5年間補助（環境配慮設備は40％）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>埼玉県や日本政策金融公庫の設備資金融資に対する支払利子を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の中小企業者で、対象の設備資金融資を受けた者（詳細は要確認）</li></ul>
-            <p><a href="https://www.city.tokorozawa.saitama.jp/kurashi/shigotojyoho/sangyo/keieisien/yushi/setsubitoushirishihokyu.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/tokorozawa-city-setsubi-risihokyu.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
           </div>
-          <div class="area-program" id="tokorozawa-city-shinki-sogyo-yushi">
-            <h3>所沢市新規創業支援資金融資制度</h3>
-            <p class="area-meta">所沢市 産業振興課｜融資｜限度額1,000万円、利率1.0％（市が利子補給）、保証料0.8％以内</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>創業前後の事業者向け制度融資。特定創業支援等事業を受けた方や商工会議所会員は保証料が0.1％割引。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>開業前から開業後3年までの方（案内により5年未満の記載もあり要確認）</li><li>取扱金融機関への事前相談と信用保証協会の審査</li></ul>
-            <p><a href="https://www.city.tokorozawa.saitama.jp/kurashi/shigotojyoho/sangyo/keieisien/yushi/syoko_20100329114042776.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/tokorozawa-city-shinki-sogyo-yushi.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+          <h3 class="area-cat" id="res-g-iryo">医療・福祉<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="tokorozawa-judo-iryo">
+            <div class="ar-name"><b>重度心身障害児等医療費助成制度</b><small>重度の障害がある方が医療機関にかかった時の医療費を、条例に基づいて助成する制度です。資格登録と所得による審査があります。<br>対象：身体障害者手帳の1級、2級又は3級のいずれかを所持している方／療育手帳の〇Ａ（マルエー）、Ａ又はＢのいずれかを所持している方</small><span class="ar-prov">所沢市</span></div>
+            <div class="ar-amt">保険診療分の医療費（一部負担金）を助成（所得審査あり）</div>
+            <a class="ar-go" href="https://www.city.tokorozawa.saitama.jp/kenko/syogaifukushi/syogai3/judoiryo.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <h3 class="area-cat">受付が終了した制度（次回の公募の参考に）</h3>
-          <div class="area-program is-ended" id="tokorozawa-city-toshigata-chinshaku">
-            <h3>所沢市都市型産業等育成補助金（事務所等賃借料補助） <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">所沢市 産業振興課｜補助金｜賃借料を月額上限10万円、最長24か月補助</p>
-            <p class="area-meta">期間：令和8年度の募集は終了（来年度は要確認）</p>
-            <p>製造業や情報通信業などで事務所等を新たに借りる事業者に賃料等を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>製造業・情報通信業等で市内に事務所等を新たに賃借する事業者</li></ul>
-            <p><a href="https://www.city.tokorozawa.saitama.jp/kurashi/shigotojyoho/sangyo/kogyo/toshigatasangyo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
+          <h3 class="area-cat" id="res-g-kyoiku">教育・学び<span>2件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="tokorozawa-nyugaku-mae">
+            <div class="ar-name"><b>新入学学用品費（入学前支給）令和9年度新小学1年生</b><small>令和9年度に所沢市立小学校に入学する子の保護者で、経済的理由で困っている方に、新入学学用品費を入学前の2月に支給します（所得制限あり）。<br>対象：所沢市内に住所を有し、所沢市立小学校に入学予定の児童の保護者／所沢市の就学援助の認定基準に該当する方<br>期間：令和8年10月1日（木曜)から令和8年12月28日（月曜）<br>締切：2026-12-28</small><span class="ar-prov">所沢市 教育委員会 教育総務課</span></div>
+            <div class="ar-amt">64,300円</div>
+            <a class="ar-go" href="https://www.city.tokorozawa.saitama.jp/kosodatekyouiku/kosodate/kodomonoteate/nyuugakumaesikyuu.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="tokorozawa-shogakukin">
+            <div class="ar-name"><b>育英奨学金・遺児奨学金（令和8年度）</b><small>市内に居住し、家庭の事情により就学困難な高校生等に対する奨学金です。育英奨学金と遺児奨学金があります。<br>対象：高等学校または高等専門学校に入学が決定または在学している素行良好・成績優秀な生徒／本人および保護者が市税を滞納していないこと<br>期間：令和8年度の募集（定員に空きがあれば年度途中の申請可）</small><span class="ar-prov">所沢市 こども支援課</span></div>
+            <div class="ar-amt">月額5,000円</div>
+            <a class="ar-go" href="https://www.city.tokorozawa.saitama.jp/kosodatekyouiku/kosodate/kodomonoteate/shougakukin_r8.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>5件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="tokorozawa-akiya-consult">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>所沢市空き家利活用等ワンストップ相談事業</b><small>売却・賃貸・解体・相続・維持管理など空き家に関する相談をワンストップで受け付ける。<br>対象：市内の空き家の所有者等</small><span class="ar-prov">埼玉県所沢市</span></div>
+            <div class="ar-amt">相談は原則無料（金額の補助は要確認）</div>
+            <a class="ar-go" href="https://www.city.tokorozawa.saitama.jp/kurashi/jutaku/jyuutakuseisaku/akiyataisaku/akiyarikatuyouonestop/index.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="tokorozawa-smarthouse-ev">
+            <div class="ar-name"><b><span class="ar-tag">EV・充電</span>所沢市スマートハウス化推進補助金（EV・FCV・V2H）</b><small>家庭向けにEV・FCV・V2H充給電設備の導入費を補助する。<br>対象：市内居住の個人／設置後・取得後の申請が基本</small><span class="ar-prov">埼玉県所沢市</span></div>
+            <div class="ar-amt">EV 5万円/台、FCV 5万円/台、V2H 5万円/基（三世代同居等で最大33%加算の場合あり）</div>
+            <a class="ar-go" href="https://www.city.tokorozawa.saitama.jp/kurashi/seikatukankyo/kankyo/ekojyosei/sumatohausu.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="tokorozawa-smarthouse-pv">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>所沢市スマートハウス化推進補助金（家庭用・太陽光・蓄電池）</b><small>家庭用の太陽光発電・蓄電池等の創エネ・蓄エネ設備の導入費を補助する。非FIT太陽光・蓄電池の枠は受付終了の表示があった。<br>対象：市内の住宅に設置する個人／最新の受付状況は要確認</small><span class="ar-prov">埼玉県所沢市</span></div>
+            <div class="ar-amt">太陽光3万円/kW（上限15万円）、蓄電池3万円/kWh（上限24万円）。非FIT太陽光は10万円/kW（上限50万円）</div>
+            <a class="ar-go" href="https://www.city.tokorozawa.saitama.jp/kurashi/seikatukankyo/kankyo/ekojyosei/sumatohausu.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="tokorozawa-taishin-kaishu">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>所沢市 我が家の耐震改修補助事業</b><small>昭和56年5月31日以前（木造在来軸組構法の戸建ては平成12年5月31日以前）の建築確認住宅の耐震改修費を補助する。交付申請前に契約・着工すると対象外。<br>対象：昭和56年5月31日以前（木造在来軸組の一戸建ては平成12年5月31日以前）に建築確認を得た住宅／交付申請前に契約・着工しないこと</small><span class="ar-prov">埼玉県所沢市</span></div>
+            <div class="ar-amt">要確認（住宅編の補助率・上限は検索で確認できず）</div>
+            <a class="ar-go" href="https://www.city.tokorozawa.saitama.jp/kurashi/jutaku/jyuutakuseisaku/taisinkankei/taishinkaisyu_hojo.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="tokorozawa-taishin-shindan">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>所沢市 我が家の耐震診断補助事業</b><small>昭和56年5月31日以前に工事着手した市内民間建築物の耐震診断費用を補助する。診断者は原則市内の建築士事務所所属の建築士。<br>対象：昭和56年5月31日以前に工事に着手した市内の民間建築物</small><span class="ar-prov">埼玉県所沢市</span></div>
+            <div class="ar-amt">事業概要PDFでは診断費用の3分の2（住戸数×2万円を基にした額、上限20万円）との記載だが、金額は要確認</div>
+            <a class="ar-go" href="https://www.city.tokorozawa.saitama.jp/kurashi/jutaku/jyuutakuseisaku/taisinkankei/taishinshindan_hojo.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>埼玉県の制度</strong></p>
+          <ul><li><a href="pref-saitama.html#saitama-katei-shoene-saiene">家庭における省エネ・再エネ活用設備導入補助金</a></li><li><a href="pref-saitama.html#saitama-pref-iju-shienkin">埼玉県移住支援金</a></li></ul>
+          <p><a href="pref-saitama.html#pref-resident">埼玉県の制度2件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">埼玉県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">所沢市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-saitama.html#saitama-dx-donyu-hojo">埼玉県中小企業DX導入支援補助金（追加募集）</a></li><li><a href="pref-saitama.html#saitama-jinzai-katsuyo-hojo">埼玉県人材活用促進事業補助金</a></li><li><a href="pref-saitama.html#saitama-kigyoka-ikusei-shikin">埼玉県制度融資 起業家育成資金</a></li><li><a href="pref-saitama.html#saitama-shokibo-jigyo-shikin">埼玉県制度融資 小規模事業資金</a></li><li><a href="pref-saitama.html#saitama-shoryokuka-hojo">埼玉県中小企業省力化支援事業補助金【新規導入】</a></li></ul>
-          <p><a href="pref-saitama.html#pref-business">埼玉県の制度5件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="tokorozawa-city-akitenpo-shuten">
+            <div class="ar-name"><b>所沢市空き店舗活用・新規創業支援出店補助金</b><small>市内商店街の空き店舗で新規開業する事業の開業費用を補助する。予算がなくなり次第終了。<br>対象：商店街の空き店舗で新規開業する事業者／空き店舗が所在する商店街の活動に参加すること</small><span class="ar-prov">所沢市 産業振興課</span></div>
+            <div class="ar-amt">補助率3分の1、上限120万円</div>
+            <a class="ar-go" href="https://www.city.tokorozawa.saitama.jp/kurashi/shigotojyoho/syogyo/akitennpo.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="tokorozawa-city-chiiki-monodukuri">
+            <div class="ar-name"><b>所沢市地域資源活用・ものづくり総合支援補助金</b><small>地域資源の活用やものづくり事業者の販路開拓・設備改修等を補助する。<br>対象：市内に本店登記のある法人または住民登録のある個人で、事業を1年以上営んでいる者／連携事業でない場合は製造業または農業を営む者<br>期間：令和8年度3次募集は2026年10月1日〜2027年2月26日<br>締切：2027-02-26</small><span class="ar-prov">所沢市 産業振興課</span></div>
+            <div class="ar-amt">設備改修等は上限100万円、展示商談会出展は上限10万円など（詳細は要確認）</div>
+            <a class="ar-go" href="https://www.city.tokorozawa.saitama.jp/kurashi/shigotojyoho/sangyo/kogyo/chiikishigen-monodukuri.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="tokorozawa-city-setsubi-risihokyu">
+            <div class="ar-name"><b>所沢市中小企業設備投資融資利子補給事業</b><small>埼玉県や日本政策金融公庫の設備資金融資に対する支払利子を補助する。<br>対象：市内の中小企業者で、対象の設備資金融資を受けた者（詳細は要確認）</small><span class="ar-prov">所沢市 産業振興課</span></div>
+            <div class="ar-amt">支払利子の30％を5年間補助（環境配慮設備は40％）</div>
+            <a class="ar-go" href="https://www.city.tokorozawa.saitama.jp/kurashi/shigotojyoho/sangyo/keieisien/yushi/setsubitoushirishihokyu.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="tokorozawa-city-shinki-sogyo-yushi">
+            <div class="ar-name"><b>所沢市新規創業支援資金融資制度</b><small>創業前後の事業者向け制度融資。特定創業支援等事業を受けた方や商工会議所会員は保証料が0.1％割引。<br>対象：開業前から開業後3年までの方（案内により5年未満の記載もあり要確認）／取扱金融機関への事前相談と信用保証協会の審査</small><span class="ar-prov">所沢市 産業振興課</span></div>
+            <div class="ar-amt">限度額1,000万円、利率1.0％（市が利子補給）、保証料0.8％以内</div>
+            <a class="ar-go" href="https://www.city.tokorozawa.saitama.jp/kurashi/shigotojyoho/sangyo/keieisien/yushi/syoko_20100329114042776.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="tokorozawa-city-toshigata-chinshaku">
+            <div class="ar-name"><b>所沢市都市型産業等育成補助金（事務所等賃借料補助） <span class="area-ended-tag">受付終了</span></b><small>製造業や情報通信業などで事務所等を新たに借りる事業者に賃料等を補助する。<br>対象：製造業・情報通信業等で市内に事務所等を新たに賃借する事業者</small><span class="ar-prov">所沢市 産業振興課</span></div>
+            <div class="ar-amt">賃借料を月額上限10万円、最長24か月補助</div>
+            <a class="ar-go" href="https://www.city.tokorozawa.saitama.jp/kurashi/shigotojyoho/sangyo/kogyo/toshigatasangyo.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">埼玉県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>所沢市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="tokorozawa-taishin-kaishu">
-            <h3>所沢市 我が家の耐震改修補助事業</h3>
-            <p class="area-meta">埼玉県所沢市｜補助金｜要確認（住宅編の補助率・上限は検索で確認できず）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>昭和56年5月31日以前（木造在来軸組構法の戸建ては平成12年5月31日以前）の建築確認住宅の耐震改修費を補助する。交付申請前に契約・着工すると対象外。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>昭和56年5月31日以前（木造在来軸組の一戸建ては平成12年5月31日以前）に建築確認を得た住宅</li><li>交付申請前に契約・着工しないこと</li></ul>
-            <p><a href="https://www.city.tokorozawa.saitama.jp/kurashi/jutaku/jyuutakuseisaku/taisinkankei/taishinkaisyu_hojo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="tokorozawa-taishin-shindan">
-            <h3>所沢市 我が家の耐震診断補助事業</h3>
-            <p class="area-meta">埼玉県所沢市｜補助金｜事業概要PDFでは診断費用の3分の2（住戸数×2万円を基にした額、上限20万円）との記載だが、金額は要確認</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>昭和56年5月31日以前に工事着手した市内民間建築物の耐震診断費用を補助する。診断者は原則市内の建築士事務所所属の建築士。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>昭和56年5月31日以前に工事に着手した市内の民間建築物</li></ul>
-            <p><a href="https://www.city.tokorozawa.saitama.jp/kurashi/jutaku/jyuutakuseisaku/taisinkankei/taishinshindan_hojo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program" id="tokorozawa-smarthouse-pv">
-            <h3>所沢市スマートハウス化推進補助金（家庭用・太陽光・蓄電池）</h3>
-            <p class="area-meta">埼玉県所沢市｜補助金｜太陽光3万円/kW（上限15万円）、蓄電池3万円/kWh（上限24万円）。非FIT太陽光は10万円/kW（上限50万円）</p>
-            <p class="area-meta">期間：令和8年度（受付状況は市のページで要確認）</p>
-            <p>家庭用の太陽光発電・蓄電池等の創エネ・蓄エネ設備の導入費を補助する。非FIT太陽光・蓄電池の枠は受付終了の表示があった。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の住宅に設置する個人</li><li>最新の受付状況は要確認</li></ul>
-            <p><a href="https://www.city.tokorozawa.saitama.jp/kurashi/seikatukankyo/kankyo/ekojyosei/sumatohausu.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
-          <div class="area-program" id="tokorozawa-smarthouse-ev">
-            <h3>所沢市スマートハウス化推進補助金（EV・FCV・V2H）</h3>
-            <p class="area-meta">埼玉県所沢市｜補助金｜EV 5万円/台、FCV 5万円/台、V2H 5万円/基（三世代同居等で最大33%加算の場合あり）</p>
-            <p class="area-meta">期間：令和8年度（最新は要確認）</p>
-            <p>家庭向けにEV・FCV・V2H充給電設備の導入費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内居住の個人</li><li>設置後・取得後の申請が基本</li></ul>
-            <p><a href="https://www.city.tokorozawa.saitama.jp/kurashi/seikatukankyo/kankyo/ekojyosei/sumatohausu.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="tokorozawa-akiya-consult">
-            <h3>所沢市空き家利活用等ワンストップ相談事業</h3>
-            <p class="area-meta">埼玉県所沢市｜助成金｜相談は原則無料（金額の補助は要確認）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>売却・賃貸・解体・相続・維持管理など空き家に関する相談をワンストップで受け付ける。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の空き家の所有者等</li></ul>
-            <p><a href="https://www.city.tokorozawa.saitama.jp/kurashi/jutaku/jyuutakuseisaku/akiyataisaku/akiyarikatuyouonestop/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-6">子育て</h3>
-          <div class="area-program" id="tokorozawa-kodomo-iryohi">
-            <h3>子ども医療費助成制度</h3>
-            <p class="area-meta">所沢市 こども支援課｜助成金｜保険診療分の医療費一部負担金を助成（所得制限なし）</p>
-            <p class="area-meta">期間：通年（要確認）</p>
-            <p>0歳から高校生年代までの子どもの、保険診療分の医療費（一部負担金）を助成する制度です。受給資格の登録手続きが必要です。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>所沢市内に住所を有し、社会保険または国民健康保険に加入している児童の保護者または児童本人</li><li>0歳から高校生年代まで（18歳に達した日の属する年度の末日まで）</li></ul>
-            <p><a href="https://www.city.tokorozawa.saitama.jp/kosodatekyouiku/kosodate/kodomonoteate/iryohijyosei/kodomoiryojoseihoho.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="tokorozawa-ninpu-kenshin">
-            <h3>妊産婦健康診査・新生児聴覚検査の公費助成</h3>
-            <p class="area-meta">所沢市 こども家庭センター｜助成金｜助成券に記載された金額まで助成（金額は本文に記載なし）</p>
-            <p class="area-meta">期間：通年（要確認）</p>
-            <p>妊婦健康診査（14回分）、産婦健康診査（2回分）及び新生児聴覚検査の費用の一部を助成します。妊娠の届出時に助成券を渡します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>日本国内の医療機関・助産院で受診し、受診日に所沢市の住民登録がある方</li></ul>
-            <p><a href="https://www.city.tokorozawa.saitama.jp/kosodatekyouiku/kosodate/shussan/ninsanpukenshinjosei.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-7">医療・福祉</h3>
-          <div class="area-program" id="tokorozawa-judo-iryo">
-            <h3>重度心身障害児等医療費助成制度</h3>
-            <p class="area-meta">所沢市｜助成金｜保険診療分の医療費（一部負担金）を助成（所得審査あり）</p>
-            <p class="area-meta">期間：通年（要確認）</p>
-            <p>重度の障害がある方が医療機関にかかった時の医療費を、条例に基づいて助成する制度です。資格登録と所得による審査があります。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>身体障害者手帳の1級、2級又は3級のいずれかを所持している方</li><li>療育手帳の〇Ａ（マルエー）、Ａ又はＢのいずれかを所持している方</li><li>精神障害者保健福祉手帳の1級を所持している方</li></ul>
-            <p><a href="https://www.city.tokorozawa.saitama.jp/kenko/syogaifukushi/syogai3/judoiryo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-8">教育・学び</h3>
-          <div class="area-program" id="tokorozawa-nyugaku-mae">
-            <h3>新入学学用品費（入学前支給）令和9年度新小学1年生</h3>
-            <p class="area-meta">所沢市 教育委員会 教育総務課｜給付｜64,300円｜締切：2026-12-28</p>
-            <p class="area-meta">期間：令和8年10月1日（木曜)から令和8年12月28日（月曜）</p>
-            <p>令和9年度に所沢市立小学校に入学する子の保護者で、経済的理由で困っている方に、新入学学用品費を入学前の2月に支給します（所得制限あり）。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>所沢市内に住所を有し、所沢市立小学校に入学予定の児童の保護者</li><li>所沢市の就学援助の認定基準に該当する方</li><li>他市区町村で支給を受けていない方</li></ul>
-            <p><a href="https://www.city.tokorozawa.saitama.jp/kosodatekyouiku/kosodate/kodomonoteate/nyuugakumaesikyuu.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="tokorozawa-shogakukin">
-            <h3>育英奨学金・遺児奨学金（令和8年度）</h3>
-            <p class="area-meta">所沢市 こども支援課｜給付｜月額5,000円</p>
-            <p class="area-meta">期間：令和8年度の募集（定員に空きがあれば年度途中の申請可）</p>
-            <p>市内に居住し、家庭の事情により就学困難な高校生等に対する奨学金です。育英奨学金と遺児奨学金があります。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>高等学校または高等専門学校に入学が決定または在学している素行良好・成績優秀な生徒</li><li>本人および保護者が市税を滞納していないこと</li><li>遺児奨学金は両親または父母のいずれかを亡くした生徒</li></ul>
-            <p><a href="https://www.city.tokorozawa.saitama.jp/kosodatekyouiku/kosodate/kodomonoteate/shougakukin_r8.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>埼玉県の制度</strong></p>
-          <ul><li><a href="pref-saitama.html#saitama-katei-shoene-saiene">家庭における省エネ・再エネ活用設備導入補助金</a></li><li><a href="pref-saitama.html#saitama-pref-iju-shienkin">埼玉県移住支援金</a></li></ul>
-          <p><a href="pref-saitama.html#pref-resident">埼玉県の制度2件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-saitama.html#saitama-dx-donyu-hojo">埼玉県中小企業DX導入支援補助金（追加募集）</a></li><li><a href="pref-saitama.html#saitama-jinzai-katsuyo-hojo">埼玉県人材活用促進事業補助金</a></li><li><a href="pref-saitama.html#saitama-kigyoka-ikusei-shikin">埼玉県制度融資 起業家育成資金</a></li><li><a href="pref-saitama.html#saitama-shokibo-jigyo-shikin">埼玉県制度融資 小規模事業資金</a></li><li><a href="pref-saitama.html#saitama-shoryokuka-hojo">埼玉県中小企業省力化支援事業補助金【新規導入】</a></li></ul>
+          <p><a href="pref-saitama.html#pref-business">埼玉県の制度5件を、県のページで見る →</a></p>
       </div>
     </section>
 

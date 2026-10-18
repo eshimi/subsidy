@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"多治見市","item":"https://hojyokin.net/area/tajimi.html"}]}</script>
@@ -165,132 +207,105 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 多治見市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b02.webp')"><h1 class="pb-title">多治見市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-gifu.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">岐阜県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">岐阜県 多治見市</p>
+        <h1>多治見市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度9件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-gifu.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（多治見市）<b>2件</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（岐阜県）<b>4件（うち受付終了2件）</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>7件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-4">空き家・ブロック塀 3</a><a href="#res-cat-9">移住 2</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <span class="is-none"><i aria-hidden="true">👶</i><b>子育て</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>掲載なし</small></span>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>5件</small></a>
+      <a href="#res-g-iju"><i aria-hidden="true">🌱</i><b>移住</b><small>2件</small></a>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市2件＋県4件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">多治見市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="tajimi-city-kigyo-shien-center">
-            <h3>多治見市起業支援センター入居</h3>
-            <p class="area-meta">多治見市 商工観光課｜専門家支援｜金額は公式で確認</p>
-            
-            <p>創業を目指す人が入居できる市の起業支援センターで、事業立ち上げの支援を受けられる。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>起業を目指す人または創業間もない事業者</li><li>入居審査等の要件は市の案内で要確認</li></ul>
-            <p><a href="https://www.city.tajimi.lg.jp/kurashi/sangyo/shokogyo/kigyo/shiencenter/nyukyosha.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>5件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="tajimi-akiya-jokyaku">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>老朽・危険空き家除却工事補助金</b><small>倒壊のおそれがある老朽・危険空き家の解体費用を補助する。<br>対象：危険空き家は市の判定が必要</small><span class="ar-prov">岐阜県多治見市</span></div>
+            <div class="ar-amt">税抜解体費の3分の1、老朽は上限20万円・危険は上限40万円</div>
+            <a class="ar-go" href="https://www.city.tajimi.lg.jp/kurashi_tetsuduzuki/sumai_seikatsu_dobutsu/1006141/1006145.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="tajimi-city-tajicon-followup-hojo">
-            <h3>タジコン創業者フォローアップ補助金</h3>
-            <p class="area-meta">多治見市 産業観光課｜補助金｜対象経費の1/2、上限100万円（市内の創業支援施設入居者・過去の利用者は上限50万円）</p>
-            <p class="area-meta">期間：要確認（年度ごとに募集）</p>
-            <p>たじみビジネスプランコンテスト応募プランで市内に創業・出店し、創業後1年以上の事業者の事業拡大を支援する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>タジコン応募プランに基づき市内で創業または出店していること</li><li>創業後1年以上であること</li><li>人件費・家賃など固定費は対象外</li></ul>
-            <p><a href="https://www.city.tajimi.lg.jp/gyose/kakuka/sangyo-pub/tajicon-followup.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="tajimi-akiya-saisei">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>空き家再生補助金</b><small>空き家を取得して自ら住む世帯のリフォーム・建替え費用を補助する。<br>対象：空き家を取得して居住する世帯／子育て世帯は中学校卒業前の子と同居<br>期間：令和8年5月1日受付開始</small><span class="ar-prov">岐阜県多治見市</span></div>
+            <div class="ar-amt">一般世帯上限40万円(最大50万円)、子育て世帯上限60万円(最大70万円)</div>
+            <a class="ar-go" href="https://www.city.tajimi.lg.jp/kurashi_tetsuduzuki/sumai_seikatsu_dobutsu/1006141/1006149.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          <div class="ar-row" id="tajimi-block">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>ブロック塀等除去補助金</b><small>公道に面したブロック塀等の撤去費用を補助する。<br>対象：公道に面するブロック塀等／工事着手前に申請<br>期間：令和8年4月1日〜令和9年2月28日</small><span class="ar-prov">岐阜県多治見市</span></div>
+            <div class="ar-amt">1m当たり1万円×撤去延長と経費の2分の1の少ない方、上限20万円</div>
+            <a class="ar-go" href="https://www.city.tajimi.lg.jp/kurashi_tetsuduzuki/bosai_bohan/1005897/1005931/1005938.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="tajimi-mokuzo-jokyaku">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>木造住宅除却工事補助事業</b><small>旧耐震の木造住宅の除却費用の一部を補助する。<br>対象：昭和56年5月31日以前着工の木造住宅／市の耐震診断で評点1.0未満</small><span class="ar-prov">岐阜県多治見市</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.tajimi.lg.jp/kurashi/kaihatsu/taishinka/zyokyaku.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="tajimi-shinene">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>住宅用新エネルギーシステム設置事業補助金</b><small>蓄電池・V2H・太陽光・家庭用燃料電池の設置費用を補助する。<br>対象：太陽光は蓄電池またはV2Hと同時設置／工事着手の2週間前までに予約申込</small><span class="ar-prov">岐阜県多治見市</span></div>
+            <div class="ar-amt">蓄電池1kWhあたり1万円(上限10万円)、V2H6万円、太陽光1kWあたり1.5万円(上限6万円)、燃料電池5万円</div>
+            <a class="ar-go" href="https://www.city.tajimi.lg.jp/kurashi/kankyo/new-energy.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-iju">移住<span>2件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="tajimi-iju-shien">
+            <div class="ar-name"><b>移住支援補助金(岐阜県外から転入)</b><small>岐阜県外から転入し住宅を取得した世帯に補助する。<br>対象：岐阜県外からの転入／住宅を取得した44歳以下の世帯</small><span class="ar-prov">岐阜県多治見市</span></div>
+            <div class="ar-amt">30万円/世帯(18歳未満の子がいる世帯は10万円加算)</div>
+            <a class="ar-go" href="https://www.city.tajimi.lg.jp/shisei/shisaku_keikaku/1007290/1007294.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="tajimi-teiju-oen">
+            <div class="ar-name"><b>ちょうどいいまちたじみ定住応援補助金</b><small>市内賃貸住宅から市内の戸建住宅等を取得して転居する若者・子育て世帯を支援する。<br>対象：夫婦とも44歳以下の複数人世帯等</small><span class="ar-prov">岐阜県多治見市</span></div>
+            <div class="ar-amt">10万円(18歳未満の子がいる世帯は5万円加算)</div>
+            <a class="ar-go" href="https://www.city.tajimi.lg.jp/shisei/shisaku_keikaku/1007290/1007293.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>岐阜県の制度</strong></p>
+          <ul><li><a href="pref-gifu.html#gifu-iju-shienkin">岐阜県 移住支援金（東京圏からのUIJターン）</a></li><li><a href="pref-gifu.html#gifu-pref-datsutanso-model-jutaku">脱炭素社会ぎふモデル住宅普及事業費補助金</a></li><li><a href="pref-gifu.html#gifu-pref-gifunoki-ienukuri">ぎふの木で家づくり支援事業</a></li><li><a href="pref-gifu.html#gifu-pref-mokuzou-taishin-kaishu">木造住宅耐震改修工事補助（岐阜県木造住宅耐震化促進事業）</a></li></ul>
+          <p><a href="pref-gifu.html#pref-resident">岐阜県の制度4件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">岐阜県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">多治見市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-gifu.html#gifu-seido-yushi">岐阜県中小企業資金融資制度</a></li><li><a href="pref-gifu.html#gifu-startup-shien">岐阜県 スタートアップ支援補助金（岐阜県産業経済振興センター）</a></li><li><a href="pref-gifu.html#gifu-hanro-kaitaku">岐阜県 中小企業販路開拓等支援事業費補助金</a></li><li><a href="pref-gifu.html#gifu-power-up">岐阜県 中小・小規模事業者パワーアップ応援補助金</a></li></ul>
-          <p><a href="pref-gifu.html#pref-business">岐阜県の制度4件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="tajimi-city-kigyo-shien-center">
+            <div class="ar-name"><b>多治見市起業支援センター入居</b><small>創業を目指す人が入居できる市の起業支援センターで、事業立ち上げの支援を受けられる。<br>対象：起業を目指す人または創業間もない事業者／入居審査等の要件は市の案内で要確認</small><span class="ar-prov">多治見市 商工観光課</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.tajimi.lg.jp/kurashi/sangyo/shokogyo/kigyo/shiencenter/nyukyosha.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="tajimi-city-tajicon-followup-hojo">
+            <div class="ar-name"><b>タジコン創業者フォローアップ補助金</b><small>たじみビジネスプランコンテスト応募プランで市内に創業・出店し、創業後1年以上の事業者の事業拡大を支援する。<br>対象：タジコン応募プランに基づき市内で創業または出店していること／創業後1年以上であること</small><span class="ar-prov">多治見市 産業観光課</span></div>
+            <div class="ar-amt">対象経費の1/2、上限100万円（市内の創業支援施設入居者・過去の利用者は上限50万円）</div>
+            <a class="ar-go" href="https://www.city.tajimi.lg.jp/gyose/kakuka/sangyo-pub/tajicon-followup.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">岐阜県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>多治見市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="tajimi-mokuzo-jokyaku">
-            <h3>木造住宅除却工事補助事業</h3>
-            <p class="area-meta">岐阜県多治見市｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>旧耐震の木造住宅の除却費用の一部を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>昭和56年5月31日以前着工の木造住宅</li><li>市の耐震診断で評点1.0未満</li></ul>
-            <p><a href="https://www.city.tajimi.lg.jp/kurashi/kaihatsu/taishinka/zyokyaku.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program" id="tajimi-shinene">
-            <h3>住宅用新エネルギーシステム設置事業補助金</h3>
-            <p class="area-meta">岐阜県多治見市｜補助金｜蓄電池1kWhあたり1万円(上限10万円)、V2H6万円、太陽光1kWあたり1.5万円(上限6万円)、燃料電池5万円</p>
-            <p class="area-meta">期間：令和7年度情報。令和8年度は要確認</p>
-            <p>蓄電池・V2H・太陽光・家庭用燃料電池の設置費用を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>太陽光は蓄電池またはV2Hと同時設置</li><li>工事着手の2週間前までに予約申込</li></ul>
-            <p><a href="https://www.city.tajimi.lg.jp/kurashi/kankyo/new-energy.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="tajimi-akiya-jokyaku">
-            <h3>老朽・危険空き家除却工事補助金</h3>
-            <p class="area-meta">岐阜県多治見市｜補助金｜税抜解体費の3分の1、老朽は上限20万円・危険は上限40万円</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>倒壊のおそれがある老朽・危険空き家の解体費用を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>危険空き家は市の判定が必要</li></ul>
-            <p><a href="https://www.city.tajimi.lg.jp/kurashi_tetsuduzuki/sumai_seikatsu_dobutsu/1006141/1006145.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="tajimi-akiya-saisei">
-            <h3>空き家再生補助金</h3>
-            <p class="area-meta">岐阜県多治見市｜補助金｜一般世帯上限40万円(最大50万円)、子育て世帯上限60万円(最大70万円)</p>
-            <p class="area-meta">期間：令和8年5月1日受付開始</p>
-            <p>空き家を取得して自ら住む世帯のリフォーム・建替え費用を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>空き家を取得して居住する世帯</li><li>子育て世帯は中学校卒業前の子と同居</li></ul>
-            <p><a href="https://www.city.tajimi.lg.jp/kurashi_tetsuduzuki/sumai_seikatsu_dobutsu/1006141/1006149.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="tajimi-block">
-            <h3>ブロック塀等除去補助金</h3>
-            <p class="area-meta">岐阜県多治見市｜補助金｜1m当たり1万円×撤去延長と経費の2分の1の少ない方、上限20万円</p>
-            <p class="area-meta">期間：令和8年4月1日〜令和9年2月28日</p>
-            <p>公道に面したブロック塀等の撤去費用を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>公道に面するブロック塀等</li><li>工事着手前に申請</li></ul>
-            <p><a href="https://www.city.tajimi.lg.jp/kurashi_tetsuduzuki/bosai_bohan/1005897/1005931/1005938.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-9">移住</h3>
-          <div class="area-program" id="tajimi-iju-shien">
-            <h3>移住支援補助金(岐阜県外から転入)</h3>
-            <p class="area-meta">岐阜県多治見市｜補助金｜30万円/世帯(18歳未満の子がいる世帯は10万円加算)</p>
-            <p class="area-meta">期間：予算上限に達し次第終了(年度は要確認)</p>
-            <p>岐阜県外から転入し住宅を取得した世帯に補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>岐阜県外からの転入</li><li>住宅を取得した44歳以下の世帯</li></ul>
-            <p><a href="https://www.city.tajimi.lg.jp/shisei/shisaku_keikaku/1007290/1007294.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="tajimi-teiju-oen">
-            <h3>ちょうどいいまちたじみ定住応援補助金</h3>
-            <p class="area-meta">岐阜県多治見市｜補助金｜10万円(18歳未満の子がいる世帯は5万円加算)</p>
-            <p class="area-meta">期間：予算上限に達し次第終了(年度は要確認)</p>
-            <p>市内賃貸住宅から市内の戸建住宅等を取得して転居する若者・子育て世帯を支援する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>夫婦とも44歳以下の複数人世帯等</li></ul>
-            <p><a href="https://www.city.tajimi.lg.jp/shisei/shisaku_keikaku/1007290/1007293.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>岐阜県の制度</strong></p>
-          <ul><li><a href="pref-gifu.html#gifu-iju-shienkin">岐阜県 移住支援金（東京圏からのUIJターン）</a></li><li><a href="pref-gifu.html#gifu-pref-datsutanso-model-jutaku">脱炭素社会ぎふモデル住宅普及事業費補助金</a></li><li><a href="pref-gifu.html#gifu-pref-gifunoki-ienukuri">ぎふの木で家づくり支援事業</a></li><li><a href="pref-gifu.html#gifu-pref-mokuzou-taishin-kaishu">木造住宅耐震改修工事補助（岐阜県木造住宅耐震化促進事業）</a></li></ul>
-          <p><a href="pref-gifu.html#pref-resident">岐阜県の制度4件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-gifu.html#gifu-seido-yushi">岐阜県中小企業資金融資制度</a></li><li><a href="pref-gifu.html#gifu-startup-shien">岐阜県 スタートアップ支援補助金（岐阜県産業経済振興センター）</a></li><li><a href="pref-gifu.html#gifu-hanro-kaitaku">岐阜県 中小企業販路開拓等支援事業費補助金</a></li><li><a href="pref-gifu.html#gifu-power-up">岐阜県 中小・小規模事業者パワーアップ応援補助金</a></li></ul>
+          <p><a href="pref-gifu.html#pref-business">岐阜県の制度4件を、県のページで見る →</a></p>
       </div>
     </section>
 

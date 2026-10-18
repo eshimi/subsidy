@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"犬山市","item":"https://hojyokin.net/area/inuyama.html"}]}</script>
@@ -165,133 +207,105 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 犬山市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b02.webp')"><h1 class="pb-title">犬山市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-aichi.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">愛知県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">愛知県 犬山市</p>
+        <h1>犬山市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度9件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-aichi.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（犬山市）<b>3件（うち受付終了1件）</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（愛知県）<b>5件</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>6件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 2</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-9">移住 1</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <span class="is-none"><i aria-hidden="true">👶</i><b>子育て</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>掲載なし</small></span>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>5件</small></a>
+      <a href="#res-g-iju"><i aria-hidden="true">🌱</i><b>移住</b><small>1件</small></a>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市3件＋県5件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">犬山市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="inuyama-city-sangyo-shinko-hojo">
-            <h3>犬山市産業振興補助金</h3>
-            <p class="area-meta">犬山市 経済環境部 産業課｜補助金｜補助率2分の1以内（小規模企業者の設備投資等は3分の2以内の年度あり・要確認）、同一事業者1年度あたり上限40万円</p>
-            <p class="area-meta">期間：令和8年度分。予算上限に達し次第受付終了</p>
-            <p>人材育成、展示会出展、対面式雇用支援、就職情報サイト等活用、雇用促進の5事業を対象に、市内中小企業の取組費用の一部を補助する。令和8年度は予算残りが少なく、上限到達で受付終了。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の中小企業者</li><li>市税の滞納がないこと</li><li>事業ごとの要件（雇用促進事業は小規模企業者限定など）を満たすこと</li></ul>
-            <p><a href="https://www.city.inuyama.aichi.jp/jigyo/kougyou/1005386.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>5件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="inuyama-akiya-katsuyo">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>犬山市あきや活用支援事業補助金</b><small>空き家バンクに2年以上登録されている空き家の購入費用の一部を補助する。<br>対象：空き家バンク登録物件の購入／詳細要件は要確認</small><span class="ar-prov">愛知県犬山市</span></div>
+            <div class="ar-amt">基本額100万円（若年世帯・多子世帯等の加算あり）</div>
+            <a class="ar-go" href="https://www.city.inuyama.aichi.jp/kurashi/sumai/1004548/1004213.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="inuyama-city-sogyo-shien-hojo">
-            <h3>犬山市創業支援補助金</h3>
-            <p class="area-meta">犬山市 経済環境部 産業課｜補助金｜補助率2分の1以内、上限100万円（移住者加算：引越費用上限50万円、家賃または不動産購入費上限60万円）</p>
-            <p class="area-meta">期間：要確認（公式ページ参照）</p>
-            <p>市内で創業予定の方に、店舗・事業所の内外装工事費、設備費、官公庁への申請費用、広報費の一部を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内で創業予定であること</li><li>3年以上事業を継続する予定であること</li><li>補助対象経費の合計が100万円を超えること</li></ul>
-            <p><a href="https://www.city.inuyama.aichi.jp/jigyo/kougyou/1010682.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="inuyama-block">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>犬山市ブロック塀安全対策事業費補助金</b><small>倒壊のおそれがあるブロック塀の撤去または高さ60cm以下への減築を補助する。<br>対象：道路に面し道路からの高さ1.0m超／撤去または60cm以下への減築</small><span class="ar-prov">愛知県犬山市</span></div>
+            <div class="ar-amt">撤去費と塀1mあたり1万円の額のいずれか少ない方の3分の2、1敷地上限20万円</div>
+            <a class="ar-go" href="https://www.city.inuyama.aichi.jp/kurashi/sumai/1004550/1005120.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <h3 class="area-cat">受付が終了した制度（次回の公募の参考に）</h3>
-          <div class="area-program is-ended" id="inuyama-city-jigyo-keizoku-shien-hojo">
-            <h3>犬山市事業継続支援補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">犬山市 経済環境部 産業課｜補助金｜補助率2分の1、専門家支援は上限50万円、設備投資は上限100万円（両方申請の場合の合計上限100万円）</p>
-            <p class="area-meta">期間：令和8年度分。ページ上は専門家支援が令和9年2月1日まで、設備投資が令和8年11月30日までとの記載だが、予算上限到達で受付終了の記載もあり要確認</p>
-            <p>経営計画書に基づく専門家による支援や設備投資の費用の一部を補助する。市の無料経営相談（中小企業診断士）の利用が必要。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の中小企業者・小規模企業者・個人事業者</li><li>市が定める経営計画書を作成すること</li><li>市の無料経営相談を受けること</li></ul>
-            <p><a href="https://www.city.inuyama.aichi.jp/jigyo/kougyou/1007848.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="inuyama-kanshin">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>犬山市感震ブレーカー設置費補助事業</b><small>感震ブレーカーの購入・設置費用を補助する。<br>対象：詳細要件は要確認<br>期間：令和8年4月1日〜令和9年3月31日<br>締切：2027-03-31</small><span class="ar-prov">愛知県犬山市</span></div>
+            <div class="ar-amt">購入・設置費用の2分の1、上限1万円</div>
+            <a class="ar-go" href="https://www.city.inuyama.aichi.jp/kurashi/1007140/1007147/1005842.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          <div class="ar-row" id="inuyama-ondanka">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>犬山市住宅用地球温暖化対策設備導入費補助金</b><small>定置用蓄電システム等の設置費用を補助する。太陽光単独は令和3年度に廃止。<br>対象：詳細要件は要確認</small><span class="ar-prov">愛知県犬山市</span></div>
+            <div class="ar-amt">蓄電システム1基上限15万円、太陽光・HEMS・蓄電池セットで上限20万円</div>
+            <a class="ar-go" href="https://www.city.inuyama.aichi.jp/kurashi/gomi/1005043/1006868/1004877.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="inuyama-taishin">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>犬山市民間木造住宅耐震改修費補助金</b><small>旧基準木造住宅の耐震改修工事費を補助する。今年度の予定件数は通常10件、段階的3件。<br>対象：昭和56年5月31日以前着工の在来軸組・伝統構法の木造住宅</small><span class="ar-prov">愛知県犬山市</span></div>
+            <div class="ar-amt">1戸115万円かつ補強工事費の8割が上限、段階的改修は1段階目60万円・2段階目40万円が上限</div>
+            <a class="ar-go" href="https://www.city.inuyama.aichi.jp/kurashi/sumai/1004550/1002056.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-iju">移住<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="inuyama-kyojuyudo">
+            <div class="ar-name"><b>犬山市居住誘導区域定住促進奨励金</b><small>市外などから来た子育て世帯が居住誘導区域内で土地を取得し住宅を建築・購入した場合に奨励金を支給する。<br>対象：居住誘導区域内／2026年4月1日以降に土地を売買で取得</small><span class="ar-prov">愛知県犬山市</span></div>
+            <div class="ar-amt">基本額5万円、加算により最大15万円</div>
+            <a class="ar-go" href="https://www.city.inuyama.aichi.jp/kurashi/sumai/1012739.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>愛知県の制度</strong></p>
+          <ul><li><a href="pref-aichi.html#aichi-iju-shienkin">愛知県 移住支援金（東京圏からのUIJターン）</a></li><li><a href="pref-aichi.html#aichi-jutaku-ondanka-setsubi">愛知県住宅用地球温暖化対策設備導入促進費補助金（市町村との協調補助）</a></li><li><a href="pref-aichi.html#aichi-jutaku-taishin">住宅・建築物の耐震診断・耐震改修の補助制度（市町村実施）</a></li></ul>
+          <p><a href="pref-aichi.html#pref-resident">愛知県の制度3件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">愛知県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">犬山市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-aichi.html#aichi-digital-dx">愛知県 中小企業デジタル化・DX促進補助金</a></li><li><a href="pref-aichi.html#aichi-kakushin-jigyo">愛知県 革新事業創造事業費補助金</a></li><li><a href="pref-aichi.html#aichi-shogyo-shinko">愛知県 商業振興事業費補助金（地域商業活動活性化事業）</a></li><li><a href="pref-aichi.html#aichi-sogyo-shikin">愛知県中小企業融資制度 創業等支援資金</a></li><li><a href="pref-aichi.html#aichi-startup-sogyo">あいちスタートアップ創業支援事業費補助金（起業支援金）</a></li></ul>
-          <p><a href="pref-aichi.html#pref-business">愛知県の制度5件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="inuyama-city-sangyo-shinko-hojo">
+            <div class="ar-name"><b>犬山市産業振興補助金</b><small>人材育成、展示会出展、対面式雇用支援、就職情報サイト等活用、雇用促進の5事業を対象に、市内中小企業の取組費用の一部を補助する。令和8年度は予算残りが少なく、上限到達で受付終了。<br>対象：市内の中小企業者／市税の滞納がないこと<br>期間：令和8年度分。予算上限に達し次第受付終了</small><span class="ar-prov">犬山市 経済環境部 産業課</span></div>
+            <div class="ar-amt">補助率2分の1以内（小規模企業者の設備投資等は3分の2以内の年度あり・要確認）、同一事業者1年度あたり上限40万円</div>
+            <a class="ar-go" href="https://www.city.inuyama.aichi.jp/jigyo/kougyou/1005386.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="inuyama-city-sogyo-shien-hojo">
+            <div class="ar-name"><b>犬山市創業支援補助金</b><small>市内で創業予定の方に、店舗・事業所の内外装工事費、設備費、官公庁への申請費用、広報費の一部を補助する。<br>対象：市内で創業予定であること／3年以上事業を継続する予定であること</small><span class="ar-prov">犬山市 経済環境部 産業課</span></div>
+            <div class="ar-amt">補助率2分の1以内、上限100万円（移住者加算：引越費用上限50万円、家賃または不動産購入費上限60万円）</div>
+            <a class="ar-go" href="https://www.city.inuyama.aichi.jp/jigyo/kougyou/1010682.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="inuyama-city-jigyo-keizoku-shien-hojo">
+            <div class="ar-name"><b>犬山市事業継続支援補助金 <span class="area-ended-tag">受付終了</span></b><small>経営計画書に基づく専門家による支援や設備投資の費用の一部を補助する。市の無料経営相談（中小企業診断士）の利用が必要。<br>対象：市内の中小企業者・小規模企業者・個人事業者／市が定める経営計画書を作成すること</small><span class="ar-prov">犬山市 経済環境部 産業課</span></div>
+            <div class="ar-amt">補助率2分の1、専門家支援は上限50万円、設備投資は上限100万円（両方申請の場合の合計上限100万円）</div>
+            <a class="ar-go" href="https://www.city.inuyama.aichi.jp/jigyo/kougyou/1007848.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">愛知県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>犬山市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="inuyama-kanshin">
-            <h3>犬山市感震ブレーカー設置費補助事業</h3>
-            <p class="area-meta">愛知県犬山市｜補助金｜購入・設置費用の2分の1、上限1万円｜締切：2027-03-31</p>
-            <p class="area-meta">期間：令和8年4月1日〜令和9年3月31日</p>
-            <p>感震ブレーカーの購入・設置費用を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>詳細要件は要確認</li></ul>
-            <p><a href="https://www.city.inuyama.aichi.jp/kurashi/1007140/1007147/1005842.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="inuyama-taishin">
-            <h3>犬山市民間木造住宅耐震改修費補助金</h3>
-            <p class="area-meta">愛知県犬山市｜補助金｜1戸115万円かつ補強工事費の8割が上限、段階的改修は1段階目60万円・2段階目40万円が上限</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>旧基準木造住宅の耐震改修工事費を補助する。今年度の予定件数は通常10件、段階的3件。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>昭和56年5月31日以前着工の在来軸組・伝統構法の木造住宅</li></ul>
-            <p><a href="https://www.city.inuyama.aichi.jp/kurashi/sumai/1004550/1002056.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program" id="inuyama-ondanka">
-            <h3>犬山市住宅用地球温暖化対策設備導入費補助金</h3>
-            <p class="area-meta">愛知県犬山市｜補助金｜蓄電システム1基上限15万円、太陽光・HEMS・蓄電池セットで上限20万円</p>
-            <p class="area-meta">期間：最新は要確認（予算残額は掲載あり）</p>
-            <p>定置用蓄電システム等の設置費用を補助する。太陽光単独は令和3年度に廃止。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>詳細要件は要確認</li></ul>
-            <p><a href="https://www.city.inuyama.aichi.jp/kurashi/gomi/1005043/1006868/1004877.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="inuyama-akiya-katsuyo">
-            <h3>犬山市あきや活用支援事業補助金</h3>
-            <p class="area-meta">愛知県犬山市｜補助金｜基本額100万円（若年世帯・多子世帯等の加算あり）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>空き家バンクに2年以上登録されている空き家の購入費用の一部を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>空き家バンク登録物件の購入</li><li>詳細要件は要確認</li></ul>
-            <p><a href="https://www.city.inuyama.aichi.jp/kurashi/sumai/1004548/1004213.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="inuyama-block">
-            <h3>犬山市ブロック塀安全対策事業費補助金</h3>
-            <p class="area-meta">愛知県犬山市｜補助金｜撤去費と塀1mあたり1万円の額のいずれか少ない方の3分の2、1敷地上限20万円</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>倒壊のおそれがあるブロック塀の撤去または高さ60cm以下への減築を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>道路に面し道路からの高さ1.0m超</li><li>撤去または60cm以下への減築</li></ul>
-            <p><a href="https://www.city.inuyama.aichi.jp/kurashi/sumai/1004550/1005120.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-9">移住</h3>
-          <div class="area-program" id="inuyama-kyojuyudo">
-            <h3>犬山市居住誘導区域定住促進奨励金</h3>
-            <p class="area-meta">愛知県犬山市｜給付｜基本額5万円、加算により最大15万円</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>市外などから来た子育て世帯が居住誘導区域内で土地を取得し住宅を建築・購入した場合に奨励金を支給する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>居住誘導区域内</li><li>2026年4月1日以降に土地を売買で取得</li><li>子育て世帯</li></ul>
-            <p><a href="https://www.city.inuyama.aichi.jp/kurashi/sumai/1012739.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>愛知県の制度</strong></p>
-          <ul><li><a href="pref-aichi.html#aichi-iju-shienkin">愛知県 移住支援金（東京圏からのUIJターン）</a></li><li><a href="pref-aichi.html#aichi-jutaku-ondanka-setsubi">愛知県住宅用地球温暖化対策設備導入促進費補助金（市町村との協調補助）</a></li><li><a href="pref-aichi.html#aichi-jutaku-taishin">住宅・建築物の耐震診断・耐震改修の補助制度（市町村実施）</a></li></ul>
-          <p><a href="pref-aichi.html#pref-resident">愛知県の制度3件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-aichi.html#aichi-digital-dx">愛知県 中小企業デジタル化・DX促進補助金</a></li><li><a href="pref-aichi.html#aichi-kakushin-jigyo">愛知県 革新事業創造事業費補助金</a></li><li><a href="pref-aichi.html#aichi-shogyo-shinko">愛知県 商業振興事業費補助金（地域商業活動活性化事業）</a></li><li><a href="pref-aichi.html#aichi-sogyo-shikin">愛知県中小企業融資制度 創業等支援資金</a></li><li><a href="pref-aichi.html#aichi-startup-sogyo">あいちスタートアップ創業支援事業費補助金（起業支援金）</a></li></ul>
+          <p><a href="pref-aichi.html#pref-business">愛知県の制度5件を、県のページで見る →</a></p>
       </div>
     </section>
 

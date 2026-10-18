@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"新宿区","item":"https://hojyokin.net/area/shinjuku.html"}]}</script>
@@ -165,212 +207,154 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 新宿区</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b01.webp')"><h1 class="pb-title">新宿区の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-tokyo.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">東京都・特別区。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">東京都 新宿区</p>
+        <h1>新宿区で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度18件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-tokyo.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（新宿区）<b>4件</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（東京都）<b>6件（うち受付終了1件）</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>14件（うち受付終了2件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 4</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-5">バリアフリー・介護 3</a><a href="#res-cat-6">子育て 2</a><a href="#res-cat-9">移住 2</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <a href="#res-g-kosodate"><i aria-hidden="true">👶</i><b>子育て</b><small>2件</small></a>
+      <span class="is-none"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>掲載なし</small></span>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>10件</small></a>
+      <a href="#res-g-iju"><i aria-hidden="true">🌱</i><b>移住</b><small>2件</small></a>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市4件＋県6件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">新宿区の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="shinjuku-energy-jigyosho">
-            <h3>新宿区省エネルギー及び創エネルギー機器等補助制度（事業所向け）</h3>
-            <p class="area-meta">新宿区 文化観光産業部 産業振興課｜補助金｜太陽光発電：1kWあたり10万円、上限80万円。LED照明・高効率空調：施工経費（税抜）の50%、上限25万円。再エネ電力導入の場合はLED・空調を補助率70%、上限50万円｜締切：2027-03-12</p>
-            <p class="area-meta">期間：令和8年4月1日〜令和9年3月12日（補助対象期間）。令和8年度は4期に分けて受付</p>
-            <p>事業所に省エネ・創エネ機器を設置する費用の一部を補助します。施工と支払いが完了した後に申請し、先着順で各期の予算上限に達した時点で終了します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>区内の事業所</li><li>施工・支払い完了後に申請</li><li>再エネ引き上げは再エネ比率50%以上などの要件あり</li></ul>
-            <p><a href="https://www.city.shinjuku.lg.jp/seikatsu/shoenergy_R80401.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-kosodate">子育て<span>2件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="shinjuku-jisedai-tenkyo">
+            <div class="ar-name"><b>次世代育成転居助成</b><small>区内の民間賃貸から区内の民間賃貸へ住み替える子育て世帯の家賃差額と引越し費用を助成する。<br>対象：義務教育修了前の児童を扶養し同居／賃貸借契約前に予定登録申請が必要</small><span class="ar-prov">新宿区</span></div>
+            <div class="ar-amt">家賃差額：月最大3.5万円（最長2年）、引越し費用：実費で最大10万円</div>
+            <a class="ar-go" href="https://www.city.shinjuku.lg.jp/seikatsu/file07_02_00017.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="shinjuku-sogyo-yushi">
-            <h3>新宿区創業資金融資（創業等支援融資制度）</h3>
-            <p class="area-meta">新宿区 文化観光産業部 産業振興課｜融資｜貸付限度額：原則2,000万円。貸付期間：7年以内。利子と信用保証料の一部を区が補助</p>
-            <p class="area-meta">期間：令和8年度（要確認）</p>
-            <p>区内で創業する人、または創業5年未満の人に創業資金を融資し、利子・信用保証料の一部を補助します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>区内で創業する者、または創業5年未満の者</li></ul>
-            <p><a href="https://www.city.shinjuku.lg.jp/jigyo/sangyo01_000110.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="shinjuku-yachin-josei">
+            <div class="ar-name"><b>民間賃貸住宅家賃助成</b><small>区内の民間賃貸住宅に住む義務教育修了前の子のいる世帯の家賃の一部を助成する。<br>対象：義務教育修了前の子がいる世帯</small><span class="ar-prov">新宿区</span></div>
+            <div class="ar-amt">月額3万円、最長5年間</div>
+            <a class="ar-go" href="https://www.city.shinjuku.lg.jp/seikatsu/file07_02_00001.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="shinjuku-akiten-yushi">
-            <h3>商店街空き店舗活用支援資金（区制度融資）</h3>
-            <p class="area-meta">新宿区 文化観光産業部 産業振興課｜融資｜利子と信用保証料を全額区が補助。融資限度額は要確認</p>
-            <p class="area-meta">期間：令和8年度（要確認）</p>
-            <p>空き店舗で創業する事業者を対象に、資金調達を支援する区の融資制度です。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>区内の空き店舗で創業する事業者</li></ul>
-            <p><a href="https://www.city.shinjuku.lg.jp/jigyo/sangyo01_002197.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <div class="area-program" id="shinjuku-shotengai-ecoshien">
-            <h3>にぎわいにあふれ環境にもやさしい商店街支援事業補助金</h3>
-            <p class="area-meta">新宿区 文化観光産業部 産業振興課｜補助金｜要確認（イベント・地域力向上・活性化・環境の各事業ごとに補助率と上限額が定められている）</p>
-            <p class="area-meta">期間：令和8年度（要確認）</p>
-            <p>商店街振興組合や任意商店会が行うイベント、地域力向上、活性化、環境に関する事業の経費を補助します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>商店街振興組合または任意商店会</li><li>事業区分ごとの要件あり</li></ul>
-            <p><a href="https://www.city.shinjuku.lg.jp/jigyo/file07_00001.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>10件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="shinjuku-block-jokyo">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>ブロック塀等の除去への助成</b><small>地震で倒壊のおそれがある道路沿いの塀の除去費用を助成する。<br>対象：道路沿いで高さ1.0m以上、安全性が確認できない塀／交付決定後に契約</small><span class="ar-prov">新宿区</span></div>
+            <div class="ar-amt">単価：ブロック塀・大谷石塀12,000円/m2、万年塀6,000円/m2、上限40万円</div>
+            <a class="ar-go" href="https://www.city.shinjuku.lg.jp/anzen/seibi01_000110.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          <div class="ar-row" id="shinjuku-jiritsu-shien-jutaku-kaishu">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>自立支援住宅改修</b><small>要介護認定が非該当の方の手すり取付け・段差解消などの住宅改修を支援する。<br>対象：要介護認定で非該当の方</small><span class="ar-prov">新宿区</span></div>
+            <div class="ar-amt">助成限度額20万円（費用の1〜3割は利用者負担）</div>
+            <a class="ar-go" href="https://www.city.shinjuku.lg.jp/fukushi/file05_02_00011.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="shinjuku-jutaku-setsubi-kaizen">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>住宅設備改善費の給付</b><small>区内に住む障害者（児）の住宅設備の改善費用を給付する。<br>対象：事前申請が必要（工事終了後は不可）</small><span class="ar-prov">新宿区</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.shinjuku.lg.jp/fukushi/file06_04_00005.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="shinjuku-kaigo-jutaku-kaishu">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>住宅改修費の支給（介護保険）</b><small>介護保険の要支援・要介護の方の手すり設置等の住宅改修費を支給する。<br>対象：受領委任払い等が利用可能</small><span class="ar-prov">新宿区</span></div>
+            <div class="ar-amt">要確認（利用者負担を除いた額を支給）</div>
+            <a class="ar-go" href="https://www.city.shinjuku.lg.jp/fukushi/file07_05_00003.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="shinjuku-taishin-himokuzo-kaishu">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>非木造：耐震改修工事への助成</b><small>非木造建築物の耐震改修工事費を助成する。<br>対象：旧耐震設計基準の建築物<br>期間：令和8年度：非木造の耐震改修工事は2026年10月末まで<br>締切：2026-10-31</small><span class="ar-prov">新宿区</span></div>
+            <div class="ar-amt">住宅：工事費×23%、助成対象事業費の上限4,000万円</div>
+            <a class="ar-go" href="https://www.city.shinjuku.lg.jp/anzen/seibi01_000108.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="shinjuku-taishin-hokyo-sekkei">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>木造：耐震診断・補強設計への助成</b><small>木造住宅の耐震診断・補強設計の費用を助成する。</small><span class="ar-prov">新宿区</span></div>
+            <div class="ar-amt">補強設計・詳細診断への助成は合計30万円が限度（技術者派遣による予備・詳細診断は無料）</div>
+            <a class="ar-go" href="https://www.city.shinjuku.lg.jp/anzen/seibi01_000003.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="shinjuku-taishin-mokuzo-kaishu">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>木造：耐震改修工事への助成</b><small>旧耐震基準の木造住宅の耐震改修工事費を助成する。<br>対象：昭和56年5月31日以前に着工の木造2階建て以下／上部構造評点1.0以上<br>期間：令和8年度：木造の耐震改修工事は2026年11月末まで<br>締切：2026-11-30</small><span class="ar-prov">新宿区</span></div>
+            <div class="ar-amt">対象工事費の3/4、上限300万円（道路突出・無接道は率・上限が下がる）</div>
+            <a class="ar-go" href="https://www.city.shinjuku.lg.jp/anzen/seibi01_000101.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="shinjuku-taishin-shelter">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>木造：耐震シェルター、耐震ベッド設置への助成</b><small>木造住宅への耐震シェルター・耐震ベッドの設置費用を助成する。</small><span class="ar-prov">新宿区</span></div>
+            <div class="ar-amt">耐震シェルター：設置費の9/10（上限45万円）など</div>
+            <a class="ar-go" href="https://www.city.shinjuku.lg.jp/anzen/seibi01_000103.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="shinjuku-shoene-madogu-kyuto">
+            <div class="ar-name"><b><span class="ar-tag">省エネ住宅</span>省エネルギー及び創エネルギー機器等補助（断熱窓・エコキュート等） <span class="area-ended-tag">受付終了</span></b><small>個人住宅の断熱窓（内窓設置・ガラス交換）やエコキュート等の設置費用を補助する。<br>対象：断熱窓は同じ部屋の窓すべてが対象で熱貫流率4.65以下／施工・支払完了後に申請、先着順<br>期間：令和8年度第2期：2026年8月17日〜10月16日<br>締切：2026-10-16</small><span class="ar-prov">新宿区</span></div>
+            <div class="ar-amt">断熱窓：施工費（税抜）の25%、上限10万円。エコキュート・エネファーム：定額10万円</div>
+            <a class="ar-go" href="https://www.city.shinjuku.lg.jp/seikatsu/shoenergy.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="shinjuku-taiyoko-chikuden">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>省エネルギー及び創エネルギー機器等補助（太陽光・蓄電池） <span class="area-ended-tag">受付終了</span></b><small>個人住宅等への太陽光発電・蓄電池の設置費用を補助する。<br>対象：新品に限る（中古・リース不可）／蓄電池はSII指定機器等で太陽光等と常時接続<br>期間：令和8年度第2期：2026年8月17日〜10月16日（第3期は11月2日から）。対象は2027年3月12日までに施工・支払完了<br>締切：2026-10-16</small><span class="ar-prov">新宿区</span></div>
+            <div class="ar-amt">太陽光：1kWあたり10万円、上限30万円。蓄電池：1kWhあたり1万円、上限10万円</div>
+            <a class="ar-go" href="https://www.city.shinjuku.lg.jp/seikatsu/shoenergy.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-iju">移住<span>2件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="shinjuku-sumikae-kyoju-keizoku">
+            <div class="ar-name"><b>住み替え居住継続支援</b><small>住み替えによる居住の継続を支援する制度。</small><span class="ar-prov">新宿区</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.shinjuku.lg.jp/seikatsu/file07_02_00004.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="shinjuku-tasedai-kinrin">
+            <div class="ar-name"><b>多世代近居同居助成</b><small>子世帯と親世帯が区内で新たに近居・同居する際の初期費用を補助する。</small><span class="ar-prov">新宿区</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.shinjuku.lg.jp/seikatsu/file07_02_00018.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>東京都の制度</strong></p>
+          <ul><li><a href="pref-tokyo.html#tokyo-akachan-first">東京都出産・子育て応援事業（赤ちゃんファースト）</a></li><li><a href="pref-tokyo.html#tokyo-akiya-kazai-kaitai">東京都空き家家財整理・解体促進事業</a></li><li><a href="pref-tokyo.html#tokyo-dannetsu-solar-jutaku">災害にも強く健康にも資する断熱・太陽光住宅普及拡大事業</a></li><li><a href="pref-tokyo.html#tokyo-home-evcharge">戸建住宅向け充電設備普及促進事業（令和8年度）</a></li><li><a href="pref-tokyo.html#tokyo-kodomo-mamoru-jutaku">子育て世帯向け補助事業（「子供を守る」住宅確保促進事業）</a></li></ul>
+          <p><a href="pref-tokyo.html#pref-resident">東京都の制度9件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">東京都の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">新宿区の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-tokyo.html#tokyo-jigyoshokei-josei">事業承継支援助成金（第3回）</a></li><li><a href="pref-tokyo.html#tokyo-kadai-kaiketsu-gijutsu">課題解決型技術開発促進事業</a></li><li><a href="pref-tokyo.html#tokyo-seidoyushi-sogyo">東京都中小企業制度融資「創業」</a></li><li><a href="pref-tokyo.html#tokyo-seihin-chakushu">製品開発着手支援助成事業</a></li><li><a href="pref-tokyo.html#tokyo-souikufuu-challenge">経営力強化に向けた創意工夫チャレンジ促進事業</a></li></ul>
-          <p><a href="pref-tokyo.html#pref-business">東京都の制度6件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="shinjuku-energy-jigyosho">
+            <div class="ar-name"><b>新宿区省エネルギー及び創エネルギー機器等補助制度（事業所向け）</b><small>事業所に省エネ・創エネ機器を設置する費用の一部を補助します。施工と支払いが完了した後に申請し、先着順で各期の予算上限に達した時点で終了します。<br>対象：区内の事業所／施工・支払い完了後に申請<br>期間：令和8年4月1日〜令和9年3月12日（補助対象期間）。令和8年度は4期に分けて受付<br>締切：2027-03-12</small><span class="ar-prov">新宿区 文化観光産業部 産業振興課</span></div>
+            <div class="ar-amt">太陽光発電：1kWあたり10万円、上限80万円。LED照明・高効率空調：施工経費（税抜）の50%、上限25万円。再エネ電力導入の場合はLED・空調を補助率70%、上限50万円</div>
+            <a class="ar-go" href="https://www.city.shinjuku.lg.jp/seikatsu/shoenergy_R80401.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="shinjuku-sogyo-yushi">
+            <div class="ar-name"><b>新宿区創業資金融資（創業等支援融資制度）</b><small>区内で創業する人、または創業5年未満の人に創業資金を融資し、利子・信用保証料の一部を補助します。<br>対象：区内で創業する者、または創業5年未満の者</small><span class="ar-prov">新宿区 文化観光産業部 産業振興課</span></div>
+            <div class="ar-amt">貸付限度額：原則2,000万円。貸付期間：7年以内。利子と信用保証料の一部を区が補助</div>
+            <a class="ar-go" href="https://www.city.shinjuku.lg.jp/jigyo/sangyo01_000110.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="shinjuku-akiten-yushi">
+            <div class="ar-name"><b>商店街空き店舗活用支援資金（区制度融資）</b><small>空き店舗で創業する事業者を対象に、資金調達を支援する区の融資制度です。<br>対象：区内の空き店舗で創業する事業者</small><span class="ar-prov">新宿区 文化観光産業部 産業振興課</span></div>
+            <div class="ar-amt">利子と信用保証料を全額区が補助。融資限度額は要確認</div>
+            <a class="ar-go" href="https://www.city.shinjuku.lg.jp/jigyo/sangyo01_002197.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="shinjuku-shotengai-ecoshien">
+            <div class="ar-name"><b>にぎわいにあふれ環境にもやさしい商店街支援事業補助金</b><small>商店街振興組合や任意商店会が行うイベント、地域力向上、活性化、環境に関する事業の経費を補助します。<br>対象：商店街振興組合または任意商店会／事業区分ごとの要件あり</small><span class="ar-prov">新宿区 文化観光産業部 産業振興課</span></div>
+            <div class="ar-amt">要確認（イベント・地域力向上・活性化・環境の各事業ごとに補助率と上限額が定められている）</div>
+            <a class="ar-go" href="https://www.city.shinjuku.lg.jp/jigyo/file07_00001.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">東京都の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>新宿区の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="shinjuku-taishin-himokuzo-kaishu">
-            <h3>非木造：耐震改修工事への助成</h3>
-            <p class="area-meta">新宿区｜助成金｜住宅：工事費×23%、助成対象事業費の上限4,000万円｜締切：2026-10-31</p>
-            <p class="area-meta">期間：令和8年度：非木造の耐震改修工事は2026年10月末まで</p>
-            <p>非木造建築物の耐震改修工事費を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>旧耐震設計基準の建築物</li></ul>
-            <p><a href="https://www.city.shinjuku.lg.jp/anzen/seibi01_000108.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="shinjuku-taishin-hokyo-sekkei">
-            <h3>木造：耐震診断・補強設計への助成</h3>
-            <p class="area-meta">新宿区｜助成金｜補強設計・詳細診断への助成は合計30万円が限度（技術者派遣による予備・詳細診断は無料）</p>
-            
-            <p>木造住宅の耐震診断・補強設計の費用を助成する。</p>
-            
-            <p><a href="https://www.city.shinjuku.lg.jp/anzen/seibi01_000003.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="shinjuku-taishin-mokuzo-kaishu">
-            <h3>木造：耐震改修工事への助成</h3>
-            <p class="area-meta">新宿区｜助成金｜対象工事費の3/4、上限300万円（道路突出・無接道は率・上限が下がる）｜締切：2026-11-30</p>
-            <p class="area-meta">期間：令和8年度：木造の耐震改修工事は2026年11月末まで</p>
-            <p>旧耐震基準の木造住宅の耐震改修工事費を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>昭和56年5月31日以前に着工の木造2階建て以下</li><li>上部構造評点1.0以上</li><li>交付決定後に契約</li></ul>
-            <p><a href="https://www.city.shinjuku.lg.jp/anzen/seibi01_000101.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="shinjuku-taishin-shelter">
-            <h3>木造：耐震シェルター、耐震ベッド設置への助成</h3>
-            <p class="area-meta">新宿区｜助成金｜耐震シェルター：設置費の9/10（上限45万円）など</p>
-            
-            <p>木造住宅への耐震シェルター・耐震ベッドの設置費用を助成する。</p>
-            
-            <p><a href="https://www.city.shinjuku.lg.jp/anzen/seibi01_000103.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program is-ended" id="shinjuku-taiyoko-chikuden">
-            <h3>省エネルギー及び創エネルギー機器等補助（太陽光・蓄電池） <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">新宿区｜補助金｜太陽光：1kWあたり10万円、上限30万円。蓄電池：1kWhあたり1万円、上限10万円｜締切：2026-10-16</p>
-            <p class="area-meta">期間：令和8年度第2期：2026年8月17日〜10月16日（第3期は11月2日から）。対象は2027年3月12日までに施工・支払完了</p>
-            <p>個人住宅等への太陽光発電・蓄電池の設置費用を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>新品に限る（中古・リース不可）</li><li>蓄電池はSII指定機器等で太陽光等と常時接続</li><li>施工・支払完了後に申請、先着順</li></ul>
-            <p><a href="https://www.city.shinjuku.lg.jp/seikatsu/shoenergy.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
-          <div class="area-program is-ended" id="shinjuku-shoene-madogu-kyuto">
-            <h3>省エネルギー及び創エネルギー機器等補助（断熱窓・エコキュート等） <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">新宿区｜補助金｜断熱窓：施工費（税抜）の25%、上限10万円。エコキュート・エネファーム：定額10万円｜締切：2026-10-16</p>
-            <p class="area-meta">期間：令和8年度第2期：2026年8月17日〜10月16日</p>
-            <p>個人住宅の断熱窓（内窓設置・ガラス交換）やエコキュート等の設置費用を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>断熱窓は同じ部屋の窓すべてが対象で熱貫流率4.65以下</li><li>施工・支払完了後に申請、先着順</li></ul>
-            <p><a href="https://www.city.shinjuku.lg.jp/seikatsu/shoenergy.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="shinjuku-block-jokyo">
-            <h3>ブロック塀等の除去への助成</h3>
-            <p class="area-meta">新宿区｜助成金｜単価：ブロック塀・大谷石塀12,000円/m2、万年塀6,000円/m2、上限40万円</p>
-            
-            <p>地震で倒壊のおそれがある道路沿いの塀の除去費用を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>道路沿いで高さ1.0m以上、安全性が確認できない塀</li><li>交付決定後に契約</li><li>撤去前に区職員の確認が必要</li></ul>
-            <p><a href="https://www.city.shinjuku.lg.jp/anzen/seibi01_000110.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
-          <div class="area-program" id="shinjuku-jiritsu-shien-jutaku-kaishu">
-            <h3>自立支援住宅改修</h3>
-            <p class="area-meta">新宿区｜給付｜助成限度額20万円（費用の1〜3割は利用者負担）</p>
-            
-            <p>要介護認定が非該当の方の手すり取付け・段差解消などの住宅改修を支援する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>要介護認定で非該当の方</li></ul>
-            <p><a href="https://www.city.shinjuku.lg.jp/fukushi/file05_02_00011.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="shinjuku-jutaku-setsubi-kaizen">
-            <h3>住宅設備改善費の給付</h3>
-            <p class="area-meta">新宿区｜給付｜金額は公式で確認</p>
-            
-            <p>区内に住む障害者（児）の住宅設備の改善費用を給付する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>事前申請が必要（工事終了後は不可）</li></ul>
-            <p><a href="https://www.city.shinjuku.lg.jp/fukushi/file06_04_00005.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="shinjuku-kaigo-jutaku-kaishu">
-            <h3>住宅改修費の支給（介護保険）</h3>
-            <p class="area-meta">新宿区｜給付｜要確認（利用者負担を除いた額を支給）</p>
-            
-            <p>介護保険の要支援・要介護の方の手すり設置等の住宅改修費を支給する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>受領委任払い等が利用可能</li></ul>
-            <p><a href="https://www.city.shinjuku.lg.jp/fukushi/file07_05_00003.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-6">子育て</h3>
-          <div class="area-program" id="shinjuku-jisedai-tenkyo">
-            <h3>次世代育成転居助成</h3>
-            <p class="area-meta">新宿区｜助成金｜家賃差額：月最大3.5万円（最長2年）、引越し費用：実費で最大10万円</p>
-            <p class="area-meta">期間：随時受付（募集15世帯、予定数に達した時点で終了）。年度は要確認</p>
-            <p>区内の民間賃貸から区内の民間賃貸へ住み替える子育て世帯の家賃差額と引越し費用を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>義務教育修了前の児童を扶養し同居</li><li>賃貸借契約前に予定登録申請が必要</li></ul>
-            <p><a href="https://www.city.shinjuku.lg.jp/seikatsu/file07_02_00017.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="shinjuku-yachin-josei">
-            <h3>民間賃貸住宅家賃助成</h3>
-            <p class="area-meta">新宿区｜助成金｜月額3万円、最長5年間</p>
-            <p class="area-meta">期間：確認できた年度：令和7年度（10月1〜15日募集、終了）。令和8年度は要確認</p>
-            <p>区内の民間賃貸住宅に住む義務教育修了前の子のいる世帯の家賃の一部を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>義務教育修了前の子がいる世帯</li></ul>
-            <p><a href="https://www.city.shinjuku.lg.jp/seikatsu/file07_02_00001.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-9">移住</h3>
-          <div class="area-program" id="shinjuku-sumikae-kyoju-keizoku">
-            <h3>住み替え居住継続支援</h3>
-            <p class="area-meta">新宿区｜助成金｜金額は公式で確認</p>
-            
-            <p>住み替えによる居住の継続を支援する制度。</p>
-            
-            <p><a href="https://www.city.shinjuku.lg.jp/seikatsu/file07_02_00004.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="shinjuku-tasedai-kinrin">
-            <h3>多世代近居同居助成</h3>
-            <p class="area-meta">新宿区｜助成金｜金額は公式で確認</p>
-            
-            <p>子世帯と親世帯が区内で新たに近居・同居する際の初期費用を補助する。</p>
-            
-            <p><a href="https://www.city.shinjuku.lg.jp/seikatsu/file07_02_00018.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>東京都の制度</strong></p>
-          <ul><li><a href="pref-tokyo.html#tokyo-akachan-first">東京都出産・子育て応援事業（赤ちゃんファースト）</a></li><li><a href="pref-tokyo.html#tokyo-akiya-kazai-kaitai">東京都空き家家財整理・解体促進事業</a></li><li><a href="pref-tokyo.html#tokyo-dannetsu-solar-jutaku">災害にも強く健康にも資する断熱・太陽光住宅普及拡大事業</a></li><li><a href="pref-tokyo.html#tokyo-home-evcharge">戸建住宅向け充電設備普及促進事業（令和8年度）</a></li><li><a href="pref-tokyo.html#tokyo-kodomo-mamoru-jutaku">子育て世帯向け補助事業（「子供を守る」住宅確保促進事業）</a></li></ul>
-          <p><a href="pref-tokyo.html#pref-resident">東京都の制度9件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-tokyo.html#tokyo-jigyoshokei-josei">事業承継支援助成金（第3回）</a></li><li><a href="pref-tokyo.html#tokyo-kadai-kaiketsu-gijutsu">課題解決型技術開発促進事業</a></li><li><a href="pref-tokyo.html#tokyo-seidoyushi-sogyo">東京都中小企業制度融資「創業」</a></li><li><a href="pref-tokyo.html#tokyo-seihin-chakushu">製品開発着手支援助成事業</a></li><li><a href="pref-tokyo.html#tokyo-souikufuu-challenge">経営力強化に向けた創意工夫チャレンジ促進事業</a></li></ul>
+          <p><a href="pref-tokyo.html#pref-business">東京都の制度6件を、県のページで見る →</a></p>
       </div>
     </section>
 

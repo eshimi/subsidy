@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"市原市","item":"https://hojyokin.net/area/ichihara.html"}]}</script>
@@ -165,104 +207,86 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 市原市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b17.webp')"><h1 class="pb-title">市原市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-chiba.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">千葉県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">千葉県 市原市</p>
+        <h1>市原市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度6件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-chiba.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（市原市）<b>2件</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（千葉県）<b>5件（うち受付終了3件）</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>4件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 2</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-2">EV・充電 1</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <span class="is-none"><i aria-hidden="true">👶</i><b>子育て</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>掲載なし</small></span>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>4件</small></a>
+      <span class="is-none"><i aria-hidden="true">🌱</i><b>移住</b><small>掲載なし</small></span>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市2件＋県5件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">市原市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="ichihara-city-chusho-shikin-riko">
-            <h3>市原市 中小企業資金融資の利子補給</h3>
-            <p class="area-meta">市原市（産業振興担当課）／市原商工会議所｜融資｜信用保証協会関連の事業資金は年3.0%以内、設備近代化資金・経営安定化資金は年4.0%以内の利子補給（規則上）</p>
-            <p class="area-meta">期間：最新は要確認（規則の条文のみ確認）</p>
-            <p>市の中小企業資金融資を利用した人に、予算の範囲内で償還利子の一部を補給する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内に事業所等を持つ中小企業者</li><li>市税を完納していること</li></ul>
-            <p><a href="https://www.city.ichihara.chiba.jp/reiki_int/reiki_honbun/g020RG00000742.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>4件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="ichihara-datsutanso-battery">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>市原市住宅用設備等脱炭素化促進補助金（蓄電システム）</b><small>市内の住宅に未使用の住宅用設備を導入する場合に予算の範囲内で補助する。蓄電システムは太陽光発電の設置済み・同時設置が条件。<br>対象：市内に住所があり市税を滞納していない／住宅用太陽光発電が設置済みまたは同時設置</small><span class="ar-prov">千葉県市原市</span></div>
+            <div class="ar-amt">定置用リチウムイオン蓄電システム 上限7万円（令和8年度の額は要確認）</div>
+            <a class="ar-go" href="https://www.city.ichihara.chiba.jp/reiki_int/reiki_honbun/g020RG00001195.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="ichihara-city-koko-sogyo-riko">
-            <h3>市原市 日本政策金融公庫の創業融資に対する利子補給</h3>
-            <p class="area-meta">市原市（産業振興担当課）／市原商工会議所｜補助金｜年0.5%または約定利率の1/2のいずれか低い率（最長5年、融資額2,000万円以下）</p>
-            <p class="area-meta">期間：最新は要確認（規則の条文のみ確認）</p>
-            <p>日本政策金融公庫の新規開業資金等を利用した創業者に、償還利子の一部を補給する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>商工会議所のあっせんを受けていること</li><li>固定金利・元金均等返済で融資期間10年以内</li><li>融資を受けた翌日から10日以内に商工会議所経由で申請</li></ul>
-            <p><a href="https://www.city.ichihara.chiba.jp/reiki_int/reiki_honbun/g020RG00000742.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="ichihara-datsutanso-ev-v2h">
+            <div class="ar-name"><b><span class="ar-tag">EV・充電</span>市原市住宅用設備等脱炭素化促進補助金（EV・V2H）</b><small>住宅用のV2H充放電設備や電気自動車の導入に対する補助。要綱は令和4年改正までの版で、最新額は要確認。<br>対象：市内に住所があること／太陽光発電との連携を示す書類が必要</small><span class="ar-prov">千葉県市原市</span></div>
+            <div class="ar-amt">要綱上、V2H充放電設備は本体購入費の5分の1（上限50万円）、電気自動車はV2H併設で上限30万円・非併設で上限20万円（令和8年度の額は要確認）</div>
+            <a class="ar-go" href="https://www.city.ichihara.chiba.jp/reiki_int/reiki_honbun/g020RG00001195.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          <div class="ar-row" id="ichihara-taishin-kaishu">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>市原市木造住宅耐震改修事業補助金</b><small>木造住宅の耐震改修工事費を補助する。工事前の事前協議と協議会の計画適正評価が必要。<br>対象：個人所有者で改修後に居住する人／工事前に事前協議書を提出</small><span class="ar-prov">千葉県市原市</span></div>
+            <div class="ar-amt">補助対象経費の5分の4（上限100万円。一定の条件で10万円加算）</div>
+            <a class="ar-go" href="https://www.city.ichihara.chiba.jp/reiki_int/reiki_honbun/g020RG00001282.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="ichihara-taishin-shindan">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>市原市木造住宅耐震診断事業</b><small>市内の木造住宅所有者・居住者を対象に、耐震診断を市が実施する事業。<br>対象：市内に住所を有し、木造住宅を所有して居住／事前に市の簡易な耐震相談会等で指摘を受けていること</small><span class="ar-prov">千葉県市原市</span></div>
+            <div class="ar-amt">市が協議会に委託して実施。利用者負担は調査費5,000円</div>
+            <a class="ar-go" href="https://www.city.ichihara.chiba.jp/reiki_int/reiki_honbun/g020RG00000797.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>千葉県の制度</strong></p>
+          <ul><li><a href="pref-chiba.html#chiba-pref-iju-shienkin">千葉県移住支援金（UIJターン）</a></li><li><a href="pref-chiba.html#chiba-pref-jutaku-lease-ppa">千葉県住宅用太陽光発電設備等に係るリース等導入促進事業補助金</a></li><li><a href="pref-chiba.html#chiba-pref-zeh">令和8年度千葉県ネット・ゼロ・エネルギー・ハウス導入促進事業補助金</a></li></ul>
+          <p><a href="pref-chiba.html#pref-resident">千葉県の制度3件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">千葉県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">市原市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-chiba.html#chiba-chusho-shinko-shikin">千葉県 中小企業振興資金</a></li><li><a href="pref-chiba.html#chiba-shijo-kaitaku-josei">市場開拓助成（展示会出展）</a></li><li><a href="pref-chiba.html#chiba-pref-sogyo-ouen">ちば創業応援助成金</a></li><li><a href="pref-chiba.html#chiba-reskilling-banso">中小企業向け伴走型リスキリング支援</a></li><li><a href="pref-chiba.html#chiba-seicho-sokushin-hojo">中小企業成長促進補助金（第4弾）</a></li></ul>
-          <p><a href="pref-chiba.html#pref-business">千葉県の制度5件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="ichihara-city-chusho-shikin-riko">
+            <div class="ar-name"><b>市原市 中小企業資金融資の利子補給</b><small>市の中小企業資金融資を利用した人に、予算の範囲内で償還利子の一部を補給する。<br>対象：市内に事業所等を持つ中小企業者／市税を完納していること</small><span class="ar-prov">市原市（産業振興担当課）／市原商工会議所</span></div>
+            <div class="ar-amt">信用保証協会関連の事業資金は年3.0%以内、設備近代化資金・経営安定化資金は年4.0%以内の利子補給（規則上）</div>
+            <a class="ar-go" href="https://www.city.ichihara.chiba.jp/reiki_int/reiki_honbun/g020RG00000742.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="ichihara-city-koko-sogyo-riko">
+            <div class="ar-name"><b>市原市 日本政策金融公庫の創業融資に対する利子補給</b><small>日本政策金融公庫の新規開業資金等を利用した創業者に、償還利子の一部を補給する。<br>対象：商工会議所のあっせんを受けていること／固定金利・元金均等返済で融資期間10年以内</small><span class="ar-prov">市原市（産業振興担当課）／市原商工会議所</span></div>
+            <div class="ar-amt">年0.5%または約定利率の1/2のいずれか低い率（最長5年、融資額2,000万円以下）</div>
+            <a class="ar-go" href="https://www.city.ichihara.chiba.jp/reiki_int/reiki_honbun/g020RG00000742.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">千葉県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>市原市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="ichihara-taishin-kaishu">
-            <h3>市原市木造住宅耐震改修事業補助金</h3>
-            <p class="area-meta">千葉県市原市｜補助金｜補助対象経費の5分の4（上限100万円。一定の条件で10万円加算）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>木造住宅の耐震改修工事費を補助する。工事前の事前協議と協議会の計画適正評価が必要。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>個人所有者で改修後に居住する人</li><li>工事前に事前協議書を提出</li><li>補助後5年間は耐震上不利な増改築を制限</li></ul>
-            <p><a href="https://www.city.ichihara.chiba.jp/reiki_int/reiki_honbun/g020RG00001282.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="ichihara-taishin-shindan">
-            <h3>市原市木造住宅耐震診断事業</h3>
-            <p class="area-meta">千葉県市原市｜助成金｜市が協議会に委託して実施。利用者負担は調査費5,000円</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>市内の木造住宅所有者・居住者を対象に、耐震診断を市が実施する事業。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内に住所を有し、木造住宅を所有して居住</li><li>事前に市の簡易な耐震相談会等で指摘を受けていること</li></ul>
-            <p><a href="https://www.city.ichihara.chiba.jp/reiki_int/reiki_honbun/g020RG00000797.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program" id="ichihara-datsutanso-battery">
-            <h3>市原市住宅用設備等脱炭素化促進補助金（蓄電システム）</h3>
-            <p class="area-meta">千葉県市原市｜補助金｜定置用リチウムイオン蓄電システム 上限7万円（令和8年度の額は要確認）</p>
-            <p class="area-meta">期間：最新は要確認（着工・完了は当該年度4月1日から翌年2月末日）</p>
-            <p>市内の住宅に未使用の住宅用設備を導入する場合に予算の範囲内で補助する。蓄電システムは太陽光発電の設置済み・同時設置が条件。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内に住所があり市税を滞納していない</li><li>住宅用太陽光発電が設置済みまたは同時設置</li></ul>
-            <p><a href="https://www.city.ichihara.chiba.jp/reiki_int/reiki_honbun/g020RG00001195.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
-          <div class="area-program" id="ichihara-datsutanso-ev-v2h">
-            <h3>市原市住宅用設備等脱炭素化促進補助金（EV・V2H）</h3>
-            <p class="area-meta">千葉県市原市｜補助金｜要綱上、V2H充放電設備は本体購入費の5分の1（上限50万円）、電気自動車はV2H併設で上限30万円・非併設で上限20万円（令和8年度の額は要確認）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>住宅用のV2H充放電設備や電気自動車の導入に対する補助。要綱は令和4年改正までの版で、最新額は要確認。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内に住所があること</li><li>太陽光発電との連携を示す書類が必要</li></ul>
-            <p><a href="https://www.city.ichihara.chiba.jp/reiki_int/reiki_honbun/g020RG00001195.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>千葉県の制度</strong></p>
-          <ul><li><a href="pref-chiba.html#chiba-pref-iju-shienkin">千葉県移住支援金（UIJターン）</a></li><li><a href="pref-chiba.html#chiba-pref-jutaku-lease-ppa">千葉県住宅用太陽光発電設備等に係るリース等導入促進事業補助金</a></li><li><a href="pref-chiba.html#chiba-pref-zeh">令和8年度千葉県ネット・ゼロ・エネルギー・ハウス導入促進事業補助金</a></li></ul>
-          <p><a href="pref-chiba.html#pref-resident">千葉県の制度3件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-chiba.html#chiba-chusho-shinko-shikin">千葉県 中小企業振興資金</a></li><li><a href="pref-chiba.html#chiba-shijo-kaitaku-josei">市場開拓助成（展示会出展）</a></li><li><a href="pref-chiba.html#chiba-pref-sogyo-ouen">ちば創業応援助成金</a></li><li><a href="pref-chiba.html#chiba-reskilling-banso">中小企業向け伴走型リスキリング支援</a></li><li><a href="pref-chiba.html#chiba-seicho-sokushin-hojo">中小企業成長促進補助金（第4弾）</a></li></ul>
+          <p><a href="pref-chiba.html#pref-business">千葉県の制度5件を、県のページで見る →</a></p>
       </div>
     </section>
 

@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"仙台市","item":"https://hojyokin.net/area/sendai.html"}]}</script>
@@ -165,262 +207,183 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 仙台市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b14.webp')"><h1 class="pb-title">仙台市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-miyagi.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">宮城県・政令指定都市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">宮城県 仙台市</p>
+        <h1>仙台市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度23件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-miyagi.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（仙台市）<b>4件</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（宮城県）<b>3件（うち受付終了1件）</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>19件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 3</a><a href="#res-cat-3">省エネ住宅 3</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-5">バリアフリー・介護 1</a><a href="#res-cat-6">子育て 5</a><a href="#res-cat-7">医療・福祉 3</a><a href="#res-cat-8">教育・学び 1</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <a href="#res-g-kosodate"><i aria-hidden="true">👶</i><b>子育て</b><small>5件</small></a>
+      <a href="#res-g-iryo"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>3件</small></a>
+      <a href="#res-g-kyoiku"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>1件</small></a>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>10件</small></a>
+      <span class="is-none"><i aria-hidden="true">🌱</i><b>移住</b><small>掲載なし</small></span>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市4件＋県3件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">仙台市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="sendai-shinseihin">
-            <h3>仙台市中小企業新製品等開発支援補助金</h3>
-            <p class="area-meta">仙台市｜補助金｜上限200万円／補助率 2/3</p>
-            <p class="area-meta">期間：令和8年度公募</p>
-            <p>IoT・AI・ロボットなどの先端技術を使い、防災・減災、農林水産業、スポーツなどの分野で新製品・新サービスを開発する取り組みを支援します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内に事業所・工場を持つ中小企業者（個人事業主は対象外）</li></ul>
-            <p><a href="https://www.city.sendai.jp/renkesuishin/jigyosha/kezai/sangaku/minkan/shinseihinkaihatsu2026.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-kosodate">子育て<span>5件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="sendai-kodomo-iryohi">
+            <div class="ar-name"><b>こども医療費助成</b><small>令和8年4月1日から、対象年齢を18歳到達年度末（高校3年生）までに引き上げ、利用者一部負担金を撤廃しました。<br>対象：仙台市に住んでいる／18歳になる年度の3月末までの方<br>期間：令和8年4月1日から対象年齢を引き上げ</small><span class="ar-prov">仙台市</span></div>
+            <div class="ar-amt">健康保険が適用される診療の自己負担額分を助成（利用者一部負担金は撤廃）</div>
+            <a class="ar-go" href="https://www.city.sendai.jp/kate/kurashi/kenkotofukushi/kosodate/teate/jose.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="sendai-kaigai">
-            <h3>仙台市海外販路開拓チャレンジ支援助成金</h3>
-            <p class="area-meta">仙台市｜助成金｜上限100万円／補助率 1/2・2/3</p>
-            <p class="area-meta">期間：令和8年度公募</p>
-            <p>市内企業が海外市場の開拓に挑戦する際の経費（展示会出展、プロモーションなど）を助成します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の中小企業者</li></ul>
-            
+          <div class="ar-row" id="sendai-kodomo-iryohi-josei">
+            <div class="ar-name"><b>仙台市 子ども医療費助成</b><small>子どもの医療費を助成する制度。令和8年4月から高校生年代も対象となった。<br>対象：市内在住の18歳到達年度末までの子ども／詳細は要確認<br>期間：通年（令和8年4月1日受診分から高校生年代も対象）</small><span class="ar-prov">宮城県仙台市</span></div>
+            <div class="ar-amt">令和8年4月から対象が18歳到達年度末までに拡大、一部負担金なし</div>
+            <a class="ar-go" href="https://www.city.sendai.jp/kate/kurashi/kenkotofukushi/kosodate/teate/jose.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="sendai-accelup-seicho-r8">
-            <h3>令和8年度アクセル・アップ支援（成長促進補助金）</h3>
-            <p class="area-meta">仙台市｜補助金｜補助上限400万円（下限300万円）、補助率1/2（要確認）</p>
-            <p class="area-meta">期間：令和8年度（募集期間は公式ページで要確認）</p>
-            <p>市内中小企業の成長に向けた事業（設備投資や販路拡大等）の経費の一部を市が補助します。対象事業は令和9年2月28日までの完了が必要です。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>仙台市内の中小企業</li><li>申請前に仙台市中小企業応援窓口（オーエン）への相談が必要</li></ul>
-            <p><a href="https://www.city.sendai.jp/kikakushien/r8accelup.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="sendai-ninpu-shien-kyufukin">
+            <div class="ar-name"><b>仙台市 妊婦支援給付金</b><small>妊娠・出産期の経済的支援として給付する制度。令和7年4月1日以降に妊娠した人が対象。<br>対象：令和7年4月1日以降に妊娠した方／申請時期ごとに支給日が設定される</small><span class="ar-prov">宮城県仙台市</span></div>
+            <div class="ar-amt">1回目5万円（妊婦1人）、2回目5万円（胎児1人あたり）</div>
+            <a class="ar-go" href="https://www.city.sendai.jp/kodomo-kyufu/syussanouenkosodatekyufukin.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="sendai-clean-energy-vehicle-r8">
-            <h3>仙台市事業所用クリーンエネルギー自動車等導入支援補助金</h3>
-            <p class="area-meta">仙台市｜補助金｜金額は公式で確認｜締切：2026-12-24</p>
-            <p class="area-meta">期間：令和8年4月1日〜令和8年12月24日（申請受付期間）</p>
-            <p>事業所で使用するクリーンエネルギー自動車等の導入費用を市が補助します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>仙台市内の事業所を有する事業者</li><li>対象車種・補助額は公募要領で要確認</li></ul>
-            <p><a href="https://www.city.sendai.jp/ondanka/jigyosha/actionprogram/hojokin/cevjidousya.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="sendai-shukufuku-nobisuku">
+            <div class="ar-name"><b>新生児誕生祝福事業「杜っ子のびすくプレゼント」</b><small>本市で生まれ育つお子さんの誕生をお祝いし、子育てに役立つモノやサービスをカタログギフトの形でプレゼントします。<br>対象：令和8年4月1日から令和9年3月31日までに生まれ、令和9年3月31日までに本市に住民登録したお子さん／申請は不要（案内状を送付）<br>期間：令和8年4月1日から令和9年3月31日までに生まれたお子さんなど</small><span class="ar-prov">仙台市</span></div>
+            <div class="ar-amt">3万円相当のカタログギフト</div>
+            <a class="ar-go" href="https://www.city.sendai.jp/kodomo-somu/kurashi/kenkotofukushi/kosodate/shukufuku.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          <div class="ar-row" id="sendai-shussan-ikuji-shienkin">
+            <div class="ar-name"><b>仙台市 出産育児支援金</b><small>市独自の出産に対する上乗せ給付。令和7年10月1日以降の出産が対象。<br>対象：令和7年10月1日以降に出産した方／その他の条件は要確認</small><span class="ar-prov">宮城県仙台市</span></div>
+            <div class="ar-amt">子ども（胎児）1人につき9万円</div>
+            <a class="ar-go" href="https://www.city.sendai.jp/kodomo-kyufu/syussanikujishienkin.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-iryo">医療・福祉<span>3件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="sendai-fuikusho">
+            <div class="ar-name"><b>不育症検査費用助成事業</b><small>既往流死産回数が2回以上の不育症に悩む方を支援するため、不育症検査に要する費用の一部について助成します。<br>対象：申請日現在、仙台市に住民登録がある方／既往流死産回数が2回以上の方<br>期間：不育症検査が終了した日の属する年度の末日まで</small><span class="ar-prov">仙台市</span></div>
+            <div class="ar-amt">1回の検査に係る費用の7割に相当する額（千円未満切り捨て）上限6万円</div>
+            <a class="ar-go" href="https://www.city.sendai.jp/kodomo-hoken/fuikusyou.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="sendai-funin-kensa">
+            <div class="ar-name"><b>不妊検査費助成事業</b><small>不妊を心配するご夫婦の両方が不妊検査を受けた場合に、検査費用の一部を助成します。<br>対象：申請日時点で夫婦である（法律婚・事実婚どちらでも可）／申請日時点で仙台市に住所がある（夫婦のどちらかでも可）<br>期間：令和8年度助成対象分。申請期限は令和9年3月31日（当日消印有効）<br>締切：2027-03-31</small><span class="ar-prov">仙台市</span></div>
+            <div class="ar-amt">医師が不妊症の診断のために必要と認める検査・・・上限3万円</div>
+            <a class="ar-go" href="https://www.city.sendai.jp/kodomo-hoken/funinkensa.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="sendai-funin-senshin">
+            <div class="ar-name"><b>不妊治療費助成事業（先進医療分）</b><small>保険診療の不妊治療を受けた際、先進医療もあわせて実施した場合に、先進医療にかかる費用の一部を助成します。<br>対象：申請日時点で夫婦である（法律婚・事実婚どちらでも可）／申請日時点で仙台市に住所がある（夫婦のどちらかでも可）<br>期間：令和8年度助成対象分（令和8年4月1日から令和9年3月31日までに終了した治療）。申請期限は令和9年3月31日<br>締切：2027-03-31</small><span class="ar-prov">仙台市</span></div>
+            <div class="ar-amt">先進医療にかかる費用 1回あたり上限5万円</div>
+            <a class="ar-go" href="https://www.city.sendai.jp/kodomo-hoken/funinjosei.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-kyoiku">教育・学び<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="sendai-kyushoku-muryo">
+            <div class="ar-name"><b>市立小学校の学校給食費の完全無償化</b><small>国等から交付される金額の不足分を本市が負担し、令和8年4月から小学校での完全無償化を実施します。<br>対象：市立小学校および特別支援学校小学部<br>期間：令和8年4月1日～</small><span class="ar-prov">仙台市 教育局学校給食課</span></div>
+            <div class="ar-amt">小学校の学校給食費を完全無償化</div>
+            <a class="ar-go" href="https://www.city.sendai.jp/kyushokukanri/kyuusyokuhikaitei.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>10件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="sendai-block-jokyaku">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>仙台市ブロック塀等除却工事補助金</b><small>公道沿いの危険なブロック塀の除却工事費を補助する。<br>対象：国道・県道・市道、小学校の指定通学路沿いのブロック塀／市が危険と判定したもの<br>期間：令和8年度</small><span class="ar-prov">仙台市 都市整備局</span></div>
+            <div class="ar-amt">除却工事費（税抜）と塀の長さ1mあたり8万円の額を比べて決まる（詳細は要確認）</div>
+            <a class="ar-go" href="https://www.city.sendai.jp/kenchikubosai/kurashi/anzen/saigaitaisaku/jishintsunami/taisaku/kofu.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="sendai-kenko-shoene-bubun-kaishu">
+            <div class="ar-name"><b><span class="ar-tag">省エネ住宅</span>せんだい健幸省エネ住宅補助金（部分改修向け）</b><small>既存住宅の窓・断熱・LED照明などの部分的な省エネ改修への補助。申込多数の回は抽選。<br>対象：市内の既存住宅の省エネ改修／契約後・工事着手前に写真撮影のうえ申込<br>期間：令和8年度は3回受付（第3回 2026年12月1日〜12月10日必着）<br>締切：2026-12-10</small><span class="ar-prov">宮城県仙台市</span></div>
+            <div class="ar-amt">上限：窓10万円、床・壁・屋根・天井30万円、LED照明交換5万円</div>
+            <a class="ar-go" href="https://www.city.sendai.jp/ondanka/kodannetsu/kaisyuhozyo.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="sendai-kenko-shoene-shinchiku">
+            <div class="ar-name"><b><span class="ar-tag">省エネ住宅</span>せんだい健幸省エネ住宅補助金（新築向け）</b><small>市内に高断熱のZEH等の新築住宅を取得する場合の補助。基本額に断熱・太陽光・蓄電池の加算がある。<br>対象：市内に新築するZEH／ZEH+水準の住宅／交付決定前に引き渡しをしないこと<br>期間：2026年5月1日〜12月15日（必着）<br>締切：2026-12-15</small><span class="ar-prov">宮城県仙台市</span></div>
+            <div class="ar-amt">ZEH区分は上限148万〜245万円、ZEH+区分は上限205万〜270万円（性能区分により異なる）</div>
+            <a class="ar-go" href="https://www.city.sendai.jp/ondanka/kodannetsu/sintikuhozyo.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="sendai-kenko-shoene-zentai-kaishu">
+            <div class="ar-name"><b><span class="ar-tag">省エネ住宅</span>せんだい健幸省エネ住宅補助金（全体改修向け）</b><small>既存住宅の全体的な省エネ改修への補助金。<br>対象：市内の既存住宅の全体省エネ改修／詳細要件は要確認<br>締切：2026-12-15</small><span class="ar-prov">宮城県仙台市</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.sendai.jp/ondanka/kodannetsu/zentaikaishuhojo.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="sendai-kourei-jutaku-kaizohi">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>仙台市 高齢者住宅改造費補助金</b><small>要介護・要支援の高齢者がいる世帯の住宅改造費を助成。介護保険の住宅改修と併用できる。<br>対象：世帯全員が65歳以上で所得税非課税／要支援以上の認定を受けていること</small><span class="ar-prov">宮城県仙台市</span></div>
+            <div class="ar-amt">工事費の3/4、上限60万円（介護保険給付対象工事費の上限20万円を差し引いた額が対象）</div>
+            <a class="ar-go" href="https://www.city.sendai.jp/hokatsushien/kurashi/kenkotofukushi/korenokata/sumai/shiensedo/kaizohi.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="sendai-pv-kizon-kodate">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>太陽光発電等導入補助金（既存戸建住宅向け）</b><small>既存の戸建住宅に太陽光発電と蓄電池を同時に導入する費用を補助する。宮城県の補助金との併用可。<br>対象：現行耐震基準（2000年基準）の住宅、または構造安全性があるもの／国費を財源とする同種補助との併用不可</small><span class="ar-prov">仙台市 環境局</span></div>
+            <div class="ar-amt">太陽光発電と蓄電池を同時導入する場合、定額30万円</div>
+            <a class="ar-go" href="https://www.city.sendai.jp/ondanka/kodannetsu/kizonkodate.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="sendai-pv-shinchiku-kodate">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>太陽光発電等導入補助金（新築戸建住宅向け）</b><small>新築戸建住宅に太陽光発電や蓄電池を導入する場合の補助。<br>対象：ZEH水準などを満たす住宅（詳細は要確認）</small><span class="ar-prov">仙台市 環境局</span></div>
+            <div class="ar-amt">要確認（ZEH水準などを満たす住宅への太陽光・蓄電池の定額補助）</div>
+            <a class="ar-go" href="https://www.city.sendai.jp/ondanka/kodannetsu/sintikukodate.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="sendai-taishin-kaishu">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>戸建木造住宅耐震改修工事補助</b><small>昭和56年5月31日以前に建てられた2階建て以下の木造個人住宅の耐震改修費を補助する。<br>対象：昭和56年5月31日以前に建てられた2階建て以下の木造個人住宅／耐震診断で上部構造評点1.0未満など</small><span class="ar-prov">仙台市 都市整備局</span></div>
+            <div class="ar-amt">対象工事費の5分の4（限度額115万円）</div>
+            <a class="ar-go" href="https://www.city.sendai.jp/kenchikubosai/kurashi/anzen/saigaitaisaku/jishintsunami/taisaku/kodate/koji/" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="sendai-tokutei-akiya-jokyaku">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>仙台市特定空家等除却促進補助事業</b><small>倒壊のおそれがある特定空家等を解体して更地にする費用を補助する。<br>対象：事前に市の判定を受けること／交付決定前に着手しないこと<br>期間：2026年5月11日〜12月28日（予算に達し次第終了）<br>締切：2026-12-28</small><span class="ar-prov">仙台市 市民局</span></div>
+            <div class="ar-amt">対象経費の3分の1（上限50万円）</div>
+            <a class="ar-go" href="https://www.city.sendai.jp/shiminsekatsu/kurashi/anzen/anzen/akiya/jokyaku.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="sendai-v2h">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>家庭向けV2H充放電設備設置費補助金</b><small>家庭向けV2H充放電設備の設置費用を補助する。<br>対象：太陽光発電設備との連携が条件</small><span class="ar-prov">仙台市 環境局</span></div>
+            <div class="ar-amt">補助対象経費の3分の1と上限20万円のいずれか低い方</div>
+            <a class="ar-go" href="https://www.city.sendai.jp/kankyo/energyjiritsu/v2h.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>宮城県の制度</strong></p>
+          <ul><li><a href="pref-miyagi.html#miyagi-fcv-hojo">燃料電池自動車等導入促進事業補助金（令和8年度）</a></li><li><a href="pref-miyagi.html#miyagi-smart-energy-jutaku">スマートエネルギー住宅普及促進事業補助金</a></li><li><a href="pref-miyagi.html#miyagi-taishin-miyagi-hoshiki">みやぎ方式による木造住宅耐震助成事業</a></li></ul>
+          <p><a href="pref-miyagi.html#pref-resident">宮城県の制度3件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">宮城県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">仙台市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-miyagi.html#miyagi-bcp-jissen-hojokin">宮城県中小企業等BCP・事業継続力強化計画実践支援補助金</a></li><li><a href="pref-miyagi.html#miyagi-chusho-digital-shien">宮城県中小企業等デジタル化支援事業</a></li><li><a href="pref-miyagi.html#miyagi-startup-kasokuka">宮城県スタートアップ加速化支援事業</a></li></ul>
-          <p><a href="pref-miyagi.html#pref-business">宮城県の制度3件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="sendai-shinseihin">
+            <div class="ar-name"><b>仙台市中小企業新製品等開発支援補助金</b><small>IoT・AI・ロボットなどの先端技術を使い、防災・減災、農林水産業、スポーツなどの分野で新製品・新サービスを開発する取り組みを支援します。<br>対象：市内に事業所・工場を持つ中小企業者（個人事業主は対象外）<br>期間：令和8年度公募</small><span class="ar-prov">仙台市</span></div>
+            <div class="ar-amt">上限200万円／補助率 2/3</div>
+            <a class="ar-go" href="https://www.city.sendai.jp/renkesuishin/jigyosha/kezai/sangaku/minkan/shinseihinkaihatsu2026.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="sendai-kaigai">
+            <div class="ar-name"><b>仙台市海外販路開拓チャレンジ支援助成金</b><small>市内企業が海外市場の開拓に挑戦する際の経費（展示会出展、プロモーションなど）を助成します。<br>対象：市内の中小企業者<br>期間：令和8年度公募</small><span class="ar-prov">仙台市</span></div>
+            <div class="ar-amt">上限100万円／補助率 1/2・2/3</div>
+            
+          </div>
+          <div class="ar-row" id="sendai-accelup-seicho-r8">
+            <div class="ar-name"><b>令和8年度アクセル・アップ支援（成長促進補助金）</b><small>市内中小企業の成長に向けた事業（設備投資や販路拡大等）の経費の一部を市が補助します。対象事業は令和9年2月28日までの完了が必要です。<br>対象：仙台市内の中小企業／申請前に仙台市中小企業応援窓口（オーエン）への相談が必要</small><span class="ar-prov">仙台市</span></div>
+            <div class="ar-amt">補助上限400万円（下限300万円）、補助率1/2（要確認）</div>
+            <a class="ar-go" href="https://www.city.sendai.jp/kikakushien/r8accelup.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="sendai-clean-energy-vehicle-r8">
+            <div class="ar-name"><b>仙台市事業所用クリーンエネルギー自動車等導入支援補助金</b><small>事業所で使用するクリーンエネルギー自動車等の導入費用を市が補助します。<br>対象：仙台市内の事業所を有する事業者／対象車種・補助額は公募要領で要確認<br>期間：令和8年4月1日〜令和8年12月24日（申請受付期間）<br>締切：2026-12-24</small><span class="ar-prov">仙台市</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.sendai.jp/ondanka/jigyosha/actionprogram/hojokin/cevjidousya.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">宮城県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>仙台市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="sendai-taishin-kaishu">
-            <h3>戸建木造住宅耐震改修工事補助</h3>
-            <p class="area-meta">仙台市 都市整備局｜補助金｜対象工事費の5分の4（限度額115万円）</p>
-            <p class="area-meta">期間：確認できた年度：令和7年度（最新は要確認）</p>
-            <p>昭和56年5月31日以前に建てられた2階建て以下の木造個人住宅の耐震改修費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>昭和56年5月31日以前に建てられた2階建て以下の木造個人住宅</li><li>耐震診断で上部構造評点1.0未満など</li><li>市税の滞納がないこと、契約・着手前の事前相談</li></ul>
-            <p><a href="https://www.city.sendai.jp/kenchikubosai/kurashi/anzen/saigaitaisaku/jishintsunami/taisaku/kodate/koji/" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program" id="sendai-pv-kizon-kodate">
-            <h3>太陽光発電等導入補助金（既存戸建住宅向け）</h3>
-            <p class="area-meta">仙台市 環境局｜補助金｜太陽光発電と蓄電池を同時導入する場合、定額30万円</p>
-            <p class="area-meta">期間：令和8年度（期間は要確認）</p>
-            <p>既存の戸建住宅に太陽光発電と蓄電池を同時に導入する費用を補助する。宮城県の補助金との併用可。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>現行耐震基準（2000年基準）の住宅、または構造安全性があるもの</li><li>国費を財源とする同種補助との併用不可</li></ul>
-            <p><a href="https://www.city.sendai.jp/ondanka/kodannetsu/kizonkodate.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="sendai-pv-shinchiku-kodate">
-            <h3>太陽光発電等導入補助金（新築戸建住宅向け）</h3>
-            <p class="area-meta">仙台市 環境局｜補助金｜要確認（ZEH水準などを満たす住宅への太陽光・蓄電池の定額補助）</p>
-            
-            <p>新築戸建住宅に太陽光発電や蓄電池を導入する場合の補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>ZEH水準などを満たす住宅（詳細は要確認）</li></ul>
-            <p><a href="https://www.city.sendai.jp/ondanka/kodannetsu/sintikukodate.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="sendai-v2h">
-            <h3>家庭向けV2H充放電設備設置費補助金</h3>
-            <p class="area-meta">仙台市 環境局｜補助金｜補助対象経費の3分の1と上限20万円のいずれか低い方</p>
-            
-            <p>家庭向けV2H充放電設備の設置費用を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>太陽光発電設備との連携が条件</li></ul>
-            <p><a href="https://www.city.sendai.jp/kankyo/energyjiritsu/v2h.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
-          <div class="area-program" id="sendai-kenko-shoene-bubun-kaishu">
-            <h3>せんだい健幸省エネ住宅補助金（部分改修向け）</h3>
-            <p class="area-meta">宮城県仙台市｜補助金｜上限：窓10万円、床・壁・屋根・天井30万円、LED照明交換5万円｜締切：2026-12-10</p>
-            <p class="area-meta">期間：令和8年度は3回受付（第3回 2026年12月1日〜12月10日必着）</p>
-            <p>既存住宅の窓・断熱・LED照明などの部分的な省エネ改修への補助。申込多数の回は抽選。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の既存住宅の省エネ改修</li><li>契約後・工事着手前に写真撮影のうえ申込</li><li>申請は1回限り</li></ul>
-            <p><a href="https://www.city.sendai.jp/ondanka/kodannetsu/kaisyuhozyo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="sendai-kenko-shoene-shinchiku">
-            <h3>せんだい健幸省エネ住宅補助金（新築向け）</h3>
-            <p class="area-meta">宮城県仙台市｜補助金｜ZEH区分は上限148万〜245万円、ZEH+区分は上限205万〜270万円（性能区分により異なる）｜締切：2026-12-15</p>
-            <p class="area-meta">期間：2026年5月1日〜12月15日（必着）</p>
-            <p>市内に高断熱のZEH等の新築住宅を取得する場合の補助。基本額に断熱・太陽光・蓄電池の加算がある。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内に新築するZEH／ZEH+水準の住宅</li><li>交付決定前に引き渡しをしないこと</li><li>先着順・予算なくなり次第終了</li></ul>
-            <p><a href="https://www.city.sendai.jp/ondanka/kodannetsu/sintikuhozyo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="sendai-kenko-shoene-zentai-kaishu">
-            <h3>せんだい健幸省エネ住宅補助金（全体改修向け）</h3>
-            <p class="area-meta">宮城県仙台市｜補助金｜金額は公式で確認｜締切：2026-12-15</p>
-            <p class="area-meta">期間：2026年5月1日〜12月15日（最新は要確認）</p>
-            <p>既存住宅の全体的な省エネ改修への補助金。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の既存住宅の全体省エネ改修</li><li>詳細要件は要確認</li></ul>
-            <p><a href="https://www.city.sendai.jp/ondanka/kodannetsu/zentaikaishuhojo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="sendai-block-jokyaku">
-            <h3>仙台市ブロック塀等除却工事補助金</h3>
-            <p class="area-meta">仙台市 都市整備局｜補助金｜除却工事費（税抜）と塀の長さ1mあたり8万円の額を比べて決まる（詳細は要確認）</p>
-            <p class="area-meta">期間：令和8年度</p>
-            <p>公道沿いの危険なブロック塀の除却工事費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>国道・県道・市道、小学校の指定通学路沿いのブロック塀</li><li>市が危険と判定したもの</li></ul>
-            <p><a href="https://www.city.sendai.jp/kenchikubosai/kurashi/anzen/saigaitaisaku/jishintsunami/taisaku/kofu.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="sendai-tokutei-akiya-jokyaku">
-            <h3>仙台市特定空家等除却促進補助事業</h3>
-            <p class="area-meta">仙台市 市民局｜補助金｜対象経費の3分の1（上限50万円）｜締切：2026-12-28</p>
-            <p class="area-meta">期間：2026年5月11日〜12月28日（予算に達し次第終了）</p>
-            <p>倒壊のおそれがある特定空家等を解体して更地にする費用を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>事前に市の判定を受けること</li><li>交付決定前に着手しないこと</li></ul>
-            <p><a href="https://www.city.sendai.jp/shiminsekatsu/kurashi/anzen/anzen/akiya/jokyaku.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
-          <div class="area-program" id="sendai-kourei-jutaku-kaizohi">
-            <h3>仙台市 高齢者住宅改造費補助金</h3>
-            <p class="area-meta">宮城県仙台市｜補助金｜工事費の3/4、上限60万円（介護保険給付対象工事費の上限20万円を差し引いた額が対象）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>要介護・要支援の高齢者がいる世帯の住宅改造費を助成。介護保険の住宅改修と併用できる。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>世帯全員が65歳以上で所得税非課税</li><li>要支援以上の認定を受けていること</li><li>市税の滞納がないこと</li></ul>
-            <p><a href="https://www.city.sendai.jp/hokatsushien/kurashi/kenkotofukushi/korenokata/sumai/shiensedo/kaizohi.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-6">子育て</h3>
-          <div class="area-program" id="sendai-kodomo-iryohi">
-            <h3>こども医療費助成</h3>
-            <p class="area-meta">仙台市｜助成金｜健康保険が適用される診療の自己負担額分を助成（利用者一部負担金は撤廃）</p>
-            <p class="area-meta">期間：令和8年4月1日から対象年齢を引き上げ</p>
-            <p>令和8年4月1日から、対象年齢を18歳到達年度末（高校3年生）までに引き上げ、利用者一部負担金を撤廃しました。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>仙台市に住んでいる</li><li>18歳になる年度の3月末までの方</li><li>勤務先の健康保険または仙台市国民健康保険に加入している</li></ul>
-            <p><a href="https://www.city.sendai.jp/kate/kurashi/kenkotofukushi/kosodate/teate/jose.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="sendai-kodomo-iryohi-josei">
-            <h3>仙台市 子ども医療費助成</h3>
-            <p class="area-meta">宮城県仙台市｜助成金｜令和8年4月から対象が18歳到達年度末までに拡大、一部負担金なし</p>
-            <p class="area-meta">期間：通年（令和8年4月1日受診分から高校生年代も対象）</p>
-            <p>子どもの医療費を助成する制度。令和8年4月から高校生年代も対象となった。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内在住の18歳到達年度末までの子ども</li><li>詳細は要確認</li></ul>
-            <p><a href="https://www.city.sendai.jp/kate/kurashi/kenkotofukushi/kosodate/teate/jose.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="sendai-ninpu-shien-kyufukin">
-            <h3>仙台市 妊婦支援給付金</h3>
-            <p class="area-meta">宮城県仙台市｜給付｜1回目5万円（妊婦1人）、2回目5万円（胎児1人あたり）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>妊娠・出産期の経済的支援として給付する制度。令和7年4月1日以降に妊娠した人が対象。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>令和7年4月1日以降に妊娠した方</li><li>申請時期ごとに支給日が設定される</li></ul>
-            <p><a href="https://www.city.sendai.jp/kodomo-kyufu/syussanouenkosodatekyufukin.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="sendai-shukufuku-nobisuku">
-            <h3>新生児誕生祝福事業「杜っ子のびすくプレゼント」</h3>
-            <p class="area-meta">仙台市｜給付｜3万円相当のカタログギフト</p>
-            <p class="area-meta">期間：令和8年4月1日から令和9年3月31日までに生まれたお子さんなど</p>
-            <p>本市で生まれ育つお子さんの誕生をお祝いし、子育てに役立つモノやサービスをカタログギフトの形でプレゼントします。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>令和8年4月1日から令和9年3月31日までに生まれ、令和9年3月31日までに本市に住民登録したお子さん</li><li>申請は不要（案内状を送付）</li></ul>
-            <p><a href="https://www.city.sendai.jp/kodomo-somu/kurashi/kenkotofukushi/kosodate/shukufuku.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="sendai-shussan-ikuji-shienkin">
-            <h3>仙台市 出産育児支援金</h3>
-            <p class="area-meta">宮城県仙台市｜給付｜子ども（胎児）1人につき9万円</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>市独自の出産に対する上乗せ給付。令和7年10月1日以降の出産が対象。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>令和7年10月1日以降に出産した方</li><li>その他の条件は要確認</li></ul>
-            <p><a href="https://www.city.sendai.jp/kodomo-kyufu/syussanikujishienkin.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-7">医療・福祉</h3>
-          <div class="area-program" id="sendai-fuikusho">
-            <h3>不育症検査費用助成事業</h3>
-            <p class="area-meta">仙台市｜助成金｜1回の検査に係る費用の7割に相当する額（千円未満切り捨て）上限6万円</p>
-            <p class="area-meta">期間：不育症検査が終了した日の属する年度の末日まで</p>
-            <p>既往流死産回数が2回以上の不育症に悩む方を支援するため、不育症検査に要する費用の一部について助成します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>申請日現在、仙台市に住民登録がある方</li><li>既往流死産回数が2回以上の方</li><li>仙台市の市税を滞納していない方</li></ul>
-            <p><a href="https://www.city.sendai.jp/kodomo-hoken/fuikusyou.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="sendai-funin-kensa">
-            <h3>不妊検査費助成事業</h3>
-            <p class="area-meta">仙台市｜助成金｜医師が不妊症の診断のために必要と認める検査・・・上限3万円｜締切：2027-03-31</p>
-            <p class="area-meta">期間：令和8年度助成対象分。申請期限は令和9年3月31日（当日消印有効）</p>
-            <p>不妊を心配するご夫婦の両方が不妊検査を受けた場合に、検査費用の一部を助成します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>申請日時点で夫婦である（法律婚・事実婚どちらでも可）</li><li>申請日時点で仙台市に住所がある（夫婦のどちらかでも可）</li><li>検査開始日の妻の年齢が43歳未満である</li></ul>
-            <p><a href="https://www.city.sendai.jp/kodomo-hoken/funinkensa.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="sendai-funin-senshin">
-            <h3>不妊治療費助成事業（先進医療分）</h3>
-            <p class="area-meta">仙台市｜助成金｜先進医療にかかる費用 1回あたり上限5万円｜締切：2027-03-31</p>
-            <p class="area-meta">期間：令和8年度助成対象分（令和8年4月1日から令和9年3月31日までに終了した治療）。申請期限は令和9年3月31日</p>
-            <p>保険診療の不妊治療を受けた際、先進医療もあわせて実施した場合に、先進医療にかかる費用の一部を助成します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>申請日時点で夫婦である（法律婚・事実婚どちらでも可）</li><li>申請日時点で仙台市に住所がある（夫婦のどちらかでも可）</li><li>治療開始日の妻の年齢が43歳未満である</li></ul>
-            <p><a href="https://www.city.sendai.jp/kodomo-hoken/funinjosei.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-8">教育・学び</h3>
-          <div class="area-program" id="sendai-kyushoku-muryo">
-            <h3>市立小学校の学校給食費の完全無償化</h3>
-            <p class="area-meta">仙台市 教育局学校給食課｜給付｜小学校の学校給食費を完全無償化</p>
-            <p class="area-meta">期間：令和8年4月1日～</p>
-            <p>国等から交付される金額の不足分を本市が負担し、令和8年4月から小学校での完全無償化を実施します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市立小学校および特別支援学校小学部</li></ul>
-            <p><a href="https://www.city.sendai.jp/kyushokukanri/kyuusyokuhikaitei.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>宮城県の制度</strong></p>
-          <ul><li><a href="pref-miyagi.html#miyagi-fcv-hojo">燃料電池自動車等導入促進事業補助金（令和8年度）</a></li><li><a href="pref-miyagi.html#miyagi-smart-energy-jutaku">スマートエネルギー住宅普及促進事業補助金</a></li><li><a href="pref-miyagi.html#miyagi-taishin-miyagi-hoshiki">みやぎ方式による木造住宅耐震助成事業</a></li></ul>
-          <p><a href="pref-miyagi.html#pref-resident">宮城県の制度3件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-miyagi.html#miyagi-bcp-jissen-hojokin">宮城県中小企業等BCP・事業継続力強化計画実践支援補助金</a></li><li><a href="pref-miyagi.html#miyagi-chusho-digital-shien">宮城県中小企業等デジタル化支援事業</a></li><li><a href="pref-miyagi.html#miyagi-startup-kasokuka">宮城県スタートアップ加速化支援事業</a></li></ul>
+          <p><a href="pref-miyagi.html#pref-business">宮城県の制度3件を、県のページで見る →</a></p>
       </div>
     </section>
 

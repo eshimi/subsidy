@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"いわき市","item":"https://hojyokin.net/area/iwaki.html"}]}</script>
@@ -165,181 +207,134 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ いわき市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b07.webp')"><h1 class="pb-title">いわき市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-fukushima.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">福島県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">福島県 いわき市</p>
+        <h1>いわき市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度14件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-fukushima.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（いわき市）<b>4件（うち受付終了2件）</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（福島県）<b>4件</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>10件（うち受付終了1件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-2">EV・充電 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-6">子育て 1</a><a href="#res-cat-9">移住 3</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <a href="#res-g-kosodate"><i aria-hidden="true">👶</i><b>子育て</b><small>1件</small></a>
+      <span class="is-none"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>掲載なし</small></span>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>6件</small></a>
+      <a href="#res-g-iju"><i aria-hidden="true">🌱</i><b>移住</b><small>3件</small></a>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市4件＋県4件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">いわき市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="iwaki-city-chusho-yushi">
-            <h3>いわき市中小企業融資制度（創業者支援融資ほか）</h3>
-            <p class="area-meta">いわき市 産業振興部｜融資｜創業者支援融資は限度額2,000万円、保証料を市が全額補助とされる（古い資料のため最新は要確認）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>市の中小企業融資制度。創業者向けの融資では信用保証料の補助がある。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内で事業を営む、または新たに始める中小企業者</li></ul>
-            <p><a href="https://www.city.iwaki.lg.jp/www/contents/1001000002889/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-kosodate">子育て<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="iwaki-kosodate-ijushienkin">
+            <div class="ar-name"><b>いわき子育て世帯移住支援金</b><small>いわき市に移住し新たに生活を始める子育て世帯の引越し費用等を一部補助する。<br>対象：いわき市へ移住した子育て世帯／詳細要件は要確認</small><span class="ar-prov">福島県いわき市</span></div>
+            <div class="ar-amt">県外からは最大10万円、県内からは最大5万円</div>
+            <a class="ar-go" href="https://www.city.iwaki.lg.jp/www/contents/1001000004128/index.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="iwaki-city-ec-sokushin">
-            <h3>令和8年度 EC促進支援（いわき市商工業活性化事業補助金〔EC事業〕）</h3>
-            <p class="area-meta">いわき市 産業振興部｜補助金｜補助対象経費の3分の2以内、上限30万円｜締切：2027-01-29</p>
-            <p class="area-meta">期間：2026年5月14日〜2027年1月29日（予算額に達し次第終了）</p>
-            <p>モール型ECサイトへの出店・出品や自社ECサイト構築など、販路開拓のための取組を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内に本社または事業所がある中小企業等（卸売業は資本金1億円以下かつ従業員100人以下、小売業は資本金5千万円以下かつ従業員50人以下）</li><li>市内で事業を継続すること</li></ul>
-            <p><a href="https://www.city.iwaki.lg.jp/www/contents/1776662673835/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <h3 class="area-cat">受付が終了した制度（次回の公募の参考に）</h3>
-          <div class="area-program is-ended" id="iwaki-city-keiei-hattatsu">
-            <h3>いわき市経営発達補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">いわき市 産業振興部（商工会議所・商工会経由）｜補助金｜補助率2/3以内、上限50万円｜締切：2026-05-29</p>
-            <p class="area-meta">期間：令和8年度は2026年5月1日〜29日（受付終了。来年度は要確認）</p>
-            <p>商工会議所・商工会の伴走支援を受けて行う販路開拓や生産性向上の取組を補助する。創業予定者も対象。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の中小企業等（補助申請時点で未開業の市内創業予定者を含む）</li><li>商工会議所または商工会の伴走支援を受けること</li></ul>
-            <p><a href="https://www.city.iwaki.lg.jp/www/contents/1775553478746/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>6件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="iwaki-akiya-kaishu">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>令和8年度いわき市空き家改修支援事業</b><small>空き家を地域に開かれた公益的施設等に改修する費用を補助する。住宅としての居住目的ではなく公益利用が対象。<br>対象：空き家を公益的用途に改修する者／詳細要件は要確認</small><span class="ar-prov">福島県いわき市</span></div>
+            <div class="ar-amt">対象経費の2/3（上限500万円）</div>
+            <a class="ar-go" href="https://www.city.iwaki.lg.jp/www/contents/1770611259263/index.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program is-ended" id="iwaki-city-sangyo-dx">
-            <h3>いわき市産業DX推進事業補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">いわき市 産業振興部｜補助金｜補助対象経費の2分の1以内、上限150万円｜締切：2026-06-30</p>
-            <p class="area-meta">期間：令和8年度は2026年5月1日〜6月30日（受付終了。来年度は要確認）</p>
-            <p>地域ITベンダーによるコンサルティングやデジタル技術導入など、中小企業のDXと人手不足解消を支援する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の中小企業</li></ul>
-            <p><a href="https://www.city.iwaki.lg.jp/www/contents/1773293003218/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="iwaki-block-tekkyo">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>いわき市ブロック塀等撤去支援事業</b><small>道路に面した倒壊の恐れのあるブロック塀等の撤去費を補助する。契約前の事前相談が必要。<br>対象：道路に面して設置された民有のブロック塀等の所有者／交付決定前に契約しないこと</small><span class="ar-prov">福島県いわき市</span></div>
+            <div class="ar-amt">撤去費の1/2または1mあたり5,000円の低い額（上限10万円）※拡充の案内あり、令和8年度額は要確認</div>
+            <a class="ar-go" href="https://www.city.iwaki.lg.jp/www/contents/1590719759683/index.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          <div class="ar-row" id="iwaki-ev">
+            <div class="ar-name"><b><span class="ar-tag">EV・充電</span>令和8年度 いわき市電気自動車等導入促進補助</b><small>市民・市内事業者が新車の電気自動車等を導入する際の購入費を補助する。HEV・PHEV・ミニカー・電動バイクは対象外。<br>対象：新車で初度登録が令和8年1月1日〜12月31日／BEVまたはFCV<br>期間：令和8年4月1日〜令和9年3月31日（予算到達で終了）<br>締切：2027-03-31</small><span class="ar-prov">福島県いわき市</span></div>
+            <div class="ar-amt">電気自動車5万円/台、燃料電池自動車20万円/台</div>
+            <a class="ar-go" href="https://www.city.iwaki.lg.jp/www/contents/1679635551239/index.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="iwaki-solar-battery-v2h">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>令和8年度 いわき市住宅用太陽光発電等設置促進補助</b><small>住宅への太陽光発電、定置用蓄電システム、V2Hの設置費用を補助する。販売または施工のいずれかが市内事業者であることが条件。<br>対象：住民票が設置場所と同一でいわき市にある方／市税を完納していること<br>期間：令和8年4月24日〜令和9年3月31日（予算到達で終了）<br>締切：2027-03-31</small><span class="ar-prov">福島県いわき市</span></div>
+            <div class="ar-amt">太陽光1万円/kW（上限4万円）、蓄電池1万円/kWh（上限7万円）、V2H1台10万円</div>
+            <a class="ar-go" href="https://www.city.iwaki.lg.jp/www/contents/1680488419046/index.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="iwaki-taishin-kouji">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>いわき市木造住宅耐震化工事支援事業</b><small>木造住宅の耐震化工事費を補助する。令和8年度の募集の詳細は確認できていない。<br>対象：市内の木造住宅所有者／耐震診断者派遣事業の利用が前提となる場合あり（要確認）</small><span class="ar-prov">福島県いわき市</span></div>
+            <div class="ar-amt">一般耐震改修は工事費の80%または上限115万円、簡易・部分改修は上限69万円（令和7年度案内。令和8年度は要確認）</div>
+            <a class="ar-go" href="https://www.city.iwaki.lg.jp/www/contents/1716767664250/index.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="iwaki-stock-reform">
+            <div class="ar-name"><b><span class="ar-tag">省エネ住宅</span>いわき市個人住宅優良ストック形成支援事業（個人住宅のリフォーム補助） <span class="area-ended-tag">受付終了</span></b><small>個人住宅のリフォーム工事費の一部を補助する。令和8年度は募集期間が延長されたが、募集件数は約70件で残りわずかと案内。<br>対象：市内の個人住宅の所有者等／昭和56年5月31日以前着工の木造住宅は耐震診断者派遣事業への申込みが要件<br>期間：令和8年7月1日〜9月30日（延長後）<br>締切：2026-09-30</small><span class="ar-prov">福島県いわき市</span></div>
+            <div class="ar-amt">工事費の10%（上限15万円）</div>
+            <a class="ar-go" href="https://www.city.iwaki.lg.jp/www/contents/1785896784118/index.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-iju">移住<span>3件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="iwaki-akichi-bank">
+            <div class="ar-name"><b>令和8年度いわき市空き地バンク登録物件活用支援金</b><small>空き地バンク登録の土地で住宅を新築する、または新築住宅を購入する世帯への支援金。<br>対象：空き地バンク登録物件で住宅を取得する世帯／詳細要件は要確認</small><span class="ar-prov">福島県いわき市</span></div>
+            <div class="ar-amt">基本30万円、若年世帯・市外からの移住世帯にそれぞれ10万円加算</div>
+            <a class="ar-go" href="https://www.city.iwaki.lg.jp/www/contents/1782885245971/index.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="iwaki-machinaka-teiju">
+            <div class="ar-name"><b>令和8年度いわき市まちなか定住促進事業</b><small>市外から「まちなか居住区域」に住宅を取得して定住する世帯への支援。第2期は5戸程度の追加募集。<br>対象：市外からまちなか居住区域内に住宅を取得し定住する世帯／詳細要件は要確認</small><span class="ar-prov">福島県いわき市</span></div>
+            <div class="ar-amt">基本額90〜110万円（18〜39歳を含む世帯等は加算）</div>
+            <a class="ar-go" href="https://www.city.iwaki.lg.jp/www/contents/1786603687454/index.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="iwaki-uij-ijushienkin">
+            <div class="ar-name"><b>いわき市UIJターン移住支援金</b><small>東京圏から移住した方への支援金。令和8年度の申請期間は令和9年2月12日（予定）まで。<br>対象：東京圏から移住した方／就業等の要件あり（要確認）<br>期間：令和9年2月12日（予定）まで<br>締切：2027-02-12</small><span class="ar-prov">福島県いわき市</span></div>
+            <div class="ar-amt">単身60万円、2人以上の世帯100万円、18歳未満の子1人につき100万円加算</div>
+            <a class="ar-go" href="https://www.city.iwaki.lg.jp/www/contents/1568274941668/index.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>福島県の制度</strong></p>
+          <ul><li><a href="pref-fukushima.html#fukushima-12shichoson-iju">福島県12市町村移住支援金</a></li><li><a href="pref-fukushima.html#fukushima-akiya-taisaku-sogo-shien">福島県空き家対策総合支援事業</a></li><li><a href="pref-fukushima.html#fukushima-jutaku-taiyoko-chikuden-v2h">福島県住宅用太陽光発電設備等導入支援補助金</a></li><li><a href="pref-fukushima.html#fukushima-kite-fukushima">来て ふくしま 住宅取得支援事業</a></li><li><a href="pref-fukushima.html#fukushima-mokuzou-taishin">福島県木造住宅等耐震化支援事業</a></li></ul>
+          <p><a href="pref-fukushima.html#pref-resident">福島県の制度7件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">福島県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">いわき市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-fukushima.html#fukushima-chiiki-kadai-kigyo">地域課題解決型起業支援事業補助金</a></li><li><a href="pref-fukushima.html#fukushima-ikiiki-shokibo">ふくしま小規模企業者等いきいき支援事業</a></li><li><a href="pref-fukushima.html#fukushima-kigyoka-shien-yushi">福島県中小企業制度資金「起業家支援保証制度資金」</a></li><li><a href="pref-fukushima.html#fukushima-sogyo-setsubi-hojo">福島県創業促進・企業誘致に向けた設備投資等支援補助金（第14次公募）</a></li></ul>
-          <p><a href="pref-fukushima.html#pref-business">福島県の制度4件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="iwaki-city-chusho-yushi">
+            <div class="ar-name"><b>いわき市中小企業融資制度（創業者支援融資ほか）</b><small>市の中小企業融資制度。創業者向けの融資では信用保証料の補助がある。<br>対象：市内で事業を営む、または新たに始める中小企業者</small><span class="ar-prov">いわき市 産業振興部</span></div>
+            <div class="ar-amt">創業者支援融資は限度額2,000万円、保証料を市が全額補助とされる（古い資料のため最新は要確認）</div>
+            <a class="ar-go" href="https://www.city.iwaki.lg.jp/www/contents/1001000002889/index.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="iwaki-city-ec-sokushin">
+            <div class="ar-name"><b>令和8年度 EC促進支援（いわき市商工業活性化事業補助金〔EC事業〕）</b><small>モール型ECサイトへの出店・出品や自社ECサイト構築など、販路開拓のための取組を補助する。<br>対象：市内に本社または事業所がある中小企業等（卸売業は資本金1億円以下かつ従業員100人以下、小売業は資本金5千万円以下かつ従業員50人以下）／市内で事業を継続すること<br>期間：2026年5月14日〜2027年1月29日（予算額に達し次第終了）<br>締切：2027-01-29</small><span class="ar-prov">いわき市 産業振興部</span></div>
+            <div class="ar-amt">補助対象経費の3分の2以内、上限30万円</div>
+            <a class="ar-go" href="https://www.city.iwaki.lg.jp/www/contents/1776662673835/index.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="iwaki-city-keiei-hattatsu">
+            <div class="ar-name"><b>いわき市経営発達補助金 <span class="area-ended-tag">受付終了</span></b><small>商工会議所・商工会の伴走支援を受けて行う販路開拓や生産性向上の取組を補助する。創業予定者も対象。<br>対象：市内の中小企業等（補助申請時点で未開業の市内創業予定者を含む）／商工会議所または商工会の伴走支援を受けること<br>締切：2026-05-29</small><span class="ar-prov">いわき市 産業振興部（商工会議所・商工会経由）</span></div>
+            <div class="ar-amt">補助率2/3以内、上限50万円</div>
+            <a class="ar-go" href="https://www.city.iwaki.lg.jp/www/contents/1775553478746/index.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="iwaki-city-sangyo-dx">
+            <div class="ar-name"><b>いわき市産業DX推進事業補助金 <span class="area-ended-tag">受付終了</span></b><small>地域ITベンダーによるコンサルティングやデジタル技術導入など、中小企業のDXと人手不足解消を支援する。<br>対象：市内の中小企業<br>締切：2026-06-30</small><span class="ar-prov">いわき市 産業振興部</span></div>
+            <div class="ar-amt">補助対象経費の2分の1以内、上限150万円</div>
+            <a class="ar-go" href="https://www.city.iwaki.lg.jp/www/contents/1773293003218/index.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">福島県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>いわき市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="iwaki-taishin-kouji">
-            <h3>いわき市木造住宅耐震化工事支援事業</h3>
-            <p class="area-meta">福島県いわき市｜補助金｜一般耐震改修は工事費の80%または上限115万円、簡易・部分改修は上限69万円（令和7年度案内。令和8年度は要確認）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>木造住宅の耐震化工事費を補助する。令和8年度の募集の詳細は確認できていない。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の木造住宅所有者</li><li>耐震診断者派遣事業の利用が前提となる場合あり（要確認）</li></ul>
-            <p><a href="https://www.city.iwaki.lg.jp/www/contents/1716767664250/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program" id="iwaki-solar-battery-v2h">
-            <h3>令和8年度 いわき市住宅用太陽光発電等設置促進補助</h3>
-            <p class="area-meta">福島県いわき市｜補助金｜太陽光1万円/kW（上限4万円）、蓄電池1万円/kWh（上限7万円）、V2H1台10万円｜締切：2027-03-31</p>
-            <p class="area-meta">期間：令和8年4月24日〜令和9年3月31日（予算到達で終了）</p>
-            <p>住宅への太陽光発電、定置用蓄電システム、V2Hの設置費用を補助する。販売または施工のいずれかが市内事業者であることが条件。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>住民票が設置場所と同一でいわき市にある方</li><li>市税を完納していること</li><li>領収日が令和8年1月1日〜12月31日</li></ul>
-            <p><a href="https://www.city.iwaki.lg.jp/www/contents/1680488419046/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
-          <div class="area-program" id="iwaki-ev">
-            <h3>令和8年度 いわき市電気自動車等導入促進補助</h3>
-            <p class="area-meta">福島県いわき市｜補助金｜電気自動車5万円/台、燃料電池自動車20万円/台｜締切：2027-03-31</p>
-            <p class="area-meta">期間：令和8年4月1日〜令和9年3月31日（予算到達で終了）</p>
-            <p>市民・市内事業者が新車の電気自動車等を導入する際の購入費を補助する。HEV・PHEV・ミニカー・電動バイクは対象外。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>新車で初度登録が令和8年1月1日〜12月31日</li><li>BEVまたはFCV</li><li>詳細要件は要確認</li></ul>
-            <p><a href="https://www.city.iwaki.lg.jp/www/contents/1679635551239/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
-          <div class="area-program is-ended" id="iwaki-stock-reform">
-            <h3>いわき市個人住宅優良ストック形成支援事業（個人住宅のリフォーム補助） <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">福島県いわき市｜補助金｜工事費の10%（上限15万円）｜締切：2026-09-30</p>
-            <p class="area-meta">期間：令和8年7月1日〜9月30日（延長後）</p>
-            <p>個人住宅のリフォーム工事費の一部を補助する。令和8年度は募集期間が延長されたが、募集件数は約70件で残りわずかと案内。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の個人住宅の所有者等</li><li>昭和56年5月31日以前着工の木造住宅は耐震診断者派遣事業への申込みが要件</li></ul>
-            <p><a href="https://www.city.iwaki.lg.jp/www/contents/1785896784118/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="iwaki-akiya-kaishu">
-            <h3>令和8年度いわき市空き家改修支援事業</h3>
-            <p class="area-meta">福島県いわき市｜補助金｜対象経費の2/3（上限500万円）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>空き家を地域に開かれた公益的施設等に改修する費用を補助する。住宅としての居住目的ではなく公益利用が対象。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>空き家を公益的用途に改修する者</li><li>詳細要件は要確認</li></ul>
-            <p><a href="https://www.city.iwaki.lg.jp/www/contents/1770611259263/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="iwaki-block-tekkyo">
-            <h3>いわき市ブロック塀等撤去支援事業</h3>
-            <p class="area-meta">福島県いわき市｜補助金｜撤去費の1/2または1mあたり5,000円の低い額（上限10万円）※拡充の案内あり、令和8年度額は要確認</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>道路に面した倒壊の恐れのあるブロック塀等の撤去費を補助する。契約前の事前相談が必要。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>道路に面して設置された民有のブロック塀等の所有者</li><li>交付決定前に契約しないこと</li></ul>
-            <p><a href="https://www.city.iwaki.lg.jp/www/contents/1590719759683/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-6">子育て</h3>
-          <div class="area-program" id="iwaki-kosodate-ijushienkin">
-            <h3>いわき子育て世帯移住支援金</h3>
-            <p class="area-meta">福島県いわき市｜補助金｜県外からは最大10万円、県内からは最大5万円</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>いわき市に移住し新たに生活を始める子育て世帯の引越し費用等を一部補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>いわき市へ移住した子育て世帯</li><li>詳細要件は要確認</li></ul>
-            <p><a href="https://www.city.iwaki.lg.jp/www/contents/1001000004128/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-9">移住</h3>
-          <div class="area-program" id="iwaki-akichi-bank">
-            <h3>令和8年度いわき市空き地バンク登録物件活用支援金</h3>
-            <p class="area-meta">福島県いわき市｜補助金｜基本30万円、若年世帯・市外からの移住世帯にそれぞれ10万円加算</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>空き地バンク登録の土地で住宅を新築する、または新築住宅を購入する世帯への支援金。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>空き地バンク登録物件で住宅を取得する世帯</li><li>詳細要件は要確認</li></ul>
-            <p><a href="https://www.city.iwaki.lg.jp/www/contents/1782885245971/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="iwaki-machinaka-teiju">
-            <h3>令和8年度いわき市まちなか定住促進事業</h3>
-            <p class="area-meta">福島県いわき市｜補助金｜基本額90〜110万円（18〜39歳を含む世帯等は加算）</p>
-            <p class="area-meta">期間：令和8年度追加募集（第2期、期間は要確認）</p>
-            <p>市外から「まちなか居住区域」に住宅を取得して定住する世帯への支援。第2期は5戸程度の追加募集。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市外からまちなか居住区域内に住宅を取得し定住する世帯</li><li>詳細要件は要確認</li></ul>
-            <p><a href="https://www.city.iwaki.lg.jp/www/contents/1786603687454/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="iwaki-uij-ijushienkin">
-            <h3>いわき市UIJターン移住支援金</h3>
-            <p class="area-meta">福島県いわき市｜給付｜単身60万円、2人以上の世帯100万円、18歳未満の子1人につき100万円加算｜締切：2027-02-12</p>
-            <p class="area-meta">期間：令和9年2月12日（予定）まで</p>
-            <p>東京圏から移住した方への支援金。令和8年度の申請期間は令和9年2月12日（予定）まで。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>東京圏から移住した方</li><li>就業等の要件あり（要確認）</li></ul>
-            <p><a href="https://www.city.iwaki.lg.jp/www/contents/1568274941668/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>福島県の制度</strong></p>
-          <ul><li><a href="pref-fukushima.html#fukushima-12shichoson-iju">福島県12市町村移住支援金</a></li><li><a href="pref-fukushima.html#fukushima-akiya-taisaku-sogo-shien">福島県空き家対策総合支援事業</a></li><li><a href="pref-fukushima.html#fukushima-jutaku-taiyoko-chikuden-v2h">福島県住宅用太陽光発電設備等導入支援補助金</a></li><li><a href="pref-fukushima.html#fukushima-kite-fukushima">来て ふくしま 住宅取得支援事業</a></li><li><a href="pref-fukushima.html#fukushima-mokuzou-taishin">福島県木造住宅等耐震化支援事業</a></li></ul>
-          <p><a href="pref-fukushima.html#pref-resident">福島県の制度7件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-fukushima.html#fukushima-chiiki-kadai-kigyo">地域課題解決型起業支援事業補助金</a></li><li><a href="pref-fukushima.html#fukushima-ikiiki-shokibo">ふくしま小規模企業者等いきいき支援事業</a></li><li><a href="pref-fukushima.html#fukushima-kigyoka-shien-yushi">福島県中小企業制度資金「起業家支援保証制度資金」</a></li><li><a href="pref-fukushima.html#fukushima-sogyo-setsubi-hojo">福島県創業促進・企業誘致に向けた設備投資等支援補助金（第14次公募）</a></li></ul>
+          <p><a href="pref-fukushima.html#pref-business">福島県の制度4件を、県のページで見る →</a></p>
       </div>
     </section>
 

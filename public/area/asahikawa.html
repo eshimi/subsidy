@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"旭川市","item":"https://hojyokin.net/area/asahikawa.html"}]}</script>
@@ -165,154 +207,115 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 旭川市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b16.webp')"><h1 class="pb-title">旭川市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-hokkaido.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">北海道・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">北海道 旭川市</p>
+        <h1>旭川市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度11件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-hokkaido.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（旭川市）<b>5件（うち受付終了1件）</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（北海道）<b>5件（うち受付終了2件）</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>6件（うち受付終了1件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-5">バリアフリー・介護 1</a><a href="#res-cat-6">子育て 1</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <a href="#res-g-kosodate"><i aria-hidden="true">👶</i><b>子育て</b><small>1件</small></a>
+      <span class="is-none"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>掲載なし</small></span>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>5件</small></a>
+      <span class="is-none"><i aria-hidden="true">🌱</i><b>移住</b><small>掲載なし</small></span>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市5件＋県5件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">旭川市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="asahikawa-city-chushin-shuten">
-            <h3>旭川市中心市街地出店促進補助金</h3>
-            <p class="area-meta">旭川市 産業振興課｜補助金｜家賃の一部（詳細は要確認）</p>
-            <p class="area-meta">期間：最新は要確認（令和8年度の要件は要確認）</p>
-            <p>中心市街地の空き店舗を賃借して出店する人に家賃の一部を補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>中心市街地の空き店舗を賃借して出店する人</li></ul>
-            <p><a href="https://www.city.asahikawa.hokkaido.jp/500/542/54501/545/p003799.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-kosodate">子育て<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="asahikawa-kodomo-iryohi">
+            <div class="ar-name"><b>旭川市 子ども医療費助成</b><small>高校生年代（18歳到達後最初の3月31日）までの子どもの医療費自己負担を助成する。<br>対象：0歳から18歳到達後最初の3月31日までの子ども／公的医療保険の対象となる医療費</small><span class="ar-prov">北海道旭川市</span></div>
+            <div class="ar-amt">公的医療保険適用の自己負担額を全額助成</div>
+            <a class="ar-go" href="https://www.city.asahikawa.hokkaido.jp/kurashi/218/228/230/p004567.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="asahikawa-city-monozukuri">
-            <h3>旭川ものづくり支援補助金</h3>
-            <p class="area-meta">旭川市 産業振興課｜補助金｜補助率1/2以内（販路拡大連携枠は上限100万円）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>展示会出展、ホームページ・カタログ制作などの販路開拓費を補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内で1年以上操業する中小企業者（製造業中心）</li></ul>
-            <p><a href="https://www.city.asahikawa.hokkaido.jp/500/501/502/d075399.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <div class="area-program" id="asahikawa-city-shinki-kaigyo-riko">
-            <h3>旭川市新規開業支援利子補給制度</h3>
-            <p class="area-meta">旭川市 産業振興課｜融資｜支払済み利子の2/3相当額（融資後1年間、原則）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>日本政策金融公庫の新規開業者向け融資を利用した人に利子を補給。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>日本政策金融公庫の新規開業者向け融資を利用した創業者</li></ul>
-            <p><a href="https://www.city.asahikawa.hokkaido.jp/500/542/547/p003873.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>5件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="asahikawa-energy-setsubi">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>旭川市地域エネルギー設備等導入促進事業補助金</b><small>市内住宅への太陽光発電設備・定置用リチウムイオン蓄電池の設置費用の一部を補助する。令和8年度の額・期間は確認できていない。<br>対象：旭川市の住民または市内に居住予定の方／交付決定前に工事着手していないこと</small><span class="ar-prov">北海道旭川市</span></div>
+            <div class="ar-amt">対象経費の1/10（上限10万円）※令和7年度版の記載。令和8年度は要確認</div>
+            <a class="ar-go" href="https://www.city.asahikawa.hokkaido.jp/kurashi/271/290/291/p005154.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="asahikawa-city-shinki-sogyo-shikin-hojo">
-            <h3>旭川市中小企業振興資金（新規創業支援資金）の保証料・利子補給</h3>
-            <p class="area-meta">旭川市 産業振興課｜融資｜保証料の50%相当額（上限100万円）、利子は支払済み利子の全額（融資後2年間）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>市の中小企業振興資金（新規創業支援資金）利用者に保証料補助と利子補給。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市の中小企業振興資金（新規創業支援資金）を利用する創業者</li></ul>
-            <p><a href="https://www.city.asahikawa.hokkaido.jp/500/542/54501/54502/p003878.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/asahikawa-city-shinki-sogyo-shikin-hojo.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+          <div class="ar-row" id="asahikawa-furyo-akiya-jokyaku">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>令和8年度旭川市不良空き家住宅等除却費補助金</b><small>住宅性能が著しく低下した空き家住宅を除却して更地にする費用の一部を補助する。予算枠120万円、予算残があれば先着順で延長受付。<br>対象：不良空き家住宅等の所有者等／市税の滞納がないこと<br>期間：令和8年4月20日〜5月29日、予算に満たない場合は最長11月27日まで延長<br>締切：2026-11-27</small><span class="ar-prov">北海道旭川市</span></div>
+            <div class="ar-amt">除却工事費の1/3以内（上限30万円）</div>
+            <a class="ar-go" href="https://www.city.asahikawa.hokkaido.jp/kurashi/401/ju01/ju002/d053128.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <h3 class="area-cat">受付が終了した制度（次回の公募の参考に）</h3>
-          <div class="area-program is-ended" id="asahikawa-city-startup-hojo">
-            <h3>旭川市スタートアップ支援補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">旭川市 産業振興課｜補助金｜補助率1/2以内・上限50万円｜締切：2026-06-30</p>
-            <p class="area-meta">期間：令和8年度募集は5月1日〜6月30日（受付終了。来年度は要確認）</p>
-            <p>市内で起業・創業する事業者の商品・サービス開発や販路開拓費用を補助。第2創業も対象。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内で起業・創業する事業者</li><li>市内で1年以上操業する事業を承継した第2創業者</li></ul>
-            <p><a href="https://www.city.asahikawa.hokkaido.jp/kurashi/364/11218/11219/d077387.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="asahikawa-musho-taishin-shindan">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>旭川市 木造住宅無料耐震診断</b><small>市内の一戸建て木造住宅について市職員が無料で耐震診断を行う。耐震改修補助の有無は令和8年度分は確認できず、建築指導課への確認が必要。<br>対象：旭川市内の一戸建て木造住宅</small><span class="ar-prov">北海道旭川市</span></div>
+            <div class="ar-amt">無料（市職員による診断）</div>
+            <a class="ar-go" href="https://www.city.asahikawa.hokkaido.jp/500/522/53901/5439010/index.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          <div class="ar-row" id="asahikawa-shougaisha-jutaku">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>旭川市 障害者住宅改修助成（手すり・バリアフリー等）</b><small>在宅の身体障害者の住宅改修（手すり設置、段差解消等）費用を助成する。着工前の申請が必要。情報が古い可能性あり。<br>対象：下肢または体幹機能障害3級以上など／在宅で生活していること</small><span class="ar-prov">北海道旭川市</span></div>
+            <div class="ar-amt">上限20万円（助成率は要確認）</div>
+            <a class="ar-go" href="https://www.city.asahikawa.hokkaido.jp/1000/1001/1023/1025/p003226.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="asahikawa-jutaku-kaishu">
+            <div class="ar-name"><b><span class="ar-tag">省エネ住宅</span>旭川市住宅改修補助金 <span class="area-ended-tag">受付終了</span></b><small>新築後15年以上経過した既存住宅の省エネ改修や屋根・外壁等の維持改修費の一部を補助する。令和8年度の受付は終了している。<br>対象：市内の既存住宅（新築後15年以上）の所有者等／省エネ改修・維持改修が対象<br>期間：令和8年5月11日〜6月19日（終了）<br>締切：2026-06-19</small><span class="ar-prov">北海道旭川市</span></div>
+            <div class="ar-amt">要確認（募集予算総額1,750万円、超過時は抽選）</div>
+            <a class="ar-go" href="https://www.city.asahikawa.hokkaido.jp/kurashi/401/ho01/ho001/d053154.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>北海道の制度</strong></p>
+          <ul><li><a href="pref-hokkaido.html#hokkaido-iju-shienkin">北海道 移住支援金（UIJターン新規就業支援事業）</a></li><li><a href="pref-hokkaido.html#hokkaido-zerocarbon-sumai">住まいのゼロカーボン化推進事業</a></li></ul>
+          <p><a href="pref-hokkaido.html#pref-resident">北海道の制度2件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">北海道の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">旭川市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-hokkaido.html#hokkaido-sogyo-kasitsuke">中小企業総合振興資金 創業貸付</a></li><li><a href="pref-hokkaido.html#hokkaido-sogyo-sokushin">創業促進支援事業（北海道中小企業総合支援センター）</a></li><li><a href="pref-hokkaido.html#hokkaido-step-up-koyo">中小企業総合振興資金 ステップアップ貸付（事業活性化・雇用）</a></li><li><a href="pref-hokkaido.html#hokkaido-chiiki-kadai-kigyo">地域課題解決型起業支援事業（起業支援金）</a></li><li><a href="pref-hokkaido.html#hokkaido-chusho-kyosoryoku-marketing">中小企業競争力強化促進事業（マーケティング支援）</a></li></ul>
-          <p><a href="pref-hokkaido.html#pref-business">北海道の制度5件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="asahikawa-city-chushin-shuten">
+            <div class="ar-name"><b>旭川市中心市街地出店促進補助金</b><small>中心市街地の空き店舗を賃借して出店する人に家賃の一部を補助。<br>対象：中心市街地の空き店舗を賃借して出店する人</small><span class="ar-prov">旭川市 産業振興課</span></div>
+            <div class="ar-amt">家賃の一部（詳細は要確認）</div>
+            <a class="ar-go" href="https://www.city.asahikawa.hokkaido.jp/500/542/54501/545/p003799.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="asahikawa-city-monozukuri">
+            <div class="ar-name"><b>旭川ものづくり支援補助金</b><small>展示会出展、ホームページ・カタログ制作などの販路開拓費を補助。<br>対象：市内で1年以上操業する中小企業者（製造業中心）</small><span class="ar-prov">旭川市 産業振興課</span></div>
+            <div class="ar-amt">補助率1/2以内（販路拡大連携枠は上限100万円）</div>
+            <a class="ar-go" href="https://www.city.asahikawa.hokkaido.jp/500/501/502/d075399.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="asahikawa-city-shinki-kaigyo-riko">
+            <div class="ar-name"><b>旭川市新規開業支援利子補給制度</b><small>日本政策金融公庫の新規開業者向け融資を利用した人に利子を補給。<br>対象：日本政策金融公庫の新規開業者向け融資を利用した創業者</small><span class="ar-prov">旭川市 産業振興課</span></div>
+            <div class="ar-amt">支払済み利子の2/3相当額（融資後1年間、原則）</div>
+            <a class="ar-go" href="https://www.city.asahikawa.hokkaido.jp/500/542/547/p003873.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="asahikawa-city-shinki-sogyo-shikin-hojo">
+            <div class="ar-name"><b>旭川市中小企業振興資金（新規創業支援資金）の保証料・利子補給</b><small>市の中小企業振興資金（新規創業支援資金）利用者に保証料補助と利子補給。<br>対象：市の中小企業振興資金（新規創業支援資金）を利用する創業者</small><span class="ar-prov">旭川市 産業振興課</span></div>
+            <div class="ar-amt">保証料の50%相当額（上限100万円）、利子は支払済み利子の全額（融資後2年間）</div>
+            <a class="ar-go" href="https://www.city.asahikawa.hokkaido.jp/500/542/54501/54502/p003878.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="asahikawa-city-startup-hojo">
+            <div class="ar-name"><b>旭川市スタートアップ支援補助金 <span class="area-ended-tag">受付終了</span></b><small>市内で起業・創業する事業者の商品・サービス開発や販路開拓費用を補助。第2創業も対象。<br>対象：市内で起業・創業する事業者／市内で1年以上操業する事業を承継した第2創業者<br>締切：2026-06-30</small><span class="ar-prov">旭川市 産業振興課</span></div>
+            <div class="ar-amt">補助率1/2以内・上限50万円</div>
+            <a class="ar-go" href="https://www.city.asahikawa.hokkaido.jp/kurashi/364/11218/11219/d077387.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">北海道の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>旭川市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="asahikawa-musho-taishin-shindan">
-            <h3>旭川市 木造住宅無料耐震診断</h3>
-            <p class="area-meta">北海道旭川市｜助成金｜無料（市職員による診断）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>市内の一戸建て木造住宅について市職員が無料で耐震診断を行う。耐震改修補助の有無は令和8年度分は確認できず、建築指導課への確認が必要。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>旭川市内の一戸建て木造住宅</li></ul>
-            <p><a href="https://www.city.asahikawa.hokkaido.jp/500/522/53901/5439010/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program" id="asahikawa-energy-setsubi">
-            <h3>旭川市地域エネルギー設備等導入促進事業補助金</h3>
-            <p class="area-meta">北海道旭川市｜補助金｜対象経費の1/10（上限10万円）※令和7年度版の記載。令和8年度は要確認</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>市内住宅への太陽光発電設備・定置用リチウムイオン蓄電池の設置費用の一部を補助する。令和8年度の額・期間は確認できていない。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>旭川市の住民または市内に居住予定の方</li><li>交付決定前に工事着手していないこと</li><li>国費補助等との併用不可</li></ul>
-            <p><a href="https://www.city.asahikawa.hokkaido.jp/kurashi/271/290/291/p005154.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
-          <div class="area-program is-ended" id="asahikawa-jutaku-kaishu">
-            <h3>旭川市住宅改修補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">北海道旭川市｜補助金｜要確認（募集予算総額1,750万円、超過時は抽選）｜締切：2026-06-19</p>
-            <p class="area-meta">期間：令和8年5月11日〜6月19日（終了）</p>
-            <p>新築後15年以上経過した既存住宅の省エネ改修や屋根・外壁等の維持改修費の一部を補助する。令和8年度の受付は終了している。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の既存住宅（新築後15年以上）の所有者等</li><li>省エネ改修・維持改修が対象</li><li>詳細要件は要確認</li></ul>
-            <p><a href="https://www.city.asahikawa.hokkaido.jp/kurashi/401/ho01/ho001/d053154.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="asahikawa-furyo-akiya-jokyaku">
-            <h3>令和8年度旭川市不良空き家住宅等除却費補助金</h3>
-            <p class="area-meta">北海道旭川市｜補助金｜除却工事費の1/3以内（上限30万円）｜締切：2026-11-27</p>
-            <p class="area-meta">期間：令和8年4月20日〜5月29日、予算に満たない場合は最長11月27日まで延長</p>
-            <p>住宅性能が著しく低下した空き家住宅を除却して更地にする費用の一部を補助する。予算枠120万円、予算残があれば先着順で延長受付。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>不良空き家住宅等の所有者等</li><li>市税の滞納がないこと</li><li>全部を除却し更地にする工事</li></ul>
-            <p><a href="https://www.city.asahikawa.hokkaido.jp/kurashi/401/ju01/ju002/d053128.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
-          <div class="area-program" id="asahikawa-shougaisha-jutaku">
-            <h3>旭川市 障害者住宅改修助成（手すり・バリアフリー等）</h3>
-            <p class="area-meta">北海道旭川市｜助成金｜上限20万円（助成率は要確認）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>在宅の身体障害者の住宅改修（手すり設置、段差解消等）費用を助成する。着工前の申請が必要。情報が古い可能性あり。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>下肢または体幹機能障害3級以上など</li><li>在宅で生活していること</li><li>工事着手前に申請</li></ul>
-            <p><a href="https://www.city.asahikawa.hokkaido.jp/1000/1001/1023/1025/p003226.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-6">子育て</h3>
-          <div class="area-program" id="asahikawa-kodomo-iryohi">
-            <h3>旭川市 子ども医療費助成</h3>
-            <p class="area-meta">北海道旭川市｜助成金｜公的医療保険適用の自己負担額を全額助成</p>
-            <p class="area-meta">期間：通年（最新は要確認）</p>
-            <p>高校生年代（18歳到達後最初の3月31日）までの子どもの医療費自己負担を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>0歳から18歳到達後最初の3月31日までの子ども</li><li>公的医療保険の対象となる医療費</li></ul>
-            <p><a href="https://www.city.asahikawa.hokkaido.jp/kurashi/218/228/230/p004567.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>北海道の制度</strong></p>
-          <ul><li><a href="pref-hokkaido.html#hokkaido-iju-shienkin">北海道 移住支援金（UIJターン新規就業支援事業）</a></li><li><a href="pref-hokkaido.html#hokkaido-zerocarbon-sumai">住まいのゼロカーボン化推進事業</a></li></ul>
-          <p><a href="pref-hokkaido.html#pref-resident">北海道の制度2件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-hokkaido.html#hokkaido-sogyo-kasitsuke">中小企業総合振興資金 創業貸付</a></li><li><a href="pref-hokkaido.html#hokkaido-sogyo-sokushin">創業促進支援事業（北海道中小企業総合支援センター）</a></li><li><a href="pref-hokkaido.html#hokkaido-step-up-koyo">中小企業総合振興資金 ステップアップ貸付（事業活性化・雇用）</a></li><li><a href="pref-hokkaido.html#hokkaido-chiiki-kadai-kigyo">地域課題解決型起業支援事業（起業支援金）</a></li><li><a href="pref-hokkaido.html#hokkaido-chusho-kyosoryoku-marketing">中小企業競争力強化促進事業（マーケティング支援）</a></li></ul>
+          <p><a href="pref-hokkaido.html#pref-business">北海道の制度5件を、県のページで見る →</a></p>
       </div>
     </section>
 

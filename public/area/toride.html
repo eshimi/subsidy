@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"取手市","item":"https://hojyokin.net/area/toride.html"}]}</script>
@@ -165,219 +207,162 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 取手市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b09.webp')"><h1 class="pb-title">取手市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-ibaraki.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">茨城県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">茨城県 取手市</p>
+        <h1>取手市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度18件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-ibaraki.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（取手市）<b>3件</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（茨城県）<b>6件</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>15件（うち受付終了2件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 2</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-6">子育て 5</a><a href="#res-cat-7">医療・福祉 2</a><a href="#res-cat-8">教育・学び 2</a><a href="#res-cat-9">移住 1</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <a href="#res-g-kosodate"><i aria-hidden="true">👶</i><b>子育て</b><small>5件</small></a>
+      <a href="#res-g-iryo"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>2件</small></a>
+      <a href="#res-g-kyoiku"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>2件</small></a>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>5件</small></a>
+      <a href="#res-g-iju"><i aria-hidden="true">🌱</i><b>移住</b><small>1件</small></a>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市3件＋県6件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">取手市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="toride-city-akitenpo-katsuyo-hojo">
-            <h3>取手市空き店舗活用補助金</h3>
-            <p class="area-meta">取手市 産業振興課｜補助金｜店舗家賃の1/2、上限月額5万円、1年間</p>
-            <p class="area-meta">期間：要確認（令和8年度の公募状況は未確認）</p>
-            <p>市内の空き店舗に出店する人の家賃を補助する制度（令和6年4月の要綱改正で家賃補助のみ）。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>取手市商工会の会員（入会予定含む）であること</li><li>週40時間以上営業し1年以上継続見込みであること</li><li>3か月以上営業のない店舗に出店すること</li></ul>
-            <p><a href="https://www.city.toride.ibaraki.jp/hojokinjoseikin-index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-kosodate">子育て<span>5件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="toride-chokaku-kensa">
+            <div class="ar-name"><b>新生児聴覚検査費用の助成</b><small>早期発見・早期療育を図るため、新生児聴覚検査費用の一部を助成する。<br>対象：検査当日に取手市に住民登録がある新生児<br>期間：償還払いの申請期限は検査した日から1年以内</small><span class="ar-prov">取手市 保健センター</span></div>
+            <div class="ar-amt">自動ABR検査5,000円・OAE検査3,000円を上限に助成</div>
+            <a class="ar-go" href="https://www.city.toride.ibaraki.jp/hokencenter/kurashi/kosodate/ninshin/support/sinnseijityoukakukennsajosei.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="toride-city-challenge-shien-hojo">
-            <h3>取手市産業振興チャレンジ支援事業補助金（起業初期費用補助）</h3>
-            <p class="area-meta">取手市 産業振興課｜補助金｜上限1万円</p>
-            
-            <p>市内で起業する際の初期費用を補助する制度。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内で起業する人</li><li>一般社団法人とりで起業家支援ネットワーク（Matchとりで）に起業家登録していること</li></ul>
-            <p><a href="https://www.city.toride.ibaraki.jp/sanshin/jigyosha/shokogyo/sougyousienn/challenge.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/toride-city-challenge-shien-hojo.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+          <div class="ar-row" id="toride-mutsuu-bunben">
+            <div class="ar-name"><b>無痛分娩費用の助成</b><small>無痛分娩により出産したかたの経済的な負担を軽減するため、無痛分娩に要した費用の一部を助成する。<br>対象：無痛分娩により出産したかた／無痛分娩を実施した日において、市内に住所を有しており引き続き定住の意思があるかた<br>期間：出産した日の翌日から起算して3か月以内に申請</small><span class="ar-prov">取手市 こども政策課</span></div>
+            <div class="ar-amt">1回の分娩につき10万円</div>
+            <a class="ar-go" href="https://www.city.toride.ibaraki.jp/kodomo-seisaku/kurashi/kosodate/ninshin/support/mutuubunben.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="toride-city-incubation-office-hojo">
-            <h3>取手市市民事業活動促進補助金（インキュベーションオフィス等利用料補助）</h3>
-            <p class="area-meta">取手市 産業振興課｜補助金｜予算の範囲内（補助率・上限は要確認）</p>
-            
-            <p>事業活動支援を主目的に設置されたインキュベーションオフィス等の利用料金を補助する制度。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内に本店または主たる事業所がある法人・個人事業主</li><li>インキュベーションオフィス等を利用していること</li></ul>
-            <p><a href="https://www.city.toride.ibaraki.jp/sanshin/jigyosha/shokogyo/yuchi/jigyoukatudou.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/toride-city-incubation-office-hojo.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+          <div class="ar-row" id="toride-omedetoubako">
+            <div class="ar-name"><b>出産「おめでとうばこ」</b><small>取手市で生まれた赤ちゃんとそのご家庭をお祝いして「おめでとうばこ」をプレゼントする。自宅まで無料で届ける。<br>対象：取手市にお住まいで、市の「こんにちは赤ちゃん訪問」を受けたご家庭／令和7年10月1日以降に出産されたかた<br>期間：申込カードを受け取ってから1ヶ月以内に申込</small><span class="ar-prov">取手市 こども政策課</span></div>
+            <div class="ar-amt">要確認（ベビーソープ・おしりふき・液体ミルクなどの詰め合わせを無料で自宅へ配送）</div>
+            <a class="ar-go" href="https://www.city.toride.ibaraki.jp/kodomo-seisaku/kurashi/kosodate/ninshin/support/omedetoubox.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          <div class="ar-row" id="toride-omutsu-teikibin">
+            <div class="ar-name"><b>とりでっ子見守りおむつ定期便</b><small>市内で乳児（0歳児）を養育する家庭に、毎月3,000円相当の子育て用品を、満1歳の誕生月まで見守り支援員が配達する。<br>対象：取手市内に住民登録がある0歳児のお子様がいるご家庭（生後5か月から満1歳の誕生月まで）／令和8年4月1日以降に生まれたお子様がいるご家庭<br>期間：令和8年9月から（生後5か月から満1歳の誕生月まで、最大8回）</small><span class="ar-prov">取手市 こども政策課</span></div>
+            <div class="ar-amt">毎月3,000円相当の子育て用品（おむつなど）</div>
+            <a class="ar-go" href="https://www.city.toride.ibaraki.jp/kodomo-seisaku/kurashi/kosodate/ninshin/kezaishien/mimamoriomutsuteikibin.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="toride-shoninpu-jushin">
+            <div class="ar-name"><b>低所得の妊婦に対する初回産科受診料支援事業</b><small>低所得世帯のかたが妊娠判定のため医療機関を受診した費用を一部助成する。<br>対象：初回産科受診をした時点で、市に住所を有しているかた／市民税非課税世帯に属するかたあるいは生活保護を受給しているかた</small><span class="ar-prov">取手市 保健センター</span></div>
+            <div class="ar-amt">初回産科受診1回あたり、上限1万円</div>
+            <a class="ar-go" href="https://www.city.toride.ibaraki.jp/hokencenter/kurashi/kosodate/ninshin/kezaishien/teisyotokuninpu.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-iryo">医療・福祉<span>2件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="toride-funin-chiryohi">
+            <div class="ar-name"><b>取手市不妊治療費助成事業</b><small>不妊治療における夫婦の経済的負担軽減を図るため、不妊治療に係る経費の一部を助成する。令和8年4月から一部の対象のかたに、さらなる助成がはじまった。<br>対象：治療期間の初日における妻の年齢が43歳未満である夫婦／医療保険が適応される生殖補助医療と先進医療を組み合わせて治療を行ったかた<br>期間：令和8年4月1日から令和9年2月26日の間に治療を終了したかた<br>締切：2027-02-26</small><span class="ar-prov">取手市 保健センター</span></div>
+            <div class="ar-amt">先進医療に要した費用の1回の治療につき上限4万円</div>
+            <a class="ar-go" href="https://www.city.toride.ibaraki.jp/hokencenter/kurashi/kosodate/ninshin/support/funinjose.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="toride-iryohi-maruhuku-nukumori">
+            <div class="ar-name"><b>医療費の助成（医療福祉制度マル福・ぬくもり支援事業）</b><small>小児、妊産婦、母子家庭の母子、父子家庭の父子、重度心身障害者などの保険診療医療費の一部負担金などを助成する。マル福に該当しないかた向けに市単独のぬくもり支援事業もある。<br>対象：取手市内に住所のあるかたで、小児（出生の日から18歳に達する日以後の3月31日まで）、妊産婦など／母子家庭の母子（または父子家庭の父子）</small><span class="ar-prov">取手市 国保年金課</span></div>
+            <div class="ar-amt">保険診療医療費の一部負担金などを助成（要確認）</div>
+            <a class="ar-go" href="https://www.city.toride.ibaraki.jp/kokuho/kurashi/kosodate/ninshin/kezaishien/iryohi.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-kyoiku">教育・学び<span>2件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="toride-shogakukin">
+            <div class="ar-name"><b>取手市の奨学金制度</b><small>経済的な理由により修学が困難なかたに、高等教育の機会均等を図るため、学業に必要な資金の一部を無利子で貸与する。<br>対象：取手市内に居住し、市税等の滞納のないかたの子等／大学・短期大学に入学予定または在学中、または高等専門学校の第4学年・第5学年に在学中のかた<br>期間：「令和8年度取手市奨学生を募集します」を参照</small><span class="ar-prov">取手市 教育総務課</span></div>
+            <div class="ar-amt">月額 国公立40,000円・私立50,000円（無利子で貸与）</div>
+            <a class="ar-go" href="https://www.city.toride.ibaraki.jp/kyoikusomu/kurashi/kosodate/gakko/shogakukin.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="toride-shugakuenjo">
+            <div class="ar-name"><b>就学援助制度 <span class="area-ended-tag">受付終了</span></b><small>経済的理由により就学させることが困難と認められる児童・生徒の保護者に、学校生活で必要な費用の一部を援助する。<br>対象：取手市に住所を有し、現在生活保護を受けているかた／生活保護に近い生活状態のかた（生活困窮のかた）<br>期間：令和8年5月1日（金曜日）から令和8年5月29日（金曜日）まで（年度当初認定。以降も随時受付）<br>締切：2026-05-29</small><span class="ar-prov">取手市 学務課</span></div>
+            <div class="ar-amt">要確認（学校生活で必要な費用の一部を援助）</div>
+            <a class="ar-go" href="https://www.city.toride.ibaraki.jp/gakumu/kurashi/kosodate/ninshin/kezaishien/shugakuenjo.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>5件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="toride-renovation">
+            <div class="ar-name"><b><span class="ar-tag">省エネ住宅</span>住宅リノベーション補助金</b><small>市街化区域内で中古住宅を購入して行う改修(バリアフリー化等)を補助。着工前に計画認定が必要。<br>対象：自己居住用の中古住宅／市街化区域内<br>締切：2028-03-31</small><span class="ar-prov">茨城県取手市</span></div>
+            <div class="ar-amt">工事費の10%、上限30万円(加算含め最大55万円)</div>
+            <a class="ar-go" href="https://www.city.toride.ibaraki.jp/toshikeikaku/kurashi/sumai/sumai/hojosedo/jutakurenovation.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="toride-sema-block">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>狭あい道路拡幅整備促進補助（ブロック塀撤去等）</b><small>建築基準法に基づき道路拡幅のため既存ブロック塀等を撤去・再築造する費用を補助。<br>対象：狭あい道路拡幅整備に伴う撤去</small><span class="ar-prov">茨城県取手市</span></div>
+            <div class="ar-amt">撤去1平方メートルあたり5,000円、一路線あたり上限5万円</div>
+            <a class="ar-go" href="https://reiki.city.toride.ibaraki.jp/reiki_honbun/e016RG00000538.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="toride-solar-r8">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>住宅用太陽光発電システム補助金（令和8年度）</b><small>最大出力10kW未満で逆潮流ありの未使用太陽光発電システムの設置費を補助。<br>対象：最大出力10kW未満／逆潮流有りで連系</small><span class="ar-prov">茨城県取手市</span></div>
+            <div class="ar-amt">1kWあたり1万円、上限3kW分(3万円)</div>
+            <a class="ar-go" href="https://www.city.toride.ibaraki.jp/kurashi/kankyo/sekatsu/hojokin/index.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="toride-taishin-r8">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>木造住宅耐震改修費または耐震建替費の補助（令和8年度）</b><small>木造住宅の耐震改修・耐震建替費を補助。<br>対象：昭和56年5月31日以前に建築確認を受けた木造住宅等<br>期間：令和8年度分は受付終了</small><span class="ar-prov">茨城県取手市</span></div>
+            <div class="ar-amt">工事費の5分の4または115万円のいずれか少ない額</div>
+            <a class="ar-go" href="https://www.city.toride.ibaraki.jp/kenchiku/kurashi/sumai/sumai/hojosedo/taishinhojo.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="toride-storage">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>自立・分散型エネルギー設備導入事業費補助金（蓄電システム） <span class="area-ended-tag">受付終了</span></b><small>住宅用蓄電システム設置への補助。令和7年度分は予算到達により受付終了。<br>対象：自ら居住する住宅に設置／市税の滞納がない</small><span class="ar-prov">茨城県取手市</span></div>
+            <div class="ar-amt">令和7年度は1基5万円(30基)。令和8年度額は要確認</div>
+            <a class="ar-go" href="https://www.city.toride.ibaraki.jp/kankyo/kurashi/kankyo/sekatsu/chikuden.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-iju">移住<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="toride-jutaku-shutoku">
+            <div class="ar-name"><b>定住化促進住宅補助（住宅取得補助金・とりで住ま入る支援プラン）</b><small>定住化促進のための住宅取得補助。<br>対象：詳細要件は要確認</small><span class="ar-prov">茨城県取手市</span></div>
+            <div class="ar-amt">最大65万円(令和8年4月1日以降の認定申請分。従前50万円)</div>
+            <a class="ar-go" href="https://www.city.toride.ibaraki.jp/toshikeikaku/kurashi/sumai/sumai/hojosedo/jutakushutoku.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>茨城県の制度</strong></p>
+          <ul><li><a href="pref-ibaraki.html#ibaraki-iju-shienkin">わくわく茨城生活実現事業（茨城県移住支援金）</a></li></ul>
+          <p><a href="pref-ibaraki.html#pref-resident">茨城県の制度1件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">茨城県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">取手市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-ibaraki.html#ibaraki-challenge-fund">いばらきチャレンジ基金事業</a></li><li><a href="pref-ibaraki.html#ibaraki-digital-skill-hojo">デジタルスキル習得支援事業補助金</a></li><li><a href="pref-ibaraki.html#ibaraki-josei-wakamono-sogyo-yushi">茨城県 女性・若者・障害者創業支援融資</a></li><li><a href="pref-ibaraki.html#ibaraki-shoene-setsubi-hojo">中小規模事業所省エネ対策設備導入補助金</a></li><li><a href="pref-ibaraki.html#ibaraki-shokibo-shien-yushi">茨城県 小規模企業支援融資</a></li></ul>
-          <p><a href="pref-ibaraki.html#pref-business">茨城県の制度6件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="toride-city-akitenpo-katsuyo-hojo">
+            <div class="ar-name"><b>取手市空き店舗活用補助金</b><small>市内の空き店舗に出店する人の家賃を補助する制度（令和6年4月の要綱改正で家賃補助のみ）。<br>対象：取手市商工会の会員（入会予定含む）であること／週40時間以上営業し1年以上継続見込みであること</small><span class="ar-prov">取手市 産業振興課</span></div>
+            <div class="ar-amt">店舗家賃の1/2、上限月額5万円、1年間</div>
+            <a class="ar-go" href="https://www.city.toride.ibaraki.jp/hojokinjoseikin-index.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="toride-city-challenge-shien-hojo">
+            <div class="ar-name"><b>取手市産業振興チャレンジ支援事業補助金（起業初期費用補助）</b><small>市内で起業する際の初期費用を補助する制度。<br>対象：市内で起業する人／一般社団法人とりで起業家支援ネットワーク（Matchとりで）に起業家登録していること</small><span class="ar-prov">取手市 産業振興課</span></div>
+            <div class="ar-amt">上限1万円</div>
+            <a class="ar-go" href="https://www.city.toride.ibaraki.jp/sanshin/jigyosha/shokogyo/sougyousienn/challenge.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="toride-city-incubation-office-hojo">
+            <div class="ar-name"><b>取手市市民事業活動促進補助金（インキュベーションオフィス等利用料補助）</b><small>事業活動支援を主目的に設置されたインキュベーションオフィス等の利用料金を補助する制度。<br>対象：市内に本店または主たる事業所がある法人・個人事業主／インキュベーションオフィス等を利用していること</small><span class="ar-prov">取手市 産業振興課</span></div>
+            <div class="ar-amt">予算の範囲内（補助率・上限は要確認）</div>
+            <a class="ar-go" href="https://www.city.toride.ibaraki.jp/sanshin/jigyosha/shokogyo/yuchi/jigyoukatudou.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">茨城県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>取手市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="toride-taishin-r8">
-            <h3>木造住宅耐震改修費または耐震建替費の補助（令和8年度）</h3>
-            <p class="area-meta">茨城県取手市｜補助金｜工事費の5分の4または115万円のいずれか少ない額</p>
-            <p class="area-meta">期間：令和8年度分は受付終了</p>
-            <p>木造住宅の耐震改修・耐震建替費を補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>昭和56年5月31日以前に建築確認を受けた木造住宅等</li></ul>
-            <p><a href="https://www.city.toride.ibaraki.jp/kenchiku/kurashi/sumai/sumai/hojosedo/taishinhojo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program" id="toride-solar-r8">
-            <h3>住宅用太陽光発電システム補助金（令和8年度）</h3>
-            <p class="area-meta">茨城県取手市｜補助金｜1kWあたり1万円、上限3kW分(3万円)</p>
-            <p class="area-meta">期間：令和8年度。受付期間は要確認</p>
-            <p>最大出力10kW未満で逆潮流ありの未使用太陽光発電システムの設置費を補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>最大出力10kW未満</li><li>逆潮流有りで連系</li><li>未使用品</li></ul>
-            <p><a href="https://www.city.toride.ibaraki.jp/kurashi/kankyo/sekatsu/hojokin/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program is-ended" id="toride-storage">
-            <h3>自立・分散型エネルギー設備導入事業費補助金（蓄電システム） <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">茨城県取手市｜補助金｜令和7年度は1基5万円(30基)。令和8年度額は要確認</p>
-            <p class="area-meta">期間：令和7年度は受付終了。令和8年度版は最新は要確認</p>
-            <p>住宅用蓄電システム設置への補助。令和7年度分は予算到達により受付終了。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>自ら居住する住宅に設置</li><li>市税の滞納がない</li><li>着工前に申請</li></ul>
-            <p><a href="https://www.city.toride.ibaraki.jp/kankyo/kurashi/kankyo/sekatsu/chikuden.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
-          <div class="area-program" id="toride-renovation">
-            <h3>住宅リノベーション補助金</h3>
-            <p class="area-meta">茨城県取手市｜補助金｜工事費の10%、上限30万円(加算含め最大55万円)｜締切：2028-03-31</p>
-            <p class="area-meta">期間：制度期限は令和10年3月31日(令和8年度受付状況は要確認)</p>
-            <p>市街化区域内で中古住宅を購入して行う改修(バリアフリー化等)を補助。着工前に計画認定が必要。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>自己居住用の中古住宅</li><li>市街化区域内</li><li>着工前に認定申請</li></ul>
-            <p><a href="https://www.city.toride.ibaraki.jp/toshikeikaku/kurashi/sumai/sumai/hojosedo/jutakurenovation.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="toride-sema-block">
-            <h3>狭あい道路拡幅整備促進補助（ブロック塀撤去等）</h3>
-            <p class="area-meta">茨城県取手市｜補助金｜撤去1平方メートルあたり5,000円、一路線あたり上限5万円</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>建築基準法に基づき道路拡幅のため既存ブロック塀等を撤去・再築造する費用を補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>狭あい道路拡幅整備に伴う撤去</li></ul>
-            <p><a href="https://reiki.city.toride.ibaraki.jp/reiki_honbun/e016RG00000538.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-6">子育て</h3>
-          <div class="area-program" id="toride-chokaku-kensa">
-            <h3>新生児聴覚検査費用の助成</h3>
-            <p class="area-meta">取手市 保健センター｜助成金｜自動ABR検査5,000円・OAE検査3,000円を上限に助成</p>
-            <p class="area-meta">期間：償還払いの申請期限は検査した日から1年以内</p>
-            <p>早期発見・早期療育を図るため、新生児聴覚検査費用の一部を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>検査当日に取手市に住民登録がある新生児</li></ul>
-            <p><a href="https://www.city.toride.ibaraki.jp/hokencenter/kurashi/kosodate/ninshin/support/sinnseijityoukakukennsajosei.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="toride-mutsuu-bunben">
-            <h3>無痛分娩費用の助成</h3>
-            <p class="area-meta">取手市 こども政策課｜助成金｜1回の分娩につき10万円</p>
-            <p class="area-meta">期間：出産した日の翌日から起算して3か月以内に申請</p>
-            <p>無痛分娩により出産したかたの経済的な負担を軽減するため、無痛分娩に要した費用の一部を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>無痛分娩により出産したかた</li><li>無痛分娩を実施した日において、市内に住所を有しており引き続き定住の意思があるかた</li><li>市税等に滞納がないかた</li></ul>
-            <p><a href="https://www.city.toride.ibaraki.jp/kodomo-seisaku/kurashi/kosodate/ninshin/support/mutuubunben.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="toride-omedetoubako">
-            <h3>出産「おめでとうばこ」</h3>
-            <p class="area-meta">取手市 こども政策課｜給付｜要確認（ベビーソープ・おしりふき・液体ミルクなどの詰め合わせを無料で自宅へ配送）</p>
-            <p class="area-meta">期間：申込カードを受け取ってから1ヶ月以内に申込</p>
-            <p>取手市で生まれた赤ちゃんとそのご家庭をお祝いして「おめでとうばこ」をプレゼントする。自宅まで無料で届ける。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>取手市にお住まいで、市の「こんにちは赤ちゃん訪問」を受けたご家庭</li><li>令和7年10月1日以降に出産されたかた</li><li>お子様お1人につき1つ</li></ul>
-            <p><a href="https://www.city.toride.ibaraki.jp/kodomo-seisaku/kurashi/kosodate/ninshin/support/omedetoubox.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="toride-omutsu-teikibin">
-            <h3>とりでっ子見守りおむつ定期便</h3>
-            <p class="area-meta">取手市 こども政策課｜給付｜毎月3,000円相当の子育て用品（おむつなど）</p>
-            <p class="area-meta">期間：令和8年9月から（生後5か月から満1歳の誕生月まで、最大8回）</p>
-            <p>市内で乳児（0歳児）を養育する家庭に、毎月3,000円相当の子育て用品を、満1歳の誕生月まで見守り支援員が配達する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>取手市内に住民登録がある0歳児のお子様がいるご家庭（生後5か月から満1歳の誕生月まで）</li><li>令和8年4月1日以降に生まれたお子様がいるご家庭</li><li>利用には申請が必要</li></ul>
-            <p><a href="https://www.city.toride.ibaraki.jp/kodomo-seisaku/kurashi/kosodate/ninshin/kezaishien/mimamoriomutsuteikibin.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="toride-shoninpu-jushin">
-            <h3>低所得の妊婦に対する初回産科受診料支援事業</h3>
-            <p class="area-meta">取手市 保健センター｜助成金｜初回産科受診1回あたり、上限1万円</p>
-            <p class="area-meta">期間：通年（要確認）</p>
-            <p>低所得世帯のかたが妊娠判定のため医療機関を受診した費用を一部助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>初回産科受診をした時点で、市に住所を有しているかた</li><li>市民税非課税世帯に属するかたあるいは生活保護を受給しているかた</li></ul>
-            <p><a href="https://www.city.toride.ibaraki.jp/hokencenter/kurashi/kosodate/ninshin/kezaishien/teisyotokuninpu.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-7">医療・福祉</h3>
-          <div class="area-program" id="toride-funin-chiryohi">
-            <h3>取手市不妊治療費助成事業</h3>
-            <p class="area-meta">取手市 保健センター｜助成金｜先進医療に要した費用の1回の治療につき上限4万円｜締切：2027-02-26</p>
-            <p class="area-meta">期間：令和8年4月1日から令和9年2月26日の間に治療を終了したかた</p>
-            <p>不妊治療における夫婦の経済的負担軽減を図るため、不妊治療に係る経費の一部を助成する。令和8年4月から一部の対象のかたに、さらなる助成がはじまった。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>治療期間の初日における妻の年齢が43歳未満である夫婦</li><li>医療保険が適応される生殖補助医療と先進医療を組み合わせて治療を行ったかた</li><li>令和8年4月1日から令和9年2月26日の間に治療を終了したかた</li></ul>
-            <p><a href="https://www.city.toride.ibaraki.jp/hokencenter/kurashi/kosodate/ninshin/support/funinjose.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="toride-iryohi-maruhuku-nukumori">
-            <h3>医療費の助成（医療福祉制度マル福・ぬくもり支援事業）</h3>
-            <p class="area-meta">取手市 国保年金課｜助成金｜保険診療医療費の一部負担金などを助成（要確認）</p>
-            <p class="area-meta">期間：通年（要確認）</p>
-            <p>小児、妊産婦、母子家庭の母子、父子家庭の父子、重度心身障害者などの保険診療医療費の一部負担金などを助成する。マル福に該当しないかた向けに市単独のぬくもり支援事業もある。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>取手市内に住所のあるかたで、小児（出生の日から18歳に達する日以後の3月31日まで）、妊産婦など</li><li>母子家庭の母子（または父子家庭の父子）</li><li>事前の登録（申請）が必要</li></ul>
-            <p><a href="https://www.city.toride.ibaraki.jp/kokuho/kurashi/kosodate/ninshin/kezaishien/iryohi.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-8">教育・学び</h3>
-          <div class="area-program" id="toride-shogakukin">
-            <h3>取手市の奨学金制度</h3>
-            <p class="area-meta">取手市 教育総務課｜融資｜月額 国公立40,000円・私立50,000円（無利子で貸与）</p>
-            <p class="area-meta">期間：「令和8年度取手市奨学生を募集します」を参照</p>
-            <p>経済的な理由により修学が困難なかたに、高等教育の機会均等を図るため、学業に必要な資金の一部を無利子で貸与する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>取手市内に居住し、市税等の滞納のないかたの子等</li><li>大学・短期大学に入学予定または在学中、または高等専門学校の第4学年・第5学年に在学中のかた</li><li>高等学校第3学年の成績が平均3.0以上であるかた</li></ul>
-            <p><a href="https://www.city.toride.ibaraki.jp/kyoikusomu/kurashi/kosodate/gakko/shogakukin.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program is-ended" id="toride-shugakuenjo">
-            <h3>就学援助制度 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">取手市 学務課｜給付｜要確認（学校生活で必要な費用の一部を援助）｜締切：2026-05-29</p>
-            <p class="area-meta">期間：令和8年5月1日（金曜日）から令和8年5月29日（金曜日）まで（年度当初認定。以降も随時受付）</p>
-            <p>経済的理由により就学させることが困難と認められる児童・生徒の保護者に、学校生活で必要な費用の一部を援助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>取手市に住所を有し、現在生活保護を受けているかた</li><li>生活保護に近い生活状態のかた（生活困窮のかた）</li><li>休業、離職等で所得が前年度を大きく下回る世帯（家計急変世帯）</li></ul>
-            <p><a href="https://www.city.toride.ibaraki.jp/gakumu/kurashi/kosodate/ninshin/kezaishien/shugakuenjo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-9">移住</h3>
-          <div class="area-program" id="toride-jutaku-shutoku">
-            <h3>定住化促進住宅補助（住宅取得補助金・とりで住ま入る支援プラン）</h3>
-            <p class="area-meta">茨城県取手市｜補助金｜最大65万円(令和8年4月1日以降の認定申請分。従前50万円)</p>
-            <p class="area-meta">期間：令和8年度。受付期間は要確認</p>
-            <p>定住化促進のための住宅取得補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>詳細要件は要確認</li></ul>
-            <p><a href="https://www.city.toride.ibaraki.jp/toshikeikaku/kurashi/sumai/sumai/hojosedo/jutakushutoku.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>茨城県の制度</strong></p>
-          <ul><li><a href="pref-ibaraki.html#ibaraki-iju-shienkin">わくわく茨城生活実現事業（茨城県移住支援金）</a></li></ul>
-          <p><a href="pref-ibaraki.html#pref-resident">茨城県の制度1件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-ibaraki.html#ibaraki-challenge-fund">いばらきチャレンジ基金事業</a></li><li><a href="pref-ibaraki.html#ibaraki-digital-skill-hojo">デジタルスキル習得支援事業補助金</a></li><li><a href="pref-ibaraki.html#ibaraki-josei-wakamono-sogyo-yushi">茨城県 女性・若者・障害者創業支援融資</a></li><li><a href="pref-ibaraki.html#ibaraki-shoene-setsubi-hojo">中小規模事業所省エネ対策設備導入補助金</a></li><li><a href="pref-ibaraki.html#ibaraki-shokibo-shien-yushi">茨城県 小規模企業支援融資</a></li></ul>
+          <p><a href="pref-ibaraki.html#pref-business">茨城県の制度6件を、県のページで見る →</a></p>
       </div>
     </section>
 

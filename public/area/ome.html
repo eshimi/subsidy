@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"青梅市","item":"https://hojyokin.net/area/ome.html"}]}</script>
@@ -165,134 +207,105 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 青梅市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b01.webp')"><h1 class="pb-title">青梅市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-tokyo.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">東京都・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">東京都 青梅市</p>
+        <h1>青梅市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度9件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-tokyo.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（青梅市）<b>2件</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（東京都）<b>6件（うち受付終了1件）</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>7件（うち受付終了1件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-5">バリアフリー・介護 1</a><a href="#res-cat-9">移住 2</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <span class="is-none"><i aria-hidden="true">👶</i><b>子育て</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>掲載なし</small></span>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>5件</small></a>
+      <a href="#res-g-iju"><i aria-hidden="true">🌱</i><b>移住</b><small>2件</small></a>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市2件＋県6件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">青梅市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="ome-city-akiten-katsuyo-hojo">
-            <h3>青梅市空き店舗活用事業補助金</h3>
-            <p class="area-meta">青梅市 商工業振興課｜補助金｜店舗改修費の2分の1以内・上限100万円｜締切：2027-02-26</p>
-            <p class="area-meta">期間：令和9年2月26日まで(予算がなくなり次第終了)</p>
-            <p>空き店舗(空き工場・空き倉庫も対象)を活用して市内で新たに事業を始める創業者の店舗改修費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>空き店舗等を使って市内で新たに事業を始める創業者</li><li>特定創業支援等事業を受け証明書の交付を受けていること</li><li>大規模小売店舗・店舗内テナント・可動式店舗は対象外</li></ul>
-            <p><a href="https://www.city.ome.tokyo.jp/soshiki/35/59261.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>5件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="ome-akiya-katsuyo">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>青梅市空家等活用支援事業</b><small>空家バンク登録物件の取得・賃借後の改修費、空き家の家財片付け費用を補助する。<br>対象：空家バンク登録物件／市内事業者に依頼し、交付決定後に契約</small><span class="ar-prov">東京都青梅市</span></div>
+            <div class="ar-amt">改修費の補助率は移住者3分の2(上限100万円)、移住者以外2分の1(上限50万円)。家財片付けは2分の1・上限50万円</div>
+            <a class="ar-go" href="https://www.city.ome.tokyo.jp/soshiki/45/1732.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="ome-city-sogyosha-oen-hojo">
-            <h3>青梅市創業者応援事業補助金</h3>
-            <p class="area-meta">青梅市 商工業振興課｜補助金｜市内で新たに事業開始:20万円／創業を機に市内へ移住して事業開始:30万円｜締切：2027-02-26</p>
-            <p class="area-meta">期間：令和9年2月26日まで(予算がなくなり次第終了)</p>
-            <p>市内で新たに事業を開始した人に交付する補助金。認定特定創業支援等事業の証明書の交付を受けていることが条件。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>令和5年4月1日以降に市内で事業を開始した人</li><li>認定特定創業支援等事業を受け証明書の交付を受けていること</li><li>過去にこの補助金を受けていないこと</li></ul>
-            <p><a href="https://www.city.ome.tokyo.jp/soshiki/35/37443.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/ome-city-sogyosha-oen-hojo.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+          <div class="ar-row" id="ome-block">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>青梅市ブロック塀等撤去費補助制度</b><small>避難路等に面したブロック塀の撤去費を補助する。<br>対象：避難路等の地盤面から高さ1m超のブロック塀等</small><span class="ar-prov">東京都青梅市</span></div>
+            <div class="ar-amt">工事費の10分の9、撤去長さ1mあたり8,000円、18万円のうち最も少ない額</div>
+            <a class="ar-go" href="https://www.city.ome.tokyo.jp/soshiki/11/2197.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          <div class="ar-row" id="ome-jutaku-kaizo">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>青梅市 住宅改造費の助成(高齢者)</b><small>高齢者の浴槽・流し台・便器などの住宅改造費を助成する。<br>対象：おおむね65歳以上で改造が必要と認められた人／介護保険の判定を受ける</small><span class="ar-prov">東京都青梅市</span></div>
+            <div class="ar-amt">手すり取り付け等は20万円を上限とする助成。自己負担は基準額まで1割(所得により2割または3割)</div>
+            <a class="ar-go" href="https://www.city.ome.tokyo.jp/soshiki/30/102.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="ome-taishin-kaishu">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>青梅市木造住宅耐震改修補助</b><small>木造住宅の耐震改修費用を補助する。令和8年度の受付中(市ページ記載)。契約前に市へ相談が必要。<br>対象：昭和56年5月以前の耐震基準の木造住宅／診断評点1.0未満で改修後1.0以上</small><span class="ar-prov">東京都青梅市</span></div>
+            <div class="ar-amt">費用の2分の1以内、1棟につき上限100万円</div>
+            <a class="ar-go" href="https://www.city.ome.tokyo.jp/soshiki/45/680.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="ome-shouene">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>青梅市住宅用省エネルギー等設備普及促進補助制度 <span class="area-ended-tag">受付終了</span></b><small>高断熱窓・太陽光発電・蓄電池の設置費用を補助。令和8年度は予算上限に達し受付終了。<br>対象：市内の自ら居住する住宅に新たに設置<br>期間：令和8年度は受付終了</small><span class="ar-prov">東京都青梅市</span></div>
+            <div class="ar-amt">太陽光1kWあたり1万5千円(上限6万円)、蓄電池1kWhあたり5千円(上限3万円)。高断熱窓は要確認</div>
+            <a class="ar-go" href="https://www.city.ome.tokyo.jp/soshiki/22/67056.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-iju">移住<span>2件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="ome-ijuu-shienkin">
+            <div class="ar-name"><b>青梅市移住支援金</b><small>市外から転入する人への移住支援金。詳細は市ページ参照。<br>対象：転入前に近隣区域外に5年以上居住など(要確認)</small><span class="ar-prov">東京都青梅市</span></div>
+            <div class="ar-amt">最大100万円(空き家購入で10万円加算、田園里山暮らし応援地区は中学生以下1人につき10万円の加算等)</div>
+            <a class="ar-go" href="https://www.city.ome.tokyo.jp/soshiki/76/69118.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="ome-otameshi">
+            <div class="ar-name"><b>おためしおうめ生活補助金</b><small>移住前に青梅市に滞在する際の宿泊費の一部を補助する。<br>対象：移住を検討する人(詳細要件は要確認)</small><span class="ar-prov">東京都青梅市</span></div>
+            <div class="ar-amt">宿泊費の一部、1泊最大5,000円・年間最大4泊分</div>
+            <a class="ar-go" href="https://www.city.ome.tokyo.jp/soshiki/76/77589.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>東京都の制度</strong></p>
+          <ul><li><a href="pref-tokyo.html#tokyo-akachan-first">東京都出産・子育て応援事業（赤ちゃんファースト）</a></li><li><a href="pref-tokyo.html#tokyo-akiya-kazai-kaitai">東京都空き家家財整理・解体促進事業</a></li><li><a href="pref-tokyo.html#tokyo-dannetsu-solar-jutaku">災害にも強く健康にも資する断熱・太陽光住宅普及拡大事業</a></li><li><a href="pref-tokyo.html#tokyo-home-evcharge">戸建住宅向け充電設備普及促進事業（令和8年度）</a></li><li><a href="pref-tokyo.html#tokyo-kodomo-mamoru-jutaku">子育て世帯向け補助事業（「子供を守る」住宅確保促進事業）</a></li></ul>
+          <p><a href="pref-tokyo.html#pref-resident">東京都の制度9件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">東京都の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">青梅市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-tokyo.html#tokyo-jigyoshokei-josei">事業承継支援助成金（第3回）</a></li><li><a href="pref-tokyo.html#tokyo-kadai-kaiketsu-gijutsu">課題解決型技術開発促進事業</a></li><li><a href="pref-tokyo.html#tokyo-seidoyushi-sogyo">東京都中小企業制度融資「創業」</a></li><li><a href="pref-tokyo.html#tokyo-seihin-chakushu">製品開発着手支援助成事業</a></li><li><a href="pref-tokyo.html#tokyo-souikufuu-challenge">経営力強化に向けた創意工夫チャレンジ促進事業</a></li></ul>
-          <p><a href="pref-tokyo.html#pref-business">東京都の制度6件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="ome-city-akiten-katsuyo-hojo">
+            <div class="ar-name"><b>青梅市空き店舗活用事業補助金</b><small>空き店舗(空き工場・空き倉庫も対象)を活用して市内で新たに事業を始める創業者の店舗改修費を補助する。<br>対象：空き店舗等を使って市内で新たに事業を始める創業者／特定創業支援等事業を受け証明書の交付を受けていること<br>期間：令和9年2月26日まで(予算がなくなり次第終了)<br>締切：2027-02-26</small><span class="ar-prov">青梅市 商工業振興課</span></div>
+            <div class="ar-amt">店舗改修費の2分の1以内・上限100万円</div>
+            <a class="ar-go" href="https://www.city.ome.tokyo.jp/soshiki/35/59261.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="ome-city-sogyosha-oen-hojo">
+            <div class="ar-name"><b>青梅市創業者応援事業補助金</b><small>市内で新たに事業を開始した人に交付する補助金。認定特定創業支援等事業の証明書の交付を受けていることが条件。<br>対象：令和5年4月1日以降に市内で事業を開始した人／認定特定創業支援等事業を受け証明書の交付を受けていること<br>期間：令和9年2月26日まで(予算がなくなり次第終了)<br>締切：2027-02-26</small><span class="ar-prov">青梅市 商工業振興課</span></div>
+            <div class="ar-amt">市内で新たに事業開始:20万円／創業を機に市内へ移住して事業開始:30万円</div>
+            <a class="ar-go" href="https://www.city.ome.tokyo.jp/soshiki/35/37443.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">東京都の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>青梅市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="ome-taishin-kaishu">
-            <h3>青梅市木造住宅耐震改修補助</h3>
-            <p class="area-meta">東京都青梅市｜補助金｜費用の2分の1以内、1棟につき上限100万円</p>
-            <p class="area-meta">期間：令和8年度受付中(終了日は要確認)</p>
-            <p>木造住宅の耐震改修費用を補助する。令和8年度の受付中(市ページ記載)。契約前に市へ相談が必要。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>昭和56年5月以前の耐震基準の木造住宅</li><li>診断評点1.0未満で改修後1.0以上</li></ul>
-            <p><a href="https://www.city.ome.tokyo.jp/soshiki/45/680.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program is-ended" id="ome-shouene">
-            <h3>青梅市住宅用省エネルギー等設備普及促進補助制度 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">東京都青梅市｜補助金｜太陽光1kWあたり1万5千円(上限6万円)、蓄電池1kWhあたり5千円(上限3万円)。高断熱窓は要確認</p>
-            <p class="area-meta">期間：令和8年度は受付終了</p>
-            <p>高断熱窓・太陽光発電・蓄電池の設置費用を補助。令和8年度は予算上限に達し受付終了。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の自ら居住する住宅に新たに設置</li></ul>
-            <p><a href="https://www.city.ome.tokyo.jp/soshiki/22/67056.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="ome-akiya-katsuyo">
-            <h3>青梅市空家等活用支援事業</h3>
-            <p class="area-meta">東京都青梅市｜補助金｜改修費の補助率は移住者3分の2(上限100万円)、移住者以外2分の1(上限50万円)。家財片付けは2分の1・上限50万円</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>空家バンク登録物件の取得・賃借後の改修費、空き家の家財片付け費用を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>空家バンク登録物件</li><li>市内事業者に依頼し、交付決定後に契約</li></ul>
-            <p><a href="https://www.city.ome.tokyo.jp/soshiki/45/1732.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="ome-block">
-            <h3>青梅市ブロック塀等撤去費補助制度</h3>
-            <p class="area-meta">東京都青梅市｜補助金｜工事費の10分の9、撤去長さ1mあたり8,000円、18万円のうち最も少ない額</p>
-            <p class="area-meta">期間：令和8年度の募集状況は要確認</p>
-            <p>避難路等に面したブロック塀の撤去費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>避難路等の地盤面から高さ1m超のブロック塀等</li></ul>
-            <p><a href="https://www.city.ome.tokyo.jp/soshiki/11/2197.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
-          <div class="area-program" id="ome-jutaku-kaizo">
-            <h3>青梅市 住宅改造費の助成(高齢者)</h3>
-            <p class="area-meta">東京都青梅市｜助成金｜手すり取り付け等は20万円を上限とする助成。自己負担は基準額まで1割(所得により2割または3割)</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>高齢者の浴槽・流し台・便器などの住宅改造費を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>おおむね65歳以上で改造が必要と認められた人</li><li>介護保険の判定を受ける</li></ul>
-            <p><a href="https://www.city.ome.tokyo.jp/soshiki/30/102.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-9">移住</h3>
-          <div class="area-program" id="ome-ijuu-shienkin">
-            <h3>青梅市移住支援金</h3>
-            <p class="area-meta">東京都青梅市｜給付｜最大100万円(空き家購入で10万円加算、田園里山暮らし応援地区は中学生以下1人につき10万円の加算等)</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>市外から転入する人への移住支援金。詳細は市ページ参照。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>転入前に近隣区域外に5年以上居住など(要確認)</li></ul>
-            <p><a href="https://www.city.ome.tokyo.jp/soshiki/76/69118.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="ome-otameshi">
-            <h3>おためしおうめ生活補助金</h3>
-            <p class="area-meta">東京都青梅市｜補助金｜宿泊費の一部、1泊最大5,000円・年間最大4泊分</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>移住前に青梅市に滞在する際の宿泊費の一部を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>移住を検討する人(詳細要件は要確認)</li></ul>
-            <p><a href="https://www.city.ome.tokyo.jp/soshiki/76/77589.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>東京都の制度</strong></p>
-          <ul><li><a href="pref-tokyo.html#tokyo-akachan-first">東京都出産・子育て応援事業（赤ちゃんファースト）</a></li><li><a href="pref-tokyo.html#tokyo-akiya-kazai-kaitai">東京都空き家家財整理・解体促進事業</a></li><li><a href="pref-tokyo.html#tokyo-dannetsu-solar-jutaku">災害にも強く健康にも資する断熱・太陽光住宅普及拡大事業</a></li><li><a href="pref-tokyo.html#tokyo-home-evcharge">戸建住宅向け充電設備普及促進事業（令和8年度）</a></li><li><a href="pref-tokyo.html#tokyo-kodomo-mamoru-jutaku">子育て世帯向け補助事業（「子供を守る」住宅確保促進事業）</a></li></ul>
-          <p><a href="pref-tokyo.html#pref-resident">東京都の制度9件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-tokyo.html#tokyo-jigyoshokei-josei">事業承継支援助成金（第3回）</a></li><li><a href="pref-tokyo.html#tokyo-kadai-kaiketsu-gijutsu">課題解決型技術開発促進事業</a></li><li><a href="pref-tokyo.html#tokyo-seidoyushi-sogyo">東京都中小企業制度融資「創業」</a></li><li><a href="pref-tokyo.html#tokyo-seihin-chakushu">製品開発着手支援助成事業</a></li><li><a href="pref-tokyo.html#tokyo-souikufuu-challenge">経営力強化に向けた創意工夫チャレンジ促進事業</a></li></ul>
+          <p><a href="pref-tokyo.html#pref-business">東京都の制度6件を、県のページで見る →</a></p>
       </div>
     </section>
 

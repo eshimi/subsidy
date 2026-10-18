@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"水戸市","item":"https://hojyokin.net/area/mito.html"}]}</script>
@@ -165,198 +207,152 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 水戸市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b13.webp')"><h1 class="pb-title">水戸市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-ibaraki.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">茨城県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">茨城県 水戸市</p>
+        <h1>水戸市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度16件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-ibaraki.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（水戸市）<b>5件</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（茨城県）<b>6件</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>11件（うち受付終了1件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-2">EV・充電 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-6">子育て 3</a><a href="#res-cat-7">医療・福祉 1</a><a href="#res-cat-8">教育・学び 2</a><a href="#res-cat-9">移住 1</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <a href="#res-g-kosodate"><i aria-hidden="true">👶</i><b>子育て</b><small>3件</small></a>
+      <a href="#res-g-iryo"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>1件</small></a>
+      <a href="#res-g-kyoiku"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>2件</small></a>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>4件</small></a>
+      <a href="#res-g-iju"><i aria-hidden="true">🌱</i><b>移住</b><small>1件</small></a>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市5件＋県6件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">水戸市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="mito-city-chusho-shinko-shien">
-            <h3>水戸市中小企業振興支援補助金</h3>
-            <p class="area-meta">水戸市 商工課｜補助金｜デジタルツール導入は1/2以内・上限100万円、人材確保・育成と販路拡大は1/2以内・上限20万円</p>
-            <p class="area-meta">期間：掲載の販路拡大は令和8年3月13日まで。最新は要確認</p>
-            <p>物価高騰・人材不足・DX等に対応する5種の補助事業（デジタルツール導入、人材確保・育成、販路拡大など）。事前申請制。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の中小企業者等</li><li>申請前に事業に着手していないこと</li></ul>
-            <p><a href="https://www.city.mito.lg.jp/page/75067.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-kosodate">子育て<span>3件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="mito-kosodate-machinaka">
+            <div class="ar-name"><b>水戸市子育てまちなか住宅取得補助金</b><small>対象区域内で住宅を取得する子育て世帯への補助金。<br>対象：契約日に15歳到達後最初の3月31日までの子がいる世帯／対象区域内の住宅取得</small><span class="ar-prov">茨城県水戸市</span></div>
+            <div class="ar-amt">住宅・土地取得費の2%（上限30万円）、多子・空き家中古取得・市外転入で各10万円加算</div>
+            <a class="ar-go" href="https://www.city.mito.lg.jp/page/4153.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="mito-city-machinaka-akitenpo">
-            <h3>水戸市まちなか空き店舗対策補助制度</h3>
-            <p class="area-meta">水戸市 商工課｜補助金｜改装費の補助率1/2以内</p>
-            <p class="area-meta">期間：令和7年度は受付期限あり。最新は要確認</p>
-            <p>まちなかの空き店舗を借りて営業を始める創業者等に店舗改装費の一部を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>空き店舗を借りて出店する創業者等</li></ul>
-            <p><a href="https://www.city.mito.lg.jp/site/mito-sougyou/1934.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="mito-shinnyusei-ouenkin">
+            <div class="ar-name"><b>小・中学校新入生応援金</b><small>小学校又は中学校に入学する年齢のこどもがいる子育て世帯等に、経済的負担の軽減と学びの環境を整えるための支援として応援金を支給します。<br>対象：令和8年5月1日時点で水戸市に住民登録があり、令和8年度に小学校又は中学校に就学する年齢に相当する児童を監護する方<br>期間：申請期限は令和9年3月31日まで<br>締切：2027-03-31</small><span class="ar-prov">水戸市</span></div>
+            <div class="ar-amt">支給対象児童1人当たり 3万円</div>
+            <a class="ar-go" href="https://www.city.mito.lg.jp/site/kosodate/125050.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="mito-city-maruke-risihokyu">
-            <h3>水戸市マル経融資利子補給制度</h3>
-            <p class="area-meta">水戸市 商工課｜融資｜利率1%分以内を3年間補給（融資限度額1,000万円）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>小規模事業者経営改善資金（マル経融資）の利子の一部を補給する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>マル経融資を利用した小規模事業者</li></ul>
-            <p><a href="https://www.city.mito.lg.jp/page/3636.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="mito-youikuhi-uketori-shien">
+            <div class="ar-name"><b>こどもの養育費受取支援補助金</b><small>ひとり親の方または離婚協議中で離婚後に子を扶養する予定の方に対し、養育費の取決めに関する公正証書の作成手数料等を補助します。<br>対象：水戸市内にお住まいで、ひとり親の方または離婚協議中で離婚後に子を扶養する予定の方／1年以内に公正証書、裁判所の調停証書、判決書などを作成または取得した方</small><span class="ar-prov">水戸市 こども政策課</span></div>
+            <div class="ar-amt">補助上限額 49，000円</div>
+            <a class="ar-go" href="https://www.city.mito.lg.jp/site/kosodate/98225.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="mito-city-sogyo-risihokyu">
-            <h3>水戸市創業支援利子補給制度</h3>
-            <p class="area-meta">水戸市 商工課｜融資｜利率1%分を融資実行から3年間補給</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>創業のための融資を受けた事業者に利子の一部を補給する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>創業のための融資を受けた創業者</li></ul>
-            <p><a href="https://www.city.mito.lg.jp/page/4738.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <div class="area-program" id="mito-city-sogyoki-shien">
-            <h3>水戸市創業期支援補助金</h3>
-            <p class="area-meta">水戸市 商工課｜補助金｜補助率1/2、上限20万円</p>
-            <p class="area-meta">期間：令和8年度以降の申請が対象。予算がなくなり次第終了。最新は要確認</p>
-            <p>創業予定者・創業後3年未満の事業者のHP作成、広告掲載、展示会参加等の費用を補助する。事前申請制。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>認定特定創業支援等事業による支援を受けた創業予定者</li><li>創業後3年未満の事業者</li></ul>
-            <p><a href="https://www.city.mito.lg.jp/page/4270.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/mito-city-sogyoki-shien.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+          <h3 class="area-cat" id="res-g-iryo">医療・福祉<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="mito-marufuku-iryohi-josei">
+            <div class="ar-name"><b>医療福祉費助成制度（マル福制度）</b><small>妊産婦・子ども・ひとり親家庭の親と子・重度心身障害者などの方が医療機関等にかかった場合に、一部負担金を助成する制度です。茨城県と水戸市が実施しています。<br>対象：妊産婦・子ども・ひとり親家庭の親と子・重度心身障害者などの医療福祉受給対象者の方／医療福祉費受給者証（マル福）の交付を受ける申請手続きが必要</small><span class="ar-prov">水戸市 国保年金課</span></div>
+            <div class="ar-amt">自己負担：外来は1つの医療機関につき1日600円まで、入院は1日300円まで（月の上限3,000円）、調剤薬局は自己負担なし</div>
+            <a class="ar-go" href="https://www.city.mito.lg.jp/page/2147.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          </div>
+          <h3 class="area-cat" id="res-g-kyoiku">教育・学び<span>2件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="mito-daigaku-juken-shien">
+            <div class="ar-name"><b>令和８年度大学等受験料及び模擬試験受験料支援事業補助金</b><small>ひとり親家庭や低所得子育て世帯のこどもの進学を支援するために、大学等受験料や模擬試験受験料を補助します。<br>対象：申請日時点で申請者（保護者）の住民登録が水戸市にあること／児童扶養手当受給世帯、生活保護受給世帯、住民税非課税世帯のいずれかに該当する方<br>期間：令和８年８月３日（月）から令和９年３月12日（金）まで ※郵送必着</small><span class="ar-prov">水戸市 こども政策課</span></div>
+            <div class="ar-amt">大学等受験料 上限53,000円／模擬試験受験料（高校３年生等）上限8,000円／模擬試験受験料（中学３年生）上限6,000円</div>
+            <a class="ar-go" href="https://www.city.mito.lg.jp/site/kosodate/128178.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="mito-shugaku-enjo">
+            <div class="ar-name"><b>就学援助制度（要保護及び準要保護児童生徒就学援助制度）</b><small>経済的な理由により、お子さんに教育を受けさせることが困難な保護者に対して、学校教育で必要な費用の一部を援助します。<br>対象：市内に住所を有し、国公立の小学校・中学校・義務教育学校・中等教育学校前期課程に在学するお子さんの保護者／生活保護を受けている方（要保護者）</small><span class="ar-prov">水戸市 学校管理課</span></div>
+            <div class="ar-amt">要確認（支給額等は「令和８年度就学援助制度のお知らせ」に記載）</div>
+            <a class="ar-go" href="https://www.city.mito.lg.jp/site/education/3517.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>4件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="mito-block">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>危険なブロック塀等撤去費補助</b><small>通学路や主要道路に面した危険なブロック塀等の撤去費用を補助する。事前相談が必要。<br>対象：通学路・災害時の主要道路に面し倒壊の危険があると市長が認める塀／交付決定通知後に契約すること<br>期間：令和8年度は4月1日〜11月30日（予定件数に達し次第終了）<br>締切：2026-11-30</small><span class="ar-prov">茨城県水戸市</span></div>
+            <div class="ar-amt">工事費の3分の2、1mあたり14,000円の3分の2、上限20万円のうち最も低い額</div>
+            <a class="ar-go" href="https://www.city.mito.lg.jp/page/47266.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="mito-jutaku-taiyoko">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>令和8年度住宅用太陽光発電システム設置補助制度</b><small>住宅への太陽光発電システム設置の補助。<br>対象：パワーコンディショナー出力が10kW未満<br>期間：令和8年度</small><span class="ar-prov">水戸市</span></div>
+            <div class="ar-amt">最大5万円</div>
+            <a class="ar-go" href="https://www.city.mito.lg.jp/site/ondanka/69504.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="mito-mokuzo-taishin-kaishu">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>水戸市木造住宅耐震改修費補助</b><small>木造住宅の耐震改修費用の補助。<br>期間：令和8年4月1日～11月30日（予算なくなり次第終了）<br>締切：2026-11-30</small><span class="ar-prov">水戸市</span></div>
+            <div class="ar-amt">設計費の1/2（上限10万円）、工事費の23%（上限50万円）、設計と工事を一体で行う場合は工事費の4/5（上限115万円）</div>
+            <a class="ar-go" href="https://www.city.mito.lg.jp/page/47264.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="mito-v2h">
+            <div class="ar-name"><b><span class="ar-tag">EV・充電</span>令和8年度水戸市電気自動車等充給電設備（V2Hシステム）設置補助制度 <span class="area-ended-tag">受付終了</span></b><small>V2Hシステム設置の補助。予算上限に達し受付終了。<br>期間：受付終了（令和8年度）</small><span class="ar-prov">水戸市</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.mito.lg.jp/site/ondanka/96177.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-iju">移住<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="mito-iju-shienkin">
+            <div class="ar-name"><b>水戸市移住支援事業（移住支援金）</b><small>東京23区等から移住し、対象企業に就職または起業した人に支給する。<br>対象：転入前の特別区居住・通勤期間が合計1年以上など／対象法人への就業または起業<br>期間：令和8年度</small><span class="ar-prov">茨城県水戸市</span></div>
+            <div class="ar-amt">単身60万円・2人以上世帯100万円（18歳未満の子1人につき100万円加算）</div>
+            <a class="ar-go" href="https://www.city.mito.lg.jp/page/2093.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>茨城県の制度</strong></p>
+          <ul><li><a href="pref-ibaraki.html#ibaraki-iju-shienkin">わくわく茨城生活実現事業（茨城県移住支援金）</a></li></ul>
+          <p><a href="pref-ibaraki.html#pref-resident">茨城県の制度1件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">茨城県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">水戸市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-ibaraki.html#ibaraki-challenge-fund">いばらきチャレンジ基金事業</a></li><li><a href="pref-ibaraki.html#ibaraki-digital-skill-hojo">デジタルスキル習得支援事業補助金</a></li><li><a href="pref-ibaraki.html#ibaraki-josei-wakamono-sogyo-yushi">茨城県 女性・若者・障害者創業支援融資</a></li><li><a href="pref-ibaraki.html#ibaraki-shoene-setsubi-hojo">中小規模事業所省エネ対策設備導入補助金</a></li><li><a href="pref-ibaraki.html#ibaraki-shokibo-shien-yushi">茨城県 小規模企業支援融資</a></li></ul>
-          <p><a href="pref-ibaraki.html#pref-business">茨城県の制度6件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="mito-city-chusho-shinko-shien">
+            <div class="ar-name"><b>水戸市中小企業振興支援補助金</b><small>物価高騰・人材不足・DX等に対応する5種の補助事業（デジタルツール導入、人材確保・育成、販路拡大など）。事前申請制。<br>対象：市内の中小企業者等／申請前に事業に着手していないこと</small><span class="ar-prov">水戸市 商工課</span></div>
+            <div class="ar-amt">デジタルツール導入は1/2以内・上限100万円、人材確保・育成と販路拡大は1/2以内・上限20万円</div>
+            <a class="ar-go" href="https://www.city.mito.lg.jp/page/75067.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="mito-city-machinaka-akitenpo">
+            <div class="ar-name"><b>水戸市まちなか空き店舗対策補助制度</b><small>まちなかの空き店舗を借りて営業を始める創業者等に店舗改装費の一部を補助する。<br>対象：空き店舗を借りて出店する創業者等</small><span class="ar-prov">水戸市 商工課</span></div>
+            <div class="ar-amt">改装費の補助率1/2以内</div>
+            <a class="ar-go" href="https://www.city.mito.lg.jp/site/mito-sougyou/1934.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="mito-city-maruke-risihokyu">
+            <div class="ar-name"><b>水戸市マル経融資利子補給制度</b><small>小規模事業者経営改善資金（マル経融資）の利子の一部を補給する。<br>対象：マル経融資を利用した小規模事業者</small><span class="ar-prov">水戸市 商工課</span></div>
+            <div class="ar-amt">利率1%分以内を3年間補給（融資限度額1,000万円）</div>
+            <a class="ar-go" href="https://www.city.mito.lg.jp/page/3636.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="mito-city-sogyo-risihokyu">
+            <div class="ar-name"><b>水戸市創業支援利子補給制度</b><small>創業のための融資を受けた事業者に利子の一部を補給する。<br>対象：創業のための融資を受けた創業者</small><span class="ar-prov">水戸市 商工課</span></div>
+            <div class="ar-amt">利率1%分を融資実行から3年間補給</div>
+            <a class="ar-go" href="https://www.city.mito.lg.jp/page/4738.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="mito-city-sogyoki-shien">
+            <div class="ar-name"><b>水戸市創業期支援補助金</b><small>創業予定者・創業後3年未満の事業者のHP作成、広告掲載、展示会参加等の費用を補助する。事前申請制。<br>対象：認定特定創業支援等事業による支援を受けた創業予定者／創業後3年未満の事業者</small><span class="ar-prov">水戸市 商工課</span></div>
+            <div class="ar-amt">補助率1/2、上限20万円</div>
+            <a class="ar-go" href="https://www.city.mito.lg.jp/page/4270.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">茨城県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>水戸市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="mito-mokuzo-taishin-kaishu">
-            <h3>水戸市木造住宅耐震改修費補助</h3>
-            <p class="area-meta">水戸市｜補助金｜設計費の1/2（上限10万円）、工事費の23%（上限50万円）、設計と工事を一体で行う場合は工事費の4/5（上限115万円）｜締切：2026-11-30</p>
-            <p class="area-meta">期間：令和8年4月1日～11月30日（予算なくなり次第終了）</p>
-            <p>木造住宅の耐震改修費用の補助。</p>
-            
-            <p><a href="https://www.city.mito.lg.jp/page/47264.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program" id="mito-jutaku-taiyoko">
-            <h3>令和8年度住宅用太陽光発電システム設置補助制度</h3>
-            <p class="area-meta">水戸市｜補助金｜最大5万円</p>
-            <p class="area-meta">期間：令和8年度</p>
-            <p>住宅への太陽光発電システム設置の補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>パワーコンディショナー出力が10kW未満</li></ul>
-            <p><a href="https://www.city.mito.lg.jp/site/ondanka/69504.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
-          <div class="area-program is-ended" id="mito-v2h">
-            <h3>令和8年度水戸市電気自動車等充給電設備（V2Hシステム）設置補助制度 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">水戸市｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：受付終了（令和8年度）</p>
-            <p>V2Hシステム設置の補助。予算上限に達し受付終了。</p>
-            
-            <p><a href="https://www.city.mito.lg.jp/site/ondanka/96177.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="mito-block">
-            <h3>危険なブロック塀等撤去費補助</h3>
-            <p class="area-meta">茨城県水戸市｜補助金｜工事費の3分の2、1mあたり14,000円の3分の2、上限20万円のうち最も低い額｜締切：2026-11-30</p>
-            <p class="area-meta">期間：令和8年度は4月1日〜11月30日（予定件数に達し次第終了）</p>
-            <p>通学路や主要道路に面した危険なブロック塀等の撤去費用を補助する。事前相談が必要。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>通学路・災害時の主要道路に面し倒壊の危険があると市長が認める塀</li><li>交付決定通知後に契約すること</li></ul>
-            <p><a href="https://www.city.mito.lg.jp/page/47266.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-6">子育て</h3>
-          <div class="area-program" id="mito-kosodate-machinaka">
-            <h3>水戸市子育てまちなか住宅取得補助金</h3>
-            <p class="area-meta">茨城県水戸市｜補助金｜住宅・土地取得費の2%（上限30万円）、多子・空き家中古取得・市外転入で各10万円加算</p>
-            <p class="area-meta">期間：掲載ページは令和7年度分（4/1〜11/28）。最新は要確認</p>
-            <p>対象区域内で住宅を取得する子育て世帯への補助金。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>契約日に15歳到達後最初の3月31日までの子がいる世帯</li><li>対象区域内の住宅取得</li></ul>
-            <p><a href="https://www.city.mito.lg.jp/page/4153.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="mito-shinnyusei-ouenkin">
-            <h3>小・中学校新入生応援金</h3>
-            <p class="area-meta">水戸市｜給付｜支給対象児童1人当たり 3万円｜締切：2027-03-31</p>
-            <p class="area-meta">期間：申請期限は令和9年3月31日まで</p>
-            <p>小学校又は中学校に入学する年齢のこどもがいる子育て世帯等に、経済的負担の軽減と学びの環境を整えるための支援として応援金を支給します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>令和8年5月1日時点で水戸市に住民登録があり、令和8年度に小学校又は中学校に就学する年齢に相当する児童を監護する方</li></ul>
-            <p><a href="https://www.city.mito.lg.jp/site/kosodate/125050.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="mito-youikuhi-uketori-shien">
-            <h3>こどもの養育費受取支援補助金</h3>
-            <p class="area-meta">水戸市 こども政策課｜補助金｜補助上限額 49，000円</p>
-            <p class="area-meta">期間：通年（要確認）</p>
-            <p>ひとり親の方または離婚協議中で離婚後に子を扶養する予定の方に対し、養育費の取決めに関する公正証書の作成手数料等を補助します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>水戸市内にお住まいで、ひとり親の方または離婚協議中で離婚後に子を扶養する予定の方</li><li>1年以内に公正証書、裁判所の調停証書、判決書などを作成または取得した方</li><li>過去に同様の補助金等を受けていない方</li></ul>
-            <p><a href="https://www.city.mito.lg.jp/site/kosodate/98225.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-7">医療・福祉</h3>
-          <div class="area-program" id="mito-marufuku-iryohi-josei">
-            <h3>医療福祉費助成制度（マル福制度）</h3>
-            <p class="area-meta">水戸市 国保年金課｜助成金｜自己負担：外来は1つの医療機関につき1日600円まで、入院は1日300円まで（月の上限3,000円）、調剤薬局は自己負担なし</p>
-            <p class="area-meta">期間：通年（要確認）</p>
-            <p>妊産婦・子ども・ひとり親家庭の親と子・重度心身障害者などの方が医療機関等にかかった場合に、一部負担金を助成する制度です。茨城県と水戸市が実施しています。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>妊産婦・子ども・ひとり親家庭の親と子・重度心身障害者などの医療福祉受給対象者の方</li><li>医療福祉費受給者証（マル福）の交付を受ける申請手続きが必要</li></ul>
-            <p><a href="https://www.city.mito.lg.jp/page/2147.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-8">教育・学び</h3>
-          <div class="area-program" id="mito-daigaku-juken-shien">
-            <h3>令和８年度大学等受験料及び模擬試験受験料支援事業補助金</h3>
-            <p class="area-meta">水戸市 こども政策課｜補助金｜大学等受験料 上限53,000円／模擬試験受験料（高校３年生等）上限8,000円／模擬試験受験料（中学３年生）上限6,000円</p>
-            <p class="area-meta">期間：令和８年８月３日（月）から令和９年３月12日（金）まで ※郵送必着</p>
-            <p>ひとり親家庭や低所得子育て世帯のこどもの進学を支援するために、大学等受験料や模擬試験受験料を補助します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>申請日時点で申請者（保護者）の住民登録が水戸市にあること</li><li>児童扶養手当受給世帯、生活保護受給世帯、住民税非課税世帯のいずれかに該当する方</li></ul>
-            <p><a href="https://www.city.mito.lg.jp/site/kosodate/128178.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="mito-shugaku-enjo">
-            <h3>就学援助制度（要保護及び準要保護児童生徒就学援助制度）</h3>
-            <p class="area-meta">水戸市 学校管理課｜給付｜要確認（支給額等は「令和８年度就学援助制度のお知らせ」に記載）</p>
-            <p class="area-meta">期間：通年（要確認）</p>
-            <p>経済的な理由により、お子さんに教育を受けさせることが困難な保護者に対して、学校教育で必要な費用の一部を援助します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内に住所を有し、国公立の小学校・中学校・義務教育学校・中等教育学校前期課程に在学するお子さんの保護者</li><li>生活保護を受けている方（要保護者）</li><li>要保護者に準ずる程度に困窮していると認められる方（準要保護者）</li></ul>
-            <p><a href="https://www.city.mito.lg.jp/site/education/3517.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-9">移住</h3>
-          <div class="area-program" id="mito-iju-shienkin">
-            <h3>水戸市移住支援事業（移住支援金）</h3>
-            <p class="area-meta">茨城県水戸市｜給付｜単身60万円・2人以上世帯100万円（18歳未満の子1人につき100万円加算）</p>
-            <p class="area-meta">期間：令和8年度</p>
-            <p>東京23区等から移住し、対象企業に就職または起業した人に支給する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>転入前の特別区居住・通勤期間が合計1年以上など</li><li>対象法人への就業または起業</li></ul>
-            <p><a href="https://www.city.mito.lg.jp/page/2093.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>茨城県の制度</strong></p>
-          <ul><li><a href="pref-ibaraki.html#ibaraki-iju-shienkin">わくわく茨城生活実現事業（茨城県移住支援金）</a></li></ul>
-          <p><a href="pref-ibaraki.html#pref-resident">茨城県の制度1件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-ibaraki.html#ibaraki-challenge-fund">いばらきチャレンジ基金事業</a></li><li><a href="pref-ibaraki.html#ibaraki-digital-skill-hojo">デジタルスキル習得支援事業補助金</a></li><li><a href="pref-ibaraki.html#ibaraki-josei-wakamono-sogyo-yushi">茨城県 女性・若者・障害者創業支援融資</a></li><li><a href="pref-ibaraki.html#ibaraki-shoene-setsubi-hojo">中小規模事業所省エネ対策設備導入補助金</a></li><li><a href="pref-ibaraki.html#ibaraki-shokibo-shien-yushi">茨城県 小規模企業支援融資</a></li></ul>
+          <p><a href="pref-ibaraki.html#pref-business">茨城県の制度6件を、県のページで見る →</a></p>
       </div>
     </section>
 

@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"久留米市","item":"https://hojyokin.net/area/kurume.html"}]}</script>
@@ -165,153 +207,111 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 久留米市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b05.webp')"><h1 class="pb-title">久留米市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-fukuoka.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">福岡県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">福岡県 久留米市</p>
+        <h1>久留米市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度11件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-fukuoka.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（久留米市）<b>5件</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（福岡県）<b>4件（うち受付終了3件）</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>6件（うち受付終了1件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-4">空き家・ブロック塀 3</a><a href="#res-cat-5">バリアフリー・介護 2</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <span class="is-none"><i aria-hidden="true">👶</i><b>子育て</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>掲載なし</small></span>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>6件</small></a>
+      <span class="is-none"><i aria-hidden="true">🌱</i><b>移住</b><small>掲載なし</small></span>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市5件＋県4件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">久留米市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="kurume-city-digital-shokibo">
-            <h3>久留米市小規模事業者デジタル化支援補助金</h3>
-            <p class="area-meta">久留米市 商工政策課｜補助金｜補助率1/2・上限20万円｜締切：2026-12-28</p>
-            <p class="area-meta">期間：令和8年12月28日まで（予算上限到達で終了）</p>
-            <p>デジタル技術の導入・活用による生産性向上の取り組みを支援する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内小規模事業者</li></ul>
-            <p><a href="https://www.city.kurume.fukuoka.jp/1090sangyou/2020shoukougyou/3020joseiseido/2021-0423-1221-74.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/kurume-city-digital-shokibo.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>6件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="kurume-akiya-kaitai">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>久留米市 老朽危険空家等除却促進事業（危険な空き家の解体補助金）</b><small>老朽化した危険な空き家（木造）の解体費用を補助する。<br>対象：市内の木造建物／市内業者への発注<br>期間：令和8年4月21日から令和9年1月29日（予算がなくなり次第終了）<br>締切：2027-01-29</small><span class="ar-prov">久留米市</span></div>
+            <div class="ar-amt">除却工事費の2分の1、上限65万円</div>
+            <a class="ar-go" href="https://www.city.kurume.fukuoka.jp/1050kurashi/2080juutaku/3100akiya/2023-0619-0950-96.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="kurume-city-jinzai-kakuho">
-            <h3>久留米市人材確保支援事業費補助金</h3>
-            <p class="area-meta">久留米市 雇用労働担当｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：最新は要確認（令和8年度募集あり）</p>
-            <p>正規職員の確保に取り組む中小企業者等を支援する。令和8年度募集。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>正規職員の確保に取り組む市内中小企業者等</li></ul>
-            <p><a href="https://www.city.kurume.fukuoka.jp/1090sangyou/2060koyouroudou/3050jyosei/2024-0423-1402-80.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/kurume-city-jinzai-kakuho.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+          <div class="ar-row" id="kurume-akiya-katsuyo-reform">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>久留米市 空き家活用リフォーム助成事業補助金</b><small>空き家を活用するためのリフォーム費用を助成する。<br>対象：対象空き家の要件あり（詳細は要確認）</small><span class="ar-prov">久留米市</span></div>
+            <div class="ar-amt">対象工事費の50%（居住誘導区域内上限50万円、区域外上限30万円）</div>
+            <a class="ar-go" href="https://www.city.kurume.fukuoka.jp/1050kurashi/2080juutaku/3100akiya/2018-0416-1008-96.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="kurume-city-sentan-setsubi">
-            <h3>久留米市中小企業先端設備等導入支援補助金</h3>
-            <p class="area-meta">久留米市 商工政策課｜補助金｜補助率1/2・上限500万円｜締切：2026-12-28</p>
-            <p class="area-meta">期間：令和8年7月1日〜12月28日</p>
-            <p>設備投資により生産性向上・賃上げに取り組む事業者を支援する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>先端設備等導入計画の認定を受けた中小企業者</li></ul>
-            <p><a href="https://www.city.kurume.fukuoka.jp/1090sangyou/2020shoukougyou/3020joseiseido/2026-0617-1553-74.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/kurume-city-sentan-setsubi.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+          <div class="ar-row" id="kurume-block-tekkyo">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>久留米市 危険ブロック塀等撤去費補助事業</b><small>危険なブロック塀等の撤去費用の一部を助成する。<br>対象：対象ブロック塀の要件あり（詳細は要確認）</small><span class="ar-prov">久留米市</span></div>
+            <div class="ar-amt">上限16万円（補助率は要確認）</div>
+            <a class="ar-go" href="https://www.city.kurume.fukuoka.jp/1050kurashi/2080juutaku/3140taishinkaisyuu/2021-1014-1628-94.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="kurume-city-shinki-kaigyo-shikin">
-            <h3>久留米市新規開業資金（創業融資）</h3>
-            <p class="area-meta">久留米市 商工政策課｜融資｜融資2,000万円以内・利率1.26%（特定創業支援で1.16%）・保証料市負担・借入後1年間の利子全額補給</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>創業者向けの市制度融資。保証料は市が負担し、利子補給もある。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内で開業する具体的計画のある個人等</li></ul>
-            <p><a href="https://www.city.kurume.fukuoka.jp/1090sangyou/2020shoukougyou/3010shienseido/sinki01.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="kurume-jutaku-kaizo">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>久留米市 住宅改造費の助成（福岡住みよか事業）</b><small>重度の心身障害のある方の住宅改造費の一部を助成する。<br>対象：重度の心身障害のある方／所得要件あり（詳細は要確認）</small><span class="ar-prov">久留米市</span></div>
+            <div class="ar-amt">助成限度額30万円</div>
+            <a class="ar-go" href="https://www.city.kurume.fukuoka.jp/1070kenkou/2010fukushi/3030shougaishazaitaku/2015-0217-1516-91.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="kurume-city-shutten-sokushin">
-            <h3>久留米市地域商業等活性化出店促進事業費補助金</h3>
-            <p class="area-meta">久留米市 商工政策課｜補助金｜補助率50%以内・上限50万円（一部業種100万円）｜締切：2026-12-28</p>
-            <p class="area-meta">期間：事業計画認定申請 令和8年4月1日〜12月28日</p>
-            <p>空き店舗・空き家へ入居する際の店舗改装・新設費用を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>空き店舗・空き家に出店する事業者</li></ul>
-            <p><a href="https://www.city.kurume.fukuoka.jp/1090sangyou/2020shoukougyou/3020joseiseido/2020-1201-1241-74.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/kurume-city-shutten-sokushin.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+          <div class="ar-row" id="kurume-reform-josei">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>久留米市 住宅リフォーム助成事業（省エネ・バリアフリー改修）</b><small>省エネ改修またはバリアフリー改修（工事費10万円以上）を助成。市ページには令和8年度の募集は予定していないとの記載。<br>対象：省エネ・バリアフリー改修で工事費（税抜）10万円以上</small><span class="ar-prov">久留米市</span></div>
+            <div class="ar-amt">工事費の半額（上限10万円）</div>
+            <a class="ar-go" href="https://www.city.kurume.fukuoka.jp/1050kurashi/2080juutaku/3070sumaisoudan/2012-1017-1403-209.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          <div class="ar-row is-ended" id="kurume-mokuzo-taishin">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>久留米市木造住宅耐震改修等事業費補助金 <span class="area-ended-tag">受付終了</span></b><small>木造住宅の耐震改修等の費用を補助する。<br>対象：昭和56年5月31日以前に建築された木造住宅</small><span class="ar-prov">久留米市</span></div>
+            <div class="ar-amt">耐震改修は、工事見積額の50%、国の単価×延べ面積の50%、上限50万円のうち最も低い額</div>
+            <a class="ar-go" href="https://www.city.kurume.fukuoka.jp/1050kurashi/2080juutaku/3140taishinkaisyuu/2021-1229-0920-94.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>福岡県の制度</strong></p>
+          <ul><li><a href="pref-fukuoka.html#fukuoka-pref-iju-shienkin">福岡県 移住支援金</a></li><li><a href="pref-fukuoka.html#fukuoka-pref-kodomo-renove">福岡県こどもリノベ補助金</a></li><li><a href="pref-fukuoka.html#fukuoka-pref-mokuzo-taishin">福岡県 木造戸建て住宅の耐震化促進（市町村を通じた耐震改修等の補助）</a></li><li><a href="pref-fukuoka.html#fukuoka-sumiyoka-jutaku-kaizo">福岡県高齢者等在宅生活支援（住みよか）事業</a></li></ul>
+          <p><a href="pref-fukuoka.html#pref-resident">福岡県の制度4件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">福岡県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">久留米市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-fukuoka.html#fukuoka-shinki-sogyo-shikin">新規創業資金（福岡県中小企業融資制度）</a></li><li><a href="pref-fukuoka.html#fukuoka-keiei-kakushin-chinage">福岡県中小企業経営革新・賃上げ緊急支援補助金</a></li><li><a href="pref-fukuoka.html#fukuoka-shoene-shinseihin">福岡県省エネ新製品開発支援補助金</a></li><li><a href="pref-fukuoka.html#fukuoka-yokatoko-kigyo">福岡よかとこ起業支援金</a></li></ul>
-          <p><a href="pref-fukuoka.html#pref-business">福岡県の制度4件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="kurume-city-digital-shokibo">
+            <div class="ar-name"><b>久留米市小規模事業者デジタル化支援補助金</b><small>デジタル技術の導入・活用による生産性向上の取り組みを支援する。<br>対象：市内小規模事業者<br>期間：令和8年12月28日まで（予算上限到達で終了）<br>締切：2026-12-28</small><span class="ar-prov">久留米市 商工政策課</span></div>
+            <div class="ar-amt">補助率1/2・上限20万円</div>
+            <a class="ar-go" href="https://www.city.kurume.fukuoka.jp/1090sangyou/2020shoukougyou/3020joseiseido/2021-0423-1221-74.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kurume-city-jinzai-kakuho">
+            <div class="ar-name"><b>久留米市人材確保支援事業費補助金</b><small>正規職員の確保に取り組む中小企業者等を支援する。令和8年度募集。<br>対象：正規職員の確保に取り組む市内中小企業者等</small><span class="ar-prov">久留米市 雇用労働担当</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.kurume.fukuoka.jp/1090sangyou/2060koyouroudou/3050jyosei/2024-0423-1402-80.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kurume-city-sentan-setsubi">
+            <div class="ar-name"><b>久留米市中小企業先端設備等導入支援補助金</b><small>設備投資により生産性向上・賃上げに取り組む事業者を支援する。<br>対象：先端設備等導入計画の認定を受けた中小企業者<br>期間：令和8年7月1日〜12月28日<br>締切：2026-12-28</small><span class="ar-prov">久留米市 商工政策課</span></div>
+            <div class="ar-amt">補助率1/2・上限500万円</div>
+            <a class="ar-go" href="https://www.city.kurume.fukuoka.jp/1090sangyou/2020shoukougyou/3020joseiseido/2026-0617-1553-74.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kurume-city-shinki-kaigyo-shikin">
+            <div class="ar-name"><b>久留米市新規開業資金（創業融資）</b><small>創業者向けの市制度融資。保証料は市が負担し、利子補給もある。<br>対象：市内で開業する具体的計画のある個人等</small><span class="ar-prov">久留米市 商工政策課</span></div>
+            <div class="ar-amt">融資2,000万円以内・利率1.26%（特定創業支援で1.16%）・保証料市負担・借入後1年間の利子全額補給</div>
+            <a class="ar-go" href="https://www.city.kurume.fukuoka.jp/1090sangyou/2020shoukougyou/3010shienseido/sinki01.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="kurume-city-shutten-sokushin">
+            <div class="ar-name"><b>久留米市地域商業等活性化出店促進事業費補助金</b><small>空き店舗・空き家へ入居する際の店舗改装・新設費用を補助する。<br>対象：空き店舗・空き家に出店する事業者<br>期間：事業計画認定申請 令和8年4月1日〜12月28日<br>締切：2026-12-28</small><span class="ar-prov">久留米市 商工政策課</span></div>
+            <div class="ar-amt">補助率50%以内・上限50万円（一部業種100万円）</div>
+            <a class="ar-go" href="https://www.city.kurume.fukuoka.jp/1090sangyou/2020shoukougyou/3020joseiseido/2020-1201-1241-74.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">福岡県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>久留米市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program is-ended" id="kurume-mokuzo-taishin">
-            <h3>久留米市木造住宅耐震改修等事業費補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">久留米市｜補助金｜耐震改修は、工事見積額の50%、国の単価×延べ面積の50%、上限50万円のうち最も低い額</p>
-            <p class="area-meta">期間：令和7年度の耐震改修工事等の受付は終了。令和8年度の状況は要確認</p>
-            <p>木造住宅の耐震改修等の費用を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>昭和56年5月31日以前に建築された木造住宅</li></ul>
-            <p><a href="https://www.city.kurume.fukuoka.jp/1050kurashi/2080juutaku/3140taishinkaisyuu/2021-1229-0920-94.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="kurume-akiya-kaitai">
-            <h3>久留米市 老朽危険空家等除却促進事業（危険な空き家の解体補助金）</h3>
-            <p class="area-meta">久留米市｜補助金｜除却工事費の2分の1、上限65万円｜締切：2027-01-29</p>
-            <p class="area-meta">期間：令和8年4月21日から令和9年1月29日（予算がなくなり次第終了）</p>
-            <p>老朽化した危険な空き家（木造）の解体費用を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の木造建物</li><li>市内業者への発注</li></ul>
-            <p><a href="https://www.city.kurume.fukuoka.jp/1050kurashi/2080juutaku/3100akiya/2023-0619-0950-96.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="kurume-akiya-katsuyo-reform">
-            <h3>久留米市 空き家活用リフォーム助成事業補助金</h3>
-            <p class="area-meta">久留米市｜補助金｜対象工事費の50%（居住誘導区域内上限50万円、区域外上限30万円）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>空き家を活用するためのリフォーム費用を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>対象空き家の要件あり（詳細は要確認）</li></ul>
-            <p><a href="https://www.city.kurume.fukuoka.jp/1050kurashi/2080juutaku/3100akiya/2018-0416-1008-96.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="kurume-block-tekkyo">
-            <h3>久留米市 危険ブロック塀等撤去費補助事業</h3>
-            <p class="area-meta">久留米市｜補助金｜上限16万円（補助率は要確認）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>危険なブロック塀等の撤去費用の一部を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>対象ブロック塀の要件あり（詳細は要確認）</li></ul>
-            <p><a href="https://www.city.kurume.fukuoka.jp/1050kurashi/2080juutaku/3140taishinkaisyuu/2021-1014-1628-94.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
-          <div class="area-program" id="kurume-jutaku-kaizo">
-            <h3>久留米市 住宅改造費の助成（福岡住みよか事業）</h3>
-            <p class="area-meta">久留米市｜助成金｜助成限度額30万円</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>重度の心身障害のある方の住宅改造費の一部を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>重度の心身障害のある方</li><li>所得要件あり（詳細は要確認）</li></ul>
-            <p><a href="https://www.city.kurume.fukuoka.jp/1070kenkou/2010fukushi/3030shougaishazaitaku/2015-0217-1516-91.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="kurume-reform-josei">
-            <h3>久留米市 住宅リフォーム助成事業（省エネ・バリアフリー改修）</h3>
-            <p class="area-meta">久留米市｜助成金｜工事費の半額（上限10万円）</p>
-            <p class="area-meta">期間：令和8年度は募集予定なし（市ページ記載）。最新は要確認</p>
-            <p>省エネ改修またはバリアフリー改修（工事費10万円以上）を助成。市ページには令和8年度の募集は予定していないとの記載。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>省エネ・バリアフリー改修で工事費（税抜）10万円以上</li></ul>
-            <p><a href="https://www.city.kurume.fukuoka.jp/1050kurashi/2080juutaku/3070sumaisoudan/2012-1017-1403-209.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>福岡県の制度</strong></p>
-          <ul><li><a href="pref-fukuoka.html#fukuoka-pref-iju-shienkin">福岡県 移住支援金</a></li><li><a href="pref-fukuoka.html#fukuoka-pref-kodomo-renove">福岡県こどもリノベ補助金</a></li><li><a href="pref-fukuoka.html#fukuoka-pref-mokuzo-taishin">福岡県 木造戸建て住宅の耐震化促進（市町村を通じた耐震改修等の補助）</a></li><li><a href="pref-fukuoka.html#fukuoka-sumiyoka-jutaku-kaizo">福岡県高齢者等在宅生活支援（住みよか）事業</a></li></ul>
-          <p><a href="pref-fukuoka.html#pref-resident">福岡県の制度4件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-fukuoka.html#fukuoka-shinki-sogyo-shikin">新規創業資金（福岡県中小企業融資制度）</a></li><li><a href="pref-fukuoka.html#fukuoka-keiei-kakushin-chinage">福岡県中小企業経営革新・賃上げ緊急支援補助金</a></li><li><a href="pref-fukuoka.html#fukuoka-shoene-shinseihin">福岡県省エネ新製品開発支援補助金</a></li><li><a href="pref-fukuoka.html#fukuoka-yokatoko-kigyo">福岡よかとこ起業支援金</a></li></ul>
+          <p><a href="pref-fukuoka.html#pref-business">福岡県の制度4件を、県のページで見る →</a></p>
       </div>
     </section>
 

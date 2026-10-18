@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"江別市","item":"https://hojyokin.net/area/ebetsu.html"}]}</script>
@@ -165,114 +207,91 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 江別市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b06.webp')"><h1 class="pb-title">江別市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-hokkaido.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">北海道・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">北海道 江別市</p>
+        <h1>江別市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度7件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-hokkaido.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（江別市）<b>3件</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（北海道）<b>5件（うち受付終了2件）</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>4件（うち受付終了4件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <span class="is-none"><i aria-hidden="true">👶</i><b>子育て</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>掲載なし</small></span>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>4件</small></a>
+      <span class="is-none"><i aria-hidden="true">🌱</i><b>移住</b><small>掲載なし</small></span>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市3件＋県5件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">江別市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="ebetsu-city-kigyo-ricchi-koyo-hojokin">
-            <h3>江別市企業立地補助金（雇用補助金）</h3>
-            <p class="area-meta">江別市 企業立地推進室 企業立地課｜補助金｜市内居住者の雇用増1人あたり20万円、市外居住者10万円。年間上限1,000万円</p>
-            <p class="area-meta">期間：随時（工事着手前に認定申請）</p>
-            <p>企業立地条例に基づき、新設・増設で雇用を増やした事業者に雇用補助金を交付する。立地補助金等も用意されている。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>新設：固定資産評価額2,000万円以上（食関連施設は1,500万円以上）かつ雇用5人以上増</li><li>増設：増設部分の評価額2,000万円以上かつ雇用3人以上増</li><li>新設・増設の認定申請は工事着手日の90日前から30日前まで</li></ul>
-            <p><a href="https://www.city.ebetsu.hokkaido.jp/soshiki/kigyouricchi/16305.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>4件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row is-ended" id="ebetsu-akiya-kaitai">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>特定空家等解体補助金（令和8年度） <span class="area-ended-tag">受付終了</span></b><small>倒壊等のおそれがある特定空家等の解体費用を補助する。募集5件・先着順。<br>対象：特定空家等の所有者等（詳細は要確認）<br>期間：事前調査申請 令和8年5月8日〜8月28日。受付終了</small><span class="ar-prov">北海道江別市</span></div>
+            <div class="ar-amt">工事費の3分の1（上限30万円）</div>
+            <a class="ar-go" href="https://www.city.ebetsu.hokkaido.jp/soshiki/kenchikushido/67373.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="ebetsu-city-shokogyo-kasseika-hojo">
-            <h3>江別市商工業活性化事業補助金</h3>
-            <p class="area-meta">江別市 経済部 商工労働課｜補助金｜金額は公式で確認</p>
-            
-            <p>市内の経済活性化を図るため、中小企業や商店街などが行う事業の経費の一部を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の中小企業者・商店街等</li><li>事業実施前に申請すること</li></ul>
-            <p><a href="https://www.city.ebetsu.hokkaido.jp/soshiki/shoko/2244.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row is-ended" id="ebetsu-datsutanso">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>家庭向け脱炭素化普及促進補助金（令和8年度） <span class="area-ended-tag">受付終了</span></b><small>家庭への太陽光発電・定置用蓄電池の導入を補助する。<br>対象：市内住宅への設置（詳細は要確認）</small><span class="ar-prov">北海道江別市</span></div>
+            <div class="ar-amt">太陽光と定置用蓄電池の同時設置で20万円、どちらか一方で10万円</div>
+            <a class="ar-go" href="https://www.city.ebetsu.hokkaido.jp/soshiki/kankyo/128311.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="ebetsu-city-tokusanhin-kaihatsu-hojo">
-            <h3>江別市特産品開発事業補助金</h3>
-            <p class="area-meta">江別市 経済部 商工労働課｜補助金｜補助率1/2、上限50万円</p>
-            
-            <p>地域資源を活用した特産品の開発等に要する経費の一部を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内で特産品の開発等を行う事業者</li><li>詳細要件は要確認</li></ul>
-            <p><a href="https://www.city.ebetsu.hokkaido.jp/soshiki/shoko/150095.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row is-ended" id="ebetsu-reform-shokokaigisho">
+            <div class="ar-name"><b><span class="ar-tag">省エネ住宅</span>江別市住宅リフォーム助成金（江別商工会議所） <span class="area-ended-tag">受付終了</span></b><small>物価高騰対策として市内登録業者による居住用住宅リフォーム工事費を助成する。<br>対象：市内登録業者1社で税込20万円以上の工事／令和8年4月1日〜12月25日に着工・完了した居住用住宅<br>期間：申請受付 令和8年4月10日〜6月10日（受付終了）。工事対象期間は令和8年12月25日まで<br>締切：2026-06-10</small><span class="ar-prov">北海道江別市</span></div>
+            <div class="ar-amt">工事費の10%（上限10万円）</div>
+            <a class="ar-go" href="https://www.city.ebetsu.hokkaido.jp/soshiki/shoko/118308.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          <div class="ar-row is-ended" id="ebetsu-taishin">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>木造住宅耐震診断・補強設計・耐震改修・除却補助金 <span class="area-ended-tag">受付終了</span></b><small>昭和56年5月31日以前着工の木造住宅の耐震診断・改修・除却を補助する。<br>対象：昭和56年5月31日以前に着工された市内の木造住宅</small><span class="ar-prov">北海道江別市</span></div>
+            <div class="ar-amt">耐震改修は対象経費の23%以内（上限82.2万円）、除却は23%以内（上限30万円）</div>
+            <a class="ar-go" href="https://www.city.ebetsu.hokkaido.jp/site/kenchikusidousub/2267.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>北海道の制度</strong></p>
+          <ul><li><a href="pref-hokkaido.html#hokkaido-iju-shienkin">北海道 移住支援金（UIJターン新規就業支援事業）</a></li><li><a href="pref-hokkaido.html#hokkaido-zerocarbon-sumai">住まいのゼロカーボン化推進事業</a></li></ul>
+          <p><a href="pref-hokkaido.html#pref-resident">北海道の制度2件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">北海道の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">江別市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-hokkaido.html#hokkaido-sogyo-kasitsuke">中小企業総合振興資金 創業貸付</a></li><li><a href="pref-hokkaido.html#hokkaido-sogyo-sokushin">創業促進支援事業（北海道中小企業総合支援センター）</a></li><li><a href="pref-hokkaido.html#hokkaido-step-up-koyo">中小企業総合振興資金 ステップアップ貸付（事業活性化・雇用）</a></li><li><a href="pref-hokkaido.html#hokkaido-chiiki-kadai-kigyo">地域課題解決型起業支援事業（起業支援金）</a></li><li><a href="pref-hokkaido.html#hokkaido-chusho-kyosoryoku-marketing">中小企業競争力強化促進事業（マーケティング支援）</a></li></ul>
-          <p><a href="pref-hokkaido.html#pref-business">北海道の制度5件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="ebetsu-city-kigyo-ricchi-koyo-hojokin">
+            <div class="ar-name"><b>江別市企業立地補助金（雇用補助金）</b><small>企業立地条例に基づき、新設・増設で雇用を増やした事業者に雇用補助金を交付する。立地補助金等も用意されている。<br>対象：新設：固定資産評価額2,000万円以上（食関連施設は1,500万円以上）かつ雇用5人以上増／増設：増設部分の評価額2,000万円以上かつ雇用3人以上増<br>期間：随時（工事着手前に認定申請）</small><span class="ar-prov">江別市 企業立地推進室 企業立地課</span></div>
+            <div class="ar-amt">市内居住者の雇用増1人あたり20万円、市外居住者10万円。年間上限1,000万円</div>
+            <a class="ar-go" href="https://www.city.ebetsu.hokkaido.jp/soshiki/kigyouricchi/16305.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="ebetsu-city-shokogyo-kasseika-hojo">
+            <div class="ar-name"><b>江別市商工業活性化事業補助金</b><small>市内の経済活性化を図るため、中小企業や商店街などが行う事業の経費の一部を補助する。<br>対象：市内の中小企業者・商店街等／事業実施前に申請すること</small><span class="ar-prov">江別市 経済部 商工労働課</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.ebetsu.hokkaido.jp/soshiki/shoko/2244.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="ebetsu-city-tokusanhin-kaihatsu-hojo">
+            <div class="ar-name"><b>江別市特産品開発事業補助金</b><small>地域資源を活用した特産品の開発等に要する経費の一部を補助する。<br>対象：市内で特産品の開発等を行う事業者／詳細要件は要確認</small><span class="ar-prov">江別市 経済部 商工労働課</span></div>
+            <div class="ar-amt">補助率1/2、上限50万円</div>
+            <a class="ar-go" href="https://www.city.ebetsu.hokkaido.jp/soshiki/shoko/150095.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">北海道の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>江別市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program is-ended" id="ebetsu-taishin">
-            <h3>木造住宅耐震診断・補強設計・耐震改修・除却補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">北海道江別市｜補助金｜耐震改修は対象経費の23%以内（上限82.2万円）、除却は23%以内（上限30万円）</p>
-            <p class="area-meta">期間：受付終了（2026年9月9日更新時点）。次年度は最新は要確認</p>
-            <p>昭和56年5月31日以前着工の木造住宅の耐震診断・改修・除却を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>昭和56年5月31日以前に着工された市内の木造住宅</li></ul>
-            <p><a href="https://www.city.ebetsu.hokkaido.jp/site/kenchikusidousub/2267.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program is-ended" id="ebetsu-datsutanso">
-            <h3>家庭向け脱炭素化普及促進補助金（令和8年度） <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">北海道江別市｜補助金｜太陽光と定置用蓄電池の同時設置で20万円、どちらか一方で10万円</p>
-            <p class="area-meta">期間：予算上限に達したため受付終了。次年度は最新は要確認</p>
-            <p>家庭への太陽光発電・定置用蓄電池の導入を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内住宅への設置（詳細は要確認）</li></ul>
-            <p><a href="https://www.city.ebetsu.hokkaido.jp/soshiki/kankyo/128311.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
-          <div class="area-program is-ended" id="ebetsu-reform-shokokaigisho">
-            <h3>江別市住宅リフォーム助成金（江別商工会議所） <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">北海道江別市｜助成金｜工事費の10%（上限10万円）｜締切：2026-06-10</p>
-            <p class="area-meta">期間：申請受付 令和8年4月10日〜6月10日（受付終了）。工事対象期間は令和8年12月25日まで</p>
-            <p>物価高騰対策として市内登録業者による居住用住宅リフォーム工事費を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内登録業者1社で税込20万円以上の工事</li><li>令和8年4月1日〜12月25日に着工・完了した居住用住宅</li></ul>
-            <p><a href="https://www.city.ebetsu.hokkaido.jp/soshiki/shoko/118308.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program is-ended" id="ebetsu-akiya-kaitai">
-            <h3>特定空家等解体補助金（令和8年度） <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">北海道江別市｜補助金｜工事費の3分の1（上限30万円）</p>
-            <p class="area-meta">期間：事前調査申請 令和8年5月8日〜8月28日。受付終了</p>
-            <p>倒壊等のおそれがある特定空家等の解体費用を補助する。募集5件・先着順。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>特定空家等の所有者等（詳細は要確認）</li></ul>
-            <p><a href="https://www.city.ebetsu.hokkaido.jp/soshiki/kenchikushido/67373.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>北海道の制度</strong></p>
-          <ul><li><a href="pref-hokkaido.html#hokkaido-iju-shienkin">北海道 移住支援金（UIJターン新規就業支援事業）</a></li><li><a href="pref-hokkaido.html#hokkaido-zerocarbon-sumai">住まいのゼロカーボン化推進事業</a></li></ul>
-          <p><a href="pref-hokkaido.html#pref-resident">北海道の制度2件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-hokkaido.html#hokkaido-sogyo-kasitsuke">中小企業総合振興資金 創業貸付</a></li><li><a href="pref-hokkaido.html#hokkaido-sogyo-sokushin">創業促進支援事業（北海道中小企業総合支援センター）</a></li><li><a href="pref-hokkaido.html#hokkaido-step-up-koyo">中小企業総合振興資金 ステップアップ貸付（事業活性化・雇用）</a></li><li><a href="pref-hokkaido.html#hokkaido-chiiki-kadai-kigyo">地域課題解決型起業支援事業（起業支援金）</a></li><li><a href="pref-hokkaido.html#hokkaido-chusho-kyosoryoku-marketing">中小企業競争力強化促進事業（マーケティング支援）</a></li></ul>
+          <p><a href="pref-hokkaido.html#pref-business">北海道の制度5件を、県のページで見る →</a></p>
       </div>
     </section>
 

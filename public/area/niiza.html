@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"新座市","item":"https://hojyokin.net/area/niiza.html"}]}</script>
@@ -165,141 +207,106 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 新座市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b09.webp')"><h1 class="pb-title">新座市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-saitama.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">埼玉県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">埼玉県 新座市</p>
+        <h1>新座市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度10件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-saitama.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（新座市）<b>5件</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（埼玉県）<b>5件</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>5件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-3">省エネ住宅 2</a><a href="#res-cat-4">空き家・ブロック塀 1</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <span class="is-none"><i aria-hidden="true">👶</i><b>子育て</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>掲載なし</small></span>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>5件</small></a>
+      <span class="is-none"><i aria-hidden="true">🌱</i><b>移住</b><small>掲載なし</small></span>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市5件＋県5件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">新座市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="niiza-city-it-dx-hojo">
-            <h3>新座市中小企業者IT・DX導入費補助金</h3>
-            <p class="area-meta">新座市 産業振興課｜補助金｜対象経費の1/2（上限7万円。ページにより10万円の記載もあり要確認）｜締切：2027-02-26</p>
-            <p class="area-meta">期間：交付申請は令和9年2月26日まで（予算上限に達し次第終了）</p>
-            <p>中小企業者のIT・DX導入に係る経費の一部を助成する。予算上限に達すると受付終了。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>新座市内の中小企業者</li><li>IT・DX導入に係る経費があること</li></ul>
-            <p><a href="https://www.city.niiza.lg.jp/site/business-support/itdx.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>5件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="niiza-block">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>新座市ブロック塀等撤去・築造工事助成制度</b><small>ブロック塀等の撤去、または撤去とフェンス設置の費用を助成。<br>対象：公道等に面し高さ1.2m超／市登録業者に依頼、契約前に申請</small><span class="ar-prov">埼玉県新座市</span></div>
+            <div class="ar-amt">撤去:1mあたり5,000円(上限20万円)、フェンス築造:1mあたり15,000円(上限40万円)、併用時合計上限40万円</div>
+            <a class="ar-go" href="https://www.city.niiza.lg.jp/soshiki/34/heizyosei.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="niiza-city-jigyoshokei-ma">
-            <h3>新座市事業承継・M&amp;A支援事業補助金</h3>
-            <p class="area-meta">新座市 産業振興課｜補助金｜対象経費の1/2（上限20万円。一覧ページの記載）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>事業承継やM&amp;Aに取り組む市内事業者の経費の一部を補助する。詳細は個別ページで要確認。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>新座市内の事業者</li><li>事業承継・M&amp;Aに取り組むこと（詳細要件は要確認）</li></ul>
-            <p><a href="https://www.city.niiza.lg.jp/site/business-support/syokei.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="niiza-solar">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>令和8年度新座市太陽光発電設備等設置費補助金</b><small>自己居住用住宅への太陽光発電設備等の設置費を補助。個人向け蓄電池分は6/9以降受付停止(7/9時点)。<br>対象：市内に住所があり自己の居住用住宅に設置<br>期間：2026年5月1日〜2026年12月10日(予算に達し次第終了)<br>締切：2026-12-10</small><span class="ar-prov">埼玉県新座市</span></div>
+            <div class="ar-amt">90,000円/kW(個人は通常5kWが上限)</div>
+            <a class="ar-go" href="https://www.city.niiza.lg.jp/soshiki/15/taiyokohojokin.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="niiza-city-keiei-kakushin-hojo">
-            <h3>新座市経営革新計画支援事業補助金</h3>
-            <p class="area-meta">新座市 産業振興課｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>経営革新計画に取り組む市内中小企業を支援する補助金。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>新座市内の中小企業者</li><li>経営革新計画の承認を受けること（詳細は要確認）</li></ul>
-            <p><a href="https://www.city.niiza.lg.jp/site/business-support/keieikakusin.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="niiza-taishin">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>新座市耐震助成制度</b><small>木造住宅の耐震診断・耐震改修等の費用を助成。<br>対象：昭和56年5月31日以前に着工した建築物／契約前の申請が必要</small><span class="ar-prov">埼玉県新座市</span></div>
+            <div class="ar-amt">診断:一般2/3(上限5万円)・高齢者等同居は全額上限10万円、改修のみ:一般上限30万円・高齢者等上限60万円</div>
+            <a class="ar-go" href="https://www.city.niiza.lg.jp/soshiki/34/kentikukaihatu2.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="niiza-city-sogyo-shien-hojo">
-            <h3>新座市創業支援補助金</h3>
-            <p class="area-meta">新座市 産業振興課（にいざビジネスサポート）｜補助金｜対象経費の1/2（個人事業主 上限5万円、法人・設立予定者 上限8万円）｜締切：2027-03-31</p>
-            <p class="area-meta">期間：予算上限に達し次第終了（期限は令和9年3月31日）</p>
-            <p>特定創業支援の証明書を受け創業計画書を策定した創業者の、備品購入費・内装費・販促費・広報費・外注費・法人設立費用などを補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>創業日が令和7年4月1日以後で創業から1年以内、または年度内に創業予定</li><li>特定創業支援の証明書（商工会の継続相談）を受けていること</li><li>にいざビジネスサポートの経営相談を複数回利用し創業計画書を策定していること</li></ul>
-            <p><a href="https://www.city.niiza.lg.jp/site/business-support/sougyoushienhozyo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/niiza-city-sogyo-shien-hojo.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+          <div class="ar-row" id="niiza-takuhai">
+            <div class="ar-name"><b><span class="ar-tag">省エネ住宅</span>新座市宅配ボックス設置補助金(2026年度)</b><small>盗難防止機能付き宅配ボックスを住宅に新設した方への補助。<br>対象：盗難防止機能のある宅配ボックスを新たに設置</small><span class="ar-prov">埼玉県新座市</span></div>
+            <div class="ar-amt">戸建ては上限2万円</div>
+            <a class="ar-go" href="https://www.city.niiza.lg.jp/soshiki/19/takuhai-hojyo2026.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="niiza-city-sogyo-yushi-risihokyu">
-            <h3>新座市新規創業融資利子補給金</h3>
-            <p class="area-meta">新座市 産業振興課｜融資｜利子補給率1.5%（貸付利率が1.5%未満の場合はその利率）、対象借入上限1,000万円、補給期間3年</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>創業時の融資に対する利子の一部を市が補給する制度。補給率などは要確認。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>新座市内で新規創業する事業者</li><li>対象となる創業融資を利用していること（詳細は要確認）</li></ul>
-            <p><a href="https://www.city.niiza.lg.jp/site/business-support/sinkisougyouyuusirisihokyu.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="niiza-zerocarbon">
+            <div class="ar-name"><b><span class="ar-tag">省エネ住宅</span>令和8年度新座市ゼロカーボン推進補助金</b><small>高効率空調機器・照明機器など省エネ設備の導入を補助(令和8年度)。</small><span class="ar-prov">埼玉県新座市</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.niiza.lg.jp/soshiki/15/zerokabonhojokin.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          </div>
+          <p><strong>埼玉県の制度</strong></p>
+          <ul><li><a href="pref-saitama.html#saitama-katei-shoene-saiene">家庭における省エネ・再エネ活用設備導入補助金</a></li><li><a href="pref-saitama.html#saitama-pref-iju-shienkin">埼玉県移住支援金</a></li></ul>
+          <p><a href="pref-saitama.html#pref-resident">埼玉県の制度2件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">埼玉県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">新座市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-saitama.html#saitama-dx-donyu-hojo">埼玉県中小企業DX導入支援補助金（追加募集）</a></li><li><a href="pref-saitama.html#saitama-jinzai-katsuyo-hojo">埼玉県人材活用促進事業補助金</a></li><li><a href="pref-saitama.html#saitama-kigyoka-ikusei-shikin">埼玉県制度融資 起業家育成資金</a></li><li><a href="pref-saitama.html#saitama-shokibo-jigyo-shikin">埼玉県制度融資 小規模事業資金</a></li><li><a href="pref-saitama.html#saitama-shoryokuka-hojo">埼玉県中小企業省力化支援事業補助金【新規導入】</a></li></ul>
-          <p><a href="pref-saitama.html#pref-business">埼玉県の制度5件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="niiza-city-it-dx-hojo">
+            <div class="ar-name"><b>新座市中小企業者IT・DX導入費補助金</b><small>中小企業者のIT・DX導入に係る経費の一部を助成する。予算上限に達すると受付終了。<br>対象：新座市内の中小企業者／IT・DX導入に係る経費があること<br>期間：交付申請は令和9年2月26日まで（予算上限に達し次第終了）<br>締切：2027-02-26</small><span class="ar-prov">新座市 産業振興課</span></div>
+            <div class="ar-amt">対象経費の1/2（上限7万円。ページにより10万円の記載もあり要確認）</div>
+            <a class="ar-go" href="https://www.city.niiza.lg.jp/site/business-support/itdx.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="niiza-city-jigyoshokei-ma">
+            <div class="ar-name"><b>新座市事業承継・M&amp;A支援事業補助金</b><small>事業承継やM&amp;Aに取り組む市内事業者の経費の一部を補助する。詳細は個別ページで要確認。<br>対象：新座市内の事業者／事業承継・M&amp;Aに取り組むこと（詳細要件は要確認）</small><span class="ar-prov">新座市 産業振興課</span></div>
+            <div class="ar-amt">対象経費の1/2（上限20万円。一覧ページの記載）</div>
+            <a class="ar-go" href="https://www.city.niiza.lg.jp/site/business-support/syokei.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="niiza-city-keiei-kakushin-hojo">
+            <div class="ar-name"><b>新座市経営革新計画支援事業補助金</b><small>経営革新計画に取り組む市内中小企業を支援する補助金。<br>対象：新座市内の中小企業者／経営革新計画の承認を受けること（詳細は要確認）</small><span class="ar-prov">新座市 産業振興課</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.niiza.lg.jp/site/business-support/keieikakusin.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="niiza-city-sogyo-shien-hojo">
+            <div class="ar-name"><b>新座市創業支援補助金</b><small>特定創業支援の証明書を受け創業計画書を策定した創業者の、備品購入費・内装費・販促費・広報費・外注費・法人設立費用などを補助する。<br>対象：創業日が令和7年4月1日以後で創業から1年以内、または年度内に創業予定／特定創業支援の証明書（商工会の継続相談）を受けていること<br>期間：予算上限に達し次第終了（期限は令和9年3月31日）<br>締切：2027-03-31</small><span class="ar-prov">新座市 産業振興課（にいざビジネスサポート）</span></div>
+            <div class="ar-amt">対象経費の1/2（個人事業主 上限5万円、法人・設立予定者 上限8万円）</div>
+            <a class="ar-go" href="https://www.city.niiza.lg.jp/site/business-support/sougyoushienhozyo.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="niiza-city-sogyo-yushi-risihokyu">
+            <div class="ar-name"><b>新座市新規創業融資利子補給金</b><small>創業時の融資に対する利子の一部を市が補給する制度。補給率などは要確認。<br>対象：新座市内で新規創業する事業者／対象となる創業融資を利用していること（詳細は要確認）</small><span class="ar-prov">新座市 産業振興課</span></div>
+            <div class="ar-amt">利子補給率1.5%（貸付利率が1.5%未満の場合はその利率）、対象借入上限1,000万円、補給期間3年</div>
+            <a class="ar-go" href="https://www.city.niiza.lg.jp/site/business-support/sinkisougyouyuusirisihokyu.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">埼玉県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>新座市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="niiza-taishin">
-            <h3>新座市耐震助成制度</h3>
-            <p class="area-meta">埼玉県新座市｜補助金｜診断:一般2/3(上限5万円)・高齢者等同居は全額上限10万円、改修のみ:一般上限30万円・高齢者等上限60万円</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>木造住宅の耐震診断・耐震改修等の費用を助成。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>昭和56年5月31日以前に着工した建築物</li><li>契約前の申請が必要</li></ul>
-            <p><a href="https://www.city.niiza.lg.jp/soshiki/34/kentikukaihatu2.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program" id="niiza-solar">
-            <h3>令和8年度新座市太陽光発電設備等設置費補助金</h3>
-            <p class="area-meta">埼玉県新座市｜補助金｜90,000円/kW(個人は通常5kWが上限)｜締切：2026-12-10</p>
-            <p class="area-meta">期間：2026年5月1日〜2026年12月10日(予算に達し次第終了)</p>
-            <p>自己居住用住宅への太陽光発電設備等の設置費を補助。個人向け蓄電池分は6/9以降受付停止(7/9時点)。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内に住所があり自己の居住用住宅に設置</li></ul>
-            <p><a href="https://www.city.niiza.lg.jp/soshiki/15/taiyokohojokin.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
-          <div class="area-program" id="niiza-takuhai">
-            <h3>新座市宅配ボックス設置補助金(2026年度)</h3>
-            <p class="area-meta">埼玉県新座市｜補助金｜戸建ては上限2万円</p>
-            <p class="area-meta">期間：2026年度(最新は要確認)</p>
-            <p>盗難防止機能付き宅配ボックスを住宅に新設した方への補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>盗難防止機能のある宅配ボックスを新たに設置</li></ul>
-            <p><a href="https://www.city.niiza.lg.jp/soshiki/19/takuhai-hojyo2026.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="niiza-zerocarbon">
-            <h3>令和8年度新座市ゼロカーボン推進補助金</h3>
-            <p class="area-meta">埼玉県新座市｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：令和8年度(最新は要確認)</p>
-            <p>高効率空調機器・照明機器など省エネ設備の導入を補助(令和8年度)。</p>
-            
-            <p><a href="https://www.city.niiza.lg.jp/soshiki/15/zerokabonhojokin.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="niiza-block">
-            <h3>新座市ブロック塀等撤去・築造工事助成制度</h3>
-            <p class="area-meta">埼玉県新座市｜助成金｜撤去:1mあたり5,000円(上限20万円)、フェンス築造:1mあたり15,000円(上限40万円)、併用時合計上限40万円</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>ブロック塀等の撤去、または撤去とフェンス設置の費用を助成。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>公道等に面し高さ1.2m超</li><li>市登録業者に依頼、契約前に申請</li></ul>
-            <p><a href="https://www.city.niiza.lg.jp/soshiki/34/heizyosei.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>埼玉県の制度</strong></p>
-          <ul><li><a href="pref-saitama.html#saitama-katei-shoene-saiene">家庭における省エネ・再エネ活用設備導入補助金</a></li><li><a href="pref-saitama.html#saitama-pref-iju-shienkin">埼玉県移住支援金</a></li></ul>
-          <p><a href="pref-saitama.html#pref-resident">埼玉県の制度2件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-saitama.html#saitama-dx-donyu-hojo">埼玉県中小企業DX導入支援補助金（追加募集）</a></li><li><a href="pref-saitama.html#saitama-jinzai-katsuyo-hojo">埼玉県人材活用促進事業補助金</a></li><li><a href="pref-saitama.html#saitama-kigyoka-ikusei-shikin">埼玉県制度融資 起業家育成資金</a></li><li><a href="pref-saitama.html#saitama-shokibo-jigyo-shikin">埼玉県制度融資 小規模事業資金</a></li><li><a href="pref-saitama.html#saitama-shoryokuka-hojo">埼玉県中小企業省力化支援事業補助金【新規導入】</a></li></ul>
+          <p><a href="pref-saitama.html#pref-business">埼玉県の制度5件を、県のページで見る →</a></p>
       </div>
     </section>
 

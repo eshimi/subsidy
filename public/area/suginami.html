@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"杉並区","item":"https://hojyokin.net/area/suginami.html"}]}</script>
@@ -165,252 +207,182 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 杉並区</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b03.webp')"><h1 class="pb-title">杉並区の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-tokyo.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">東京都・特別区。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">東京都 杉並区</p>
+        <h1>杉並区で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度22件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-tokyo.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（杉並区）<b>3件</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（東京都）<b>6件（うち受付終了1件）</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>19件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 4</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-2">EV・充電 1</a><a href="#res-cat-3">省エネ住宅 3</a><a href="#res-cat-4">空き家・ブロック塀 3</a><a href="#res-cat-5">バリアフリー・介護 2</a><a href="#res-cat-6">子育て 2</a><a href="#res-cat-7">医療・福祉 1</a><a href="#res-cat-8">教育・学び 1</a><a href="#res-cat-9">移住 1</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <a href="#res-g-kosodate"><i aria-hidden="true">👶</i><b>子育て</b><small>2件</small></a>
+      <a href="#res-g-iryo"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>1件</small></a>
+      <a href="#res-g-kyoiku"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>1件</small></a>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>14件</small></a>
+      <a href="#res-g-iju"><i aria-hidden="true">🌱</i><b>移住</b><small>1件</small></a>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市3件＋県6件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">杉並区の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="suginami-sogyo-startup-joseikin">
-            <h3>創業スタートアップ助成事業</h3>
-            <p class="area-meta">杉並区 産業振興センター｜助成金｜助成率3分の2。事業所家賃は月額上限5万円×6か月（上限30万円）、ホームページ等作成費は上限20万円｜締切：2026-11-30</p>
-            <p class="area-meta">期間：令和8年度 第2回：令和8年10月1日〜令和8年11月30日</p>
-            <p>創業後6か月以内の中小企業者を対象に、事業所家賃とホームページ等の作成費用を助成します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>創業後6か月以内の中小企業者</li><li>杉並区内で事業を行うこと</li><li>予算に達し次第終了</li></ul>
-            <p><a href="https://www.city.suginami.tokyo.jp/s121/1793.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-kosodate">子育て<span>2件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="suginami-babysitter">
+            <div class="ar-name"><b>杉並区ベビーシッター利用支援事業（一時預かり利用支援）</b><small>東京都の補助制度を活用し、認定事業者のベビーシッターを利用した保護者に利用料を補助する。令和8年度から対象児童を拡大。<br>対象：杉並区に住所を有する対象児童（未就学児など）及びその保護者／突発的な事情、社会参加等により一時的に保育を必要としている保護者<br>期間：令和8年4月1日から令和9年3月31日までの利用分（申請は令和8年7月1日～令和9年4月15日）<br>締切：2027-04-15</small><span class="ar-prov">杉並区</span></div>
+            <div class="ar-amt">1時間当たり2,500円（午前7時から午後10時）、3,500円（午後10時から午前7時）を上限に補助</div>
+            <a class="ar-go" href="https://www.city.suginami.tokyo.jp/s054/1042.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="suginami-chusho-shikin-yushi">
-            <h3>杉並区中小企業資金融資（創業支援資金・新事業展開資金）</h3>
-            <p class="area-meta">杉並区 産業振興センター｜融資｜限度額：創業支援資金2,000万円、新事業展開資金1,500万円（利率は要確認）</p>
-            <p class="area-meta">期間：令和8年度（利率は令和8年4月1日現在）</p>
-            <p>区内で創業を予定する方や新事業に取り組む事業者向けの区の融資制度です。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>創業支援資金：事業を営んでいない個人で、区内での創業を予定し、融資申込額以上の自己資金があること</li><li>新事業展開資金：区内中小事業者で新事業に取り組むこと</li></ul>
-            <p><a href="https://www.city.suginami.tokyo.jp/guide/shigoto/chusho/1005236.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="suginami-yachin-josei">
+            <div class="ar-name"><b>杉並区家賃助成(ひとり親・多子世帯)</b><small>区営住宅の優遇抽選に落選したひとり親・多子世帯に、民間賃貸住宅の家賃の一部を助成する。1世帯2回まで。<br>対象：区営住宅の優遇抽選に落選したひとり親・多子世帯</small><span class="ar-prov">東京都杉並区</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.suginami.tokyo.jp/s093/19877.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="suginami-marukei-rishi-hokyu">
-            <h3>小規模事業者経営改善資金（マル経融資）に係る利子補助</h3>
-            <p class="area-meta">杉並区 産業振興センター｜融資｜支払った利子の30%を補助（令和8年1月1日〜12月31日に公庫へ支払った利子が対象）｜締切：2026-12-31</p>
-            <p class="area-meta">期間：令和8年度（申請期間：毎年度4月1日〜12月31日）</p>
-            <p>日本政策金融公庫のマル経融資を借りた区内小規模事業者に対し、支払利子の一部を区が補助します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>日本政策金融公庫の小規模事業者経営改善資金を利用している区内小規模事業者</li></ul>
-            <p><a href="https://www.city.suginami.tokyo.jp/s121/19276.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
+          <h3 class="area-cat" id="res-g-iryo">医療・福祉<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="suginami-funin-josei">
+            <div class="ar-name"><b>杉並区不妊治療費助成事業</b><small>令和8年10月1日から拡充。令和8年4月1日以降に開始した治療は、先進医療費に加え保険適用された体外受精・顕微授精の自己負担額も助成対象とする。<br>対象：東京都不妊治療費助成事業の承認決定を受け、その承認決定日から1年以内であること／区への申請時に、夫婦（事実婚を含む）またはその一方が杉並区に住民登録を有していること<br>期間：令和8年4月1日以降に開始した治療が対象（令和8年10月1日から拡充）</small><span class="ar-prov">杉並区</span></div>
+            <div class="ar-amt">上限5万円（治療開始日・都承認決定日により異なる。上限3万5,000円の区分もある）</div>
+            <a class="ar-go" href="https://www.city.suginami.tokyo.jp/s045/1111.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-kyoiku">教育・学び<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="suginami-kyushoku-sotokyufu">
+            <div class="ar-name"><b>杉並区給食費相当給付金</b><small>国立・私立の小中学校等へ通学する児童生徒の保護者などに、区立学校給食費相当額の給付金を支給する。<br>対象：令和8年度に小学1年生から中学3年生の学齢で、杉並区に住民登録がある児童生徒／国立・私立学校などに就学、または区立学校で月に一度も給食の提供を受けていない<br>期間：令和8年4月から令和9年3月までの12カ月のうち、8月を除く11カ月分</small><span class="ar-prov">杉並区 子ども家庭部管理課</span></div>
+            <div class="ar-amt">小学生1人につき月額6,500円、中学生1人につき月額7,500円</div>
+            <a class="ar-go" href="https://www.city.suginami.tokyo.jp/s053/news/25602.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>14件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="suginami-akiya-josen">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>杉並区老朽危険空家除却費用助成</b><small>倒壊の危険性が高い老朽危険空家の除却工事費の一部を助成する。工事着手前の申請が必要。<br>対象：区内で年間を通して使用されていない老朽危険空家／所有者が個人</small><span class="ar-prov">東京都杉並区</span></div>
+            <div class="ar-amt">除却工事費の80%または150万円のいずれか低い額</div>
+            <a class="ar-go" href="https://www.city.suginami.tokyo.jp/s093/1839.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="suginami-block-kaishu">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>ブロック塀等改修助成</b><small>区のブロック塀等改修助成のページ。幅員4m以上の道路に面する危険なブロック塀等の撤去と軽量フェンス等の新設費用の一部を助成する制度が案内されている（詳細額は要確認）。<br>対象：所有者または管理者／申請前に市街地整備課へ相談</small><span class="ar-prov">杉並区</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.suginami.tokyo.jp/s095/1855.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="suginami-block-kyoai-tatekae">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>狭あい道路のブロック塀等の安全対策に関する建替え助成</b><small>幅員4m未満の狭あい道路に面するブロック塀等について、道路拡幅への協力を条件に建て替え費用の一部を助成する。<br>対象：建築基準法第42条第2項道路に面するブロック塀等／区との事前協議で拡幅位置を決めること</small><span class="ar-prov">杉並区</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.suginami.tokyo.jp/s099/1856.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="suginami-chintai-barrierfree-kaishu">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>杉並区高齢者等賃貸住宅改修助成事業</b><small>高齢者や障害者向けに賃貸住宅・空家をバリアフリー改修する所有者に費用を助成する。<br>対象：賃貸住宅・空家の所有者／高齢者等が住みやすくするバリアフリー改修</small><span class="ar-prov">東京都杉並区</span></div>
+            <div class="ar-amt">工事費の50%(上限100万円)、10万円以上(税抜)の工事が対象</div>
+            <a class="ar-go" href="https://www.city.suginami.tokyo.jp/s093/1920.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="suginami-eco-dannetsu">
+            <div class="ar-name"><b><span class="ar-tag">省エネ住宅</span>エコ住宅促進助成（断熱材・断熱フィルム・雨水タンク）</b><small>断熱材・断熱フィルム等の設置費を助成する。<br>対象：既存住宅に限る<br>期間：令和8年4月10日〜令和9年2月26日（予算枠に達し次第終了）<br>締切：2027-02-26</small><span class="ar-prov">杉並区 環境課</span></div>
+            <div class="ar-amt">断熱材：税抜経費の20%（上限15万円）、断熱フィルム：税抜経費の50%（上限4万円）（既存住宅のみ。雨水タンクは要確認）</div>
+            <a class="ar-go" href="https://www.city.suginami.tokyo.jp/s103/24183.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="suginami-eco-ecocute">
+            <div class="ar-name"><b><span class="ar-tag">省エネ住宅</span>エコ住宅促進助成（エコキュート等・エネファーム）</b><small>エコキュート等の高効率給湯器やエネファームの設置費を助成する。</small><span class="ar-prov">杉並区 環境課</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.suginami.tokyo.jp/s103/24172.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="suginami-eco-mado">
+            <div class="ar-name"><b><span class="ar-tag">省エネ住宅</span>エコ住宅促進助成（窓等断熱改修）</b><small>窓・ドアの断熱改修費用を助成する。<br>対象：工事完了日が令和8年2月1日〜令和9年1月31日／同一世帯で耐用期間（10年）内は同種の申請不可<br>期間：令和8年4月10日〜令和9年2月26日（予算枠に達し次第終了）<br>締切：2027-02-26</small><span class="ar-prov">杉並区 環境課</span></div>
+            <div class="ar-amt">窓・ドア合計上限15万円（ガラス交換1枚2,000〜4,000円、内窓・外窓1か所4,000〜10,000円、ドア・引戸1か所10,000〜13,000円）</div>
+            <a class="ar-go" href="https://www.city.suginami.tokyo.jp/s103/24181.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="suginami-eco-taiyoko-chikuden">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>エコ住宅促進助成（太陽光発電システム・定置用リチウムイオン蓄電池）</b><small>太陽光発電システムと定置用リチウムイオン蓄電池の設置費を助成する。<br>対象：蓄電池はSII登録機器で蓄電容量3kWh以上／申請者・契約者・支払者が同一人<br>期間：令和8年4月10日〜令和9年2月26日（予算枠に達し次第終了）<br>締切：2027-02-26</small><span class="ar-prov">杉並区 環境課</span></div>
+            <div class="ar-amt">太陽光：公称最大出力1kWあたり4万円、上限12万円。蓄電池：定額5万円</div>
+            <a class="ar-go" href="https://www.city.suginami.tokyo.jp/s103/24168.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="suginami-ev-juden">
+            <div class="ar-name"><b><span class="ar-tag">EV・充電</span>杉並区電気自動車用充電設備導入助成</b><small>EV用充電設備（V2H含む）の導入費を助成する。<br>対象：区内の住民、建物所有者、中小企業者、分譲マンション管理組合等／国の補助対象として指定された未使用の機器（リース除く）<br>期間：令和8年4月10日〜令和9年2月26日（予算枠に達し次第終了）<br>締切：2027-02-26</small><span class="ar-prov">杉並区 環境課</span></div>
+            <div class="ar-amt">機器本体価格の4分の1と国の補助上限額の低い方に工事費（上限1万円）を加えた額。上限：普通充電10万円、急速充電50万円</div>
+            <a class="ar-go" href="https://www.city.suginami.tokyo.jp/s103/823.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="suginami-koreisha-jutaku-kaishu">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>高齢者住宅改修給付</b><small>高齢者の住宅改修に対する給付（内容は区ページで要確認）。</small><span class="ar-prov">杉並区 高齢者担当</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.suginami.tokyo.jp/s039/1153.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="suginami-mokuzo-jokyaku">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>【旧耐震基準】木造住宅等の除却に関する助成制度</b><small>旧耐震の木造住宅等の除却費用を助成する。一部の対象地域に限られる。<br>対象：一部対象地域に限る</small><span class="ar-prov">杉並区 市街地整備課</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.suginami.tokyo.jp/guide/sumai/taishin/1027987.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="suginami-mokuzo-taishin-kyu">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>【旧耐震基準】木造住宅等の耐震化に関する助成制度</b><small>木造住宅の耐震診断・耐震改修費用の一部を助成する。簡易診断、精密診断、耐震改修の順に進める。<br>対象：年度内に助成金振込まで完了するものが対象／住宅修築資金融資あっせんとは併用不可<br>期間：令和8年度（耐震改修の申請受付は令和8年12月18日まで）<br>締切：2026-12-18</small><span class="ar-prov">杉並区 市街地整備課</span></div>
+            <div class="ar-amt">要確認（区パンフレット令和8年4月改訂版で確認）</div>
+            <a class="ar-go" href="https://www.city.suginami.tokyo.jp/s095/1922.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="suginami-mokuzo-taishin-shin">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>【新耐震基準】木造住宅の耐震化に関する助成制度</b><small>木造住宅の耐震診断・耐震改修費用の一部を助成する。簡易診断、精密診断、耐震改修の順に進める。<br>対象：年度内に助成金振込まで完了するものが対象／住宅修築資金融資あっせんとは併用不可<br>期間：令和8年度（耐震改修の申請受付は令和8年12月18日まで）<br>締切：2026-12-18</small><span class="ar-prov">杉並区 市街地整備課</span></div>
+            <div class="ar-amt">要確認（区パンフレット令和8年4月改訂版で確認）</div>
+            <a class="ar-go" href="https://www.city.suginami.tokyo.jp/s095/1923.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="suginami-shelter">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>【旧耐震基準】木造住宅等の耐震シェルター等に関する助成制度</b><small>旧耐震の木造住宅の耐震シェルター等の設置費用を助成する。</small><span class="ar-prov">杉並区 市街地整備課</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.suginami.tokyo.jp/guide/sumai/taishin/1004991.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-iju">移住<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="suginami-tenkyo-hiyo-josei">
+            <div class="ar-name"><b>杉並区転居費用助成</b><small>住環境の改善や家賃負担軽減のための転居費用を助成する。1世帯1回まで。18歳未満の子がいる世帯は所得要件が緩い。<br>対象：所得要件あり／物件申込み前(入居審査前)に申請</small><span class="ar-prov">東京都杉並区</span></div>
+            <div class="ar-amt">単身世帯上限15万円、2人以上世帯上限20万円</div>
+            <a class="ar-go" href="https://www.city.suginami.tokyo.jp/s093/19882.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>東京都の制度</strong></p>
+          <ul><li><a href="pref-tokyo.html#tokyo-akachan-first">東京都出産・子育て応援事業（赤ちゃんファースト）</a></li><li><a href="pref-tokyo.html#tokyo-akiya-kazai-kaitai">東京都空き家家財整理・解体促進事業</a></li><li><a href="pref-tokyo.html#tokyo-dannetsu-solar-jutaku">災害にも強く健康にも資する断熱・太陽光住宅普及拡大事業</a></li><li><a href="pref-tokyo.html#tokyo-home-evcharge">戸建住宅向け充電設備普及促進事業（令和8年度）</a></li><li><a href="pref-tokyo.html#tokyo-kodomo-mamoru-jutaku">子育て世帯向け補助事業（「子供を守る」住宅確保促進事業）</a></li></ul>
+          <p><a href="pref-tokyo.html#pref-resident">東京都の制度9件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">東京都の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">杉並区の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-tokyo.html#tokyo-jigyoshokei-josei">事業承継支援助成金（第3回）</a></li><li><a href="pref-tokyo.html#tokyo-kadai-kaiketsu-gijutsu">課題解決型技術開発促進事業</a></li><li><a href="pref-tokyo.html#tokyo-seidoyushi-sogyo">東京都中小企業制度融資「創業」</a></li><li><a href="pref-tokyo.html#tokyo-seihin-chakushu">製品開発着手支援助成事業</a></li><li><a href="pref-tokyo.html#tokyo-souikufuu-challenge">経営力強化に向けた創意工夫チャレンジ促進事業</a></li></ul>
-          <p><a href="pref-tokyo.html#pref-business">東京都の制度6件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="suginami-sogyo-startup-joseikin">
+            <div class="ar-name"><b>創業スタートアップ助成事業</b><small>創業後6か月以内の中小企業者を対象に、事業所家賃とホームページ等の作成費用を助成します。<br>対象：創業後6か月以内の中小企業者／杉並区内で事業を行うこと<br>期間：令和8年度 第2回：令和8年10月1日〜令和8年11月30日<br>締切：2026-11-30</small><span class="ar-prov">杉並区 産業振興センター</span></div>
+            <div class="ar-amt">助成率3分の2。事業所家賃は月額上限5万円×6か月（上限30万円）、ホームページ等作成費は上限20万円</div>
+            <a class="ar-go" href="https://www.city.suginami.tokyo.jp/s121/1793.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="suginami-chusho-shikin-yushi">
+            <div class="ar-name"><b>杉並区中小企業資金融資（創業支援資金・新事業展開資金）</b><small>区内で創業を予定する方や新事業に取り組む事業者向けの区の融資制度です。<br>対象：創業支援資金：事業を営んでいない個人で、区内での創業を予定し、融資申込額以上の自己資金があること／新事業展開資金：区内中小事業者で新事業に取り組むこと<br>期間：令和8年度（利率は令和8年4月1日現在）</small><span class="ar-prov">杉並区 産業振興センター</span></div>
+            <div class="ar-amt">限度額：創業支援資金2,000万円、新事業展開資金1,500万円（利率は要確認）</div>
+            <a class="ar-go" href="https://www.city.suginami.tokyo.jp/guide/shigoto/chusho/1005236.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="suginami-marukei-rishi-hokyu">
+            <div class="ar-name"><b>小規模事業者経営改善資金（マル経融資）に係る利子補助</b><small>日本政策金融公庫のマル経融資を借りた区内小規模事業者に対し、支払利子の一部を区が補助します。<br>対象：日本政策金融公庫の小規模事業者経営改善資金を利用している区内小規模事業者<br>期間：令和8年度（申請期間：毎年度4月1日〜12月31日）<br>締切：2026-12-31</small><span class="ar-prov">杉並区 産業振興センター</span></div>
+            <div class="ar-amt">支払った利子の30%を補助（令和8年1月1日〜12月31日に公庫へ支払った利子が対象）</div>
+            <a class="ar-go" href="https://www.city.suginami.tokyo.jp/s121/19276.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">東京都の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>杉並区の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="suginami-mokuzo-jokyaku">
-            <h3>【旧耐震基準】木造住宅等の除却に関する助成制度</h3>
-            <p class="area-meta">杉並区 市街地整備課｜補助金｜金額は公式で確認</p>
-            
-            <p>旧耐震の木造住宅等の除却費用を助成する。一部の対象地域に限られる。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>一部対象地域に限る</li></ul>
-            <p><a href="https://www.city.suginami.tokyo.jp/guide/sumai/taishin/1027987.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="suginami-mokuzo-taishin-kyu">
-            <h3>【旧耐震基準】木造住宅等の耐震化に関する助成制度</h3>
-            <p class="area-meta">杉並区 市街地整備課｜補助金｜要確認（区パンフレット令和8年4月改訂版で確認）｜締切：2026-12-18</p>
-            <p class="area-meta">期間：令和8年度（耐震改修の申請受付は令和8年12月18日まで）</p>
-            <p>木造住宅の耐震診断・耐震改修費用の一部を助成する。簡易診断、精密診断、耐震改修の順に進める。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>年度内に助成金振込まで完了するものが対象</li><li>住宅修築資金融資あっせんとは併用不可</li></ul>
-            <p><a href="https://www.city.suginami.tokyo.jp/s095/1922.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="suginami-mokuzo-taishin-shin">
-            <h3>【新耐震基準】木造住宅の耐震化に関する助成制度</h3>
-            <p class="area-meta">杉並区 市街地整備課｜補助金｜要確認（区パンフレット令和8年4月改訂版で確認）｜締切：2026-12-18</p>
-            <p class="area-meta">期間：令和8年度（耐震改修の申請受付は令和8年12月18日まで）</p>
-            <p>木造住宅の耐震診断・耐震改修費用の一部を助成する。簡易診断、精密診断、耐震改修の順に進める。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>年度内に助成金振込まで完了するものが対象</li><li>住宅修築資金融資あっせんとは併用不可</li></ul>
-            <p><a href="https://www.city.suginami.tokyo.jp/s095/1923.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="suginami-shelter">
-            <h3>【旧耐震基準】木造住宅等の耐震シェルター等に関する助成制度</h3>
-            <p class="area-meta">杉並区 市街地整備課｜補助金｜金額は公式で確認</p>
-            
-            <p>旧耐震の木造住宅の耐震シェルター等の設置費用を助成する。</p>
-            
-            <p><a href="https://www.city.suginami.tokyo.jp/guide/sumai/taishin/1004991.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program" id="suginami-eco-taiyoko-chikuden">
-            <h3>エコ住宅促進助成（太陽光発電システム・定置用リチウムイオン蓄電池）</h3>
-            <p class="area-meta">杉並区 環境課｜補助金｜太陽光：公称最大出力1kWあたり4万円、上限12万円。蓄電池：定額5万円｜締切：2027-02-26</p>
-            <p class="area-meta">期間：令和8年4月10日〜令和9年2月26日（予算枠に達し次第終了）</p>
-            <p>太陽光発電システムと定置用リチウムイオン蓄電池の設置費を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>蓄電池はSII登録機器で蓄電容量3kWh以上</li><li>申請者・契約者・支払者が同一人</li><li>未使用品であること</li></ul>
-            <p><a href="https://www.city.suginami.tokyo.jp/s103/24168.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
-          <div class="area-program" id="suginami-ev-juden">
-            <h3>杉並区電気自動車用充電設備導入助成</h3>
-            <p class="area-meta">杉並区 環境課｜補助金｜機器本体価格の4分の1と国の補助上限額の低い方に工事費（上限1万円）を加えた額。上限：普通充電10万円、急速充電50万円｜締切：2027-02-26</p>
-            <p class="area-meta">期間：令和8年4月10日〜令和9年2月26日（予算枠に達し次第終了）</p>
-            <p>EV用充電設備（V2H含む）の導入費を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>区内の住民、建物所有者、中小企業者、分譲マンション管理組合等</li><li>国の補助対象として指定された未使用の機器（リース除く）</li><li>都の戸建住宅向け充電設備事業とは併用不可</li></ul>
-            <p><a href="https://www.city.suginami.tokyo.jp/s103/823.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
-          <div class="area-program" id="suginami-eco-dannetsu">
-            <h3>エコ住宅促進助成（断熱材・断熱フィルム・雨水タンク）</h3>
-            <p class="area-meta">杉並区 環境課｜補助金｜断熱材：税抜経費の20%（上限15万円）、断熱フィルム：税抜経費の50%（上限4万円）（既存住宅のみ。雨水タンクは要確認）｜締切：2027-02-26</p>
-            <p class="area-meta">期間：令和8年4月10日〜令和9年2月26日（予算枠に達し次第終了）</p>
-            <p>断熱材・断熱フィルム等の設置費を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>既存住宅に限る</li></ul>
-            <p><a href="https://www.city.suginami.tokyo.jp/s103/24183.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="suginami-eco-ecocute">
-            <h3>エコ住宅促進助成（エコキュート等・エネファーム）</h3>
-            <p class="area-meta">杉並区 環境課｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：令和8年度（期間は手続き案内ページで要確認）</p>
-            <p>エコキュート等の高効率給湯器やエネファームの設置費を助成する。</p>
-            
-            <p><a href="https://www.city.suginami.tokyo.jp/s103/24172.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="suginami-eco-mado">
-            <h3>エコ住宅促進助成（窓等断熱改修）</h3>
-            <p class="area-meta">杉並区 環境課｜補助金｜窓・ドア合計上限15万円（ガラス交換1枚2,000〜4,000円、内窓・外窓1か所4,000〜10,000円、ドア・引戸1か所10,000〜13,000円）｜締切：2027-02-26</p>
-            <p class="area-meta">期間：令和8年4月10日〜令和9年2月26日（予算枠に達し次第終了）</p>
-            <p>窓・ドアの断熱改修費用を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>工事完了日が令和8年2月1日〜令和9年1月31日</li><li>同一世帯で耐用期間（10年）内は同種の申請不可</li></ul>
-            <p><a href="https://www.city.suginami.tokyo.jp/s103/24181.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="suginami-akiya-josen">
-            <h3>杉並区老朽危険空家除却費用助成</h3>
-            <p class="area-meta">東京都杉並区｜助成金｜除却工事費の80%または150万円のいずれか低い額</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>倒壊の危険性が高い老朽危険空家の除却工事費の一部を助成する。工事着手前の申請が必要。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>区内で年間を通して使用されていない老朽危険空家</li><li>所有者が個人</li><li>工事着手前に申請</li></ul>
-            <p><a href="https://www.city.suginami.tokyo.jp/s093/1839.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="suginami-block-kaishu">
-            <h3>ブロック塀等改修助成</h3>
-            <p class="area-meta">杉並区｜助成金｜金額は公式で確認</p>
-            
-            <p>区のブロック塀等改修助成のページ。幅員4m以上の道路に面する危険なブロック塀等の撤去と軽量フェンス等の新設費用の一部を助成する制度が案内されている（詳細額は要確認）。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>所有者または管理者</li><li>申請前に市街地整備課へ相談</li><li>原則として基礎を含め全て撤去</li></ul>
-            <p><a href="https://www.city.suginami.tokyo.jp/s095/1855.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="suginami-block-kyoai-tatekae">
-            <h3>狭あい道路のブロック塀等の安全対策に関する建替え助成</h3>
-            <p class="area-meta">杉並区｜助成金｜金額は公式で確認</p>
-            
-            <p>幅員4m未満の狭あい道路に面するブロック塀等について、道路拡幅への協力を条件に建て替え費用の一部を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>建築基準法第42条第2項道路に面するブロック塀等</li><li>区との事前協議で拡幅位置を決めること</li><li>塀を全て除却して新設すること</li></ul>
-            <p><a href="https://www.city.suginami.tokyo.jp/s099/1856.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
-          <div class="area-program" id="suginami-chintai-barrierfree-kaishu">
-            <h3>杉並区高齢者等賃貸住宅改修助成事業</h3>
-            <p class="area-meta">東京都杉並区｜助成金｜工事費の50%(上限100万円)、10万円以上(税抜)の工事が対象</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>高齢者や障害者向けに賃貸住宅・空家をバリアフリー改修する所有者に費用を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>賃貸住宅・空家の所有者</li><li>高齢者等が住みやすくするバリアフリー改修</li></ul>
-            <p><a href="https://www.city.suginami.tokyo.jp/s093/1920.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="suginami-koreisha-jutaku-kaishu">
-            <h3>高齢者住宅改修給付</h3>
-            <p class="area-meta">杉並区 高齢者担当｜給付｜金額は公式で確認</p>
-            
-            <p>高齢者の住宅改修に対する給付（内容は区ページで要確認）。</p>
-            
-            <p><a href="https://www.city.suginami.tokyo.jp/s039/1153.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-6">子育て</h3>
-          <div class="area-program" id="suginami-babysitter">
-            <h3>杉並区ベビーシッター利用支援事業（一時預かり利用支援）</h3>
-            <p class="area-meta">杉並区｜補助金｜1時間当たり2,500円（午前7時から午後10時）、3,500円（午後10時から午前7時）を上限に補助｜締切：2027-04-15</p>
-            <p class="area-meta">期間：令和8年4月1日から令和9年3月31日までの利用分（申請は令和8年7月1日～令和9年4月15日）</p>
-            <p>東京都の補助制度を活用し、認定事業者のベビーシッターを利用した保護者に利用料を補助する。令和8年度から対象児童を拡大。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>杉並区に住所を有する対象児童（未就学児など）及びその保護者</li><li>突発的な事情、社会参加等により一時的に保育を必要としている保護者</li></ul>
-            <p><a href="https://www.city.suginami.tokyo.jp/s054/1042.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="suginami-yachin-josei">
-            <h3>杉並区家賃助成(ひとり親・多子世帯)</h3>
-            <p class="area-meta">東京都杉並区｜助成金｜金額は公式で確認</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>区営住宅の優遇抽選に落選したひとり親・多子世帯に、民間賃貸住宅の家賃の一部を助成する。1世帯2回まで。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>区営住宅の優遇抽選に落選したひとり親・多子世帯</li></ul>
-            <p><a href="https://www.city.suginami.tokyo.jp/s093/19877.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-7">医療・福祉</h3>
-          <div class="area-program" id="suginami-funin-josei">
-            <h3>杉並区不妊治療費助成事業</h3>
-            <p class="area-meta">杉並区｜助成金｜上限5万円（治療開始日・都承認決定日により異なる。上限3万5,000円の区分もある）</p>
-            <p class="area-meta">期間：令和8年4月1日以降に開始した治療が対象（令和8年10月1日から拡充）</p>
-            <p>令和8年10月1日から拡充。令和8年4月1日以降に開始した治療は、先進医療費に加え保険適用された体外受精・顕微授精の自己負担額も助成対象とする。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>東京都不妊治療費助成事業の承認決定を受け、その承認決定日から1年以内であること</li><li>区への申請時に、夫婦（事実婚を含む）またはその一方が杉並区に住民登録を有していること</li></ul>
-            <p><a href="https://www.city.suginami.tokyo.jp/s045/1111.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-8">教育・学び</h3>
-          <div class="area-program" id="suginami-kyushoku-sotokyufu">
-            <h3>杉並区給食費相当給付金</h3>
-            <p class="area-meta">杉並区 子ども家庭部管理課｜給付｜小学生1人につき月額6,500円、中学生1人につき月額7,500円</p>
-            <p class="area-meta">期間：令和8年4月から令和9年3月までの12カ月のうち、8月を除く11カ月分</p>
-            <p>国立・私立の小中学校等へ通学する児童生徒の保護者などに、区立学校給食費相当額の給付金を支給する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>令和8年度に小学1年生から中学3年生の学齢で、杉並区に住民登録がある児童生徒</li><li>国立・私立学校などに就学、または区立学校で月に一度も給食の提供を受けていない</li></ul>
-            <p><a href="https://www.city.suginami.tokyo.jp/s053/news/25602.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-9">移住</h3>
-          <div class="area-program" id="suginami-tenkyo-hiyo-josei">
-            <h3>杉並区転居費用助成</h3>
-            <p class="area-meta">東京都杉並区｜助成金｜単身世帯上限15万円、2人以上世帯上限20万円</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>住環境の改善や家賃負担軽減のための転居費用を助成する。1世帯1回まで。18歳未満の子がいる世帯は所得要件が緩い。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>所得要件あり</li><li>物件申込み前(入居審査前)に申請</li></ul>
-            <p><a href="https://www.city.suginami.tokyo.jp/s093/19882.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>東京都の制度</strong></p>
-          <ul><li><a href="pref-tokyo.html#tokyo-akachan-first">東京都出産・子育て応援事業（赤ちゃんファースト）</a></li><li><a href="pref-tokyo.html#tokyo-akiya-kazai-kaitai">東京都空き家家財整理・解体促進事業</a></li><li><a href="pref-tokyo.html#tokyo-dannetsu-solar-jutaku">災害にも強く健康にも資する断熱・太陽光住宅普及拡大事業</a></li><li><a href="pref-tokyo.html#tokyo-home-evcharge">戸建住宅向け充電設備普及促進事業（令和8年度）</a></li><li><a href="pref-tokyo.html#tokyo-kodomo-mamoru-jutaku">子育て世帯向け補助事業（「子供を守る」住宅確保促進事業）</a></li></ul>
-          <p><a href="pref-tokyo.html#pref-resident">東京都の制度9件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-tokyo.html#tokyo-jigyoshokei-josei">事業承継支援助成金（第3回）</a></li><li><a href="pref-tokyo.html#tokyo-kadai-kaiketsu-gijutsu">課題解決型技術開発促進事業</a></li><li><a href="pref-tokyo.html#tokyo-seidoyushi-sogyo">東京都中小企業制度融資「創業」</a></li><li><a href="pref-tokyo.html#tokyo-seihin-chakushu">製品開発着手支援助成事業</a></li><li><a href="pref-tokyo.html#tokyo-souikufuu-challenge">経営力強化に向けた創意工夫チャレンジ促進事業</a></li></ul>
+          <p><a href="pref-tokyo.html#pref-business">東京都の制度6件を、県のページで見る →</a></p>
       </div>
     </section>
 

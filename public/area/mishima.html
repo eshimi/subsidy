@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"三島市","item":"https://hojyokin.net/area/mishima.html"}]}</script>
@@ -165,104 +207,90 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 三島市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b10.webp')"><h1 class="pb-title">三島市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-shizuoka.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">静岡県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">静岡県 三島市</p>
+        <h1>三島市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度6件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-shizuoka.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（三島市）<b>2件</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（静岡県）<b>5件（うち受付終了2件）</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>4件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-9">移住 2</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <span class="is-none"><i aria-hidden="true">👶</i><b>子育て</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>掲載なし</small></span>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>2件</small></a>
+      <a href="#res-g-iju"><i aria-hidden="true">🌱</i><b>移住</b><small>2件</small></a>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市2件＋県5件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">三島市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="mishima-city-akitenpo-katsuyo-hojo">
-            <h3>三島市空き店舗活用事業費補助金</h3>
-            <p class="area-meta">三島市 商工観光まちづくり課｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：要確認（市公式ページ参照）</p>
-            <p>市内の空き店舗を活用して出店する事業者を支援する補助制度。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>三島市内の空き店舗を活用して出店すること</li><li>詳細要件は市公式ページで要確認</li></ul>
-            <p><a href="https://www.city.mishima.shizuoka.jp/ipn059636.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>2件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="mishima-quake-program">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>三島市の地震対策補助事業（木造住宅耐震改修・ブロック塀・耐震シェルター等）</b><small>令和8年度の地震対策補助事業。木造住宅耐震改修、ブロック塀撤去、耐震シェルター・防災ベッド設置などを補助する。<br>対象：昭和56年5月31日以前建築の木造住宅（耐震改修）／事前申請が必要<br>期間：令和8年度（予算がなくなり次第終了）</small><span class="ar-prov">静岡県三島市</span></div>
+            <div class="ar-amt">耐震シェルター等は費用の3分の2以内（上限20万円）、木造住宅耐震改修（補強計画一体型）は原則上限100万円</div>
+            <a class="ar-go" href="https://www.city.mishima.shizuoka.jp/page/3396.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="mishima-city-chiiki-jinzai-shien-hojo">
-            <h3>三島市地域人材支援事業費補助金</h3>
-            <p class="area-meta">三島市 商工観光まちづくり課｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：要確認（市公式ページ参照）</p>
-            <p>市内事業者の人材育成・人材確保の取組に対する補助制度。補助率・上限額は市公式ページで要確認。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>三島市内の事業者</li><li>人材の育成・確保の取組を行うこと</li></ul>
-            <p><a href="https://www.city.mishima.shizuoka.jp/page/31365.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="mishima-smarthouse">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>スマートハウス設備導入費補助金（令和8年度）</b><small>住宅用太陽光発電や家庭用リチウムイオン蓄電池等の設置費用を補助する。国・県補助との併用可と案内されている。<br>対象：太陽光は蓄電池またはV2Hと併設する場合に限る／詳細要件は要確認</small><span class="ar-prov">静岡県三島市</span></div>
+            <div class="ar-amt">太陽光1kWあたり1万円（既築上限4万円・新築上限2万円）、蓄電池は既築上限5万円・新築上限2.5万円</div>
+            <a class="ar-go" href="https://www.city.mishima.shizuoka.jp/page/24138.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          </div>
+          <h3 class="area-cat" id="res-g-iju">移住<span>2件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="mishima-iju-shugyo">
+            <div class="ar-name"><b>三島市移住・就業支援補助金</b><small>東京圏から市内に移住し就業等の要件を満たす人に補助金を交付する。<br>対象：東京圏（東京・千葉・埼玉・神奈川）からの移住／就業等の要件あり（詳細は要確認）</small><span class="ar-prov">静岡県三島市</span></div>
+            <div class="ar-amt">単身60万円、2人以上の世帯100万円、18歳未満の子1人につき100万円加算（住宅取得補助との併用時は県外移住の補助額が50万円）</div>
+            <a class="ar-go" href="https://www.city.mishima.shizuoka.jp/page/2282.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="mishima-teiju-support">
+            <div class="ar-name"><b>住むなら三島移住・定住サポート事業</b><small>若い世帯が住宅を取得して転入した場合などに補助金を交付する。<br>対象：夫婦いずれかが40歳未満、または46歳未満で中学生以下の子と同居／5年以上居住<br>期間：令和8年度（令和8年4月8日受付開始・先着順、予算なくなり次第終了）</small><span class="ar-prov">静岡県三島市</span></div>
+            <div class="ar-amt">県外からの移住100万円、県内（市内在住の親がいる場合）20万円、中古住宅購入20万円</div>
+            <a class="ar-go" href="https://www.city.mishima.shizuoka.jp/page/2536.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>静岡県の制度</strong></p>
+          <ul><li><a href="pref-shizuoka.html#shizuoka-blockbei-tekkyo">ブロック塀等撤去事業・ブロック塀等改善事業</a></li><li><a href="pref-shizuoka.html#shizuoka-taishin-hokyo-keikaku">木造住宅耐震補強助成事業（補強計画一体型）</a></li><li><a href="pref-shizuoka.html#shizuoka-taishin-senmonka-shindan">わが家の専門家診断事業（専門家による無料耐震診断）</a></li></ul>
+          <p><a href="pref-shizuoka.html#pref-resident">静岡県の制度3件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">静岡県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">三島市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-shizuoka.html#shizuoka-jigyo-shokei-shikin">静岡県 事業承継資金</a></li><li><a href="pref-shizuoka.html#shizuoka-kaigyo-power-up">静岡県 開業パワーアップ支援資金</a></li><li><a href="pref-shizuoka.html#shizuoka-shokibo-keieiryoku">静岡県 小規模企業経営力向上事業費補助金</a></li><li><a href="pref-shizuoka.html#shizuoka-chiiki-sosei-kigyo">静岡県 地域創生起業支援金</a></li><li><a href="pref-shizuoka.html#shizuoka-shuekiryoku">静岡県 中小企業等収益力向上（賃上げ環境整備）事業費補助金</a></li></ul>
-          <p><a href="pref-shizuoka.html#pref-business">静岡県の制度5件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="mishima-city-akitenpo-katsuyo-hojo">
+            <div class="ar-name"><b>三島市空き店舗活用事業費補助金</b><small>市内の空き店舗を活用して出店する事業者を支援する補助制度。<br>対象：三島市内の空き店舗を活用して出店すること／詳細要件は市公式ページで要確認</small><span class="ar-prov">三島市 商工観光まちづくり課</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.mishima.shizuoka.jp/ipn059636.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="mishima-city-chiiki-jinzai-shien-hojo">
+            <div class="ar-name"><b>三島市地域人材支援事業費補助金</b><small>市内事業者の人材育成・人材確保の取組に対する補助制度。補助率・上限額は市公式ページで要確認。<br>対象：三島市内の事業者／人材の育成・確保の取組を行うこと</small><span class="ar-prov">三島市 商工観光まちづくり課</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.mishima.shizuoka.jp/page/31365.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">静岡県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>三島市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="mishima-quake-program">
-            <h3>三島市の地震対策補助事業（木造住宅耐震改修・ブロック塀・耐震シェルター等）</h3>
-            <p class="area-meta">静岡県三島市｜補助金｜耐震シェルター等は費用の3分の2以内（上限20万円）、木造住宅耐震改修（補強計画一体型）は原則上限100万円</p>
-            <p class="area-meta">期間：令和8年度（予算がなくなり次第終了）</p>
-            <p>令和8年度の地震対策補助事業。木造住宅耐震改修、ブロック塀撤去、耐震シェルター・防災ベッド設置などを補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>昭和56年5月31日以前建築の木造住宅（耐震改修）</li><li>事前申請が必要</li><li>令和8年度から耐震改修は1人1回まで</li></ul>
-            <p><a href="https://www.city.mishima.shizuoka.jp/page/3396.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program" id="mishima-smarthouse">
-            <h3>スマートハウス設備導入費補助金（令和8年度）</h3>
-            <p class="area-meta">静岡県三島市｜補助金｜太陽光1kWあたり1万円（既築上限4万円・新築上限2万円）、蓄電池は既築上限5万円・新築上限2.5万円</p>
-            <p class="area-meta">期間：令和8年度（受付状況は要確認）</p>
-            <p>住宅用太陽光発電や家庭用リチウムイオン蓄電池等の設置費用を補助する。国・県補助との併用可と案内されている。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>太陽光は蓄電池またはV2Hと併設する場合に限る</li><li>詳細要件は要確認</li></ul>
-            <p><a href="https://www.city.mishima.shizuoka.jp/page/24138.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-9">移住</h3>
-          <div class="area-program" id="mishima-iju-shugyo">
-            <h3>三島市移住・就業支援補助金</h3>
-            <p class="area-meta">静岡県三島市｜補助金｜単身60万円、2人以上の世帯100万円、18歳未満の子1人につき100万円加算（住宅取得補助との併用時は県外移住の補助額が50万円）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>東京圏から市内に移住し就業等の要件を満たす人に補助金を交付する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>東京圏（東京・千葉・埼玉・神奈川）からの移住</li><li>就業等の要件あり（詳細は要確認）</li></ul>
-            <p><a href="https://www.city.mishima.shizuoka.jp/page/2282.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="mishima-teiju-support">
-            <h3>住むなら三島移住・定住サポート事業</h3>
-            <p class="area-meta">静岡県三島市｜補助金｜県外からの移住100万円、県内（市内在住の親がいる場合）20万円、中古住宅購入20万円</p>
-            <p class="area-meta">期間：令和8年度（令和8年4月8日受付開始・先着順、予算なくなり次第終了）</p>
-            <p>若い世帯が住宅を取得して転入した場合などに補助金を交付する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>夫婦いずれかが40歳未満、または46歳未満で中学生以下の子と同居</li><li>5年以上居住</li><li>住宅75平方メートル以上（マンション55平方メートル以上）</li></ul>
-            <p><a href="https://www.city.mishima.shizuoka.jp/page/2536.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>静岡県の制度</strong></p>
-          <ul><li><a href="pref-shizuoka.html#shizuoka-blockbei-tekkyo">ブロック塀等撤去事業・ブロック塀等改善事業</a></li><li><a href="pref-shizuoka.html#shizuoka-taishin-hokyo-keikaku">木造住宅耐震補強助成事業（補強計画一体型）</a></li><li><a href="pref-shizuoka.html#shizuoka-taishin-senmonka-shindan">わが家の専門家診断事業（専門家による無料耐震診断）</a></li></ul>
-          <p><a href="pref-shizuoka.html#pref-resident">静岡県の制度3件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-shizuoka.html#shizuoka-jigyo-shokei-shikin">静岡県 事業承継資金</a></li><li><a href="pref-shizuoka.html#shizuoka-kaigyo-power-up">静岡県 開業パワーアップ支援資金</a></li><li><a href="pref-shizuoka.html#shizuoka-shokibo-keieiryoku">静岡県 小規模企業経営力向上事業費補助金</a></li><li><a href="pref-shizuoka.html#shizuoka-chiiki-sosei-kigyo">静岡県 地域創生起業支援金</a></li><li><a href="pref-shizuoka.html#shizuoka-shuekiryoku">静岡県 中小企業等収益力向上（賃上げ環境整備）事業費補助金</a></li></ul>
+          <p><a href="pref-shizuoka.html#pref-business">静岡県の制度5件を、県のページで見る →</a></p>
       </div>
     </section>
 

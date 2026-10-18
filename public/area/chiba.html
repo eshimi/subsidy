@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"千葉市","item":"https://hojyokin.net/area/chiba.html"}]}</script>
@@ -165,179 +207,138 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 千葉市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b05.webp')"><h1 class="pb-title">千葉市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-chiba.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">千葉県・政令指定都市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">千葉県 千葉市</p>
+        <h1>千葉市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度14件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-chiba.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（千葉市）<b>4件</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（千葉県）<b>5件（うち受付終了3件）</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>10件（うち受付終了1件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 2</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-2">EV・充電 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-5">バリアフリー・介護 1</a><a href="#res-cat-6">子育て 2</a><a href="#res-cat-7">医療・福祉 1</a><a href="#res-cat-8">教育・学び 1</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <a href="#res-g-kosodate"><i aria-hidden="true">👶</i><b>子育て</b><small>2件</small></a>
+      <a href="#res-g-iryo"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>1件</small></a>
+      <a href="#res-g-kyoiku"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>1件</small></a>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>6件</small></a>
+      <span class="is-none"><i aria-hidden="true">🌱</i><b>移住</b><small>掲載なし</small></span>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市4件＋県5件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">千葉市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="chiba-city-setsuritsu">
-            <h3>千葉市創業支援補助金（会社設立型）</h3>
-            <p class="area-meta">千葉市｜補助金｜上限7万5,000円｜締切：2027-02-26</p>
-            <p class="area-meta">期間：令和8年度：2026年5月29日〜2027年2月26日</p>
-            <p>認定特定創業支援等事業で経営の基礎知識を身につけた創業者に、会社設立に必要な経費の一部を補助します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>千葉市の特定創業支援等事業による支援を受けた創業者</li><li>市内で会社を設立</li></ul>
-            
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-kosodate">子育て<span>2件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="chiba-city-danchi-sumikae-kosodate">
+            <div class="ar-name"><b>団地住替え支援事業（子育て世帯）</b><small>市外から市内の高経年住宅団地へ転居する子育て世帯に、住宅購入・賃料・引越し・リフォーム費用を補助する。<br>対象：小学生以下の子（出産予定含む）がいる世帯／市外から対象団地へ転居し2年以上居住する意思があること<br>期間：転居期間は令和8年3月1日〜令和9年2月28日<br>締切：2027-02-28</small><span class="ar-prov">千葉県千葉市</span></div>
+            <div class="ar-amt">最大30万円</div>
+            <a class="ar-go" href="https://www.city.chiba.jp/toshi/kenchiku/jutakuseisaku/kosodatesetaisumikaeshien.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="chiba-city-shokei">
-            <h3>千葉市創業支援補助金（第三者承継型）</h3>
-            <p class="area-meta">千葉市｜補助金｜上限30万円／補助率 1/2｜締切：2027-01-29</p>
-            <p class="area-meta">期間：令和8年度：2026年5月29日〜2027年1月29日</p>
-            <p>後継者のいない事業を第三者として引き継いで創業する場合に、承継に必要な経費の一部を補助します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>千葉市の特定創業支援等事業による支援を受けた創業者</li><li>第三者承継による創業</li></ul>
-            
+          <div class="ar-row" id="chiba-kodomo-iryohi">
+            <div class="ar-name"><b>子ども医療費助成制度</b><small>医療機関に通院又は入院した場合や、院外処方せんにより保険薬局で薬を受け取った場合に、保険診療の範囲内で医療費の自己負担額の全部又は一部を助成する制度です。<br>対象：助成対象は0歳～高校3年生相当年齢／市町村民税所得割が課税されていない方は無料</small><span class="ar-prov">千葉市 こども未来局</span></div>
+            <div class="ar-amt">通院1回につき300円(6回目以降は無料)、入院1日につき300円(11日目以降は無料)、調剤は無料。第3子以降は無料</div>
+            <a class="ar-go" href="https://www.city.chiba.jp/kodomomirai/kodomomirai/kateishien/kodomoiryouhi.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="chiba-chushokigyo-shikin-yushi">
-            <h3>千葉市中小企業資金融資制度</h3>
-            <p class="area-meta">千葉市 経済農政局 経済部 産業支援課｜融資｜要確認（資金ごとの限度額は令和8年4月版リーフレットで確認）。振興資金・小規模事業資金・経営安定資金は利子補給あり</p>
-            <p class="area-meta">期間：令和8年度（通年）</p>
-            <p>市内中小企業の運転・設備資金等を融資する制度です。令和8年度はモニタリング強化資金が創設されました。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>千葉市内で事業を営む中小企業者</li><li>資金ごとの要件は要確認</li></ul>
-            <p><a href="https://www.city.chiba.jp/keizainosei/keizai/sangyo/shikinyuushi.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <div class="area-program" id="chiba-jinzai-ikusei-hojo">
-            <h3>千葉市中小企業人材育成・能力開発推進支援補助金</h3>
-            <p class="area-meta">千葉市 経済農政局 経済部 産業支援課｜補助金｜上限10万円（研修計画策定済）／上限5万円（未策定）（令和8年度の詳細は要確認）</p>
-            <p class="area-meta">期間：令和8年度（募集期間は要確認）</p>
-            <p>中小企業者が行う従業員の研修・能力開発の経費の一部を市が補助します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>千葉市内の中小企業者</li><li>研修計画の策定有無で上限額が変わる</li></ul>
-            <p><a href="https://www.city.chiba.jp/keizainosei/keizai/koyosuishin/chushokigyo-jinzaiikusei-hojokin.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <h3 class="area-cat" id="res-g-iryo">医療・福祉<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="chiba-taijohoshin">
+            <div class="ar-name"><b>帯状疱疹予防接種費用助成事業（任意接種）</b><small>50歳以上で定期接種の対象でない方を対象に、帯状疱疹ワクチンの任意予防接種の費用を助成する事業です。<br>対象：千葉市に住民登録がある50歳以上の方／定期接種の対象でない方<br>期間：令和8年度（市内協力医療機関で接種）</small><span class="ar-prov">千葉市 保健福祉局</span></div>
+            <div class="ar-amt">市助成額：生ワクチン2,000円、不活化（組換え）ワクチン5,000円×2回</div>
+            <a class="ar-go" href="https://www.city.chiba.jp/hokenfukushi/iryoeisei/seisaku/taijouhoushin.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          </div>
+          <h3 class="area-cat" id="res-g-kyoiku">教育・学び<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="chiba-shugakuenjo">
+            <div class="ar-name"><b>就学援助制度</b><small>経済的な理由でお困りの方のために、学校生活を支援する就学援助として、学用品費などの費用を支給する制度です。<br>対象：市立小・中・中等教育学校に就学する方の保護者が対象／生活保護の受給、市民税の非課税、児童扶養手当の受給などの申請理由がある<br>期間：申請は随時受け付け（年度当初からの援助は4月中旬までに学校へ提出）</small><span class="ar-prov">千葉市 教育委員会</span></div>
+            <div class="ar-amt">学用品費・通学用品費は小学2～5年生で年額13,900円など（表のとおり）</div>
+            <a class="ar-go" href="https://www.city.chiba.jp/kyoiku/gakkokyoiku/gakuji/shuugakuennjo.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>6件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="chiba-city-block">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>千葉市危険ブロック塀等改善補助事業</b><small>通学路等に面した倒壊の危険性が高いブロック塀の撤去や軽量フェンス等への改善費用を補助する。<br>対象：個人・町内自治会・マンション管理組合が所有する危険なブロック塀等／調査で撤去が必要と判定されたもの</small><span class="ar-prov">千葉県千葉市</span></div>
+            <div class="ar-amt">要確認（補助率・限度額は地区により異なる）</div>
+            <a class="ar-go" href="https://www.city.chiba.jp/toshi/kenchiku/shido/blockhojo.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="chiba-city-ev-v2h">
+            <div class="ar-name"><b><span class="ar-tag">EV・充電</span>千葉市電気自動車・プラグインハイブリッド自動車・V2H導入補助金</b><small>電気自動車等・V2H充放電設備の購入費用の補助。<br>対象：住宅用太陽光発電設備の併設<br>期間：令和8年5月1日～令和9年1月29日（先着順）<br>締切：2027-01-29</small><span class="ar-prov">千葉市</span></div>
+            <div class="ar-amt">EV・PHV：太陽光併設10万円、太陽光とV2H併設15万円。V2H単体は経費の1/10（最大25万円）</div>
+            <a class="ar-go" href="https://www.city.chiba.jp/kankyo/kankyohozen/datsutanso/ev_hojo.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="chiba-city-jutaku-datsutanso">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>千葉市住宅用設備等脱炭素化促進事業補助金（住宅向け）</b><small>住宅用の再エネ・省エネ設備導入費用の補助。</small><span class="ar-prov">千葉市</span></div>
+            <div class="ar-amt">定置用リチウムイオン蓄電システム：7万円（他の設備は要確認）</div>
+            <a class="ar-go" href="https://www.city.chiba.jp/kankyo/kankyohozen/datsutanso/renewable-energy-hojo.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="chiba-city-jutaku-taishin">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>千葉市住宅の耐震診断・耐震改修補助制度</b><small>木造住宅の耐震診断・耐震改修費の補助。令和8年度の募集予定は診断7戸、工事27戸。<br>期間：令和8年5月1日～5月29日</small><span class="ar-prov">千葉市</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.chiba.jp/toshi/kenchiku/shido/news_juukankyou.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="chiba-city-korei-jutaku-kaishu">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>高齢者住宅改修費支援サービス事業</b><small>要介護・要支援の高齢者の住宅の手すり設置・段差解消などの工事費を一部補助する。<br>対象：市内在住の65歳以上で要介護・要支援認定を受けていること／着手前に区保健福祉センターへ申出</small><span class="ar-prov">千葉県千葉市</span></div>
+            <div class="ar-amt">実工事費と70万円の少ない方から利用者負担分を引いた額に、世帯の市民税所得割額に応じた割合を乗じた額</div>
+            <a class="ar-go" href="https://www.city.chiba.jp/hokenfukushi/koreishogai/korei/jyuutakukaisyuu.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="chiba-city-jutaku-jokyaku">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>千葉市住宅の除却費補助制度 <span class="area-ended-tag">受付終了</span></b><small>耐震性の低い住宅の除却費の補助。<br>対象：昭和56年5月31日以前の建物で上部構造評点等の基準を満たすもの<br>期間：令和8年5月1日～8月31日（予算の限り）<br>締切：2026-08-31</small><span class="ar-prov">千葉市</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.chiba.jp/toshi/kenchiku/shido/jutaku_jokyaku.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>千葉県の制度</strong></p>
+          <ul><li><a href="pref-chiba.html#chiba-pref-iju-shienkin">千葉県移住支援金（UIJターン）</a></li><li><a href="pref-chiba.html#chiba-pref-jutaku-lease-ppa">千葉県住宅用太陽光発電設備等に係るリース等導入促進事業補助金</a></li><li><a href="pref-chiba.html#chiba-pref-zeh">令和8年度千葉県ネット・ゼロ・エネルギー・ハウス導入促進事業補助金</a></li></ul>
+          <p><a href="pref-chiba.html#pref-resident">千葉県の制度3件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">千葉県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">千葉市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-chiba.html#chiba-chusho-shinko-shikin">千葉県 中小企業振興資金</a></li><li><a href="pref-chiba.html#chiba-shijo-kaitaku-josei">市場開拓助成（展示会出展）</a></li><li><a href="pref-chiba.html#chiba-pref-sogyo-ouen">ちば創業応援助成金</a></li><li><a href="pref-chiba.html#chiba-reskilling-banso">中小企業向け伴走型リスキリング支援</a></li><li><a href="pref-chiba.html#chiba-seicho-sokushin-hojo">中小企業成長促進補助金（第4弾）</a></li></ul>
-          <p><a href="pref-chiba.html#pref-business">千葉県の制度5件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="chiba-city-setsuritsu">
+            <div class="ar-name"><b>千葉市創業支援補助金（会社設立型）</b><small>認定特定創業支援等事業で経営の基礎知識を身につけた創業者に、会社設立に必要な経費の一部を補助します。<br>対象：千葉市の特定創業支援等事業による支援を受けた創業者／市内で会社を設立<br>期間：令和8年度：2026年5月29日〜2027年2月26日<br>締切：2027-02-26</small><span class="ar-prov">千葉市</span></div>
+            <div class="ar-amt">上限7万5,000円</div>
+            
+          </div>
+          <div class="ar-row" id="chiba-city-shokei">
+            <div class="ar-name"><b>千葉市創業支援補助金（第三者承継型）</b><small>後継者のいない事業を第三者として引き継いで創業する場合に、承継に必要な経費の一部を補助します。<br>対象：千葉市の特定創業支援等事業による支援を受けた創業者／第三者承継による創業<br>期間：令和8年度：2026年5月29日〜2027年1月29日<br>締切：2027-01-29</small><span class="ar-prov">千葉市</span></div>
+            <div class="ar-amt">上限30万円／補助率 1/2</div>
+            
+          </div>
+          <div class="ar-row" id="chiba-chushokigyo-shikin-yushi">
+            <div class="ar-name"><b>千葉市中小企業資金融資制度</b><small>市内中小企業の運転・設備資金等を融資する制度です。令和8年度はモニタリング強化資金が創設されました。<br>対象：千葉市内で事業を営む中小企業者／資金ごとの要件は要確認<br>期間：令和8年度（通年）</small><span class="ar-prov">千葉市 経済農政局 経済部 産業支援課</span></div>
+            <div class="ar-amt">要確認（資金ごとの限度額は令和8年4月版リーフレットで確認）。振興資金・小規模事業資金・経営安定資金は利子補給あり</div>
+            <a class="ar-go" href="https://www.city.chiba.jp/keizainosei/keizai/sangyo/shikinyuushi.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="chiba-jinzai-ikusei-hojo">
+            <div class="ar-name"><b>千葉市中小企業人材育成・能力開発推進支援補助金</b><small>中小企業者が行う従業員の研修・能力開発の経費の一部を市が補助します。<br>対象：千葉市内の中小企業者／研修計画の策定有無で上限額が変わる</small><span class="ar-prov">千葉市 経済農政局 経済部 産業支援課</span></div>
+            <div class="ar-amt">上限10万円（研修計画策定済）／上限5万円（未策定）（令和8年度の詳細は要確認）</div>
+            <a class="ar-go" href="https://www.city.chiba.jp/keizainosei/keizai/koyosuishin/chushokigyo-jinzaiikusei-hojokin.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">千葉県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>千葉市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="chiba-city-jutaku-taishin">
-            <h3>千葉市住宅の耐震診断・耐震改修補助制度</h3>
-            <p class="area-meta">千葉市｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：令和8年5月1日～5月29日</p>
-            <p>木造住宅の耐震診断・耐震改修費の補助。令和8年度の募集予定は診断7戸、工事27戸。</p>
-            
-            <p><a href="https://www.city.chiba.jp/toshi/kenchiku/shido/news_juukankyou.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program is-ended" id="chiba-city-jutaku-jokyaku">
-            <h3>千葉市住宅の除却費補助制度 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">千葉市｜補助金｜金額は公式で確認｜締切：2026-08-31</p>
-            <p class="area-meta">期間：令和8年5月1日～8月31日（予算の限り）</p>
-            <p>耐震性の低い住宅の除却費の補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>昭和56年5月31日以前の建物で上部構造評点等の基準を満たすもの</li></ul>
-            <p><a href="https://www.city.chiba.jp/toshi/kenchiku/shido/jutaku_jokyaku.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program" id="chiba-city-jutaku-datsutanso">
-            <h3>千葉市住宅用設備等脱炭素化促進事業補助金（住宅向け）</h3>
-            <p class="area-meta">千葉市｜補助金｜定置用リチウムイオン蓄電システム：7万円（他の設備は要確認）</p>
-            <p class="area-meta">期間：令和8年度受付期間は要確認</p>
-            <p>住宅用の再エネ・省エネ設備導入費用の補助。</p>
-            
-            <p><a href="https://www.city.chiba.jp/kankyo/kankyohozen/datsutanso/renewable-energy-hojo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
-          <div class="area-program" id="chiba-city-ev-v2h">
-            <h3>千葉市電気自動車・プラグインハイブリッド自動車・V2H導入補助金</h3>
-            <p class="area-meta">千葉市｜補助金｜EV・PHV：太陽光併設10万円、太陽光とV2H併設15万円。V2H単体は経費の1/10（最大25万円）｜締切：2027-01-29</p>
-            <p class="area-meta">期間：令和8年5月1日～令和9年1月29日（先着順）</p>
-            <p>電気自動車等・V2H充放電設備の購入費用の補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>住宅用太陽光発電設備の併設</li></ul>
-            <p><a href="https://www.city.chiba.jp/kankyo/kankyohozen/datsutanso/ev_hojo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="chiba-city-block">
-            <h3>千葉市危険ブロック塀等改善補助事業</h3>
-            <p class="area-meta">千葉県千葉市｜補助金｜要確認（補助率・限度額は地区により異なる）</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>通学路等に面した倒壊の危険性が高いブロック塀の撤去や軽量フェンス等への改善費用を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>個人・町内自治会・マンション管理組合が所有する危険なブロック塀等</li><li>調査で撤去が必要と判定されたもの</li></ul>
-            <p><a href="https://www.city.chiba.jp/toshi/kenchiku/shido/blockhojo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
-          <div class="area-program" id="chiba-city-korei-jutaku-kaishu">
-            <h3>高齢者住宅改修費支援サービス事業</h3>
-            <p class="area-meta">千葉県千葉市｜補助金｜実工事費と70万円の少ない方から利用者負担分を引いた額に、世帯の市民税所得割額に応じた割合を乗じた額</p>
-            <p class="area-meta">期間：随時受付（要確認）</p>
-            <p>要介護・要支援の高齢者の住宅の手すり設置・段差解消などの工事費を一部補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内在住の65歳以上で要介護・要支援認定を受けていること</li><li>着手前に区保健福祉センターへ申出</li></ul>
-            <p><a href="https://www.city.chiba.jp/hokenfukushi/koreishogai/korei/jyuutakukaisyuu.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-6">子育て</h3>
-          <div class="area-program" id="chiba-city-danchi-sumikae-kosodate">
-            <h3>団地住替え支援事業（子育て世帯）</h3>
-            <p class="area-meta">千葉県千葉市｜補助金｜最大30万円｜締切：2027-02-28</p>
-            <p class="area-meta">期間：転居期間は令和8年3月1日〜令和9年2月28日</p>
-            <p>市外から市内の高経年住宅団地へ転居する子育て世帯に、住宅購入・賃料・引越し・リフォーム費用を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>小学生以下の子（出産予定含む）がいる世帯</li><li>市外から対象団地へ転居し2年以上居住する意思があること</li></ul>
-            <p><a href="https://www.city.chiba.jp/toshi/kenchiku/jutakuseisaku/kosodatesetaisumikaeshien.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="chiba-kodomo-iryohi">
-            <h3>子ども医療費助成制度</h3>
-            <p class="area-meta">千葉市 こども未来局｜助成金｜通院1回につき300円(6回目以降は無料)、入院1日につき300円(11日目以降は無料)、調剤は無料。第3子以降は無料</p>
-            <p class="area-meta">期間：通年（要確認）</p>
-            <p>医療機関に通院又は入院した場合や、院外処方せんにより保険薬局で薬を受け取った場合に、保険診療の範囲内で医療費の自己負担額の全部又は一部を助成する制度です。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>助成対象は0歳～高校3年生相当年齢</li><li>市町村民税所得割が課税されていない方は無料</li></ul>
-            <p><a href="https://www.city.chiba.jp/kodomomirai/kodomomirai/kateishien/kodomoiryouhi.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-7">医療・福祉</h3>
-          <div class="area-program" id="chiba-taijohoshin">
-            <h3>帯状疱疹予防接種費用助成事業（任意接種）</h3>
-            <p class="area-meta">千葉市 保健福祉局｜助成金｜市助成額：生ワクチン2,000円、不活化（組換え）ワクチン5,000円×2回</p>
-            <p class="area-meta">期間：令和8年度（市内協力医療機関で接種）</p>
-            <p>50歳以上で定期接種の対象でない方を対象に、帯状疱疹ワクチンの任意予防接種の費用を助成する事業です。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>千葉市に住民登録がある50歳以上の方</li><li>定期接種の対象でない方</li></ul>
-            <p><a href="https://www.city.chiba.jp/hokenfukushi/iryoeisei/seisaku/taijouhoushin.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-8">教育・学び</h3>
-          <div class="area-program" id="chiba-shugakuenjo">
-            <h3>就学援助制度</h3>
-            <p class="area-meta">千葉市 教育委員会｜給付｜学用品費・通学用品費は小学2～5年生で年額13,900円など（表のとおり）</p>
-            <p class="area-meta">期間：申請は随時受け付け（年度当初からの援助は4月中旬までに学校へ提出）</p>
-            <p>経済的な理由でお困りの方のために、学校生活を支援する就学援助として、学用品費などの費用を支給する制度です。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市立小・中・中等教育学校に就学する方の保護者が対象</li><li>生活保護の受給、市民税の非課税、児童扶養手当の受給などの申請理由がある</li></ul>
-            <p><a href="https://www.city.chiba.jp/kyoiku/gakkokyoiku/gakuji/shuugakuennjo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>千葉県の制度</strong></p>
-          <ul><li><a href="pref-chiba.html#chiba-pref-iju-shienkin">千葉県移住支援金（UIJターン）</a></li><li><a href="pref-chiba.html#chiba-pref-jutaku-lease-ppa">千葉県住宅用太陽光発電設備等に係るリース等導入促進事業補助金</a></li><li><a href="pref-chiba.html#chiba-pref-zeh">令和8年度千葉県ネット・ゼロ・エネルギー・ハウス導入促進事業補助金</a></li></ul>
-          <p><a href="pref-chiba.html#pref-resident">千葉県の制度3件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-chiba.html#chiba-chusho-shinko-shikin">千葉県 中小企業振興資金</a></li><li><a href="pref-chiba.html#chiba-shijo-kaitaku-josei">市場開拓助成（展示会出展）</a></li><li><a href="pref-chiba.html#chiba-pref-sogyo-ouen">ちば創業応援助成金</a></li><li><a href="pref-chiba.html#chiba-reskilling-banso">中小企業向け伴走型リスキリング支援</a></li><li><a href="pref-chiba.html#chiba-seicho-sokushin-hojo">中小企業成長促進補助金（第4弾）</a></li></ul>
+          <p><a href="pref-chiba.html#pref-business">千葉県の制度5件を、県のページで見る →</a></p>
       </div>
     </section>
 

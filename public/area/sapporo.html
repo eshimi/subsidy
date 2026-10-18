@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"札幌市","item":"https://hojyokin.net/area/sapporo.html"}]}</script>
@@ -165,199 +207,148 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 札幌市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b06.webp')"><h1 class="pb-title">札幌市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-hokkaido.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">北海道・政令指定都市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">北海道 札幌市</p>
+        <h1>札幌市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度16件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-hokkaido.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（札幌市）<b>2件</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（北海道）<b>5件（うち受付終了2件）</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>14件（うち受付終了2件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 2</a><a href="#res-cat-1">太陽光・蓄電池 2</a><a href="#res-cat-2">EV・充電 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-6">子育て 1</a><a href="#res-cat-7">医療・福祉 4</a><a href="#res-cat-8">教育・学び 2</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <a href="#res-g-kosodate"><i aria-hidden="true">👶</i><b>子育て</b><small>1件</small></a>
+      <a href="#res-g-iryo"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>4件</small></a>
+      <a href="#res-g-kyoiku"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>2件</small></a>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>7件</small></a>
+      <span class="is-none"><i aria-hidden="true">🌱</i><b>移住</b><small>掲載なし</small></span>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市2件＋県5件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">札幌市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="sapporo-shinki-sogyo">
-            <h3>さっぽろ新規創業促進補助金</h3>
-            <p class="area-meta">札幌市 経済観光局｜補助金｜株式会社 75,000円／合同会社 30,000円｜締切：2027-03-31</p>
-            <p class="area-meta">期間：令和8年度：2026年4月1日〜2027年3月31日</p>
-            <p>札幌市の特定創業支援等事業を修了して登録免許税の半額軽減を受け、法人を設立した方に、残りの半額相当を市が補助します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>札幌市の特定創業支援等事業の証明を受けた後に法人登記</li><li>市内で創業</li></ul>
-            <p><a href="https://www.city.sapporo.jp/keizai/center/sinkisougyouhojyo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-kosodate">子育て<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="sapporo-kodomo-iryohi">
+            <div class="ar-name"><b>子ども医療費助成</b><small>高校生世代まで（18歳に達する日以後の最初の3月31日まで）のお子さんの医療費の一部を札幌市が助成します。<br>対象：札幌市に住民登録している／公的医療保険に加入している<br>期間：令和８年８月以降に使用する医療費受給者証は令和８年７月17日に発送（所得制限の範囲内の方は区役所福祉助成係へ申請）</small><span class="ar-prov">札幌市</span></div>
+            <div class="ar-amt">保険診療の自己負担額から一部負担金（医科初診580円・歯科初診510円など）を除いた額を助成</div>
+            <a class="ar-go" href="https://www.city.sapporo.jp/hoken-iryo/iryojosei/nyuyoji.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="sapporo-startup-location-hojo">
-            <h3>スタートアップ立地促進補助金</h3>
-            <p class="area-meta">札幌市 経済観光局｜補助金｜準備費 上限150万円、開設費 上限100万円（補助率・詳細は要確認）</p>
-            <p class="area-meta">期間：令和8年度の受付期間は要確認</p>
-            <p>札幌で起業・移転・拠点開設を行うスタートアップの準備費と開設費を市が補助します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>札幌市内で起業・移転・拠点開設を行うスタートアップ</li><li>要件の詳細は公募要領で要確認</li></ul>
-            <p><a href="https://www2.city.sapporo.jp/invest/subsidy/startup.php" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
+          <h3 class="area-cat" id="res-g-iryo">医療・福祉<span>4件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="sapporo-fuikushou-josei">
+            <div class="ar-name"><b>不育症治療費助成事業</b><small>不育症（疑いを含む）と診断された方に、不育症検査及び治療に要した費用の一部を助成します。<br>対象：流産、死産、新生児死亡のいずれかの既往が「2回以上」ある／札幌市が指定する医療機関で不育症治療を受けている<br>期間：治療費を最後に支払った翌日から2か月以内に申請（令和８年度）</small><span class="ar-prov">札幌市</span></div>
+            <div class="ar-amt">1回の治療期間につき10万円を上限</div>
+            <a class="ar-go" href="https://www.city.sapporo.jp/eisei/funin/huiku.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="sapporo-funin-senshin">
+            <div class="ar-name"><b>不妊治療費助成（先進医療）</b><small>保険適用の生殖補助医療と併用可能な先進医療に要した費用の一部を助成し、不妊に悩むご夫婦の経済的負担の軽減を図ります。<br>対象：保険適用の生殖補助医療の治療期間の初日の妻の年齢が43歳未満である夫婦／申請日に夫婦のいずれかが札幌市内に住所を有する<br>期間：令和8年度。1回の治療終了日から2か月以内に申請</small><span class="ar-prov">札幌市</span></div>
+            <div class="ar-amt">先進医療部分の自己負担額の7割（上限3万5千円）。交通費は自己負担額の3分の2を助成</div>
+            <a class="ar-go" href="https://www.city.sapporo.jp/eisei/funin/josei.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="sapporo-hitorioya-iryohi">
+            <div class="ar-name"><b>ひとり親家庭等医療費助成</b><small>ひとり親家庭または両親のいない家庭のお子さんと、その子を扶養している親の医療費の一部を札幌市が助成します。<br>対象：公的医療保険に加入し、被保険者が札幌市に住民登録している／18歳到達後の最初の3月31日までのお子さんとそのひとり親など<br>期間：令和８年８月以降に使用する医療費受給者証は令和８年７月17日に発送</small><span class="ar-prov">札幌市</span></div>
+            <div class="ar-amt">保険診療の自己負担額から一部負担金（医科初診580円・歯科初診510円など）を除いた額を助成</div>
+            <a class="ar-go" href="https://www.city.sapporo.jp/hoken-iryo/iryojosei/hitorioya.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="sapporo-judo-iryohi">
+            <div class="ar-name"><b>重度心身障がい者医療費助成</b><small>心身に重い障がいのある方の医療費の一部を札幌市が助成します。<br>対象：公的医療保険に加入し、被保険者が札幌市に住民登録している／身体障害者手帳1～3級（3級は一部の機能障がいに限る）、療育手帳「A」または「重度」、精神障害者保健福祉手帳1級のいずれか<br>期間：令和８年８月以降に使用する医療費受給者証は令和８年７月17日に発送</small><span class="ar-prov">札幌市</span></div>
+            <div class="ar-amt">保険診療の自己負担額から一部負担金（医科初診580円・歯科初診510円など）を除いた額を助成</div>
+            <a class="ar-go" href="https://www.city.sapporo.jp/hoken-iryo/iryojosei/judo.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-kyoiku">教育・学び<span>2件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="sapporo-kotsuhi-josei">
+            <div class="ar-name"><b>高等学校等生徒通学交通費助成</b><small>高校生等への通学費助成を行う制度です。<br>対象：札幌市内に居住する高校生等／公共交通機関を利用して石狩管内の高等学校等に通学している<br>期間：令和8年度。令和9年2月28日まで随時申請を受け付け（請求手続きは令和8年11月16日～令和9年1月31日）<br>締切：2027-02-28</small><span class="ar-prov">札幌市教育委員会</span></div>
+            <div class="ar-amt">1か月の通学定期券の購入金額のうち、基準額（14,000円）を超える額の半額</div>
+            <a class="ar-go" href="https://www.city.sapporo.jp/kyoiku/top/information/kotsuhijosei.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="sapporo-shogakukin">
+            <div class="ar-name"><b>札幌市奨学金</b><small>能力があるにもかかわらず経済的理由によって修学困難な学生・生徒を支援する、返済の必要がない給付型の奨学金です。<br>対象：本人または生計維持者が札幌市内に居住している／大学等または高校等に在学している（学校からの推薦が必要）<br>期間：毎年、春（4月頃）・秋（9月頃）の2回募集。令和9年度に進学する方の予約採用の募集を開始（令和8年9月更新）</small><span class="ar-prov">札幌市教育委員会 学校教育部教育推進課</span></div>
+            <div class="ar-amt">大学等 月6,000円～9,000円、高校等 月5,000円～8,000円（返済不要）、入学支度資金あり</div>
+            <a class="ar-go" href="https://www.city.sapporo.jp/kyoiku/top/information/syogakukin.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>7件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="sapporo-eco-reform">
+            <div class="ar-name"><b><span class="ar-tag">省エネ住宅</span>札幌市 住宅エコリフォーム補助</b><small>省エネ改修やバリアフリー改修などを行う住宅リフォームへの補助。令和8年4月1日以降に工事契約したものが対象。<br>対象：総工事費30万円以上などの条件あり／昭和56年5月31日以前に建てられた住宅などに限られる（要確認）</small><span class="ar-prov">札幌市 都市局</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.sapporo.jp/toshi/jutaku/03reform/eco/documents/r8pannhuretto.pdf" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="sapporo-jutaku-pv-lease-ppa">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>住宅用太陽光発電設備導入（リース・PPA）補助金制度</b><small>初期費用がかからないリースやPPA契約で住宅に太陽光発電や蓄電池を導入する場合の補助。事業者が申請する。<br>対象：リースまたはPPA契約で導入すること／先着順（予算に達すると終了）<br>期間：2026年4月16日〜2027年1月29日<br>締切：2027-01-29</small><span class="ar-prov">札幌市 環境局環境都市推進部環境エネルギー課</span></div>
+            <div class="ar-amt">要確認（補助分は事業者が契約料金から差し引く仕組み）</div>
+            <a class="ar-go" href="https://www.city.sapporo.jp/kankyo/energy/zerohojo/zerohojo.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="sapporo-saiene-kiki">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>再エネ省エネ機器導入補助金制度</b><small>住宅への太陽光発電、蓄電池、エネファーム、地中熱ヒートポンプ、ペレットストーブなどの導入費用を補助する。<br>対象：2026年2月7日以降に設置が完了したもの／太陽光・エネファームの申込には「札幌市エコエネクラブ」への入会が必要</small><span class="ar-prov">札幌市 環境局環境都市推進部環境エネルギー課</span></div>
+            <div class="ar-amt">太陽光発電：1kWあたり2万円（上限13万9千円）／定置用蓄電池：1kWhあたり1万6千円（上限6万4千円、Q&amp;Aページに異なる記載があり要確認）／エネファーム8万円／地中熱ヒートポンプ20万円／ペレットストーブ1台5万円</div>
+            <a class="ar-go" href="https://www.city.sapporo.jp/kankyo/energy/hojo/kiki.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="sapporo-taishin-mokuzou-jokyaku">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>木造住宅の除却工事（解体工事）の費用補助</b><small>耐震診断で評点1.0未満と判定された旧耐震の木造住宅の解体費用を補助する。<br>対象：耐震診断で評点1.0未満と判定された旧耐震の木造住宅</small><span class="ar-prov">札幌市 都市局</span></div>
+            <div class="ar-amt">補助率23%以内（上限30万円）</div>
+            <a class="ar-go" href="https://www.city.sapporo.jp/toshi/k-shido/taishin/mokuzoujokyaku.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="sapporo-zev-kounyu">
+            <div class="ar-name"><b><span class="ar-tag">EV・充電</span>札幌市ゼロエミッション自動車購入等補助制度</b><small>電気自動車の購入などに対する補助。集合住宅の管理組合等が設置する基礎充電設備も対象。<br>対象：対象期間 2026年2月19日〜2027年2月18日／基礎充電設備は集合住宅オーナー・管理組合等が対象</small><span class="ar-prov">北海道札幌市</span></div>
+            <div class="ar-amt">電気自動車 定額10万円、軽EV 5万円、基礎充電設備は差額の1/2・上限15万円/基</div>
+            <a class="ar-go" href="https://www.city.sapporo.jp/kankyo/zidousya_kankyo/jisedai_hojo.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="sapporo-kiken-akiya-jokyaku">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>札幌市危険空家等除却補助制度 <span class="area-ended-tag">受付終了</span></b><small>倒壊等のおそれのある危険な空家等の除却費用の一部を補助。<br>対象：事前確認が必要／交付決定前に契約しないこと<br>締切：2026-09-30</small><span class="ar-prov">北海道札幌市</span></div>
+            <div class="ar-amt">通常型 上限50万円、地域連携型 上限150万円</div>
+            <a class="ar-go" href="https://www.city.sapporo.jp/toshi/k-shido/akiya/akiyahojyo.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="sapporo-taishin-mokuzou-kaishu">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>木造住宅耐震設計・耐震改修工事の費用補助 <span class="area-ended-tag">受付終了</span></b><small>昭和56年5月31日以前に建築された在来軸組構法の住宅で、耐震診断の結果、上部構造評点が1.0未満のものの耐震設計・改修工事費を補助する。<br>対象：昭和56年5月31日以前に建築された在来軸組構法の住宅など／上部構造評点1.0未満と判定されたもの<br>期間：令和8年度申込期間：2026年4月1日〜9月11日（受付終了）<br>締切：2026-09-11</small><span class="ar-prov">札幌市 都市局</span></div>
+            <div class="ar-amt">耐震改修は上限140万円（段階改修は1段階目80万円、2段階目60万円）</div>
+            <a class="ar-go" href="https://www.city.sapporo.jp/toshi/k-shido/taishin/mokuzou.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>北海道の制度</strong></p>
+          <ul><li><a href="pref-hokkaido.html#hokkaido-iju-shienkin">北海道 移住支援金（UIJターン新規就業支援事業）</a></li><li><a href="pref-hokkaido.html#hokkaido-zerocarbon-sumai">住まいのゼロカーボン化推進事業</a></li></ul>
+          <p><a href="pref-hokkaido.html#pref-resident">北海道の制度2件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">北海道の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">札幌市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-hokkaido.html#hokkaido-sogyo-kasitsuke">中小企業総合振興資金 創業貸付</a></li><li><a href="pref-hokkaido.html#hokkaido-sogyo-sokushin">創業促進支援事業（北海道中小企業総合支援センター）</a></li><li><a href="pref-hokkaido.html#hokkaido-step-up-koyo">中小企業総合振興資金 ステップアップ貸付（事業活性化・雇用）</a></li><li><a href="pref-hokkaido.html#hokkaido-chiiki-kadai-kigyo">地域課題解決型起業支援事業（起業支援金）</a></li><li><a href="pref-hokkaido.html#hokkaido-chusho-kyosoryoku-marketing">中小企業競争力強化促進事業（マーケティング支援）</a></li></ul>
-          <p><a href="pref-hokkaido.html#pref-business">北海道の制度5件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="sapporo-shinki-sogyo">
+            <div class="ar-name"><b>さっぽろ新規創業促進補助金</b><small>札幌市の特定創業支援等事業を修了して登録免許税の半額軽減を受け、法人を設立した方に、残りの半額相当を市が補助します。<br>対象：札幌市の特定創業支援等事業の証明を受けた後に法人登記／市内で創業<br>期間：令和8年度：2026年4月1日〜2027年3月31日<br>締切：2027-03-31</small><span class="ar-prov">札幌市 経済観光局</span></div>
+            <div class="ar-amt">株式会社 75,000円／合同会社 30,000円</div>
+            <a class="ar-go" href="https://www.city.sapporo.jp/keizai/center/sinkisougyouhojyo.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="sapporo-startup-location-hojo">
+            <div class="ar-name"><b>スタートアップ立地促進補助金</b><small>札幌で起業・移転・拠点開設を行うスタートアップの準備費と開設費を市が補助します。<br>対象：札幌市内で起業・移転・拠点開設を行うスタートアップ／要件の詳細は公募要領で要確認</small><span class="ar-prov">札幌市 経済観光局</span></div>
+            <div class="ar-amt">準備費 上限150万円、開設費 上限100万円（補助率・詳細は要確認）</div>
+            <a class="ar-go" href="https://www2.city.sapporo.jp/invest/subsidy/startup.php" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">北海道の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>札幌市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="sapporo-taishin-mokuzou-jokyaku">
-            <h3>木造住宅の除却工事（解体工事）の費用補助</h3>
-            <p class="area-meta">札幌市 都市局｜補助金｜補助率23%以内（上限30万円）</p>
-            
-            <p>耐震診断で評点1.0未満と判定された旧耐震の木造住宅の解体費用を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>耐震診断で評点1.0未満と判定された旧耐震の木造住宅</li></ul>
-            <p><a href="https://www.city.sapporo.jp/toshi/k-shido/taishin/mokuzoujokyaku.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program is-ended" id="sapporo-taishin-mokuzou-kaishu">
-            <h3>木造住宅耐震設計・耐震改修工事の費用補助 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">札幌市 都市局｜補助金｜耐震改修は上限140万円（段階改修は1段階目80万円、2段階目60万円）｜締切：2026-09-11</p>
-            <p class="area-meta">期間：令和8年度申込期間：2026年4月1日〜9月11日（受付終了）</p>
-            <p>昭和56年5月31日以前に建築された在来軸組構法の住宅で、耐震診断の結果、上部構造評点が1.0未満のものの耐震設計・改修工事費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>昭和56年5月31日以前に建築された在来軸組構法の住宅など</li><li>上部構造評点1.0未満と判定されたもの</li><li>札幌市木造住宅耐震診断員が行う設計・工事</li></ul>
-            <p><a href="https://www.city.sapporo.jp/toshi/k-shido/taishin/mokuzou.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program" id="sapporo-jutaku-pv-lease-ppa">
-            <h3>住宅用太陽光発電設備導入（リース・PPA）補助金制度</h3>
-            <p class="area-meta">札幌市 環境局環境都市推進部環境エネルギー課｜補助金｜要確認（補助分は事業者が契約料金から差し引く仕組み）｜締切：2027-01-29</p>
-            <p class="area-meta">期間：2026年4月16日〜2027年1月29日</p>
-            <p>初期費用がかからないリースやPPA契約で住宅に太陽光発電や蓄電池を導入する場合の補助。事業者が申請する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>リースまたはPPA契約で導入すること</li><li>先着順（予算に達すると終了）</li></ul>
-            <p><a href="https://www.city.sapporo.jp/kankyo/energy/zerohojo/zerohojo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="sapporo-saiene-kiki">
-            <h3>再エネ省エネ機器導入補助金制度</h3>
-            <p class="area-meta">札幌市 環境局環境都市推進部環境エネルギー課｜補助金｜太陽光発電：1kWあたり2万円（上限13万9千円）／定置用蓄電池：1kWhあたり1万6千円（上限6万4千円、Q&amp;Aページに異なる記載があり要確認）／エネファーム8万円／地中熱ヒートポンプ20万円／ペレットストーブ1台5万円</p>
-            <p class="area-meta">期間：令和8年度（詳細な受付期間は要確認）</p>
-            <p>住宅への太陽光発電、蓄電池、エネファーム、地中熱ヒートポンプ、ペレットストーブなどの導入費用を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>2026年2月7日以降に設置が完了したもの</li><li>太陽光・エネファームの申込には「札幌市エコエネクラブ」への入会が必要</li></ul>
-            <p><a href="https://www.city.sapporo.jp/kankyo/energy/hojo/kiki.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
-          <div class="area-program" id="sapporo-zev-kounyu">
-            <h3>札幌市ゼロエミッション自動車購入等補助制度</h3>
-            <p class="area-meta">北海道札幌市｜補助金｜電気自動車 定額10万円、軽EV 5万円、基礎充電設備は差額の1/2・上限15万円/基</p>
-            <p class="area-meta">期間：対象期間 令和8年2月19日〜令和9年2月18日（受付の詳細は要確認）</p>
-            <p>電気自動車の購入などに対する補助。集合住宅の管理組合等が設置する基礎充電設備も対象。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>対象期間 2026年2月19日〜2027年2月18日</li><li>基礎充電設備は集合住宅オーナー・管理組合等が対象</li><li>詳細は要確認</li></ul>
-            <p><a href="https://www.city.sapporo.jp/kankyo/zidousya_kankyo/jisedai_hojo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
-          <div class="area-program" id="sapporo-eco-reform">
-            <h3>札幌市 住宅エコリフォーム補助</h3>
-            <p class="area-meta">札幌市 都市局｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：令和8年度：第1回5月22日〜6月4日、第2回は9月（詳細は要確認）</p>
-            <p>省エネ改修やバリアフリー改修などを行う住宅リフォームへの補助。令和8年4月1日以降に工事契約したものが対象。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>総工事費30万円以上などの条件あり</li><li>昭和56年5月31日以前に建てられた住宅などに限られる（要確認）</li></ul>
-            <p><a href="https://www.city.sapporo.jp/toshi/jutaku/03reform/eco/documents/r8pannhuretto.pdf" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program is-ended" id="sapporo-kiken-akiya-jokyaku">
-            <h3>札幌市危険空家等除却補助制度 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">北海道札幌市｜補助金｜通常型 上限50万円、地域連携型 上限150万円｜締切：2026-09-30</p>
-            <p class="area-meta">期間：令和8年度は2026年5月15日〜9月30日（終了の可能性あり、来年度は要確認）</p>
-            <p>倒壊等のおそれのある危険な空家等の除却費用の一部を補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>事前確認が必要</li><li>交付決定前に契約しないこと</li><li>予算に達し次第終了</li></ul>
-            <p><a href="https://www.city.sapporo.jp/toshi/k-shido/akiya/akiyahojyo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-6">子育て</h3>
-          <div class="area-program" id="sapporo-kodomo-iryohi">
-            <h3>子ども医療費助成</h3>
-            <p class="area-meta">札幌市｜助成金｜保険診療の自己負担額から一部負担金（医科初診580円・歯科初診510円など）を除いた額を助成</p>
-            <p class="area-meta">期間：令和８年８月以降に使用する医療費受給者証は令和８年７月17日に発送（所得制限の範囲内の方は区役所福祉助成係へ申請）</p>
-            <p>高校生世代まで（18歳に達する日以後の最初の3月31日まで）のお子さんの医療費の一部を札幌市が助成します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>札幌市に住民登録している</li><li>公的医療保険に加入している</li><li>主たる生計維持者の所得額が限度額未満</li></ul>
-            <p><a href="https://www.city.sapporo.jp/hoken-iryo/iryojosei/nyuyoji.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-7">医療・福祉</h3>
-          <div class="area-program" id="sapporo-fuikushou-josei">
-            <h3>不育症治療費助成事業</h3>
-            <p class="area-meta">札幌市｜助成金｜1回の治療期間につき10万円を上限</p>
-            <p class="area-meta">期間：治療費を最後に支払った翌日から2か月以内に申請（令和８年度）</p>
-            <p>不育症（疑いを含む）と診断された方に、不育症検査及び治療に要した費用の一部を助成します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>流産、死産、新生児死亡のいずれかの既往が「2回以上」ある</li><li>札幌市が指定する医療機関で不育症治療を受けている</li><li>申請日において、ご夫婦のいずれかが札幌市内に住民登録している</li></ul>
-            <p><a href="https://www.city.sapporo.jp/eisei/funin/huiku.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="sapporo-funin-senshin">
-            <h3>不妊治療費助成（先進医療）</h3>
-            <p class="area-meta">札幌市｜助成金｜先進医療部分の自己負担額の7割（上限3万5千円）。交通費は自己負担額の3分の2を助成</p>
-            <p class="area-meta">期間：令和8年度。1回の治療終了日から2か月以内に申請</p>
-            <p>保険適用の生殖補助医療と併用可能な先進医療に要した費用の一部を助成し、不妊に悩むご夫婦の経済的負担の軽減を図ります。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>保険適用の生殖補助医療の治療期間の初日の妻の年齢が43歳未満である夫婦</li><li>申請日に夫婦のいずれかが札幌市内に住所を有する</li><li>婚姻（事実婚を含む）している夫婦</li></ul>
-            <p><a href="https://www.city.sapporo.jp/eisei/funin/josei.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="sapporo-hitorioya-iryohi">
-            <h3>ひとり親家庭等医療費助成</h3>
-            <p class="area-meta">札幌市｜助成金｜保険診療の自己負担額から一部負担金（医科初診580円・歯科初診510円など）を除いた額を助成</p>
-            <p class="area-meta">期間：令和８年８月以降に使用する医療費受給者証は令和８年７月17日に発送</p>
-            <p>ひとり親家庭または両親のいない家庭のお子さんと、その子を扶養している親の医療費の一部を札幌市が助成します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>公的医療保険に加入し、被保険者が札幌市に住民登録している</li><li>18歳到達後の最初の3月31日までのお子さんとそのひとり親など</li><li>主たる生計維持者の所得額が限度額未満</li></ul>
-            <p><a href="https://www.city.sapporo.jp/hoken-iryo/iryojosei/hitorioya.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="sapporo-judo-iryohi">
-            <h3>重度心身障がい者医療費助成</h3>
-            <p class="area-meta">札幌市｜助成金｜保険診療の自己負担額から一部負担金（医科初診580円・歯科初診510円など）を除いた額を助成</p>
-            <p class="area-meta">期間：令和８年８月以降に使用する医療費受給者証は令和８年７月17日に発送</p>
-            <p>心身に重い障がいのある方の医療費の一部を札幌市が助成します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>公的医療保険に加入し、被保険者が札幌市に住民登録している</li><li>身体障害者手帳1～3級（3級は一部の機能障がいに限る）、療育手帳「A」または「重度」、精神障害者保健福祉手帳1級のいずれか</li><li>主たる生計維持者の所得が限度額未満</li></ul>
-            <p><a href="https://www.city.sapporo.jp/hoken-iryo/iryojosei/judo.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-8">教育・学び</h3>
-          <div class="area-program" id="sapporo-kotsuhi-josei">
-            <h3>高等学校等生徒通学交通費助成</h3>
-            <p class="area-meta">札幌市教育委員会｜助成金｜1か月の通学定期券の購入金額のうち、基準額（14,000円）を超える額の半額｜締切：2027-02-28</p>
-            <p class="area-meta">期間：令和8年度。令和9年2月28日まで随時申請を受け付け（請求手続きは令和8年11月16日～令和9年1月31日）</p>
-            <p>高校生等への通学費助成を行う制度です。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>札幌市内に居住する高校生等</li><li>公共交通機関を利用して石狩管内の高等学校等に通学している</li><li>1か月の通学定期券の購入金額が基準額（14,000円）を超えている</li></ul>
-            <p><a href="https://www.city.sapporo.jp/kyoiku/top/information/kotsuhijosei.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="sapporo-shogakukin">
-            <h3>札幌市奨学金</h3>
-            <p class="area-meta">札幌市教育委員会 学校教育部教育推進課｜給付｜大学等 月6,000円～9,000円、高校等 月5,000円～8,000円（返済不要）、入学支度資金あり</p>
-            <p class="area-meta">期間：毎年、春（4月頃）・秋（9月頃）の2回募集。令和9年度に進学する方の予約採用の募集を開始（令和8年9月更新）</p>
-            <p>能力があるにもかかわらず経済的理由によって修学困難な学生・生徒を支援する、返済の必要がない給付型の奨学金です。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>本人または生計維持者が札幌市内に居住している</li><li>大学等または高校等に在学している（学校からの推薦が必要）</li><li>資産の合計が2,000万円未満（生計維持者が1人の場合は1,250万円未満）</li></ul>
-            <p><a href="https://www.city.sapporo.jp/kyoiku/top/information/syogakukin.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>北海道の制度</strong></p>
-          <ul><li><a href="pref-hokkaido.html#hokkaido-iju-shienkin">北海道 移住支援金（UIJターン新規就業支援事業）</a></li><li><a href="pref-hokkaido.html#hokkaido-zerocarbon-sumai">住まいのゼロカーボン化推進事業</a></li></ul>
-          <p><a href="pref-hokkaido.html#pref-resident">北海道の制度2件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-hokkaido.html#hokkaido-sogyo-kasitsuke">中小企業総合振興資金 創業貸付</a></li><li><a href="pref-hokkaido.html#hokkaido-sogyo-sokushin">創業促進支援事業（北海道中小企業総合支援センター）</a></li><li><a href="pref-hokkaido.html#hokkaido-step-up-koyo">中小企業総合振興資金 ステップアップ貸付（事業活性化・雇用）</a></li><li><a href="pref-hokkaido.html#hokkaido-chiiki-kadai-kigyo">地域課題解決型起業支援事業（起業支援金）</a></li><li><a href="pref-hokkaido.html#hokkaido-chusho-kyosoryoku-marketing">中小企業競争力強化促進事業（マーケティング支援）</a></li></ul>
+          <p><a href="pref-hokkaido.html#pref-business">北海道の制度5件を、県のページで見る →</a></p>
       </div>
     </section>
 

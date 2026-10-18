@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"船橋市","item":"https://hojyokin.net/area/funabashi.html"}]}</script>
@@ -165,214 +207,158 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 船橋市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b13.webp')"><h1 class="pb-title">船橋市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-chiba.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">千葉県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">千葉県 船橋市</p>
+        <h1>船橋市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度18件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-chiba.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（船橋市）<b>4件</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（千葉県）<b>5件（うち受付終了3件）</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>14件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 2</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-5">バリアフリー・介護 1</a><a href="#res-cat-6">子育て 5</a><a href="#res-cat-7">医療・福祉 3</a><a href="#res-cat-8">教育・学び 1</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <a href="#res-g-kosodate"><i aria-hidden="true">👶</i><b>子育て</b><small>5件</small></a>
+      <a href="#res-g-iryo"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>3件</small></a>
+      <a href="#res-g-kyoiku"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>1件</small></a>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>5件</small></a>
+      <span class="is-none"><i aria-hidden="true">🌱</i><b>移住</b><small>掲載なし</small></span>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市4件＋県5件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">船橋市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="funabashi-city-akitenpo-taisaku">
-            <h3>空き店舗対策事業補助金</h3>
-            <p class="area-meta">船橋市 経済部 商工振興課｜補助金｜施設整備費は補助率1/2・上限100万円。賃借料は1年目1/2(月3.6万円)、2年目1/3(月2.4万円)、3年目1/4(月1.8万円)</p>
-            <p class="area-meta">期間：最新は要確認(予算の範囲内)</p>
-            <p>市内の空き店舗に出店する事業者の改装費・賃借料の一部を補助する。事前相談が必要で予算に限りがある。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市街化区域内で6か月以上空き店舗の物件に出店する個人客向け事業者</li><li>事前相談が必要</li></ul>
-            <p><a href="https://www.city.funabashi.lg.jp/jigyou/shoukou/002/p048619.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-kosodate">子育て<span>5件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="funabashi-kinkyo-doukyo">
+            <div class="ar-name"><b>親世帯・子育て世帯近居同居支援事業</b><small>親世帯と子育て世帯が市内で近居・同居する際の費用を支援する。</small><span class="ar-prov">千葉県船橋市</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.funabashi.lg.jp/machi/juutaku/005/p000000.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="funabashi-city-chingin-ouen">
-            <h3>国の補助金等を活用した賃上げ取組み支援</h3>
-            <p class="area-meta">船橋市 経済部 商工振興課｜補助金｜補助対象経費の3/4・上限15万円</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>賃上げ要件のある国の補助金・助成金に申請した市内中小企業者等を市が上乗せで支援する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>令和8年4月1日以降に賃上げを要件とする国の補助金・助成金へ申請している市内中小企業者等</li></ul>
-            <p><a href="https://www.city.funabashi.lg.jp/jigyou/shoukou/002/p145307.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="funabashi-ninkagai-hoiku-tsuen">
+            <div class="ar-name"><b>令和8年度通園分 認可外保育施設通園児補助金</b><small>認可外保育施設を利用している児童の保護者の経済的負担を軽減するため、補助金を交付する。<br>対象：補助対象施設を月極契約で利用する0歳児～2歳児クラスの児童／市民税課税世帯の児童<br>期間：令和8年度通園分（最終申請締め切りは令和9年4月9日）</small><span class="ar-prov">船橋市</span></div>
+            <div class="ar-amt">保護者が負担した利用料で月額30,000円が上限</div>
+            <a class="ar-go" href="https://www.city.funabashi.lg.jp/kodomo/hoiku/008/p073655.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="funabashi-city-chusho-yushi">
-            <h3>船橋市中小企業融資制度(創業支援資金ほか)</h3>
-            <p class="area-meta">船橋市 経済部 商工振興課｜融資｜創業支援資金は融資限度額2,000万円以内(その他は要確認)</p>
-            <p class="area-meta">期間：通年(詳細は要確認)</p>
-            <p>市内中小企業者向けの制度融資。創業支援資金は創業者も利用でき、特定創業支援を受けた場合の保証料補給等の優遇がある。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内で事業を営む(創業予定含む)中小企業者</li><li>創業支援資金以外は市内で1年以上の事業継続が必要</li></ul>
-            <p><a href="https://www.city.funabashi.lg.jp/jigyou/shoukou/003/p017711.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="funabashi-sanpu-kenshin">
+            <div class="ar-name"><b>産婦健康診査費用の助成</b><small>産後間もないお母さんの心身の健康保持や産後うつ病の予防等のため、産婦健康診査の費用の一部を助成する。<br>対象：健診受診日時点で船橋市に住民票がある／受診結果が船橋市に提出され、産後の支援に活用されることに同意する<br>期間：令和8年度（出産後おおむね2週間とおおむね1ヵ月の各1回）</small><span class="ar-prov">船橋市</span></div>
+            <div class="ar-amt">1回につき5,000円が上限（合計2回まで）</div>
+            <a class="ar-go" href="https://www.city.funabashi.lg.jp/kodomo/ninshin/001/p064130.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="funabashi-city-sogyo-shien">
-            <h3>創業支援等事業計画認定による各種支援(ふなばし起業スクール)</h3>
-            <p class="area-meta">船橋市 経済部 商工振興課・船橋商工会議所｜専門家支援｜要確認(受講で登録免許税軽減・保証料補給等)</p>
-            <p class="area-meta">期間：令和8年度は上期(7/25,8/29)開催を確認、下期は要確認</p>
-            <p>船橋商工会議所の起業スクールで特定創業支援等事業を受け市の証明を得ると、登録免許税の軽減や信用保証料の補給などを受けられる。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>創業予定者・創業後間もない事業者</li><li>4テーマ受講・8割以上出席</li></ul>
-            <p><a href="https://www.city.funabashi.lg.jp/jigyou/shoukou/001/p032771.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="funabashi-takei-shudan-katsudo">
+            <div class="ar-name"><b>令和8年度 船橋市多様な集団活動利用支援事業費補助金</b><small>小学校就学前の子どもが利用する多様な集団活動について、保護者の経済的負担を軽減するため、利用料の一部を給付する。<br>対象：満3歳以上の児童で、児童・保護者が船橋市に居住し住民登録がある／対象施設を1日4時間以上週5日以上、年間39週以上利用している<br>期間：令和8年度（最終申請締め切りは令和9年4月9日）</small><span class="ar-prov">船橋市</span></div>
+            <div class="ar-amt">保護者が負担した利用料と給付基準額のどちらか少ない額（原則1か月当たり20,000円）</div>
+            <a class="ar-go" href="https://www.city.funabashi.lg.jp/kodomo/teate/004/p094943.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          <div class="ar-row" id="funabashi-youshin-tesuryo">
+            <div class="ar-name"><b>船橋市養親希望者手数料負担軽減事業</b><small>養親希望者が民間あっせん機関に支払った手数料の全部または一部を船橋市が補助する。令和8年7月1日施行。<br>対象：都道府県知事等の許可を受けた民間あっせん機関との契約で養子縁組のあっせんを受けている／縁組成立前養育開始日から交付申請日まで継続して船橋市内に居住<br>期間：手数料を支払った日の属する月の翌月1日から起算して12か月を経過する日までに申請</small><span class="ar-prov">船橋市</span></div>
+            <div class="ar-amt">上限600,000円（1人（世帯）あたり）</div>
+            <a class="ar-go" href="https://www.city.funabashi.lg.jp/kodomo/teate/004/p150041.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-iryo">医療・福祉<span>3件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="funabashi-fuikushou-kensa">
+            <div class="ar-name"><b>船橋市不育症検査費用助成事業</b><small>先進医療として告示されている不育症検査の費用の一部を助成し、不育症の方の経済的な負担の軽減を図る。<br>対象：既往流死産回数が2回以上の方／申請日時点において市内に居住し、かつ住民登録をしている<br>期間：令和3年6月30日から助成（令和8年5月1日から新たな検査も対象）</small><span class="ar-prov">船橋市</span></div>
+            <div class="ar-amt">検査費用の7割に相当する額（千円未満切捨て）、上限6万円</div>
+            <a class="ar-go" href="https://www.city.funabashi.lg.jp/kodomo/ninshin/003/p093380.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="funabashi-soki-funin-kensa">
+            <div class="ar-name"><b>船橋市早期不妊検査費助成事業</b><small>こどもを望む夫婦が早めに検査を受けられるよう、夫婦で受けた不妊検査費用の一部を助成する。令和8年10月5日開始。<br>対象：夫婦の双方又はいずれか一方が船橋市に住所を有する（事実婚を含む）／女性の不妊検査開始日時点の年齢が43歳未満<br>期間：令和8年10月1日以降に受けた検査が対象</small><span class="ar-prov">船橋市</span></div>
+            <div class="ar-amt">夫婦1組につき上限3万円（1回限り）</div>
+            <a class="ar-go" href="https://www.city.funabashi.lg.jp/kodomo/ninshin/003/p149359.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="funabashi-taijouhoushin-ninni">
+            <div class="ar-name"><b>令和8年度 帯状疱疹任意予防接種の費用助成</b><small>満50歳以上65歳未満の方（定期予防接種の対象者を除く）の帯状疱疹任意予防接種の費用を助成する。<br>対象：満50歳以上65歳未満の方（定期予防接種の対象者を除く）／過去に全額自費もしくは市の費用助成を受けて接種を完了した方は対象外<br>期間：令和8年4月1日から令和9年3月31日まで</small><span class="ar-prov">船橋市</span></div>
+            <div class="ar-amt">生ワクチン2,000円、不活化ワクチン5,000円×2回（計10,000円）</div>
+            <a class="ar-go" href="https://www.city.funabashi.lg.jp/kenkou/iryou/007/p135428.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-kyoiku">教育・学び<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="funabashi-shugaku-enjo">
+            <div class="ar-name"><b>令和8年度就学援助</b><small>経済的な理由で小・中学校で必要となる諸経費に困っている保護者に対して、その一部を援助する制度。<br>対象：船橋市に住所を有し、経済的な理由で小・中学校の諸経費に困っている保護者／生活保護を受けている方、児童扶養手当を支給されている方、その他経済的に困窮している方<br>期間：当初提出期限は令和8年5月14日、申請は年度内随時可能（年度の最終受付日は3月8日）</small><span class="ar-prov">船橋市 学務課</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.funabashi.lg.jp/kodomo/teate/005/p008693.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>5件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="funabashi-barrierfree-danetsu">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>住宅バリアフリー・断熱改修支援事業</b><small>住宅のバリアフリー化や断熱改修の工事費の一部を助成する。</small><span class="ar-prov">千葉県船橋市</span></div>
+            <div class="ar-amt">工事費の10分の3（上限8万円）</div>
+            <a class="ar-go" href="https://www.city.funabashi.lg.jp/machi/juutaku/005/p000000a.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="funabashi-block">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>危険コンクリートブロック塀等撤去助成</b><small>通学路・緊急輸送道路などに面した危険なブロック塀等の撤去費用の一部を助成する。事前相談が必要。<br>対象：道路等に面し高さ1m超などの条件を満たす塀で、市長が危険と判断したもの／事前相談を行うこと<br>期間：令和8年度分は令和8年11月30日まで<br>締切：2026-11-30</small><span class="ar-prov">千葉県船橋市</span></div>
+            <div class="ar-amt">要確認（撤去費の3分の2、長さ1mあたり定額、上限額のうち最も少ない額。広報と要綱で上限の記載が異なるため市に確認）</div>
+            <a class="ar-go" href="https://www.city.funabashi.lg.jp/jigyou/kenchiku_kaihatsu/006/p024798.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="funabashi-jutaku-kankyo-setsubi">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>船橋市住宅向け補助金（太陽光・蓄電・EV・V2H）令和8年度</b><small>住宅用太陽光発電、蓄電システム、EV・PHEV、V2H充放電設備等の導入費の補助。<br>対象：太陽光は蓄電システム又はHEMSの併設が必要／EV等は令和8年4月1日以降登録の新車で使用の本拠が市内<br>期間：令和8年5月1日～令和9年2月26日（先着順）<br>締切：2027-02-26</small><span class="ar-prov">船橋市</span></div>
+            <div class="ar-amt">太陽光：1kWあたり1.5万円（上限6万円）、蓄電システム7万円、EV・PHEV：太陽光併設10万円／太陽光とV2H併設15万円、V2H：購入費の1/10（上限25万円）</div>
+            <a class="ar-go" href="https://www.city.funabashi.lg.jp/machi/kankyou/004/p035670.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="funabashi-mokuzo-jokyaku">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>木造住宅除却助成事業</b><small>昭和56年5月以前に新築された木造住宅の除却工事費の一部を助成する。交付決定前の着工・契約は対象外。<br>対象：昭和56年5月以前に新築された木造住宅の除却／交付決定前に着工・契約していないこと<br>期間：令和8年度分は令和8年11月30日まで（予算に達し次第終了）<br>締切：2026-11-30</small><span class="ar-prov">千葉県船橋市</span></div>
+            <div class="ar-amt">除却工事費の23%（上限30万円）</div>
+            <a class="ar-go" href="https://www.city.funabashi.lg.jp/machi/juutaku/006/p010090.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="funabashi-mokuzo-taishin-kaishu">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>船橋市木造住宅耐震改修助成事業</b><small>木造住宅の耐震改修の助成。<br>対象：平成12年5月以前に建てられた平屋又は2階建ての在来軸組工法の木造住宅／契約・着手前の交付申請<br>期間：令和8年度交付申請受付中（締切：令和8年11月30日）<br>締切：2026-11-30</small><span class="ar-prov">船橋市</span></div>
+            <div class="ar-amt">耐震改修工事費と工事監理費の4/5、上限115万円</div>
+            <a class="ar-go" href="https://www.city.funabashi.lg.jp/machi/juutaku/006/p010088.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>千葉県の制度</strong></p>
+          <ul><li><a href="pref-chiba.html#chiba-pref-iju-shienkin">千葉県移住支援金（UIJターン）</a></li><li><a href="pref-chiba.html#chiba-pref-jutaku-lease-ppa">千葉県住宅用太陽光発電設備等に係るリース等導入促進事業補助金</a></li><li><a href="pref-chiba.html#chiba-pref-zeh">令和8年度千葉県ネット・ゼロ・エネルギー・ハウス導入促進事業補助金</a></li></ul>
+          <p><a href="pref-chiba.html#pref-resident">千葉県の制度3件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">千葉県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">船橋市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-chiba.html#chiba-chusho-shinko-shikin">千葉県 中小企業振興資金</a></li><li><a href="pref-chiba.html#chiba-shijo-kaitaku-josei">市場開拓助成（展示会出展）</a></li><li><a href="pref-chiba.html#chiba-pref-sogyo-ouen">ちば創業応援助成金</a></li><li><a href="pref-chiba.html#chiba-reskilling-banso">中小企業向け伴走型リスキリング支援</a></li><li><a href="pref-chiba.html#chiba-seicho-sokushin-hojo">中小企業成長促進補助金（第4弾）</a></li></ul>
-          <p><a href="pref-chiba.html#pref-business">千葉県の制度5件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="funabashi-city-akitenpo-taisaku">
+            <div class="ar-name"><b>空き店舗対策事業補助金</b><small>市内の空き店舗に出店する事業者の改装費・賃借料の一部を補助する。事前相談が必要で予算に限りがある。<br>対象：市街化区域内で6か月以上空き店舗の物件に出店する個人客向け事業者／事前相談が必要</small><span class="ar-prov">船橋市 経済部 商工振興課</span></div>
+            <div class="ar-amt">施設整備費は補助率1/2・上限100万円。賃借料は1年目1/2(月3.6万円)、2年目1/3(月2.4万円)、3年目1/4(月1.8万円)</div>
+            <a class="ar-go" href="https://www.city.funabashi.lg.jp/jigyou/shoukou/002/p048619.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="funabashi-city-chingin-ouen">
+            <div class="ar-name"><b>国の補助金等を活用した賃上げ取組み支援</b><small>賃上げ要件のある国の補助金・助成金に申請した市内中小企業者等を市が上乗せで支援する。<br>対象：令和8年4月1日以降に賃上げを要件とする国の補助金・助成金へ申請している市内中小企業者等</small><span class="ar-prov">船橋市 経済部 商工振興課</span></div>
+            <div class="ar-amt">補助対象経費の3/4・上限15万円</div>
+            <a class="ar-go" href="https://www.city.funabashi.lg.jp/jigyou/shoukou/002/p145307.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="funabashi-city-chusho-yushi">
+            <div class="ar-name"><b>船橋市中小企業融資制度(創業支援資金ほか)</b><small>市内中小企業者向けの制度融資。創業支援資金は創業者も利用でき、特定創業支援を受けた場合の保証料補給等の優遇がある。<br>対象：市内で事業を営む(創業予定含む)中小企業者／創業支援資金以外は市内で1年以上の事業継続が必要</small><span class="ar-prov">船橋市 経済部 商工振興課</span></div>
+            <div class="ar-amt">創業支援資金は融資限度額2,000万円以内(その他は要確認)</div>
+            <a class="ar-go" href="https://www.city.funabashi.lg.jp/jigyou/shoukou/003/p017711.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="funabashi-city-sogyo-shien">
+            <div class="ar-name"><b>創業支援等事業計画認定による各種支援(ふなばし起業スクール)</b><small>船橋商工会議所の起業スクールで特定創業支援等事業を受け市の証明を得ると、登録免許税の軽減や信用保証料の補給などを受けられる。<br>対象：創業予定者・創業後間もない事業者／4テーマ受講・8割以上出席</small><span class="ar-prov">船橋市 経済部 商工振興課・船橋商工会議所</span></div>
+            <div class="ar-amt">要確認(受講で登録免許税軽減・保証料補給等)</div>
+            <a class="ar-go" href="https://www.city.funabashi.lg.jp/jigyou/shoukou/001/p032771.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">千葉県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>船橋市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="funabashi-mokuzo-jokyaku">
-            <h3>木造住宅除却助成事業</h3>
-            <p class="area-meta">千葉県船橋市｜補助金｜除却工事費の23%（上限30万円）｜締切：2026-11-30</p>
-            <p class="area-meta">期間：令和8年度分は令和8年11月30日まで（予算に達し次第終了）</p>
-            <p>昭和56年5月以前に新築された木造住宅の除却工事費の一部を助成する。交付決定前の着工・契約は対象外。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>昭和56年5月以前に新築された木造住宅の除却</li><li>交付決定前に着工・契約していないこと</li></ul>
-            <p><a href="https://www.city.funabashi.lg.jp/machi/juutaku/006/p010090.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="funabashi-mokuzo-taishin-kaishu">
-            <h3>船橋市木造住宅耐震改修助成事業</h3>
-            <p class="area-meta">船橋市｜助成金｜耐震改修工事費と工事監理費の4/5、上限115万円｜締切：2026-11-30</p>
-            <p class="area-meta">期間：令和8年度交付申請受付中（締切：令和8年11月30日）</p>
-            <p>木造住宅の耐震改修の助成。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>平成12年5月以前に建てられた平屋又は2階建ての在来軸組工法の木造住宅</li><li>契約・着手前の交付申請</li></ul>
-            <p><a href="https://www.city.funabashi.lg.jp/machi/juutaku/006/p010088.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program" id="funabashi-jutaku-kankyo-setsubi">
-            <h3>船橋市住宅向け補助金（太陽光・蓄電・EV・V2H）令和8年度</h3>
-            <p class="area-meta">船橋市｜補助金｜太陽光：1kWあたり1.5万円（上限6万円）、蓄電システム7万円、EV・PHEV：太陽光併設10万円／太陽光とV2H併設15万円、V2H：購入費の1/10（上限25万円）｜締切：2027-02-26</p>
-            <p class="area-meta">期間：令和8年5月1日～令和9年2月26日（先着順）</p>
-            <p>住宅用太陽光発電、蓄電システム、EV・PHEV、V2H充放電設備等の導入費の補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>太陽光は蓄電システム又はHEMSの併設が必要</li><li>EV等は令和8年4月1日以降登録の新車で使用の本拠が市内</li></ul>
-            <p><a href="https://www.city.funabashi.lg.jp/machi/kankyou/004/p035670.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="funabashi-block">
-            <h3>危険コンクリートブロック塀等撤去助成</h3>
-            <p class="area-meta">千葉県船橋市｜補助金｜要確認（撤去費の3分の2、長さ1mあたり定額、上限額のうち最も少ない額。広報と要綱で上限の記載が異なるため市に確認）｜締切：2026-11-30</p>
-            <p class="area-meta">期間：令和8年度分は令和8年11月30日まで</p>
-            <p>通学路・緊急輸送道路などに面した危険なブロック塀等の撤去費用の一部を助成する。事前相談が必要。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>道路等に面し高さ1m超などの条件を満たす塀で、市長が危険と判断したもの</li><li>事前相談を行うこと</li></ul>
-            <p><a href="https://www.city.funabashi.lg.jp/jigyou/kenchiku_kaihatsu/006/p024798.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
-          <div class="area-program" id="funabashi-barrierfree-danetsu">
-            <h3>住宅バリアフリー・断熱改修支援事業</h3>
-            <p class="area-meta">千葉県船橋市｜補助金｜工事費の10分の3（上限8万円）</p>
-            <p class="area-meta">期間：令和8年度（受付期間は要確認）</p>
-            <p>住宅のバリアフリー化や断熱改修の工事費の一部を助成する。</p>
-            
-            <p><a href="https://www.city.funabashi.lg.jp/machi/juutaku/005/p000000a.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-6">子育て</h3>
-          <div class="area-program" id="funabashi-kinkyo-doukyo">
-            <h3>親世帯・子育て世帯近居同居支援事業</h3>
-            <p class="area-meta">千葉県船橋市｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：令和8年度（受付期間は要確認）</p>
-            <p>親世帯と子育て世帯が市内で近居・同居する際の費用を支援する。</p>
-            
-            <p><a href="https://www.city.funabashi.lg.jp/machi/juutaku/005/p000000.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="funabashi-ninkagai-hoiku-tsuen">
-            <h3>令和8年度通園分 認可外保育施設通園児補助金</h3>
-            <p class="area-meta">船橋市｜補助金｜保護者が負担した利用料で月額30,000円が上限</p>
-            <p class="area-meta">期間：令和8年度通園分（最終申請締め切りは令和9年4月9日）</p>
-            <p>認可外保育施設を利用している児童の保護者の経済的負担を軽減するため、補助金を交付する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>補助対象施設を月極契約で利用する0歳児～2歳児クラスの児童</li><li>市民税課税世帯の児童</li></ul>
-            <p><a href="https://www.city.funabashi.lg.jp/kodomo/hoiku/008/p073655.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="funabashi-sanpu-kenshin">
-            <h3>産婦健康診査費用の助成</h3>
-            <p class="area-meta">船橋市｜助成金｜1回につき5,000円が上限（合計2回まで）</p>
-            <p class="area-meta">期間：令和8年度（出産後おおむね2週間とおおむね1ヵ月の各1回）</p>
-            <p>産後間もないお母さんの心身の健康保持や産後うつ病の予防等のため、産婦健康診査の費用の一部を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>健診受診日時点で船橋市に住民票がある</li><li>受診結果が船橋市に提出され、産後の支援に活用されることに同意する</li></ul>
-            <p><a href="https://www.city.funabashi.lg.jp/kodomo/ninshin/001/p064130.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="funabashi-takei-shudan-katsudo">
-            <h3>令和8年度 船橋市多様な集団活動利用支援事業費補助金</h3>
-            <p class="area-meta">船橋市｜補助金｜保護者が負担した利用料と給付基準額のどちらか少ない額（原則1か月当たり20,000円）</p>
-            <p class="area-meta">期間：令和8年度（最終申請締め切りは令和9年4月9日）</p>
-            <p>小学校就学前の子どもが利用する多様な集団活動について、保護者の経済的負担を軽減するため、利用料の一部を給付する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>満3歳以上の児童で、児童・保護者が船橋市に居住し住民登録がある</li><li>対象施設を1日4時間以上週5日以上、年間39週以上利用している</li><li>幼児教育・保育無償化等の対象外である</li></ul>
-            <p><a href="https://www.city.funabashi.lg.jp/kodomo/teate/004/p094943.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="funabashi-youshin-tesuryo">
-            <h3>船橋市養親希望者手数料負担軽減事業</h3>
-            <p class="area-meta">船橋市｜補助金｜上限600,000円（1人（世帯）あたり）</p>
-            <p class="area-meta">期間：手数料を支払った日の属する月の翌月1日から起算して12か月を経過する日までに申請</p>
-            <p>養親希望者が民間あっせん機関に支払った手数料の全部または一部を船橋市が補助する。令和8年7月1日施行。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>都道府県知事等の許可を受けた民間あっせん機関との契約で養子縁組のあっせんを受けている</li><li>縁組成立前養育開始日から交付申請日まで継続して船橋市内に居住</li><li>市税を滞納していない</li></ul>
-            <p><a href="https://www.city.funabashi.lg.jp/kodomo/teate/004/p150041.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-7">医療・福祉</h3>
-          <div class="area-program" id="funabashi-fuikushou-kensa">
-            <h3>船橋市不育症検査費用助成事業</h3>
-            <p class="area-meta">船橋市｜助成金｜検査費用の7割に相当する額（千円未満切捨て）、上限6万円</p>
-            <p class="area-meta">期間：令和3年6月30日から助成（令和8年5月1日から新たな検査も対象）</p>
-            <p>先進医療として告示されている不育症検査の費用の一部を助成し、不育症の方の経済的な負担の軽減を図る。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>既往流死産回数が2回以上の方</li><li>申請日時点において市内に居住し、かつ住民登録をしている</li></ul>
-            <p><a href="https://www.city.funabashi.lg.jp/kodomo/ninshin/003/p093380.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="funabashi-soki-funin-kensa">
-            <h3>船橋市早期不妊検査費助成事業</h3>
-            <p class="area-meta">船橋市｜助成金｜夫婦1組につき上限3万円（1回限り）</p>
-            <p class="area-meta">期間：令和8年10月1日以降に受けた検査が対象</p>
-            <p>こどもを望む夫婦が早めに検査を受けられるよう、夫婦で受けた不妊検査費用の一部を助成する。令和8年10月5日開始。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>夫婦の双方又はいずれか一方が船橋市に住所を有する（事実婚を含む）</li><li>女性の不妊検査開始日時点の年齢が43歳未満</li><li>保険医療機関において夫婦ともに不妊検査を受けている</li></ul>
-            <p><a href="https://www.city.funabashi.lg.jp/kodomo/ninshin/003/p149359.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="funabashi-taijouhoushin-ninni">
-            <h3>令和8年度 帯状疱疹任意予防接種の費用助成</h3>
-            <p class="area-meta">船橋市｜助成金｜生ワクチン2,000円、不活化ワクチン5,000円×2回（計10,000円）</p>
-            <p class="area-meta">期間：令和8年4月1日から令和9年3月31日まで</p>
-            <p>満50歳以上65歳未満の方（定期予防接種の対象者を除く）の帯状疱疹任意予防接種の費用を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>満50歳以上65歳未満の方（定期予防接種の対象者を除く）</li><li>過去に全額自費もしくは市の費用助成を受けて接種を完了した方は対象外</li></ul>
-            <p><a href="https://www.city.funabashi.lg.jp/kenkou/iryou/007/p135428.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-8">教育・学び</h3>
-          <div class="area-program" id="funabashi-shugaku-enjo">
-            <h3>令和8年度就学援助</h3>
-            <p class="area-meta">船橋市 学務課｜給付｜金額は公式で確認</p>
-            <p class="area-meta">期間：当初提出期限は令和8年5月14日、申請は年度内随時可能（年度の最終受付日は3月8日）</p>
-            <p>経済的な理由で小・中学校で必要となる諸経費に困っている保護者に対して、その一部を援助する制度。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>船橋市に住所を有し、経済的な理由で小・中学校の諸経費に困っている保護者</li><li>生活保護を受けている方、児童扶養手当を支給されている方、その他経済的に困窮している方</li></ul>
-            <p><a href="https://www.city.funabashi.lg.jp/kodomo/teate/005/p008693.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>千葉県の制度</strong></p>
-          <ul><li><a href="pref-chiba.html#chiba-pref-iju-shienkin">千葉県移住支援金（UIJターン）</a></li><li><a href="pref-chiba.html#chiba-pref-jutaku-lease-ppa">千葉県住宅用太陽光発電設備等に係るリース等導入促進事業補助金</a></li><li><a href="pref-chiba.html#chiba-pref-zeh">令和8年度千葉県ネット・ゼロ・エネルギー・ハウス導入促進事業補助金</a></li></ul>
-          <p><a href="pref-chiba.html#pref-resident">千葉県の制度3件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-chiba.html#chiba-chusho-shinko-shikin">千葉県 中小企業振興資金</a></li><li><a href="pref-chiba.html#chiba-shijo-kaitaku-josei">市場開拓助成（展示会出展）</a></li><li><a href="pref-chiba.html#chiba-pref-sogyo-ouen">ちば創業応援助成金</a></li><li><a href="pref-chiba.html#chiba-reskilling-banso">中小企業向け伴走型リスキリング支援</a></li><li><a href="pref-chiba.html#chiba-seicho-sokushin-hojo">中小企業成長促進補助金（第4弾）</a></li></ul>
+          <p><a href="pref-chiba.html#pref-business">千葉県の制度5件を、県のページで見る →</a></p>
       </div>
     </section>
 

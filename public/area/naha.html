@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"那覇市","item":"https://hojyokin.net/area/naha.html"}]}</script>
@@ -165,161 +207,128 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 那覇市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b18.webp')"><h1 class="pb-title">那覇市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-okinawa.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">沖縄県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">沖縄県 那覇市</p>
+        <h1>那覇市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度12件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-okinawa.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（那覇市）<b>5件（うち受付終了1件）</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（沖縄県）<b>4件（うち受付終了2件）</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>7件</b></a><span class="area-toc-cats"><a href="#res-cat-4">空き家・ブロック塀 1</a><a href="#res-cat-6">子育て 1</a><a href="#res-cat-7">医療・福祉 2</a><a href="#res-cat-8">教育・学び 3</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <a href="#res-g-kosodate"><i aria-hidden="true">👶</i><b>子育て</b><small>1件</small></a>
+      <a href="#res-g-iryo"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>2件</small></a>
+      <a href="#res-g-kyoiku"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>3件</small></a>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>1件</small></a>
+      <span class="is-none"><i aria-hidden="true">🌱</i><b>移住</b><small>掲載なし</small></span>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市5件＋県4件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">那覇市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="naha-city-ganbaru-machigwa">
-            <h3>那覇市頑張るマチグヮー支援事業</h3>
-            <p class="area-meta">那覇市 商工振興グループ｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：令和8年度（最新は要確認）</p>
-            <p>市内のマチグヮー（市場・商店街）の事業者を支援する令和8年度事業。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>対象者・要件は要確認</li></ul>
-            <p><a href="https://www.city.naha.okinawa.jp/business/sangyou/1003586/1003610.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-kosodate">子育て<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="naha-kyushoku-bento">
+            <div class="ar-name"><b>那覇市立小中学校給食弁当代替者補助金</b><small>やむを得ない理由により学校給食の提供を受けられず毎回弁当を持参する児童生徒の保護者に、経済的負担の軽減を目的に補助金を交付します。<br>対象：那覇市立小学校又は中学校に通学している児童生徒の保護者／やむを得ない理由で、届け出の上、毎回学校に弁当を持参している<br>期間：令和8年度（申請手続きは通学する学校へ問い合わせ）</small><span class="ar-prov">那覇市 学校教育部 学校給食課</span></div>
+            <div class="ar-amt">令和8年度の補助基準単価×弁当対応日数（全額補助）</div>
+            <a class="ar-go" href="https://www.city.naha.okinawa.jp/child/school/1006102/1008784.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="naha-city-hanro-kakudai">
-            <h3>那覇市中小企業者販路拡大支援事業</h3>
-            <p class="area-meta">那覇市 商工振興グループ｜補助金｜要確認（県外・海外の展示会等の参加費を助成）｜締切：2027-01-29</p>
-            <p class="area-meta">期間：令和8年4月15日〜令和9年1月29日（予算に達し次第終了）</p>
-            <p>県外・海外の展示会、見本市、商談会、物産展などへの出展参加費を助成。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の中小企業者</li></ul>
-            <p><a href="https://www.city.naha.okinawa.jp/business/kigyouricchi/1003642/1011678.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/naha-city-hanro-kakudai.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
           </div>
-          <div class="area-program" id="naha-city-keiei-kiban">
-            <h3>那覇市 市内企業経営基盤強化事業</h3>
-            <p class="area-meta">那覇市 商工振興グループ｜専門家支援｜要確認（セミナーと専門家派遣）</p>
-            <p class="area-meta">期間：令和8年度（詳細は要確認）</p>
-            <p>市内企業の経営課題に専門家を派遣し伴走支援する事業。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内企業（詳細は要確認）</li></ul>
-            <p><a href="https://www.city.naha.okinawa.jp/business/kigyouricchi/kigyoushien/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <h3 class="area-cat" id="res-g-iryo">医療・福祉<span>2件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="naha-fuikushou-kensa">
+            <div class="ar-name"><b>不育症検査費用助成事業</b><small>不育症検査のうち厚生労働大臣が告示した先進医療として行われる不育症検査に要する費用の一部を助成します。<br>対象：那覇市内に住民登録していること／2回以上の流産・死産の既往がある方<br>期間：申請期間 令和8年度対象分：令和8年4月1日～令和9年3月31日<br>締切：2027-03-31</small><span class="ar-prov">那覇市保健所 地域保健課</span></div>
+            <div class="ar-amt">1回の検査に係る費用の7割に相当する額、助成上限額6万円</div>
+            <a class="ar-go" href="https://www.city.naha.okinawa.jp/nahahokenjyo/bosihoken/1006451/1006457.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="naha-city-koguchi-yushi">
-            <h3>那覇市小口資金融資</h3>
-            <p class="area-meta">那覇市 商工振興グループ｜融資｜限度額1,000万円・保証料率0.40〜0.80%（一般小口）</p>
-            <p class="area-meta">期間：随時（最新は要確認）</p>
-            <p>市・金融機関・沖縄県信用保証協会が協力する小規模企業者向け事業資金融資。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の小規模企業者</li></ul>
-            <p><a href="https://city.naha.okinawa.jp/business/syoukougyou/yuusi/20191003091222209.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="naha-senshin-funin">
+            <div class="ar-name"><b>先進医療不妊治療費助成事業</b><small>特定不妊治療のうち保険適用となる治療と併せて実施する先進医療に要する経費の一部を助成します。<br>対象：夫婦のいずれか一方が那覇市内に住民登録していること／治療開始時点における妻の年齢が43歳未満であること<br>期間：申請期間 令和8年度対象分：令和8年4月1日～令和9年3月31日<br>締切：2027-03-31</small><span class="ar-prov">那覇市保健所 地域保健課</span></div>
+            <div class="ar-amt">先進医療技術ごとの基準額と支払額を比べて少ない方の額の7割（助成率7／10）</div>
+            <a class="ar-go" href="https://www.city.naha.okinawa.jp/nahahokenjyo/bosihoken/1006451/1006453.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <h3 class="area-cat">受付が終了した制度（次回の公募の参考に）</h3>
-          <div class="area-program is-ended" id="naha-city-shakaikadai-kigyo">
-            <h3>なはし社会地域課題解決型起業支援補助金 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">那覇市 商工振興グループ｜補助金｜補助率2/3以内・上限100万円｜締切：2026-06-10</p>
-            <p class="area-meta">期間：令和8年度公募は4月28日〜6月10日（受付終了。来年度は要確認）</p>
-            <p>社会・地域課題の解決を目指す起業者等を支援する補助金。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>社会課題・地域課題の解決を目指す起業者</li><li>創業5年未満の事業者</li></ul>
-            <p><a href="https://www.city.naha.okinawa.jp/business/kigyoaogyo/socialbusiness_naha.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
+          <h3 class="area-cat" id="res-g-kyoiku">教育・学び<span>3件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="naha-koutou-shokugyo">
+            <div class="ar-name"><b>ひとり親家庭高等職業訓練促進給付金</b><small>母子家庭の母または父子家庭の父が看護師や介護福祉士等の資格取得のため6ヶ月以上養成機関で修業する期間（最長48カ月）の生活の負担軽減を図る給付金です。<br>対象：児童扶養手当の支給を受けている又は、同様の所得水準にあること／養成機関において、6ヶ月以上のカリキュラムを修業し、対象資格の取得が見込まれる者<br>期間：令和8年度追加募集：令和8年10月1日（木曜日）～令和8年11月30日（月曜日）<br>締切：2026-11-30</small><span class="ar-prov">那覇市 こどもみらい部 子育て応援課</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.naha.okinawa.jp/child/kosodateouen/1002864/1002869.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="naha-manabi-coupon">
+            <div class="ar-name"><b>那覇市まなびクーポン事業</b><small>家庭の経済的理由で学校外教育が受けられない子どもたちに、学習塾代等を助成する「那覇市まなびクーポン」を交付します。<br>対象：那覇市内在住の小学4年生から中学3年生／生活保護受給世帯、就学援助認定世帯、児童扶養手当受給世帯のいずれか<br>期間：令和8年度の利用申込受付中。クーポンの利用期限は令和9年2月28日（日曜日）まで<br>締切：2027-01-31</small><span class="ar-prov">那覇市 こどもみらい部 こども政策課</span></div>
+            <div class="ar-amt">小学4～6年生：84,000円／中学1～3年生：120,000円（1人あたり・年額）</div>
+            <a class="ar-go" href="https://www.city.naha.okinawa.jp/child/school/1002812/1002813/1002816.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="naha-shuugaku-enjo">
+            <div class="ar-name"><b>令和8年度 就学援助</b><small>経済的理由により給食費、修学旅行費などの支払いがお困りの小・中学校へ通う子どもの保護者に、費用の一部を援助します。<br>対象：市町村民税が非課税の世帯／生活保護を受けている家庭に準ずる程度に生活が困窮していると認められる世帯<br>期間：4月申請は令和8年4月1日（水曜日）から令和8年4月30日（木曜日）締切、5月申請以降は毎月1日から末日締切。最終の締切日：令和8年12月28日(月曜日)<br>締切：2026-12-28</small><span class="ar-prov">那覇市教育委員会 学務課</span></div>
+            <div class="ar-amt">給食費、修学旅行費などの費用の一部を援助</div>
+            <a class="ar-go" href="https://www.city.naha.okinawa.jp/child/school/1006074/1010879.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="naha-akiya-kaitai">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>那覇市不良住宅等除却費補助金・空家等除却費補助金</b><small>老朽化した不良住宅・空き家の解体費を補助する。補助区域は市全域に拡大。事前相談が必要。<br>対象：空き家になって1年以上／昭和56年5月31日以前建築の建物等<br>期間：2026-05-07〜2026-11-13<br>締切：2026-11-13</small><span class="ar-prov">沖縄県那覇市</span></div>
+            <div class="ar-amt">不良住宅等：除却費の4/5（上限40万円）、空家等：2/5（上限20万円）</div>
+            <a class="ar-go" href="https://www.city.naha.okinawa.jp/kurasitetuduki/life/1002061/1002064/1002067.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>沖縄県の制度</strong></p>
+          <ul><li><a href="pref-okinawa.html#okinawa-hitorioya-jutaku-shikin">ひとり親家庭住宅支援資金貸付</a></li><li><a href="pref-okinawa.html#okinawa-ken-churatturn-kotsuhi">ちゅらっとターン交通費補助金</a></li><li><a href="pref-okinawa.html#okinawa-ken-ijyu-shienkin">沖縄県移住支援金</a></li></ul>
+          <p><a href="pref-okinawa.html#pref-resident">沖縄県の制度3件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">沖縄県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">那覇市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-okinawa.html#okinawa-shokibo-taisaku-shikin">沖縄県 小規模企業対策資金（一般貸付）</a></li><li><a href="pref-okinawa.html#okinawa-sogyosha-shien-kashitsuke">沖縄県 創業者・事業承継支援資金（創業者支援貸付）</a></li><li><a href="pref-okinawa.html#okinawa-keiei-kakushin-hojo">沖縄県中小企業等経営革新強化支援事業費補助金</a></li><li><a href="pref-okinawa.html#okinawa-startup-kigyo-shienkin">沖縄県スタートアップ起業支援金</a></li></ul>
-          <p><a href="pref-okinawa.html#pref-business">沖縄県の制度4件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="naha-city-ganbaru-machigwa">
+            <div class="ar-name"><b>那覇市頑張るマチグヮー支援事業</b><small>市内のマチグヮー（市場・商店街）の事業者を支援する令和8年度事業。<br>対象：対象者・要件は要確認</small><span class="ar-prov">那覇市 商工振興グループ</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.naha.okinawa.jp/business/sangyou/1003586/1003610.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="naha-city-hanro-kakudai">
+            <div class="ar-name"><b>那覇市中小企業者販路拡大支援事業</b><small>県外・海外の展示会、見本市、商談会、物産展などへの出展参加費を助成。<br>対象：市内の中小企業者<br>期間：令和8年4月15日〜令和9年1月29日（予算に達し次第終了）<br>締切：2027-01-29</small><span class="ar-prov">那覇市 商工振興グループ</span></div>
+            <div class="ar-amt">要確認（県外・海外の展示会等の参加費を助成）</div>
+            <a class="ar-go" href="https://www.city.naha.okinawa.jp/business/kigyouricchi/1003642/1011678.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="naha-city-keiei-kiban">
+            <div class="ar-name"><b>那覇市 市内企業経営基盤強化事業</b><small>市内企業の経営課題に専門家を派遣し伴走支援する事業。<br>対象：市内企業（詳細は要確認）</small><span class="ar-prov">那覇市 商工振興グループ</span></div>
+            <div class="ar-amt">要確認（セミナーと専門家派遣）</div>
+            <a class="ar-go" href="https://www.city.naha.okinawa.jp/business/kigyouricchi/kigyoushien/index.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="naha-city-koguchi-yushi">
+            <div class="ar-name"><b>那覇市小口資金融資</b><small>市・金融機関・沖縄県信用保証協会が協力する小規模企業者向け事業資金融資。<br>対象：市内の小規模企業者</small><span class="ar-prov">那覇市 商工振興グループ</span></div>
+            <div class="ar-amt">限度額1,000万円・保証料率0.40〜0.80%（一般小口）</div>
+            <a class="ar-go" href="https://city.naha.okinawa.jp/business/syoukougyou/yuusi/20191003091222209.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="naha-city-shakaikadai-kigyo">
+            <div class="ar-name"><b>なはし社会地域課題解決型起業支援補助金 <span class="area-ended-tag">受付終了</span></b><small>社会・地域課題の解決を目指す起業者等を支援する補助金。<br>対象：社会課題・地域課題の解決を目指す起業者／創業5年未満の事業者<br>締切：2026-06-10</small><span class="ar-prov">那覇市 商工振興グループ</span></div>
+            <div class="ar-amt">補助率2/3以内・上限100万円</div>
+            <a class="ar-go" href="https://www.city.naha.okinawa.jp/business/kigyoaogyo/socialbusiness_naha.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">沖縄県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>那覇市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="naha-akiya-kaitai">
-            <h3>那覇市不良住宅等除却費補助金・空家等除却費補助金</h3>
-            <p class="area-meta">沖縄県那覇市｜補助金｜不良住宅等：除却費の4/5（上限40万円）、空家等：2/5（上限20万円）｜締切：2026-11-13</p>
-            <p class="area-meta">期間：2026-05-07〜2026-11-13</p>
-            <p>老朽化した不良住宅・空き家の解体費を補助する。補助区域は市全域に拡大。事前相談が必要。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>空き家になって1年以上</li><li>昭和56年5月31日以前建築の建物等</li><li>事前相談が必要</li></ul>
-            <p><a href="https://www.city.naha.okinawa.jp/kurasitetuduki/life/1002061/1002064/1002067.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-6">子育て</h3>
-          <div class="area-program" id="naha-kyushoku-bento">
-            <h3>那覇市立小中学校給食弁当代替者補助金</h3>
-            <p class="area-meta">那覇市 学校教育部 学校給食課｜補助金｜令和8年度の補助基準単価×弁当対応日数（全額補助）</p>
-            <p class="area-meta">期間：令和8年度（申請手続きは通学する学校へ問い合わせ）</p>
-            <p>やむを得ない理由により学校給食の提供を受けられず毎回弁当を持参する児童生徒の保護者に、経済的負担の軽減を目的に補助金を交付します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>那覇市立小学校又は中学校に通学している児童生徒の保護者</li><li>やむを得ない理由で、届け出の上、毎回学校に弁当を持参している</li></ul>
-            <p><a href="https://www.city.naha.okinawa.jp/child/school/1006102/1008784.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-7">医療・福祉</h3>
-          <div class="area-program" id="naha-fuikushou-kensa">
-            <h3>不育症検査費用助成事業</h3>
-            <p class="area-meta">那覇市保健所 地域保健課｜助成金｜1回の検査に係る費用の7割に相当する額、助成上限額6万円｜締切：2027-03-31</p>
-            <p class="area-meta">期間：申請期間 令和8年度対象分：令和8年4月1日～令和9年3月31日</p>
-            <p>不育症検査のうち厚生労働大臣が告示した先進医療として行われる不育症検査に要する費用の一部を助成します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>那覇市内に住民登録していること</li><li>2回以上の流産・死産の既往がある方</li></ul>
-            <p><a href="https://www.city.naha.okinawa.jp/nahahokenjyo/bosihoken/1006451/1006457.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="naha-senshin-funin">
-            <h3>先進医療不妊治療費助成事業</h3>
-            <p class="area-meta">那覇市保健所 地域保健課｜助成金｜先進医療技術ごとの基準額と支払額を比べて少ない方の額の7割（助成率7／10）｜締切：2027-03-31</p>
-            <p class="area-meta">期間：申請期間 令和8年度対象分：令和8年4月1日～令和9年3月31日</p>
-            <p>特定不妊治療のうち保険適用となる治療と併せて実施する先進医療に要する経費の一部を助成します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>夫婦のいずれか一方が那覇市内に住民登録していること</li><li>治療開始時点における妻の年齢が43歳未満であること</li><li>令和4年4月1日以降に先進医療不妊治療を開始し、申請時点で治療が終了していること</li></ul>
-            <p><a href="https://www.city.naha.okinawa.jp/nahahokenjyo/bosihoken/1006451/1006453.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-8">教育・学び</h3>
-          <div class="area-program" id="naha-koutou-shokugyo">
-            <h3>ひとり親家庭高等職業訓練促進給付金</h3>
-            <p class="area-meta">那覇市 こどもみらい部 子育て応援課｜給付｜金額は公式で確認｜締切：2026-11-30</p>
-            <p class="area-meta">期間：令和8年度追加募集：令和8年10月1日（木曜日）～令和8年11月30日（月曜日）</p>
-            <p>母子家庭の母または父子家庭の父が看護師や介護福祉士等の資格取得のため6ヶ月以上養成機関で修業する期間（最長48カ月）の生活の負担軽減を図る給付金です。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>児童扶養手当の支給を受けている又は、同様の所得水準にあること</li><li>養成機関において、6ヶ月以上のカリキュラムを修業し、対象資格の取得が見込まれる者</li></ul>
-            <p><a href="https://www.city.naha.okinawa.jp/child/kosodateouen/1002864/1002869.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="naha-manabi-coupon">
-            <h3>那覇市まなびクーポン事業</h3>
-            <p class="area-meta">那覇市 こどもみらい部 こども政策課｜給付｜小学4～6年生：84,000円／中学1～3年生：120,000円（1人あたり・年額）｜締切：2027-01-31</p>
-            <p class="area-meta">期間：令和8年度の利用申込受付中。クーポンの利用期限は令和9年2月28日（日曜日）まで</p>
-            <p>家庭の経済的理由で学校外教育が受けられない子どもたちに、学習塾代等を助成する「那覇市まなびクーポン」を交付します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>那覇市内在住の小学4年生から中学3年生</li><li>生活保護受給世帯、就学援助認定世帯、児童扶養手当受給世帯のいずれか</li></ul>
-            <p><a href="https://www.city.naha.okinawa.jp/child/school/1002812/1002813/1002816.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="naha-shuugaku-enjo">
-            <h3>令和8年度 就学援助</h3>
-            <p class="area-meta">那覇市教育委員会 学務課｜給付｜給食費、修学旅行費などの費用の一部を援助｜締切：2026-12-28</p>
-            <p class="area-meta">期間：4月申請は令和8年4月1日（水曜日）から令和8年4月30日（木曜日）締切、5月申請以降は毎月1日から末日締切。最終の締切日：令和8年12月28日(月曜日)</p>
-            <p>経済的理由により給食費、修学旅行費などの支払いがお困りの小・中学校へ通う子どもの保護者に、費用の一部を援助します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市町村民税が非課税の世帯</li><li>生活保護を受けている家庭に準ずる程度に生活が困窮していると認められる世帯</li></ul>
-            <p><a href="https://www.city.naha.okinawa.jp/child/school/1006074/1010879.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>沖縄県の制度</strong></p>
-          <ul><li><a href="pref-okinawa.html#okinawa-hitorioya-jutaku-shikin">ひとり親家庭住宅支援資金貸付</a></li><li><a href="pref-okinawa.html#okinawa-ken-churatturn-kotsuhi">ちゅらっとターン交通費補助金</a></li><li><a href="pref-okinawa.html#okinawa-ken-ijyu-shienkin">沖縄県移住支援金</a></li></ul>
-          <p><a href="pref-okinawa.html#pref-resident">沖縄県の制度3件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-okinawa.html#okinawa-shokibo-taisaku-shikin">沖縄県 小規模企業対策資金（一般貸付）</a></li><li><a href="pref-okinawa.html#okinawa-sogyosha-shien-kashitsuke">沖縄県 創業者・事業承継支援資金（創業者支援貸付）</a></li><li><a href="pref-okinawa.html#okinawa-keiei-kakushin-hojo">沖縄県中小企業等経営革新強化支援事業費補助金</a></li><li><a href="pref-okinawa.html#okinawa-startup-kigyo-shienkin">沖縄県スタートアップ起業支援金</a></li></ul>
+          <p><a href="pref-okinawa.html#pref-business">沖縄県の制度4件を、県のページで見る →</a></p>
       </div>
     </section>
 

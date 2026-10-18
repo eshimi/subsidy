@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"豊島区","item":"https://hojyokin.net/area/toshima.html"}]}</script>
@@ -165,249 +207,169 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 豊島区</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b15.webp')"><h1 class="pb-title">豊島区の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-tokyo.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">東京都・特別区。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">東京都 豊島区</p>
+        <h1>豊島区で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度21件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-tokyo.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（豊島区）<b>8件（うち受付終了1件）</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（東京都）<b>6件（うち受付終了1件）</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>13件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 4</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-3">省エネ住宅 2</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-5">バリアフリー・介護 2</a><a href="#res-cat-6">子育て 1</a><a href="#res-cat-9">移住 1</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <a href="#res-g-kosodate"><i aria-hidden="true">👶</i><b>子育て</b><small>1件</small></a>
+      <span class="is-none"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>掲載なし</small></span>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>11件</small></a>
+      <a href="#res-g-iju"><i aria-hidden="true">🌱</i><b>移住</b><small>1件</small></a>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市8件＋県6件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">豊島区の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="toshima-kaigyo">
-            <h3>中小企業支援事業補助金 開業支援コース</h3>
-            <p class="area-meta">豊島区 産業観光部 産業振興課｜補助金｜上限20万円（千円未満切り捨て）／補助率 税抜経費の2/3以内｜締切：2026-11-27</p>
-            <p class="area-meta">期間：令和8年度：補助金相談 2026年5月11日〜11月27日17時（予算状況により短縮の場合あり）／交付申請 〜2027年1月22日17時</p>
-            <p>区内で創業後3か月以上5年未満の中小企業者（個人事業主を含む）が、事業PR（看板・チラシ・広告・ホームページ制作など）、デジタル環境整備（パソコン・タブレット）、専門家活用の経費を補助します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>区内中小企業者（個人事業主を含む）で、創業後3か月以上5年未満</li><li>交付申請の前に、特定創業支援等の受講と証明書の取得が必要</li><li>としまビジネスサポートセンターの「補助金相談」を受けることが必須</li></ul>
-            <p><a href="https://www.city.toshima.lg.jp/584/machizukuri/sangyo/kigyo/019176.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/toshima-kaigyo.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-kosodate">子育て<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="toshima-kosodate-family-yachin">
+            <div class="ar-name"><b>豊島区子育てファミリー世帯家賃助成制度</b><small>区内の民間賃貸住宅へ転居した子育て世帯に、家賃と基準家賃の差額の一部を助成する。先着順で予算枠に達し次第終了。<br>対象：15歳以下の児童と扶養者が同居／前年の世帯月額所得338,000円以下</small><span class="ar-prov">東京都豊島区</span></div>
+            <div class="ar-amt">月額上限3万円(原則5年間、または児童が15歳に達した年度末までのいずれか早い方)</div>
+            <a class="ar-go" href="https://www.city.toshima.lg.jp/308/2509041409.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="toshima-keiei">
-            <h3>中小企業支援事業補助金 経営安定コース</h3>
-            <p class="area-meta">豊島区 産業観光部 産業振興課｜補助金｜上限15万円（千円未満切り捨て）／補助率 税抜経費の1/2以内｜締切：2026-11-27</p>
-            <p class="area-meta">期間：令和8年度：補助金相談 2026年5月11日〜11月27日17時（予算状況により短縮の場合あり）／交付申請 〜2027年1月22日17時</p>
-            <p>区内中小企業者が事業活動を続け、発展させるために必要な経費（研修・資格取得などの人材育成・リスキリング、販路開拓、デジタル化、専門家活用など）の一部を補助します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>区内中小企業者（個人事業主を含む）で、区内で3か月以上事業を営んでいること</li><li>法人は区内に本店登記地と主たる事業所があること</li><li>医療法人・NPO法人・社会福祉法人など、個別の法律に規定された法人は対象外</li></ul>
-            <p><a href="https://www.city.toshima.lg.jp/584/machizukuri/sangyo/kigyo/019174.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/toshima-keiei.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
           </div>
-          <div class="area-program" id="toshima-tenji">
-            <h3>中小企業支援事業補助金 展示会等出展コース</h3>
-            <p class="area-meta">豊島区 産業観光部 産業振興課｜補助金｜上限20万円（千円未満切り捨て）／補助率 税抜経費の1/2以内｜締切：2026-11-27</p>
-            <p class="area-meta">期間：令和8年度：交付申請 2026年5月11日〜11月27日17時（受付は予定件数に達し次第終了することあり）／実績報告 〜2027年3月31日17時</p>
-            <p>展示会などへの出展にかかる小間料、出展ブースの装飾・電飾の外注費、ディスプレイなどのレンタル費用の一部を補助します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>区内中小企業者（個人事業主を含む）で、創業後3か月以上</li><li>交付申請は展示会の会期の前に行う必要がある</li><li>医療法人・NPO法人・一般社団法人など、個別の法律に規定された法人は対象外</li></ul>
-            <p><a href="https://www.city.toshima.lg.jp/584/machizukuri/sangyo/kigyo/2504031539.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/toshima-tenji.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>11件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="toshima-airconditioner-teishotoku">
+            <div class="ar-name"><b><span class="ar-tag">省エネ住宅</span>低所得世帯向けエアコン設置助成</b><small>低所得世帯のエアコン設置費用を助成する（内容は区ページで要確認）。<br>対象：住民税非課税世帯、住民税均等割のみ世帯、または児童扶養手当受給世帯（区の案内PDFの記載）<br>期間：令和8年度</small><span class="ar-prov">豊島区</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.toshima.lg.jp/164/kenko/sekatsu/2605191116.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="toshima-collab">
-            <h3>中小企業支援事業補助金 コラボチャレンジコース</h3>
-            <p class="area-meta">豊島区 産業観光部 産業振興課｜補助金｜上限20万円／補助率 対象経費の1/2以内｜締切：2026-11-27</p>
-            <p class="area-meta">期間：令和8年度：交付申請 〜2026年11月27日17時（事業着手前に申請）</p>
-            <p>区内の事業者が複数で団体をつくり、各自の知識・技術・経験を生かして新しい商品やサービスを共同で開発する際の、企画・開発・販売の経費を補助します。令和8年度は先着3件です。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>団体の半数以上が区内中小企業者であること</li><li>団体の代表者を決め、としまビジネスサポートセンターで事前相談を受けて事業計画書を作成すること</li><li>過去に同じ補助金の交付を受けた方は利用できない</li></ul>
-            <p><a href="https://www.city.toshima.lg.jp/584/machizukuri/sangyo/kigyo/019175.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/toshima-collab.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+          <div class="ar-row" id="toshima-akiya-riyo-hojo">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>豊島区空き家の利活用・補助制度</b><small>空き家をコミュニティカフェ等やシェアハウス、セーフティネット住宅として活用する場合の改修費を補助する。<br>対象：区内の空き家の所有者または運営事業者／区のマッチング等の要件あり</small><span class="ar-prov">東京都豊島区</span></div>
+            <div class="ar-amt">旧ページ記載で改修費の2/3(地域貢献型は上限200万円、シェアハウス型は上限150万円)。現行額は要確認</div>
+            <a class="ar-go" href="https://www.city.toshima.lg.jp/508/jutaku/akiya/2012211352.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="toshima-chingin">
-            <h3>としま賃上げ促進支援金</h3>
-            <p class="area-meta">豊島区 産業観光部 産業振興課｜給付金｜従業員1人あたり5万円（1社あたり最大50万円）｜締切：2026-12-22</p>
-            <p class="area-meta">期間：令和8年4月20日〜12月22日（予算の上限に達すると期間内でも終了）</p>
-            <p>区内の中小企業と個人事業主が、賃金を前月より3%以上引き上げて支給した場合に、対象の従業員の人数に応じて支援金を給付します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>区内に本店登記地がある中小企業、または区内に主たる事業所がある個人事業主</li><li>対象従業員は、週20時間以上勤務し雇用保険の被保険者で、役員ではなく、2025年11月21日以前から雇用されていること</li><li>対象の時給が東京都の最低賃金を超えていること</li></ul>
-            <p><a href="https://www.city.toshima.lg.jp/584/machizukuri/sangyo/kigyo/2602241505.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/toshima-chingin.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+          <div class="ar-row" id="toshima-block-kaizen">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>ブロック塀等改善工事助成事業（道路に面する塀のみ）</b><small>避難路等に面する倒壊の危険があるブロック塀等の撤去・新設費用の一部を助成する。<br>対象：避難路や一般の通路に面するブロック塀等で、路面中心から上端までの高さが1.2mを超えるもの／契約前・工事着手前に申請すること</small><span class="ar-prov">豊島区</span></div>
+            <div class="ar-amt">撤去：1mあたり2,500円／新設：対象経費の1/2（上限30万円）</div>
+            <a class="ar-go" href="https://www.city.toshima.lg.jp/315/bosai/taisaku/kunotaisaku/bosai/022591.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="toshima-yushi">
-            <h3>豊島区の制度融資（中小商工業融資など）</h3>
-            <p class="area-meta">豊島区 ・ 取扱金融機関｜融資｜区が金融機関へ融資をあっせん（融資限度額は資料により異なるため、申請前に要確認）</p>
-            <p class="area-meta">期間：通年（メニューにより異なる）</p>
-            <p>区内の中小企業者や、これから起業する方が必要な資金を低利で借りられるよう、区が取扱金融機関へ融資をあっせんします。融資の利子の一部を区が補助する仕組みです。起業向けには「第２創業資金」などのメニューがあります。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>区内で事業を営む中小企業者（起業を希望する方も対象のメニューあり）</li><li>起業向けの融資は、区指定の相談員と3回程度面接して創業計画書を作成する</li><li>としまビジネスサポートセンターに書類を提出し、審査後に紹介状を受けて取扱金融機関へ申し込む</li></ul>
-            <p><a href="https://www.city.toshima.lg.jp/584/machizukuri/sangyo/kigyo/019169.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          <!-- program-link --><p class="area-more"><a href="../programs/toshima-yushi.html">この制度のくわしい解説（対象・申請の流れ・注意点） →</a></p><!-- /program-link -->
+          <div class="ar-row" id="toshima-eco-mado-enefarm">
+            <div class="ar-name"><b><span class="ar-tag">省エネ住宅</span>豊島区エコ住宅普及促進費用助成金（断熱改修窓・エネファーム）</b><small>既存の単板ガラス窓を複層ガラスや二重窓に改修する費用、エネファームの設置費を助成する。<br>対象：令和8年2月1日〜令和9年1月31日に施工完了<br>期間：令和8年5月25日〜令和9年3月1日必着<br>締切：2027-03-01</small><span class="ar-prov">豊島区 環境政策課</span></div>
+            <div class="ar-amt">断熱改修窓：設置費用の4分の1（上限10万円）。エネファーム：一律8万円</div>
+            <a class="ar-go" href="https://www.city.toshima.lg.jp/149/machizukuri/shizen/ecojutaku/003402.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="toshima-rishi">
-            <h3>日本政策金融公庫の融資に対する利子補給</h3>
-            <p class="area-meta">豊島区 産業観光部 産業振興課｜融資｜補給率1.2％まで（元本限度額1,000万円）※令和6年4月1日以降に融資実行された場合</p>
-            <p class="area-meta">期間：融資実行日による</p>
-            <p>区内の中小企業者が、日本政策金融公庫（国民生活事業）の融資を受けた場合に、利子の一部を区が補給します。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>区内の中小企業者</li><li>対象は、無担保で、税務申告を2期終えていない方向けの利率が適用されている方などに限られる（詳細は区の案内で確認）</li></ul>
-            <p><a href="https://www.city.toshima.lg.jp/584/machizukuri/sangyo/kigyo/003919.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="toshima-eco-taiyoko-chikuden">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>豊島区エコ住宅普及促進費用助成金（太陽光発電・蓄電システム）</b><small>個人住宅の太陽光発電システム・蓄電システムの設置費を助成する。施工完了後に申請。<br>対象：太陽光は出力1kW以上10kW未満で認証品／蓄電は環境共創イニシアチブ登録機器で太陽光またはエネファームと常時接続<br>期間：令和8年5月25日〜令和9年3月1日必着<br>締切：2027-03-01</small><span class="ar-prov">豊島区 環境政策課</span></div>
+            <div class="ar-amt">太陽光：出力1kWあたり2万円（上限8万円）。蓄電システム：1kWhあたり1万円（上限5万円）</div>
+            <a class="ar-go" href="https://www.city.toshima.lg.jp/149/machizukuri/shizen/ecojutaku/003402.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <h3 class="area-cat">受付が終了した制度（次回の公募の参考に）</h3>
-          <div class="area-program is-ended" id="toshima-akitenpo">
-            <h3>空き店舗活性支援事業（令和8年度は募集終了） <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">豊島区 産業観光部 産業振興課｜補助金｜店舗整備費（改修工事費など）と賃借料を補助（上限額は資料により差があるため要確認）｜締切：2026-06-19</p>
-            <p class="area-meta">期間：令和8年度：2026年6月1日〜6月19日（終了）</p>
-            <p>区内の空き店舗で開業する人に、店舗の改修費と賃借料を補助します。区が指定したコーディネーターによる伴走支援も受けられます。令和8年度の募集は終了しています。次年度の公募を確認してください。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>区内の空き店舗で開業する中小企業者（個人事業主を含む）</li><li>大企業が実質的に経営に参画していないこと</li><li>事前相談が必須</li></ul>
-            <p><a href="https://www.city.toshima.lg.jp/584/machizukuri/sangyo/kigyo/2404021116.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="toshima-jutaku-shuzen-reform">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>豊島区住宅修繕・リフォーム資金助成事業</b><small>所得が少なく住宅の修繕やリフォームが難しい世帯に工事費用を助成する。<br>対象：前年の世帯月額所得が158,000円(条件により214,000円)以下</small><span class="ar-prov">東京都豊島区</span></div>
+            <div class="ar-amt">修繕工事上限10万円、リフォーム工事上限20万円</div>
+            <a class="ar-go" href="https://www.city.toshima.lg.jp/322/1902080851.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          <div class="ar-row" id="toshima-koreisha-jiritsu-jutaku-kaishu">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>豊島区高齢者自立支援住宅改修助成事業</b><small>介護保険の住宅改修とは別枠で、65歳以上の方の転倒予防等の住宅改修費用を助成する。<br>対象：区内在住の65歳以上／理由書は高齢者総合相談センターが作成</small><span class="ar-prov">東京都豊島区</span></div>
+            <div class="ar-amt">非該当の方の予防的助成は上限20万円。設備改修の上限は浴槽379,000円、流し等156,000円、便器様式化106,000円</div>
+            <a class="ar-go" href="https://www.city.toshima.lg.jp/379/kenko/koresha/hitorigurashi/000024.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="toshima-manshon-taishin">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>分譲マンションの耐震改修助成事業</b><small>分譲マンション管理組合の耐震改修費用を助成する。<br>対象：管理組合</small><span class="ar-prov">豊島区 住宅課</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.toshima.lg.jp/322/machizukuri/sumai/kekaku/mansion/020246.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="toshima-mokuzo-taishin-kaishu">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>木造住宅の耐震改修助成事業</b><small>木造住宅の耐震改修工事費を助成する。<br>対象：平成12年5月31日以前に建築された2階以下の木造住宅／上部構造評点1.0以上となること<br>期間：令和8年度（工事は2月末まで）</small><span class="ar-prov">豊島区 建築課</span></div>
+            <div class="ar-amt">工事費の3分の2、上限100万円（区内事業者施工の上乗せあり）。災害時要援護者が居住する場合は上限250万円（令和8年4月1日拡充）</div>
+            <a class="ar-go" href="https://www.city.toshima.lg.jp/315/bosai/taisaku/kunotaisaku/bosai/002160.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="toshima-mokuzo-taishin-shindan">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>木造住宅の耐震診断助成事業</b><small>木造住宅の耐震診断費用を助成する。</small><span class="ar-prov">豊島区 建築課</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.toshima.lg.jp/315/bosai/taisaku/kunotaisaku/bosai/002186.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="toshima-shelter">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>耐震シェルター等設置助成事業</b><small>耐震シェルター、耐震ベッドの設置費用を助成する。<br>対象：65歳以上または身体障害者手帳1級・2級の方のみの世帯</small><span class="ar-prov">豊島区 建築課</span></div>
+            <div class="ar-amt">上限60万円</div>
+            <a class="ar-go" href="https://www.city.toshima.lg.jp/315/bosai/taisaku/kunotaisaku/bosai/013316.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-iju">移住<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="toshima-koreisha-sumikae-yachin">
+            <div class="ar-name"><b>豊島区高齢者世帯等住み替え家賃助成制度</b><small>取り壊し等による立ち退きなどで住み替える高齢者世帯等の家賃差額を助成する。18歳未満の子を養育する世帯も対象に含まれる。<br>対象：高齢者世帯等または18歳未満の子を養育する世帯／立ち退き等の要件あり</small><span class="ar-prov">東京都豊島区</span></div>
+            <div class="ar-amt">月額上限15,000円</div>
+            <a class="ar-go" href="https://www.city.toshima.lg.jp/308/2008281223.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>東京都の制度</strong></p>
+          <ul><li><a href="pref-tokyo.html#tokyo-akachan-first">東京都出産・子育て応援事業（赤ちゃんファースト）</a></li><li><a href="pref-tokyo.html#tokyo-akiya-kazai-kaitai">東京都空き家家財整理・解体促進事業</a></li><li><a href="pref-tokyo.html#tokyo-dannetsu-solar-jutaku">災害にも強く健康にも資する断熱・太陽光住宅普及拡大事業</a></li><li><a href="pref-tokyo.html#tokyo-home-evcharge">戸建住宅向け充電設備普及促進事業（令和8年度）</a></li><li><a href="pref-tokyo.html#tokyo-kodomo-mamoru-jutaku">子育て世帯向け補助事業（「子供を守る」住宅確保促進事業）</a></li></ul>
+          <p><a href="pref-tokyo.html#pref-resident">東京都の制度9件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">東京都の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">豊島区の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-tokyo.html#tokyo-jigyoshokei-josei">事業承継支援助成金（第3回）</a></li><li><a href="pref-tokyo.html#tokyo-kadai-kaiketsu-gijutsu">課題解決型技術開発促進事業</a></li><li><a href="pref-tokyo.html#tokyo-seidoyushi-sogyo">東京都中小企業制度融資「創業」</a></li><li><a href="pref-tokyo.html#tokyo-seihin-chakushu">製品開発着手支援助成事業</a></li><li><a href="pref-tokyo.html#tokyo-souikufuu-challenge">経営力強化に向けた創意工夫チャレンジ促進事業</a></li></ul>
-          <p><a href="pref-tokyo.html#pref-business">東京都の制度6件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="toshima-kaigyo">
+            <div class="ar-name"><b>中小企業支援事業補助金 開業支援コース</b><small>区内で創業後3か月以上5年未満の中小企業者（個人事業主を含む）が、事業PR（看板・チラシ・広告・ホームページ制作など）、デジタル環境整備（パソコン・タブレット）、専門家活用の経費を補助します。<br>対象：区内中小企業者（個人事業主を含む）で、創業後3か月以上5年未満／交付申請の前に、特定創業支援等の受講と証明書の取得が必要<br>期間：令和8年度：補助金相談 2026年5月11日〜11月27日17時（予算状況により短縮の場合あり）／交付申請 〜2027年1月22日17時<br>締切：2026-11-27</small><span class="ar-prov">豊島区 産業観光部 産業振興課</span></div>
+            <div class="ar-amt">上限20万円（千円未満切り捨て）／補助率 税抜経費の2/3以内</div>
+            <a class="ar-go" href="https://www.city.toshima.lg.jp/584/machizukuri/sangyo/kigyo/019176.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="toshima-keiei">
+            <div class="ar-name"><b>中小企業支援事業補助金 経営安定コース</b><small>区内中小企業者が事業活動を続け、発展させるために必要な経費（研修・資格取得などの人材育成・リスキリング、販路開拓、デジタル化、専門家活用など）の一部を補助します。<br>対象：区内中小企業者（個人事業主を含む）で、区内で3か月以上事業を営んでいること／法人は区内に本店登記地と主たる事業所があること<br>期間：令和8年度：補助金相談 2026年5月11日〜11月27日17時（予算状況により短縮の場合あり）／交付申請 〜2027年1月22日17時<br>締切：2026-11-27</small><span class="ar-prov">豊島区 産業観光部 産業振興課</span></div>
+            <div class="ar-amt">上限15万円（千円未満切り捨て）／補助率 税抜経費の1/2以内</div>
+            <a class="ar-go" href="https://www.city.toshima.lg.jp/584/machizukuri/sangyo/kigyo/019174.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="toshima-tenji">
+            <div class="ar-name"><b>中小企業支援事業補助金 展示会等出展コース</b><small>展示会などへの出展にかかる小間料、出展ブースの装飾・電飾の外注費、ディスプレイなどのレンタル費用の一部を補助します。<br>対象：区内中小企業者（個人事業主を含む）で、創業後3か月以上／交付申請は展示会の会期の前に行う必要がある<br>期間：令和8年度：交付申請 2026年5月11日〜11月27日17時（受付は予定件数に達し次第終了することあり）／実績報告 〜2027年3月31日17時<br>締切：2026-11-27</small><span class="ar-prov">豊島区 産業観光部 産業振興課</span></div>
+            <div class="ar-amt">上限20万円（千円未満切り捨て）／補助率 税抜経費の1/2以内</div>
+            <a class="ar-go" href="https://www.city.toshima.lg.jp/584/machizukuri/sangyo/kigyo/2504031539.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="toshima-collab">
+            <div class="ar-name"><b>中小企業支援事業補助金 コラボチャレンジコース</b><small>区内の事業者が複数で団体をつくり、各自の知識・技術・経験を生かして新しい商品やサービスを共同で開発する際の、企画・開発・販売の経費を補助します。令和8年度は先着3件です。<br>対象：団体の半数以上が区内中小企業者であること／団体の代表者を決め、としまビジネスサポートセンターで事前相談を受けて事業計画書を作成すること<br>期間：令和8年度：交付申請 〜2026年11月27日17時（事業着手前に申請）<br>締切：2026-11-27</small><span class="ar-prov">豊島区 産業観光部 産業振興課</span></div>
+            <div class="ar-amt">上限20万円／補助率 対象経費の1/2以内</div>
+            <a class="ar-go" href="https://www.city.toshima.lg.jp/584/machizukuri/sangyo/kigyo/019175.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="toshima-chingin">
+            <div class="ar-name"><b>としま賃上げ促進支援金</b><small>区内の中小企業と個人事業主が、賃金を前月より3%以上引き上げて支給した場合に、対象の従業員の人数に応じて支援金を給付します。<br>対象：区内に本店登記地がある中小企業、または区内に主たる事業所がある個人事業主／対象従業員は、週20時間以上勤務し雇用保険の被保険者で、役員ではなく、2025年11月21日以前から雇用されていること<br>期間：令和8年4月20日〜12月22日（予算の上限に達すると期間内でも終了）<br>締切：2026-12-22</small><span class="ar-prov">豊島区 産業観光部 産業振興課</span></div>
+            <div class="ar-amt">従業員1人あたり5万円（1社あたり最大50万円）</div>
+            <a class="ar-go" href="https://www.city.toshima.lg.jp/584/machizukuri/sangyo/kigyo/2602241505.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="toshima-yushi">
+            <div class="ar-name"><b>豊島区の制度融資（中小商工業融資など）</b><small>区内の中小企業者や、これから起業する方が必要な資金を低利で借りられるよう、区が取扱金融機関へ融資をあっせんします。融資の利子の一部を区が補助する仕組みです。起業向けには「第２創業資金」などのメニューがあります。<br>対象：区内で事業を営む中小企業者（起業を希望する方も対象のメニューあり）／起業向けの融資は、区指定の相談員と3回程度面接して創業計画書を作成する<br>期間：通年（メニューにより異なる）</small><span class="ar-prov">豊島区 ・ 取扱金融機関</span></div>
+            <div class="ar-amt">区が金融機関へ融資をあっせん（融資限度額は資料により異なるため、申請前に要確認）</div>
+            <a class="ar-go" href="https://www.city.toshima.lg.jp/584/machizukuri/sangyo/kigyo/019169.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="toshima-rishi">
+            <div class="ar-name"><b>日本政策金融公庫の融資に対する利子補給</b><small>区内の中小企業者が、日本政策金融公庫（国民生活事業）の融資を受けた場合に、利子の一部を区が補給します。<br>対象：区内の中小企業者／対象は、無担保で、税務申告を2期終えていない方向けの利率が適用されている方などに限られる（詳細は区の案内で確認）<br>期間：融資実行日による</small><span class="ar-prov">豊島区 産業観光部 産業振興課</span></div>
+            <div class="ar-amt">補給率1.2％まで（元本限度額1,000万円）※令和6年4月1日以降に融資実行された場合</div>
+            <a class="ar-go" href="https://www.city.toshima.lg.jp/584/machizukuri/sangyo/kigyo/003919.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="toshima-akitenpo">
+            <div class="ar-name"><b>空き店舗活性支援事業（令和8年度は募集終了） <span class="area-ended-tag">受付終了</span></b><small>区内の空き店舗で開業する人に、店舗の改修費と賃借料を補助します。区が指定したコーディネーターによる伴走支援も受けられます。令和8年度の募集は終了しています。次年度の公募を確認してください。<br>対象：区内の空き店舗で開業する中小企業者（個人事業主を含む）／大企業が実質的に経営に参画していないこと<br>期間：令和8年度：2026年6月1日〜6月19日（終了）<br>締切：2026-06-19</small><span class="ar-prov">豊島区 産業観光部 産業振興課</span></div>
+            <div class="ar-amt">店舗整備費（改修工事費など）と賃借料を補助（上限額は資料により差があるため要確認）</div>
+            <a class="ar-go" href="https://www.city.toshima.lg.jp/584/machizukuri/sangyo/kigyo/2404021116.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">東京都の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>豊島区の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="toshima-manshon-taishin">
-            <h3>分譲マンションの耐震改修助成事業</h3>
-            <p class="area-meta">豊島区 住宅課｜補助金｜金額は公式で確認</p>
-            
-            <p>分譲マンション管理組合の耐震改修費用を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>管理組合</li></ul>
-            <p><a href="https://www.city.toshima.lg.jp/322/machizukuri/sumai/kekaku/mansion/020246.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="toshima-mokuzo-taishin-kaishu">
-            <h3>木造住宅の耐震改修助成事業</h3>
-            <p class="area-meta">豊島区 建築課｜補助金｜工事費の3分の2、上限100万円（区内事業者施工の上乗せあり）。災害時要援護者が居住する場合は上限250万円（令和8年4月1日拡充）</p>
-            <p class="area-meta">期間：令和8年度（工事は2月末まで）</p>
-            <p>木造住宅の耐震改修工事費を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>平成12年5月31日以前に建築された2階以下の木造住宅</li><li>上部構造評点1.0以上となること</li><li>東京都登録事務所の診断に基づく設計の工事</li></ul>
-            <p><a href="https://www.city.toshima.lg.jp/315/bosai/taisaku/kunotaisaku/bosai/002160.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="toshima-mokuzo-taishin-shindan">
-            <h3>木造住宅の耐震診断助成事業</h3>
-            <p class="area-meta">豊島区 建築課｜補助金｜金額は公式で確認</p>
-            
-            <p>木造住宅の耐震診断費用を助成する。</p>
-            
-            <p><a href="https://www.city.toshima.lg.jp/315/bosai/taisaku/kunotaisaku/bosai/002186.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="toshima-shelter">
-            <h3>耐震シェルター等設置助成事業</h3>
-            <p class="area-meta">豊島区 建築課｜補助金｜上限60万円</p>
-            
-            <p>耐震シェルター、耐震ベッドの設置費用を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>65歳以上または身体障害者手帳1級・2級の方のみの世帯</li></ul>
-            <p><a href="https://www.city.toshima.lg.jp/315/bosai/taisaku/kunotaisaku/bosai/013316.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program" id="toshima-eco-taiyoko-chikuden">
-            <h3>豊島区エコ住宅普及促進費用助成金（太陽光発電・蓄電システム）</h3>
-            <p class="area-meta">豊島区 環境政策課｜補助金｜太陽光：出力1kWあたり2万円（上限8万円）。蓄電システム：1kWhあたり1万円（上限5万円）｜締切：2027-03-01</p>
-            <p class="area-meta">期間：令和8年5月25日〜令和9年3月1日必着</p>
-            <p>個人住宅の太陽光発電システム・蓄電システムの設置費を助成する。施工完了後に申請。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>太陽光は出力1kW以上10kW未満で認証品</li><li>蓄電は環境共創イニシアチブ登録機器で太陽光またはエネファームと常時接続</li><li>同一世帯で同一年度内に機器ごと1回限り</li></ul>
-            <p><a href="https://www.city.toshima.lg.jp/149/machizukuri/shizen/ecojutaku/003402.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
-          <div class="area-program" id="toshima-airconditioner-teishotoku">
-            <h3>低所得世帯向けエアコン設置助成</h3>
-            <p class="area-meta">豊島区｜補助金｜金額は公式で確認</p>
-            <p class="area-meta">期間：令和8年度</p>
-            <p>低所得世帯のエアコン設置費用を助成する（内容は区ページで要確認）。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>住民税非課税世帯、住民税均等割のみ世帯、または児童扶養手当受給世帯（区の案内PDFの記載）</li></ul>
-            <p><a href="https://www.city.toshima.lg.jp/164/kenko/sekatsu/2605191116.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="toshima-eco-mado-enefarm">
-            <h3>豊島区エコ住宅普及促進費用助成金（断熱改修窓・エネファーム）</h3>
-            <p class="area-meta">豊島区 環境政策課｜補助金｜断熱改修窓：設置費用の4分の1（上限10万円）。エネファーム：一律8万円｜締切：2027-03-01</p>
-            <p class="area-meta">期間：令和8年5月25日〜令和9年3月1日必着</p>
-            <p>既存の単板ガラス窓を複層ガラスや二重窓に改修する費用、エネファームの設置費を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>令和8年2月1日〜令和9年1月31日に施工完了</li></ul>
-            <p><a href="https://www.city.toshima.lg.jp/149/machizukuri/shizen/ecojutaku/003402.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="toshima-akiya-riyo-hojo">
-            <h3>豊島区空き家の利活用・補助制度</h3>
-            <p class="area-meta">東京都豊島区｜補助金｜旧ページ記載で改修費の2/3(地域貢献型は上限200万円、シェアハウス型は上限150万円)。現行額は要確認</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>空き家をコミュニティカフェ等やシェアハウス、セーフティネット住宅として活用する場合の改修費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>区内の空き家の所有者または運営事業者</li><li>区のマッチング等の要件あり</li></ul>
-            <p><a href="https://www.city.toshima.lg.jp/508/jutaku/akiya/2012211352.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="toshima-block-kaizen">
-            <h3>ブロック塀等改善工事助成事業（道路に面する塀のみ）</h3>
-            <p class="area-meta">豊島区｜助成金｜撤去：1mあたり2,500円／新設：対象経費の1/2（上限30万円）</p>
-            <p class="area-meta">期間：年度ごとに実施（ページは約1年8か月前の情報。最新年度は要確認）</p>
-            <p>避難路等に面する倒壊の危険があるブロック塀等の撤去・新設費用の一部を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>避難路や一般の通路に面するブロック塀等で、路面中心から上端までの高さが1.2mを超えるもの</li><li>契約前・工事着手前に申請すること</li><li>工事完了は2月末まで</li></ul>
-            <p><a href="https://www.city.toshima.lg.jp/315/bosai/taisaku/kunotaisaku/bosai/022591.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
-          <div class="area-program" id="toshima-jutaku-shuzen-reform">
-            <h3>豊島区住宅修繕・リフォーム資金助成事業</h3>
-            <p class="area-meta">東京都豊島区｜助成金｜修繕工事上限10万円、リフォーム工事上限20万円</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>所得が少なく住宅の修繕やリフォームが難しい世帯に工事費用を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>前年の世帯月額所得が158,000円(条件により214,000円)以下</li></ul>
-            <p><a href="https://www.city.toshima.lg.jp/322/1902080851.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="toshima-koreisha-jiritsu-jutaku-kaishu">
-            <h3>豊島区高齢者自立支援住宅改修助成事業</h3>
-            <p class="area-meta">東京都豊島区｜助成金｜非該当の方の予防的助成は上限20万円。設備改修の上限は浴槽379,000円、流し等156,000円、便器様式化106,000円</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>介護保険の住宅改修とは別枠で、65歳以上の方の転倒予防等の住宅改修費用を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>区内在住の65歳以上</li><li>理由書は高齢者総合相談センターが作成</li><li>大規模リフォーム・増改築は対象外</li></ul>
-            <p><a href="https://www.city.toshima.lg.jp/379/kenko/koresha/hitorigurashi/000024.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-6">子育て</h3>
-          <div class="area-program" id="toshima-kosodate-family-yachin">
-            <h3>豊島区子育てファミリー世帯家賃助成制度</h3>
-            <p class="area-meta">東京都豊島区｜助成金｜月額上限3万円(原則5年間、または児童が15歳に達した年度末までのいずれか早い方)</p>
-            <p class="area-meta">期間：令和7年4月以降の追加募集(随時)。最新は要確認</p>
-            <p>区内の民間賃貸住宅へ転居した子育て世帯に、家賃と基準家賃の差額の一部を助成する。先着順で予算枠に達し次第終了。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>15歳以下の児童と扶養者が同居</li><li>前年の世帯月額所得338,000円以下</li><li>転居後の家賃が月額17万円以下(共益費除く)</li></ul>
-            <p><a href="https://www.city.toshima.lg.jp/308/2509041409.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-9">移住</h3>
-          <div class="area-program" id="toshima-koreisha-sumikae-yachin">
-            <h3>豊島区高齢者世帯等住み替え家賃助成制度</h3>
-            <p class="area-meta">東京都豊島区｜助成金｜月額上限15,000円</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>取り壊し等による立ち退きなどで住み替える高齢者世帯等の家賃差額を助成する。18歳未満の子を養育する世帯も対象に含まれる。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>高齢者世帯等または18歳未満の子を養育する世帯</li><li>立ち退き等の要件あり</li></ul>
-            <p><a href="https://www.city.toshima.lg.jp/308/2008281223.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>東京都の制度</strong></p>
-          <ul><li><a href="pref-tokyo.html#tokyo-akachan-first">東京都出産・子育て応援事業（赤ちゃんファースト）</a></li><li><a href="pref-tokyo.html#tokyo-akiya-kazai-kaitai">東京都空き家家財整理・解体促進事業</a></li><li><a href="pref-tokyo.html#tokyo-dannetsu-solar-jutaku">災害にも強く健康にも資する断熱・太陽光住宅普及拡大事業</a></li><li><a href="pref-tokyo.html#tokyo-home-evcharge">戸建住宅向け充電設備普及促進事業（令和8年度）</a></li><li><a href="pref-tokyo.html#tokyo-kodomo-mamoru-jutaku">子育て世帯向け補助事業（「子供を守る」住宅確保促進事業）</a></li></ul>
-          <p><a href="pref-tokyo.html#pref-resident">東京都の制度9件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-tokyo.html#tokyo-jigyoshokei-josei">事業承継支援助成金（第3回）</a></li><li><a href="pref-tokyo.html#tokyo-kadai-kaiketsu-gijutsu">課題解決型技術開発促進事業</a></li><li><a href="pref-tokyo.html#tokyo-seidoyushi-sogyo">東京都中小企業制度融資「創業」</a></li><li><a href="pref-tokyo.html#tokyo-seihin-chakushu">製品開発着手支援助成事業</a></li><li><a href="pref-tokyo.html#tokyo-souikufuu-challenge">経営力強化に向けた創意工夫チャレンジ促進事業</a></li></ul>
+          <p><a href="pref-tokyo.html#pref-business">東京都の制度6件を、県のページで見る →</a></p>
       </div>
     </section>
 

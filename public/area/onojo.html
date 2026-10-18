@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"大野城市","item":"https://hojyokin.net/area/onojo.html"}]}</script>
@@ -165,134 +207,101 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 大野城市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b17.webp')"><h1 class="pb-title">大野城市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-fukuoka.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">福岡県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">福岡県 大野城市</p>
+        <h1>大野城市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度9件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-fukuoka.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（大野城市）<b>2件</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（福岡県）<b>4件（うち受付終了3件）</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>7件</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-2">EV・充電 1</a><a href="#res-cat-3">省エネ住宅 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-5">バリアフリー・介護 1</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <span class="is-none"><i aria-hidden="true">👶</i><b>子育て</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>掲載なし</small></span>
+      <span class="is-none"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>掲載なし</small></span>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>7件</small></a>
+      <span class="is-none"><i aria-hidden="true">🌱</i><b>移住</b><small>掲載なし</small></span>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市2件＋県4件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">大野城市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="onojo-city-chushokigyo-yushi">
-            <h3>大野城市中小企業融資制度</h3>
-            <p class="area-meta">大野城市 産業振興課（受付は大野城市商工会）｜融資｜貸付限度1,000万円、返済10年以内（据置6か月以内）、年1.60%</p>
-            <p class="area-meta">期間：通年（要確認）</p>
-            <p>市内で事業を営む中小企業者向けの制度融資。完済後は保証料の一部補助を受けられる場合がある（完済日から1年以内に申請）。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内で1年以上事業を続けている中小企業者</li><li>市税の滞納がないこと</li></ul>
-            <p><a href="https://www.city.onojo.fukuoka.jp/kiji0037053/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>7件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="onojo-akiya-kaitai">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>大野城市老朽危険空き家解体補助</b><small>老朽化した危険な空き家の解体費を補助(2件程度)。<br>対象：木造または軽量鉄骨造の空き家／老朽危険度判定100点以上</small><span class="ar-prov">福岡県大野城市</span></div>
+            <div class="ar-amt">除却工事費の2分の1(上限50万円)</div>
+            <a class="ar-go" href="https://www.city.onojo.fukuoka.jp/s059/020/020/060/13500.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="onojo-city-keiei-sodan-sogyo-shien">
-            <h3>大野城市 中小企業対象の経営相談・診断・創業支援</h3>
-            <p class="area-meta">大野城市 産業振興課・大野城市商工会｜専門家支援｜要確認（相談は無料の案内あり）</p>
-            <p class="area-meta">期間：通年（要確認）</p>
-            <p>創業希望者や中小企業者向けの経営相談・診断・創業支援の案内。ワン・ストップ無料相談では社会保険労務士や中小企業診断士などが対応する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>大野城市内の中小企業者または創業希望者</li></ul>
-            <p><a href="https://www.city.onojo.fukuoka.jp/s104/050/010/020/7509.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <div class="ar-row" id="onojo-block">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>大野城市ブロック塀等撤去費補助事業</b><small>危険なブロック塀の撤去費用を補助。フェンス・土留めは対象外。<br>対象：道路に面し高さ1m以上／市職員の診断で危険と判断</small><span class="ar-prov">福岡県大野城市</span></div>
+            <div class="ar-amt">8000円×撤去長さ(m)または撤去費の3分の2の低い方(上限16万円)</div>
+            <a class="ar-go" href="https://www.city.onojo.fukuoka.jp/s059/030/030/040/20181219120625.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          <div class="ar-row" id="onojo-jisedai-car">
+            <div class="ar-name"><b><span class="ar-tag">EV・充電</span>大野城市次世代自動車普及促進補助金</b><small>次世代自動車の購入や充電設備設置を補助。個人は1人1台まで。<br>対象：市民(個人)／充電設備は要件を満たすもの<br>期間：令和9年3月31日まで<br>締切：2027-03-31</small><span class="ar-prov">福岡県大野城市</span></div>
+            <div class="ar-amt">EV10万円、PHV5万円、FCV20万円(充電設備も対象)</div>
+            <a class="ar-go" href="https://www.city.onojo.fukuoka.jp/s068/030/010/030/20230714153727.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="onojo-saiene">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>大野城市再生可能エネルギー機器等設置費補助金</b><small>住宅への太陽光発電・蓄電システム・HEMS・V2H等の設置を補助。<br>対象：市内の住宅への設置者／令和4年4月1日以降契約分</small><span class="ar-prov">福岡県大野城市</span></div>
+            <div class="ar-amt">太陽光1kWあたり2万円(上限5kW、市内業者契約で+5千円/kW)、蓄電システム8万円、HEMS2万円</div>
+            <a class="ar-go" href="https://www.city.onojo.fukuoka.jp/s068/saiseikanou.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="onojo-shoene">
+            <div class="ar-name"><b><span class="ar-tag">省エネ住宅</span>大野城市省エネ住宅推進補助金</b><small>省エネ住宅の推進に係る補助。詳細は要確認。<br>対象：市内の住宅(詳細要確認)</small><span class="ar-prov">福岡県大野城市</span></div>
+            <div class="ar-amt">上限20万円</div>
+            <a class="ar-go" href="https://www.city.onojo.fukuoka.jp/kiji0036267/index.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="onojo-sumiyoka">
+            <div class="ar-name"><b><span class="ar-tag">バリアフリー・介護</span>大野城市住みよか事業(住宅改造費助成)</b><small>介護保険の住宅改修でも不足する手すり設置・段差解消等の費用の一部を助成。<br>対象：65歳以上の要支援・要介護認定者など／生計中心者が市民税非課税の世帯</small><span class="ar-prov">福岡県大野城市</span></div>
+            <div class="ar-amt"><span class="ar-amt-na">公式で確認</span></div>
+            <a class="ar-go" href="https://www.city.onojo.fukuoka.jp/s048/050/010/040/3666.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="onojo-taishin">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>大野城市木造戸建て住宅耐震改修等補助事業</b><small>旧耐震の木造戸建て住宅の耐震改修等を補助。着工前の申請が必要。<br>対象：昭和56年5月31日以前の市内木造戸建て／上部構造評点1.0未満</small><span class="ar-prov">福岡県大野城市</span></div>
+            <div class="ar-amt">耐震改修費の50%(上限60万円)、建替え・住替え伴う解体は45%(上限60万円)</div>
+            <a class="ar-go" href="https://www.city.onojo.fukuoka.jp/kiji0036125/index.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>福岡県の制度</strong></p>
+          <ul><li><a href="pref-fukuoka.html#fukuoka-pref-iju-shienkin">福岡県 移住支援金</a></li><li><a href="pref-fukuoka.html#fukuoka-pref-kodomo-renove">福岡県こどもリノベ補助金</a></li><li><a href="pref-fukuoka.html#fukuoka-pref-mokuzo-taishin">福岡県 木造戸建て住宅の耐震化促進（市町村を通じた耐震改修等の補助）</a></li><li><a href="pref-fukuoka.html#fukuoka-sumiyoka-jutaku-kaizo">福岡県高齢者等在宅生活支援（住みよか）事業</a></li></ul>
+          <p><a href="pref-fukuoka.html#pref-resident">福岡県の制度4件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">福岡県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">大野城市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-fukuoka.html#fukuoka-shinki-sogyo-shikin">新規創業資金（福岡県中小企業融資制度）</a></li><li><a href="pref-fukuoka.html#fukuoka-keiei-kakushin-chinage">福岡県中小企業経営革新・賃上げ緊急支援補助金</a></li><li><a href="pref-fukuoka.html#fukuoka-shoene-shinseihin">福岡県省エネ新製品開発支援補助金</a></li><li><a href="pref-fukuoka.html#fukuoka-yokatoko-kigyo">福岡よかとこ起業支援金</a></li></ul>
-          <p><a href="pref-fukuoka.html#pref-business">福岡県の制度4件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="onojo-city-chushokigyo-yushi">
+            <div class="ar-name"><b>大野城市中小企業融資制度</b><small>市内で事業を営む中小企業者向けの制度融資。完済後は保証料の一部補助を受けられる場合がある（完済日から1年以内に申請）。<br>対象：市内で1年以上事業を続けている中小企業者／市税の滞納がないこと</small><span class="ar-prov">大野城市 産業振興課（受付は大野城市商工会）</span></div>
+            <div class="ar-amt">貸付限度1,000万円、返済10年以内（据置6か月以内）、年1.60%</div>
+            <a class="ar-go" href="https://www.city.onojo.fukuoka.jp/kiji0037053/index.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="onojo-city-keiei-sodan-sogyo-shien">
+            <div class="ar-name"><b>大野城市 中小企業対象の経営相談・診断・創業支援</b><small>創業希望者や中小企業者向けの経営相談・診断・創業支援の案内。ワン・ストップ無料相談では社会保険労務士や中小企業診断士などが対応する。<br>対象：大野城市内の中小企業者または創業希望者</small><span class="ar-prov">大野城市 産業振興課・大野城市商工会</span></div>
+            <div class="ar-amt">要確認（相談は無料の案内あり）</div>
+            <a class="ar-go" href="https://www.city.onojo.fukuoka.jp/s104/050/010/020/7509.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">福岡県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>大野城市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="onojo-taishin">
-            <h3>大野城市木造戸建て住宅耐震改修等補助事業</h3>
-            <p class="area-meta">福岡県大野城市｜補助金｜耐震改修費の50%(上限60万円)、建替え・住替え伴う解体は45%(上限60万円)</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>旧耐震の木造戸建て住宅の耐震改修等を補助。着工前の申請が必要。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>昭和56年5月31日以前の市内木造戸建て</li><li>上部構造評点1.0未満</li></ul>
-            <p><a href="https://www.city.onojo.fukuoka.jp/kiji0036125/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program" id="onojo-saiene">
-            <h3>大野城市再生可能エネルギー機器等設置費補助金</h3>
-            <p class="area-meta">福岡県大野城市｜補助金｜太陽光1kWあたり2万円(上限5kW、市内業者契約で+5千円/kW)、蓄電システム8万円、HEMS2万円</p>
-            <p class="area-meta">期間：最新は要確認(予算がなくなり次第終了)</p>
-            <p>住宅への太陽光発電・蓄電システム・HEMS・V2H等の設置を補助。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の住宅への設置者</li><li>令和4年4月1日以降契約分</li></ul>
-            <p><a href="https://www.city.onojo.fukuoka.jp/s068/saiseikanou.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-2">EV・充電</h3>
-          <div class="area-program" id="onojo-jisedai-car">
-            <h3>大野城市次世代自動車普及促進補助金</h3>
-            <p class="area-meta">福岡県大野城市｜補助金｜EV10万円、PHV5万円、FCV20万円(充電設備も対象)｜締切：2027-03-31</p>
-            <p class="area-meta">期間：令和9年3月31日まで</p>
-            <p>次世代自動車の購入や充電設備設置を補助。個人は1人1台まで。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市民(個人)</li><li>充電設備は要件を満たすもの</li></ul>
-            <p><a href="https://www.city.onojo.fukuoka.jp/s068/030/010/030/20230714153727.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-3">省エネ住宅</h3>
-          <div class="area-program" id="onojo-shoene">
-            <h3>大野城市省エネ住宅推進補助金</h3>
-            <p class="area-meta">福岡県大野城市｜補助金｜上限20万円</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>省エネ住宅の推進に係る補助。詳細は要確認。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>市内の住宅(詳細要確認)</li></ul>
-            <p><a href="https://www.city.onojo.fukuoka.jp/kiji0036267/index.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="onojo-akiya-kaitai">
-            <h3>大野城市老朽危険空き家解体補助</h3>
-            <p class="area-meta">福岡県大野城市｜補助金｜除却工事費の2分の1(上限50万円)</p>
-            <p class="area-meta">期間：最新は要確認(申請期限は例年1月下旬が目安)</p>
-            <p>老朽化した危険な空き家の解体費を補助(2件程度)。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>木造または軽量鉄骨造の空き家</li><li>老朽危険度判定100点以上</li></ul>
-            <p><a href="https://www.city.onojo.fukuoka.jp/s059/020/020/060/13500.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="onojo-block">
-            <h3>大野城市ブロック塀等撤去費補助事業</h3>
-            <p class="area-meta">福岡県大野城市｜補助金｜8000円×撤去長さ(m)または撤去費の3分の2の低い方(上限16万円)</p>
-            <p class="area-meta">期間：最新は要確認(申請期限は例年1月下旬が目安)</p>
-            <p>危険なブロック塀の撤去費用を補助。フェンス・土留めは対象外。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>道路に面し高さ1m以上</li><li>市職員の診断で危険と判断</li></ul>
-            <p><a href="https://www.city.onojo.fukuoka.jp/s059/030/030/040/20181219120625.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-5">バリアフリー・介護</h3>
-          <div class="area-program" id="onojo-sumiyoka">
-            <h3>大野城市住みよか事業(住宅改造費助成)</h3>
-            <p class="area-meta">福岡県大野城市｜助成金｜金額は公式で確認</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>介護保険の住宅改修でも不足する手すり設置・段差解消等の費用の一部を助成。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>65歳以上の要支援・要介護認定者など</li><li>生計中心者が市民税非課税の世帯</li></ul>
-            <p><a href="https://www.city.onojo.fukuoka.jp/s048/050/010/040/3666.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>福岡県の制度</strong></p>
-          <ul><li><a href="pref-fukuoka.html#fukuoka-pref-iju-shienkin">福岡県 移住支援金</a></li><li><a href="pref-fukuoka.html#fukuoka-pref-kodomo-renove">福岡県こどもリノベ補助金</a></li><li><a href="pref-fukuoka.html#fukuoka-pref-mokuzo-taishin">福岡県 木造戸建て住宅の耐震化促進（市町村を通じた耐震改修等の補助）</a></li><li><a href="pref-fukuoka.html#fukuoka-sumiyoka-jutaku-kaizo">福岡県高齢者等在宅生活支援（住みよか）事業</a></li></ul>
-          <p><a href="pref-fukuoka.html#pref-resident">福岡県の制度4件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-fukuoka.html#fukuoka-shinki-sogyo-shikin">新規創業資金（福岡県中小企業融資制度）</a></li><li><a href="pref-fukuoka.html#fukuoka-keiei-kakushin-chinage">福岡県中小企業経営革新・賃上げ緊急支援補助金</a></li><li><a href="pref-fukuoka.html#fukuoka-shoene-shinseihin">福岡県省エネ新製品開発支援補助金</a></li><li><a href="pref-fukuoka.html#fukuoka-yokatoko-kigyo">福岡よかとこ起業支援金</a></li></ul>
+          <p><a href="pref-fukuoka.html#pref-business">福岡県の制度4件を、県のページで見る →</a></p>
       </div>
     </section>
 

@@ -74,6 +74,48 @@
     .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
     .area-groups a { color: #2b65b1; text-decoration: none; }
     .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
     @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
   </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"地域別の補助金","item":"https://hojyokin.net/area/index.html"},{"@type":"ListItem","position":3,"name":"古河市","item":"https://hojyokin.net/area/koga.html"}]}</script>
@@ -165,189 +207,147 @@
   <main class="wrap">
     <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ 古河市</nav>
 
-    <div class="pb-banner" style="background-image: url('../images/banner/b06.webp')"><h1 class="pb-title">古河市の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-ibaraki.webp" alt="" height="72"></h1></div>
-    <div style="margin-bottom: 2rem;">
-      <p class="lead" style="margin-bottom: 0;">茨城県・市。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">茨城県 古河市</p>
+        <h1>古河市で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">市の制度15件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-ibaraki.webp" alt="" height="150">
+    </header>
 
-    <nav class="area-toc" aria-label="このページの内容">
-      <p class="area-toc-title">このページの内容</p>
-      <ul>
-        <li><a href="#city-programs">事業・創業の方向け（古河市）<b>3件</b></a></li>
-        <li><a href="#pref-programs">事業・創業の方向け（茨城県）<b>6件</b></a></li>
-        <li><a href="#resident-programs">住まい・暮らし（個人の方向け）<b>12件（うち受付終了2件）</b></a><span class="area-toc-cats"><a href="#res-cat-0">耐震 1</a><a href="#res-cat-1">太陽光・蓄電池 1</a><a href="#res-cat-4">空き家・ブロック塀 2</a><a href="#res-cat-6">子育て 1</a><a href="#res-cat-7">医療・福祉 3</a><a href="#res-cat-8">教育・学び 2</a><a href="#res-cat-9">移住 2</a></span></li>
-        <li><a href="#national">国の制度・全国から探す</a></li>
-        <li><a href="#checklist">申請前に確認したいこと</a></li>
-      </ul>
+    <nav class="ar-goals" aria-label="分野から探す">
+      <a href="#res-g-kosodate"><i aria-hidden="true">👶</i><b>子育て</b><small>1件</small></a>
+      <a href="#res-g-iryo"><i aria-hidden="true">🩺</i><b>医療・福祉</b><small>3件</small></a>
+      <a href="#res-g-kyoiku"><i aria-hidden="true">🎓</i><b>教育・学び</b><small>2件</small></a>
+      <a href="#res-g-sumai"><i aria-hidden="true">🏠</i><b>住まい・暮らし</b><small>4件</small></a>
+      <a href="#res-g-iju"><i aria-hidden="true">🌱</i><b>移住</b><small>2件</small></a>
+      <a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>市3件＋県6件</small></a>
     </nav>
 
     <div class="page-split"><div class="page-main">
 <div class="art-box">
-<section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">古河市の制度（事業・創業の方向け）</h2>
+<section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
-          <div class="area-program" id="koga-city-chushokigyo-jigyo-shikin-yushi">
-            <h3>古河市中小企業事業資金融資</h3>
-            <p class="area-meta">古河市 産業戦略課｜融資｜限度額 設備・運転とも1,000万円、返済10年以内。利子補給は年0.5%上限で1年間、保証料補給は年1%上限</p>
-            <p class="area-meta">期間：通年（要確認）</p>
-            <p>中小企業者に事業資金の融資をあっ旋し、保証料および利子の一部を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>古河市内の中小企業者</li><li>市税を滞納していないこと等、制度の要件を満たすこと</li></ul>
-            <p><a href="https://www.city.ibaraki-koga.lg.jp/soshiki/syoko/3/1150.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
+          <h3 class="area-cat" id="res-g-kosodate">子育て<span>1件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="koga-kodomo-influenza">
+            <div class="ar-name"><b>小児用インフルエンザ予防接種費用の助成（令和8年度）</b><small>子育て世帯の経済的負担軽減と重症化・まん延の予防のため、小児インフルエンザ予防接種費用の一部を市が助成する。<br>対象：古河市に住所を有し、接種日時点で生後6か月以上～高校3年生相当年齢の人／生活保護を受給している人は全額免除（接種前に申請）<br>期間：令和8年10月1日～令和9年1月31日（接種期間）</small><span class="ar-prov">古河市 健康づくり課 感染症対策係</span></div>
+            <div class="ar-amt">1回あたり1,000円</div>
+            <a class="ar-go" href="https://www.city.ibaraki-koga.lg.jp/bunrui/kenkofukushi/medical_health/5/4168.html" target="_blank" rel="noopener">公式 →</a>
           </div>
-          <div class="area-program" id="koga-city-shoene-shindan-hojo">
-            <h3>古河市中小企業向け省エネ診断等促進補助金</h3>
-            <p class="area-meta">古河市 企画課｜補助金｜事業所ごとに1年度あたり各上限3万円</p>
-            <p class="area-meta">期間：事業の実施前後・実施中のいつでも申請可（予算の範囲内）</p>
-            <p>国の省エネ診断・省エネ支援等を活用した市内中小企業・個人事業主に補助金を交付する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>古河市内に事業所を持つ中小企業者・小規模企業者</li><li>省エネ診断、省エネ支援、カーボンニュートラル・アクションプラン等を実施すること</li></ul>
-            <p><a href="https://www.city.ibaraki-koga.lg.jp/soshiki/kikaku/kabon/18666.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
           </div>
-          <div class="area-program" id="koga-city-shotengai-akitenpo-hojo">
-            <h3>古河市商店街空き店舗等対策事業補助金</h3>
-            <p class="area-meta">古河市 産業戦略課｜補助金｜改造費・賃借料の一部（補助率・上限額は要確認）</p>
-            <p class="area-meta">期間：予算額に達するまで</p>
-            <p>商店街区域内の空き店舗を活用して新規出店する場合の改造費・賃借料に補助金を交付する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>商店街の区域内の空き店舗を活用して新規出店する方</li><li>事業開始の30日前までに申請すること</li></ul>
-            <p><a href="https://www.city.ibaraki-koga.lg.jp/soshiki/syoko/3/10950.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
+          <h3 class="area-cat" id="res-g-iryo">医療・福祉<span>3件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="koga-fuiku-chiryohi">
+            <div class="ar-name"><b>古河市不育症治療費助成事業</b><small>子どもを望んでいる夫婦の経済的負担の軽減を図るため、保険適用外の不育症の検査および治療費を助成する。<br>対象：2回以上の流産等により、医師に不育症と診断された方／法律上の婚姻をしている夫婦（事実婚を含む）<br>期間：不育症の治療が終了した日の属する年度内に申請</small><span class="ar-prov">古河市 子育て包括支援課</span></div>
+            <div class="ar-amt">年度内に1回まで、50,000円を上限</div>
+            <a class="ar-go" href="https://www.city.ibaraki-koga.lg.jp/soshiki/kosodatehoukatusien/9/funinnfuikushou/14654.html" target="_blank" rel="noopener">公式 →</a>
           </div>
+          <div class="ar-row" id="koga-funin-chiryohi">
+            <div class="ar-name"><b>古河市不妊治療助成金交付事業</b><small>令和8年度より、生殖補助医療と先進医療を組み合わせて不妊治療を行った方に、先進医療の費用の一部を助成する。<br>対象：法律上の婚姻をしている夫婦（事実婚も含む）／1回の治療の初日における女性の年齢が43歳未満<br>期間：1回の治療が終了した日の属する年度内に申請</small><span class="ar-prov">古河市 子育て包括支援課</span></div>
+            <div class="ar-amt">1回の治療につき先進医療にかかった費用の上限50,000円</div>
+            <a class="ar-go" href="https://www.city.ibaraki-koga.lg.jp/soshiki/kosodatehoukatusien/9/funinnfuikushou/22042.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="koga-koreisha-influenza">
+            <div class="ar-name"><b>高齢者のインフルエンザ予防接種費用の助成（令和8年度）</b><small>高齢者のインフルエンザ予防接種費用の一部を助成する。医療機関への支払い時に接種費用から2,000円を差し引いて支払う。<br>対象：古河市に住所を有し、接種日時点で65歳以上の方／60～64歳で一定の障害を有する方は、接種前に健康づくり課に申請<br>期間：令和8年10月1日～令和9年1月31日（接種期間）</small><span class="ar-prov">古河市 健康づくり課 感染症対策係</span></div>
+            <div class="ar-amt">2,000円</div>
+            <a class="ar-go" href="https://www.city.ibaraki-koga.lg.jp/bunrui/kenkofukushi/medical_health/5/6413.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-kyoiku">教育・学び<span>2件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="koga-shugakuenjo">
+            <div class="ar-name"><b>就学援助</b><small>経済的にお困りな児童生徒の保護者に、学用品費や修学旅行費などの就学に必要な経費を一部援助する制度。<br>対象：古河市に住所を有する児童生徒の保護者／市民税が非課税または減免の扱いを受けている（同居者全員）などの要件のいずれかに該当</small><span class="ar-prov">古河市 教育総務課</span></div>
+            <div class="ar-amt">令和8年度支給額（小学校の学用品費11,630円、新入学学用品費64,300円 など）</div>
+            <a class="ar-go" href="https://www.city.ibaraki-koga.lg.jp/bunrui/kosodategakko/pareting/edu/7919.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="koga-matsuoka-shogakukin">
+            <div class="ar-name"><b>松岡奨学金（松岡奨学生の募集） <span class="area-ended-tag">受付終了</span></b><small>経済的理由で修学が困難な高校生等に、教育の機会均等のため奨学金を支給する制度。新規募集枠は14人。<br>対象：高等学校等に在学し、経済的理由により修学が困難な人／保護者が1年以上（令和8年4月1日現在）市内に居住している<br>期間：令和8年6月1日（月曜日）～令和8年6月12日（金曜日）<br>締切：2026-06-12</small><span class="ar-prov">古河市 教育総務課</span></div>
+            <div class="ar-amt">月額1万円（7月と12月の年2回に分けて支給）</div>
+            <a class="ar-go" href="https://www.city.ibaraki-koga.lg.jp/bunrui/kosodategakko/pareting/3/7916.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-sumai">住まい・暮らし<span>4件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="koga-akiya-kaitai">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>古河市老朽空き家解体補助</b><small>老朽化し周辺の生活環境に影響を及ぼす空き家の解体費を補助する。<br>対象：1年以上使用されていない建物など／契約前に申込み</small><span class="ar-prov">茨城県古河市</span></div>
+            <div class="ar-amt">解体工事費の1/2・上限50万円</div>
+            <a class="ar-go" href="https://www.city.ibaraki-koga.lg.jp/soshiki/eizen/akiyataisaku/12635.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="koga-jiritsu-bunsan">
+            <div class="ar-name"><b><span class="ar-tag">太陽光・蓄電池</span>古河市自立・分散型エネルギー設備導入補助(蓄電システム)</b><small>発電出力10kW未満の住宅用太陽光と連携する蓄電システムを購入する個人への補助。国の補助との併用可。<br>対象：令和8年12月中に引渡しを受ける人／住宅用太陽光発電と連携<br>期間：令和8年6月25日午前8時30分から受付(予算上限に達し次第終了)</small><span class="ar-prov">茨城県古河市</span></div>
+            <div class="ar-amt">蓄電システム1基につき5万円</div>
+            <a class="ar-go" href="https://www.city.ibaraki-koga.lg.jp/soshiki/kankyo/7/20000.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="koga-taishin">
+            <div class="ar-name"><b><span class="ar-tag">耐震</span>古河市耐震改修促進事業</b><small>耐震診断で上部構造評点1.0未満の木造一戸建ての耐震改修工事費を補助する。<br>対象：上部構造評点が1.0未満の木造一戸建て</small><span class="ar-prov">茨城県古河市</span></div>
+            <div class="ar-amt">経費の4/5・上限115万円</div>
+            <a class="ar-go" href="https://www.city.ibaraki-koga.lg.jp/soshiki/kenchiku/1/658.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row is-ended" id="koga-block">
+            <div class="ar-name"><b><span class="ar-tag">空き家・ブロック塀</span>古河市危険ブロック塀等撤去補助 <span class="area-ended-tag">受付終了</span></b><small>通学路等に面する危険ブロック塀等の撤去費用を補助する。<br>対象：通学路等に面する危険ブロック塀<br>期間：令和8年度は受付終了</small><span class="ar-prov">茨城県古河市</span></div>
+            <div class="ar-amt">対象経費の2/3、延長に応じた額、10万円のうち最も低い額</div>
+            <a class="ar-go" href="https://www.city.ibaraki-koga.lg.jp/soshiki/kenchiku/1/14825.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <h3 class="area-cat" id="res-g-iju">移住<span>2件</span></h3>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="koga-akiya-bank-reform">
+            <div class="ar-name"><b>古河市空き家バンクリフォーム補助金</b><small>空き家バンク登録物件のリフォーム費を補助する。<br>対象：空き家バンク登録物件の取得者</small><span class="ar-prov">茨城県古河市</span></div>
+            <div class="ar-amt">リフォーム費の1/2・上限100万円(令和7年度)</div>
+            <a class="ar-go" href="https://www.city.ibaraki-koga.lg.jp/soshiki/eizen/akiyataisaku/10063.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="koga-machinaka-jutaku">
+            <div class="ar-name"><b>古河市若者・子育て世帯まちなか住宅取得奨励金</b><small>まちなかでの住宅取得を奨励する。<br>対象：若者・子育て世帯／取得期間は令和6年1月1日から令和8年12月31日<br>締切：2026-12-31</small><span class="ar-prov">茨城県古河市</span></div>
+            <div class="ar-amt">基本10万円+加算(居住年数10万〜20万円、子1人5万円など)</div>
+            <a class="ar-go" href="https://www.city.ibaraki-koga.lg.jp/soshiki/hisyokouho/5_1/18308.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
+          <p><strong>茨城県の制度</strong></p>
+          <ul><li><a href="pref-ibaraki.html#ibaraki-iju-shienkin">わくわく茨城生活実現事業（茨城県移住支援金）</a></li></ul>
+          <p><a href="pref-ibaraki.html#pref-resident">茨城県の制度1件を、県のページで見る →</a></p>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">茨城県の制度（事業・創業の方向け）</h2>
+    <section class="art-sec" aria-labelledby="city-programs"><h2 id="city-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">古河市の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-          <ul><li><a href="pref-ibaraki.html#ibaraki-challenge-fund">いばらきチャレンジ基金事業</a></li><li><a href="pref-ibaraki.html#ibaraki-digital-skill-hojo">デジタルスキル習得支援事業補助金</a></li><li><a href="pref-ibaraki.html#ibaraki-josei-wakamono-sogyo-yushi">茨城県 女性・若者・障害者創業支援融資</a></li><li><a href="pref-ibaraki.html#ibaraki-shoene-setsubi-hojo">中小規模事業所省エネ対策設備導入補助金</a></li><li><a href="pref-ibaraki.html#ibaraki-shokibo-shien-yushi">茨城県 小規模企業支援融資</a></li></ul>
-          <p><a href="pref-ibaraki.html#pref-business">茨城県の制度6件を、県のページで見る →</a></p>
+          <div class="ar-table">
+          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>
+          <div class="ar-row" id="koga-city-chushokigyo-jigyo-shikin-yushi">
+            <div class="ar-name"><b>古河市中小企業事業資金融資</b><small>中小企業者に事業資金の融資をあっ旋し、保証料および利子の一部を補助する。<br>対象：古河市内の中小企業者／市税を滞納していないこと等、制度の要件を満たすこと</small><span class="ar-prov">古河市 産業戦略課</span></div>
+            <div class="ar-amt">限度額 設備・運転とも1,000万円、返済10年以内。利子補給は年0.5%上限で1年間、保証料補給は年1%上限</div>
+            <a class="ar-go" href="https://www.city.ibaraki-koga.lg.jp/soshiki/syoko/3/1150.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="koga-city-shoene-shindan-hojo">
+            <div class="ar-name"><b>古河市中小企業向け省エネ診断等促進補助金</b><small>国の省エネ診断・省エネ支援等を活用した市内中小企業・個人事業主に補助金を交付する。<br>対象：古河市内に事業所を持つ中小企業者・小規模企業者／省エネ診断、省エネ支援、カーボンニュートラル・アクションプラン等を実施すること<br>期間：事業の実施前後・実施中のいつでも申請可（予算の範囲内）</small><span class="ar-prov">古河市 企画課</span></div>
+            <div class="ar-amt">事業所ごとに1年度あたり各上限3万円</div>
+            <a class="ar-go" href="https://www.city.ibaraki-koga.lg.jp/soshiki/kikaku/kabon/18666.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          <div class="ar-row" id="koga-city-shotengai-akitenpo-hojo">
+            <div class="ar-name"><b>古河市商店街空き店舗等対策事業補助金</b><small>商店街区域内の空き店舗を活用して新規出店する場合の改造費・賃借料に補助金を交付する。<br>対象：商店街の区域内の空き店舗を活用して新規出店する方／事業開始の30日前までに申請すること<br>期間：予算額に達するまで</small><span class="ar-prov">古河市 産業戦略課</span></div>
+            <div class="ar-amt">改造費・賃借料の一部（補助率・上限額は要確認）</div>
+            <a class="ar-go" href="https://www.city.ibaraki-koga.lg.jp/soshiki/syoko/3/10950.html" target="_blank" rel="noopener">公式 →</a>
+          </div>
+          </div>
       </div>
     </section>
 
     <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
 
-    <section class="art-sec" aria-labelledby="resident-programs"><h2 id="resident-programs"><img class="sec-icon" src="../images/icons/icon-25.png" alt="" width="30" height="30" loading="lazy">住まい・暮らしの制度（個人の方向け）</h2>
+    <section class="art-sec" aria-labelledby="pref-programs"><h2 id="pref-programs"><img class="sec-icon" src="../images/icons/icon-01.png" alt="" width="30" height="30" loading="lazy">茨城県の制度（事業・創業の方向け）</h2>
       <div class="area-body">
-        <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
-          <p><strong>古河市の制度</strong></p>
-          <h3 class="area-cat" id="res-cat-0">耐震</h3>
-          <div class="area-program" id="koga-taishin">
-            <h3>古河市耐震改修促進事業</h3>
-            <p class="area-meta">茨城県古河市｜補助金｜経費の4/5・上限115万円</p>
-            <p class="area-meta">期間：最新は要確認</p>
-            <p>耐震診断で上部構造評点1.0未満の木造一戸建ての耐震改修工事費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>上部構造評点が1.0未満の木造一戸建て</li></ul>
-            <p><a href="https://www.city.ibaraki-koga.lg.jp/soshiki/kenchiku/1/658.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-1">太陽光・蓄電池</h3>
-          <div class="area-program" id="koga-jiritsu-bunsan">
-            <h3>古河市自立・分散型エネルギー設備導入補助(蓄電システム)</h3>
-            <p class="area-meta">茨城県古河市｜補助金｜蓄電システム1基につき5万円</p>
-            <p class="area-meta">期間：令和8年6月25日午前8時30分から受付(予算上限に達し次第終了)</p>
-            <p>発電出力10kW未満の住宅用太陽光と連携する蓄電システムを購入する個人への補助。国の補助との併用可。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>令和8年12月中に引渡しを受ける人</li><li>住宅用太陽光発電と連携</li></ul>
-            <p><a href="https://www.city.ibaraki-koga.lg.jp/soshiki/kankyo/7/20000.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-4">空き家・ブロック塀</h3>
-          <div class="area-program" id="koga-akiya-kaitai">
-            <h3>古河市老朽空き家解体補助</h3>
-            <p class="area-meta">茨城県古河市｜補助金｜解体工事費の1/2・上限50万円</p>
-            <p class="area-meta">期間：最新は要確認(ページ更新2026年4月1日)</p>
-            <p>老朽化し周辺の生活環境に影響を及ぼす空き家の解体費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>1年以上使用されていない建物など</li><li>契約前に申込み</li></ul>
-            <p><a href="https://www.city.ibaraki-koga.lg.jp/soshiki/eizen/akiyataisaku/12635.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program is-ended" id="koga-block">
-            <h3>古河市危険ブロック塀等撤去補助 <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">茨城県古河市｜補助金｜対象経費の2/3、延長に応じた額、10万円のうち最も低い額</p>
-            <p class="area-meta">期間：令和8年度は受付終了</p>
-            <p>通学路等に面する危険ブロック塀等の撤去費用を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>通学路等に面する危険ブロック塀</li></ul>
-            <p><a href="https://www.city.ibaraki-koga.lg.jp/soshiki/kenchiku/1/14825.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-6">子育て</h3>
-          <div class="area-program" id="koga-kodomo-influenza">
-            <h3>小児用インフルエンザ予防接種費用の助成（令和8年度）</h3>
-            <p class="area-meta">古河市 健康づくり課 感染症対策係｜助成金｜1回あたり1,000円</p>
-            <p class="area-meta">期間：令和8年10月1日～令和9年1月31日（接種期間）</p>
-            <p>子育て世帯の経済的負担軽減と重症化・まん延の予防のため、小児インフルエンザ予防接種費用の一部を市が助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>古河市に住所を有し、接種日時点で生後6か月以上～高校3年生相当年齢の人</li><li>生活保護を受給している人は全額免除（接種前に申請）</li></ul>
-            <p><a href="https://www.city.ibaraki-koga.lg.jp/bunrui/kenkofukushi/medical_health/5/4168.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-7">医療・福祉</h3>
-          <div class="area-program" id="koga-fuiku-chiryohi">
-            <h3>古河市不育症治療費助成事業</h3>
-            <p class="area-meta">古河市 子育て包括支援課｜助成金｜年度内に1回まで、50,000円を上限</p>
-            <p class="area-meta">期間：不育症の治療が終了した日の属する年度内に申請</p>
-            <p>子どもを望んでいる夫婦の経済的負担の軽減を図るため、保険適用外の不育症の検査および治療費を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>2回以上の流産等により、医師に不育症と診断された方</li><li>法律上の婚姻をしている夫婦（事実婚を含む）</li><li>継続して1年以上、夫婦いずれかが古河市に住民登録している</li></ul>
-            <p><a href="https://www.city.ibaraki-koga.lg.jp/soshiki/kosodatehoukatusien/9/funinnfuikushou/14654.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="koga-funin-chiryohi">
-            <h3>古河市不妊治療助成金交付事業</h3>
-            <p class="area-meta">古河市 子育て包括支援課｜助成金｜1回の治療につき先進医療にかかった費用の上限50,000円</p>
-            <p class="area-meta">期間：1回の治療が終了した日の属する年度内に申請</p>
-            <p>令和8年度より、生殖補助医療と先進医療を組み合わせて不妊治療を行った方に、先進医療の費用の一部を助成する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>法律上の婚姻をしている夫婦（事実婚も含む）</li><li>1回の治療の初日における女性の年齢が43歳未満</li><li>継続して1年以上、夫婦いずれかが古河市に住民登録している</li></ul>
-            <p><a href="https://www.city.ibaraki-koga.lg.jp/soshiki/kosodatehoukatusien/9/funinnfuikushou/22042.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="koga-koreisha-influenza">
-            <h3>高齢者のインフルエンザ予防接種費用の助成（令和8年度）</h3>
-            <p class="area-meta">古河市 健康づくり課 感染症対策係｜助成金｜2,000円</p>
-            <p class="area-meta">期間：令和8年10月1日～令和9年1月31日（接種期間）</p>
-            <p>高齢者のインフルエンザ予防接種費用の一部を助成する。医療機関への支払い時に接種費用から2,000円を差し引いて支払う。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>古河市に住所を有し、接種日時点で65歳以上の方</li><li>60～64歳で一定の障害を有する方は、接種前に健康づくり課に申請</li><li>生活保護を受給している人は全額免除（接種前に申請）</li></ul>
-            <p><a href="https://www.city.ibaraki-koga.lg.jp/bunrui/kenkofukushi/medical_health/5/6413.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-8">教育・学び</h3>
-          <div class="area-program" id="koga-shugakuenjo">
-            <h3>就学援助</h3>
-            <p class="area-meta">古河市 教育総務課｜給付｜令和8年度支給額（小学校の学用品費11,630円、新入学学用品費64,300円 など）</p>
-            <p class="area-meta">期間：通年（要確認）</p>
-            <p>経済的にお困りな児童生徒の保護者に、学用品費や修学旅行費などの就学に必要な経費を一部援助する制度。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>古河市に住所を有する児童生徒の保護者</li><li>市民税が非課税または減免の扱いを受けている（同居者全員）などの要件のいずれかに該当</li><li>児童扶養手当を受給している など。所得を考慮し認定の可否を判断</li></ul>
-            <p><a href="https://www.city.ibaraki-koga.lg.jp/bunrui/kosodategakko/pareting/edu/7919.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program is-ended" id="koga-matsuoka-shogakukin">
-            <h3>松岡奨学金（松岡奨学生の募集） <span class="area-ended-tag">受付終了</span></h3>
-            <p class="area-meta">古河市 教育総務課｜給付｜月額1万円（7月と12月の年2回に分けて支給）｜締切：2026-06-12</p>
-            <p class="area-meta">期間：令和8年6月1日（月曜日）～令和8年6月12日（金曜日）</p>
-            <p>経済的理由で修学が困難な高校生等に、教育の機会均等のため奨学金を支給する制度。新規募集枠は14人。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>高等学校等に在学し、経済的理由により修学が困難な人</li><li>保護者が1年以上（令和8年4月1日現在）市内に居住している</li><li>国、県、その他の団体から奨学金等の給付を受けていない（貸付は除外）</li></ul>
-            <p><a href="https://www.city.ibaraki-koga.lg.jp/bunrui/kosodategakko/pareting/3/7916.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <h3 class="area-cat" id="res-cat-9">移住</h3>
-          <div class="area-program" id="koga-akiya-bank-reform">
-            <h3>古河市空き家バンクリフォーム補助金</h3>
-            <p class="area-meta">茨城県古河市｜補助金｜リフォーム費の1/2・上限100万円(令和7年度)</p>
-            <p class="area-meta">期間：令和8年度は最新は要確認</p>
-            <p>空き家バンク登録物件のリフォーム費を補助する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>空き家バンク登録物件の取得者</li></ul>
-            <p><a href="https://www.city.ibaraki-koga.lg.jp/soshiki/eizen/akiyataisaku/10063.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <div class="area-program" id="koga-machinaka-jutaku">
-            <h3>古河市若者・子育て世帯まちなか住宅取得奨励金</h3>
-            <p class="area-meta">茨城県古河市｜補助金｜基本10万円+加算(居住年数10万〜20万円、子1人5万円など)｜締切：2026-12-31</p>
-            <p class="area-meta">期間：取得期間は令和8年12月31日まで(最新は要確認)</p>
-            <p>まちなかでの住宅取得を奨励する。</p>
-            <p><strong>主な条件</strong></p>
-            <ul><li>若者・子育て世帯</li><li>取得期間は令和6年1月1日から令和8年12月31日</li></ul>
-            <p><a href="https://www.city.ibaraki-koga.lg.jp/soshiki/hisyokouho/5_1/18308.html" target="_blank" rel="noopener">公式の案内を見る →</a></p>
-          </div>
-          <p><strong>茨城県の制度</strong></p>
-          <ul><li><a href="pref-ibaraki.html#ibaraki-iju-shienkin">わくわく茨城生活実現事業（茨城県移住支援金）</a></li></ul>
-          <p><a href="pref-ibaraki.html#pref-resident">茨城県の制度1件を、県のページで見る →</a></p>
+          <ul><li><a href="pref-ibaraki.html#ibaraki-challenge-fund">いばらきチャレンジ基金事業</a></li><li><a href="pref-ibaraki.html#ibaraki-digital-skill-hojo">デジタルスキル習得支援事業補助金</a></li><li><a href="pref-ibaraki.html#ibaraki-josei-wakamono-sogyo-yushi">茨城県 女性・若者・障害者創業支援融資</a></li><li><a href="pref-ibaraki.html#ibaraki-shoene-setsubi-hojo">中小規模事業所省エネ対策設備導入補助金</a></li><li><a href="pref-ibaraki.html#ibaraki-shokibo-shien-yushi">茨城県 小規模企業支援融資</a></li></ul>
+          <p><a href="pref-ibaraki.html#pref-business">茨城県の制度6件を、県のページで見る →</a></p>
       </div>
     </section>
 

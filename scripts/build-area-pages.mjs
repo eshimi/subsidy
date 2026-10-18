@@ -72,6 +72,46 @@ function programCard(p) {
           </div>`;
 }
 
+// 分野の大きなまとまり（上部の分野カード用）。RESIDENT_CATEGORIES の分野を、探す人の言葉に寄せて6つにまとめる
+const GOALS = [
+  { key: 'kosodate', label: '子育て', icon: '👶', cats: ['子育て'] },
+  { key: 'iryo', label: '医療・福祉', icon: '🩺', cats: ['医療・福祉'] },
+  { key: 'kyoiku', label: '教育・学び', icon: '🎓', cats: ['教育・学び'] },
+  { key: 'sumai', label: '住まい・暮らし', icon: '🏠', cats: ['耐震', '太陽光・蓄電池', 'EV・充電', '省エネ住宅', '空き家・ブロック塀', 'バリアフリー・介護'] },
+  { key: 'iju', label: '移住', icon: '🌱', cats: ['移住'] },
+];
+const goalOf = (cat) => GOALS.find((g) => g.cats.includes(cat)) || GOALS[3];
+
+// 制度を1行で見せる（分野・制度名と概要・金額・公式へのリンク）。金額が分からないときは、そのまま「公式で確認」
+function programRow(p, tag) {
+  const amount = unknown(p.amount) ? '<span class="ar-amt-na">公式で確認</span>' : esc(p.amount);
+  const conds = (p.eligibility || []).filter((e) => !unknown(e)).slice(0, 2);
+  const vague = (v) => unknown(v) || /要確認|公式で確認/.test(String(v));
+  const small = [p.summary, conds.length ? `対象：${conds.join('／')}` : '', !vague(p.period) ? `期間：${p.period}` : '', p.deadline ? `締切：${p.deadline}` : ''].filter(Boolean).map(esc).join('<br>');
+  const link = p.url ? `<a class="ar-go" href="${esc(p.url)}" target="_blank" rel="noopener">公式 →</a>` : '';
+  return `          <div class="ar-row${isEnded(p) ? ' is-ended' : ''}"${p.id ? ` id="${esc(p.id)}"` : ''}>
+            <div class="ar-name"><b>${tag ? `<span class="ar-tag">${esc(tag)}</span>` : ''}${esc(p.name)}${isEnded(p) ? ' <span class="area-ended-tag">受付終了</span>' : ''}</b><small>${small}</small><span class="ar-prov">${esc(p.provider || '')}</span></div>
+            <div class="ar-amt">${amount}</div>
+            ${link}
+          </div>`;
+}
+const rowsHead = '          <div class="ar-head" aria-hidden="true"><span>制度</span><span>金額・上限</span><span></span></div>';
+const rowTable = (rows) => `          <div class="ar-table">\n${rowsHead}\n${rows.join('\n')}\n          </div>`;
+
+// 分野カード（上部）：個人の方向けの分野と、事業・創業。件数0の分野は、リンクにしない
+function goalCards(city, municipal, prefectural, resident) {
+  const cards = GOALS.map((g) => {
+    const k = resident.municipal.filter((p) => g.cats.includes(p.category)).length;
+    return k ? `<a href="#res-g-${g.key}"><i aria-hidden="true">${g.icon}</i><b>${g.label}</b><small>${k}件</small></a>` : `<span class="is-none"><i aria-hidden="true">${g.icon}</i><b>${g.label}</b><small>掲載なし</small></span>`;
+  });
+  const bizN = municipal.length;
+  cards.push(`<a href="#city-programs"><i aria-hidden="true">🏪</i><b>事業・創業</b><small>${bizN ? `市${bizN}件` : '市の掲載なし'}${prefectural.length ? `＋県${prefectural.length}件` : ''}</small></a>`);
+  return `    <nav class="ar-goals" aria-label="分野から探す">
+      ${cards.join('\n      ')}
+    </nav>
+`;
+}
+
 // ページ先頭の「このページの内容」：件数と、各欄・分野へのジャンプ
 function toc(city, municipal, prefectural, resident) {
   const n = (list) => `${list.length}件${list.some(isEnded) ? `（うち受付終了${list.filter(isEnded).length}件）` : ''}`;
@@ -112,7 +152,7 @@ function cityPage(city) {
   // 個人向けの制度が下の欄に載っているときは、そこへ案内する（上の欄が空に見えないように）
   const toResident = (n) => (RESIDENT_PROGRAMS.length && n ? `個人の方向けの制度は、<a href="#resident-programs">下の「住まい・暮らしの制度」</a>に載せています。` : '');
   const municipalHtml = municipal.length
-    ? programCards(municipal)
+    ? rowTable(activeFirst(municipal).map((p) => programRow(p, '')))
     : `          <p>${esc(city.name)}の事業・創業の方向けの制度は、まだ掲載していません。市の公式サイトの「創業・産業振興」などのページで、最新の公募を確認してください。${toResident(resident.municipal.length)}</p>`;
   // 県の制度は、同じ県の市のページすべてに同じ内容が並ばないように、件数と制度名のリンクだけにして、県のページへ案内する
   const prefLinks = (list, hash) => {
@@ -123,14 +163,17 @@ function cityPage(city) {
   const prefHtml = prefectural.length
     ? prefLinks(prefectural, 'pref-business')
     : `          <p>${esc(city.pref)}全体の事業・創業の方向けの制度は、県の公式サイトで確認できます。${toResident(resident.prefectural.length)}</p>`;
-  const residentCard = (p) => programCard({ ...p, provider: `${p.provider}` });
+  // 個人の方向けの制度：分野（探す人の言葉）ごとに、見出しと表を並べる
+  const residentRows = (list) => GOALS.map((g) => {
+    const items = activeFirst(list.filter((p) => g.cats.includes(p.category)));
+    return items.length ? `          <h3 class="area-cat" id="res-g-${g.key}">${g.label}<span>${items.length}件</span></h3>\n${rowTable(items.map((p) => programRow(p, g.cats.length > 1 ? p.category : '')))}` : '';
+  }).filter(Boolean).join('\n');
   const residentHtml = [
-    resident.municipal.length ? `          <p><strong>${esc(city.name)}の制度</strong></p>\n${residentGroups(resident.municipal, residentCard)}` : '',
+    resident.municipal.length ? residentRows(resident.municipal) : '',
     resident.prefectural.length ? `          <p><strong>${esc(city.pref)}の制度</strong></p>\n${prefLinks(resident.prefectural, 'pref-resident')}` : '',
   ].filter(Boolean).join('\n') || `          <p>${esc(city.name)}・${esc(city.pref)}の、個人の方向けの制度（耐震・太陽光・EV・子育てなど）は、まだ掲載していません。市の公式サイトの「くらし・住まい」のページで確認してください。</p>`;
   // 個人向けのデータが1件もないあいだは、欄を出さない（空の案内だけが並ばないように）
   const residentSection = RESIDENT_PROGRAMS.length ? `    <section class="area-section" aria-labelledby="resident-programs">
-      <span class="area-num">03</span>
       <h2 id="resident-programs">住まい・暮らしの制度（個人の方向け）</h2>
       <div class="area-body">
         <p>耐震・太陽光・EV・省エネ住宅・子育てなど、お住まいの方向けの制度です。国の制度（<a href="../hantei.html?for=personal">個人向けの補助金・支援</a>）とあわせて確認してください。</p>
@@ -153,16 +196,7 @@ ${residentHtml}
     ],
   })}</script>
 `;
-  const body = `    <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ ${esc(city.name)}</nav>
-
-    <div style="margin-bottom: 2rem;">
-      <h1 class="display" style="margin-bottom: 0.5rem;">${esc(city.name)}の補助金・助成金一覧<img class="area-title-img" src="../images/prefectures/pref-${PREF_SLUGS[city.pref]}.webp" alt="" height="72"></h1>
-      <p class="lead" style="margin-bottom: 0;">${esc(city.pref)}・${esc(city.level)}。市の制度と県の制度、国の制度をあわせて確認するための入口です。</p>
-    </div>
-
-${toc(city, municipal, prefectural, resident)}
-    <section class="area-section" aria-labelledby="city-programs">
-      <span class="area-num">01</span>
+  const businessSections = `    <section class="area-section" aria-labelledby="city-programs">
       <h2 id="city-programs">${esc(city.name)}の制度（事業・創業の方向け）</h2>
       <div class="area-body">
 ${municipalHtml}
@@ -170,15 +204,27 @@ ${municipalHtml}
     </section>
 
     <section class="area-section" aria-labelledby="pref-programs">
-      <span class="area-num">02</span>
       <h2 id="pref-programs">${esc(city.pref)}の制度（事業・創業の方向け）</h2>
       <div class="area-body">
 ${prefHtml}
       </div>
     </section>
 
-${residentSection}    <section class="area-section" aria-labelledby="national">
-      <span class="area-num">${residentSection ? '04' : '03'}</span>
+`;
+  const body = `    <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">地域別の補助金</a> ＞ ${esc(city.name)}</nav>
+
+    <header class="ar-hero">
+      <div class="ar-hero-txt">
+        <p class="ar-kicker">${esc(city.pref)} ${esc(city.name)}</p>
+        <h1>${esc(city.name)}で使える補助金・助成金<em>（令和8年度）</em></h1>
+        <p class="ar-lead">${nMuni ? `市の制度${nMuni}件に、県の制度と国の制度をあわせて確認できます。まず、知りたい分野を選んでください。` : `${esc(city.pref)}・${esc(city.level)}。市の制度と県の制度、国の制度をあわせて確認するための入口です。`}</p>
+        <p class="ar-btns"><a class="ar-btn p" href="../hantei.html">AIで対象を確かめる</a><a class="ar-btn s" href="../search.html">キーワードで探す</a></p>
+      </div>
+      <img class="ar-hero-img" src="../images/prefectures/pref-${PREF_SLUGS[city.pref]}.webp" alt="" height="150">
+    </header>
+
+${goalCards(city, municipal, prefectural, resident)}
+${resident.municipal.length ? residentSection + businessSections : businessSections + residentSection}    <section class="area-section" aria-labelledby="national">
       <h2 id="national">国の制度・全国から探す</h2>
       <div class="area-body">
         <p>国の制度は、市や県の制度と並行して使えるものがあります。まずは、サイトのトップで事業の内容と郵便番号を入れると、対象になりそうな制度をまとめて確認できます。</p>
@@ -190,7 +236,6 @@ ${residentSection}    <section class="area-section" aria-labelledby="national">
     </section>
 
     <section class="area-section" aria-labelledby="checklist">
-      <span class="area-num">04</span>
       <h2 id="checklist">申請前に確認したいこと</h2>
       <div class="area-body">
         <ul>
