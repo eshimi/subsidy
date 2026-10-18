@@ -8581,6 +8581,30 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.kasukabe.lg.jp/soshikikarasagasu/kenchikuka/gyomuannai/4/1/taisinhojyosedo.html"
   },
   {
+    "id": "kawagoe-appearance-care",
+    "name": "川越市アピアランスケア用品購入支援事業",
+    "provider": "川越市 健康管理課",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "補助金",
+    "amount": "ウィッグ・乳房補整具の区分ごとに限度額1万円（補助対象経費又は1万円のいずれか低い額）",
+    "summary": "がん治療に伴う外見の変化を補い、治療と社会参加の両立を支援するため、アピアランスケア用品の購入費の一部を助成する。",
+    "eligibility": [
+      "申請日時点で川越市に在住し、住民基本台帳に登録されている",
+      "がんと診断され、がん治療を受けている、又は受けていた",
+      "がん治療に起因する脱毛又は乳房の切除に伴い医療用補整具を購入した"
+    ],
+    "prefectures": [
+      "埼玉県"
+    ],
+    "cities": [
+      "川越市"
+    ],
+    "period": "令和8年4月1日以降に購入した用品が対象（領収書の日付が年度内のものが申請できる）",
+    "deadline": null,
+    "url": "https://www.city.kawagoe.saitama.jp/kenko/iryo/1006606/1020983.html"
+  },
+  {
     "id": "kawagoe-block-hei",
     "name": "川越市ブロック塀等撤去費補助",
     "provider": "川越市",
@@ -8601,6 +8625,53 @@ export const RESIDENT_PROGRAMS = [
     "period": "令和8年4月1日～12月下旬（先着順）",
     "deadline": null,
     "url": "https://www.city.kawagoe.saitama.jp/shisei/toshikei/1010554/1010750/1010774/1010782/1010784.html"
+  },
+  {
+    "id": "kawagoe-fuikushou-kensa",
+    "name": "川越市不育症検査費助成事業",
+    "provider": "川越市",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "自己負担額に対して、女性が35歳未満は上限3万円、それ以外は上限2万円",
+    "summary": "不育症検査を受けた方を対象に、検査費用の一部を助成する。男女1組につき生涯1回まで。",
+    "eligibility": [
+      "2回以上の流産、死産、あるいは早期新生児死亡の既往がある方など",
+      "婚姻関係にある男女（事実婚を含む）で、双方または一方が川越市に住民登録がある",
+      "検査開始日時点で女性の年齢が43歳未満"
+    ],
+    "prefectures": [
+      "埼玉県"
+    ],
+    "cities": [
+      "川越市"
+    ],
+    "period": "令和8年4月1日から令和9年3月31日までに終了した検査が対象",
+    "deadline": null,
+    "url": "https://www.city.kawagoe.saitama.jp/kenko/iryo/1006606/1006627/1006629.html"
+  },
+  {
+    "id": "kawagoe-fushin-kougaku-joseikin",
+    "name": "妊娠を希望する女性等の風しん抗体検査・予防接種の費用助成",
+    "provider": "川越市",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "抗体検査は無料、予防接種の自己負担額は麻しん風しん混合ワクチン5,800円・風しん単抗原ワクチン4,100円",
+    "summary": "妊娠を希望する女性やそのパートナー等に対し、風しんの抗体検査・予防接種の費用助成を行う。",
+    "eligibility": [
+      "検査日（接種日）時点で川越市に住民登録がある",
+      "妊娠を希望する女性、そのパートナー、または妊婦のパートナー等"
+    ],
+    "prefectures": [
+      "埼玉県"
+    ],
+    "cities": [
+      "川越市"
+    ],
+    "period": "令和8年4月1日から令和9年3月31日",
+    "deadline": null,
+    "url": "https://www.city.kawagoe.saitama.jp/kenko/m-kenshin/1006098/1006108.html"
   },
   {
     "id": "kawagoe-jutaku-datsutanso",
@@ -8648,6 +8719,29 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.kawagoe.saitama.jp/kurashi/jyutaku/1003030.html"
   },
   {
+    "id": "kawagoe-juudo-shinshin-iryohi",
+    "name": "重度心身障害者医療費支給制度",
+    "provider": "川越市 高齢・障害医療課",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "医療費の一部負担金等について助成金を支給（所得制限あり）",
+    "summary": "重度心身障害者に対し、医療費の一部負担金等について助成金を支給する制度。令和8年8月1日から所得制限の基準額が変更された。",
+    "eligibility": [
+      "川越市に住所があり、健康保険に加入している重度心身障害者",
+      "受給資格の登録が必要"
+    ],
+    "prefectures": [
+      "埼玉県"
+    ],
+    "cities": [
+      "川越市"
+    ],
+    "period": "登録手続きを行った翌月から医療費助成を受けることができる",
+    "deadline": null,
+    "url": "https://www.city.kawagoe.saitama.jp/kenko/fukushi/1006736/1006800/1006805.html"
+  },
+  {
     "id": "kawagoe-kyotaku-kaizen",
     "name": "川越市居宅改善費助成",
     "provider": "埼玉県川越市",
@@ -8670,6 +8764,52 @@ export const RESIDENT_PROGRAMS = [
     "period": "毎年4月1日から受付（予算超過で終了。令和8年度の状況は要確認）",
     "deadline": null,
     "url": "https://www.city.kawagoe.saitama.jp/kenko/fukushi/1006679/1006705/1006715.html"
+  },
+  {
+    "id": "kawagoe-shugaku-enjo",
+    "name": "就学援助（令和8年7月から令和9年6月分）",
+    "provider": "川越市 教育財務課",
+    "level": "municipality",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "新入学児童生徒学用品費等は年額 小学生64,300円・中学生81,000円（費目により異なる）",
+    "summary": "経済的理由で公立小中学校への就学が困難なご家庭に対し、学用品費など就学に必要な費用の一部を援助する。申請は毎年必要。",
+    "eligibility": [
+      "川越市に住民登録があり、公立小中学校に通学している児童生徒の保護者",
+      "世帯全員の所得額の合計が教育委員会の定める基準額未満の方、児童扶養手当を受給中の方など"
+    ],
+    "prefectures": [
+      "埼玉県"
+    ],
+    "cities": [
+      "川越市"
+    ],
+    "period": "令和8年7月から令和9年6月分（在校生は随時受付、新入学児童は令和8年12月1日から令和9年1月29日）",
+    "deadline": null,
+    "url": "https://www.city.kawagoe.saitama.jp/kosodate/jyosei/1004159/1004161.html"
+  },
+  {
+    "id": "kawagoe-soki-funin-kensa",
+    "name": "川越市早期不妊検査費助成事業",
+    "provider": "川越市",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "自己負担額に対して、女性が35歳未満は上限3万円、それ以外は上限2万円",
+    "summary": "不妊検査を受けた方を対象に、検査費用の一部を助成する。男女1組につき生涯1回まで。",
+    "eligibility": [
+      "婚姻関係にある男女（事実婚を含む）で、双方または一方が川越市に住民登録がある",
+      "男女ともに不妊検査を受け、検査開始日時点で女性の年齢が43歳未満"
+    ],
+    "prefectures": [
+      "埼玉県"
+    ],
+    "cities": [
+      "川越市"
+    ],
+    "period": "令和8年4月1日から令和9年3月31日までに終了した検査が対象",
+    "deadline": null,
+    "url": "https://www.city.kawagoe.saitama.jp/kenko/iryo/1006606/1006627/1006630.html"
   },
   {
     "id": "kawagoe-taishin-mokuzo",
@@ -10425,6 +10565,29 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.funabashi.lg.jp/jigyou/kenchiku_kaihatsu/006/p024798.html"
   },
   {
+    "id": "funabashi-fuikushou-kensa",
+    "name": "船橋市不育症検査費用助成事業",
+    "provider": "船橋市",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "検査費用の7割に相当する額（千円未満切捨て）、上限6万円",
+    "summary": "先進医療として告示されている不育症検査の費用の一部を助成し、不育症の方の経済的な負担の軽減を図る。",
+    "eligibility": [
+      "既往流死産回数が2回以上の方",
+      "申請日時点において市内に居住し、かつ住民登録をしている"
+    ],
+    "prefectures": [
+      "千葉県"
+    ],
+    "cities": [
+      "船橋市"
+    ],
+    "period": "令和3年6月30日から助成（令和8年5月1日から新たな検査も対象）",
+    "deadline": null,
+    "url": "https://www.city.funabashi.lg.jp/kodomo/ninshin/003/p093380.html"
+  },
+  {
     "id": "funabashi-jutaku-kankyo-setsubi",
     "name": "船橋市住宅向け補助金（太陽光・蓄電・EV・V2H）令和8年度",
     "provider": "船橋市",
@@ -10514,6 +10677,170 @@ export const RESIDENT_PROGRAMS = [
     "period": "令和8年度交付申請受付中（締切：令和8年11月30日）",
     "deadline": "2026-11-30",
     "url": "https://www.city.funabashi.lg.jp/machi/juutaku/006/p010088.html"
+  },
+  {
+    "id": "funabashi-ninkagai-hoiku-tsuen",
+    "name": "令和8年度通園分 認可外保育施設通園児補助金",
+    "provider": "船橋市",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "補助金",
+    "amount": "保護者が負担した利用料で月額30,000円が上限",
+    "summary": "認可外保育施設を利用している児童の保護者の経済的負担を軽減するため、補助金を交付する。",
+    "eligibility": [
+      "補助対象施設を月極契約で利用する0歳児～2歳児クラスの児童",
+      "市民税課税世帯の児童"
+    ],
+    "prefectures": [
+      "千葉県"
+    ],
+    "cities": [
+      "船橋市"
+    ],
+    "period": "令和8年度通園分（最終申請締め切りは令和9年4月9日）",
+    "deadline": null,
+    "url": "https://www.city.funabashi.lg.jp/kodomo/hoiku/008/p073655.html"
+  },
+  {
+    "id": "funabashi-sanpu-kenshin",
+    "name": "産婦健康診査費用の助成",
+    "provider": "船橋市",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "助成金",
+    "amount": "1回につき5,000円が上限（合計2回まで）",
+    "summary": "産後間もないお母さんの心身の健康保持や産後うつ病の予防等のため、産婦健康診査の費用の一部を助成する。",
+    "eligibility": [
+      "健診受診日時点で船橋市に住民票がある",
+      "受診結果が船橋市に提出され、産後の支援に活用されることに同意する"
+    ],
+    "prefectures": [
+      "千葉県"
+    ],
+    "cities": [
+      "船橋市"
+    ],
+    "period": "令和8年度（出産後おおむね2週間とおおむね1ヵ月の各1回）",
+    "deadline": null,
+    "url": "https://www.city.funabashi.lg.jp/kodomo/ninshin/001/p064130.html"
+  },
+  {
+    "id": "funabashi-shugaku-enjo",
+    "name": "令和8年度就学援助",
+    "provider": "船橋市 学務課",
+    "level": "municipality",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "要確認",
+    "summary": "経済的な理由で小・中学校で必要となる諸経費に困っている保護者に対して、その一部を援助する制度。",
+    "eligibility": [
+      "船橋市に住所を有し、経済的な理由で小・中学校の諸経費に困っている保護者",
+      "生活保護を受けている方、児童扶養手当を支給されている方、その他経済的に困窮している方"
+    ],
+    "prefectures": [
+      "千葉県"
+    ],
+    "cities": [
+      "船橋市"
+    ],
+    "period": "当初提出期限は令和8年5月14日、申請は年度内随時可能（年度の最終受付日は3月8日）",
+    "deadline": null,
+    "url": "https://www.city.funabashi.lg.jp/kodomo/teate/005/p008693.html"
+  },
+  {
+    "id": "funabashi-soki-funin-kensa",
+    "name": "船橋市早期不妊検査費助成事業",
+    "provider": "船橋市",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "夫婦1組につき上限3万円（1回限り）",
+    "summary": "こどもを望む夫婦が早めに検査を受けられるよう、夫婦で受けた不妊検査費用の一部を助成する。令和8年10月5日開始。",
+    "eligibility": [
+      "夫婦の双方又はいずれか一方が船橋市に住所を有する（事実婚を含む）",
+      "女性の不妊検査開始日時点の年齢が43歳未満",
+      "保険医療機関において夫婦ともに不妊検査を受けている"
+    ],
+    "prefectures": [
+      "千葉県"
+    ],
+    "cities": [
+      "船橋市"
+    ],
+    "period": "令和8年10月1日以降に受けた検査が対象",
+    "deadline": null,
+    "url": "https://www.city.funabashi.lg.jp/kodomo/ninshin/003/p149359.html"
+  },
+  {
+    "id": "funabashi-taijouhoushin-ninni",
+    "name": "令和8年度 帯状疱疹任意予防接種の費用助成",
+    "provider": "船橋市",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "生ワクチン2,000円、不活化ワクチン5,000円×2回（計10,000円）",
+    "summary": "満50歳以上65歳未満の方（定期予防接種の対象者を除く）の帯状疱疹任意予防接種の費用を助成する。",
+    "eligibility": [
+      "満50歳以上65歳未満の方（定期予防接種の対象者を除く）",
+      "過去に全額自費もしくは市の費用助成を受けて接種を完了した方は対象外"
+    ],
+    "prefectures": [
+      "千葉県"
+    ],
+    "cities": [
+      "船橋市"
+    ],
+    "period": "令和8年4月1日から令和9年3月31日まで",
+    "deadline": null,
+    "url": "https://www.city.funabashi.lg.jp/kenkou/iryou/007/p135428.html"
+  },
+  {
+    "id": "funabashi-takei-shudan-katsudo",
+    "name": "令和8年度 船橋市多様な集団活動利用支援事業費補助金",
+    "provider": "船橋市",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "補助金",
+    "amount": "保護者が負担した利用料と給付基準額のどちらか少ない額（原則1か月当たり20,000円）",
+    "summary": "小学校就学前の子どもが利用する多様な集団活動について、保護者の経済的負担を軽減するため、利用料の一部を給付する。",
+    "eligibility": [
+      "満3歳以上の児童で、児童・保護者が船橋市に居住し住民登録がある",
+      "対象施設を1日4時間以上週5日以上、年間39週以上利用している",
+      "幼児教育・保育無償化等の対象外である"
+    ],
+    "prefectures": [
+      "千葉県"
+    ],
+    "cities": [
+      "船橋市"
+    ],
+    "period": "令和8年度（最終申請締め切りは令和9年4月9日）",
+    "deadline": null,
+    "url": "https://www.city.funabashi.lg.jp/kodomo/teate/004/p094943.html"
+  },
+  {
+    "id": "funabashi-youshin-tesuryo",
+    "name": "船橋市養親希望者手数料負担軽減事業",
+    "provider": "船橋市",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "補助金",
+    "amount": "上限600,000円（1人（世帯）あたり）",
+    "summary": "養親希望者が民間あっせん機関に支払った手数料の全部または一部を船橋市が補助する。令和8年7月1日施行。",
+    "eligibility": [
+      "都道府県知事等の許可を受けた民間あっせん機関との契約で養子縁組のあっせんを受けている",
+      "縁組成立前養育開始日から交付申請日まで継続して船橋市内に居住",
+      "市税を滞納していない"
+    ],
+    "prefectures": [
+      "千葉県"
+    ],
+    "cities": [
+      "船橋市"
+    ],
+    "period": "手数料を支払った日の属する月の翌月1日から起算して12か月を経過する日までに申請",
+    "deadline": null,
+    "url": "https://www.city.funabashi.lg.jp/kodomo/teate/004/p150041.html"
   },
   {
     "id": "ichihara-datsutanso-battery",
@@ -12860,6 +13187,144 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.adachi.tokyo.jp/kaigo/kurashi/hoken/kaigo-kaishu.html"
   },
   {
+    "id": "adachi-kodomo-influenza",
+    "name": "小児インフルエンザワクチン任意接種費用一部助成",
+    "provider": "足立区 衛生部保健予防課",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "不活化ワクチン3,000円／回、経鼻弱毒生ワクチン6,000円／回",
+    "summary": "生後6か月の前日から高校3年生相当までの方の小児インフルエンザワクチン任意接種の費用を一部助成する。",
+    "eligibility": [
+      "生後６か月の前日から高校３年生相当までの方"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "足立区"
+    ],
+    "period": "毎年10月1日から1月31日まで（令和8年度の助成は10月1日から）",
+    "deadline": "2027-01-31",
+    "url": "https://www.city.adachi.tokyo.jp/hoken/kodomo-influenza.html"
+  },
+  {
+    "id": "adachi-koukou-junbi",
+    "name": "高等学校等入学準備助成",
+    "provider": "足立区 教育委員会事務局学務課助成係",
+    "level": "municipality",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "10万円（一律）",
+    "summary": "高等学校等へ進学が決定している中学3年生がいる就学援助の準要保護世帯に、入学前にかかる費用の一部を助成する。",
+    "eligibility": [
+      "足立区在住",
+      "令和８年度の中学校３年生で、高等学校等へ進学先が決定していること",
+      "令和９年２月１日時点で、就学援助の準要保護世帯として認定されていること"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "足立区"
+    ],
+    "period": "令和9年２月下旬・３月下旬（予定）に支給",
+    "deadline": null,
+    "url": "https://www.city.adachi.tokyo.jp/gakumu/gakumu.html"
+  },
+  {
+    "id": "adachi-koukouseiouen",
+    "name": "高校生世代応援支援金",
+    "provider": "足立区 子どもの貧困対策・若年者支援課",
+    "level": "municipality",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "5万円（年額）",
+    "summary": "部活動や習い事、資格取得などにチャレンジしたい高校生世代へ5万円を支給する。",
+    "eligibility": [
+      "足立区に在住している方",
+      "課税世帯で保護者の税額控除前の区市町村民税所得割の合計額が105,000円以下の方"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "足立区"
+    ],
+    "period": "令和８年４月１日（水曜日）から令和９年１月２９日（金曜日）まで",
+    "deadline": "2027-01-29",
+    "url": "https://www.city.adachi.tokyo.jp/k-hinkon/koukouseiouenshienkin.html"
+  },
+  {
+    "id": "adachi-mashin-kotai",
+    "name": "任意麻しん抗体検査・予防接種費用助成制度",
+    "provider": "足立区 衛生部保健予防課",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "抗体検査は無料、予防接種はMRワクチンが自己負担なし",
+    "summary": "19歳以上の区民の麻しん抗体検査を無料とし、抗体価が低い方の麻しん風しん（MR）ワクチン接種を自己負担なしで受けられる制度。",
+    "eligibility": [
+      "検査日現在、足立区に住民登録のある19歳以上の男女",
+      "予防接種は、抗体検査の結果、抗体価が低い方"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "足立区"
+    ],
+    "period": "令和８年９月１日から令和９年３月３１日まで",
+    "deadline": "2027-03-31",
+    "url": "https://www.city.adachi.tokyo.jp/hoken/mashinhiyouzyosei.html"
+  },
+  {
+    "id": "adachi-mr-ninni",
+    "name": "麻しん・風しんワクチンの任意接種公費負担制度（最大2回まで助成）",
+    "provider": "足立区 衛生部保健予防課",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "費用は無料（2回を限度）",
+    "summary": "麻しんまたは風しんにかかったことのない2歳以上18歳以下で、定期接種を打ちそびれた方の任意接種を、2回を限度に公費負担する。",
+    "eligibility": [
+      "麻しんまたは風しんにかかったことのない2歳以上18歳以下で定期接種未接種の方または1回接種の方",
+      "令和7年度のMR定期予防接種該当者を除く"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "足立区"
+    ],
+    "period": "令和8年4月1日から令和9年3月31日まで",
+    "deadline": "2027-03-31",
+    "url": "https://www.city.adachi.tokyo.jp/hoken/k-kyoiku/kosodate/k-mr.html"
+  },
+  {
+    "id": "adachi-sangokea",
+    "name": "産後ケア",
+    "provider": "足立区 衛生部保健予防課",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "助成金",
+    "amount": "自己負担：宿泊型1日2,500円、日帰り型1日1,250円、訪問型1回1,000円、デイサービス型500円",
+    "summary": "産後のお母さんの休息や育児支援が必要な方を、デイサービス型・宿泊型・日帰り型・訪問型で支援する。令和8年4月1日に自己負担額が引き下げられた。",
+    "eligibility": [
+      "足立区に住民登録がある産後1年未満のお母さんと赤ちゃん（デイサービス型）",
+      "宿泊型・日帰り型は産後4か月未満のお母さんと赤ちゃん"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "足立区"
+    ],
+    "period": "令和８年４月１日から変更（通年）",
+    "deadline": null,
+    "url": "https://www.city.adachi.tokyo.jp/hoken/fukushi-kenko/kenko/sangokea.html"
+  },
+  {
     "id": "adachi-shoene-reform",
     "name": "省エネリフォーム補助金",
     "provider": "東京都足立区",
@@ -13912,6 +14377,29 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.chuo.lg.jp/a0043/machizukuri/kenchiku/taishin/taisintaisaku.html"
   },
   {
+    "id": "edogawa-birthday-support",
+    "name": "バースデーサポート事業",
+    "provider": "江戸川区 健康部健康サービス課",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "給付",
+    "amount": "第1子6万円分、第2子7万円分、第3子以降8万円分のギフト（令和5年4月1日以降に出生したお子さんの場合）",
+    "summary": "1歳の誕生日を迎えるお子さんを養育するご家庭に、アンケート提出でギフトを配付する事業。令和8年4月に再編し、申請期限は2歳になる日の前日まで。",
+    "eligibility": [
+      "1歳の誕生月の1日に江戸川区に住民登録がある方",
+      "申請書兼1歳子育てアンケートを提出期限内に提出した方"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "江戸川区"
+    ],
+    "period": "令和7年4月1日以降に出生したお子さんは、2歳になる日の前日まで（郵送の場合は消印有効）",
+    "deadline": null,
+    "url": "https://www.city.edogawa.tokyo.jp/e052/kosodate/kosodate/firstbirthday.html"
+  },
+  {
     "id": "edogawa-block-tekkyo",
     "name": "ブロック塀等撤去費助成",
     "provider": "江戸川区",
@@ -14048,6 +14536,51 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.edogawa.tokyo.jp/e086/toshikeikaku/kankyo/inochi/hojokin/saiene100.html"
   },
   {
+    "id": "edogawa-shoni-influenza",
+    "name": "小児インフルエンザ任意接種費用の一部助成",
+    "provider": "江戸川区 健康部",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "不活化ワクチン1回につき2,000円、経鼻弱毒生ワクチン1回につき4,000円",
+    "summary": "令和8年度の小児インフルエンザ任意接種の費用の一部を助成する。区内実施医療機関のみ対象。",
+    "eligibility": [
+      "接種日時点で江戸川区にお住まいの、生後6か月から高校3年生相当の年齢の方"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "江戸川区"
+    ],
+    "period": "令和8年9月24日から令和9年1月31日まで",
+    "deadline": "2027-01-31",
+    "url": "https://www.city.edogawa.tokyo.jp/e054/kenko/iryo/yobosesshu/shouniinnhuru.html"
+  },
+  {
+    "id": "edogawa-shugakuenjo",
+    "name": "就学援助費（江戸川区立小・中学校）",
+    "provider": "江戸川区教育委員会 学務課",
+    "level": "municipality",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "学用品・通学用品費、新入学児童生徒学用品費、校外活動費、修学旅行費（小学校のみ）、卒業記念アルバム費など（金額は要確認）",
+    "summary": "経済的に就学が困難なご家庭に、学校生活で必要な費用の一部を援助する制度。世帯全体の前年所得額を基準とする。",
+    "eligibility": [
+      "江戸川区に住んでいて、江戸川区立の小・中学校に通学しているお子様がいるご家庭",
+      "生活保護を受けている方などに該当するご家庭"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "江戸川区"
+    ],
+    "period": "申請は随時受け付けており、令和8年度の申請は令和9年3月12日(金曜日)まで受付",
+    "deadline": "2027-03-12",
+    "url": "https://www.city.edogawa.tokyo.jp/e069/kosodate/kyoiku/kyouiku/tetuduki/shugakuenjo.html"
+  },
+  {
     "id": "edogawa-sumai-kaizo-jukunen",
     "name": "住まいの改造助成（熟年者）",
     "provider": "江戸川区",
@@ -14070,6 +14603,29 @@ export const RESIDENT_PROGRAMS = [
     "period": "令和8年4月1日から制度内容改正",
     "deadline": null,
     "url": "https://www.city.edogawa.tokyo.jp/e040/kenko/fukushikaigo/jukunen/sumai/kaizojosei.html"
+  },
+  {
+    "id": "edogawa-taijohoshin",
+    "name": "帯状疱疹予防接種費用の一部助成（50歳以上65歳未満の任意接種）",
+    "provider": "江戸川区 健康部",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "自己負担額：ビケン（生ワクチン）1回4,000円、シングリックス（不活化ワクチン）1回11,000円（2回接種）",
+    "summary": "50歳以上65歳未満の方の帯状疱疹任意接種の費用の一部を助成する。令和8年度も実施。",
+    "eligibility": [
+      "江戸川区に住民登録がある方",
+      "満50歳以上65歳未満で定期接種対象者以外（昭和37年4月2日以降生まれ）の方"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "江戸川区"
+    ],
+    "period": "令和8年4月1日から令和9年3月31日まで",
+    "deadline": "2027-03-31",
+    "url": "https://www.city.edogawa.tokyo.jp/e054/kenko/iryo/yobosesshu/taijohoshin.html"
   },
   {
     "id": "edogawa-taishin-josei",
@@ -15911,6 +16467,53 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.machida.tokyo.jp/kurashi/kankyo/kankyo/setudenshoene/kateidenotorikumi/riyoukiki/taiyoukououen.html"
   },
   {
+    "id": "machida-first-birthday-support",
+    "name": "町田市ファーストバースデーサポート事業",
+    "provider": "町田市 保健所保健予防課",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "給付",
+    "amount": "ファーストバースデーギフト（giftee Box Select 6万円分のデジタルギフト）",
+    "summary": "1歳のお誕生日を迎えたお子様を育てる家庭の育児状況を確認し、アンケートに回答した方にデジタルギフトを贈る。",
+    "eligibility": [
+      "1歳の誕生日に町田市に住民票がある方",
+      "アンケートに最後まで回答した方"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "町田市"
+    ],
+    "period": "1歳のお誕生月翌月の末日までにアンケートに回答",
+    "deadline": null,
+    "url": "https://kosodate-machida.tokyo.jp/mokuteki/2/6/12599.html"
+  },
+  {
+    "id": "machida-kigyoshudo-hoiku",
+    "name": "町田市企業主導型保育施設利用補助金",
+    "provider": "町田市",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "補助金",
+    "amount": "月額保育料補助上限額 40,000円",
+    "summary": "町田市在住の子どもが企業主導型保育施設を利用する場合に、利用料に対して補助を行う。",
+    "eligibility": [
+      "住民税課税世帯で対象児童が0～2歳児クラスに該当する",
+      "企業主導型保育施設に在園している",
+      "町田市在住の子どもである"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "町田市"
+    ],
+    "period": "前期4月から9月、後期10月から翌年3月（2026年度より支払日が変更）",
+    "deadline": null,
+    "url": "https://kosodate-machida.tokyo.jp/mokuteki/2/4/12251.html"
+  },
+  {
     "id": "machida-mokuzo-jokyaku",
     "name": "町田市 木造住宅除却工事助成",
     "provider": "東京都町田市",
@@ -15932,6 +16535,29 @@ export const RESIDENT_PROGRAMS = [
     "period": "交付申請は2026年12月11日まで(実績報告は2027年1月29日まで)",
     "deadline": "2026-12-11",
     "url": "https://www.city.machida.tokyo.jp/kurashi/sumai/house/earthquake-resistant/wooden/remove.html"
+  },
+  {
+    "id": "machida-shugaku-enjo",
+    "name": "就学援助費・奨励費制度",
+    "provider": "町田市 教育委員会学務課",
+    "level": "municipality",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "学用品費・移動教室費・修学旅行費等の一部（費目表による）",
+    "summary": "経済的にお困りのご家庭の保護者に就学援助費を、特別支援学級（固定制）在籍児童生徒の保護者に就学奨励費を支給する。",
+    "eligibility": [
+      "町田市立小・中学校に在籍する児童生徒の保護者",
+      "前年の世帯の所得が生活保護基準の1.1倍未満（準要保護）"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "町田市"
+    ],
+    "period": "2026年度（2026年4月1日から4月30日、期限後も2027年2月末まで申請可）",
+    "deadline": null,
+    "url": "https://kosodate-machida.tokyo.jp/mokuteki/2/2/3340.html"
   },
   {
     "id": "machida-taishin-kaishu",
@@ -15976,6 +16602,52 @@ export const RESIDENT_PROGRAMS = [
     "period": "申請は2026年12月11日まで",
     "deadline": "2026-12-11",
     "url": "https://www.city.machida.tokyo.jp/kurashi/sumai/house/earthquake-resistant/wooden/shelter.html"
+  },
+  {
+    "id": "machida-teiki-riyo-hoiku",
+    "name": "町田市定期利用保育利用補助金",
+    "provider": "町田市",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "補助金",
+    "amount": "交付上限額 42,000円など（認定・保留通知書の有無により異なる）",
+    "summary": "定期利用保育実施園で支払った保育料について、申請により交付上限額の範囲で補助金を交付する。",
+    "eligibility": [
+      "町田市に在住し、教育・保育給付認定3号・2号を受けている",
+      "住民税課税世帯で対象者が0～2歳児クラスに該当する",
+      "保育園等に在園していない"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "町田市"
+    ],
+    "period": "2026年4月保育料より（新3号認定児への市独自の補助）",
+    "deadline": null,
+    "url": "https://kosodate-machida.tokyo.jp/mokuteki/2/4/11925.html"
+  },
+  {
+    "id": "machida-tsugaku-hi-hojo",
+    "name": "通学費の補助（通学費補助金）",
+    "provider": "町田市",
+    "level": "municipality",
+    "category": "教育・学び",
+    "type": "補助金",
+    "amount": "通学定期代金の一部を補助（要確認）",
+    "summary": "遠距離のため公共交通機関で町田市立小中学校へ通学する児童生徒の保護者に、通学定期代金の一部を補助する。所得による制限はない。",
+    "eligibility": [
+      "住所から指定された町田市立小中学校へ遠距離のため公共交通機関を利用している児童生徒の保護者"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "町田市"
+    ],
+    "period": "2026年度",
+    "deadline": null,
+    "url": "https://kosodate-machida.tokyo.jp/mokuteki/2/2/5832.html"
   },
   {
     "id": "meguro-block-jokyaku",
@@ -17045,6 +17717,29 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.nerima.tokyo.jp/kurashi/sumai/akiya/katsuyou.html"
   },
   {
+    "id": "nerima-babysitter-riyo-shien",
+    "name": "ベビーシッター利用支援事業（一時預かり利用支援）",
+    "provider": "練馬区",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "補助金",
+    "amount": "1時間あたり日中2,500円・夜間3,500円まで／年度あたり児童1人144時間（障害児・ひとり親家庭・多胎児は288時間）",
+    "summary": "東京都が認定したベビーシッターを利用した際の利用料の一部を補助します。",
+    "eligibility": [
+      "練馬区に住民登録があり、対象児童と同居している保護者",
+      "小学3年生まで（障害児は小学6年生まで）のお子さんを養育する方"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "練馬区"
+    ],
+    "period": "令和8年度：令和8年4月1日から令和9年3月31日まで",
+    "deadline": null,
+    "url": "https://www.city.nerima.tokyo.jp/kosodatekyoiku/kodomo/hoiku/itijiteki_hoiku/babysitter.html"
+  },
+  {
     "id": "nerima-block-tekkyo",
     "name": "ブロック塀等撤去費用助成",
     "provider": "東京都練馬区",
@@ -17160,6 +17855,124 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.nerima.tokyo.jp/hokenfukushi/koreisha/jutaku/yobo_kaishu.html"
   },
   {
+    "id": "nerima-kodomoen-teinenrei-hoikuryo-hojo",
+    "name": "練馬こども園低年齢型定期利用保育料補助金",
+    "provider": "練馬区 教育振興部 学務課",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "補助金",
+    "amount": "定期利用保育料の補助額は上限月額42,000円",
+    "summary": "練馬こども園低年齢型（0から2歳）の預かり保育を定期利用している保護者に、定期利用保育料の一部を補助します。",
+    "eligibility": [
+      "幼児の住民登録が練馬区にあり、当該住所地から通園していること",
+      "対象の幼稚園の練馬こども園低年齢型を定期利用していること",
+      "保育の必要性があること"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "練馬区"
+    ],
+    "period": "令和8年度（0歳児は令和7年4月2日から令和8年4月1日生まれなど）",
+    "deadline": null,
+    "url": "https://www.city.nerima.tokyo.jp/kosodatekyoiku/kyoiku/enjo/kodomoen_teinenrei.html"
+  },
+  {
+    "id": "nerima-kyushoku-miriyo-hojo",
+    "name": "練馬区立小中学校給食未利用者補助事業",
+    "provider": "練馬区 教育振興部 保健給食課",
+    "level": "municipality",
+    "category": "教育・学び",
+    "type": "補助金",
+    "amount": "月額 小学生6,400円、中学生7,900円",
+    "summary": "長期欠席等のやむを得ない事情により継続的に学校給食を利用していない児童・生徒を対象に、給食費相当額を補助します。",
+    "eligibility": [
+      "練馬区立小中学校に在籍する児童・生徒",
+      "ひと月をとおして継続的に学校給食を利用していないこと",
+      "学校へ給食停止の届け出を行い、給食用食材の発注が停止されていること"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "練馬区"
+    ],
+    "period": "令和8年度の支給対象は令和8年10月から令和9年3月分",
+    "deadline": null,
+    "url": "https://www.city.nerima.tokyo.jp/kosodatekyoiku/kyoiku/enjo/tyoukikesseki.html"
+  },
+  {
+    "id": "nerima-ninpu-kenshin-josei",
+    "name": "妊婦健康診査費用助成",
+    "provider": "練馬区",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "助成金",
+    "amount": "令和8年度助成上限額：1回目11,670円、2～14回目5,460円、超音波検査5,300円、子宮頸がん検診3,400円",
+    "summary": "母子健康手帳交付時に渡す受診票を医療機関に提出すると、妊婦健康診査費用の一部が助成されます。",
+    "eligibility": [
+      "受診票（妊婦健康診査14回分、妊婦超音波検査4回分、妊婦子宮頸がん検診1回分）を使用する方",
+      "助産所での受診は原則7回が上限（令和6年10月1日以降に妊娠届を提出した方）"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "練馬区"
+    ],
+    "period": "妊娠届提出後の受診時",
+    "deadline": null,
+    "url": "https://www.city.nerima.tokyo.jp/hokenfukushi/hoken/sukoyaka/kenkoshinsa.html"
+  },
+  {
+    "id": "nerima-shiritsu-yochien-hojo",
+    "name": "私立幼稚園等補助金",
+    "provider": "練馬区",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "補助金",
+    "amount": "要確認（新制度移行園・未移行園で上限額や補助方法が異なる）",
+    "summary": "私立幼稚園等に満3歳から5歳児を通園させ、入園料・保育料等を支払った保護者に、一部を補助します。",
+    "eligibility": [
+      "幼児の住民登録が練馬区にあり、当該住所地から通園していること",
+      "認可を受けた私立幼稚園等に通園し、入園料や保育料等を納入していること",
+      "満3歳児から5歳児クラスであること"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "練馬区"
+    ],
+    "period": "令和8年度（最終期限は令和9年3月31日）",
+    "deadline": null,
+    "url": "https://www.city.nerima.tokyo.jp/kosodatekyoiku/kyoiku/enjo/R4shirituyou_hojyo.html"
+  },
+  {
+    "id": "nerima-shugaku-enjohi",
+    "name": "就学援助費（学校でかかる費用の援助）",
+    "provider": "練馬区 教育振興部 学務課",
+    "level": "municipality",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "要確認（支給額は就学援助費支給費目表に記載）",
+    "summary": "経済的に困窮していると認められる児童・生徒の保護者に、区が学用品費等の費用の一部を援助します。",
+    "eligibility": [
+      "練馬区に住所を有し、国公立小中学校（一部を除く）に通学している児童・生徒の保護者",
+      "生活保護を受けている方、または認定基準を満たす方"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "練馬区"
+    ],
+    "period": "令和8年度の申請を随時受け付け（支給は申請書を受付した月から）",
+    "deadline": null,
+    "url": "https://www.city.nerima.tokyo.jp/kosodatekyoiku/kyoiku/enjo/enjo.html"
+  },
+  {
     "id": "nerima-taishin-kaishu",
     "name": "住宅の耐震改修工事等の助成",
     "provider": "練馬区 防災まちづくり課",
@@ -17181,6 +17994,30 @@ export const RESIDENT_PROGRAMS = [
     "period": "令和7年度に拡充と案内（令和8年度の期間は要確認）",
     "deadline": null,
     "url": "https://www.city.nerima.tokyo.jp/kurashi/sumai/takuchi/taishin/kodate.html"
+  },
+  {
+    "id": "nerima-tokubetsu-shien-kyushokuhi-hojo",
+    "name": "特別支援学校給食費等補助金",
+    "provider": "練馬区 教育振興部 保健給食課",
+    "level": "municipality",
+    "category": "教育・学び",
+    "type": "補助金",
+    "amount": "年間上限 小学校低学年66,900円、中学年71,500円、高学年77,400円、中学生87,800円（弁当持参は1回あたり350円から467円）",
+    "summary": "特別支援学校に通学する児童・生徒の保護者の経済的負担を軽減するため、学校給食費相当を補助します。",
+    "eligibility": [
+      "練馬区内に在住していること",
+      "県立、国立、私立いずれかの特別支援学校に在籍していること",
+      "対象世帯の所得制限はありません"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "練馬区"
+    ],
+    "period": "申請受付期限：令和8年11月30日（月）",
+    "deadline": "2026-11-30",
+    "url": "https://www.city.nerima.tokyo.jp/kosodatekyoiku/kyoiku/enjo/tokusikyuusyoku.html"
   },
   {
     "id": "nishitokyo-aircon",
@@ -17498,6 +18335,29 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.ome.tokyo.jp/soshiki/45/680.html"
   },
   {
+    "id": "ota-babysitter-riyo-shien",
+    "name": "大田区ベビーシッター利用支援事業（一時預かり利用支援）",
+    "provider": "大田区",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "補助金",
+    "amount": "1時間あたり日中2,500円・夜間3,500円まで／年度あたり児童1人144時間（多胎児・障がい児・ひとり親家庭は288時間）",
+    "summary": "一時的に保育が必要となった際のベビーシッター利用料の一部を区が補助します。",
+    "eligibility": [
+      "未就学児（障がい児は満12歳に達する年度の末日まで）の保護者",
+      "利用日時点で児童と同居し、大田区内に住民登録があること"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "大田区"
+    ],
+    "period": "令和8年4月1日から令和9年3月31日までの利用分",
+    "deadline": null,
+    "url": "https://www.city.ota.tokyo.jp/seikatsu/kodomo/shien/babysitter_itiziazukari.html"
+  },
+  {
     "id": "ota-block-kaishu",
     "name": "ブロック塀等改修助成事業",
     "provider": "大田区",
@@ -17585,6 +18445,30 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.ota.tokyo.jp/seikatsu/fukushi/kourei/sumai/jyutakukaishu.html"
   },
   {
+    "id": "ota-kyufu-shogakukin-daigaku",
+    "name": "大学等進学応援基金による給付奨学生",
+    "provider": "大田区 福祉管理課",
+    "level": "municipality",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "ひとり15万円",
+    "summary": "大学・短期大学・専修学校専門課程に進学する方で、経済的理由により就学が困難かつ学業成績優秀な方に給付型奨学金を支給します。貸付型奨学金との同時申込みが必要です。",
+    "eligibility": [
+      "令和9年4月に大学・短期大学・専修学校専門課程に進学予定の方",
+      "大田区奨学金（貸付型奨学金）に同時に申込みをしている方",
+      "学業成績が5段階評価で概ね平均4.0以上の方"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "大田区"
+    ],
+    "period": "令和8年9月1日（火曜日）から令和8年11月4日（水曜日）",
+    "deadline": "2026-11-04",
+    "url": "https://www.city.ota.tokyo.jp/seikatsu/kodomo/kashitsuke_kyuhu/syougakukin-kyuufu.html"
+  },
+  {
     "id": "ota-manshon-taishin",
     "name": "マンションの耐震診断・改修の費用の助成",
     "provider": "大田区 防災まちづくり課",
@@ -17627,6 +18511,29 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.ota.tokyo.jp/seikatsu/sumaimachinami/bousai_machidukuri/mokudou.html"
   },
   {
+    "id": "ota-ninkagai-hoikushisetsu-hojo",
+    "name": "認可外保育施設等保護者負担軽減補助金",
+    "provider": "大田区 保育サービス課",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "補助金",
+    "amount": "上限月額：東京都認証保育所・認可外保育施設の利用は0～2歳児クラス80,000円、3～5歳児クラス77,000円",
+    "summary": "認可外保育施設等にお子様を預けている保護者に補助金を交付し、子育て世帯の経済的負担の軽減を図ります。利用料を先に支払い、後から申請する「償還払い」方式です。",
+    "eligibility": [
+      "大田区に住民登録のある保護者",
+      "東京都認証保育所・認可外保育施設を利用している、または施設等利用給付の認定を受け特定子ども・子育て支援施設を利用している"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "大田区"
+    ],
+    "period": "令和8年度（申請の最終期限は令和9年3月31日）",
+    "deadline": null,
+    "url": "https://www.city.ota.tokyo.jp/seikatsu/kodomo/hoiku/hoikushisetsu_nyukibo/ninkagaihoikusisetu/ninnkagaishisetsu_hojokin.html"
+  },
+  {
     "id": "ota-reform-josei",
     "name": "住宅リフォーム助成事業",
     "provider": "大田区 住宅担当",
@@ -17647,6 +18554,29 @@ export const RESIDENT_PROGRAMS = [
     "period": "確認できた年度：令和5年度（最新は要確認）",
     "deadline": null,
     "url": "https://www.city.ota.tokyo.jp/seikatsu/sumaimachinami/sumai/r_josei/index.html"
+  },
+  {
+    "id": "ota-sango-kaji-ikuji-enjo",
+    "name": "大田区産後家事・育児援助事業（ぴよぴよサポート）",
+    "provider": "大田区",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "給付",
+    "amount": "対象児1人当たり年間30時間／自己負担金は1時間当たり500円",
+    "summary": "産後の家事・育児の負担を軽減するため、ご自宅にヘルパーが訪問し、家事・育児のお手伝いをします。",
+    "eligibility": [
+      "大田区にお住まいの2歳まで（3歳の誕生日の前日まで）のお子様を育児中の世帯",
+      "住民税非課税世帯と生活保護世帯は自己負担金の免除制度あり"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "大田区"
+    ],
+    "period": "月曜日から土曜日の午前9時から午後9時まで（令和8年度から支払方法にクレジットカードが追加）",
+    "deadline": null,
+    "url": "https://www.city.ota.tokyo.jp/seikatsu/kodomo/shien/sango_enjo.html"
   },
   {
     "id": "setagaya-akiya-chiiki-koken",
@@ -17670,6 +18600,29 @@ export const RESIDENT_PROGRAMS = [
     "period": "最新は要確認",
     "deadline": null,
     "url": "https://www.city.setagaya.lg.jp/03665/3738.html"
+  },
+  {
+    "id": "setagaya-birthday-support",
+    "name": "世田谷区バースデーサポート事業",
+    "provider": "世田谷区 子ども・若者部",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "給付",
+    "amount": "第1子：6万円分、第2子：7万円分、第3子以降：8万円分（東京都子育て支援専用QUOカードPay）",
+    "summary": "1歳のお誕生日を迎えるお子さんのいるご家庭が、子育てに関するアンケートに回答すると、子育て支援用品等の購入に使えるデジタルギフトが届きます。",
+    "eligibility": [
+      "1歳の誕生月に世田谷区に住民登録のあるお子さんとその保護者",
+      "アンケート回答月に世田谷区に住民登録のあるお子さんとその保護者"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "世田谷区"
+    ],
+    "period": "アンケート回答日の翌月末日までにギフトを送付（令和8年度の送付状況を掲載）",
+    "deadline": null,
+    "url": "https://www.city.setagaya.lg.jp/02413/1284.html"
   },
   {
     "id": "setagaya-block-tekkyo",
@@ -17764,6 +18717,30 @@ export const RESIDENT_PROGRAMS = [
     "period": "令和8年度（最新は要確認）",
     "deadline": null,
     "url": "https://www.city.setagaya.lg.jp/03665/3722.html"
+  },
+  {
+    "id": "setagaya-kamiomutsu-shikyu",
+    "name": "紙おむつの支給・助成",
+    "provider": "世田谷区 高齢福祉課",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "給付",
+    "amount": "紙おむつ支給は1か月500円の利用者負担金あり／入院中のおむつ代助成は月額5,000円を限度",
+    "summary": "失禁状態で2か月以上おむつを使用している、ねたきり等で要介護3～5に認定された方に紙おむつを支給します。病院に入院中の方にはおむつ代の助成を選ぶこともできます。",
+    "eligibility": [
+      "世田谷区に住所のある65歳以上の方、または40歳から64歳の介護保険の第2号被保険者の方",
+      "要介護3から5の方、または65歳以上で入院中の方（おむつ代助成は医療型病床に入院中の方）",
+      "現在、介護保険施設に入所されていない方（紙おむつ支給の場合）"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "世田谷区"
+    ],
+    "period": "申請した月以降から支給または助成の対象（令和8年度世田谷区紙おむつ支給事業）",
+    "deadline": null,
+    "url": "https://www.city.setagaya.lg.jp/02082/2415.html"
   },
   {
     "id": "setagaya-koreisha-jutaku-kaishu",
@@ -18646,6 +19623,29 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.suginami.tokyo.jp/s093/1839.html"
   },
   {
+    "id": "suginami-babysitter",
+    "name": "杉並区ベビーシッター利用支援事業（一時預かり利用支援）",
+    "provider": "杉並区",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "補助金",
+    "amount": "1時間当たり2,500円（午前7時から午後10時）、3,500円（午後10時から午前7時）を上限に補助",
+    "summary": "東京都の補助制度を活用し、認定事業者のベビーシッターを利用した保護者に利用料を補助する。令和8年度から対象児童を拡大。",
+    "eligibility": [
+      "杉並区に住所を有する対象児童（未就学児など）及びその保護者",
+      "突発的な事情、社会参加等により一時的に保育を必要としている保護者"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "杉並区"
+    ],
+    "period": "令和8年4月1日から令和9年3月31日までの利用分（申請は令和8年7月1日～令和9年4月15日）",
+    "deadline": "2027-04-15",
+    "url": "https://www.city.suginami.tokyo.jp/s054/1042.html"
+  },
+  {
     "id": "suginami-block-kaishu",
     "name": "ブロック塀等改修助成",
     "provider": "杉並区",
@@ -18830,6 +19830,29 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.suginami.tokyo.jp/s103/823.html"
   },
   {
+    "id": "suginami-funin-josei",
+    "name": "杉並区不妊治療費助成事業",
+    "provider": "杉並区",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "上限5万円（治療開始日・都承認決定日により異なる。上限3万5,000円の区分もある）",
+    "summary": "令和8年10月1日から拡充。令和8年4月1日以降に開始した治療は、先進医療費に加え保険適用された体外受精・顕微授精の自己負担額も助成対象とする。",
+    "eligibility": [
+      "東京都不妊治療費助成事業の承認決定を受け、その承認決定日から1年以内であること",
+      "区への申請時に、夫婦（事実婚を含む）またはその一方が杉並区に住民登録を有していること"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "杉並区"
+    ],
+    "period": "令和8年4月1日以降に開始した治療が対象（令和8年10月1日から拡充）",
+    "deadline": null,
+    "url": "https://www.city.suginami.tokyo.jp/s045/1111.html"
+  },
+  {
     "id": "suginami-koreisha-jutaku-kaishu",
     "name": "高齢者住宅改修給付",
     "provider": "杉並区 高齢者担当",
@@ -18848,6 +19871,29 @@ export const RESIDENT_PROGRAMS = [
     "period": "要確認",
     "deadline": null,
     "url": "https://www.city.suginami.tokyo.jp/s039/1153.html"
+  },
+  {
+    "id": "suginami-kyushoku-sotokyufu",
+    "name": "杉並区給食費相当給付金",
+    "provider": "杉並区 子ども家庭部管理課",
+    "level": "municipality",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "小学生1人につき月額6,500円、中学生1人につき月額7,500円",
+    "summary": "国立・私立の小中学校等へ通学する児童生徒の保護者などに、区立学校給食費相当額の給付金を支給する。",
+    "eligibility": [
+      "令和8年度に小学1年生から中学3年生の学齢で、杉並区に住民登録がある児童生徒",
+      "国立・私立学校などに就学、または区立学校で月に一度も給食の提供を受けていない"
+    ],
+    "prefectures": [
+      "東京都"
+    ],
+    "cities": [
+      "杉並区"
+    ],
+    "period": "令和8年4月から令和9年3月までの12カ月のうち、8月を除く11カ月分",
+    "deadline": null,
+    "url": "https://www.city.suginami.tokyo.jp/s053/news/25602.html"
   },
   {
     "id": "suginami-mokuzo-jokyaku",
@@ -32552,6 +33598,52 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.daito.lg.jp/site/iju/1663.html"
   },
   {
+    "id": "higashiosaka-2sai-hoikuryo-muryoka",
+    "name": "東大阪市保育料等無償化事業",
+    "provider": "東大阪市",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "給付",
+    "amount": "2歳児クラスの利用料を無償化（認可外保育施設等は月額42,000円が上限）",
+    "summary": "市内に住む2歳児クラスの子どもの保育料等を、世帯の所得に関わらず無償化します。",
+    "eligibility": [
+      "東大阪市にお住まいで、対象施設を利用する2歳児クラスの子ども",
+      "保護者(父母等)の住民税の申告が必要"
+    ],
+    "prefectures": [
+      "大阪府"
+    ],
+    "cities": [
+      "東大阪市"
+    ],
+    "period": "令和8年4月より2歳児の保育料等無償化を開始（令和9年4月から1歳児も対象）",
+    "deadline": null,
+    "url": "https://www.city.higashiosaka.lg.jp/kosodate/0000042134.html"
+  },
+  {
+    "id": "higashiosaka-2sai-jidohattatsu-kanpu",
+    "name": "2歳児の児童発達支援の利用料を還付(払戻)します",
+    "provider": "東大阪市 福祉部障害者支援室 障害児サービス課",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "給付",
+    "amount": "児童発達支援の利用者負担額（利用料）を還付（おやつ代・教材費などの実費は対象外）",
+    "summary": "市独自の施策として、令和8年4月から2歳児の児童発達支援の利用料を還付(払戻)します。",
+    "eligibility": [
+      "令和8年度の対象者は令和5年4月2日から令和6年4月1日生まれの児童",
+      "2歳になって最初の4月から翌年3月までの利用料が対象"
+    ],
+    "prefectures": [
+      "大阪府"
+    ],
+    "cities": [
+      "東大阪市"
+    ],
+    "period": "令和8年4月から。2歳になって最初の4月から翌年3月までの利用料が対象",
+    "deadline": null,
+    "url": "https://www.city.higashiosaka.lg.jp/0000044218.html"
+  },
+  {
     "id": "higashiosaka-akiya-kaitai",
     "name": "東大阪市 空き家解体費補助制度",
     "provider": "東大阪市",
@@ -32595,6 +33687,52 @@ export const RESIDENT_PROGRAMS = [
     "period": "令和8年度（2026年8月21日時点で太陽光・蓄電池の残件数あり。終了日は要確認）",
     "deadline": null,
     "url": "https://www.city.higashiosaka.lg.jp/0000015249.html"
+  },
+  {
+    "id": "higashiosaka-nyugaku-junbihi",
+    "name": "入学準備費(就学援助)（令和9年4月入学・進級）",
+    "provider": "東大阪市 教育委員会事務局 学校教育部 学事課",
+    "level": "municipality",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "小学校1年・義務教育学校1年 64,300円、中学校1年・義務教育学校7年 81,000円",
+    "summary": "令和9年4月に市立小学校・中学校・義務教育学校に入学する子どもの新入学にかかる費用の一部を入学前に援助します。",
+    "eligibility": [
+      "令和9年4月に市立小学校・中学校・義務教育学校の1年へ入学・義務教育学校7年へ進級予定のお子さまがいる世帯",
+      "令和7年中の世帯全員の所得合計額が認定基準額未満の方"
+    ],
+    "prefectures": [
+      "大阪府"
+    ],
+    "cities": [
+      "東大阪市"
+    ],
+    "period": "申請期限は令和8年12月22日(火曜日)まで（以降も令和9年3月31日まで申請可能）",
+    "deadline": "2026-12-22",
+    "url": "https://www.city.higashiosaka.lg.jp/0000023536.html"
+  },
+  {
+    "id": "higashiosaka-shugaku-enjo",
+    "name": "令和8年度 東大阪市立小・中・義務教育学校の就学援助",
+    "provider": "東大阪市 教育委員会事務局 学校教育部 学事課",
+    "level": "municipality",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "学用品費等（年額）小学2から6年生15,500円、中学2から3年生27,310円ほか",
+    "summary": "市立小・中・義務教育学校に子どもを就学させることが経済的に困難な保護者に、学校に必要な費用の一部を援助します。",
+    "eligibility": [
+      "令和7年中の世帯員全員の所得合計額が認定基準額未満の方",
+      "毎年申請が必要"
+    ],
+    "prefectures": [
+      "大阪府"
+    ],
+    "cities": [
+      "東大阪市"
+    ],
+    "period": "受付期間は令和8年4月30日まで（以降も随時受付、認定は申請月から）",
+    "deadline": null,
+    "url": "https://www.city.higashiosaka.lg.jp/0000003598.html"
   },
   {
     "id": "higashiosaka-taishin-hojo",
@@ -35202,6 +36340,101 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.himeji.lg.jp/sangyo/0000002749.html"
   },
   {
+    "id": "himeji-freeschool-riyo-shien-hojokin",
+    "name": "令和8年度フリースクール等利用支援補助金",
+    "provider": "姫路市 教育委員会事務局 総合教育センター 育成支援課",
+    "level": "municipality",
+    "category": "教育・学び",
+    "type": "補助金",
+    "amount": "利用料の2分の1、不登校児童生徒1人につき1か月1万円が上限",
+    "summary": "フリースクール等を利用する不登校の小中学生の保護者に、利用料の一部を補助します。",
+    "eligibility": [
+      "フリースクール等の利用料を支払っている不登校児童生徒（小中学生）の保護者",
+      "利用開始時点で姫路市内に住所を有していること",
+      "姫路市立学校に在籍していること"
+    ],
+    "prefectures": [
+      "兵庫県"
+    ],
+    "cities": [
+      "姫路市"
+    ],
+    "period": "第1期 令和8年4月1日から令和8年9月30日、第2期 令和8年10月1日から令和9年3月31日（交付申請は令和9年2月28日まで）",
+    "deadline": "2027-02-28",
+    "url": "https://www.city.himeji.lg.jp/kurashi/0000030450.html"
+  },
+  {
+    "id": "himeji-fuikusho-chiryo-shien",
+    "name": "令和8年度 不育症治療支援事業",
+    "provider": "姫路市 健康福祉局 保健所 保健所健康課",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "検査・治療は10分の7、先進医療とされた検査は10分の7（上限6万円）",
+    "summary": "不育症の検査および治療を受けた夫婦に、医療保険が適用されない医療費の一部を助成します。",
+    "eligibility": [
+      "姫路市内に住所がある夫婦（事実婚関係にある夫婦を含む）であること",
+      "治療等を行った期間の初日における妻の年齢が43歳未満であること",
+      "2回以上の流産や死産、早期新生児死亡の既往があると医師に診断されていること"
+    ],
+    "prefectures": [
+      "兵庫県"
+    ],
+    "cities": [
+      "姫路市"
+    ],
+    "period": "1年度（令和8年4月1日から令和9年3月31日）の医療費について1回",
+    "deadline": "2027-03-31",
+    "url": "https://www.city.himeji.lg.jp/kurashi/0000003699.html"
+  },
+  {
+    "id": "himeji-funin-pair-kensa-hijosei",
+    "name": "令和8年度 不妊治療ペア検査助成事業",
+    "provider": "姫路市 健康福祉局 保健所 保健所健康課",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "検査費の10分の7、上限2万円",
+    "summary": "不妊症の検査を受けた夫婦に、医療保険が適用されない検査費の一部を助成します。",
+    "eligibility": [
+      "姫路市内に住所がある夫婦（事実婚関係にある夫婦を含む）であること",
+      "検査を行った期間の初日における妻の年齢が43歳未満であること",
+      "夫婦そろって受診していること"
+    ],
+    "prefectures": [
+      "兵庫県"
+    ],
+    "cities": [
+      "姫路市"
+    ],
+    "period": "令和8年4月1日から令和9年3月31日までに受けた検査が対象",
+    "deadline": "2027-03-31",
+    "url": "https://www.city.himeji.lg.jp/kurashi/0000017185.html"
+  },
+  {
+    "id": "himeji-ikuji-yohin-gift-r8-10",
+    "name": "姫路市育児用品ギフト事業（令和8年10月1日以降にこんにちは赤ちゃん訪問を受けた方）",
+    "provider": "姫路市 保健所健康課",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "給付",
+    "amount": "1万円相当の育児用品に交換できるデジタルカタログのギフトカード",
+    "summary": "こんにちは赤ちゃん訪問の機会に、おむつ等の育児用品に交換できるギフトカードを配布して子育てを経済的に支援します。",
+    "eligibility": [
+      "こんにちは赤ちゃん訪問を受けた時点で姫路市に住民登録のある方",
+      "転入者は生後4か月までに転入した場合に限る"
+    ],
+    "prefectures": [
+      "兵庫県"
+    ],
+    "cities": [
+      "姫路市"
+    ],
+    "period": "令和8年10月1日以降にこんにちは赤ちゃん訪問を受けた方が対象",
+    "deadline": null,
+    "url": "https://www.city.himeji.lg.jp/kurashi/0000034376.html"
+  },
+  {
     "id": "himeji-jikasyohi-taiyoko-r8",
     "name": "【令和8年度】姫路市自家消費型住宅用太陽光発電設備等導入補助金",
     "provider": "姫路市",
@@ -35290,6 +36523,30 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.himeji.lg.jp/kurashi/0000021695.html"
   },
   {
+    "id": "himeji-ranshi-touketsu-hijosei",
+    "name": "令和8年度 卵子凍結費用助成事業",
+    "provider": "姫路市 健康福祉局 保健所 保健所健康課",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "1人1回限り、上限40万円",
+    "summary": "将来の妊娠・出産に備えた卵子の凍結保存を希望する方に、その費用の一部を助成します。",
+    "eligibility": [
+      "採卵実施日において、18歳以上39歳以下であること",
+      "採卵実施日から助成金を申請するまでの間、継続して姫路市に住民登録があること",
+      "過去に本事業による助成を受けたことがないこと"
+    ],
+    "prefectures": [
+      "兵庫県"
+    ],
+    "cities": [
+      "姫路市"
+    ],
+    "period": "卵子の凍結保管開始日の同一年度内（令和9年3月31日まで）",
+    "deadline": "2027-03-31",
+    "url": "https://www.city.himeji.lg.jp/kurashi/0000030628.html"
+  },
+  {
     "id": "himeji-rokyu-akiya",
     "name": "姫路市老朽空家対策補助金",
     "provider": "兵庫県姫路市",
@@ -35332,6 +36589,29 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.himeji.lg.jp/kurashi/0000032527.html"
   },
   {
+    "id": "himeji-shugaku-enjo",
+    "name": "就学援助制度（令和8年度）",
+    "provider": "姫路市 教育委員会事務局 学校指導課",
+    "level": "municipality",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "要確認",
+    "summary": "市立の小・中・義務教育学校に就学する子どもの保護者で、経済的な援助が必要な方に就学援助費を支給します。",
+    "eligibility": [
+      "生活保護を受けている方に準じる程度に困窮されていること",
+      "所得制限があります"
+    ],
+    "prefectures": [
+      "兵庫県"
+    ],
+    "cities": [
+      "姫路市"
+    ],
+    "period": "令和8年4月7日から申請受付。当初申請の提出期限は令和8年4月30日（以降も随時申請可）",
+    "deadline": null,
+    "url": "https://www.city.himeji.lg.jp/kurashi/0000003683.html"
+  },
+  {
     "id": "himeji-taishin-kaishu-r8",
     "name": "姫路市住宅耐震化工事等補助",
     "provider": "兵庫県姫路市",
@@ -35353,6 +36633,30 @@ export const RESIDENT_PROGRAMS = [
     "period": "令和8年度受付中（予算がなくなり次第終了）",
     "deadline": "2026-11-11",
     "url": "https://www.city.himeji.lg.jp/sangyo/0000002709.html"
+  },
+  {
+    "id": "himeji-tokutei-funin-sentan-iryohi",
+    "name": "令和8年度 特定不妊治療等に係る先進医療費助成事業（PGT-AまたはPGT-SRを伴う治療が対象）",
+    "provider": "姫路市 健康福祉局 保健所",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "治療1回あたり上限30万円（治療ステージB・D）、10万円（C）",
+    "summary": "PGT-AまたはPGT-SRと併せて実施した特定不妊治療等の全過程が全額自己負担である治療費の一部を助成します。",
+    "eligibility": [
+      "治療開始時に婚姻している夫婦であって、姫路市内に住所を有すること",
+      "治療を行った期間の初日における妻の年齢が43歳未満であること",
+      "令和8年4月1日以降に終了した治療であること"
+    ],
+    "prefectures": [
+      "兵庫県"
+    ],
+    "cities": [
+      "姫路市"
+    ],
+    "period": "1回の治療が終了した日の同一年度内（令和9年3月31日まで）",
+    "deadline": "2027-03-31",
+    "url": "https://www.city.himeji.lg.jp/kurashi/0000023617.html"
   },
   {
     "id": "himeji-uji-turn",
@@ -35857,6 +37161,54 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.kobe.lg.jp/a01110/kurashi/sumai/jutaku/information/shinkonportal/oyako/r3_oyako.html"
   },
   {
+    "id": "nishinomiya-fuikusho-chiryo-shien",
+    "name": "西宮市不育症治療支援事業",
+    "provider": "西宮市 保健所 健康増進課",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "検査は10分の7、治療は2分の1（1回当たりの上限15万円）",
+    "summary": "不育症の検査及び治療を受けた夫婦に、医療保険が適用されない治療費の一部を助成します。",
+    "eligibility": [
+      "西宮市内に住所を有し、法律上の婚姻または事実婚のご夫婦",
+      "治療等を行った期間の初日における妻の年齢が43歳未満であること",
+      "2回以上の流産や死産、早期新生児死亡の既往があると医師に診断されていること"
+    ],
+    "prefectures": [
+      "兵庫県"
+    ],
+    "cities": [
+      "西宮市"
+    ],
+    "period": "令和8年4月1日～令和9年3月31日に受けた治療等が対象（申請期限は令和9年3月31日）",
+    "deadline": "2027-03-31",
+    "url": "https://www.nishi.or.jp/kosodate/ninshin/ninshinkibo/fuikusho.html"
+  },
+  {
+    "id": "nishinomiya-funin-pair-kensa-josei",
+    "name": "西宮市不妊を心配する方へのペア検査（不妊ペア検査）助成事業",
+    "provider": "西宮市 保健所 健康増進課",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "検査に要した医療保険適用外の医療費の10分の7（上限5万円）",
+    "summary": "不妊症かどうかを判定するための検査を受けた夫婦に、医療保険が適用されない検査費の一部を助成します。",
+    "eligibility": [
+      "申請日現在、西宮市内に住所を有する法律上の婚姻または事実婚のご夫婦",
+      "検査を行った期間の初日における妻の年齢が43歳未満であること",
+      "夫婦そろって不妊治療が必要か判断するための検査を受けた者"
+    ],
+    "prefectures": [
+      "兵庫県"
+    ],
+    "cities": [
+      "西宮市"
+    ],
+    "period": "令和8年4月1日～令和9年3月31日に受けた検査が対象（申請期限は令和9年3月31日）",
+    "deadline": "2027-03-31",
+    "url": "https://www.nishi.or.jp/kosodate/ninshin/ninshinkibo/funinn-pea.html"
+  },
+  {
     "id": "nishinomiya-jikasyohi-taiyoko",
     "name": "西宮市自家消費型住宅用太陽光発電設備等導入補助事業",
     "provider": "兵庫県西宮市",
@@ -35920,6 +37272,98 @@ export const RESIDENT_PROGRAMS = [
     "period": "要確認",
     "deadline": null,
     "url": "https://www.nishi.or.jp/kenko/koreishafukushi/barrier_free/koreshafukushi.html"
+  },
+  {
+    "id": "nishinomiya-kodomo-iryohi-josei",
+    "name": "こども医療費助成制度",
+    "provider": "西宮市",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "助成金",
+    "amount": "保険診療の自己負担（外来・入院）を無料に",
+    "summary": "0歳から高校3年生までの子どもの、健康保険が適用される医療費の自己負担額を市が助成します。",
+    "eligibility": [
+      "0歳から高校3年生までのお子様（18歳に達する日以後の最初の3月31日まで）",
+      "西宮市に住民登録があること",
+      "いずれかの健康保険の加入者であること"
+    ],
+    "prefectures": [
+      "兵庫県"
+    ],
+    "cities": [
+      "西宮市"
+    ],
+    "period": "令和8年1月1日から、高校生世代まで年齢・所得区分に関係なく無料",
+    "deadline": null,
+    "url": "https://www.nishi.or.jp/kurashi/iryohijosei/nyuyojito/kodomoiryo-josei.html"
+  },
+  {
+    "id": "nishinomiya-kyoiku-iinkai-shogakukin-koko-kyufu",
+    "name": "教育委員会奨学金（高校給付）",
+    "provider": "西宮市 教育委員会",
+    "level": "municipality",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "要確認",
+    "summary": "高等学校に在学し、経済的理由により修学が困難な生徒に奨学金を給付します。",
+    "eligibility": [
+      "令和8年度に高等学校に在学し、経済的理由により修学が困難な生徒"
+    ],
+    "prefectures": [
+      "兵庫県"
+    ],
+    "cities": [
+      "西宮市"
+    ],
+    "period": "令和8年度（募集要項に記載）",
+    "deadline": null,
+    "url": "https://www.nishi.or.jp/kosodate/kyoiku/shogakukin/shogakukin.html"
+  },
+  {
+    "id": "nishinomiya-kyushokuhi-futan-keigen-kyufukin",
+    "name": "西宮市学校給食費負担軽減給付金",
+    "provider": "西宮市 教委 学校給食課",
+    "level": "municipality",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "1月あたり 小学校5,200円、中学校2,600円（特別支援学校は小学部6,200円、中学部・高等部3,100円）",
+    "summary": "食物アレルギーや不登校等の事情で学校給食の提供を受けていない市立学校の児童生徒の保護者に、給付金を支給します。",
+    "eligibility": [
+      "市立学校に学籍があり、ひと月を通して学校給食の提供を受けていない児童生徒の保護者",
+      "生活保護を受給している場合は対象外"
+    ],
+    "prefectures": [
+      "兵庫県"
+    ],
+    "cities": [
+      "西宮市"
+    ],
+    "period": "令和8年度分の申請期限は令和9年3月5日",
+    "deadline": "2027-03-05",
+    "url": "https://www.nishi.or.jp/kosodate/kyoiku/gakkokyushoku/keigenkyuuhu.html"
+  },
+  {
+    "id": "nishinomiya-shugaku-shoreikin",
+    "name": "就学奨励金（市立小・中・義務教育学校）",
+    "provider": "西宮市 教育委員会 学事課",
+    "level": "municipality",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "要確認",
+    "summary": "市立小・中・義務教育学校の児童・生徒の保護者に、給食費や学用品費などの学校教育活動に必要な経費の一部を援助します。",
+    "eligibility": [
+      "西宮市立小学校・中学校・義務教育学校の児童・生徒の保護者",
+      "申請は毎年必要"
+    ],
+    "prefectures": [
+      "兵庫県"
+    ],
+    "cities": [
+      "西宮市"
+    ],
+    "period": "令和8年度分の申請受付期間は令和8年4月1日から令和8年4月30日まで。以降は令和9年2月28日まで随時受付",
+    "deadline": null,
+    "url": "https://www.nishi.or.jp/kosodate/kyoiku/shogakukin/SYUUSYOU.html"
   },
   {
     "id": "nishinomiya-taishin-kaishu",
