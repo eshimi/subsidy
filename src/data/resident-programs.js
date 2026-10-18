@@ -26112,6 +26112,49 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.pref.fukui.lg.jp/doc/kenchikujyuutakuka/ecohaphojo.html"
   },
   {
+    "id": "fukui-funin-chiryo-seishoku-joseikin",
+    "name": "福井県不妊治療（生殖補助医療）費助成事業",
+    "provider": "福井県 こども未来課",
+    "level": "prefecture",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "自己負担額が６万円を超えないよう助成（１回あたり）",
+    "summary": "体外受精・顕微授精等の生殖補助医療の自己負担額が１回あたり６万円を超えないよう助成する。令和８年１０月１日から事業名称・申請方法を変更。",
+    "eligibility": [
+      "治療期間の初日に法律上の婚姻をしている夫婦、または事実婚の夫婦",
+      "治療期間の初日の妻の年齢が４２歳以下",
+      "申請日に夫婦の両方または一方が福井県内に住所を有する"
+    ],
+    "prefectures": [
+      "福井県"
+    ],
+    "cities": [],
+    "period": "治療が終了した日の翌日から起算して７か月を経過する日まで",
+    "deadline": null,
+    "url": "https://www.pref.fukui.lg.jp/doc/kodomo/funintiryor4.html"
+  },
+  {
+    "id": "fukui-koko-shogaku-kyufukin",
+    "name": "福井県高校生等奨学給付金",
+    "provider": "福井県 教育委員会 教職員課",
+    "level": "prefecture",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "年額 32,300円〜143,700円（全日制・定時制。世帯区分による）",
+    "summary": "学費支援のため、年収490万円相当の世帯までを対象に、返還の必要がない給付金を支給する。",
+    "eligibility": [
+      "令和８年７月１日現在、保護者等が福井県に居住し、福井県に住民票がある",
+      "生活保護（生業扶助）世帯、または所得割額の合計が182,500円未満などの世帯"
+    ],
+    "prefectures": [
+      "福井県"
+    ],
+    "cities": [],
+    "period": "給付は年１回、通算３回（定時制、通信制は４回）が上限。通常給付の申請案内は9月頃",
+    "deadline": null,
+    "url": "https://www.pref.fukui.lg.jp/doc/gakushin/kyuuhukin.html"
+  },
+  {
     "id": "fukui-mokuzo-taishin",
     "name": "木造住宅の耐震化に関する補助制度",
     "provider": "福井県",
@@ -26130,6 +26173,48 @@ export const RESIDENT_PROGRAMS = [
     "period": "確認できた年度：令和7年度以前（最新は要確認）",
     "deadline": null,
     "url": "https://www.pref.fukui.lg.jp/doc/kenchikujyuutakuka/mokuzoutaishinkaisyuu.html"
+  },
+  {
+    "id": "fukui-pre-ninkatsu-kenshin",
+    "name": "ふくいプレ妊活健診",
+    "provider": "福井県 こども未来課",
+    "level": "prefecture",
+    "category": "医療・福祉",
+    "type": "給付",
+    "amount": "無料（３万円相当の検査）",
+    "summary": "妊娠・出産にまつわる病気や異常の有無、自身の健康状態を無料でチェックできる健診。令和８年度は定員４００名。",
+    "eligibility": [
+      "福井県内に住所を有する１８～３９歳までの男女",
+      "申請日現在こどもがいない方に限る。お一人１回限り"
+    ],
+    "prefectures": [
+      "福井県"
+    ],
+    "cities": [],
+    "period": "令和８年度実施期間：令和８年５月～令和９年２月末（第３期は１１月１日～令和９年１月３１日、先着順）",
+    "deadline": null,
+    "url": "https://www.pref.fukui.lg.jp/doc/kodomo/preconkenshin.html"
+  },
+  {
+    "id": "fukui-shiritsu-koko-shogaku-kyufukin",
+    "name": "福井県私立高校生等奨学給付金",
+    "provider": "福井県 総務部 大学私学課",
+    "level": "prefecture",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "年額 13,030円〜152,000円（世帯区分・課程による）",
+    "summary": "授業料以外の教育費の負担を軽減するため、私立高校生等がいる低中所得世帯に奨学給付金を支給する。返還は不要。",
+    "eligibility": [
+      "令和８年７月１日現在、保護者・親権者が福井県内に居住していること",
+      "生活保護（生業扶助）受給世帯、または所得割額が264,500円未満などの所得基準に該当すること"
+    ],
+    "prefectures": [
+      "福井県"
+    ],
+    "cities": [],
+    "period": "県外の私立高校等に通う場合は令和８年９月１１日（金）まで（県内の私立高校等は各学校の提出期限）",
+    "deadline": null,
+    "url": "https://www.pref.fukui.lg.jp/doc/daishi/syougakukyuufu.html"
   },
   {
     "id": "fukui-sumitsuzukeru",
@@ -26715,6 +26800,50 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.pref.yamanashi.jp/chiiki-ene/hojyokin-saiene.html"
   },
   {
+    "id": "yamanashi-shigaku-nyugakukin-junbi-kyufukin",
+    "name": "私立高等学校等入学金・入学準備サポート事業給付金",
+    "provider": "山梨県 まなび支援課",
+    "level": "prefecture",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "入学金：上限 全日制200,000円・通信制100,000円／入学準備：一律50,000円",
+    "summary": "経済的に余裕のない世帯の高等学校等への入学金や、入学時に必要となる費用（制服等）の負担を軽減するための給付金。",
+    "eligibility": [
+      "令和8年4月1日現在、保護者等が山梨県内に住所を有すること",
+      "高校生等が「高等学校等就学支援金」の支給対象校に在学していること",
+      "道府県民税所得割及び市町村民税所得割が非課税（年収270万円未満程度）など"
+    ],
+    "prefectures": [
+      "山梨県"
+    ],
+    "cities": [],
+    "period": "県内高校は学校が定める期限まで（県外高校は申請の手引きに定める期日）",
+    "deadline": null,
+    "url": "https://www.pref.yamanashi.jp/shigaku-kgk/shuugaku/koukousei.html"
+  },
+  {
+    "id": "yamanashi-shigaku-shogaku-kyufukin",
+    "name": "山梨県 令和８年度奨学給付金（私立高校等）",
+    "provider": "山梨県 まなび支援課",
+    "level": "prefecture",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "年額 １３，０３０円〜１５２，０００円（世帯区分・課程による）",
+    "summary": "授業料以外の教育費負担の軽減を目的とし、低所得世帯の私立高校生等に奨学のための給付金を支給する。",
+    "eligibility": [
+      "令和８年７月１日(基準日)現在、私立高等学校等に在学する高校生等の保護者等で、山梨県内に住所を有している",
+      "高等学校等就学支援金の受給権者または学び直し支援金の対象",
+      "生活保護（生業扶助）受給、または所得割額の合算が１８２，５００円未満などの世帯"
+    ],
+    "prefectures": [
+      "山梨県"
+    ],
+    "cities": [],
+    "period": "県内高校は学校が定める期限まで／県外高校は９月１日(間に合わない場合は１１月２日)まで",
+    "deadline": null,
+    "url": "https://www.pref.yamanashi.jp/shigaku-kgk/shuugaku/koukousei.html"
+  },
+  {
     "id": "yamanashi-taishin",
     "name": "木造住宅耐震改修等支援事業",
     "provider": "山梨県（市町村と協調）",
@@ -27048,6 +27177,49 @@ export const RESIDENT_PROGRAMS = [
     "period": "令和8年度版の案内あり（詳細期間は要確認）",
     "deadline": null,
     "url": "https://www.pref.nagano.lg.jp/kenchiku/kenkozeroene/joseikin.html"
+  },
+  {
+    "id": "nagano-koko-shogaku-kyufukin",
+    "name": "高校生等奨学給付金制度（国公立高校）",
+    "provider": "長野県教育委員会",
+    "level": "prefecture",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "年額143,700円（非課税世帯・通信制以外）など",
+    "summary": "国公立高等学校に通う高校生等がいる低中所得世帯に、授業料以外の教育に必要な経費の負担を軽減するため給付金を給付する制度。令和８年度から支給世帯が拡充された。",
+    "eligibility": [
+      "当該年度の7月1日現在、高等学校等に在学する高校生等の保護者等で長野県内に住所を有する者",
+      "就学支援金の受給資格を有している高校生等が対象",
+      "保護者等全員の所得割額の合算額により判定"
+    ],
+    "prefectures": [
+      "長野県"
+    ],
+    "cities": [],
+    "period": "申請時期：令和8年6月～8月頃",
+    "deadline": null,
+    "url": "https://www.pref.nagano.lg.jp/kyoiku/koko/gakko/gakko/hi-kyuhukin.html"
+  },
+  {
+    "id": "nagano-shiritsu-shogaku-kyufukin",
+    "name": "長野県私立高等学校等奨学給付金",
+    "provider": "長野県 県民文化部県民の学び支援課",
+    "level": "prefecture",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "1人当たり年額152,000円（非課税世帯・通信制以外）など",
+    "summary": "授業料以外の教育費の負担を軽減するため、私立高校生等のいる一定の所得以下の世帯に奨学給付金を支給する。返済不要。",
+    "eligibility": [
+      "令和８年７月１日（基準日）現在、保護者等が長野県内に住所を有すること",
+      "生活保護（生業扶助）受給世帯、または令和８年度の所得割の合算額が0円（非課税）～182,500円未満の世帯"
+    ],
+    "prefectures": [
+      "長野県"
+    ],
+    "cities": [],
+    "period": "申請期限：基準日が令和８年７月１日は令和８年9月30日、７月２日～10月１日は令和８年11月30日（当日消印有効）",
+    "deadline": null,
+    "url": "https://www.pref.nagano.lg.jp/ken-manabi/kyoiku/gakko/shiritsu/annai/shogakukyuufureiwa8.html"
   },
   {
     "id": "nagano-shoene-kaden",
@@ -28175,6 +28347,27 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.pref.gifu.lg.jp/page/382212.html"
   },
   {
+    "id": "gifu-koko-shogaku-kyufukin",
+    "name": "岐阜県高校生等奨学給付金（令和8年度）",
+    "provider": "岐阜県 教育財務課・私学振興課",
+    "level": "prefecture",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "年額32,300円～143,700円など",
+    "summary": "授業料以外の教育費負担を軽減するため、高校生等がいる低所得世帯及び中所得世帯を対象に支援する制度。返還不要。",
+    "eligibility": [
+      "高校生等の保護者が7月1日現在に岐阜県に住所を有すること",
+      "令和8年度より国籍要件が追加され、所得割額182,500円未満まで拡充された"
+    ],
+    "prefectures": [
+      "岐阜県"
+    ],
+    "cities": [],
+    "period": "随時（令和9年2月26日（金曜日）まで）受け付け",
+    "deadline": null,
+    "url": "https://www.pref.gifu.lg.jp/site/edu/11744.html"
+  },
+  {
     "id": "gifu-pref-datsutanso-model-jutaku",
     "name": "脱炭素社会ぎふモデル住宅普及事業費補助金",
     "provider": "岐阜県",
@@ -28237,6 +28430,27 @@ export const RESIDENT_PROGRAMS = [
     "period": "要確認（令和8年度の受付状況は未確認。申請は住宅所在の市町村窓口）",
     "deadline": null,
     "url": "https://www.pref.gifu.lg.jp/page/838.html"
+  },
+  {
+    "id": "gifu-shiritsu-shogaku-kyufukin",
+    "name": "岐阜県私立高等学校等奨学給付金（令和8年度分）",
+    "provider": "岐阜県 私学振興課",
+    "level": "prefecture",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "年額52,600円～152,000円など",
+    "summary": "授業料以外の教育費負担を軽減するため、低中所得世帯を対象に返済不要の奨学給付金を支給する。",
+    "eligibility": [
+      "令和8年7月1日現在、保護者（親権者）等が岐阜県内に住所を有すること",
+      "生活保護（生業扶助）受給世帯、または住民税所得割額の合算額が0円（非課税）から182,500円未満の世帯"
+    ],
+    "prefectures": [
+      "岐阜県"
+    ],
+    "cities": [],
+    "period": "令和8年9月28日（月曜日）まで ※家計急変分は令和9年2月26日（金曜日）まで随時受付",
+    "deadline": null,
+    "url": "https://www.pref.gifu.lg.jp/page/61422.html"
   },
   {
     "id": "gifu-city-akiya-shutoku-kaishu",
@@ -28981,6 +29195,48 @@ export const RESIDENT_PROGRAMS = [
     "period": "要確認（令和8年度の募集は未確認）",
     "deadline": null,
     "url": "https://www.pref.shizuoka.jp/kurashikankyo/kenchiku/taishinka/1041569/1041773/1041775/1049098/1041784.html"
+  },
+  {
+    "id": "shizuoka-kokoritsu-shogaku-kyufukin",
+    "name": "奨学給付金（静岡県国公立高等学校等）",
+    "provider": "静岡県 教育委員会 高校教育課",
+    "level": "prefecture",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "32,300円～143,700円など（世帯区分と課程による）",
+    "summary": "授業料以外の教育費に活用できる返済不要の給付金。令和８年度から対象世帯が拡充された。",
+    "eligibility": [
+      "当該年度の7月1日現在、高等学校等に在学する高校生等の保護者等で静岡県内に住所を有する者",
+      "保護者等全員の所得割額合計により判定"
+    ],
+    "prefectures": [
+      "静岡県"
+    ],
+    "cities": [],
+    "period": "令和8年度の提出期限：8月21日（金曜日）",
+    "deadline": null,
+    "url": "https://www.pref.shizuoka.jp/kodomokyoiku/school/kyoiku/1003777/1003792/1003892/1031865.html"
+  },
+  {
+    "id": "shizuoka-shoman-kotsuhi",
+    "name": "小児患者世帯交通費等支援金",
+    "provider": "静岡県",
+    "level": "prefecture",
+    "category": "医療・福祉",
+    "type": "給付",
+    "amount": "入院付き添い1日あたり2,000円、通院付き添い1か月あたり4,000円",
+    "summary": "居住地から離れた医療機関に入院・通院する小児慢性特定疾病、指定難病及び医療的ケア児患者を養育する世帯の、付添いに係る交通費又は宿泊費を支援する。",
+    "eligibility": [
+      "静岡県内に住み、居住地から離れた医療機関に入院又は通院する小児患者を養育する世帯",
+      "小児慢性特定疾病または特定医療費（指定難病）の受給者証をお持ちの20歳未満の方など"
+    ],
+    "prefectures": [
+      "静岡県"
+    ],
+    "cities": [],
+    "period": "申請受付期間（令和8年度）令和8年10月1日から令和8年11月20日まで",
+    "deadline": "2026-11-20",
+    "url": "https://www.pref.shizuoka.jp/kenkofukushi/shippeikansensho/nanbyo/1070555.html"
   },
   {
     "id": "shizuoka-taishin-hokyo-keikaku",
@@ -30857,6 +31113,47 @@ export const RESIDENT_PROGRAMS = [
     "period": "要確認",
     "deadline": null,
     "url": "https://www.pref.aichi.jp/soshiki/jutakukeikaku/0000025466.html"
+  },
+  {
+    "id": "aichi-shiritsu-koko-jugyoryo-nyugakukin-hojo",
+    "name": "私立高等学校等の授業料・入学金補助（令和8年度）",
+    "provider": "愛知県 学事振興課私学振興室",
+    "level": "prefecture",
+    "category": "教育・学び",
+    "type": "補助金",
+    "amount": "授業料 年額上限457,200円（全日制）／入学納付金 上限200,000円（全日制）",
+    "summary": "授業料と入学納付金について所得制限を廃止し、補助上限額まで実質無償化する。",
+    "eligibility": [
+      "県内の私立高等学校等に在籍する生徒が対象（令和8年度から、県内在住要件を廃止）"
+    ],
+    "prefectures": [
+      "愛知県"
+    ],
+    "cities": [],
+    "period": "申請手続きは入学後に学校からお知らせ",
+    "deadline": null,
+    "url": "https://www.pref.aichi.jp/soshiki/shigaku/koukoujugyouryoutou-oshirase.html"
+  },
+  {
+    "id": "aichi-shiritsu-koko-shogaku-kyufukin",
+    "name": "愛知県 令和8年度 私立高等学校等奨学給付金",
+    "provider": "愛知県 学事振興課私学振興室",
+    "level": "prefecture",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "年間支給額 38,000円〜152,000円（全日制・定時制、新制度。世帯区分による）",
+    "summary": "授業料以外の経済的な負担を軽減するため、県が低中所得世帯を対象に返済不要な給付金を支給する。",
+    "eligibility": [
+      "7月1日時点で住民票上の住所が愛知県内にある方",
+      "保護者等全員の令和8(2026)年度の県民税所得割及び市町村民税所得割が非課税など、所得割額の区分に該当"
+    ],
+    "prefectures": [
+      "愛知県"
+    ],
+    "cities": [],
+    "period": "県内学校は学校の案内に従う／県外学校で直接郵送の場合は令和8年11月20日まで",
+    "deadline": null,
+    "url": "https://www.pref.aichi.jp/soshiki/shigaku/shigaku-syougakukyuhukin.html"
   },
   {
     "id": "anjo-block",
@@ -33048,6 +33345,27 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.pref.mie.lg.jp/EARTH/HP/m0056200251.htm"
   },
   {
+    "id": "mie-koko-shogaku-kyufukin",
+    "name": "高校生等奨学給付金（国公立）",
+    "provider": "三重県教育委員会 教育財務課",
+    "level": "prefecture",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "32,300円～143,700円など（世帯種別による）",
+    "summary": "授業料以外の教育費負担軽減のため、国公立高等学校等に通う高校生等のいる低中所得世帯に支給する。",
+    "eligibility": [
+      "認定基準日である令和８年７月１日現在、保護者等が三重県内に在住している世帯",
+      "生業扶助受給世帯または令和８年度の所得割額の合計が182,500円未満である世帯"
+    ],
+    "prefectures": [
+      "三重県"
+    ],
+    "cities": [],
+    "period": "申請時期：令和８年7月（各学校毎に締切あり）",
+    "deadline": null,
+    "url": "https://www.pref.mie.lg.jp/KYOZAIMU/HP/singakusien/84767018109.htm"
+  },
+  {
     "id": "mie-taishin-hokyo-kouji",
     "name": "木造住宅の耐震補強工事補助",
     "provider": "三重県 住宅課（市町が窓口）",
@@ -34699,6 +35017,27 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.pref.kyoto.jp/kosodate/news/jutaku.html"
   },
   {
+    "id": "kyoto-shogaku-kyufukin-shiritsu",
+    "name": "京都府奨学のための給付金（私立学校分・通常申請）",
+    "provider": "京都府 文化生活部 文教課",
+    "level": "prefecture",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "全日制・定時制は生活保護（生業扶助）世帯52,600円、住民税所得割が非課税の世帯152,000円など（区分により異なる）",
+    "summary": "高等学校等における授業料以外の教育費負担を軽減するため、低・中所得世帯の保護者に支給する給付金（返還不要）。",
+    "eligibility": [
+      "令和8年7月1日（基準日）現在、保護者等の道府県民税所得割・市町村民税所得割の合算額が182,500円未満、または生業扶助受給世帯",
+      "保護者等（親権者全員）が京都府内に在住している"
+    ],
+    "prefectures": [
+      "京都府"
+    ],
+    "cities": [],
+    "period": "京都府外の私立高等学校等に通う場合の申請期限は令和8年10月30日（金曜日）。府内の私立校は学校の指示に従う",
+    "deadline": "2026-10-30",
+    "url": "https://www.pref.kyoto.jp/bunkyo/syougakukyuuhukintuujyou.html"
+  },
+  {
     "id": "kyoto-taishin-mokuzo-kaishu",
     "name": "京都府木造住宅耐震改修等事業費補助",
     "provider": "京都府 建築指導課（市町村が窓口）",
@@ -34738,6 +35077,49 @@ export const RESIDENT_PROGRAMS = [
     "period": "要確認",
     "deadline": null,
     "url": "https://www.pref.kyoto.jp/taishin/wshindan.html"
+  },
+  {
+    "id": "kyoto-tokutei-funin-chiryohi-josei",
+    "name": "特定不妊治療費助成制度（保険適用の制限回数を超えた治療）",
+    "provider": "京都府",
+    "level": "prefecture",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "治療1回につき上限15万円（治療ステージにより7万5千円、男性不妊の手術は20万円）",
+    "summary": "体外受精・顕微授精等のうち、保険適用の制限回数を超えた治療にかかる費用を助成する制度。",
+    "eligibility": [
+      "治療開始時に婚姻していること（事実婚を含む）",
+      "各治療期間の初日における妻の年齢が42歳以下であること",
+      "治療開始時から申請時まで夫婦のいずれかが京都府内に居住していること"
+    ],
+    "prefectures": [
+      "京都府"
+    ],
+    "cities": [],
+    "period": "令和8年度に終了した治療は、令和9年3月31日（消印有効）まで申請",
+    "deadline": "2027-03-31",
+    "url": "https://www.pref.kyoto.jp/kosodate/010723hunin2.html"
+  },
+  {
+    "id": "kyoto-tokutei-funin-tsuin-kotsuhi-josei",
+    "name": "特定不妊治療にかかる通院交通費の助成",
+    "provider": "京都府",
+    "level": "prefecture",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "（1回の治療にかかった通院交通費の合計額－10,000円）×2分の1",
+    "summary": "体外受精・顕微授精等や先進医療を含む不妊治療を受けた方の、通院にかかる交通費の一部を助成する制度。",
+    "eligibility": [
+      "不妊治療等給付事業助成制度または特定不妊治療費助成制度の対象となる夫婦で、対象の治療を受けた方",
+      "1回の治療にかかった通院交通費の合計額が1万円を超える夫婦"
+    ],
+    "prefectures": [
+      "京都府"
+    ],
+    "cities": [],
+    "period": "令和8年度に終了した治療は、令和9年3月31日（消印有効）まで申請",
+    "deadline": "2027-03-31",
+    "url": "https://www.pref.kyoto.jp/kosodate/huninkotsu202010.html"
   },
   {
     "id": "fukuchiyama-akiya-kaishu",
@@ -35424,6 +35806,27 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.pref.osaka.lg.jp/o130040/kenchikubosai/cb/kouikicb_hojo.html"
   },
   {
+    "id": "osaka-kokuko-ritsu-shogaku-kyufukin",
+    "name": "大阪府国公立高等学校等奨学のための給付金",
+    "provider": "大阪府（施設財務課）",
+    "level": "prefecture",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "全日制・定時制は生活保護（生業扶助）世帯32,300円、令和8年度の所得割が非課税の世帯143,700円など（区分により異なる）",
+    "summary": "府内に在住する低所得・中所得者世帯の保護者に対し、授業料以外の教育費の経済的負担を軽減するために支給する給付金（返還不要）。",
+    "eligibility": [
+      "令和8年7月1日現在、保護者等全員の令和8年度の所得割額が182,500円未満の世帯、または生活保護（生業扶助）受給世帯",
+      "保護者等（親権者等）が大阪府内に在住していること"
+    ],
+    "prefectures": [
+      "大阪府"
+    ],
+    "cities": [],
+    "period": "申請は学校を通じて行う。国立または大阪府外の公立の高等学校等に在学し直接申請する場合の通常給付の提出期限は令和8年10月30日（金）必着",
+    "deadline": null,
+    "url": "https://www.pref.osaka.lg.jp/kyoishisetsu/kyufukin/index.html"
+  },
+  {
     "id": "osaka-kouiki-cb-hojo",
     "name": "大阪府広域緊急交通路沿道ブロック塀補助制度（耐震診断義務付けブロック塀等）",
     "provider": "大阪府",
@@ -35442,6 +35845,49 @@ export const RESIDENT_PROGRAMS = [
     "period": "要確認",
     "deadline": null,
     "url": "https://www.pref.osaka.lg.jp/o130040/kenchikubosai/cb/kouikicb_hojo.html"
+  },
+  {
+    "id": "osaka-shiritsu-shogaku-kyufukin",
+    "name": "大阪府私立高等学校等奨学のための給付金",
+    "provider": "大阪府",
+    "level": "prefecture",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "全日制・定時制は生活保護世帯52,600円、令和8年度の所得割が非課税の世帯152,000円など（区分により異なる）",
+    "summary": "大阪府内に在住する低中所得者世帯の保護者等に対し、授業料以外の教育費の経済的負担を軽減するために支給する給付金（返済不要）。",
+    "eligibility": [
+      "令和8年7月1日時点で、保護者等全員の令和8年度の所得割合算額が182,500円未満、または生活保護（生業扶助）受給世帯",
+      "保護者等全員が、大阪府内に在住していること"
+    ],
+    "prefectures": [
+      "大阪府"
+    ],
+    "cities": [],
+    "period": "申請事務局の開設期間は令和8年7月1日～令和9年2月26日",
+    "deadline": null,
+    "url": "https://www.pref.osaka.lg.jp/o180160/shigaku/shigakumushouka/syougaku_kyuuhu.html"
+  },
+  {
+    "id": "osaka-souhatsu-ranso-funzenzen-ninyosei-ondon",
+    "name": "大阪府早発卵巣不全患者等妊よう性温存治療助成試行事業（AMH検査の費用助成）",
+    "provider": "大阪府",
+    "level": "prefecture",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "AMH検査の助成の上限額は1万円",
+    "summary": "プレコン講座の受講修了者のAMH検査の費用を助成する。AMH検査の値などによっては、卵子凍結等の費用も助成の対象。",
+    "eligibility": [
+      "助成金の交付申請日時点において大阪府内に住所を有すること",
+      "AMH検査のための採血日時点における年齢が満18歳から満39歳までの女性であること",
+      "採血日の属する年度に、本事業のプレコン講座の受講を修了していること"
+    ],
+    "prefectures": [
+      "大阪府"
+    ],
+    "cities": [],
+    "period": "令和8年度（プレコン講座は令和9年2月までの全19回開催予定）",
+    "deadline": null,
+    "url": "https://www.pref.osaka.lg.jp/o100040/kenkozukuri/boshi/souhaturansou.html"
   },
   {
     "id": "osaka-taishin-mokuzo-hojo",
@@ -38022,6 +38468,28 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://web.pref.hyogo.lg.jp/awk12/miraizima/ev/r8ev-fcv.html"
   },
   {
+    "id": "hyogo-funin-senshin-iryohi-tsuin-kotsuhi-josei",
+    "name": "令和8年度不妊治療における先進医療費および通院交通費助成",
+    "provider": "兵庫県",
+    "level": "prefecture",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "先進医療の治療費は1回（1クール）あたり3万円（定額）。通院交通費は合計から5,000円を控除した額の2分の1以内",
+    "summary": "生殖補助医療と合わせて実施する「先進医療」と「その通院にかかる費用の一部」を助成する。",
+    "eligibility": [
+      "先進医療を受けた時の妻の年齢が43歳未満であること",
+      "申請時に夫婦のどちらかが兵庫県内に住所があること",
+      "法律上の婚姻をしている夫婦又は事実婚関係にある夫婦であること"
+    ],
+    "prefectures": [
+      "兵庫県"
+    ],
+    "cities": [],
+    "period": "令和8年度の申請受付中。胚移植をされた日により申請期限が異なり、令和9年3月31日までのものもある",
+    "deadline": null,
+    "url": "https://web.pref.hyogo.lg.jp/kf17/kf17/senshin.html"
+  },
+  {
     "id": "hyogo-iju-shienkin",
     "name": "兵庫県移住支援金（移住支援事業）",
     "provider": "兵庫県",
@@ -38100,6 +38568,28 @@ export const RESIDENT_PROGRAMS = [
     "period": "令和8年度の募集は終了（確認時点）",
     "deadline": null,
     "url": "https://web.pref.hyogo.lg.jp/nk24/yuushi2017.html"
+  },
+  {
+    "id": "hyogo-shigaku-shogaku-kyufukin",
+    "name": "私立高等学校等奨学給付金（一般分・日本人生徒向け）",
+    "provider": "兵庫県 総務部 教育課",
+    "level": "prefecture",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "全日制・定時制の年間給付額は生活保護世帯52,600円、住民税所得割合算額0円の世帯152,000円など（一回限り）",
+    "summary": "修学旅行費、教科書費、教材費、学用品費、生徒会費等の教育に必要な経費を支援するための給付金。申請が必要。",
+    "eligibility": [
+      "生活保護世帯（生業扶助受給）または住民税所得割合算額182,500円未満（全日制・定時制）",
+      "令和8年7月1日現在で在学していること",
+      "保護者等が兵庫県在住"
+    ],
+    "prefectures": [
+      "兵庫県"
+    ],
+    "cities": [],
+    "period": "令和8年7月1日～受付開始（10月31日〆切）",
+    "deadline": "2026-10-31",
+    "url": "https://web.pref.hyogo.lg.jp/kk35/r8syogakukyuhukin1.html"
   },
   {
     "id": "hyogo-taishin-sumai-sokushin",
@@ -39888,6 +40378,28 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.takarazuka.hyogo.jp/1060678/1060691/1061537/1010169/1000400.html"
   },
   {
+    "id": "nara-kokoritsu-shogakukyufu",
+    "name": "奈良県国公立高校生等奨学給付金",
+    "provider": "奈良県 教育委員会",
+    "level": "prefecture",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "年額 32,300円〜143,700円（全日制・定時制。世帯区分による）",
+    "summary": "授業料以外の教育費負担を軽減するため、高校生等がいる低中所得世帯に支給する、返還不要の給付金。",
+    "eligibility": [
+      "保護者等（親権者）が奈良県内に住所を有すること",
+      "生活保護受給世帯（生業扶助）、または住民税の所得割の合算額が182,500円未満の世帯（全日制・定時制・通信制）",
+      "高等学校等就学支援金などの受給資格を有する高校生であること"
+    ],
+    "prefectures": [
+      "奈良県"
+    ],
+    "cities": [],
+    "period": "令和8年11月30日（月曜日）まで（県外の国公立高校等に通う場合。県内は在学校が指定する期日）",
+    "deadline": "2026-11-30",
+    "url": "https://www.pref.nara.lg.jp/n164/47191.html"
+  },
+  {
     "id": "nara-smarthouse-fukyu",
     "name": "スマートハウス普及促進事業",
     "provider": "奈良県",
@@ -40529,6 +41041,28 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.pref.wakayama.lg.jp/prefg/032000/taiyoukouhojyo_kojin.html"
   },
   {
+    "id": "wakayama-shogakukyufu",
+    "name": "奨学のための給付金（和歌山県高校生等奨学給付金）",
+    "provider": "和歌山県 教育庁 生涯学習課",
+    "level": "prefecture",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "年額 32,300円〜143,700円（全日制・定時制。世帯区分による）",
+    "summary": "高校生等の授業料以外の教育費負担を軽減するため、要件に該当する世帯に支給する、返還の必要のない給付金。令和8年度から給付対象が拡大。",
+    "eligibility": [
+      "保護者等が和歌山県内に住所を有していること",
+      "生活保護受給世帯、または令和8年度（令和7年分）の住民税の所得割額が182,500円未満",
+      "家計急変により上記に相当する世帯であると認められること"
+    ],
+    "prefectures": [
+      "和歌山県"
+    ],
+    "cities": [],
+    "period": "令和8年9月18日（金）まで（通常申請）。家計急変世帯は令和9年3月1日（月）まで",
+    "deadline": "2027-03-01",
+    "url": "https://www.pref.wakayama.lg.jp/prefg/500600/d00153447.html"
+  },
+  {
     "id": "wakayama-taishin-sokushin",
     "name": "住宅耐震化促進事業（住宅の耐震診断・耐震改修に関する補助制度）",
     "provider": "和歌山県 建築住宅課（市町村が窓口）",
@@ -40987,6 +41521,28 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.wakayama.wakayama.jp/_res/projects/default_project/_page_/001/001/902/R7_kaisyu_annnai.pdf"
   },
   {
+    "id": "tottori-funin-kensa",
+    "name": "不妊検査費助成金",
+    "provider": "鳥取県 子ども家庭部 家庭支援課",
+    "level": "prefecture",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "保険適用外の検査費用の全額（上限２万６千円）、一組の夫婦につき１回限り",
+    "summary": "新しく結婚されたご夫婦が、そろって不妊検査を受けた場合、検査にかかる費用の一部を助成する。",
+    "eligibility": [
+      "夫婦で初めて不妊検査を開始した場合",
+      "同一夫婦で過去に不妊検査又は不妊治療を受けたことが無いこと",
+      "申請時点で、夫婦の一方または双方が県内に住所を有すること"
+    ],
+    "prefectures": [
+      "鳥取県"
+    ],
+    "cities": [],
+    "period": "令和８年度（令和８年４月１日以降）に検査が終了したもの。検査を終了した月から7か月後の月末までに申請",
+    "deadline": null,
+    "url": "https://www.pref.tottori.lg.jp/257280.htm"
+  },
+  {
     "id": "tottori-ijyu-shienkin",
     "name": "鳥取県 移住支援金",
     "provider": "鳥取県",
@@ -41006,6 +41562,28 @@ export const RESIDENT_PROGRAMS = [
     "period": "要確認（令和8年度の受付状況は要確認）",
     "deadline": null,
     "url": "https://www.pref.tottori.lg.jp/286713.htm"
+  },
+  {
+    "id": "tottori-mirai-shogakukin",
+    "name": "鳥取県未来人材育成奨学金支援助成金",
+    "provider": "鳥取県 人口戦略推進本部 人口戦略課",
+    "level": "prefecture",
+    "category": "教育・学び",
+    "type": "助成金",
+    "amount": "返還額の助成。助成率1/2〜1/8、限度額 18万円〜216万円（業種・奨学金の種類・学校区分による）",
+    "summary": "貸与を受けている奨学金に応じて返還額を助成する。認定後、県内の対象業種に正規雇用された方が対象。",
+    "eligibility": [
+      "日本学生支援機構の奨学金や鳥取県育英奨学資金の貸与を受けている方",
+      "鳥取県内の対象業種への就業を希望し、県内に定住を希望する方",
+      "８年間継続して勤務する見込みであること"
+    ],
+    "prefectures": [
+      "鳥取県"
+    ],
+    "cities": [],
+    "period": "令和８年４月１日（水）～令和９年３月３１日（水）（募集人数450人）",
+    "deadline": "2027-03-31",
+    "url": "https://www.pref.tottori.lg.jp/251627.htm"
   },
   {
     "id": "tottori-taishin-machizukuri",
@@ -41175,6 +41753,28 @@ export const RESIDENT_PROGRAMS = [
     "period": "令和8年度の受付が開始（期間は要確認）",
     "deadline": null,
     "url": "https://www.pref.shimane.lg.jp/infra/kankyo/kankyo/datsutanso/zeh_hojyo_r8.html"
+  },
+  {
+    "id": "shimane-shogakukyufu",
+    "name": "島根県公立高等学校等奨学のための給付金",
+    "provider": "島根県 教育庁 学校企画課",
+    "level": "prefecture",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "要確認",
+    "summary": "国公立高校等に通う生徒の授業料以外の教育費負担を軽減するための、返済不要の給付金。",
+    "eligibility": [
+      "保護者等が島根県内に住所を有すること",
+      "生活保護受給世帯、または令和８年度の県民税・市町村民税の所得割額の合計が182,500円未満の世帯",
+      "家計急変により同程度に収入が減少していると認められる場合も対象"
+    ],
+    "prefectures": [
+      "島根県"
+    ],
+    "cities": [],
+    "period": "通常申請は令和８年９月３０日（水）必着。家計急変による申請は令和９年２月２６日まで随時",
+    "deadline": "2027-02-26",
+    "url": "https://www.pref.shimane.lg.jp/gakkokikaku/syougaku.html"
   },
   {
     "id": "shimane-wakuwaku-seikatsu",
