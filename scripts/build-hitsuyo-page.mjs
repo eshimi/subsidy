@@ -55,17 +55,16 @@ const HREF = {
 const chips = PURCHASES.map((p) => `        <a class="hp-want" href="${esc(HREF[p.id])}"><span class="ic" aria-hidden="true">${p.icon}</span><span class="tx"><b>${esc(p.label)}</b><small>${esc(p.examples)}</small></span><span class="go" aria-hidden="true">→</span></a>`).join('\n');
 
 const style = `
-    .hp-hero { position: relative; background: #f5f1e9; overflow: hidden; width: 100vw; margin-left: calc(50% - 50vw); margin-top: 8px; }
-    .hp-hero-in { position: relative; max-width: var(--max, 1100px); margin: 0 auto; padding: 22px var(--gutter, 24px) 0; display: grid; grid-template-columns: minmax(0, 1fr) 470px; gap: 28px; align-items: end; }
-    .hp-hero-txt { padding-bottom: 26px; }
-    .hp-script { margin: 0; font-size: 15px; line-height: 1.5; font-weight: 700; letter-spacing: 0.04em; color: #c9411a; }
-    .hp-h1 { margin: 2px 0 8px; font-family: var(--font-display); font-size: 40px; line-height: 1.35; color: #0a2352; }
-    .hp-h1 em { font-style: normal; color: #f8602f; }
-    .hp-lead { margin: 0 0 14px; font-size: 14px; line-height: 1.8; max-width: 470px; }
     .hp-seg { display: inline-flex; background: #fff; border-radius: 999px; box-shadow: 0 2px 12px rgba(10, 35, 82, 0.06); padding: 4px; gap: 2px; }
     .hp-seg button { border: 0; background: transparent; border-radius: 999px; min-height: 40px; padding: 0 20px; font: inherit; font-size: 14px; font-weight: 500; color: #56667f; cursor: pointer; }
     .hp-seg button[aria-pressed="true"] { background: #073461; color: #fff; font-weight: 700; }
-    .hp-hero svg { display: block; width: 100%; height: auto; }
+    .hp-block .hp-seg { margin-top: 12px; }
+    .page-split { margin-top: 12px; }
+    .page-side .hp-side-h { margin: 0 0 12px; font-family: var(--font-display); font-size: 17px; line-height: 1.5; color: #0a2352; }
+    .page-side .hp-feats { margin-top: 0; grid-template-columns: minmax(0, 1fr); grid-template-rows: none; gap: 12px; }
+    .page-side .hp-feat, .page-side .hp-feat.big { grid-row: auto; min-height: 118px; padding: 12px 14px; }
+    .page-side .hp-feat.big .t { font-size: 17px; }
+    .page-side a.hp-feat { border-bottom: 0; color: #fff; font-size: inherit; }
     .hp-sec { margin: 0; font-family: var(--font-display); font-size: 24px; line-height: 34px; font-weight: 700; color: #0a2352; display: flex; align-items: center; gap: 12px; }
     .hp-sec::before { content: ""; width: 5px; height: 1.2em; border-radius: 3px; background: #f8602f; }
     .hp-sec.g::before { background: #2e7e4b; }
@@ -99,7 +98,7 @@ const style = `
     .hp-mi b { font-size: 14px; line-height: 21px; color: #0a2352; }
     .hp-mi:hover b { color: #c9411a; }
     .hp-mi small { font-size: 12px; color: #56667f; line-height: 1.6; }
-    .hp-two { margin-top: 22px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .hp-two { margin-top: 8px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
     .hp-door { display: flex; align-items: center; gap: 16px; padding: 18px 22px; border-radius: 12px; background: #fff; box-shadow: 0 2px 12px rgba(10, 35, 82, 0.08); text-decoration: none; color: inherit; border-top: 5px solid #f8602f; }
     .hp-door.w { border-top-color: #2b65b1; }
     .hp-door:hover { box-shadow: 0 8px 24px rgba(10, 35, 82, 0.16); }
@@ -144,8 +143,6 @@ const style = `
     .hp-cta a.solid { background: #fff; color: #073461; }
     .hp-cta a.line { color: #fff; box-shadow: inset 0 0 0 1.5px #fff; }
     @media (max-width: 980px) {
-      .hp-hero-in { grid-template-columns: minmax(0, 1fr); }
-      .hp-hero svg { max-width: 520px; margin: 0 auto; }
       .hp-feats { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; }
       .hp-feat, .hp-feat.big { grid-row: auto; min-height: 118px; }
       .hp-shelf { grid-template-columns: minmax(0, 1fr); }
@@ -156,53 +153,20 @@ const style = `
     @media (max-width: 560px) { .hp-wants { grid-template-columns: minmax(0, 1fr); } .hp-flow { grid-template-columns: minmax(0, 1fr); } .hp-h1 { font-size: 32px; } .hp-flow-card, .hp-cta { padding: 22px 18px; } }
 `;
 
-const svg = `<svg viewBox="0 0 520 220" role="img" aria-label="お店、パソコン、植物、歯車のイラスト">
-          <polygon points="380,10 430,95 330,95" fill="#fce9dd"/>
-          <polygon points="470,60 505,125 435,125" fill="#e4edf8"/>
-          <polygon points="20,40 60,105 -20,105" fill="#e8f2ec"/>
-          <path d="M0 205H520" stroke="#0a2352" stroke-width="2"/>
-          <rect x="40" y="92" width="170" height="113" fill="#fff" stroke="#0a2352" stroke-width="2.5"/>
-          <path d="M28 92 40 54H210L222 92Z" fill="#fff" stroke="#0a2352" stroke-width="2.5" stroke-linejoin="round"/>
-          <path d="M40 54h28l-6 38H28ZM96 54h28l-2 38H90ZM152 54h28l2 38h-34Z" fill="#f8602f"/>
-          <path d="M28 92 40 54H210L222 92Z" fill="none" stroke="#0a2352" stroke-width="2.5" stroke-linejoin="round"/>
-          <rect x="60" y="116" width="52" height="89" fill="#fce9dd" stroke="#0a2352" stroke-width="2.5"/>
-          <circle cx="102" cy="162" r="3" fill="#0a2352"/>
-          <rect x="128" y="120" width="62" height="46" rx="3" fill="#e4edf8" stroke="#0a2352" stroke-width="2.5"/>
-          <path d="M128 143h62M159 120v46" stroke="#0a2352" stroke-width="2"/>
-          <rect x="132" y="176" width="54" height="20" rx="3" fill="#0a2352"/>
-          <text x="159" y="191" text-anchor="middle" font-size="12" font-weight="700" fill="#fff" font-family="Noto Sans JP,sans-serif">OPEN</text>
-          <path d="M246 205v-70" stroke="#0a2352" stroke-width="2.5" stroke-linecap="round"/>
-          <path d="M246 160c-26-2-38-16-40-34 24 2 38 14 40 34ZM246 138c26-2 40-16 42-36-26 2-40 14-42 36ZM246 118c-16-6-24-18-22-34 16 6 24 18 22 34Z" fill="#2e7e4b" stroke="#0a2352" stroke-width="2.2" stroke-linejoin="round"/>
-          <path d="M232 205l4-22h20l4 22Z" fill="#f8602f" stroke="#0a2352" stroke-width="2.5" stroke-linejoin="round"/>
-          <rect x="318" y="120" width="120" height="76" rx="5" fill="#fff" stroke="#0a2352" stroke-width="2.5"/>
-          <rect x="328" y="130" width="100" height="56" fill="#e4edf8"/>
-          <path d="M338 172l16-18 14 12 18-26 22 32" fill="none" stroke="#2b65b1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M304 196h148l-8 9H312Z" fill="#fff" stroke="#0a2352" stroke-width="2.5" stroke-linejoin="round"/>
-          <g transform="translate(476 150)">
-            <circle r="22" fill="#fff" stroke="#0a2352" stroke-width="2.5"/>
-            <circle r="8" fill="#fce9dd" stroke="#0a2352" stroke-width="2.5"/>
-            <g stroke="#0a2352" stroke-width="6" stroke-linecap="round"><path d="M0-28v-6M0 28v6M-28 0h-6M28 0h6M-20-20l-4-4M20 20l4 4M-20 20l-4 4M20-20l4-4"/></g>
-          </g>
-        </svg>`;
 
 const body = `    <nav class="area-crumb" aria-label="パンくず"><a href="./">補助金ネット</a> ＞ やりたいことから探す</nav>
 
-    <section class="hp-hero" aria-labelledby="hp-h1">
-      <div class="hp-hero-in">
-        <div class="hp-hero-txt">
-          <p class="hp-script">やりたいことも、ほしいものも。</p>
-          <h1 class="hp-h1" id="hp-h1">補助金は、<br><em>やりたいこと・ほしいものから。</em></h1>
-          <p class="hp-lead">制度の名前は知らなくて大丈夫。やりたいことからも、買いたいものからも探せます。どの解説にも、検討したい制度・始める前の確認・契約の注意がそろっています。</p>
-          <div class="hp-seg" role="group" aria-label="対象">
-            <button type="button" data-aud="all" aria-pressed="true">すべて</button>
-            <button type="button" data-aud="biz" aria-pressed="false">お店・会社</button>
-            <button type="button" data-aud="per" aria-pressed="false">個人の住まい</button>
-          </div>
-        </div>
-        ${svg}
+    <section class="lp-hero" aria-labelledby="hp-h1" style="background-color: #faf7f1">
+      <img class="lp-pic" src="images/lp/lp-growth.webp" alt="" width="500" height="190" loading="lazy">
+      <div class="lp-in">
+        <p class="lp-k">やりたいこと・ほしいもの</p>
+        <div class="pb-banner" style="background-image: url('images/banner/b02.webp')"><h1 class="pb-title" id="hp-h1">補助金は、やりたいこと・ほしいものから探す</h1></div>
+        <p class="lp-s">制度の名前は知らなくて大丈夫。やりたいことからも、買いたいものからも探せます。どの解説にも、検討したい制度・始める前の確認・契約の注意がそろっています。</p>
+        <div class="lp-btns"><a class="lp-btn p" href="#hp-want">やりたいことから探す <span aria-hidden="true">→</span></a><a class="lp-btn s" href="#hp-buy">ほしいものから探す</a></div>
       </div>
     </section>
 
+    <div class="page-split"><div class="page-main">
     <nav class="hp-two" aria-label="2つの探し方">
       <a class="hp-door" href="#hp-want"><span class="ic" aria-hidden="true">🎯</span><span><b>やりたいことから探す</b><small>開業する、人を雇う、IT化する…。${total}の解説</small></span><span class="go">読む ↓</span></a>
       <a class="hp-door w" href="#hp-buy"><span class="ic" aria-hidden="true">🛒</span><span><b>ほしいものから探す</b><small>レジ、PC、看板、空調…。${PURCHASES.length}の購入物</small></span><span class="go">選ぶ ↓</span></a>
@@ -210,13 +174,11 @@ const body = `    <nav class="area-crumb" aria-label="パンくず"><a href="./"
 
     <section class="hp-block" aria-labelledby="hp-want">
       <h2 class="hp-sec" id="hp-want">やりたいことから探す</h2>
-      <p class="hp-sub">特集から読んでも、分野の棚から探してもOK。</p>
-    </section>
-
-    <section class="hp-block" aria-labelledby="hp-feat" style="margin-top: 22px">
-      <h2 class="hp-sec" id="hp-feat">まず読みたい、3つの特集</h2>
-      <div class="hp-feats">
-${features}
+      <p class="hp-sub">分野の棚から探せます。右の特集から読んでもOK。</p>
+      <div class="hp-seg" role="group" aria-label="対象">
+        <button type="button" data-aud="all" aria-pressed="true">すべて</button>
+        <button type="button" data-aud="biz" aria-pressed="false">お店・会社</button>
+        <button type="button" data-aud="per" aria-pressed="false">個人の住まい</button>
       </div>
     </section>
 
@@ -226,6 +188,13 @@ ${features}
 ${shelves}
       </div>
     </section>
+
+    </div><aside class="page-side" aria-label="まず読みたい特集">
+      <h2 class="hp-side-h" id="hp-feat">まず読みたい、3つの特集</h2>
+      <div class="hp-feats">
+${features}
+      </div>
+    </aside></div>
 
     <section class="hp-buyband" aria-labelledby="hp-buy"><div class="hp-buyband-in">
       <h2 class="hp-sec w" id="hp-buy">ほしいものから探す</h2>
