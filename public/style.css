@@ -91,7 +91,8 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .navdrop > summary::-webkit-details-marker { display: none; }
 .topnav .navdrop > summary::before { content: none; }
 .navdrop > summary::after { content: "▾"; font-size: 0.75em; margin-left: 0.3em; line-height: 0; vertical-align: middle; }
-.navdrop-panel { position: absolute; top: calc(100% + 14px); right: 0; min-width: 12em; display: grid; padding: 6px 0; background: var(--topbar); border: 1px solid var(--line); z-index: 1000; }
+.navdrop-panel { position: absolute; top: calc(100% + 14px); left: 0; min-width: 12em; display: grid; padding: 6px 0; background: var(--topbar); border: 1px solid var(--line); z-index: 1000; }
+.navdrop:last-of-type .navdrop-panel { left: auto; right: 0; }
 .navdrop-panel a { padding: 8px 16px; white-space: nowrap; text-decoration: none; }
 .navdrop-panel a:hover, .navdrop-panel a[aria-current="page"] { text-decoration: underline; text-underline-offset: 4px; }
 .topnav > a.nav-cta { height: auto; line-height: 1.4; padding: 8px 18px; border-radius: 999px; background: #073461; color: #fff; font-weight: 700; }

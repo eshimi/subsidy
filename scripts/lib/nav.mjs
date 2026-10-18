@@ -5,7 +5,7 @@
 // 上部ナビ：ボタン（直接リンク）と、開閉するメニュー。
 // 構成は「探す → 調べる・管理する → 学ぶ・読む → サイトについて」の4つ（フッターも同じ4つ。GrantWatch のフッターの考え方を参考に、2026-10-18 に整理）
 export const TOP_LINKS = [];
-export const TOP_GROUPS = [
+const TOP_MORE = [
   {
     label: '補助金を探す',
     items: [
@@ -174,7 +174,7 @@ export const FOOTER_SHORT = [
     { label: 'コラム', href: 'columns.html' },
     { label: '用語集', href: 'basics/glossary.html' },
   ] },
-  { label: 'サイト', items: [
+  { label: 'サイトについて', items: [
     { label: '使い方', href: 'guide.html' },
     { label: '運営者情報', href: 'policy/about.html' },
     { label: '出典・更新方針', href: 'policy/sources.html' },
@@ -183,6 +183,13 @@ export const FOOTER_SHORT = [
   ] },
 ];
 
+// 上部ナビの開閉メニューは、フッターと同じ4グループ・同じ名前・同じ並びにする。
+// 先頭にフッターの項目（同じ言葉・同じ順）、そのあとに、フッターに載せきれない項目を足す
+export const TOP_GROUPS = TOP_MORE.map((g, i) => {
+  const short = FOOTER_SHORT[i];
+  const have = new Set(short.items.map((it) => it.href));
+  return { label: short.label, items: [...short.items, ...g.items.filter((it) => !have.has(it.href))] };
+});
 // フッター最下部の補助リンク
 export const BOTTOM_LINKS = [
   { label: 'プライバシーポリシー', href: 'policy/privacy.html' },

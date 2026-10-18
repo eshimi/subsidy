@@ -166,7 +166,6 @@ ${jsonLd}  <meta name="google-adsense-account" content="ca-pub-7811993263471350"
 ${topnavHtml('../', current)}
       </nav>
       <button type="button" class="nav-toggle" aria-controls="topnav" aria-expanded="false">メニュー</button>
-      <span class="edition">JP — FY2026</span>
     </div>
   </header>
 
