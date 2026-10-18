@@ -24290,6 +24290,76 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.toyama.lg.jp/kurashi/gomi/1010252/1013030.html"
   },
   {
+    "id": "toyama-hochoki",
+    "name": "高齢者補聴器購入費助成事業",
+    "provider": "富山市 長寿福祉課",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "補聴器本体に係る購入費の2分の1（上限3万円）",
+    "summary": "加齢による難聴の早期対応を支援し、認知症予防や社会参加の促進を図るため、補聴器購入費の一部を助成します。",
+    "eligibility": [
+      "市内に住所がある65歳以上の者",
+      "身体障害者手帳（聴覚障害）の対象でない者",
+      "医師が補聴器の装用を必要と認めた者"
+    ],
+    "prefectures": [
+      "富山県"
+    ],
+    "cities": [
+      "富山市"
+    ],
+    "period": "4月1日から翌年3月31日まで（令和8年度は6月15日から受付開始）",
+    "deadline": null,
+    "url": "https://www.city.toyama.lg.jp/health/kourei/1018741/index.html"
+  },
+  {
+    "id": "toyama-influenza",
+    "name": "こどもインフルエンザ予防接種費の助成",
+    "provider": "富山市 こども家庭部 こども福祉課",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "1回の接種につき上限3,000円",
+    "summary": "富山市在住の未就学児、小学生及び中学生を対象に、インフルエンザ予防接種にかかる費用を助成します。",
+    "eligibility": [
+      "富山市在住の未就学児、小学生及び中学生",
+      "接種日において生後6か月以上"
+    ],
+    "prefectures": [
+      "富山県"
+    ],
+    "cities": [
+      "富山市"
+    ],
+    "period": "令和8年10月1日～令和9年1月31日までに受けた予防接種が対象",
+    "deadline": null,
+    "url": "https://www.city.toyama.lg.jp/kosodate/kosodate/1010418/1013742.html"
+  },
+  {
+    "id": "toyama-shingaku-gakuyohin",
+    "name": "新入学学用品費（入学前支給）",
+    "provider": "富山市",
+    "level": "municipality",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "新小・義務教育学校1年生 64,300円／新中1・義務教育学校7年生 81,000円",
+    "summary": "就学援助費のうち「新入学学用品費」を、小・中・義務教育学校入学前の3月に受給できます。",
+    "eligibility": [
+      "令和9年2月1日現在、富山市に住所を有する新入学予定の方",
+      "令和8年度就学援助要件に該当する方"
+    ],
+    "prefectures": [
+      "富山県"
+    ],
+    "cities": [
+      "富山市"
+    ],
+    "period": "小学校入学予定者の申請受付は令和8年10月1日（木曜）～令和9年1月22日（金曜）。支給は入学前の3月中旬",
+    "deadline": "2027-01-22",
+    "url": "https://www.city.toyama.lg.jp/kosodate/shochugakko/1010448/1007409.html"
+  },
+  {
     "id": "ishikawa-iju-shien",
     "name": "いしかわ移住支援事業",
     "provider": "石川県",
@@ -24373,6 +24443,97 @@ export const RESIDENT_PROGRAMS = [
     "period": "最新は要確認",
     "deadline": null,
     "url": "https://www4.city.kanazawa.lg.jp/soshikikarasagasu/kaigohokenka/shinseishodownload/8306.html"
+  },
+  {
+    "id": "kanazawa-funin-chiryohi",
+    "name": "不妊治療費助成事業",
+    "provider": "金沢市",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "先進不妊治療は費用の7割・15万円上限、生殖補助医療（保険適用）は2分の1・5万円上限 ほか",
+    "summary": "不妊治療にかかる費用を助成する制度。令和8年10月1日診療分から、体外受精・顕微授精等を新設の生殖補助医療助成の対象とし、助成を拡大する。",
+    "eligibility": [
+      "申請日において、両者またはどちらか一方が金沢市に住民登録がある夫婦（事実婚含む）",
+      "夫婦ともに医療保険に加入していること"
+    ],
+    "prefectures": [
+      "石川県"
+    ],
+    "cities": [
+      "金沢市"
+    ],
+    "period": "令和8年10月1日以降の診療分から拡充。申請は治療終了日の翌月1日から2年以内",
+    "deadline": null,
+    "url": "https://www4.city.kanazawa.lg.jp/kosodate_kyoiku/ninshin_shussan/12227.html"
+  },
+  {
+    "id": "kanazawa-fureai-nyuyoku",
+    "name": "ふれあい入浴補助券",
+    "provider": "金沢市 福祉政策課",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "給付",
+    "amount": "1回170円で公衆浴場が利用できる助成券を年間1冊（22枚綴り）",
+    "summary": "市内にお住まいの65歳以上の方に、1回170円で公衆浴場が利用できる助成券を年間1冊交付する。",
+    "eligibility": [
+      "65歳以上で、本市に住所を有している方"
+    ],
+    "prefectures": [
+      "石川県"
+    ],
+    "cities": [
+      "金沢市"
+    ],
+    "period": "令和8年度から170円（年間1冊交付）",
+    "deadline": null,
+    "url": "https://www4.city.kanazawa.lg.jp/kenko_fukushi/koreishafukushi_kaigo/koreishanokenkozukuri/10851.html"
+  },
+  {
+    "id": "kanazawa-hari-kyu-massage",
+    "name": "はり・きゅう・マッサージ施術費助成",
+    "provider": "金沢市 健康政策課",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "1回1,300円の助成券を年間18枚を限度に交付",
+    "summary": "満70歳以上の方および満65歳以上で一定の障害をお持ちの方に、保険適用外のはり・きゅう・マッサージの助成券を交付する。",
+    "eligibility": [
+      "金沢市に住民票がある満70歳以上の方",
+      "満65歳以上で一定の障害（身体障害者手帳の1〜3級、4級の一部など）をお持ちの方"
+    ],
+    "prefectures": [
+      "石川県"
+    ],
+    "cities": [
+      "金沢市"
+    ],
+    "period": "令和8年度（即日交付開始日は令和8年3月23日から）",
+    "deadline": null,
+    "url": "https://www4.city.kanazawa.lg.jp/kenko_fukushi/koreishafukushi_kaigo/koreishanokenkozukuri/12213.html"
+  },
+  {
+    "id": "kanazawa-kosodate-shien-iryohi",
+    "name": "子育て支援医療費助成制度",
+    "provider": "金沢市",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "入院は自己負担分の全額、通院は1か月分の合計から1,000円を差し引いた額",
+    "summary": "金沢市に住所があり健康保険に加入しているお子さんの医療費を助成する制度。令和9年1月診療分から通院も18歳まで対象が拡大される。",
+    "eligibility": [
+      "金沢市に住所があり、健康保険に加入しているお子さん",
+      "入院は高校3年生等まで、通院は中学3年生まで（令和8年12月診療分まで）"
+    ],
+    "prefectures": [
+      "石川県"
+    ],
+    "cities": [
+      "金沢市"
+    ],
+    "period": "令和8年12月診療分まで（令和9年1月診療分より通院も18歳まで拡大）",
+    "deadline": null,
+    "url": "https://www4.city.kanazawa.lg.jp/hojokin_joseikin/1/17585.html"
   },
   {
     "id": "kanazawa-soene-shoene-setsubi",
@@ -26902,6 +27063,96 @@ export const RESIDENT_PROGRAMS = [
     "period": "令和8年度（受付期間は要確認）",
     "deadline": null,
     "url": "https://www.city.gifu.lg.jp/zero-carbon/support/1024914/1025364/1025433.html"
+  },
+  {
+    "id": "gifu-gps-mimamori",
+    "name": "GPSを活用した登下校見守り支援事業補助金",
+    "provider": "岐阜市",
+    "level": "municipality",
+    "category": "教育・学び",
+    "type": "補助金",
+    "amount": "初期費用5,000円（上限）",
+    "summary": "小学1年生の保護者が登録事業者のGPS位置情報サービスに加入した場合、端末代等を含む初期費用の5,000円（上限）を減額する。",
+    "eligibility": [
+      "令和8年度に岐阜市立小学校・義務教育学校・岐阜特別支援学校に入学する小学校1年生",
+      "補助回数は1児童につき1回"
+    ],
+    "prefectures": [
+      "岐阜県"
+    ],
+    "cities": [
+      "岐阜市"
+    ],
+    "period": "令和8年4月1日～令和9年3月31日",
+    "deadline": null,
+    "url": "https://www.city.gifu.lg.jp/kosodate/kosodateshien/1003631/1025643.html"
+  },
+  {
+    "id": "gifu-kodomo-influenza",
+    "name": "小児インフルエンザ予防接種費用の一部助成",
+    "provider": "岐阜市 感染症・医務薬務課",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "注射ワクチン1回あたり1,000円、経鼻ワクチン2,000円",
+    "summary": "岐阜市に住民登録がある生後6か月から小学校就学前までの乳幼児のインフルエンザ予防接種費用を一部助成する。",
+    "eligibility": [
+      "岐阜市に住民登録がある、生後6か月から小学校就学前までの乳幼児"
+    ],
+    "prefectures": [
+      "岐阜県"
+    ],
+    "cities": [
+      "岐阜市"
+    ],
+    "period": "令和8年10月1日～令和9年1月31日",
+    "deadline": null,
+    "url": "https://www.city.gifu.lg.jp/kenko/kansensyou/1028020.html"
+  },
+  {
+    "id": "gifu-nichijo-seikatsu-yogu",
+    "name": "日常生活用具費の支給",
+    "provider": "岐阜市 障がい福祉課",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "給付",
+    "amount": "品目ごとに基準額を設定（基準額内の費用の1割が利用者負担、世帯所得に応じた月額負担上限あり）",
+    "summary": "重度障がい者が日常生活用具を購入する際に要する費用について日常生活用具費を支給する。事前の申請が必要。",
+    "eligibility": [
+      "重度障がい者で支給種目に定める方",
+      "事前の申請が必要"
+    ],
+    "prefectures": [
+      "岐阜県"
+    ],
+    "cities": [
+      "岐阜市"
+    ],
+    "period": "通年（令和8年4月1日に用具一覧を改正）",
+    "deadline": null,
+    "url": "https://www.city.gifu.lg.jp/kenko/syougaisyafukushi/1004706/1004715.html"
+  },
+  {
+    "id": "gifu-ninpu-kenshin-josei",
+    "name": "妊婦健康診査費用の一部助成",
+    "provider": "岐阜市",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "助成金",
+    "amount": "受診票14枚で助成（初回血液検査等の回は上限20,920円など）",
+    "summary": "母子健康手帳（妊婦健康診査受診票14枚）の交付を受けた人を対象に、妊婦健康診査費用の一部を助成する。",
+    "eligibility": [
+      "母子健康手帳（妊婦健康診査受診票14枚）の交付を受けた人"
+    ],
+    "prefectures": [
+      "岐阜県"
+    ],
+    "cities": [
+      "岐阜市"
+    ],
+    "period": "令和8年度受診分の助成上限額あり（要確認）",
+    "deadline": null,
+    "url": "https://www.city.gifu.lg.jp/kosodate/ninshin/1003549/1003553.html"
   },
   {
     "id": "kakamigahara-akiya-reform",
@@ -30441,6 +30692,30 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.okazaki.lg.jp/kurashi/hikkoshi/1012273/1012281/1003083/1003091.html"
   },
   {
+    "id": "okazaki-appearance",
+    "name": "アピアランスケア用品購入費補助金",
+    "provider": "岡崎市 保健所 健康増進課",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "補助金",
+    "amount": "ウィッグ、乳房補整具またはエピテーゼのそれぞれにおいて上限20,000円（購入金額の1/2）",
+    "summary": "がん治療に伴う脱毛等により医療用ウィッグや補整具を購入した方に、購入費の一部を補助します。",
+    "eligibility": [
+      "申請日時点で岡崎市に住民票があるかた",
+      "がん治療に伴う脱毛に対するウィッグ、乳房の変形等に対する補整具を購入したかた",
+      "過去に県内市町村において同種の補整具について補助金を受けていないかた"
+    ],
+    "prefectures": [
+      "愛知県"
+    ],
+    "cities": [
+      "岡崎市"
+    ],
+    "period": "補整具を購入した日の翌日から1年以内（令和8年度の受付は令和9年3月31日まで）",
+    "deadline": "2027-03-31",
+    "url": "https://www.city.okazaki.lg.jp/kenko/kenko_iryo/1012508/1002047.html"
+  },
+  {
     "id": "okazaki-block-tekkyo",
     "name": "岡崎市 転倒のおそれのあるブロック塀等の撤去費補助",
     "provider": "愛知県岡崎市",
@@ -30461,6 +30736,76 @@ export const RESIDENT_PROGRAMS = [
     "period": "令和8年度（最新は要確認）",
     "deadline": null,
     "url": "https://www.city.okazaki.lg.jp/1100/1184/1165/p022900.html"
+  },
+  {
+    "id": "okazaki-fuikusho",
+    "name": "不育症検査に要する費用の補助",
+    "provider": "岡崎市 保健所",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "補助金",
+    "amount": "1回の検査につき費用の7割に相当する額と6万円のいずれか少ない方の額（1,000円未満は切り捨て）",
+    "summary": "先進医療に位置付けられた不育症検査を対象に、検査に要する費用の一部を補助します。",
+    "eligibility": [
+      "申請時に岡崎市に住所を有するかた",
+      "既往流死産回数が合計2回以上あるかた"
+    ],
+    "prefectures": [
+      "愛知県"
+    ],
+    "cities": [
+      "岡崎市"
+    ],
+    "period": "【令和8年度】令和9年（2027年）3月31日まで",
+    "deadline": "2027-03-31",
+    "url": "https://www.city.okazaki.lg.jp/kenko/kenko_iryo/1012508/1004411.html"
+  },
+  {
+    "id": "okazaki-funin-senshin",
+    "name": "不妊治療（先進医療）に要する費用の補助",
+    "provider": "岡崎市 保健所",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "補助金",
+    "amount": "対象費用の10分の7に相当する額（上限額5万円）",
+    "summary": "健康保険適用の生殖補助医療と併用して実施した先進医療の費用を補助します（令和8年6月1日開始）。",
+    "eligibility": [
+      "夫婦の両方またはいずれかが岡崎市に住民票を有する",
+      "治療を開始した日の妻の年齢が43歳未満",
+      "先進医療の実施が令和8年4月1日以降のもの"
+    ],
+    "prefectures": [
+      "愛知県"
+    ],
+    "cities": [
+      "岡崎市"
+    ],
+    "period": "申請開始日は令和8年6月1日。令和8年4月1日から5月31日に治療終了の方は令和8年11月30日までに申請",
+    "deadline": "2026-11-30",
+    "url": "https://www.city.okazaki.lg.jp/kenko/kenko_iryo/1012508/1014786.html"
+  },
+  {
+    "id": "okazaki-fushin-kotai",
+    "name": "風しん抗体検査・予防接種費用助成（妊娠を希望する女性等対象）",
+    "provider": "岡崎市",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "抗体検査は自己負担無料。予防接種はMRワクチン5,100円、風しんワクチン3,400円（市民税非課税世帯・生活保護世帯は無料）",
+    "summary": "先天性風しん症候群を予防するため、風しん抗体検査と風しん予防接種の費用を補助します。",
+    "eligibility": [
+      "岡崎市に住民登録があり、過去に風しん抗体検査・予防接種を受けたことがないかた",
+      "妊娠を予定又は希望する女性（妊婦は除く）やその同居者などが対象"
+    ],
+    "prefectures": [
+      "愛知県"
+    ],
+    "cities": [
+      "岡崎市"
+    ],
+    "period": "抗体検査・予防接種ともに令和8年4月1日から令和9年3月31日まで",
+    "deadline": "2027-03-31",
+    "url": "https://www.city.okazaki.lg.jp/kosodate/ninshin/1012185/1013860/1003573.html"
   },
   {
     "id": "okazaki-jisedai-jidosha",
@@ -30507,6 +30852,30 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.okazaki.lg.jp/kurashi/bosai/1012542/1002798/1002809.html"
   },
   {
+    "id": "okazaki-kodomo-iryo-kakudai",
+    "name": "子ども医療費助成（令和9年4月から高校生世代まで拡大）",
+    "provider": "岡崎市 福祉部 福祉医療課",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "助成金",
+    "amount": "医療機関等の窓口で受給者証を提示すると保険診療分の自己負担額が無料",
+    "summary": "令和9年4月1日から子ども医療費受給者証の対象を高校生世代まで拡大します。",
+    "eligibility": [
+      "岡崎市に住所がある、18歳の年度末までのかた",
+      "学生でないかたも対象",
+      "平成21年4月2日から平成23年4月1日までに出生されたかたは申請が必要"
+    ],
+    "prefectures": [
+      "愛知県"
+    ],
+    "cities": [
+      "岡崎市"
+    ],
+    "period": "令和9年4月1日から使用できる受給者証を令和9年3月中旬を目途に送付",
+    "deadline": null,
+    "url": "https://www.city.okazaki.lg.jp/kosodate/ninshin/1012190/1012192/1016636.html"
+  },
+  {
     "id": "okazaki-ondanka-setsubi",
     "name": "岡崎市地球温暖化対策設備設置費補助金",
     "provider": "岡崎市",
@@ -30528,6 +30897,54 @@ export const RESIDENT_PROGRAMS = [
     "period": "令和8年度（予算残額は要確認）",
     "deadline": null,
     "url": "https://www.city.okazaki.lg.jp/1100/1108/1156/p043395.html"
+  },
+  {
+    "id": "okazaki-shogaku-kashitsuke",
+    "name": "岡崎市奨学資金貸付け",
+    "provider": "岡崎市 教育委員会事務局 教育政策課",
+    "level": "municipality",
+    "category": "教育・学び",
+    "type": "融資",
+    "amount": "年額400,000円（無利子）",
+    "summary": "経済的な理由で大学等への修学が困難な学生に、無利子で奨学資金を貸し付けます（令和9年度の新規貸付け申請）。",
+    "eligibility": [
+      "申請日現在で岡崎市内に引き続き1年以上住所がある方の子",
+      "令和9年度に大学・専修学校（専門課程に限る）に在学又は入学予定",
+      "経済的な理由で修学が困難で、成績優秀な方"
+    ],
+    "prefectures": [
+      "愛知県"
+    ],
+    "cities": [
+      "岡崎市"
+    ],
+    "period": "申請期間は令和8年9月1日から令和8年11月30日（必着）まで",
+    "deadline": "2026-11-30",
+    "url": "https://www.city.okazaki.lg.jp/kosodate/kyouiku/1012239/1003703.html"
+  },
+  {
+    "id": "okazaki-shugaku-enjo",
+    "name": "就学援助制度",
+    "provider": "岡崎市 教育委員会",
+    "level": "municipality",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "新入学児童生徒学用品費は小学校64,300円、中学校81,000円。学校給食費は支払免除（令和8年4月時点の内容）",
+    "summary": "経済的な理由で小・中学校への就学にお困りの方に、学用品費や学校給食費などの費用の一部を援助します。",
+    "eligibility": [
+      "原則、岡崎市にお住まいの、小学校・中学校に在籍する児童生徒の保護者",
+      "生活保護を受給している、市民税が非課税または減免されている、児童扶養手当を受給しているなどのいずれかに該当",
+      "所得基準額は2人世帯2,460,000円、4人世帯3,030,000円など"
+    ],
+    "prefectures": [
+      "愛知県"
+    ],
+    "cities": [
+      "岡崎市"
+    ],
+    "period": "令和9年4月入学予定者の新入学児童生徒学用品費の入学前支給の案内あり",
+    "deadline": null,
+    "url": "https://www.city.okazaki.lg.jp/kosodate/kyouiku/1012240/1003700.html"
   },
   {
     "id": "toyohashi-akiya-bank",
@@ -30936,6 +31353,30 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.toyota.aichi.jp/kurashi/bousaibouhan/bousaishien/1013899/1003650.html"
   },
   {
+    "id": "toyota-boshi-fushi-iryohi",
+    "name": "母子・父子家庭医療費助成制度",
+    "provider": "豊田市 おやこ応援課",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "保険診療分の医療費の自己負担額を助成",
+    "summary": "申請により母子・父子家庭医療費受給者証を交付し、保険診療分の医療費の自己負担額を助成する制度です。",
+    "eligibility": [
+      "母子・父子家庭のうち、18歳以下の児童を扶養している父母等およびその児童",
+      "父母のいない18歳以下の児童",
+      "所得制限等の条件があります"
+    ],
+    "prefectures": [
+      "愛知県"
+    ],
+    "cities": [
+      "豊田市"
+    ],
+    "period": "令和8年度の受給者証の更新申請期間は令和8年9月18日から令和8年11月13日まで",
+    "deadline": "2026-11-13",
+    "url": "https://www.city.toyota.aichi.jp/kosodategakko/kosodate/1027167/1073648/1003506.html"
+  },
+  {
     "id": "toyota-eco-family",
     "name": "豊田市エコファミリー支援補助金",
     "provider": "豊田市",
@@ -30957,6 +31398,101 @@ export const RESIDENT_PROGRAMS = [
     "period": "令和8年度（住宅編：2026年4月1日〜2027年3月1日）",
     "deadline": "2027-03-01",
     "url": "https://www.city.toyota.aichi.jp/kurashi/kankyou/hojokin/1023875.html"
+  },
+  {
+    "id": "toyota-fuikusho-kensa",
+    "name": "令和8年度不育症検査費補助金",
+    "provider": "豊田市 おやこ応援課",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "補助金",
+    "amount": "検査費用の7割に相当する額（千円未満切り捨て）で、上限6万円",
+    "summary": "先進医療として告示されている不育症検査にかかる費用の補助を行います。",
+    "eligibility": [
+      "二回以上流産・死産の既往がある方",
+      "令和8年4月1日から令和9年3月31日の間に受けた先進医療の不育症検査",
+      "市税を滞納していない方"
+    ],
+    "prefectures": [
+      "愛知県"
+    ],
+    "cities": [
+      "豊田市"
+    ],
+    "period": "令和8年4月1日から令和9年3月31日の間に受けた検査が対象。申請期限は令和9年3月31日",
+    "deadline": "2027-03-31",
+    "url": "https://www.city.toyota.aichi.jp/kenkoiryo/iryo/1073262/1003116/1052871.html"
+  },
+  {
+    "id": "toyota-funin-senshin",
+    "name": "特定不妊治療費（先進医療）補助金",
+    "provider": "豊田市 おやこ応援課",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "補助金",
+    "amount": "先進医療に要した費用の10分の7（10円未満は四捨五入）、上限10万円",
+    "summary": "保険診療の特定不妊治療と共に実施した先進医療に要した費用を補助します。",
+    "eligibility": [
+      "特定不妊治療を開始した日から申請日まで継続して市内に住民登録がある法律婚又は事実婚の夫婦",
+      "特定不妊治療を開始した日の女性の年齢が43歳未満",
+      "40歳未満は1子ごとに6回まで、40歳以上43歳未満は1子ごとに3回まで"
+    ],
+    "prefectures": [
+      "愛知県"
+    ],
+    "cities": [
+      "豊田市"
+    ],
+    "period": "領収書は令和8年4月1日以降に実施した先進医療分。申請期限は本文に記載あり",
+    "deadline": null,
+    "url": "https://www.city.toyota.aichi.jp/kenkoiryo/iryo/1073262/1003116/1060269/index.html"
+  },
+  {
+    "id": "toyota-hitorioya-shienteate",
+    "name": "豊田市ひとり親家庭等支援手当",
+    "provider": "豊田市 おやこ応援課",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "給付",
+    "amount": "児童1人月額3,000円（両親死亡の場合は月額4,500円）",
+    "summary": "ひとり親家庭等の生活の安定と児童の健全育成のために手当を支給する豊田市の制度です。所得制限があります。",
+    "eligibility": [
+      "市内に住所があり、18歳以下の児童を監護している父、母又は養育者",
+      "父又は母が婚姻を解消した児童などが対象",
+      "受給資格者の所得が所得制限額を超過していない"
+    ],
+    "prefectures": [
+      "愛知県"
+    ],
+    "cities": [
+      "豊田市"
+    ],
+    "period": "2026年度の振込日は2026年5月28日、7月30日、9月24日、11月26日、2027年1月28日、3月25日",
+    "deadline": null,
+    "url": "https://www.city.toyota.aichi.jp/kosodategakko/kosodate/1027167/1073648/1003503.html"
+  },
+  {
+    "id": "toyota-jido-hattatsu-chushoku",
+    "name": "児童発達支援昼食費給付金",
+    "provider": "豊田市 福祉部 障がい福祉課",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "給付",
+    "amount": "令和8年4月以降は1か月の対象日数に応じて2,800円または5,600円",
+    "summary": "豊田市で支給決定を受けた児童発達支援を利用する3～5歳児の昼食費に対して、自費で昼食を食べた日数に応じた額を給付します。",
+    "eligibility": [
+      "児童発達支援を利用する3～5歳児（4月1日時点）の保護者",
+      "通所日の活動時間内に自費で対象児が昼食を食べた日数が対象"
+    ],
+    "prefectures": [
+      "愛知県"
+    ],
+    "cities": [
+      "豊田市"
+    ],
+    "period": "令和8年10月1日から令和8年10月26日が申請期間",
+    "deadline": "2026-10-26",
+    "url": "https://www.city.toyota.aichi.jp/kenkoiryo/shogai/1073265/1030040/1073735/1060284.html"
   },
   {
     "id": "toyota-jutaku-shoene-kaishu",
@@ -30999,6 +31535,54 @@ export const RESIDENT_PROGRAMS = [
     "period": "最新は要確認",
     "deadline": null,
     "url": "https://www.city.toyota.aichi.jp/kurashi/sumai/teiju/1003661.html"
+  },
+  {
+    "id": "toyota-shugaku-enjo",
+    "name": "就学援助制度",
+    "provider": "豊田市 教育委員会 学校教育課",
+    "level": "municipality",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "学用品費等は国から示された額を限度、通学費・修学旅行費などは実費または現物",
+    "summary": "経済的な理由で就学が困難な児童生徒の保護者に、学用品費・通学費・修学旅行費などを援助する制度です。",
+    "eligibility": [
+      "小・中学校に在学（入学予定を含む）するお子さんの保護者",
+      "生活保護を受けている方、停止又は廃止された方、経済的にお困りの方",
+      "所得の目安は令和8年度で2人世帯2,096,000円など"
+    ],
+    "prefectures": [
+      "愛知県"
+    ],
+    "cities": [
+      "豊田市"
+    ],
+    "period": "いつでも申請できます。新入学児童生徒学用品費等の入学前支給は令和8年11月30日午後11時59分まで",
+    "deadline": null,
+    "url": "https://www.city.toyota.aichi.jp/kosodategakko/kyoikushien/hojo/1002727.html"
+  },
+  {
+    "id": "toyota-yoji-kyushoku",
+    "name": "豊田市幼児給食費給付金",
+    "provider": "豊田市 保育課",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "給付",
+    "amount": "満額は月額5,600円、6日から10日は半額（月額2,800円）（令和8年度分以降）",
+    "summary": "給食費の無償化に伴い、こども園等に通っているが豊田市から給食の提供を受けていない家庭に、給食費相当分を給付する制度です。",
+    "eligibility": [
+      "市内在住の3～5歳児と生計を同一にする同居の保護者",
+      "アレルギー等で給食を停止し弁当を持参している子、市外の幼稚園等に通園している子などが対象",
+      "所得制限はありません"
+    ],
+    "prefectures": [
+      "愛知県"
+    ],
+    "cities": [
+      "豊田市"
+    ],
+    "period": "令和8年度第1期分（令和8年4月～9月分）の申請は令和8年10月1日から10月26日まで。第2期分は令和9年4月頃の予定",
+    "deadline": "2026-10-26",
+    "url": "https://www.city.toyota.aichi.jp/kosodategakko/kosodate/teate/1073767/1060283.html"
   },
   {
     "id": "toyota-zerocarbon-drive",
@@ -37890,6 +38474,75 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.nara.lg.jp/site/nararhythm/259382.html"
   },
   {
+    "id": "nara-seishoku-funin",
+    "name": "奈良市生殖補助医療等助成事業・一般不妊治療等助成事業",
+    "provider": "奈良市 母子保健課",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "本人負担額の2分の1（生殖補助医療の先進医療は上限5万円、全額自費となった生殖補助医療は上限15万円）",
+    "summary": "体外受精・顕微授精などの生殖補助医療と先進医療を受けたご夫婦に、経済的な負担の軽減を図るため費用を助成します。",
+    "eligibility": [
+      "生殖補助医療以外の治療法では妊娠の見込みがない又は極めて少ないと医師に診断された夫婦",
+      "治療開始日における妻の年齢が43歳未満",
+      "夫婦のどちらか一方が治療期間の初日から申請日までの間、奈良市に住所を有すること"
+    ],
+    "prefectures": [
+      "奈良県"
+    ],
+    "cities": [
+      "奈良市"
+    ],
+    "period": "治療期間の終了日が令和8年度（令和8年4月1日～令和9年3月31日）の場合、令和10年3月31日まで",
+    "deadline": null,
+    "url": "https://www.city.nara.lg.jp/soshiki/95/159141.html"
+  },
+  {
+    "id": "nara-shinnyugaku",
+    "name": "就学援助制度による「新入学準備金」入学前支給",
+    "provider": "奈良市 教育総務課",
+    "level": "municipality",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "6万円程度（令和8年度新小学1年生への支給実績：64,300円）",
+    "summary": "経済的にお困りの世帯に対し、小学校新1年生になる前の3月に「新入学準備金」を就学援助制度により支給します。",
+    "eligibility": [
+      "令和9年4月に小学校新1年生になる児童の保護者で、経済的にお困りの世帯",
+      "令和8年度市民税所得割が基準以下の世帯、または児童扶養手当受給世帯"
+    ],
+    "prefectures": [
+      "奈良県"
+    ],
+    "cities": [
+      "奈良市"
+    ],
+    "period": "申請期間：令和8年11月2日(月曜日)～12月22日(火曜日)。支給日は令和9年3月5日(金曜日)予定",
+    "deadline": "2026-12-22",
+    "url": "https://www.city.nara.lg.jp/site/kosodate/10621.html"
+  },
+  {
+    "id": "nara-shinshin-iryohi",
+    "name": "心身障害者医療費助成",
+    "provider": "奈良市 福祉医療課",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "保険診療の自己負担分から一部負担金を除いた額（通院500円・月額上限額1,500円、入院1,000円）",
+    "summary": "身体障害者手帳1・2級所持者または療育手帳所持者に、保険診療の自己負担分から一部負担金を除いた額を助成します。",
+    "eligibility": [
+      "健康保険加入者（後期高齢者医療加入者を除く）で、身体障害者手帳1・2級所持者または療育手帳所持者"
+    ],
+    "prefectures": [
+      "奈良県"
+    ],
+    "cities": [
+      "奈良市"
+    ],
+    "period": "受給資格証の有効期間は令和8年8月1日～令和9年7月31日",
+    "deadline": null,
+    "url": "https://www.city.nara.lg.jp/soshiki/38/9689.html"
+  },
+  {
     "id": "nara-taishin-kaishu-koji",
     "name": "奈良市既存木造住宅耐震改修工事補助金",
     "provider": "奈良県奈良市",
@@ -37983,6 +38636,29 @@ export const RESIDENT_PROGRAMS = [
     "period": "令和8年度：公募は令和8年12月25日15時まで（先着、予算到達で終了）。事業完了は令和9年1月末まで",
     "deadline": "2026-12-25",
     "url": "https://www.city.nara.lg.jp/uploaded/attachment/212124.pdf"
+  },
+  {
+    "id": "nara-tokubetsu-shien",
+    "name": "特別支援教育就学奨励費",
+    "provider": "奈良市 教育総務課",
+    "level": "municipality",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "新入学学用品費 小学1年28,530円・中学1年31,500円（定額）ほか、費目ごとに定額または上限額",
+    "summary": "特別支援学級に就学する児童生徒の保護者に、学校給食費・学用品費・修学旅行費など学校で必要な費用の一部を援助します。",
+    "eligibility": [
+      "奈良市内に住所を有し、奈良市立小・中学校の特別支援学級に就学している児童生徒の保護者世帯",
+      "就学援助や生活保護による教育扶助など他の助成を受給している場合は対象外"
+    ],
+    "prefectures": [
+      "奈良県"
+    ],
+    "cities": [
+      "奈良市"
+    ],
+    "period": "当初受付：令和8年7月6日(月曜日) ～ 8月7日(金曜日)。最終受付期限：令和9年3月31日(火曜日)",
+    "deadline": "2027-03-31",
+    "url": "https://www.city.nara.lg.jp/site/kosodate/239149.html"
   },
   {
     "id": "nara-tokutei-akiya-jokyaku",
@@ -41268,6 +41944,149 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.marugame.lg.jp/site/iju/2783.html"
   },
   {
+    "id": "takamatsu-daisanshi-kyushoku",
+    "name": "高松市第3子以降学校給食費無償化制度（中学校）",
+    "provider": "高松市 教育委員会 保健体育課",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "給付",
+    "amount": "令和8年9月から令和9年3月までの学校給食費（3番目以降の子の分）が無償",
+    "summary": "多子世帯の子育てに対する経済的負担軽減を図るため、高松市立中学校に通う第3子以降の学校給食費を無償化します。",
+    "eligibility": [
+      "平成26年（2014）年4月1日以前に生まれた子を3人以上扶養している",
+      "3番目以降の子が高松市立中学校で学校給食の提供を受けている",
+      "生活保護・就学援助制度等で学校給食費の支援を受けていない又は申請中"
+    ],
+    "prefectures": [
+      "香川県"
+    ],
+    "cities": [
+      "高松市"
+    ],
+    "period": "令和8年9月から令和9年3月までの学校給食費が対象。令和8年度分の申請受付は6月22日から",
+    "deadline": null,
+    "url": "https://www.city.takamatsu.kagawa.jp/kurashi/kosodate/shouchugakkou/kyushoku/kyusyokutetuduki/daisanshimusyouka.html"
+  },
+  {
+    "id": "takamatsu-famisapo-tashi",
+    "name": "たかまつファミリー・サポート・センターの利用料助成（多子世帯）",
+    "provider": "高松市 子育て支援課",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "助成金",
+    "amount": "1時間あたりの利用料金のうち児童1人につき200円、2人目以降は100円",
+    "summary": "3人以上の児童を扶養する多子世帯のおねがい会員を対象に、ファミリー・サポート・センターの利用料を助成します。",
+    "eligibility": [
+      "高松市在住で、3人以上の児童（18歳に達する日以後最初の3月31日まで）を扶養している世帯",
+      "センターのおねがい会員登録をしている方",
+      "申請者の世帯全員が市税を滞納していない方"
+    ],
+    "prefectures": [
+      "香川県"
+    ],
+    "cities": [
+      "高松市"
+    ],
+    "period": "助成の対象は令和8年4月以降の援助活動。交付申請は援助活動を行った年度末まで",
+    "deadline": null,
+    "url": "https://www.city.takamatsu.kagawa.jp/kurashi/kosodate/hitorioya/kosodate/boshi_up2026030.html"
+  },
+  {
+    "id": "takamatsu-gan-hoseigu",
+    "name": "高松市がん患者等医療用補整具助成事業",
+    "provider": "高松市",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "補整具購入費の3分の2。医療用ウィッグ・乳房補整具とも上限20,000円",
+    "summary": "がん患者の方などへ、医療用ウィッグや乳房補整具等の購入費用の一部を助成します。",
+    "eligibility": [
+      "申請日に高松市内に住民登録のある方",
+      "がんの治療を受けた方又は現に受けている方",
+      "がん以外の患者の方は令和8年4月1日以降に購入した医療用ウィッグに限る"
+    ],
+    "prefectures": [
+      "香川県"
+    ],
+    "cities": [
+      "高松市"
+    ],
+    "period": "対象となる補整具を購入した日の翌日から1年以内",
+    "deadline": null,
+    "url": "https://www.city.takamatsu.kagawa.jp/kurashi/kenkou/kenkonotameni/seijin/gan_hoseigu.html"
+  },
+  {
+    "id": "takamatsu-kyushoku-hikishoku",
+    "name": "令和8年度高松市立小学校等における学校給食非喫食者補助金",
+    "provider": "高松市 教育委員会 保健体育課",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "補助金",
+    "amount": "要確認（一か月当たりの補助額は区分に応じる。金額の記載は本文に見当たらない）",
+    "summary": "食物アレルギーその他やむを得ない理由で連続して学校給食を食べない児童について、補助金を交付します。",
+    "eligibility": [
+      "高松市立小学校又は香川大学教育学部附属高松小学校に在籍する児童",
+      "食物アレルギー、不登校、宗教上の配慮などやむを得ない理由がある",
+      "生活保護を受けている場合は対象外"
+    ],
+    "prefectures": [
+      "香川県"
+    ],
+    "cities": [
+      "高松市"
+    ],
+    "period": "補助対象期間は令和8年4月1日から令和9年3月31日（ただし、8月を除く）",
+    "deadline": null,
+    "url": "https://www.city.takamatsu.kagawa.jp/kurashi/kosodate/shouchugakkou/kyushoku/hotai_up20260518.html"
+  },
+  {
+    "id": "takamatsu-ninkagai-dai2shi",
+    "name": "高松市認可外保育施設入所第2子等保育料助成金",
+    "provider": "高松市",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "助成金",
+    "amount": "上限月額15,000円～37,100円（兄姉の状況・施設により異なる）",
+    "summary": "認可外保育施設に入所している第2子又は第3子以降の児童の保育料について助成を行います。",
+    "eligibility": [
+      "高松市内の認可外保育施設を利用した、住民登録がある保育を必要とする0～2歳児",
+      "同一世帯で保育所などを利用している就学前の兄又は姉が1人いる児童等",
+      "市税を滞納していない方"
+    ],
+    "prefectures": [
+      "香川県"
+    ],
+    "cities": [
+      "高松市"
+    ],
+    "period": "申請対象期間は令和8年4月1日から令和8年9月30日。申請期限は令和8年10月31日",
+    "deadline": "2026-10-31",
+    "url": "https://www.city.takamatsu.kagawa.jp/kurashi/kosodate/youchien_hoiku/kodomoen/hoiku/h28genmen.html"
+  },
+  {
+    "id": "takamatsu-sango-care",
+    "name": "産後ケア事業",
+    "provider": "高松市",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "給付",
+    "amount": "利用者負担額は通所型1日500円、訪問型1回300円、宿泊型1泊2日10,000円（通算5日以内）",
+    "summary": "出産後の産婦及び乳児が、母乳管理・沐浴・赤ちゃんのお世話について助産師等から指導を受けることができる事業です。",
+    "eligibility": [
+      "高松市内に住所があり、出産後に退院した産後1年未満の産婦及び乳児",
+      "非課税世帯又は生活保護世帯は利用者負担額の免除申請が必要"
+    ],
+    "prefectures": [
+      "香川県"
+    ],
+    "cities": [
+      "高松市"
+    ],
+    "period": "令和8年度から、高松市への初回利用前の申請は不要",
+    "deadline": null,
+    "url": "https://www.city.takamatsu.kagawa.jp/kurashi/kosodate/ninshin_shussan/syussan/sango_care.html"
+  },
+  {
     "id": "takamatsu-shi-akiya-kaishu",
     "name": "高松市空き家改修補助事業",
     "provider": "高松市",
@@ -41331,6 +42150,54 @@ export const RESIDENT_PROGRAMS = [
     "period": "要確認",
     "deadline": null,
     "url": "https://www.city.takamatsu.kagawa.jp/smph/kurashi/kurashi/shobo/sonae/taisin.html"
+  },
+  {
+    "id": "takamatsu-shogakukin",
+    "name": "高松市奨学金",
+    "provider": "高松市",
+    "level": "municipality",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "1人月額9，000円（予定）、返済不要",
+    "summary": "成績優秀でかつ向学心のおう盛な生徒で、家庭の経済的理由のため高等学校などへの修学が困難な方に、奨学金を支給します。",
+    "eligibility": [
+      "令和9年4月に高等学校等に入学を希望している生徒（現中学校3年生）",
+      "現在、高等学校等に在籍している生徒（令和9年3月に卒業予定の者を除く）",
+      "高松市在住予定で、学業が優秀（評定平均値が3．5以上）"
+    ],
+    "prefectures": [
+      "香川県"
+    ],
+    "cities": [
+      "高松市"
+    ],
+    "period": "令和9年度新規募集の提出期限は令和8年12月14日。支給開始は令和9年6月頃（予定）",
+    "deadline": "2026-12-14",
+    "url": "https://www.city.takamatsu.kagawa.jp/kurashi/kurashi/josei/kosodate/shogakukin.html"
+  },
+  {
+    "id": "takamatsu-shugakuenjo",
+    "name": "就学援助制度",
+    "provider": "高松市 教育委員会 学校教育課",
+    "level": "municipality",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "学用品費・通学用品費などを援助（金額は本文に記載なし）",
+    "summary": "経済的な理由で子どもの就学が困難な場合に、学校で必要な経費の一部を援助する制度です。",
+    "eligibility": [
+      "高松市在住の児童生徒の保護者で、高松市教育委員会が援助を必要と認めた方",
+      "市民税の非課税世帯、児童扶養手当の支給を受けている方など",
+      "世帯の所得の合計金額が生活保護基準の1.3倍以下の方"
+    ],
+    "prefectures": [
+      "香川県"
+    ],
+    "cities": [
+      "高松市"
+    ],
+    "period": "令和8年度就学援助制度2期は令和8年10月～令和9年3月。令和9年4月入学の新小学校1年生の申請を受付中",
+    "deadline": null,
+    "url": "https://www.city.takamatsu.kagawa.jp/kurashi/kurashi/josei/kosodate/shugakushien.html"
   },
   {
     "id": "ehime-ev-kounyu",
@@ -41641,6 +42508,52 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.matsuyama.ehime.jp/kurashi/kurashi/hojokin/concrete-block.html"
   },
   {
+    "id": "matsuyama-egaokko-ouenken",
+    "name": "松山市愛顔っ子応援券（おむつ）",
+    "provider": "松山市 子育て支援課",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "給付",
+    "amount": "愛顔っ子応援券50,000円分（1,000円券×50枚綴り）",
+    "summary": "第2子以降のこどもを出生し養育している保護者に、県内企業3社の乳児用紙おむつを市内の登録店舗で購入できる応援券を交付する。",
+    "eligibility": [
+      "本市に住民登録のある第2子以降の満1歳未満のこどもの保護者",
+      "申請は対象乳児の1歳の誕生日の前日まで"
+    ],
+    "prefectures": [
+      "愛媛県"
+    ],
+    "cities": [
+      "松山市"
+    ],
+    "period": "令和8年度に交付された応援券の有効期限は令和10年（2028年）3月31日まで",
+    "deadline": null,
+    "url": "https://www.city.matsuyama.ehime.jp/kurashi/fukushi/jido/egaokko-ouenken.html"
+  },
+  {
+    "id": "matsuyama-huiku-kensa-josei",
+    "name": "不育症検査費用助成事業",
+    "provider": "松山市 すくすく支援課",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "一回の不育症検査に係る費用の7割、上限額6万円",
+    "summary": "不育症検査のうち先進医療に指定されたものを対象に、検査費用の一部を助成する。",
+    "eligibility": [
+      "既往流死産回数が2回以上の方",
+      "助成の申請時に松山市に住民登録がある方"
+    ],
+    "prefectures": [
+      "愛媛県"
+    ],
+    "cities": [
+      "松山市"
+    ],
+    "period": "検査を受けた日の属する年度内（3月末日まで）に申請",
+    "deadline": null,
+    "url": "https://www.city.matsuyama.ehime.jp/kurashi/iryo/bosikenko/huikujosei.html"
+  },
+  {
     "id": "matsuyama-mokuzo-taishin-kaishu",
     "name": "松山市 木造住宅耐震改修等補助事業",
     "provider": "愛媛県松山市",
@@ -41708,6 +42621,77 @@ export const RESIDENT_PROGRAMS = [
     "period": "令和8年度（期間は要確認）",
     "deadline": null,
     "url": "https://www.city.matsuyama.ehime.jp/kurashi/kurashi/hojokin/zero-carbon.html"
+  },
+  {
+    "id": "matsuyama-shugaku-enjo",
+    "name": "就学援助",
+    "provider": "松山市",
+    "level": "municipality",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "学用品費等 小学校1年生13,230円・2年生～15,500円、中学校1年生25,040円・2年生～27,310円（年額）ほか",
+    "summary": "経済的な理由で就学が困難な小・中学校の児童生徒の保護者に、学用品費、給食費、修学旅行費などを給付する制度。",
+    "eligibility": [
+      "松山市内に住所を有し、公立小・中学校に在籍する児童生徒等の保護者",
+      "市町村民税が非課税の方、児童扶養手当を受給されている方など、いずれかに該当する方"
+    ],
+    "prefectures": [
+      "愛媛県"
+    ],
+    "cities": [
+      "松山市"
+    ],
+    "period": "令和8年度の援助内容（入学準備金の受付は10月から11月頃を予定）",
+    "deadline": null,
+    "url": "https://www.city.matsuyama.ehime.jp/kurashi/kosodate/gakkokyoiku/syugakuenjyo.html"
+  },
+  {
+    "id": "matsuyama-shussan-sewai-ouen",
+    "name": "出産世帯応援事業（県市連携事業）",
+    "provider": "松山市 子育て支援課 出産世帯給付金室",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "補助金",
+    "amount": "補助対象経費の限度額 両親とも35歳以下は30万円、36歳以上を含む場合は20万円",
+    "summary": "出産したこどもの育児用品や時短・省エネ家電の購入経費の一部を助成し、こどもを希望する世帯の経済的負担の軽減を図る。",
+    "eligibility": [
+      "2026年度出産世帯（2025年度出産世帯も条件つきで対象）",
+      "対象児童を監護し生計を同じくする父母のどちらか",
+      "申請日から起算して1年以上継続して本市に居住する意思がある者"
+    ],
+    "prefectures": [
+      "愛媛県"
+    ],
+    "cities": [
+      "松山市"
+    ],
+    "period": "2026年度出産世帯が対象（申請期限は公式ページで確認）",
+    "deadline": null,
+    "url": "https://www.city.matsuyama.ehime.jp/kurashi/fukushi/jido/syussannouen.html"
+  },
+  {
+    "id": "matsuyama-shussan-shogakukin-henkan",
+    "name": "出産世帯奨学金返還支援事業（県市連携事業）",
+    "provider": "松山市 子育て支援課 出産世帯給付金室",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "補助金",
+    "amount": "補助対象経費の限度額 20万円",
+    "summary": "奨学金返還費用の一部を補助することで、こどもを希望する夫婦の経済的負担の軽減を図る。",
+    "eligibility": [
+      "2026年度出産世帯（2025年度出産世帯も条件つきで対象）",
+      "大学等に在学している期間に対象奨学金の貸与を受けた者",
+      "補助対象期間に自ら対象奨学金を返還したことを確認できる者"
+    ],
+    "prefectures": [
+      "愛媛県"
+    ],
+    "cities": [
+      "松山市"
+    ],
+    "period": "2026年度出産世帯が対象（補助対象期間は公式ページで確認）",
+    "deadline": null,
+    "url": "https://www.city.matsuyama.ehime.jp/kurashi/fukushi/jido/syougakukinn.html"
   },
   {
     "id": "matsuyama-wagaya-reform",
@@ -44210,6 +45194,119 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.nagasaki.lg.jp/page/1921.html"
   },
   {
+    "id": "nagasaki-hitorioya-shingaku",
+    "name": "ひとり親家庭等進学支援事業",
+    "provider": "長崎市 こども政策課",
+    "level": "municipality",
+    "category": "教育・学び",
+    "type": "補助金",
+    "amount": "大学等受験料53,000円/人、高校3年生等模擬試験8,000円/人、中学3年生模擬試験6,000円/人",
+    "summary": "ひとり親家庭等のこどもの大学等の受験料と模擬試験料にかかる費用を補助する。",
+    "eligibility": [
+      "長崎市に住所を有するひとり親家庭の親等で児童扶養手当受給者と同等の所得水準、または市町村民税の非課税世帯",
+      "長崎市の「子どもの学習・生活支援事業」に登録している大学等の受験生（20歳未満）または中学3年生"
+    ],
+    "prefectures": [
+      "長崎県"
+    ],
+    "cities": [
+      "長崎市"
+    ],
+    "period": "受験日の属する年度の3月15日まで（令和8年度に受験した費用は令和8年度中に申請）",
+    "deadline": null,
+    "url": "https://www.city.nagasaki.lg.jp/site/e-kao/87501.html"
+  },
+  {
+    "id": "nagasaki-kajidaiko",
+    "name": "妊娠期・乳児期家事代行サービス事業",
+    "provider": "長崎市",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "助成金",
+    "amount": "1回500円で利用（クーポン6回分を配布）",
+    "summary": "登録された民間事業者の家事代行サービスを1回500円で利用できる事業。令和8年4月1日から妊娠期も利用できる。",
+    "eligibility": [
+      "市内に住所を有する妊婦がいる世帯もしくは1歳未満の子どもがいる世帯"
+    ],
+    "prefectures": [
+      "長崎県"
+    ],
+    "cities": [
+      "長崎市"
+    ],
+    "period": "妊娠期～1歳の誕生日の前日まで（母子手帳交付日から）",
+    "deadline": null,
+    "url": "https://www.city.nagasaki.lg.jp/site/e-kao/6524.html"
+  },
+  {
+    "id": "nagasaki-kodomo-influenza",
+    "name": "こどもインフルエンザ予防接種費用の一部助成",
+    "provider": "長崎市 こども政策課",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "自己負担 注射1回1,750円、経鼻1回3,500円（生活保護世帯・市民税非課税世帯は無料）",
+    "summary": "長崎市に住民票がある生後6か月から中学生までのこどもを対象に、インフルエンザ予防接種費用の一部を助成する。",
+    "eligibility": [
+      "長崎市に住民票があり、生後6か月から中学生までのこども"
+    ],
+    "prefectures": [
+      "長崎県"
+    ],
+    "cities": [
+      "長崎市"
+    ],
+    "period": "2026年10月1日～2027年2月28日",
+    "deadline": null,
+    "url": "https://www.city.nagasaki.lg.jp/site/e-kao/91085.html"
+  },
+  {
+    "id": "nagasaki-shugaku-enjo",
+    "name": "就学援助制度（令和8年度）",
+    "provider": "長崎市 教育委員会学務課",
+    "level": "municipality",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "新入学用品費 小学校1年生64,300円・中学校1年生81,000円、学用品費等 小学校2～6年生13,900円など",
+    "summary": "経済的にお困りの方に、小・中学校に通う子の学用品費・給食費など学校教育で必要な経費の一部を援助する。申請は毎年度必要。",
+    "eligibility": [
+      "令和7年中の世帯員全員の合計所得金額が所得基準以下の場合など",
+      "申請は毎年度必要"
+    ],
+    "prefectures": [
+      "長崎県"
+    ],
+    "cities": [
+      "長崎市"
+    ],
+    "period": "令和8年度当初申請 2月16日～4月15日、随時申請 4月16日以降",
+    "deadline": null,
+    "url": "https://www.city.nagasaki.lg.jp/page/5992.html"
+  },
+  {
+    "id": "nagasaki-shushoku-shikaku",
+    "name": "自立支援教育訓練給付金・高等職業訓練促進給付金等",
+    "provider": "長崎市 こども政策課",
+    "level": "municipality",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "受講費用の最大60パーセント（上限20万円、下限12,001円）／高等職業訓練促進給付金 月額100,000円（非課税世帯）・70,500円（課税世帯）",
+    "summary": "母子・父子家庭の親が教育訓練講座を受講した場合の費用や、資格取得のための養成機関での修業中の生活費負担軽減のための給付金を支給する。",
+    "eligibility": [
+      "20歳未満のこどもを扶養している方で長崎市に住所がある方",
+      "所得制限等あり、入学・受講前の申請・相談が必要"
+    ],
+    "prefectures": [
+      "長崎県"
+    ],
+    "cities": [
+      "長崎市"
+    ],
+    "period": "通年（要確認）。令和8年度から看護師の資格取得の支給期間が5年間に",
+    "deadline": null,
+    "url": "https://www.city.nagasaki.lg.jp/site/e-kao/6440.html"
+  },
+  {
     "id": "omura-3sedai",
     "name": "大村市3世代同居・近居促進事業",
     "provider": "長崎県大村市",
@@ -45175,6 +46272,29 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.beppu.oita.jp/seikatu/sumai_tosi/sumai/detail194.html"
   },
   {
+    "id": "oita-azukari-hoiku",
+    "name": "幼稚園・認定こども園等の預かり保育の利用費の給付",
+    "provider": "大分市",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "給付",
+    "amount": "1日あたり上限450円（令和8年10月1日利用分から490円）、月額上限11,300円（同12,300円）など",
+    "summary": "「施設等利用給付認定」を受けた子どもの預かり保育の利用料を、上限額の範囲内で保護者に給付する（償還払い）。",
+    "eligibility": [
+      "事前に大分市で「施設等利用給付認定」を受ける必要がある",
+      "幼稚園や認定こども園での預かり保育の利用が対象"
+    ],
+    "prefectures": [
+      "大分県"
+    ],
+    "cities": [
+      "大分市"
+    ],
+    "period": "令和8年度（令和8年10月以降は給付上限額が引き上げ）",
+    "deadline": null,
+    "url": "https://www.city.oita.oita.jp/o253/2022azukari.html"
+  },
+  {
     "id": "oita-city-akiya-riyo",
     "name": "大分市空き家等利活用事業（転用促進・移住者購入補助）",
     "provider": "大分市",
@@ -45216,6 +46336,76 @@ export const RESIDENT_PROGRAMS = [
     "period": "令和8年5月1日から令和9年3月31日",
     "deadline": "2027-03-31",
     "url": "https://www.city.oita.oita.jp/o258/machizukuri/kankyo/r4saienesyouenehojyokin.html"
+  },
+  {
+    "id": "oita-fuiku-kensa",
+    "name": "不育症検査費助成",
+    "provider": "大分市",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "検査費用の7割（上限6万円）",
+    "summary": "先進医療として実施される不育症検査の費用の一部を助成する。令和8年度中に対象の検査を受けた人が対象。",
+    "eligibility": [
+      "流産、死産合わせて2回以上の既往がある方",
+      "助成金申請時に、大分市に住民登録をしている方",
+      "令和8年度中に対象となる検査を受けた方"
+    ],
+    "prefectures": [
+      "大分県"
+    ],
+    "cities": [
+      "大分市"
+    ],
+    "period": "令和8年度中に受けた検査が対象",
+    "deadline": null,
+    "url": "https://www.city.oita.oita.jp/o097/kosodate/fuikukensa.html"
+  },
+  {
+    "id": "oita-influenza-koreisha",
+    "name": "高齢者季節性インフルエンザ予防接種",
+    "provider": "大分市 保健予防課",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "接種費用1,500円（生活保護世帯・市民税非課税世帯は無料）",
+    "summary": "大分市民で接種日に満65歳以上の希望者等を対象とする、季節性インフルエンザ予防接種。実施期間内に1回。",
+    "eligibility": [
+      "大分市民で接種日に満65歳以上の希望者",
+      "満60歳以上65歳未満で、心臓、腎臓、呼吸器等に障害を有する方"
+    ],
+    "prefectures": [
+      "大分県"
+    ],
+    "cities": [
+      "大分市"
+    ],
+    "period": "令和8年10月1日～令和9年3月31日",
+    "deadline": null,
+    "url": "https://www.city.oita.oita.jp/o096/kenko/hoken/innfurusihou202610.html"
+  },
+  {
+    "id": "oita-sangokea",
+    "name": "産後ケア事業",
+    "provider": "大分市",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "助成金",
+    "amount": "自己負担 宿泊型1泊4,000円＋食事代、デイサービス型1回2,500円＋食事代、訪問型1回1,000円",
+    "summary": "出産後間もない時期に、医療機関・助産所・自宅等で助産師等から母の心身のケアや育児のサポートを受けられる事業。利用料の一部を市が負担する。",
+    "eligibility": [
+      "宿泊・デイサービス型は生後4か月未満、訪問型は生後1年未満の赤ちゃんと市内に住民票があるお母さん",
+      "利用の適否については審査がある"
+    ],
+    "prefectures": [
+      "大分県"
+    ],
+    "cities": [
+      "大分市"
+    ],
+    "period": "令和8年4月から利用料等を変更",
+    "deadline": null,
+    "url": "https://www.city.oita.oita.jp/o097/sanngokea.html"
   },
   {
     "id": "oita-shi-akiya-riyo-iju",
@@ -45354,6 +46544,53 @@ export const RESIDENT_PROGRAMS = [
     "period": "最新は要確認",
     "deadline": null,
     "url": "https://www.city.oita.oita.jp/o168/kurashi/sumaijoho/roukyukikenakiya_hojo_r1.html"
+  },
+  {
+    "id": "oita-taijouhoushin-yobosesshu",
+    "name": "令和8年度帯状疱疹予防接種",
+    "provider": "大分市 保健予防課",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "接種費用（1回あたり）生ワクチン3,500円、組換えワクチン9,000円",
+    "summary": "大分市に住民登録がある、令和8年度中に65歳、70歳などとなる人（ほか60歳以上65歳未満の一定の人）を対象とする帯状疱疹の予防接種。",
+    "eligibility": [
+      "令和8年度中に65歳、70歳、75歳、80歳、85歳、90歳、95歳、100歳となる者",
+      "60歳以上65歳未満でヒト免疫不全ウイルスによる免疫機能の障害がある者"
+    ],
+    "prefectures": [
+      "大分県"
+    ],
+    "cities": [
+      "大分市"
+    ],
+    "period": "令和8年4月1日～令和9年3月31日",
+    "deadline": null,
+    "url": "https://www.city.oita.oita.jp/o096/kenko/hoken/taizyouhousin.html"
+  },
+  {
+    "id": "oita-wig",
+    "name": "こどものための医療用ウィッグ購入費等の助成",
+    "provider": "大分市 健康課",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "購入・リース等にかかる費用の2分の1（上限5万円）",
+    "summary": "脱毛等の理由により医療用ウィッグ等を購入・リースした、小学1年生から18歳までの子どもの家庭に、経費の2分の1（上限5万円）を助成する。",
+    "eligibility": [
+      "大分市に住民票がある（ウィッグ等を装着する方またはその保護者）",
+      "小学1年生から18歳までの方",
+      "脱毛等の理由により医療用ウィッグ等を購入、リースした方"
+    ],
+    "prefectures": [
+      "大分県"
+    ],
+    "cities": [
+      "大分市"
+    ],
+    "period": "令和8年4月1日以降の購入・リースが対象。申請は購入日の属する年度の末日まで",
+    "deadline": null,
+    "url": "https://www.city.oita.oita.jp/o097/kenko/hoken/kenkowiggu.html"
   },
   {
     "id": "miyazaki-hinata-zero-carbon",
@@ -46108,6 +47345,29 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.kagoshima.lg.jp/kankyo/kankyo/saiene/taiyokohojor8.html"
   },
   {
+    "id": "kagoshima-shugaku-enjo",
+    "name": "就学援助制度",
+    "provider": "鹿児島市 教育委員会",
+    "level": "municipality",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "学用品費等 小学校1年生13,230円・2年生から6年生15,500円、中学校1年生25,040円・2年生3年生27,310円（年額）ほか",
+    "summary": "児童生徒の就学に必要な経費を負担することが困難な家庭の保護者に、学用品費・通学費・修学旅行費・学校給食費などを援助する制度。",
+    "eligibility": [
+      "鹿児島市内に住所を有し、鹿児島市立小・中学校等に在学する児童生徒の保護者",
+      "令和8年度世帯人員別認定所得基準額以下の方"
+    ],
+    "prefectures": [
+      "鹿児島県"
+    ],
+    "cities": [
+      "鹿児島市"
+    ],
+    "period": "令和8年度（新入学学用品費は令和9年1月29日が提出期限）",
+    "deadline": null,
+    "url": "https://www.city.kagoshima.lg.jp/kyoiku/kanri/kysoumu/kosodate/gakko/jose/shugakuenjo.html"
+  },
+  {
     "id": "kanoya-akiya-kaitai",
     "name": "危険空き家解体撤去費補助金",
     "provider": "鹿児島県鹿屋市",
@@ -46560,6 +47820,145 @@ export const RESIDENT_PROGRAMS = [
     "period": "2026-05-07〜2026-11-13",
     "deadline": "2026-11-13",
     "url": "https://www.city.naha.okinawa.jp/kurasitetuduki/life/1002061/1002064/1002067.html"
+  },
+  {
+    "id": "naha-fuikushou-kensa",
+    "name": "不育症検査費用助成事業",
+    "provider": "那覇市保健所 地域保健課",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "1回の検査に係る費用の7割に相当する額、助成上限額6万円",
+    "summary": "不育症検査のうち厚生労働大臣が告示した先進医療として行われる不育症検査に要する費用の一部を助成します。",
+    "eligibility": [
+      "那覇市内に住民登録していること",
+      "2回以上の流産・死産の既往がある方"
+    ],
+    "prefectures": [
+      "沖縄県"
+    ],
+    "cities": [
+      "那覇市"
+    ],
+    "period": "申請期間 令和8年度対象分：令和8年4月1日～令和9年3月31日",
+    "deadline": "2027-03-31",
+    "url": "https://www.city.naha.okinawa.jp/nahahokenjyo/bosihoken/1006451/1006457.html"
+  },
+  {
+    "id": "naha-koutou-shokugyo",
+    "name": "ひとり親家庭高等職業訓練促進給付金",
+    "provider": "那覇市 こどもみらい部 子育て応援課",
+    "level": "municipality",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "要確認",
+    "summary": "母子家庭の母または父子家庭の父が看護師や介護福祉士等の資格取得のため6ヶ月以上養成機関で修業する期間（最長48カ月）の生活の負担軽減を図る給付金です。",
+    "eligibility": [
+      "児童扶養手当の支給を受けている又は、同様の所得水準にあること",
+      "養成機関において、6ヶ月以上のカリキュラムを修業し、対象資格の取得が見込まれる者"
+    ],
+    "prefectures": [
+      "沖縄県"
+    ],
+    "cities": [
+      "那覇市"
+    ],
+    "period": "令和8年度追加募集：令和8年10月1日（木曜日）～令和8年11月30日（月曜日）",
+    "deadline": "2026-11-30",
+    "url": "https://www.city.naha.okinawa.jp/child/kosodateouen/1002864/1002869.html"
+  },
+  {
+    "id": "naha-kyushoku-bento",
+    "name": "那覇市立小中学校給食弁当代替者補助金",
+    "provider": "那覇市 学校教育部 学校給食課",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "補助金",
+    "amount": "令和8年度の補助基準単価×弁当対応日数（全額補助）",
+    "summary": "やむを得ない理由により学校給食の提供を受けられず毎回弁当を持参する児童生徒の保護者に、経済的負担の軽減を目的に補助金を交付します。",
+    "eligibility": [
+      "那覇市立小学校又は中学校に通学している児童生徒の保護者",
+      "やむを得ない理由で、届け出の上、毎回学校に弁当を持参している"
+    ],
+    "prefectures": [
+      "沖縄県"
+    ],
+    "cities": [
+      "那覇市"
+    ],
+    "period": "令和8年度（申請手続きは通学する学校へ問い合わせ）",
+    "deadline": null,
+    "url": "https://www.city.naha.okinawa.jp/child/school/1006102/1008784.html"
+  },
+  {
+    "id": "naha-manabi-coupon",
+    "name": "那覇市まなびクーポン事業",
+    "provider": "那覇市 こどもみらい部 こども政策課",
+    "level": "municipality",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "小学4～6年生：84,000円／中学1～3年生：120,000円（1人あたり・年額）",
+    "summary": "家庭の経済的理由で学校外教育が受けられない子どもたちに、学習塾代等を助成する「那覇市まなびクーポン」を交付します。",
+    "eligibility": [
+      "那覇市内在住の小学4年生から中学3年生",
+      "生活保護受給世帯、就学援助認定世帯、児童扶養手当受給世帯のいずれか"
+    ],
+    "prefectures": [
+      "沖縄県"
+    ],
+    "cities": [
+      "那覇市"
+    ],
+    "period": "令和8年度の利用申込受付中。クーポンの利用期限は令和9年2月28日（日曜日）まで",
+    "deadline": "2027-01-31",
+    "url": "https://www.city.naha.okinawa.jp/child/school/1002812/1002813/1002816.html"
+  },
+  {
+    "id": "naha-senshin-funin",
+    "name": "先進医療不妊治療費助成事業",
+    "provider": "那覇市保健所 地域保健課",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "先進医療技術ごとの基準額と支払額を比べて少ない方の額の7割（助成率7／10）",
+    "summary": "特定不妊治療のうち保険適用となる治療と併せて実施する先進医療に要する経費の一部を助成します。",
+    "eligibility": [
+      "夫婦のいずれか一方が那覇市内に住民登録していること",
+      "治療開始時点における妻の年齢が43歳未満であること",
+      "令和4年4月1日以降に先進医療不妊治療を開始し、申請時点で治療が終了していること"
+    ],
+    "prefectures": [
+      "沖縄県"
+    ],
+    "cities": [
+      "那覇市"
+    ],
+    "period": "申請期間 令和8年度対象分：令和8年4月1日～令和9年3月31日",
+    "deadline": "2027-03-31",
+    "url": "https://www.city.naha.okinawa.jp/nahahokenjyo/bosihoken/1006451/1006453.html"
+  },
+  {
+    "id": "naha-shuugaku-enjo",
+    "name": "令和8年度 就学援助",
+    "provider": "那覇市教育委員会 学務課",
+    "level": "municipality",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "給食費、修学旅行費などの費用の一部を援助",
+    "summary": "経済的理由により給食費、修学旅行費などの支払いがお困りの小・中学校へ通う子どもの保護者に、費用の一部を援助します。",
+    "eligibility": [
+      "市町村民税が非課税の世帯",
+      "生活保護を受けている家庭に準ずる程度に生活が困窮していると認められる世帯"
+    ],
+    "prefectures": [
+      "沖縄県"
+    ],
+    "cities": [
+      "那覇市"
+    ],
+    "period": "4月申請は令和8年4月1日（水曜日）から令和8年4月30日（木曜日）締切、5月申請以降は毎月1日から末日締切。最終の締切日：令和8年12月28日(月曜日)",
+    "deadline": "2026-12-28",
+    "url": "https://www.city.naha.okinawa.jp/child/school/1006074/1010879.html"
   },
   {
     "id": "okinawa-akiya-josyaku",
