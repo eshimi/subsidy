@@ -4345,6 +4345,29 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.hitachi.lg.jp/machizukuri_kankyo/kenchiku/1002181.html"
   },
   {
+    "id": "hitachi-bus",
+    "name": "路線バス通学用定期券購入費用の助成（令和8年度）",
+    "provider": "日立市 都市政策課",
+    "level": "municipality",
+    "category": "教育・学び",
+    "type": "助成金",
+    "amount": "通学用定期券購入費用の2割（100円未満切捨て）",
+    "summary": "路線バスで通学する小・中学生、高校生の保護者に、通学用定期券の購入費用の一部を助成します。",
+    "eligibility": [
+      "小・中学生、高校生の保護者で、日立市に住民登録がある方",
+      "日立市内のバス停を発地又は着地とする路線バスを利用して通学していること"
+    ],
+    "prefectures": [
+      "茨城県"
+    ],
+    "cities": [
+      "日立市"
+    ],
+    "period": "令和8年4月1日（水曜）から令和9年3月19日（金曜）まで",
+    "deadline": "2027-03-19",
+    "url": "https://www.city.hitachi.lg.jp/kosodateoen/mokuteki_sagasu/1007202/1018527.html"
+  },
+  {
     "id": "hitachi-eco-mirai",
     "name": "ひたちエコみらい住宅助成",
     "provider": "茨城県日立市",
@@ -4368,6 +4391,29 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.hitachi.lg.jp/kurashi_tetsuzuki/sumai/1002171/1007303/1013151.html"
   },
   {
+    "id": "hitachi-funin",
+    "name": "日立市不妊治療費助成事業",
+    "provider": "日立市 健康づくり推進課",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "生殖補助医療・男性不妊治療とも1回の治療につき10万円を限度",
+    "summary": "令和8年4月1日以降に終了した生殖補助医療（体外受精・顕微授精、男性不妊治療）の自己負担した治療費を助成します。",
+    "eligibility": [
+      "夫又は妻のいずれか一方又は両方が日立市内に1年以上住所を有していること",
+      "治療期間の初日における妻の年齢が43歳未満であること"
+    ],
+    "prefectures": [
+      "茨城県"
+    ],
+    "cities": [
+      "日立市"
+    ],
+    "period": "治療が終了した日の属する年度内に申請",
+    "deadline": null,
+    "url": "https://www.city.hitachi.lg.jp/kosodateoen/mokuteki_sagasu/1007202/1007553/1005670.html"
+  },
+  {
     "id": "hitachi-ijushienkin",
     "name": "移住支援金",
     "provider": "茨城県日立市",
@@ -4389,6 +4435,74 @@ export const RESIDENT_PROGRAMS = [
     "period": "最新は要確認",
     "deadline": null,
     "url": "https://www.city.hitachi.lg.jp/kurashi_tetsuzuki/sumai/1002171/1007303/1002714.html"
+  },
+  {
+    "id": "hitachi-marufuku",
+    "name": "医療福祉費支給制度（マル福）",
+    "provider": "日立市",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "0歳から18歳までは医療費が全額無料（市独自の助成）",
+    "summary": "小児、妊産婦、ひとり親家庭、重度心身障害者の方の医療費の自己負担分を助成する制度です。",
+    "eligibility": [
+      "小児：出生から18歳到達後の最初の3月31日までの児童",
+      "妊産婦：母子健康手帳の交付を受けた方",
+      "ひとり親家庭：18歳未満の児童を育てているひとり親とその児童"
+    ],
+    "prefectures": [
+      "茨城県"
+    ],
+    "cities": [
+      "日立市"
+    ],
+    "period": "通年（要確認）",
+    "deadline": null,
+    "url": "https://www.city.hitachi.lg.jp/fukushi_kenko/hojokin_joseikin/1009459.html"
+  },
+  {
+    "id": "hitachi-oen",
+    "name": "令和8年度日立市子育て（未就学児）世帯応援給付金",
+    "provider": "日立市 子育て支援課",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "給付",
+    "amount": "未就学児1人当たり6千円（1回限り）",
+    "summary": "物価高の影響を受ける子育て世帯を支援するため、未就学児を養育する世帯に給付金を支給します。",
+    "eligibility": [
+      "令和8年9月30日に市の住民基本台帳に登録されている未就学児（令和2年4月2日から令和8年9月30日までに出生）を養育している方"
+    ],
+    "prefectures": [
+      "茨城県"
+    ],
+    "cities": [
+      "日立市"
+    ],
+    "period": "申請期限：令和8年12月25日（金曜日）必着",
+    "deadline": "2026-12-25",
+    "url": "https://www.city.hitachi.lg.jp/kosodateoen/mokuteki_sagasu/1007202/1021100.html"
+  },
+  {
+    "id": "hitachi-sanka",
+    "name": "妊婦の初回産科受診料の助成",
+    "provider": "日立市 健康づくり推進課",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "助成金",
+    "amount": "上限1万円（償還払い）",
+    "summary": "母子健康手帳交付前の初回産科受診に対する費用を助成します。",
+    "eligibility": [
+      "住民税非課税世帯または同様の所得水準にある妊婦"
+    ],
+    "prefectures": [
+      "茨城県"
+    ],
+    "cities": [
+      "日立市"
+    ],
+    "period": "初回産科受診日から6か月になる前日まで",
+    "deadline": null,
+    "url": "https://www.city.hitachi.lg.jp/kosodateoen/mokuteki_sagasu/1007202/1007553/1005669.html"
   },
   {
     "id": "hitachi-sumikae",
@@ -4435,6 +4549,28 @@ export const RESIDENT_PROGRAMS = [
     "period": "令和8年4月27日～（改修関連の申請は11月30日まで）",
     "deadline": "2026-11-30",
     "url": "https://www.city.hitachi.lg.jp/machizukuri_kankyo/kenchiku/1016230.html"
+  },
+  {
+    "id": "hitachi-taxi",
+    "name": "マタニティ子育てタクシー費用助成事業",
+    "provider": "日立市",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "助成金",
+    "amount": "上限15,000円",
+    "summary": "妊産婦や乳児が健診や予防接種、体調不良などで市内の医療機関を受診する際のタクシー料金の一部を助成します。",
+    "eligibility": [
+      "妊産婦と生後1歳未満の乳児"
+    ],
+    "prefectures": [
+      "茨城県"
+    ],
+    "cities": [
+      "日立市"
+    ],
+    "period": "母子健康手帳交付後からお子さんが1歳になる前日まで",
+    "deadline": null,
+    "url": "https://www.city.hitachi.lg.jp/kosodateoen/mokuteki_sagasu/1007202/1007553/1011495.html"
   },
   {
     "id": "hitachi-zeh",
@@ -4527,6 +4663,54 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.ibaraki-koga.lg.jp/soshiki/kenchiku/1/14825.html"
   },
   {
+    "id": "koga-fuiku-chiryohi",
+    "name": "古河市不育症治療費助成事業",
+    "provider": "古河市 子育て包括支援課",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "年度内に1回まで、50,000円を上限",
+    "summary": "子どもを望んでいる夫婦の経済的負担の軽減を図るため、保険適用外の不育症の検査および治療費を助成する。",
+    "eligibility": [
+      "2回以上の流産等により、医師に不育症と診断された方",
+      "法律上の婚姻をしている夫婦（事実婚を含む）",
+      "継続して1年以上、夫婦いずれかが古河市に住民登録している"
+    ],
+    "prefectures": [
+      "茨城県"
+    ],
+    "cities": [
+      "古河市"
+    ],
+    "period": "不育症の治療が終了した日の属する年度内に申請",
+    "deadline": null,
+    "url": "https://www.city.ibaraki-koga.lg.jp/soshiki/kosodatehoukatusien/9/funinnfuikushou/14654.html"
+  },
+  {
+    "id": "koga-funin-chiryohi",
+    "name": "古河市不妊治療助成金交付事業",
+    "provider": "古河市 子育て包括支援課",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "1回の治療につき先進医療にかかった費用の上限50,000円",
+    "summary": "令和8年度より、生殖補助医療と先進医療を組み合わせて不妊治療を行った方に、先進医療の費用の一部を助成する。",
+    "eligibility": [
+      "法律上の婚姻をしている夫婦（事実婚も含む）",
+      "1回の治療の初日における女性の年齢が43歳未満",
+      "継続して1年以上、夫婦いずれかが古河市に住民登録している"
+    ],
+    "prefectures": [
+      "茨城県"
+    ],
+    "cities": [
+      "古河市"
+    ],
+    "period": "1回の治療が終了した日の属する年度内に申請",
+    "deadline": null,
+    "url": "https://www.city.ibaraki-koga.lg.jp/soshiki/kosodatehoukatusien/9/funinnfuikushou/22042.html"
+  },
+  {
     "id": "koga-jiritsu-bunsan",
     "name": "古河市自立・分散型エネルギー設備導入補助(蓄電システム)",
     "provider": "茨城県古河市",
@@ -4550,6 +4734,53 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.ibaraki-koga.lg.jp/soshiki/kankyo/7/20000.html"
   },
   {
+    "id": "koga-kodomo-influenza",
+    "name": "小児用インフルエンザ予防接種費用の助成（令和8年度）",
+    "provider": "古河市 健康づくり課 感染症対策係",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "助成金",
+    "amount": "1回あたり1,000円",
+    "summary": "子育て世帯の経済的負担軽減と重症化・まん延の予防のため、小児インフルエンザ予防接種費用の一部を市が助成する。",
+    "eligibility": [
+      "古河市に住所を有し、接種日時点で生後6か月以上～高校3年生相当年齢の人",
+      "生活保護を受給している人は全額免除（接種前に申請）"
+    ],
+    "prefectures": [
+      "茨城県"
+    ],
+    "cities": [
+      "古河市"
+    ],
+    "period": "令和8年10月1日～令和9年1月31日（接種期間）",
+    "deadline": null,
+    "url": "https://www.city.ibaraki-koga.lg.jp/bunrui/kenkofukushi/medical_health/5/4168.html"
+  },
+  {
+    "id": "koga-koreisha-influenza",
+    "name": "高齢者のインフルエンザ予防接種費用の助成（令和8年度）",
+    "provider": "古河市 健康づくり課 感染症対策係",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "2,000円",
+    "summary": "高齢者のインフルエンザ予防接種費用の一部を助成する。医療機関への支払い時に接種費用から2,000円を差し引いて支払う。",
+    "eligibility": [
+      "古河市に住所を有し、接種日時点で65歳以上の方",
+      "60～64歳で一定の障害を有する方は、接種前に健康づくり課に申請",
+      "生活保護を受給している人は全額免除（接種前に申請）"
+    ],
+    "prefectures": [
+      "茨城県"
+    ],
+    "cities": [
+      "古河市"
+    ],
+    "period": "令和8年10月1日～令和9年1月31日（接種期間）",
+    "deadline": null,
+    "url": "https://www.city.ibaraki-koga.lg.jp/bunrui/kenkofukushi/medical_health/5/6413.html"
+  },
+  {
     "id": "koga-machinaka-jutaku",
     "name": "古河市若者・子育て世帯まちなか住宅取得奨励金",
     "provider": "茨城県古河市",
@@ -4571,6 +4802,54 @@ export const RESIDENT_PROGRAMS = [
     "period": "取得期間は令和8年12月31日まで(最新は要確認)",
     "deadline": "2026-12-31",
     "url": "https://www.city.ibaraki-koga.lg.jp/soshiki/hisyokouho/5_1/18308.html"
+  },
+  {
+    "id": "koga-matsuoka-shogakukin",
+    "name": "松岡奨学金（松岡奨学生の募集）",
+    "provider": "古河市 教育総務課",
+    "level": "municipality",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "月額1万円（7月と12月の年2回に分けて支給）",
+    "summary": "経済的理由で修学が困難な高校生等に、教育の機会均等のため奨学金を支給する制度。新規募集枠は14人。",
+    "eligibility": [
+      "高等学校等に在学し、経済的理由により修学が困難な人",
+      "保護者が1年以上（令和8年4月1日現在）市内に居住している",
+      "国、県、その他の団体から奨学金等の給付を受けていない（貸付は除外）"
+    ],
+    "prefectures": [
+      "茨城県"
+    ],
+    "cities": [
+      "古河市"
+    ],
+    "period": "令和8年6月1日（月曜日）～令和8年6月12日（金曜日）",
+    "deadline": "2026-06-12",
+    "url": "https://www.city.ibaraki-koga.lg.jp/bunrui/kosodategakko/pareting/3/7916.html"
+  },
+  {
+    "id": "koga-shugakuenjo",
+    "name": "就学援助",
+    "provider": "古河市 教育総務課",
+    "level": "municipality",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "令和8年度支給額（小学校の学用品費11,630円、新入学学用品費64,300円 など）",
+    "summary": "経済的にお困りな児童生徒の保護者に、学用品費や修学旅行費などの就学に必要な経費を一部援助する制度。",
+    "eligibility": [
+      "古河市に住所を有する児童生徒の保護者",
+      "市民税が非課税または減免の扱いを受けている（同居者全員）などの要件のいずれかに該当",
+      "児童扶養手当を受給している など。所得を考慮し認定の可否を判断"
+    ],
+    "prefectures": [
+      "茨城県"
+    ],
+    "cities": [
+      "古河市"
+    ],
+    "period": "通年（要確認）",
+    "deadline": null,
+    "url": "https://www.city.ibaraki-koga.lg.jp/bunrui/kosodategakko/pareting/edu/7919.html"
   },
   {
     "id": "koga-taishin",
@@ -4616,6 +4895,29 @@ export const RESIDENT_PROGRAMS = [
     "period": "令和8年度は4月1日〜11月30日（予定件数に達し次第終了）",
     "deadline": "2026-11-30",
     "url": "https://www.city.mito.lg.jp/page/47266.html"
+  },
+  {
+    "id": "mito-daigaku-juken-shien",
+    "name": "令和８年度大学等受験料及び模擬試験受験料支援事業補助金",
+    "provider": "水戸市 こども政策課",
+    "level": "municipality",
+    "category": "教育・学び",
+    "type": "補助金",
+    "amount": "大学等受験料 上限53,000円／模擬試験受験料（高校３年生等）上限8,000円／模擬試験受験料（中学３年生）上限6,000円",
+    "summary": "ひとり親家庭や低所得子育て世帯のこどもの進学を支援するために、大学等受験料や模擬試験受験料を補助します。",
+    "eligibility": [
+      "申請日時点で申請者（保護者）の住民登録が水戸市にあること",
+      "児童扶養手当受給世帯、生活保護受給世帯、住民税非課税世帯のいずれかに該当する方"
+    ],
+    "prefectures": [
+      "茨城県"
+    ],
+    "cities": [
+      "水戸市"
+    ],
+    "period": "令和８年８月３日（月）から令和９年３月12日（金）まで ※郵送必着",
+    "deadline": null,
+    "url": "https://www.city.mito.lg.jp/site/kosodate/128178.html"
   },
   {
     "id": "mito-iju-shienkin",
@@ -4686,6 +4988,29 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.mito.lg.jp/page/4153.html"
   },
   {
+    "id": "mito-marufuku-iryohi-josei",
+    "name": "医療福祉費助成制度（マル福制度）",
+    "provider": "水戸市 国保年金課",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "自己負担：外来は1つの医療機関につき1日600円まで、入院は1日300円まで（月の上限3,000円）、調剤薬局は自己負担なし",
+    "summary": "妊産婦・子ども・ひとり親家庭の親と子・重度心身障害者などの方が医療機関等にかかった場合に、一部負担金を助成する制度です。茨城県と水戸市が実施しています。",
+    "eligibility": [
+      "妊産婦・子ども・ひとり親家庭の親と子・重度心身障害者などの医療福祉受給対象者の方",
+      "医療福祉費受給者証（マル福）の交付を受ける申請手続きが必要"
+    ],
+    "prefectures": [
+      "茨城県"
+    ],
+    "cities": [
+      "水戸市"
+    ],
+    "period": "通年（要確認）",
+    "deadline": null,
+    "url": "https://www.city.mito.lg.jp/page/2147.html"
+  },
+  {
     "id": "mito-mokuzo-taishin-kaishu",
     "name": "水戸市木造住宅耐震改修費補助",
     "provider": "水戸市",
@@ -4704,6 +5029,52 @@ export const RESIDENT_PROGRAMS = [
     "period": "令和8年4月1日～11月30日（予算なくなり次第終了）",
     "deadline": "2026-11-30",
     "url": "https://www.city.mito.lg.jp/page/47264.html"
+  },
+  {
+    "id": "mito-shinnyusei-ouenkin",
+    "name": "小・中学校新入生応援金",
+    "provider": "水戸市",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "給付",
+    "amount": "支給対象児童1人当たり 3万円",
+    "summary": "小学校又は中学校に入学する年齢のこどもがいる子育て世帯等に、経済的負担の軽減と学びの環境を整えるための支援として応援金を支給します。",
+    "eligibility": [
+      "令和8年5月1日時点で水戸市に住民登録があり、令和8年度に小学校又は中学校に就学する年齢に相当する児童を監護する方"
+    ],
+    "prefectures": [
+      "茨城県"
+    ],
+    "cities": [
+      "水戸市"
+    ],
+    "period": "申請期限は令和9年3月31日まで",
+    "deadline": "2027-03-31",
+    "url": "https://www.city.mito.lg.jp/site/kosodate/125050.html"
+  },
+  {
+    "id": "mito-shugaku-enjo",
+    "name": "就学援助制度（要保護及び準要保護児童生徒就学援助制度）",
+    "provider": "水戸市 学校管理課",
+    "level": "municipality",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "要確認（支給額等は「令和８年度就学援助制度のお知らせ」に記載）",
+    "summary": "経済的な理由により、お子さんに教育を受けさせることが困難な保護者に対して、学校教育で必要な費用の一部を援助します。",
+    "eligibility": [
+      "市内に住所を有し、国公立の小学校・中学校・義務教育学校・中等教育学校前期課程に在学するお子さんの保護者",
+      "生活保護を受けている方（要保護者）",
+      "要保護者に準ずる程度に困窮していると認められる方（準要保護者）"
+    ],
+    "prefectures": [
+      "茨城県"
+    ],
+    "cities": [
+      "水戸市"
+    ],
+    "period": "通年（要確認）",
+    "deadline": null,
+    "url": "https://www.city.mito.lg.jp/site/education/3517.html"
   },
   {
     "id": "mito-v2h",
@@ -4726,6 +5097,100 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.mito.lg.jp/site/ondanka/96177.html"
   },
   {
+    "id": "mito-youikuhi-uketori-shien",
+    "name": "こどもの養育費受取支援補助金",
+    "provider": "水戸市 こども政策課",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "補助金",
+    "amount": "補助上限額 49，000円",
+    "summary": "ひとり親の方または離婚協議中で離婚後に子を扶養する予定の方に対し、養育費の取決めに関する公正証書の作成手数料等を補助します。",
+    "eligibility": [
+      "水戸市内にお住まいで、ひとり親の方または離婚協議中で離婚後に子を扶養する予定の方",
+      "1年以内に公正証書、裁判所の調停証書、判決書などを作成または取得した方",
+      "過去に同様の補助金等を受けていない方"
+    ],
+    "prefectures": [
+      "茨城県"
+    ],
+    "cities": [
+      "水戸市"
+    ],
+    "period": "通年（要確認）",
+    "deadline": null,
+    "url": "https://www.city.mito.lg.jp/site/kosodate/98225.html"
+  },
+  {
+    "id": "toride-chokaku-kensa",
+    "name": "新生児聴覚検査費用の助成",
+    "provider": "取手市 保健センター",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "助成金",
+    "amount": "自動ABR検査5,000円・OAE検査3,000円を上限に助成",
+    "summary": "早期発見・早期療育を図るため、新生児聴覚検査費用の一部を助成する。",
+    "eligibility": [
+      "検査当日に取手市に住民登録がある新生児"
+    ],
+    "prefectures": [
+      "茨城県"
+    ],
+    "cities": [
+      "取手市"
+    ],
+    "period": "償還払いの申請期限は検査した日から1年以内",
+    "deadline": null,
+    "url": "https://www.city.toride.ibaraki.jp/hokencenter/kurashi/kosodate/ninshin/support/sinnseijityoukakukennsajosei.html"
+  },
+  {
+    "id": "toride-funin-chiryohi",
+    "name": "取手市不妊治療費助成事業",
+    "provider": "取手市 保健センター",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "先進医療に要した費用の1回の治療につき上限4万円",
+    "summary": "不妊治療における夫婦の経済的負担軽減を図るため、不妊治療に係る経費の一部を助成する。令和8年4月から一部の対象のかたに、さらなる助成がはじまった。",
+    "eligibility": [
+      "治療期間の初日における妻の年齢が43歳未満である夫婦",
+      "医療保険が適応される生殖補助医療と先進医療を組み合わせて治療を行ったかた",
+      "令和8年4月1日から令和9年2月26日の間に治療を終了したかた"
+    ],
+    "prefectures": [
+      "茨城県"
+    ],
+    "cities": [
+      "取手市"
+    ],
+    "period": "令和8年4月1日から令和9年2月26日の間に治療を終了したかた",
+    "deadline": "2027-02-26",
+    "url": "https://www.city.toride.ibaraki.jp/hokencenter/kurashi/kosodate/ninshin/support/funinjose.html"
+  },
+  {
+    "id": "toride-iryohi-maruhuku-nukumori",
+    "name": "医療費の助成（医療福祉制度マル福・ぬくもり支援事業）",
+    "provider": "取手市 国保年金課",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "保険診療医療費の一部負担金などを助成（要確認）",
+    "summary": "小児、妊産婦、母子家庭の母子、父子家庭の父子、重度心身障害者などの保険診療医療費の一部負担金などを助成する。マル福に該当しないかた向けに市単独のぬくもり支援事業もある。",
+    "eligibility": [
+      "取手市内に住所のあるかたで、小児（出生の日から18歳に達する日以後の3月31日まで）、妊産婦など",
+      "母子家庭の母子（または父子家庭の父子）",
+      "事前の登録（申請）が必要"
+    ],
+    "prefectures": [
+      "茨城県"
+    ],
+    "cities": [
+      "取手市"
+    ],
+    "period": "通年（要確認）",
+    "deadline": null,
+    "url": "https://www.city.toride.ibaraki.jp/kokuho/kurashi/kosodate/ninshin/kezaishien/iryohi.html"
+  },
+  {
     "id": "toride-jutaku-shutoku",
     "name": "定住化促進住宅補助（住宅取得補助金・とりで住ま入る支援プラン）",
     "provider": "茨城県取手市",
@@ -4746,6 +5211,78 @@ export const RESIDENT_PROGRAMS = [
     "period": "令和8年度。受付期間は要確認",
     "deadline": null,
     "url": "https://www.city.toride.ibaraki.jp/toshikeikaku/kurashi/sumai/sumai/hojosedo/jutakushutoku.html"
+  },
+  {
+    "id": "toride-mutsuu-bunben",
+    "name": "無痛分娩費用の助成",
+    "provider": "取手市 こども政策課",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "助成金",
+    "amount": "1回の分娩につき10万円",
+    "summary": "無痛分娩により出産したかたの経済的な負担を軽減するため、無痛分娩に要した費用の一部を助成する。",
+    "eligibility": [
+      "無痛分娩により出産したかた",
+      "無痛分娩を実施した日において、市内に住所を有しており引き続き定住の意思があるかた",
+      "市税等に滞納がないかた"
+    ],
+    "prefectures": [
+      "茨城県"
+    ],
+    "cities": [
+      "取手市"
+    ],
+    "period": "出産した日の翌日から起算して3か月以内に申請",
+    "deadline": null,
+    "url": "https://www.city.toride.ibaraki.jp/kodomo-seisaku/kurashi/kosodate/ninshin/support/mutuubunben.html"
+  },
+  {
+    "id": "toride-omedetoubako",
+    "name": "出産「おめでとうばこ」",
+    "provider": "取手市 こども政策課",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "給付",
+    "amount": "要確認（ベビーソープ・おしりふき・液体ミルクなどの詰め合わせを無料で自宅へ配送）",
+    "summary": "取手市で生まれた赤ちゃんとそのご家庭をお祝いして「おめでとうばこ」をプレゼントする。自宅まで無料で届ける。",
+    "eligibility": [
+      "取手市にお住まいで、市の「こんにちは赤ちゃん訪問」を受けたご家庭",
+      "令和7年10月1日以降に出産されたかた",
+      "お子様お1人につき1つ"
+    ],
+    "prefectures": [
+      "茨城県"
+    ],
+    "cities": [
+      "取手市"
+    ],
+    "period": "申込カードを受け取ってから1ヶ月以内に申込",
+    "deadline": null,
+    "url": "https://www.city.toride.ibaraki.jp/kodomo-seisaku/kurashi/kosodate/ninshin/support/omedetoubox.html"
+  },
+  {
+    "id": "toride-omutsu-teikibin",
+    "name": "とりでっ子見守りおむつ定期便",
+    "provider": "取手市 こども政策課",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "給付",
+    "amount": "毎月3,000円相当の子育て用品（おむつなど）",
+    "summary": "市内で乳児（0歳児）を養育する家庭に、毎月3,000円相当の子育て用品を、満1歳の誕生月まで見守り支援員が配達する。",
+    "eligibility": [
+      "取手市内に住民登録がある0歳児のお子様がいるご家庭（生後5か月から満1歳の誕生月まで）",
+      "令和8年4月1日以降に生まれたお子様がいるご家庭",
+      "利用には申請が必要"
+    ],
+    "prefectures": [
+      "茨城県"
+    ],
+    "cities": [
+      "取手市"
+    ],
+    "period": "令和8年9月から（生後5か月から満1歳の誕生月まで、最大8回）",
+    "deadline": null,
+    "url": "https://www.city.toride.ibaraki.jp/kodomo-seisaku/kurashi/kosodate/ninshin/kezaishien/mimamoriomutsuteikibin.html"
   },
   {
     "id": "toride-renovation",
@@ -4792,6 +5329,77 @@ export const RESIDENT_PROGRAMS = [
     "period": "最新は要確認",
     "deadline": null,
     "url": "https://reiki.city.toride.ibaraki.jp/reiki_honbun/e016RG00000538.html"
+  },
+  {
+    "id": "toride-shogakukin",
+    "name": "取手市の奨学金制度",
+    "provider": "取手市 教育総務課",
+    "level": "municipality",
+    "category": "教育・学び",
+    "type": "融資",
+    "amount": "月額 国公立40,000円・私立50,000円（無利子で貸与）",
+    "summary": "経済的な理由により修学が困難なかたに、高等教育の機会均等を図るため、学業に必要な資金の一部を無利子で貸与する。",
+    "eligibility": [
+      "取手市内に居住し、市税等の滞納のないかたの子等",
+      "大学・短期大学に入学予定または在学中、または高等専門学校の第4学年・第5学年に在学中のかた",
+      "高等学校第3学年の成績が平均3.0以上であるかた"
+    ],
+    "prefectures": [
+      "茨城県"
+    ],
+    "cities": [
+      "取手市"
+    ],
+    "period": "「令和8年度取手市奨学生を募集します」を参照",
+    "deadline": null,
+    "url": "https://www.city.toride.ibaraki.jp/kyoikusomu/kurashi/kosodate/gakko/shogakukin.html"
+  },
+  {
+    "id": "toride-shoninpu-jushin",
+    "name": "低所得の妊婦に対する初回産科受診料支援事業",
+    "provider": "取手市 保健センター",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "助成金",
+    "amount": "初回産科受診1回あたり、上限1万円",
+    "summary": "低所得世帯のかたが妊娠判定のため医療機関を受診した費用を一部助成する。",
+    "eligibility": [
+      "初回産科受診をした時点で、市に住所を有しているかた",
+      "市民税非課税世帯に属するかたあるいは生活保護を受給しているかた"
+    ],
+    "prefectures": [
+      "茨城県"
+    ],
+    "cities": [
+      "取手市"
+    ],
+    "period": "通年（要確認）",
+    "deadline": null,
+    "url": "https://www.city.toride.ibaraki.jp/hokencenter/kurashi/kosodate/ninshin/kezaishien/teisyotokuninpu.html"
+  },
+  {
+    "id": "toride-shugakuenjo",
+    "name": "就学援助制度",
+    "provider": "取手市 学務課",
+    "level": "municipality",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "要確認（学校生活で必要な費用の一部を援助）",
+    "summary": "経済的理由により就学させることが困難と認められる児童・生徒の保護者に、学校生活で必要な費用の一部を援助する。",
+    "eligibility": [
+      "取手市に住所を有し、現在生活保護を受けているかた",
+      "生活保護に近い生活状態のかた（生活困窮のかた）",
+      "休業、離職等で所得が前年度を大きく下回る世帯（家計急変世帯）"
+    ],
+    "prefectures": [
+      "茨城県"
+    ],
+    "cities": [
+      "取手市"
+    ],
+    "period": "令和8年5月1日（金曜日）から令和8年5月29日（金曜日）まで（年度当初認定。以降も随時受付）",
+    "deadline": "2026-05-29",
+    "url": "https://www.city.toride.ibaraki.jp/gakumu/kurashi/kosodate/ninshin/kezaishien/shugakuenjo.html"
   },
   {
     "id": "toride-solar-r8",
@@ -4931,6 +5539,78 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.tsuchiura.lg.jp/kankyo-kotsu-machizukuri/toshikeikaku-machizukuri/kenchiku/hojo-josei/page014161.html"
   },
   {
+    "id": "tsuchiura-daigaku-juken-shien",
+    "name": "ひとり親家庭等に対する大学等受験料及び模擬試験受験料支援補助金",
+    "provider": "土浦市 こども政策課",
+    "level": "municipality",
+    "category": "教育・学び",
+    "type": "補助金",
+    "amount": "大学等受験料 上限53,000円／模擬試験受験料（大学受験）上限8,000円／模擬試験受験料（高校受験）上限6,000円",
+    "summary": "ひとり親家庭や生活困窮世帯のこどもの進学に向けて、大学等の受験料や模擬試験の受験料について支援金を支給します。",
+    "eligibility": [
+      "児童扶養手当受給世帯、または同等の所得水準のひとり親家庭・養育者世帯",
+      "対象世帯の全員が市民税非課税世帯（生活保護受給世帯を含む）",
+      "申請時点で申請者の住民票が土浦市にある方"
+    ],
+    "prefectures": [
+      "茨城県"
+    ],
+    "cities": [
+      "土浦市"
+    ],
+    "period": "令和8年9月1日（火）から令和9年3月20日（土）まで ※郵送必着",
+    "deadline": null,
+    "url": "https://www.city.tsuchiura.lg.jp/kosodate-kyoiku/syussan-kosodate/teate-jose/page022222.html"
+  },
+  {
+    "id": "tsuchiura-funin-chiryohi",
+    "name": "土浦市不妊治療費助成",
+    "provider": "土浦市 こども包括支援課",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "先進医療は1回の治療につき4万円まで／保険適用外の生殖補助医療（4回目、5回目）は1回の治療につき10万円まで",
+    "summary": "保険適用の生殖補助医療と先進医療を組み合わせた不妊治療や、令和8年7月1日から40歳～43歳未満の保険適用回数を超える自費の生殖補助医療の費用の一部を助成します。",
+    "eligibility": [
+      "治療期間の初日における妻の年齢が43歳未満である夫婦",
+      "夫婦いずれにも市税等の滞納がない方",
+      "法律上の婚姻をしている方、または事実婚の関係にある方"
+    ],
+    "prefectures": [
+      "茨城県"
+    ],
+    "cities": [
+      "土浦市"
+    ],
+    "period": "治療が終了した日から起算して90日を経過する日または、治療が終了した時点の年度内3月31日まで",
+    "deadline": null,
+    "url": "https://www.city.tsuchiura.lg.jp/kosodate-kyoiku/syussan-kosodate/boshinokenko-iryo/josejigyo-goannai/page022280.html"
+  },
+  {
+    "id": "tsuchiura-hitorioya-kunren-sokushin",
+    "name": "ひとり親家庭高等職業訓練促進費助成事業",
+    "provider": "土浦市 こども政策課",
+    "level": "municipality",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "高等職業訓練促進給付金 月額70，500円（市民税非課税世帯は月額100，000円）／修了支援給付金 25，000円（市民税非課税世帯は50，000円）",
+    "summary": "ひとり親家庭の父または母が、就職に有利で生活の安定に役立つ資格を取得するため養成機関などで修学する場合に、給付金を支給します。",
+    "eligibility": [
+      "市内在住のひとり親家庭の父または母",
+      "児童扶養手当の支給を受けているか、又は同様の所得水準にある方",
+      "対象資格を取得するため6月以上のカリキュラムを修学し、対象資格の取得が見込まれる方"
+    ],
+    "prefectures": [
+      "茨城県"
+    ],
+    "cities": [
+      "土浦市"
+    ],
+    "period": "修学の全期間（申請月から、最長48か月）",
+    "deadline": null,
+    "url": "https://www.city.tsuchiura.lg.jp/kosodate-kyoiku/syussan-kosodate/teate-jose/page004233.html"
+  },
+  {
     "id": "tsuchiura-ikegaki",
     "name": "生垣設置補助",
     "provider": "茨城県土浦市",
@@ -4953,6 +5633,30 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.tsuchiura.lg.jp/kankyo-kotsu-machizukuri/koen/page003080.html"
   },
   {
+    "id": "tsuchiura-kinen-gairai-chiryohi",
+    "name": "土浦市禁煙外来治療費助成",
+    "provider": "土浦市 健康増進課",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "禁煙外来治療費自己負担額の2分の1に相当する額（上限1万円）",
+    "summary": "健康保険適用の禁煙治療を受けた方で、条件をすべて満たした方へ、治療費の自己負担額の一部を助成します。予算の範囲内での交付です。",
+    "eligibility": [
+      "治療開始日から申請日までにおいて市内に住所を有する、20歳以上の方",
+      "令和8年度中に健康保険適用の禁煙治療を終了した方",
+      "初めて土浦市禁煙外来治療費助成を利用される方"
+    ],
+    "prefectures": [
+      "茨城県"
+    ],
+    "cities": [
+      "土浦市"
+    ],
+    "period": "令和8年度中に治療を終了した方が対象。申請期限は令和9年3月31日（水）まで",
+    "deadline": "2027-03-31",
+    "url": "https://www.city.tsuchiura.lg.jp/kenko-fukushi-iryo/kenko-iryo/jose/page017036.html"
+  },
+  {
     "id": "tsuchiura-machinaka",
     "name": "まちなか定住促進事業",
     "provider": "茨城県土浦市",
@@ -4973,6 +5677,28 @@ export const RESIDENT_PROGRAMS = [
     "period": "最新は要確認",
     "deadline": null,
     "url": "https://www.city.tsuchiura.lg.jp/kankyo-kotsu-machizukuri/toshikeikaku-machizukuri/page006310.html"
+  },
+  {
+    "id": "tsuchiura-maternity-taxi",
+    "name": "土浦市マタニティタクシー利用料金助成事業",
+    "provider": "土浦市 こども政策課",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "助成金",
+    "amount": "1回の妊娠につき、2万円分（500円分×40枚）の利用券",
+    "summary": "1年以内に母子健康手帳の交付を受けた妊産婦に、タクシー乗車料金の利用券を交付します。行先の制限はありません。",
+    "eligibility": [
+      "土浦市に住民登録があり、1年以内に母子健康手帳の交付を受けた妊産婦"
+    ],
+    "prefectures": [
+      "茨城県"
+    ],
+    "cities": [
+      "土浦市"
+    ],
+    "period": "利用券の有効期間は、母子健康手帳の交付の日から1年間",
+    "deadline": null,
+    "url": "https://www.city.tsuchiura.lg.jp/kosodate-kyoiku/syussan-kosodate/jidofukushi-boshifushifukushi/jigyo-service/page016283.html"
   },
   {
     "id": "tsuchiura-reform",
@@ -4998,6 +5724,29 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.tsuchiura.lg.jp/kurashi-tetsuzuki/news/page021510.html"
   },
   {
+    "id": "tsuchiura-shinseiji-chokaku-kensa",
+    "name": "新生児聴覚検査費助成事業",
+    "provider": "土浦市 こども包括支援課",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "助成金",
+    "amount": "1回につき上限：自動ABR（ABRを含む）5,000円／OAE 3,000円（令和8年4月1日以降に受診）",
+    "summary": "産科医療機関で実施される新生児の聴覚検査の費用の一部を公費助成します。妊娠届出時に受診票を交付します。",
+    "eligibility": [
+      "聴覚検査を受けた日に土浦市に住民登録のあるお子さん",
+      "助成回数は対象者1人につき1回、初回検査でリファーとなった場合の確認検査1回"
+    ],
+    "prefectures": [
+      "茨城県"
+    ],
+    "cities": [
+      "土浦市"
+    ],
+    "period": "申請請求期限は、お子さんの1歳の誕生日まで",
+    "deadline": null,
+    "url": "https://www.city.tsuchiura.lg.jp/kosodate-kyoiku/syussan-kosodate/boshinokenko-iryo/nyuyojikenshin-ikujisodan/page016802.html"
+  },
+  {
     "id": "tsuchiura-taishin",
     "name": "木造住宅耐震改修計画・工事費助成",
     "provider": "茨城県土浦市",
@@ -5019,6 +5768,29 @@ export const RESIDENT_PROGRAMS = [
     "period": "令和8年度は先着2件で申込は締切済み",
     "deadline": null,
     "url": "https://www.city.tsuchiura.lg.jp/kankyo-kotsu-machizukuri/toshikeikaku-machizukuri/kenchiku/hojo-josei/page016124.html"
+  },
+  {
+    "id": "tsuchiura-tatai-ninpu-kenshin",
+    "name": "土浦市多胎妊婦健診費用追加助成事業",
+    "provider": "土浦市 こども包括支援課",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "助成金",
+    "amount": "15～19回の健診費用の一部（令和8年4月1日以降に受診は1回あたり上限5,780円、最大5回）",
+    "summary": "多胎妊娠の方が通常の14回の妊婦健診に追加して、最大5回まで健診費用の一部を助成します（償還払い）。",
+    "eligibility": [
+      "母子健康手帳の交付を受けた多胎妊娠の方",
+      "妊婦健診を受診した日に土浦市に住民登録がある方"
+    ],
+    "prefectures": [
+      "茨城県"
+    ],
+    "cities": [
+      "土浦市"
+    ],
+    "period": "出産の日から1年未満以内（お子様が0歳の間までに）",
+    "deadline": null,
+    "url": "https://www.city.tsuchiura.lg.jp/kosodate-kyoiku/syussan-kosodate/boshinokenko-iryo/ninsanpu-jigyo/page017137.html"
   },
   {
     "id": "tsuchiura-tennyu-reform",
@@ -5112,6 +5884,76 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.tsukuba.lg.jp/soshikikarasagasu/toshikeikakubukenchikushidoka/gyomuannai/1/14218.html"
   },
   {
+    "id": "tsukuba-helmet",
+    "name": "自転車用ヘルメットの購入費助成（令和8年度）",
+    "provider": "つくば市",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "助成金",
+    "amount": "購入金額の2分の1（ヘルメット1個につき最大2,000円）",
+    "summary": "安全な自転車利用を促進するため、つくば市民を対象に自転車用ヘルメット購入金額の一部を助成します。",
+    "eligibility": [
+      "つくば市民を対象に自転車用ヘルメット購入金額を助成"
+    ],
+    "prefectures": [
+      "茨城県"
+    ],
+    "cities": [
+      "つくば市"
+    ],
+    "period": "購入日と同じ年度の4月1日から3月1日まで",
+    "deadline": null,
+    "url": "https://www.city.tsukuba.lg.jp/soshikikarasagasu/toshikeikakubucyclecommunitysuishinshitsu/gyomuannai/2/1/22812.html"
+  },
+  {
+    "id": "tsukuba-marufuku",
+    "name": "医療福祉費支給制度（マル福）",
+    "provider": "つくば市",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "健康保険適用の自己負担分の一部を助成",
+    "summary": "健康保険を利用して受診したときに窓口で支払う自己負担分の費用を一部助成する制度です。",
+    "eligibility": [
+      "小児：出生から高校3年生相当までのお子様",
+      "妊産婦：母子健康手帳の交付を受けた妊産婦",
+      "ひとり親家庭・重度心身障害者等（所得制限等あり）"
+    ],
+    "prefectures": [
+      "茨城県"
+    ],
+    "cities": [
+      "つくば市"
+    ],
+    "period": "通年（要確認）",
+    "deadline": null,
+    "url": "https://www.city.tsukuba.lg.jp/soshikikarasagasu/hokembuiryonenkinka/gyomuannai/3/1001305.html"
+  },
+  {
+    "id": "tsukuba-ninkatsu",
+    "name": "つくば市不妊治療費(先進医療)助成事業",
+    "provider": "つくば市 こども未来センター",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "1回の治療につき、上限4万円（先進医療に要した費用）",
+    "summary": "保険適用の生殖補助医療と併用して行われた、保険適用外の先進医療の費用を一部助成します。",
+    "eligibility": [
+      "婚姻をしている夫婦（事実婚関係にある場合も含む）",
+      "治療開始日において、妻の年齢が43歳未満であること",
+      "夫婦双方又はいずれか一方がつくば市に住民登録をしていること"
+    ],
+    "prefectures": [
+      "茨城県"
+    ],
+    "cities": [
+      "つくば市"
+    ],
+    "period": "令和8年(2026年)4月1日から令和9年(2027年)2月末日まで",
+    "deadline": "2027-02-28",
+    "url": "https://www.city.tsukuba.lg.jp/soshikikarasagasu/kodomobukodomomiraicenter/gyomuannai/2/boshihoken/3/27698.html"
+  },
+  {
     "id": "tsukuba-reform-support",
     "name": "つくば市 安心住宅リフォーム支援補助金",
     "provider": "茨城県つくば市",
@@ -5132,6 +5974,29 @@ export const RESIDENT_PROGRAMS = [
     "period": "最新は要確認",
     "deadline": null,
     "url": "https://www.city.tsukuba.lg.jp/soshikikarasagasu/kensetsubujuuakuseisakuka/gyomuannai/2/3/1011856.html"
+  },
+  {
+    "id": "tsukuba-shugaku",
+    "name": "就学援助制度（小中義務教育学校）",
+    "provider": "つくば市 教育局学務課",
+    "level": "municipality",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "学用品費 小学校11,630円・中学校22,730円（認定月が4月の場合の年額）",
+    "summary": "経済的な理由でお困りのご家庭に対し、お子様の就学に関する費用の一部を援助する制度です。",
+    "eligibility": [
+      "つくば市立小・中・義務教育学校に就学する児童生徒の保護者",
+      "世帯の所得額が認定基準額に該当する方"
+    ],
+    "prefectures": [
+      "茨城県"
+    ],
+    "cities": [
+      "つくば市"
+    ],
+    "period": "当初申請期限：令和8年6月1日（月曜日）。以降も随時受付",
+    "deadline": null,
+    "url": "https://www.city.tsukuba.lg.jp/soshikikarasagasu/kyoikukyokugakumuka/gyomuannai/4/3/1001163.html"
   },
   {
     "id": "tsukuba-taishin-kaishu",
@@ -6074,6 +6939,75 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.maebashi.gunma.jp/soshiki/toshikeikakubu/kenchikujutaku/gyomu/2/1/48337.html"
   },
   {
+    "id": "maebashi-daigaku-juken-hojo",
+    "name": "ひとり親家庭や非課税世帯等のこどもの大学等受験料補助",
+    "provider": "前橋市",
+    "level": "municipality",
+    "category": "教育・学び",
+    "type": "補助金",
+    "amount": "受験生1人あたり53,000円を上限（対象経費の全額）",
+    "summary": "ひとり親家庭や住民税非課税世帯等のこどもに対して、大学等の受験料を補助します。受付開始は令和8年11月1日です。",
+    "eligibility": [
+      "申請時に前橋市内に住民登録があり受験生を養育している保護者等",
+      "児童扶養手当受給者、令和7年度市町村民税非課税の世帯、生活保護受給者などのいずれかの区分に該当する方"
+    ],
+    "prefectures": [
+      "群馬県"
+    ],
+    "cities": [
+      "前橋市"
+    ],
+    "period": "令和8年11月1日受付開始／申請期限は令和9年3月5日（金曜日）必着",
+    "deadline": "2027-03-05",
+    "url": "https://www.city.maebashi.gunma.jp/kosodate_kyoiku/2/6/1/41057.html"
+  },
+  {
+    "id": "maebashi-fuiku-chiryohi",
+    "name": "令和8年度不育症治療費助成事業",
+    "provider": "前橋市",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "自己負担額の2分の1以内、10万円を限度",
+    "summary": "「不育症」と診断され治療に取り組んでいるご夫婦に、治療費等の一部を助成します。",
+    "eligibility": [
+      "2回以上の流産又は死産の既往があるもしくは専門医に不育症と診断され、医療機関で不育症の検査・治療を受けた法律上の婚姻関係にある夫婦",
+      "夫婦の両方又はいずれか一方が、令和8年1月1日から同年12月31日までの一部又は全部の期間において、前橋市民であること"
+    ],
+    "prefectures": [
+      "群馬県"
+    ],
+    "cities": [
+      "前橋市"
+    ],
+    "period": "助成対象の治療期間は令和8年1月1日から同年12月31日まで／申請期限は令和9年2月26日（金曜日）",
+    "deadline": "2027-02-26",
+    "url": "https://www.city.maebashi.gunma.jp/kosodate_kyoiku/4/5/1/12102.html"
+  },
+  {
+    "id": "maebashi-funin-chiryohi",
+    "name": "令和8年度不妊治療費助成事業",
+    "provider": "前橋市",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "自己負担額の2分の1以内、15万円を限度（男性不妊治療は5万円を限度に上乗せ）",
+    "summary": "不妊治療を行っている夫婦の経済的な負担を軽減するため、その治療に要する医療費の一部を助成します。",
+    "eligibility": [
+      "不妊治療をしている法律上の婚姻関係にある夫婦（事実婚を含む。）であること",
+      "夫婦の両方又はいずれか一方が、令和8年1月1日から同年12月31日までの一部又は全部の期間において、前橋市民であったこと"
+    ],
+    "prefectures": [
+      "群馬県"
+    ],
+    "cities": [
+      "前橋市"
+    ],
+    "period": "助成対象の治療期間は令和8年1月1日から同年12月31日まで／申請期限は令和9年2月26日（金曜日）",
+    "deadline": "2027-02-26",
+    "url": "https://www.city.maebashi.gunma.jp/kosodate_kyoiku/4/5/1/12103.html"
+  },
+  {
     "id": "maebashi-iju-shienkin",
     "name": "前橋市移住支援金",
     "provider": "群馬県前橋市",
@@ -6118,6 +7052,30 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.maebashi.gunma.jp/6/49119.html"
   },
   {
+    "id": "maebashi-nyugaku-shienkin",
+    "name": "前橋市入学支援金（奨学資金）制度",
+    "provider": "前橋市",
+    "level": "municipality",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "一括200,000円（一回限り）",
+    "summary": "令和9年4月に高校等へ進学を希望する方に対し、給付型の入学支援金の申請者を募集します。募集人数は10人です。",
+    "eligibility": [
+      "高校等に入学を希望する者で、申請時に前橋市民であり、入学以降も継続して前橋市に居住予定の者",
+      "家庭（世帯）の経済的理由で就学が困難な者",
+      "生活保護費を受給していない者"
+    ],
+    "prefectures": [
+      "群馬県"
+    ],
+    "cities": [
+      "前橋市"
+    ],
+    "period": "令和8年11月2日（月曜日）から令和8年12月24日（木曜日）まで",
+    "deadline": "2026-12-24",
+    "url": "https://www.city.maebashi.gunma.jp/kosodate_kyoiku/3/8/10993.html"
+  },
+  {
     "id": "maebashi-reform-barrierfree",
     "name": "住宅リフォーム補助（バリアフリー改修）",
     "provider": "群馬県前橋市",
@@ -6139,6 +7097,30 @@ export const RESIDENT_PROGRAMS = [
     "period": "令和7年度手引きのみ確認。最新は要確認",
     "deadline": null,
     "url": "https://www.city.maebashi.gunma.jp/material/files/group/63/R7jutakutebiki.pdf"
+  },
+  {
+    "id": "maebashi-shugaku-enjo",
+    "name": "就学援助制度（小学生と中学生の保護者の方へ）",
+    "provider": "前橋市教育委員会",
+    "level": "municipality",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "学用品費 小学校11,630円・中学校22,730円、新入学児童生徒学用品費（1年生）小学校64,300円・中学校81,000円 など",
+    "summary": "経済的な理由でお子様に義務教育を受けさせることが困難な保護者に、学校生活で必要な費用の一部を援助する制度です。年度ごとに申請が必要です。",
+    "eligibility": [
+      "児童扶養手当を全額支給されている方",
+      "生活保護が一時停止や廃止になって、現在何も保護を受けていない方",
+      "経済的にお困りの方(所得基準があります。)"
+    ],
+    "prefectures": [
+      "群馬県"
+    ],
+    "cities": [
+      "前橋市"
+    ],
+    "period": "年度ごとに申請が必要（令和8年度）",
+    "deadline": null,
+    "url": "https://www.city.maebashi.gunma.jp/kosodate_kyoiku/3/8/10994.html"
   },
   {
     "id": "maebashi-zerocarbon-katei",
@@ -6473,6 +7455,144 @@ export const RESIDENT_PROGRAMS = [
     "url": "https://www.city.takasaki.gunma.jp/page/3291.html"
   },
   {
+    "id": "takasaki-nanbyo-mimaikin",
+    "name": "難病患者見舞金制度",
+    "provider": "高崎市 保健予防課",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "給付",
+    "amount": "月額3,000円",
+    "summary": "特定医療費（指定難病）受給者証などが交付されている方に対して、申請に基づき難病患者見舞金を支給します。",
+    "eligibility": [
+      "特定医療費（指定難病）受給者証、小児慢性特定疾病医療受給者証、特定疾患医療受給者証（スモン）、先天性血液凝固因子障害等医療受給者証が交付されている方"
+    ],
+    "prefectures": [
+      "群馬県"
+    ],
+    "cities": [
+      "高崎市"
+    ],
+    "period": "申請があった月の翌月分から対象／4月、8月、12月の各月末頃に前4か月分を支給",
+    "deadline": null,
+    "url": "https://www.city.takasaki.gunma.jp/page/5731.html"
+  },
+  {
+    "id": "takasaki-ninka-daisanshi-hoikuryo",
+    "name": "認可外保育施設第3子以降3歳未満児保育料等補助事業",
+    "provider": "高崎市 保育課",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "補助金",
+    "amount": "1か月当たり24,000円を上限",
+    "summary": "就労や介護・疾病等の理由により認可外保育施設に通園する、第3子以降で3歳未満のお子さんの保育料等を補助します。",
+    "eligibility": [
+      "保護者・お子さんともに高崎市に住民登録があること",
+      "保護者に現に扶養されている兄又は姉が2人以上いる（第3子以降のお子さんである）こと",
+      "令和8年3月31日における満年齢が3歳に達していないこと"
+    ],
+    "prefectures": [
+      "群馬県"
+    ],
+    "cities": [
+      "高崎市"
+    ],
+    "period": "令和8年度",
+    "deadline": null,
+    "url": "https://www.city.takasaki.gunma.jp/page/5795.html"
+  },
+  {
+    "id": "takasaki-ninpu-shokai-sanka",
+    "name": "高崎市妊婦初回産科受診料助成金",
+    "provider": "高崎市 保健所健康課",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "助成金",
+    "amount": "初回の産科受診料の費用と10,000円のいずれか少ない額",
+    "summary": "妊娠にかかる経済的負担を軽減し、安心した妊娠期を支援するために、妊婦さんを対象に初回の産科受診料の一部を助成します。",
+    "eligibility": [
+      "初回産科受診時及び助成金交付申請時において高崎市に住民登録があり、母子健康手帳の交付を受けた人",
+      "他の公的助成制度による初回産科受診料の助成金の交付を受けていない人"
+    ],
+    "prefectures": [
+      "群馬県"
+    ],
+    "cities": [
+      "高崎市"
+    ],
+    "period": "申請は妊娠届提出日からおおむね3か月以内",
+    "deadline": null,
+    "url": "https://www.city.takasaki.gunma.jp/page/3449.html"
+  },
+  {
+    "id": "takasaki-ninyosei-ondon",
+    "name": "がん患者等妊孕性温存治療費等助成事業",
+    "provider": "高崎市",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "助成金",
+    "amount": "治療の種類により2万5千円〜5万円を上限（群馬県の助成額を上回る場合のみ）",
+    "summary": "小児、思春期・若年がん患者等の妊孕性温存治療費の一部を助成します。先に群馬県への申請が必要です。",
+    "eligibility": [
+      "ガイドラインに基づき、がん治療等により生殖機能が低下する、又は失う恐れがあると医師に診断された方",
+      "治療終了日、更新日、申請日に年齢が43歳未満であり、高崎市に住所を有する方"
+    ],
+    "prefectures": [
+      "群馬県"
+    ],
+    "cities": [
+      "高崎市"
+    ],
+    "period": "通年（要確認）",
+    "deadline": null,
+    "url": "https://www.city.takasaki.gunma.jp/page/3132.html"
+  },
+  {
+    "id": "takasaki-shugaku-enjo",
+    "name": "就学援助制度",
+    "provider": "高崎市 教育委員会教職員課",
+    "level": "municipality",
+    "category": "教育・学び",
+    "type": "給付",
+    "amount": "学用品費 小学校11,630円・中学校22,730円、新入学児童生徒学用品費 64,300円（小学校）・81,000円（中学校） など（支給限度額）",
+    "summary": "経済的な理由でお子様に義務教育を受けさせることが困難な保護者に、学校生活で必要な費用の一部を援助する制度です。",
+    "eligibility": [
+      "義務教育を受けることが困難であると判断される程度の経済状況であること",
+      "児童扶養手当を支給されている方など、該当する可能性がある世帯あり"
+    ],
+    "prefectures": [
+      "群馬県"
+    ],
+    "cities": [
+      "高崎市"
+    ],
+    "period": "令和8年度",
+    "deadline": null,
+    "url": "https://www.city.takasaki.gunma.jp/page/4237.html"
+  },
+  {
+    "id": "takasaki-shussan-oiwaikin",
+    "name": "高崎市出産お祝い金",
+    "provider": "高崎市 保健所健康課",
+    "level": "municipality",
+    "category": "子育て",
+    "type": "給付",
+    "amount": "新生児1人につき3万円分（高崎通貨で交付）",
+    "summary": "お子さんの誕生をお祝いし、安心して子育てができる環境づくりのため、出産お祝い金を交付します。令和8年4月開始です。",
+    "eligibility": [
+      "令和8年4月1日以降に出生したお子さんの母（産婦）であること",
+      "お子さんの初めての住民登録地が高崎市であること"
+    ],
+    "prefectures": [
+      "群馬県"
+    ],
+    "cities": [
+      "高崎市"
+    ],
+    "period": "令和8年4月1日以降に出生したお子さんが対象／申請期限は出生届を出した日から概ね3か月以内",
+    "deadline": null,
+    "url": "https://www.city.takasaki.gunma.jp/page/85440.html"
+  },
+  {
     "id": "takasaki-taishin-kinkyu-2",
     "name": "高崎市耐震診断・補強設計・耐震改修・除却補助（建築指導課）",
     "provider": "群馬県高崎市",
@@ -6493,6 +7613,29 @@ export const RESIDENT_PROGRAMS = [
     "period": "令和8年5月11日〜11月30日",
     "deadline": "2026-11-30",
     "url": "https://www.city.takasaki.gunma.jp/page/6474.html"
+  },
+  {
+    "id": "takasaki-wig-hojo",
+    "name": "医療用ウィッグ等の補助事業",
+    "provider": "高崎市",
+    "level": "municipality",
+    "category": "医療・福祉",
+    "type": "補助金",
+    "amount": "購入費用1回30,000円まで（1人につき2回まで）",
+    "summary": "がん治療等に伴う外見の変化をカバーする補整具（ウィッグ、胸部補整具、エピテーゼなど）の購入費用を補助します。",
+    "eligibility": [
+      "申請時点で本市に住民登録している人",
+      "がん治療等に伴う脱毛や手術、傷病等により、外見の変化に対する補整具が必要な人、または先天性の身体欠損により補整具が必要な人"
+    ],
+    "prefectures": [
+      "群馬県"
+    ],
+    "cities": [
+      "高崎市"
+    ],
+    "period": "補整具を購入した日の翌日から起算して1年以内のものが対象",
+    "deadline": null,
+    "url": "https://www.city.takasaki.gunma.jp/page/2042.html"
   },
   {
     "id": "saitama-katei-shoene-saiene",
