@@ -162,15 +162,11 @@ const body = `    <nav class="area-crumb" aria-label="パンくず"><a href="./"
         <p class="lp-k">やりたいこと・ほしいもの</p>
         <div class="pb-banner" style="background-image: url('images/banner/b02.webp')"><h1 class="pb-title" id="hp-h1">補助金は、やりたいこと・ほしいものから探す</h1></div>
         <p class="lp-s">制度の名前は知らなくて大丈夫。やりたいことからも、買いたいものからも探せます。どの解説にも、検討したい制度・始める前の確認・契約の注意がそろっています。</p>
+        <div class="lp-btns"><a class="lp-btn p" href="#hp-want">やりたいことから探す <span aria-hidden="true">→</span></a><a class="lp-btn s" href="#hp-buy">ほしいものから探す</a></div>
       </div>
     </section>
 
     <div class="page-split"><div class="page-main">
-    <nav class="hp-two" aria-label="2つの探し方">
-      <a class="hp-door" href="#hp-want"><span class="ic" aria-hidden="true">🎯</span><span><b>やりたいことから探す</b><small>開業する、人を雇う、IT化する…。${total}の解説</small></span><span class="go">読む ↓</span></a>
-      <a class="hp-door w" href="#hp-buy"><span class="ic" aria-hidden="true">🛒</span><span><b>ほしいものから探す</b><small>レジ、PC、看板、空調…。${PURCHASES.length}の購入物</small></span><span class="go">選ぶ ↓</span></a>
-    </nav>
-
     <section class="hp-block" aria-labelledby="hp-want">
       <h2 class="hp-sec" id="hp-want">やりたいことから探す</h2>
       <p class="hp-sub">分野の棚から探せます。右の特集から読んでもOK。</p>
