@@ -13,6 +13,7 @@
    - `claude/subsidy-finder-cloudflare-2oorwy` と `claude/business-subsidy-finder-2v9gwr`（早送りできるときだけ）
      `git fetch -q origin $b && git merge-base --is-ancestor origin/$b HEAD && git push -q origin HEAD:$b`
    - 作業ブランチ `design/jgrants-details`（`git push -q -f origin HEAD:design/jgrants-details`）
+   - **早送りできないとき（既定のブランチ `claude/business-subsidy-finder-2v9gwr` に、自動更新やブログの定期タスクのコミットが入っているとき）は、先に `git fetch origin <ブランチ>` → `git merge origin/<ブランチ>` で取り込んでから、プッシュする**（そのブランチが本番のデプロイの元。取り込まずに見送ると、本番に反映されない。2026-10-18 に、メニューとフッターの整理がこれで1日遅れた）。マージのあとは、`apply-nav`（インデントの差分を戻す）と `update-sitemap` を回す（定期タスクが作った新しいページに、新しいナビを反映するため）。
    - ネットワーク/500 エラーは間隔を空けて再試行。ユーザーが手動実行した GitHub Actions の最中はプッシュしない。
 2. コミットメッセージの末尾に（モデル名は実行中のものに合わせる）:
    `Co-Authored-By: Claude <noreply@anthropic.com>` と `Claude-Session: <セッションURL>`
