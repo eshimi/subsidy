@@ -94,7 +94,7 @@ ${cards.map(([href, t, s]) => `      <a class="feature-card" href="${href}">
 ${note ? `\n    <p class="area-note">${note}</p>` : ''}`;
 }
 
-export function writeArticle(outDir, folder, file, { title, description, body }) {
+export function writeArticle(outDir, folder, file, { title, description, body, robots }) {
   mkdirSync(outDir, { recursive: true });
-  writeFileSync(join(outDir, file), withCases(shell({ title: `${title}｜補助金ネット`, description, canonicalPath: `/${folder}/${file}`, body }).replace('</style>', `${STYLE}\n  </style>`), `${folder}/${file}`));
+  writeFileSync(join(outDir, file), withCases(shell({ title: `${title}｜補助金ネット`, description, canonicalPath: `/${folder}/${file}`, body, ...(robots ? { robots } : {}) }).replace('</style>', `${STYLE}\n  </style>`), `${folder}/${file}`));
 }

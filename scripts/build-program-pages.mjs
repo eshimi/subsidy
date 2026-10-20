@@ -11,6 +11,7 @@ import { AREA_CITIES } from '../src/data/area-cities.js';
 import { PREF_SLUGS } from '../src/data/prefectures.js';
 import { pageable } from './lib/program-detail.mjs';
 import { loadState, isHidden, needsReview } from './lib/program-source.mjs';
+import { PROGRAM_MIN_CHARS, visibleLength, robotsFor } from './lib/thin.mjs';
 
 const ROOT = join(import.meta.dirname, '..');
 const OUT = join(ROOT, 'public', 'programs');
@@ -29,7 +30,26 @@ function areaOf(p) {
   return city ? { href: `../area/${city.slug}.html#${p.id}`, label: `${city.name}の補助金・助成金一覧`, place: `${city.pref}${city.name}`, pref: city.pref } : null;
 }
 
-export function programPage(p, d, checkedAt, review = false) {
+// 同じ地域（市区町村の制度は同じ市区町村、県の制度は同じ県）の、ほかの制度との比べ方。材料の事実（補助額・申請期間・対象者）だけを並べる
+const clip = (v = '', n = 70) => { const t = String(v).split(/[。]/)[0]; return t.length > n ? `${t.slice(0, n)}…` : t; };
+const factOf = (d, k) => ((d.facts || []).find((f) => f[0] === k) || [])[1] || '';
+export function peersOf(p, all) {
+  const city = (p.cities || [])[0];
+  const pref = (p.prefectures || [])[0];
+  const same = all.filter((x) => x.p.id !== p.id && (p.level === 'prefecture' ? x.p.level === 'prefecture' && (x.p.prefectures || [])[0] === pref : city && (x.p.cities || []).includes(city)));
+  const near = same.length ? same : all.filter((x) => x.p.id !== p.id && p.level !== 'prefecture' && x.p.level === 'prefecture' && (x.p.prefectures || [])[0] === pref);
+  return near.sort((a, b) => (b.p.type === p.type) - (a.p.type === p.type)).slice(0, 4);
+}
+function peersSection(p, d, peers) {
+  if (!peers.length) return null;
+  const place = p.level === 'prefecture' ? (p.prefectures || [])[0] : (p.cities || [])[0];
+  const same = peers.every((x) => (p.level === 'prefecture' ? x.p.level === 'prefecture' : (x.p.cities || []).includes((p.cities || [])[0])));
+  const rows = peers.map(({ p: q, d: e }) => [`<a href="${q.id}.html">${esc(q.name)}</a>`, esc(clip(factOf(e, '補助額・補助率'))), esc(clip(factOf(e, '申請期間'), 50)), esc(clip(factOf(e, '対象者')))]);
+  const mine = `この制度（${esc(p.name)}）は、補助額・補助率が「${esc(clip(factOf(d, '補助額・補助率')) || '公式で確認')}」、申請期間が「${esc(clip(factOf(d, '申請期間'), 50) || '公式で確認')}」です。`;
+  return ['同じ地域の、ほかの制度との比べ方', [P(`${mine}${same ? `${esc(place)}の` : `${esc(place)}（県）の`}ほかの制度と、補助額・申請期間・対象者を並べました。目的に近いものを選ぶときの目安にしてください。`), TABLE(['制度', '補助額・補助率', '申請期間', '対象者'], rows)].join('\n')];
+}
+
+export function programPage(p, d, checkedAt, review = false, peers = []) {
   const area = areaOf(p);
   const rows = (d.facts || []).map(([k, v]) => [esc(k), esc(v)]);
   const sections = [
@@ -48,21 +68,26 @@ export function programPage(p, d, checkedAt, review = false) {
       (d.docs || []).length ? `        <h3>主な提出書類</h3>\n${UL(d.docs.map(esc))}` : '',
     ].filter(Boolean).join('\n')]);
   }
-  if ((d.cautions || []).length) sections.push(['申請の前に確認したいこと', [UL(d.cautions.map(esc)), P('金額・期間・対象は、年度や公募回で変わります。申請の前に、必ず公式の最新の案内（下の「確認先」）で確認してください。')].join('\n')]);
+  if ((d.cautions || []).length) sections.push(['申請の前に確認したいこと', [UL(d.cautions.map(esc)), P('申請の一般的な流れは、<a href="../basics/flow.html">申請の流れ</a>で解説しています。')].join('\n')]);
+  const peersSec = peersSection(p, d, peers);
   if (d.contact) sections.push(['問い合わせ先', P(esc(d.contact))]);
+  if (peersSec) sections.push(peersSec);
   const related = [...(area ? [[area.href, area.label]] : []), ['index.html', '制度ガイド（自治体）の一覧'], ['../search.html', '募集中の補助金を探す'], ['../hantei.html', 'AI補助金判定（質問に答えて探す）'], ['../hitsuyo.html', 'やりたいこと・ほしいものから探す']];
+  const uniqueLen = visibleLength(sections.filter((x) => x !== peersSec).map(([h, html]) => h + html).join('')) + visibleLength(d.lead || '');
   return {
+    uniqueLen,
     title: `${p.name}｜${area?.place || ''}の補助金（対象・申請の流れ・注意点）`,
     description: `${p.name}（${p.provider || area?.place || ''}）の対象・補助額・申請の流れ・主な書類・注意点を、公式ページの内容から整理しました。確認日：${ja(checkedAt)}。`,
     body: articleBody({
       section: SECTION, kicker: p.name, title: p.name, lead: d.lead, sections, related,
       banner: bannerFor(`programs/${p.id}.html`), updated: ja(checkedAt),
       afterLead: review ? `\n    <p class="area-note" role="note"><strong>ご注意：</strong>公式ページの内容が、この解説の確認時（${ja(checkedAt)}）から変わっている可能性があります。最新の条件は、必ず公式ページでご確認ください。</p>` : '',
-      sources: [[`公式の案内ページ（${p.provider || area?.place || '実施団体'}）`, p.url]], sourcesHeading: '最新情報の確認先（公式）',
+      sources: [[`公式の案内ページ（${p.provider || area?.place || '実施団体'}）`, p.url]], sourcesHeading: '最新情報の確認先（公式）', sourcesIntro: '金額・期間・対象は、年度や公募回で変わります。最新の条件は、次の公式の案内で確認してください。',
     }),
   };
 }
 
+export let thinCount = 0;
 export function build() {
   const details = detailsOf();
   const byId = new Map(LOCAL_PROGRAMS.map((p) => [p.id, p]));
@@ -74,9 +99,15 @@ export function build() {
   for (const [id, d] of Object.entries(details.items)) {
     const p = byId.get(id);
     if (!p || !pageable(d) || isHidden(state.items?.[id], d, today)) continue;
-    const { title, description, body } = programPage(p, d, d.checkedAt || details.checkedAt, needsReview(state.items?.[id]));
-    writeArticle(OUT, 'programs', `${id}.html`, { title, description, body });
     made.push({ p, d });
+  }
+  // 2周目：同じ地域のほかの制度との比べ方（peers）を入れて書き出す。独自の本文が少ないページは noindex（sitemap からも外れる）
+  thinCount = 0;
+  for (const { p, d } of made) {
+    const { title, description, body, uniqueLen } = programPage(p, d, d.checkedAt || details.checkedAt, needsReview(state.items?.[p.id]), peersOf(p, made));
+    const thin = uniqueLen < PROGRAM_MIN_CHARS;
+    if (thin) thinCount++;
+    writeArticle(OUT, 'programs', `${p.id}.html`, { title, description, body, robots: robotsFor(thin) });
   }
   // 一覧：都道府県ごと
   const groups = new Map();
@@ -95,4 +126,4 @@ export function build() {
   return made.length;
 }
 
-if (process.argv[1] === import.meta.filename) console.log(`制度ガイド（自治体）：${build()} 件のページを生成`);
+if (process.argv[1] === import.meta.filename) { const n = build(); console.log(`制度ガイド（自治体）：${n} 件のページを生成（うち薄いページで noindex：${thinCount} 件）`); }

@@ -167,13 +167,18 @@ export function lastmodMap(publicDir, paths, prev = {}, today = jstDate()) {
   return next;
 }
 
+// sitemapPaths（FOLDERS の中のページ）で判定できるパスか（それ以外のパスは、これまでどおり残す）
+const isManaged = (p) => p === '' || FOLDERS.some((f) => (f ? p.startsWith(`${f}/`) : !p.includes('/')));
+
 // 既存の sitemap.xml の中身を、ページの実ファイルに合わせて作り直す（制度ページの追記分はそのまま残す）
 export function refreshSitemap(xml, publicDir, prev = {}, today) {
   const locRe = /<url>\s*<loc>https:\/\/hojyokin\.net\/([^<]*)<\/loc>\s*<lastmod>[^<]*<\/lastmod>\s*<\/url>/g;
   const block = xml.match(/\s*<!-- grants:start -->[\s\S]*?<!-- grants:end -->/);
   const body = block ? xml.replace(block[0], '') : xml;
   const known = [...body.matchAll(locRe)].map((m) => m[1]);
-  const present = known.filter((p) => existsSync(join(publicDir, p === '' ? 'index.html' : p)));
+  // 既存の URL も、noindex・転送用のページ（薄いページを含む）は残さない
+  const live = new Set(sitemapPaths(publicDir));
+  const present = known.filter((p) => existsSync(join(publicDir, p === '' ? 'index.html' : p)) && (live.has(p) || !isManaged(p)));
   // 新しく増えたページ（area/ は、制度のない市区町村を外す判断があるので、build-area-pages.mjs に任せる）
   const added = sitemapPaths(publicDir).filter((p) => !known.includes(p) && !p.startsWith('area/'));
   const paths = [...present, ...added];

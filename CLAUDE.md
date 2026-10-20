@@ -23,6 +23,7 @@
 6. 変更前後に `npm test`（node --test、現在154件）。
 
 ## 仕組みの要点
+- 薄いページの noindex（2026-10-21、AdSense「有用性の低いコンテンツ」対策）: `scripts/lib/thin.mjs` の閾値（AREA_MIN_CHARS=3800・PREF_MIN_CHARS=3000・PROGRAM_MIN_CHARS=1200）で、area/（市区町村・都道府県）と programs/ の薄いページを、生成時に `noindex, follow` にする（build-area-pages.mjs・build-program-pages.mjs）。noindex のページは sitemap.xml から外れる（sitemap.mjs の refreshSitemap が、既存の URL にも noindex の判定をかける）。area/ の市区町村ページの上部に「○○の制度のポイント」（掲載データから数えた事実だけ）、programs/ に「同じ地域の、ほかの制度との比べ方」の表を追加。閾値は、ページの作りを変えたら分布を見直す。
 - 蛍光ペン: `<strong class="hl">` を本文の p/li/dd/blockquote/td にだけ付ける（`scripts/data/highlights.mjs`、フレーズは本文中で1回だけ出るもの。冪等）。
 - 事業計画書AI: `src/ai.js`、`src/plan.js`、`public/plan.js`、`public/plan-docx.js`。無料の簡易版が標準、詳しい版は `PLAN_DETAILED` フラグの裏。
 - リサーチ（分析）: `scripts/lib/analysis.mjs`、`update-analysis.mjs`、`build-analysis-pages.mjs`（事業向け・個人向け・地域×目的の空白・月次）、`build-research-pages.mjs`。説明枠は末尾へ（`introLast`）。

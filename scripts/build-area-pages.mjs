@@ -10,6 +10,7 @@ import { PREFECTURES, PREF_SLUGS } from '../src/data/prefectures.js';
 import { SITE, esc, shell } from './lib/site-shell.mjs';
 import { sitemapPaths, writeSitemapHtml, lastmodMap } from './lib/sitemap.mjs';
 import { isEnded } from './lib/ended.mjs';
+import { AREA_MIN_CHARS, PREF_MIN_CHARS, visibleLength, robotsFor } from './lib/thin.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = join(ROOT, 'public', 'area');
@@ -146,6 +147,62 @@ ${lis}
     </nav>`;
 }
 
+// 都市ごとの、市の制度の掲載件数（同じ県の市との比較に使う）
+let _counts;
+function cityCounts() {
+  if (!_counts) _counts = new Map(AREA_CITIES.map((c) => [c.slug, programsFor(c).municipal.length + residentFor(c).municipal.length]));
+  return _counts;
+}
+
+// 「この市の制度のポイント」：掲載データから数えた事実だけで作る要約（推測・一般論は書かない）
+function insights(city, municipal, prefectural, resident) {
+  const all = [...municipal, ...resident.municipal];
+  if (all.length < 3) return '';
+  const li = (t) => `          <li>${t}</li>`;
+  const items = [];
+  const byGoal = GOALS.map((g) => ({ g, k: resident.municipal.filter((p) => g.cats.includes(p.category)).length })).filter((x) => x.k);
+  const parts = [...byGoal.map((x) => `${x.g.label}${x.k}件`), municipal.length ? `事業・創業${municipal.length}件` : ''].filter(Boolean);
+  const top = [...byGoal.map((x) => ({ label: x.g.label, k: x.k })), { label: '事業・創業', k: municipal.length }].sort((a, b) => b.k - a.k)[0];
+  items.push(li(`<strong>掲載数</strong>：${esc(city.name)}の制度を、あわせて${all.length}件載せています（${parts.map(esc).join('、')}）。いちばん多い分野は「${esc(top.label)}」（${top.k}件）です。`));
+  const withAmount = all.filter((p) => !unknown(p.amount) && !/公式で確認/.test(p.amount));
+  const ended = all.filter(isEnded);
+  const dated = all.filter((p) => p.deadline);
+  const status = [`金額や補助率が公式の案内に書かれている制度は${withAmount.length}件`, all.length > withAmount.length ? `金額の記載が確認できなかった制度は${all.length - withAmount.length}件` : '', dated.length ? `締切が日付で示されているものは${dated.length}件` : '', ended.length ? `受付が終了しているものは${ended.length}件` : ''].filter(Boolean);
+  items.push(li(`<strong>金額・受付の状況</strong>：${status.join('、')}です。`));
+  const picks = withAmount.filter((p) => !isEnded(p)).slice(0, 3);
+  if (picks.length) items.push(li(`<strong>金額が書かれている制度の例</strong>：${picks.map((p) => `${esc(p.name)}（${esc(p.amount)}）`).join('、')}。`));
+  // 県の制度との重なり：同じ分野に、市と県の両方の制度があるもの
+  const overlap = [];
+  for (const cat of RESIDENT_CATEGORIES) {
+    const c = resident.municipal.find((p) => p.category === cat);
+    const k = resident.prefectural.find((p) => p.category === cat);
+    if (c && k) overlap.push(`${esc(cat)}（市：${esc(c.name)}／県：${esc(k.name)}）`);
+  }
+  if (overlap.length) items.push(li(`<strong>県の制度との重なり</strong>：${overlap.slice(0, 4).join('、')}。同じ分野に市と県の両方の制度があります。併用できるかどうかは、それぞれの要綱・募集要項で確認してください。`));
+  else if (municipal.length && prefectural.length) items.push(li(`<strong>県の制度との重なり</strong>：事業・創業の方向けには、市の制度${municipal.length}件のほかに、${esc(city.pref)}の制度${prefectural.length}件を載せています。国・県・市の制度は、併用できる場合とできない場合があるため、それぞれの募集要項で確認してください。`));
+  // 同じ県の市との比較
+  const mates = AREA_CITIES.filter((c) => c.pref === city.pref);
+  if (mates.length >= 2) {
+    const counts = cityCounts();
+    const ranked = [...mates].sort((a, b) => counts.get(b.slug) - counts.get(a.slug) || a.name.localeCompare(b.name, 'ja'));
+    const rank = ranked.findIndex((c) => c.slug === city.slug) + 1;
+    items.push(li(`<strong>${esc(city.pref)}内での比較</strong>：当サイトが掲載している${esc(city.pref)}の${mates.length}市区のうち、制度の掲載件数が多い順で${rank}番目です（${all.length}件。最多は${esc(ranked[0].name)}の${counts.get(ranked[0].slug)}件）。件数は、当サイトの掲載数であり、市区町村が実施している制度の総数ではありません。`));
+  }
+  // 窓口（掲載している制度の担当）
+  const offices = [...new Set(all.map((p) => (p.provider || '').trim()).filter((v) => v && v !== city.name))].slice(0, 6);
+  if (offices.length) items.push(li(`<strong>窓口（担当課）</strong>：掲載している制度の担当は、${offices.map(esc).join('、')}などです。詳しい条件・申請方法は、各制度の公式ページか、担当課に確認してください。`));
+  return `    <section class="area-section" aria-labelledby="insights">
+      <h2 id="insights">${esc(city.name)}の制度のポイント</h2>
+      <div class="area-body">
+        <ul>
+${items.join('\n')}
+        </ul>
+      </div>
+    </section>
+
+`;
+}
+
 function cityPage(city) {
   const { municipal, prefectural } = programsFor(city);
   const resident = residentFor(city);
@@ -223,8 +280,7 @@ ${prefHtml}
       <img class="ar-hero-img" src="../images/prefectures/pref-${PREF_SLUGS[city.pref]}.webp" alt="" height="150">
     </header>
 
-${goalCards(city, municipal, prefectural, resident)}
-${resident.municipal.length ? residentSection + businessSections : businessSections + residentSection}    <section class="area-section" aria-labelledby="national">
+${goalCards(city, municipal, prefectural, resident)}${insights(city, municipal, prefectural, resident)}${resident.municipal.length ? residentSection + businessSections : businessSections + residentSection}    <section class="area-section" aria-labelledby="national">
       <h2 id="national">国の制度・全国から探す</h2>
       <div class="area-body">
         <p>国の制度は、市や県の制度と並行して使えるものがあります。まずは、サイトのトップで事業の内容と郵便番号を入れると、対象になりそうな制度をまとめて確認できます。</p>
@@ -255,7 +311,7 @@ ${resident.municipal.length ? residentSection + businessSections : businessSecti
 ${sameArea(city)}
     <p class="area-note">この記事は公開情報をもとにした参考情報です。制度の対象・金額・公募時期は年度や公募回によって変わるため、申請前に必ず各制度の公式情報を確認してください。</p>`;
   // 市の制度が載っていないページは、内容が薄いため、検索の対象から外す（制度を足したら自動で対象になる）
-  const robots = municipal.length ? 'index, follow' : 'noindex, follow';
+  const robots = robotsFor(!(municipal.length + resident.municipal.length) || visibleLength(body) < AREA_MIN_CHARS);
   return shell({ title, description, canonicalPath: path, body, jsonLd, robots });
 }
 
@@ -387,7 +443,7 @@ ${PREFECTURES.filter((x) => x !== pref).map((x) => `          <li><a href="pref-
     </section>
 
     <p class="area-note">この情報は公開情報をもとにした参考情報です。制度の対象・金額・公募時期は年度や公募回によって変わるため、申請前に必ず各制度の公式情報を確認してください。</p>`;
-  return shell({ title, description, canonicalPath: path, body, jsonLd, robots: 'index, follow' });
+  return shell({ title, description, canonicalPath: path, body, jsonLd, robots: robotsFor(visibleLength(body) < PREF_MIN_CHARS) });
 }
 
 // 日本地図（タイルマップ）：47都道府県を、おおよその位置どおりに並べた、クリックできる簡易な地図。色の濃さは、掲載している制度の件数
@@ -474,8 +530,7 @@ ${list}
 
 function sitemap() {
   // ページの一覧は public/ の実際のファイルから作る（転送用・noindex のページは除く）。市区町村は制度があるページだけ
-  const thinArea = new Set(AREA_CITIES.filter((c) => !programsFor(c).municipal.length && !residentFor(c).municipal.length).map((c) => `area/${c.slug}.html`));
-  const urls = sitemapPaths(join(ROOT, 'public')).filter((u) => !thinArea.has(u));
+  const urls = sitemapPaths(join(ROOT, 'public')); // noindex のページ（薄いページ）は、sitemapPaths が除く
   // 更新日は、ページの中身が変わった日（data/sitemap-lastmod.json）。毎日の更新（update-sitemap.mjs）と同じ記録を使う
   let prev = {};
   try { prev = JSON.parse(readFileSync(join(ROOT, 'data', 'sitemap-lastmod.json'), 'utf-8')); } catch { /* 初回 */ }
