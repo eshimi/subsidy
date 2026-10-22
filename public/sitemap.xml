@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://hojyokin.net/</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://hojyokin.net/beginner-guide.html</loc>
@@ -74,7 +74,7 @@
   </url>
   <url>
     <loc>https://hojyokin.net/sitemap.html</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://hojyokin.net/basics/after-adoption.html</loc>
@@ -402,39 +402,39 @@
   </url>
   <url>
     <loc>https://hojyokin.net/blog/2026-10-11-blog-start.html</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://hojyokin.net/blog/2026-10-11-personal-popular-subsidies.html</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://hojyokin.net/blog/2026-10-12-find-subsidy-in-your-city.html</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://hojyokin.net/blog/2026-10-13-choose-subsidy-support.html</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://hojyokin.net/blog/2026-10-13-popular-subsidies-application-steps-2.html</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://hojyokin.net/blog/2026-10-13-popular-subsidies-application-steps.html</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://hojyokin.net/blog/2026-10-13-subsidy-for-website.html</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://hojyokin.net/blog/2026-10-15-aimitsumori-estimate-tips.html</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://hojyokin.net/blog/2026-10-15-application-mistakes-checklist.html</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://hojyokin.net/blog/2026-10-16-numerical-plan-tips.html</loc>
@@ -454,11 +454,15 @@
   </url>
   <url>
     <loc>https://hojyokin.net/blog/2026-10-20-performance-report-documents.html</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-23</lastmod>
+  </url>
+  <url>
+    <loc>https://hojyokin.net/blog/2026-10-23-jgrants-deadline-patterns.html</loc>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://hojyokin.net/blog/index.html</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://hojyokin.net/policy/about.html</loc>
@@ -626,7 +630,7 @@
   </url>
   <url>
     <loc>https://hojyokin.net/area/nagoya.html</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://hojyokin.net/area/nara.html</loc>
@@ -654,7 +658,7 @@
   </url>
   <url>
     <loc>https://hojyokin.net/area/pref-aichi.html</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://hojyokin.net/area/pref-aomori.html</loc>
@@ -666,11 +670,11 @@
   </url>
   <url>
     <loc>https://hojyokin.net/area/pref-ehime.html</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://hojyokin.net/area/pref-fukui.html</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://hojyokin.net/area/pref-fukuoka.html</loc>
@@ -686,11 +690,11 @@
   </url>
   <url>
     <loc>https://hojyokin.net/area/pref-gunma.html</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://hojyokin.net/area/pref-hiroshima.html</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://hojyokin.net/area/pref-hokkaido.html</loc>
@@ -710,7 +714,7 @@
   </url>
   <url>
     <loc>https://hojyokin.net/area/pref-kagoshima.html</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://hojyokin.net/area/pref-kanagawa.html</loc>
@@ -726,23 +730,23 @@
   </url>
   <url>
     <loc>https://hojyokin.net/area/pref-miyazaki.html</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://hojyokin.net/area/pref-nagano.html</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://hojyokin.net/area/pref-nagasaki.html</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://hojyokin.net/area/pref-niigata.html</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://hojyokin.net/area/pref-osaka.html</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://hojyokin.net/area/pref-saga.html</loc>
@@ -750,11 +754,11 @@
   </url>
   <url>
     <loc>https://hojyokin.net/area/pref-saitama.html</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://hojyokin.net/area/pref-shiga.html</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://hojyokin.net/area/pref-shizuoka.html</loc>
@@ -766,15 +770,15 @@
   </url>
   <url>
     <loc>https://hojyokin.net/area/pref-tokyo.html</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://hojyokin.net/area/pref-tottori.html</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://hojyokin.net/area/pref-toyama.html</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://hojyokin.net/area/pref-yamagata.html</loc>
@@ -782,7 +786,7 @@
   </url>
   <url>
     <loc>https://hojyokin.net/area/pref-yamaguchi.html</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://hojyokin.net/area/pref-yamanashi.html</loc>

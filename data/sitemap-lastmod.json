@@ -1,7 +1,7 @@
 {
  "": {
-  "h": "v2:daef4668fba2",
-  "d": "2026-10-21"
+  "h": "v2:dc9912e30384",
+  "d": "2026-10-23"
  },
  "beginner-guide.html": {
   "h": "v2:e59ff0b557b8",
@@ -72,8 +72,8 @@
   "d": "2026-10-18"
  },
  "sitemap.html": {
-  "h": "v2:a208083d80eb",
-  "d": "2026-10-21"
+  "h": "v2:c87a16c2f7ea",
+  "d": "2026-10-23"
  },
  "basics/after-adoption.html": {
   "h": "v2:a7c34a684327",
@@ -401,39 +401,39 @@
  },
  "blog/2026-10-11-blog-start.html": {
   "h": "v2:73b268191cde",
-  "d": "2026-10-21"
+  "d": "2026-10-23"
  },
  "blog/2026-10-11-personal-popular-subsidies.html": {
-  "h": "v2:b76b38f4579a",
-  "d": "2026-10-21"
+  "h": "v2:0b187484fca8",
+  "d": "2026-10-23"
  },
  "blog/2026-10-12-find-subsidy-in-your-city.html": {
   "h": "v2:03a614d84ce1",
-  "d": "2026-10-21"
+  "d": "2026-10-23"
  },
  "blog/2026-10-13-choose-subsidy-support.html": {
   "h": "v2:5c9d1c752347",
-  "d": "2026-10-21"
+  "d": "2026-10-23"
  },
  "blog/2026-10-13-popular-subsidies-application-steps-2.html": {
   "h": "v2:5ad3493490aa",
-  "d": "2026-10-21"
+  "d": "2026-10-23"
  },
  "blog/2026-10-13-popular-subsidies-application-steps.html": {
   "h": "v2:c9fcb5fd8d92",
-  "d": "2026-10-21"
+  "d": "2026-10-23"
  },
  "blog/2026-10-13-subsidy-for-website.html": {
   "h": "v2:734d8b00cfb8",
-  "d": "2026-10-21"
+  "d": "2026-10-23"
  },
  "blog/2026-10-15-aimitsumori-estimate-tips.html": {
   "h": "v2:2a813b4bb9c7",
-  "d": "2026-10-21"
+  "d": "2026-10-23"
  },
  "blog/2026-10-15-application-mistakes-checklist.html": {
   "h": "v2:2f34b56e1007",
-  "d": "2026-10-21"
+  "d": "2026-10-23"
  },
  "blog/2026-10-16-numerical-plan-tips.html": {
   "h": "v2:7884456de30f",
@@ -452,12 +452,16 @@
   "d": "2026-10-20"
  },
  "blog/2026-10-20-performance-report-documents.html": {
-  "h": "v2:9e5051a665a7",
-  "d": "2026-10-20"
+  "h": "v2:a2cb5c444831",
+  "d": "2026-10-23"
+ },
+ "blog/2026-10-23-jgrants-deadline-patterns.html": {
+  "h": "v2:8aa76462f513",
+  "d": "2026-10-23"
  },
  "blog/index.html": {
-  "h": "v2:530a41744c0a",
-  "d": "2026-10-20"
+  "h": "v2:4e0d05384a97",
+  "d": "2026-10-23"
  },
  "policy/about.html": {
   "h": "v2:21963a2ccc50",
@@ -624,8 +628,8 @@
   "d": "2026-10-21"
  },
  "area/nagoya.html": {
-  "h": "v2:01141f00d52e",
-  "d": "2026-10-21"
+  "h": "v2:e0214bcc12ab",
+  "d": "2026-10-23"
  },
  "area/nara.html": {
   "h": "v2:cd013fbc2950",
@@ -652,8 +656,8 @@
   "d": "2026-10-21"
  },
  "area/pref-aichi.html": {
-  "h": "v2:12822e035f6f",
-  "d": "2026-10-21"
+  "h": "v2:da0d95087bb9",
+  "d": "2026-10-23"
  },
  "area/pref-aomori.html": {
   "h": "v2:91afbec3eab8",
@@ -664,12 +668,12 @@
   "d": "2026-10-19"
  },
  "area/pref-ehime.html": {
-  "h": "v2:00a427df0b96",
-  "d": "2026-10-21"
+  "h": "v2:0d88bb0179a9",
+  "d": "2026-10-23"
  },
  "area/pref-fukui.html": {
-  "h": "v2:ad02e4331a4b",
-  "d": "2026-10-21"
+  "h": "v2:f09f0f2c41a9",
+  "d": "2026-10-23"
  },
  "area/pref-fukuoka.html": {
   "h": "v2:d40a8dc786d3",
@@ -684,12 +688,12 @@
   "d": "2026-10-19"
  },
  "area/pref-gunma.html": {
-  "h": "v2:219d31d0fe31",
-  "d": "2026-10-21"
+  "h": "v2:bf613cc3175c",
+  "d": "2026-10-23"
  },
  "area/pref-hiroshima.html": {
-  "h": "v2:14bf76211dd3",
-  "d": "2026-10-21"
+  "h": "v2:d2578bd80f2e",
+  "d": "2026-10-23"
  },
  "area/pref-hokkaido.html": {
   "h": "v2:9bdc0a469868",
@@ -708,8 +712,8 @@
   "d": "2026-10-19"
  },
  "area/pref-kagoshima.html": {
-  "h": "v2:05d9c61bb4d1",
-  "d": "2026-10-21"
+  "h": "v2:98d7c5ffcaa1",
+  "d": "2026-10-23"
  },
  "area/pref-kanagawa.html": {
   "h": "v2:7b73330cd175",
@@ -724,36 +728,36 @@
   "d": "2026-10-19"
  },
  "area/pref-miyazaki.html": {
-  "h": "v2:f8063b392f33",
-  "d": "2026-10-21"
+  "h": "v2:bf9b245dde98",
+  "d": "2026-10-23"
  },
  "area/pref-nagano.html": {
-  "h": "v2:99f2cd3b65a8",
-  "d": "2026-10-21"
+  "h": "v2:fa4d8c6c831b",
+  "d": "2026-10-23"
  },
  "area/pref-nagasaki.html": {
-  "h": "v2:1cc515349bb8",
-  "d": "2026-10-21"
+  "h": "v2:911e48ef9607",
+  "d": "2026-10-23"
  },
  "area/pref-niigata.html": {
-  "h": "v2:43ebed4329ee",
-  "d": "2026-10-21"
+  "h": "v2:45a8ff09846a",
+  "d": "2026-10-23"
  },
  "area/pref-osaka.html": {
-  "h": "v2:167c41bcdd49",
-  "d": "2026-10-21"
+  "h": "v2:00dae8ef2581",
+  "d": "2026-10-23"
  },
  "area/pref-saga.html": {
   "h": "v2:20e3bbcf99ee",
   "d": "2026-10-18"
  },
  "area/pref-saitama.html": {
-  "h": "v2:25780700f823",
-  "d": "2026-10-21"
+  "h": "v2:59ce7dad5cd2",
+  "d": "2026-10-23"
  },
  "area/pref-shiga.html": {
-  "h": "v2:25e2a8f399cc",
-  "d": "2026-10-21"
+  "h": "v2:705e0a33d0c0",
+  "d": "2026-10-23"
  },
  "area/pref-shizuoka.html": {
   "h": "v2:16f7c0564a91",
@@ -764,24 +768,24 @@
   "d": "2026-10-19"
  },
  "area/pref-tokyo.html": {
-  "h": "v2:c3da884457cc",
-  "d": "2026-10-21"
+  "h": "v2:98b7602fd77f",
+  "d": "2026-10-23"
  },
  "area/pref-tottori.html": {
-  "h": "v2:d2c99af5143b",
-  "d": "2026-10-21"
+  "h": "v2:378796117c37",
+  "d": "2026-10-23"
  },
  "area/pref-toyama.html": {
-  "h": "v2:8c2d15fa9bba",
-  "d": "2026-10-21"
+  "h": "v2:39de5690587e",
+  "d": "2026-10-23"
  },
  "area/pref-yamagata.html": {
   "h": "v2:8fff2c29a9ae",
   "d": "2026-10-19"
  },
  "area/pref-yamaguchi.html": {
-  "h": "v2:d40b824cdd83",
-  "d": "2026-10-21"
+  "h": "v2:b157fa5945ec",
+  "d": "2026-10-23"
  },
  "area/pref-yamanashi.html": {
   "h": "v2:a2289afb375e",
