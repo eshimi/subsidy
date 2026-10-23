@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>市区町村の独自制度が「載っていない」目的を集計：事業承継は267市区町村のうち16、IT・デジタルは47</title>
+  <meta name="description" content="2026年10月24日時点の当サイトの集計で、267市区町村×9つの目的の掲載状況を比較。創業・融資は厚く、事業承継・ITは薄い実態と、空白の目的の探し方を整理します。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://hojyokin.net/blog/2026-10-24-gaps-by-purpose.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="補助金ネット">
+  <meta property="og:title" content="市区町村の独自制度が「載っていない」目的を集計：事業承継は267市区町村のうち16、IT・デジタルは47">
+  <meta property="og:description" content="2026年10月24日時点の当サイトの集計で、267市区町村×9つの目的の掲載状況を比較。創業・融資は厚く、事業承継・ITは薄い実態と、空白の目的の探し方を整理します。">
+  <meta property="og:url" content="https://hojyokin.net/blog/2026-10-24-gaps-by-purpose.html">
+  <meta property="og:image" content="https://hojyokin.net/images/og-image.png">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="市区町村の独自制度が「載っていない」目的を集計：事業承継は267市区町村のうち16、IT・デジタルは47">
+  <meta name="twitter:description" content="2026年10月24日時点の当サイトの集計で、267市区町村×9つの目的の掲載状況を比較。創業・融資は厚く、事業承継・ITは薄い実態と、空白の目的の探し方を整理します。">
+  <meta name="twitter:image" content="https://hojyokin.net/images/og-image.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/favicon-96x96.png" type="image/png" sizes="96x96">
+  <link rel="icon" href="/favicon-192x192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <style>
+    .art-box { background: #fff; border: 1px solid #e6e8ec; border-radius: 12px; padding: 30px 36px 26px; box-shadow: 0 2px 12px rgba(10, 35, 82, 0.06); margin: 0 0 24px; }
+    .art-sec { margin: 0 0 1.8rem; scroll-margin-top: 72px; }
+    .art-sec + .art-sec { padding-top: 0; }
+    .art-sec h2 { display: flex; align-items: center; gap: 10px; font-size: 1.25rem; line-height: 1.5; letter-spacing: -0.02em; margin: 0 0 0.8rem; color: #0a2352; }
+    .art-sec h2::before { content: ""; width: 5px; height: 1.2em; border-radius: 3px; background: #073461; flex-shrink: 0; }
+    @media (max-width: 760px) { .art-box { padding: 20px 16px; } .art-sec h2 { font-size: 1.12rem; } }
+    .area-section { background: white; border: 1px solid #e6e8ec; border-radius: 8px; padding: 32px; margin-bottom: 24px; scroll-margin-top: 72px; }
+    .area-num { display: block; font-family: var(--font-mono); font-size: 0.75rem; color: var(--mute); text-transform: uppercase; margin-bottom: 8px; }
+    .area-section h2 { font-size: 1.4rem; line-height: 1.5; letter-spacing: -0.02em; margin: 0 0 16px; color: #0a2352; }
+    .area-body { max-width: 48em; line-height: 1.85; color: var(--ink); }
+    .area-body p, .area-body li { margin-bottom: 0.7rem; }
+    .area-body ul { margin: 0 0 1rem 1.5rem; padding: 0; }
+    .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
+    .area-program:first-child { border-top: 0; padding-top: 0; }
+    .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
+    .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
+    .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
+    .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
+    .area-links a:hover { text-decoration: underline; }
+    .area-title-img { display: inline-block; height: 72px; width: auto; margin-left: 12px; vertical-align: middle; }
+    .area-crumb { font-size: 0.85rem; color: var(--mute); margin-bottom: 1.5rem; }
+    .area-crumb a { color: var(--mute); }
+    .area-note { font-size: 0.9rem; color: var(--mute); line-height: 1.8; border-left: 3px solid #e6e8ec; padding-left: 16px; margin: 2rem 0 0; max-width: 48em; }
+    .area-groups { display: grid; gap: 28px; }
+    .area-groups h2 { font-size: 1.2rem; margin: 0; }
+    .area-pref-head { display: flex; align-items: center; gap: 16px; margin-bottom: 12px; }
+    .area-pref-head img { width: 96px; height: auto; flex-shrink: 0; }
+    h1.display { font-size: clamp(1.4rem, 4.7vw, 3rem); overflow-wrap: anywhere; }
+    .article-hero { margin: 0 0 24px; }
+    .article-hero img { display: block; width: 100%; height: auto; border-radius: 8px; border: 1px solid #e6e8ec; }
+    .article-body h3 { font-size: 1.2rem; margin: 1.6em 0 0.7em; }
+    .article-body ol { margin: 0 0 1rem 1.5rem; padding: 0; }
+    .article-body a { color: #2b65b1; text-decoration: underline; }
+    .article-highlight { background: #f0f5ff; border-left: 3px solid #2b65b1; padding: 14px 18px; margin: 1.2rem 0; border-radius: 4px; }
+    .area-pref-link { margin: 0 0 12px; font-size: 0.9rem; }
+    .area-pref-link a { color: #2b65b1; text-decoration: none; }
+    .area-pref-link a:hover { text-decoration: underline; }
+    .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
+    .area-groups a { color: #2b65b1; text-decoration: none; }
+    .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
+    @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
+  
+    .feature-table { width: 100%; border-collapse: collapse; margin: 8px 0 16px; font-size: 0.92rem; }
+    .feature-table th, .feature-table td { border: 1px solid #e6e8ec; padding: 10px 12px; text-align: left; vertical-align: top; }
+    .feature-table thead th { background: #f4f6f8; }
+    .table-wrap { overflow-x: auto; }
+    .glossary dt { font-weight: 700; margin-top: 12px; }
+    .glossary dd { margin: 4px 0 0; }
+    .feature-card { display: block; padding: 20px 0; border-top: 1px solid #e6e8ec; text-decoration: none; }
+    .feature-card:first-child { border-top: 0; }
+    .feature-card h2 { font-size: 1.2rem; margin: 0 0 6px; }
+    .feature-card p { margin: 0; color: var(--mute); }
+
+  </style>
+  <meta name="google-adsense-account" content="ca-pub-7811993263471350">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7811993263471350"
+     crossorigin="anonymous"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-J5DWZQLCB0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-J5DWZQLCB0');
+  </script>
+  <!-- seo:start -->
+  <meta name="keywords" content="地域別,市区町村,事業承継,IT導入,補助金データ,補助金ブログ,創業,空き店舗,融資,都道府県">
+  <meta property="article:published_time" content="2026-10-24">
+  <meta property="article:modified_time" content="2026-10-24">
+  <meta property="article:tag" content="地域別">
+  <meta property="article:tag" content="市区町村">
+  <meta property="article:tag" content="事業承継">
+  <meta property="article:tag" content="IT導入">
+  <meta property="article:tag" content="補助金データ">
+  <meta property="article:tag" content="補助金ブログ">
+  <meta property="article:tag" content="創業">
+  <meta property="article:tag" content="空き店舗">
+  <meta property="article:tag" content="融資">
+  <meta property="article:tag" content="都道府県">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"市区町村の独自制度が「載っていない」目的を集計：事業承継は267市区町村のうち16、IT・デジタルは47","description":"2026年10月24日時点の当サイトの集計で、267市区町村×9つの目的の掲載状況を比較。創業・融資は厚く、事業承継・ITは薄い実態と、空白の目的の探し方を整理します。","url":"https://hojyokin.net/blog/2026-10-24-gaps-by-purpose.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://hojyokin.net/blog/2026-10-24-gaps-by-purpose.html"},"inLanguage":"ja","image":["https://hojyokin.net/images/banner/b17.webp"],"keywords":"地域別, 市区町村, 事業承継, IT導入, 補助金データ, 補助金ブログ, 創業, 空き店舗, 融資, 都道府県","articleSection":"ブログ","author":{"@type":"Organization","name":"補助金ネット","url":"https://hojyokin.net/"},"publisher":{"@type":"Organization","name":"補助金ネット","url":"https://hojyokin.net/","logo":{"@type":"ImageObject","url":"https://hojyokin.net/images/og-image.png"}},"datePublished":"2026-10-24","dateModified":"2026-10-24"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://hojyokin.net/blog/index.html"},{"@type":"ListItem","position":3,"name":"市区町村の独自制度が「載っていない」目的を集計：事業承継は267市区町村のうち16、IT・デジタルは47","item":"https://hojyokin.net/blog/2026-10-24-gaps-by-purpose.html"}]}</script>
+  <!-- seo:end -->
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="wordmark" href="../" aria-label="補助金ネット トップ"><img src="../images/logo-header-v5.webp" alt="補助金ネット"></a>
+      <nav class="topnav" id="topnav" aria-label="サイト内">
+        <details class="navdrop">
+          <summary>探す</summary>
+          <div class="navdrop-panel">
+            <a href="../who/sole-proprietor.html">個人事業主</a>
+            <a href="../who/sme.html">中小企業</a>
+            <a href="../who/startup.html">創業・副業</a>
+            <a href="../personal/summary.html">個人の方</a>
+            <a href="../grants/prefectures.html">都道府県別</a>
+            <a href="../area/index.html">市区町村別</a>
+            <a href="../search.html">キーワード</a>
+            <a href="../grants/purposes.html">目的別</a>
+            <a href="../grants/industries.html">業種別</a>
+            <a href="../search.html?within=90&sort=end">締切が近い順</a>
+            <a href="../programs/index.html">くわしい解説つきの制度（制度ガイド）</a>
+            <a href="../hitsuyo.html">やりたいこと・ほしいものから探す</a>
+          </div>
+        </details>
+        <details class="navdrop">
+          <summary>管理する</summary>
+          <div class="navdrop-panel">
+            <a href="../mypage.html">マイページ</a>
+            <a href="../hantei.html">AI補助金判定</a>
+            <a href="../plan.html">事業計画書AI</a>
+            <a href="../research/index.html">補助金データ</a>
+            <a href="../consult.html">無料相談</a>
+            <a href="../research/business.html">事業向けリサーチデータ</a>
+            <a href="../research/personal.html">個人向けリサーチデータ</a>
+            <a href="../research/quality.html">データの品質レポート</a>
+            <a href="../research/changes.html">制度の変更履歴</a>
+          </div>
+        </details>
+        <details class="navdrop">
+          <summary>学ぶ</summary>
+          <div class="navdrop-panel">
+            <a href="../basics/index.html">基礎知識</a>
+            <a href="../basics/flow.html">申請の流れ</a>
+            <a href="../cases/index.html">活用事例</a>
+            <a href="../news/index.html">補助金ニュース</a>
+            <a href="../blog/index.html">ブログ</a>
+            <a href="../columns.html">コラム</a>
+            <a href="../basics/glossary.html">用語集</a>
+            <a href="../basics/business-plan.html">事業計画書の書き方</a>
+            <a href="../real-life.html">補助金のリアル</a>
+            <a href="../feature/popular.html">特に人気の5つの補助金</a>
+            <a href="../feature/index.html">主な補助金の特集</a>
+            <a href="../background/index.html">補助金はなぜできたのか（制度の背景）</a>
+            <a href="../compare/index.html">比較記事</a>
+            <a href="../roadmap.html">創業・副業のガイド</a>
+          </div>
+        </details>
+        <details class="navdrop">
+          <summary>サイトについて</summary>
+          <div class="navdrop-panel">
+            <a href="../guide.html">使い方</a>
+            <a href="../policy/about.html">運営者情報</a>
+            <a href="../policy/sources.html">出典・更新方針</a>
+            <a href="../policy/contact.html">お問い合わせ</a>
+            <a href="../sitemap.html">サイトマップ</a>
+          </div>
+        </details>
+        <a href="../plan.html" class="nav-ai">AI計画書</a>
+        <a href="../consult.html" class="nav-cta">無料相談</a>
+      </nav>
+      <button type="button" class="nav-toggle" aria-controls="topnav" aria-expanded="false">メニュー</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">ブログ</a> ＞ 市区町村の独自制度が「載っていない」目的を集計：事業承継は267市区町村のうち16、IT・デジタルは47</nav>
+
+    <div class="pb-banner" style="background-image: url('../images/banner/b17.webp')"><h1 class="pb-title">市区町村の独自制度が「載っていない」目的を集計：事業承継は267市区町村のうち16、IT・デジタルは47</h1></div>
+    <div style="margin-bottom: 2rem;">
+      <p class="label" style="margin-bottom: 0.5rem;">ブログ</p>
+      <p class="lead" style="margin-bottom: 0;">2026年10月24日時点の当サイトの集計で、267市区町村×9つの目的の掲載状況を比較。創業・融資は厚く、事業承継・ITは薄い実態と、空白の目的の探し方を整理します。</p>
+      <p class="bl-meta"><span class="bl-cat bl-cat-data">データ・考察</span><span>公開 <time datetime="2026-10-24">2026年10月24日</time></span><span>読了 約6分</span><a href="index.html#cat=%E3%83%87%E3%83%BC%E3%82%BF%E3%83%BB%E8%80%83%E5%AF%9F">同じカテゴリの記事を見る <span aria-hidden="true">→</span></a></p>
+      <div role="region" class="bl-points bl-points--m" aria-labelledby="bl-pt-m">
+        <h2 id="bl-pt-m">この記事のポイント</h2>
+        <ol>
+          <li>市区町村の独自制度が載るのは創業・起業が159市区町村で事業承継は16だけ</li>
+          <li>県の制度まで含めても事業承継は114でIT・デジタルは112にとどまる</li>
+          <li>載っていない目的は制度がないと決めず県と国と相談窓口の順に確かめる</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="page-split"><div class="page-main">
+<div class="art-box">
+<section class="art-sec" aria-labelledby="s0"><h2 id="s0">はじめに</h2>
+      <div class="area-body">
+        <p>結論から言うと、市区町村が独自に用意する制度は、目的によって厚みがまったく違います。当サイトのデータでは、創業・起業の制度を載せている市区町村は159（60%）ある一方、事業承継は16（6%）、IT・デジタルは47（18%）にとどまります。自分の市に「載っていない目的」を先に知っておくと、探す順番を間違えずに済みます。</p>
+        <p>この記事は、当サイトが集計している「地域×目的の空白マップ」（2026年10月24日時点、data/analysis-latest.json の gaps）を読み解いたものです。対象は、当サイトに市区町村ページがある267市区町村と、9つの目的です。数字はすべて当サイトの掲載データから数えたもので、各自治体の制度の全数ではありません。</p>
+      </div>
+    </section>
+
+    <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
+
+    <section class="art-sec" aria-labelledby="s1"><h2 id="s1"><img class="sec-icon" src="../images/icons/icon-08.png" alt="" width="30" height="30" loading="lazy">目的別の掲載状況：創業・融資は厚く、承継・ITは薄い</h2>
+      <div class="area-body">
+        <p>次の表は、267市区町村のうち、各目的で制度が掲載されている市区町村の数です。「市区町村の独自制度」は市区町村自身の制度、「県の制度まで含む」は県の制度だけでも載っていれば数えた場合です。</p>
+        <div class="table-wrap"><table class="feature-table">
+          <thead><tr><th scope="col">目的</th><th scope="col">市区町村の独自制度</th><th scope="col">県の制度まで含む</th><th scope="col">どちらもなし</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">創業・起業</th><td>159（60%）</td><td>257（96%）</td><td>10（4%）</td></tr>
+            <tr><th scope="row">融資・利子補給</th><td>157（59%）</td><td>246（92%）</td><td>21（8%）</td></tr>
+            <tr><th scope="row">販路開拓・PR</th><td>100（37%）</td><td>164（61%）</td><td>103（39%）</td></tr>
+            <tr><th scope="row">空き店舗・商店街</th><td>93（35%）</td><td>104（39%）</td><td>163（61%）</td></tr>
+            <tr><th scope="row">設備投資・省エネ</th><td>82（31%）</td><td>163（61%）</td><td>104（39%）</td></tr>
+            <tr><th scope="row">人材・雇用</th><td>71（27%）</td><td>182（68%）</td><td>85（32%）</td></tr>
+            <tr><th scope="row">研究開発・新事業</th><td>57（21%）</td><td>126（47%）</td><td>141（53%）</td></tr>
+            <tr><th scope="row">IT・デジタル</th><td>47（18%）</td><td>112（42%）</td><td>155（58%）</td></tr>
+            <tr><th scope="row">事業承継</th><td>16（6%）</td><td>114（43%）</td><td>153（57%）</td></tr>
+          </tbody>
+        </table></div>
+        <p>読み方は2つあります。1つ目は、創業・起業と融資・利子補給だけが「市区町村の独自制度」で5割を超えていることです。創業支援や利子補給は、自治体が昔から用意してきた型で、掲載も多くなっています。2つ目は、事業承継とIT・デジタルが、県の制度を足しても4割台にとどまることです。この2つは、市区町村の窓口だけを見ても見つかりにくい目的だといえます。</p>
+      </div>
+    </section>
+
+    <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
+
+    <section class="art-sec" aria-labelledby="s2"><h2 id="s2"><img class="sec-icon" src="../images/icons/icon-50.png" alt="" width="30" height="30" loading="lazy">空き店舗は「県で補えない」目的</h2>
+      <div class="area-body">
+        <p>表の「独自制度」と「県の制度まで含む」の差が、県の制度に助けられている市区町村の数です。</p>
+        <ul>
+          <li>事業承継：114 − 16 ＝ 98市区町村が、県の制度だけで載っている</li>
+          <li>IT・デジタル：112 − 47 ＝ 65市区町村</li>
+          <li>設備投資・省エネ：163 − 82 ＝ 81市区町村</li>
+          <li>空き店舗・商店街：104 − 93 ＝ わずか11市区町村</li>
+        </ul>
+        <p>空き店舗・商店街は、県の制度でほとんど補えません。空き店舗の活用は商店街のある市区町村単位の施策が中心なので、自分の市に載っていないと、県を見ても出てこないことが多い、という読みになります。逆に事業承継は、県の制度に頼る市区町村が98と多く、県の窓口を先に見る価値が高い目的です。</p>
+      </div>
+    </section>
+
+    <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-03.webp" alt="" loading="lazy"></div>
+
+    <section class="art-sec" aria-labelledby="s3"><h2 id="s3"><img class="sec-icon" src="../images/icons/icon-12.png" alt="" width="30" height="30" loading="lazy">都道府県ごとに見ると：事業承継は11都県だけ</h2>
+      <div class="area-body">
+        <p>事業承継で市区町村の独自制度が載っているのは、47都道府県のうち11都県だけです（36道府県はゼロ）。内訳は次のとおりです。</p>
+        <ul>
+          <li>東京都：35市区町村のうち4</li>
+          <li>埼玉県：13のうち2、宮崎県：3のうち2</li>
+          <li>福島県・神奈川県・福井県・山梨県・岡山県・愛媛県・福岡県・大分県：各1</li>
+        </ul>
+        <p>件数の多い都市部でも差が出ます。北海道（10市）、静岡県（10市）、愛知県（12市）、大阪府（19市）は、ページのある市区町村のうち、事業承継の独自制度が載っているものはありません。IT・デジタルでは、東京都が35市区町村のうち7、愛知県が12のうち3、大阪府が19のうち3で、北海道は10市すべてで載っていません。</p>
+      </div>
+    </section>
+
+    <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-04.webp" alt="" loading="lazy"></div>
+
+    <section class="art-sec" aria-labelledby="s4"><h2 id="s4"><img class="sec-icon" src="../images/icons/icon-33.png" alt="" width="30" height="30" loading="lazy">注意点：「載っていない」は「制度がない」ではない</h2>
+      <div class="area-body">
+        <p>ここが最も大事な注意点です。この集計は、当サイトが掲載している制度の数えもので、次のような限界があります。</p>
+        <ul>
+          <li>当サイトに載っていない制度は、数に入らない</li>
+          <li>年度の途中で、制度が始まったり終わったりする</li>
+          <li>国や外郭団体が実施する制度は、自治体の制度として数えていない</li>
+        </ul>
+        <p>そのため、空白は「ここには掲載がない」という意味で、「制度がない」という意味ではありません。空白の目的に当たったときは、次の順番で確かめるのが現実的です。</p>
+        <ol>
+          <li>県の制度を確認する：事業承継とITは、県の制度で補われている市区町村が多い（上の差の表）</li>
+          <li>国の制度を確認する：<a href="../feature/succession.html">事業承継・M&amp;A補助金のページ</a>や<a href="../feature/digital-subsidy.html">デジタル補助金のページ</a>のように、国の制度が受け皿になる目的もある</li>
+          <li>市区町村の公式サイトと、商工会議所・商工会の窓口に聞く：掲載の漏れや、年度途中の新設を拾える</li>
+        </ol>
+      </div>
+    </section>
+
+    <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-05.webp" alt="" loading="lazy"></div>
+
+    <section class="art-sec" aria-labelledby="s5"><h2 id="s5"><img class="sec-icon" src="../images/icons/icon-58.png" alt="" width="30" height="30" loading="lazy">使い方：自分の市の空白を確かめる手順</h2>
+      <div class="area-body">
+        <ol>
+          <li><a href="../research/gaps.html">地域×目的の空白マップ</a>で、自分の都道府県の行を見て、探したい目的の欄が「0／○」かどうかを確認する</li>
+          <li>「0」なら、<a href="../area/index.html">市区町村から探すページ</a>で、県・隣の市の制度が載っていないかを見る</li>
+          <li>目的と条件がはっきりしないときは、<a href="../hantei.html">AI補助金判定</a>で、国と自治体の制度を横断して候補を出す</li>
+          <li>候補が出たら、<a href="../search.html">制度を探すページ</a>で、締切と対象を公式のリンクで確認する</li>
+        </ol>
+        <p>集計の出し方は、<a href="../research/methods.html">集計の方法のページ</a>にまとめています。探し方の全体像は、<a href="../columns/how-to-find-subsidy.html">補助金の探し方（コラム）</a>も参考になります。</p>
+      </div>
+    </section>
+
+    <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-06.webp" alt="" loading="lazy"></div>
+
+    <section class="art-sec" aria-labelledby="s6"><h2 id="s6">次に読むとよいページ</h2>
+      <div class="area-body">
+        <ul>
+          <li><a href="../research/gaps.html">地域×目的の空白マップ</a>：この記事の元の表です。自分の都道府県・市区町村の欄を直接確かめられます</li>
+          <li><a href="../feature/succession.html">事業承継・M&amp;A補助金とは？</a>：市区町村の制度が薄い事業承継で、国の制度の使い方を確かめるため</li>
+          <li><a href="../consult.html">無料相談のページ</a>：空白の目的で、どこに聞けばよいか迷ったときの入口です</li>
+        </ul>
+        <p>出典：補助金ネット「地域×目的の空白マップ」（data/analysis-latest.json、集計日 2026年10月24日、対象267市区町村）。</p>
+        <p>この記事は参考情報で、補助金の受給を保証するものではありません。制度の有無・締切・対象は変わるため、申請前に必ず、各自治体や実施機関の公式の情報で確認してください。</p>
+      </div>
+    </section>
+</div>
+
+    <p class="area-note">最終更新日：2026年10月24日</p>
+
+    <nav class="bl-pn" aria-label="前後の記事">
+      <a class="bl-pn-card" href="2026-10-23-jgrants-deadline-patterns.html"><small>← 前の記事</small><b>国の公募307件の「締切の出方」を集計：短期公募は締切30日前の71件の6割を占める</b></a>
+      <a class="bl-pn-card bl-pn-list" href="index.html"><small>ブログの一覧へ</small><b>記事の一覧に戻る <span aria-hidden="true">→</span></b></a>
+    </nav>
+    <section class="bl-rel" aria-labelledby="bl-rel">
+      <h2 id="bl-rel">同じカテゴリ「データ・考察」の記事</h2>
+      <div class="bl-rel-grid">
+        <a class="bl-rel-card" href="2026-10-23-jgrants-deadline-patterns.html"><span class="bl-cat bl-cat-data">データ・考察</span><b>国の公募307件の「締切の出方」を集計：短期公募は締切30日前の71件の6割を占める</b><span class="bl-rel-m">2026年10月23日　約5分</span></a>
+        <a class="bl-rel-card" href="2026-10-11-personal-popular-subsidies.html"><span class="bl-cat bl-cat-data">データ・考察</span><b>個人に人気の補助金は？データで見る、使われている制度の傾向</b><span class="bl-rel-m">2026年10月11日　約6分</span></a>
+      </div>
+    </section>
+<!-- tags:start -->
+<nav class="art-tags" aria-label="タグ"><span class="art-tags-label">タグ</span><ul><li><a href="../search.html?q=%E5%9C%B0%E5%9F%9F%E5%88%A5" rel="tag">#地域別</a></li><li><a href="../search.html?q=%E5%B8%82%E5%8C%BA%E7%94%BA%E6%9D%91" rel="tag">#市区町村</a></li><li><a href="../search.html?q=%E4%BA%8B%E6%A5%AD%E6%89%BF%E7%B6%99" rel="tag">#事業承継</a></li><li><a href="../search.html?q=IT%E5%B0%8E%E5%85%A5" rel="tag">#IT導入</a></li><li><a href="../search.html?q=%E8%A3%9C%E5%8A%A9%E9%87%91%E3%83%87%E3%83%BC%E3%82%BF" rel="tag">#補助金データ</a></li><li><a href="index.html" rel="tag">#補助金ブログ</a></li><li><a href="../search.html?q=%E5%89%B5%E6%A5%AD" rel="tag">#創業</a></li><li><a href="../search.html?q=%E7%A9%BA%E3%81%8D%E5%BA%97%E8%88%97" rel="tag">#空き店舗</a></li><li><a href="../search.html?q=%E8%9E%8D%E8%B3%87" rel="tag">#融資</a></li><li><a href="../search.html?q=%E9%83%BD%E9%81%93%E5%BA%9C%E7%9C%8C" rel="tag">#都道府県</a></li></ul></nav>
+<!-- tags:end -->
+</div><aside class="page-side" aria-label="関連ページ">
+    <!-- side-top:start -->
+    <nav class="related-links" aria-label="このページの内容">
+      <h2>このページの内容</h2>
+      <ul>
+        <li><a href="#s0">はじめに</a></li>
+        <li><a href="#s1">目的別の掲載状況：創業・融資は厚く、承継・ITは薄い</a></li>
+        <li><a href="#s2">空き店舗は「県で補えない」目的</a></li>
+        <li><a href="#s3">都道府県ごとに見ると：事業承継は11都県だけ</a></li>
+        <li><a href="#s4">注意点：「載っていない」は「制度がない」ではない</a></li>
+        <li><a href="#s5">使い方：自分の市の空白を確かめる手順</a></li>
+        <li><a href="#s6">次に読むとよいページ</a></li>
+      </ul>
+    </nav>
+      <div class="bl-side-cta">
+        <h2>自分に使える補助金は？</h2>
+        <p>質問に答えるだけで、AIが使えそうな補助金を判定します。</p>
+        <a class="bl-btn" href="../hantei.html">AI補助金判定を試す <span aria-hidden="true">→</span></a>
+      </div>
+    <!-- side-top:end -->
+
+    <nav class="related-links" aria-label="関連ページ">
+      <h2>関連ページ</h2>
+      <h3 class="rl-group">基礎知識・コラム・ニュース</h3>
+      <ul>
+        <li><a href="index.html">ブログの一覧</a></li>
+      </ul>
+      <h3 class="rl-group">補助金を探す・調べる</h3>
+      <ul>
+        <li><a href="../hantei.html">AI補助金判定（質問に答えて探す）</a></li>
+        <li><a href="../hitsuyo.html">やりたいこと・ほしいものから探す</a></li>
+      </ul>
+      <h3 class="rl-group">その他</h3>
+      <ul>
+        <li><a href="../consult.html">無料相談のお申し込み</a></li>
+      </ul>
+    </nav>
+</aside></div>
+  
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-top">
+      <div class="footer-info">
+        <a class="footer-brand" href="../" aria-label="補助金ネット トップ"><img src="../images/logo-header-v5.webp" alt="補助金ネット" width="200" height="60"></a>
+        <p>事業者・個人のための補助金サイト</p>
+        <p class="footer-source">募集中の補助金データ：<a href="https://www.jgrants-portal.go.jp/" target="_blank" rel="noopener">jGrants（デジタル庁）</a><br>住所検索：<a href="https://zipcloud.ibsnet.co.jp/" target="_blank" rel="noopener">zipcloud</a></p>
+        <p class="footer-contact">運営者：<a href="../policy/about.html">運営者情報</a><br>お問い合わせ：<a href="../policy/contact.html">フォーム</a></p>
+        <figure class="footer-qr">
+          <img src="../images/qr-hojyokin.png" alt="補助金ネット（hojyokin.net）へのQRコード" width="120" height="120" loading="lazy">
+          <figcaption>スマホで開く</figcaption>
+        </figure>
+      </div>
+      <nav class="footer-nav" aria-label="フッター">
+          <details class="footer-group">
+            <summary>探す</summary>
+            <ul>
+            <li><a href="../who/sole-proprietor.html">個人事業主</a></li>
+            <li><a href="../who/sme.html">中小企業</a></li>
+            <li><a href="../who/startup.html">創業・副業</a></li>
+            <li><a href="../personal/summary.html">個人の方</a></li>
+            <li><a href="../grants/prefectures.html">都道府県別</a></li>
+            <li><a href="../area/index.html">市区町村別</a></li>
+            <li><a href="../search.html">キーワード</a></li>
+            <li><a href="../grants/purposes.html">目的別</a></li>
+            <li><a href="../grants/industries.html">業種別</a></li>
+            <li><a href="../search.html?within=90&sort=end">締切が近い順</a></li>
+            </ul>
+          </details>
+          <details class="footer-group">
+            <summary>管理する</summary>
+            <ul>
+            <li><a href="../mypage.html">マイページ</a></li>
+            <li><a href="../hantei.html">AI補助金判定</a></li>
+            <li><a href="../plan.html">事業計画書AI</a></li>
+            <li><a href="../research/index.html">補助金データ</a></li>
+            <li><a href="../consult.html">無料相談</a></li>
+            </ul>
+          </details>
+          <details class="footer-group">
+            <summary>学ぶ</summary>
+            <ul>
+            <li><a href="../basics/index.html">基礎知識</a></li>
+            <li><a href="../basics/flow.html">申請の流れ</a></li>
+            <li><a href="../cases/index.html">活用事例</a></li>
+            <li><a href="../news/index.html">補助金ニュース</a></li>
+            <li><a href="../blog/index.html">ブログ</a></li>
+            <li><a href="../columns.html">コラム</a></li>
+            <li><a href="../basics/glossary.html">用語集</a></li>
+            </ul>
+          </details>
+          <details class="footer-group">
+            <summary>サイトについて</summary>
+            <ul>
+            <li><a href="../guide.html">使い方</a></li>
+            <li><a href="../policy/about.html">運営者情報</a></li>
+            <li><a href="../policy/sources.html">出典・更新方針</a></li>
+            <li><a href="../policy/contact.html">お問い合わせ</a></li>
+            <li><a href="../sitemap.html">サイトマップ</a></li>
+            </ul>
+          </details>
+        </nav>
+    </div>
+    <div class="footer-bottom">
+            <nav aria-label="補助リンク">
+        <ul>
+          <li><a href="../policy/privacy.html">プライバシーポリシー</a></li>
+          <li><a href="../policy/terms.html">利用規約</a></li>
+          <li><a href="../policy/sources.html">出典・更新方針</a></li>
+          <li><a href="../policy/contact.html">フィードバック・バグ報告</a></li>
+          <li><a href="../sitemap.html">サイトマップ</a></li>
+        </ul>
+      </nav>
+      <p class="footer-copy">Copyright © 2026 補助金ネット. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="../site.js"></script>
+</body>
+</html>

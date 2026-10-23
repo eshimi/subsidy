@@ -400,40 +400,40 @@
   "d": "2026-10-15"
  },
  "blog/2026-10-11-blog-start.html": {
-  "h": "v2:73b268191cde",
-  "d": "2026-10-23"
+  "h": "v2:c2f056c01d5d",
+  "d": "2026-10-24"
  },
  "blog/2026-10-11-personal-popular-subsidies.html": {
-  "h": "v2:0b187484fca8",
-  "d": "2026-10-23"
+  "h": "v2:9e1ba168b106",
+  "d": "2026-10-24"
  },
  "blog/2026-10-12-find-subsidy-in-your-city.html": {
-  "h": "v2:03a614d84ce1",
-  "d": "2026-10-23"
+  "h": "v2:027cf2ce4401",
+  "d": "2026-10-24"
  },
  "blog/2026-10-13-choose-subsidy-support.html": {
-  "h": "v2:5c9d1c752347",
-  "d": "2026-10-23"
+  "h": "v2:bfbd4581aacd",
+  "d": "2026-10-24"
  },
  "blog/2026-10-13-popular-subsidies-application-steps-2.html": {
-  "h": "v2:5ad3493490aa",
-  "d": "2026-10-23"
+  "h": "v2:cd73310928e1",
+  "d": "2026-10-24"
  },
  "blog/2026-10-13-popular-subsidies-application-steps.html": {
-  "h": "v2:c9fcb5fd8d92",
-  "d": "2026-10-23"
+  "h": "v2:ec0f75acd5b7",
+  "d": "2026-10-24"
  },
  "blog/2026-10-13-subsidy-for-website.html": {
-  "h": "v2:734d8b00cfb8",
-  "d": "2026-10-23"
+  "h": "v2:8136af8d0af8",
+  "d": "2026-10-24"
  },
  "blog/2026-10-15-aimitsumori-estimate-tips.html": {
-  "h": "v2:2a813b4bb9c7",
-  "d": "2026-10-23"
+  "h": "v2:3706ef212308",
+  "d": "2026-10-24"
  },
  "blog/2026-10-15-application-mistakes-checklist.html": {
-  "h": "v2:2f34b56e1007",
-  "d": "2026-10-23"
+  "h": "v2:5ff4f59b336c",
+  "d": "2026-10-24"
  },
  "blog/2026-10-16-numerical-plan-tips.html": {
   "h": "v2:7884456de30f",
@@ -456,12 +456,16 @@
   "d": "2026-10-23"
  },
  "blog/2026-10-23-jgrants-deadline-patterns.html": {
-  "h": "v2:8aa76462f513",
-  "d": "2026-10-23"
+  "h": "v2:137e23cc1976",
+  "d": "2026-10-24"
+ },
+ "blog/2026-10-24-gaps-by-purpose.html": {
+  "h": "v2:c0b63e1e6082",
+  "d": "2026-10-24"
  },
  "blog/index.html": {
-  "h": "v2:4e0d05384a97",
-  "d": "2026-10-23"
+  "h": "v2:f9a6bd4bd551",
+  "d": "2026-10-24"
  },
  "policy/about.html": {
   "h": "v2:21963a2ccc50",
@@ -572,12 +576,12 @@
   "d": "2026-10-21"
  },
  "area/kawagoe.html": {
-  "h": "v2:deec857a8d8e",
-  "d": "2026-10-21"
+  "h": "v2:b317d43a581a",
+  "d": "2026-10-24"
  },
  "area/kawaguchi.html": {
-  "h": "v2:1ab5b835d6a9",
-  "d": "2026-10-21"
+  "h": "v2:2f0f5579425f",
+  "d": "2026-10-24"
  },
  "area/koga.html": {
   "h": "v2:1772a1acb90a",
@@ -752,8 +756,8 @@
   "d": "2026-10-18"
  },
  "area/pref-saitama.html": {
-  "h": "v2:59ce7dad5cd2",
-  "d": "2026-10-23"
+  "h": "v2:b87c311f33be",
+  "d": "2026-10-24"
  },
  "area/pref-shiga.html": {
   "h": "v2:705e0a33d0c0",
@@ -844,8 +848,8 @@
   "d": "2026-10-21"
  },
  "area/tokorozawa.html": {
-  "h": "v2:6238db11f65f",
-  "d": "2026-10-21"
+  "h": "v2:59eacbcdd416",
+  "d": "2026-10-24"
  },
  "area/toride.html": {
   "h": "v2:41b6b4e4607b",
