@@ -1,7 +1,7 @@
 {
  "": {
-  "h": "v2:dc9912e30384",
-  "d": "2026-10-23"
+  "h": "v2:d6c92c29d4a4",
+  "d": "2026-10-25"
  },
  "beginner-guide.html": {
   "h": "v2:e59ff0b557b8",
@@ -72,8 +72,8 @@
   "d": "2026-10-18"
  },
  "sitemap.html": {
-  "h": "v2:c87a16c2f7ea",
-  "d": "2026-10-23"
+  "h": "v2:120675c4b605",
+  "d": "2026-10-25"
  },
  "basics/after-adoption.html": {
   "h": "v2:a7c34a684327",
@@ -200,8 +200,8 @@
   "d": "2026-10-17"
  },
  "feature/succession.html": {
-  "h": "v2:97518aa19fb0",
-  "d": "2026-10-17"
+  "h": "v2:1a42e9dc1a25",
+  "d": "2026-10-25"
  },
  "cases/aigran-cloud-payroll.html": {
   "h": "v2:65402ba31554",
@@ -404,8 +404,8 @@
   "d": "2026-10-24"
  },
  "blog/2026-10-11-personal-popular-subsidies.html": {
-  "h": "v2:9e1ba168b106",
-  "d": "2026-10-24"
+  "h": "v2:f684cc8da292",
+  "d": "2026-10-25"
  },
  "blog/2026-10-12-find-subsidy-in-your-city.html": {
   "h": "v2:027cf2ce4401",
@@ -456,16 +456,20 @@
   "d": "2026-10-23"
  },
  "blog/2026-10-23-jgrants-deadline-patterns.html": {
-  "h": "v2:137e23cc1976",
-  "d": "2026-10-24"
+  "h": "v2:ade89122f103",
+  "d": "2026-10-25"
  },
  "blog/2026-10-24-gaps-by-purpose.html": {
-  "h": "v2:c0b63e1e6082",
-  "d": "2026-10-24"
+  "h": "v2:91cd04269289",
+  "d": "2026-10-25"
+ },
+ "blog/2026-10-25-jgrants-rate-and-limit.html": {
+  "h": "v2:5594ad8b0182",
+  "d": "2026-10-25"
  },
  "blog/index.html": {
-  "h": "v2:f9a6bd4bd551",
-  "d": "2026-10-24"
+  "h": "v2:fbf9f9539c37",
+  "d": "2026-10-25"
  },
  "policy/about.html": {
   "h": "v2:21963a2ccc50",
@@ -700,8 +704,8 @@
   "d": "2026-10-23"
  },
  "area/pref-hokkaido.html": {
-  "h": "v2:9bdc0a469868",
-  "d": "2026-10-19"
+  "h": "v2:1b02236f2584",
+  "d": "2026-10-25"
  },
  "area/pref-hyogo.html": {
   "h": "v2:a0335ae79859",
@@ -800,8 +804,8 @@
   "d": "2026-10-21"
  },
  "area/sapporo.html": {
-  "h": "v2:00991a0f346d",
-  "d": "2026-10-21"
+  "h": "v2:ba886fc64c05",
+  "d": "2026-10-25"
  },
  "area/sendai.html": {
   "h": "v2:768a00ca0dfc",
