@@ -1,7 +1,7 @@
 {
  "": {
-  "h": "v2:d52fb7ec8163",
-  "d": "2026-10-27"
+  "h": "v2:a5845e461136",
+  "d": "2026-10-29"
  },
  "beginner-guide.html": {
   "h": "v2:e59ff0b557b8",
@@ -72,8 +72,8 @@
   "d": "2026-10-18"
  },
  "sitemap.html": {
-  "h": "v2:b7a0f0e462c8",
-  "d": "2026-10-28"
+  "h": "v2:18842e9411d4",
+  "d": "2026-10-29"
  },
  "basics/after-adoption.html": {
   "h": "v2:a7c34a684327",
@@ -404,8 +404,8 @@
   "d": "2026-10-24"
  },
  "blog/2026-10-11-personal-popular-subsidies.html": {
-  "h": "v2:9131af194d1a",
-  "d": "2026-10-28"
+  "h": "v2:d08b625a05f6",
+  "d": "2026-10-29"
  },
  "blog/2026-10-12-find-subsidy-in-your-city.html": {
   "h": "v2:027cf2ce4401",
@@ -456,32 +456,36 @@
   "d": "2026-10-23"
  },
  "blog/2026-10-23-jgrants-deadline-patterns.html": {
-  "h": "v2:2de7a41c554e",
-  "d": "2026-10-28"
+  "h": "v2:e81838144373",
+  "d": "2026-10-29"
  },
  "blog/2026-10-24-gaps-by-purpose.html": {
-  "h": "v2:38e15ce2614d",
-  "d": "2026-10-28"
+  "h": "v2:a92c27842a20",
+  "d": "2026-10-29"
  },
  "blog/2026-10-25-jgrants-rate-and-limit.html": {
-  "h": "v2:da53cd24f79b",
-  "d": "2026-10-28"
+  "h": "v2:9dd19a90784a",
+  "d": "2026-10-29"
  },
  "blog/2026-10-26-resident-programs-data.html": {
-  "h": "v2:aee580e9fab1",
-  "d": "2026-10-28"
+  "h": "v2:ccd439352772",
+  "d": "2026-10-29"
  },
  "blog/2026-10-27-local-amount-and-stage.html": {
-  "h": "v2:e3f9ae7c81e8",
-  "d": "2026-10-28"
+  "h": "v2:767728be041b",
+  "d": "2026-10-29"
  },
  "blog/2026-10-28-jgrants-target-scope.html": {
-  "h": "v2:335472627e2d",
-  "d": "2026-10-28"
+  "h": "v2:ec0fd29c311d",
+  "d": "2026-10-29"
+ },
+ "blog/2026-10-29-jgrants-turnover-changes.html": {
+  "h": "v2:582acde7fbf6",
+  "d": "2026-10-29"
  },
  "blog/index.html": {
-  "h": "v2:ec8f9cd3f8b8",
-  "d": "2026-10-28"
+  "h": "v2:1f62cd57fa3f",
+  "d": "2026-10-29"
  },
  "policy/about.html": {
   "h": "v2:21963a2ccc50",
