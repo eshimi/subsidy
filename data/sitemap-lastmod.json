@@ -1,7 +1,7 @@
 {
  "": {
-  "h": "v2:5a38f83dee79",
-  "d": "2026-10-30"
+  "h": "v2:d19af0ed1c36",
+  "d": "2026-10-31"
  },
  "beginner-guide.html": {
   "h": "v2:e59ff0b557b8",
@@ -72,8 +72,8 @@
   "d": "2026-10-18"
  },
  "sitemap.html": {
-  "h": "v2:94871604ba13",
-  "d": "2026-10-30"
+  "h": "v2:4ecfc52a268a",
+  "d": "2026-10-31"
  },
  "basics/after-adoption.html": {
   "h": "v2:a7c34a684327",
@@ -404,8 +404,8 @@
   "d": "2026-10-24"
  },
  "blog/2026-10-11-personal-popular-subsidies.html": {
-  "h": "v2:d26c97f27916",
-  "d": "2026-10-30"
+  "h": "v2:71d06572b38c",
+  "d": "2026-10-31"
  },
  "blog/2026-10-12-find-subsidy-in-your-city.html": {
   "h": "v2:027cf2ce4401",
@@ -456,40 +456,44 @@
   "d": "2026-10-23"
  },
  "blog/2026-10-23-jgrants-deadline-patterns.html": {
-  "h": "v2:0a963482736a",
-  "d": "2026-10-30"
+  "h": "v2:ce69e04ab00a",
+  "d": "2026-10-31"
  },
  "blog/2026-10-24-gaps-by-purpose.html": {
-  "h": "v2:7df0223e9311",
-  "d": "2026-10-30"
+  "h": "v2:d4587ce03360",
+  "d": "2026-10-31"
  },
  "blog/2026-10-25-jgrants-rate-and-limit.html": {
-  "h": "v2:49ac8743995b",
-  "d": "2026-10-30"
+  "h": "v2:fb960d8ccc30",
+  "d": "2026-10-31"
  },
  "blog/2026-10-26-resident-programs-data.html": {
-  "h": "v2:52add510a7d8",
-  "d": "2026-10-30"
+  "h": "v2:c4bcbab2fb84",
+  "d": "2026-10-31"
  },
  "blog/2026-10-27-local-amount-and-stage.html": {
-  "h": "v2:764590d620df",
-  "d": "2026-10-30"
+  "h": "v2:0fa103698d12",
+  "d": "2026-10-31"
  },
  "blog/2026-10-28-jgrants-target-scope.html": {
-  "h": "v2:b340a6bb4761",
-  "d": "2026-10-30"
+  "h": "v2:6c20b5ed8bfe",
+  "d": "2026-10-31"
  },
  "blog/2026-10-29-jgrants-turnover-changes.html": {
-  "h": "v2:b318c49c792b",
-  "d": "2026-10-30"
+  "h": "v2:40db32cb7a1b",
+  "d": "2026-10-31"
  },
  "blog/2026-10-30-prefecture-business-programs.html": {
-  "h": "v2:28ac3a5f250b",
-  "d": "2026-10-30"
+  "h": "v2:e75208bc4474",
+  "d": "2026-10-31"
+ },
+ "blog/2026-10-31-industry-specific-local-programs.html": {
+  "h": "v2:b51dfe2eb8ae",
+  "d": "2026-10-31"
  },
  "blog/index.html": {
-  "h": "v2:88b624dd1ebf",
-  "d": "2026-10-30"
+  "h": "v2:dfaca2207fef",
+  "d": "2026-10-31"
  },
  "policy/about.html": {
   "h": "v2:21963a2ccc50",
