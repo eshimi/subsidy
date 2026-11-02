@@ -1,7 +1,7 @@
 {
  "": {
-  "h": "v2:419a172bf4aa",
-  "d": "2026-11-02"
+  "h": "v2:cb4a8eaa601f",
+  "d": "2026-11-03"
  },
  "beginner-guide.html": {
   "h": "v2:e59ff0b557b8",
@@ -72,8 +72,8 @@
   "d": "2026-10-18"
  },
  "sitemap.html": {
-  "h": "v2:eefaeb4f4a77",
-  "d": "2026-11-02"
+  "h": "v2:e8512255b917",
+  "d": "2026-11-03"
  },
  "basics/after-adoption.html": {
   "h": "v2:a7c34a684327",
@@ -404,8 +404,8 @@
   "d": "2026-10-24"
  },
  "blog/2026-10-11-personal-popular-subsidies.html": {
-  "h": "v2:7fb804acf501",
-  "d": "2026-11-02"
+  "h": "v2:fa4a887b9b19",
+  "d": "2026-11-03"
  },
  "blog/2026-10-12-find-subsidy-in-your-city.html": {
   "h": "v2:027cf2ce4401",
@@ -456,52 +456,56 @@
   "d": "2026-10-23"
  },
  "blog/2026-10-23-jgrants-deadline-patterns.html": {
-  "h": "v2:4fd252f2a2eb",
-  "d": "2026-11-02"
+  "h": "v2:eec16820513d",
+  "d": "2026-11-03"
  },
  "blog/2026-10-24-gaps-by-purpose.html": {
-  "h": "v2:c0e85c5e2c70",
-  "d": "2026-11-02"
+  "h": "v2:54fdf1ddbd92",
+  "d": "2026-11-03"
  },
  "blog/2026-10-25-jgrants-rate-and-limit.html": {
-  "h": "v2:a50745de75b2",
-  "d": "2026-11-02"
+  "h": "v2:eb8275af6062",
+  "d": "2026-11-03"
  },
  "blog/2026-10-26-resident-programs-data.html": {
-  "h": "v2:2514744e68fc",
-  "d": "2026-11-02"
+  "h": "v2:d2aa8f0d2728",
+  "d": "2026-11-03"
  },
  "blog/2026-10-27-local-amount-and-stage.html": {
-  "h": "v2:c157876396c8",
-  "d": "2026-11-02"
+  "h": "v2:8990dcbf2c0a",
+  "d": "2026-11-03"
  },
  "blog/2026-10-28-jgrants-target-scope.html": {
-  "h": "v2:b728cdb13d0e",
-  "d": "2026-11-02"
+  "h": "v2:e5eb9d7e0f81",
+  "d": "2026-11-03"
  },
  "blog/2026-10-29-jgrants-turnover-changes.html": {
-  "h": "v2:71daf54499d9",
-  "d": "2026-11-02"
+  "h": "v2:09e36a4d6128",
+  "d": "2026-11-03"
  },
  "blog/2026-10-30-prefecture-business-programs.html": {
-  "h": "v2:860e87ec3887",
-  "d": "2026-11-02"
+  "h": "v2:6cdf51cf4759",
+  "d": "2026-11-03"
  },
  "blog/2026-10-31-industry-specific-local-programs.html": {
-  "h": "v2:d05e60ac8c32",
-  "d": "2026-11-02"
+  "h": "v2:e37d90592911",
+  "d": "2026-11-03"
  },
  "blog/2026-11-01-program-guide-cautions.html": {
-  "h": "v2:399926fa1eaf",
-  "d": "2026-11-02"
+  "h": "v2:3f0658a4c37e",
+  "d": "2026-11-03"
  },
  "blog/2026-11-02-jgrants-deadline-extensions.html": {
-  "h": "v2:599781324522",
-  "d": "2026-11-02"
+  "h": "v2:8ea5c60bfbd2",
+  "d": "2026-11-03"
+ },
+ "blog/2026-11-03-resident-prefecture-share.html": {
+  "h": "v2:b1ed985b9fd2",
+  "d": "2026-11-03"
  },
  "blog/index.html": {
-  "h": "v2:7026681bee81",
-  "d": "2026-11-02"
+  "h": "v2:15f5c2c55c85",
+  "d": "2026-11-03"
  },
  "policy/about.html": {
   "h": "v2:21963a2ccc50",
