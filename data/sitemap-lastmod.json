@@ -72,8 +72,8 @@
   "d": "2026-10-18"
  },
  "sitemap.html": {
-  "h": "v2:868940fed9d7",
-  "d": "2026-11-07"
+  "h": "v2:3d6e5b42c4f8",
+  "d": "2026-11-08"
  },
  "basics/after-adoption.html": {
   "h": "v2:a7c34a684327",
@@ -404,8 +404,8 @@
   "d": "2026-10-24"
  },
  "blog/2026-10-11-personal-popular-subsidies.html": {
-  "h": "v2:b94479590220",
-  "d": "2026-11-07"
+  "h": "v2:d617ae6a5e87",
+  "d": "2026-11-08"
  },
  "blog/2026-10-12-find-subsidy-in-your-city.html": {
   "h": "v2:027cf2ce4401",
@@ -456,72 +456,76 @@
   "d": "2026-10-23"
  },
  "blog/2026-10-23-jgrants-deadline-patterns.html": {
-  "h": "v2:bf06cceb2433",
-  "d": "2026-11-07"
+  "h": "v2:c5cd0b2f2fd1",
+  "d": "2026-11-08"
  },
  "blog/2026-10-24-gaps-by-purpose.html": {
-  "h": "v2:5190bfee1d1a",
-  "d": "2026-11-07"
+  "h": "v2:312b6e329fd8",
+  "d": "2026-11-08"
  },
  "blog/2026-10-25-jgrants-rate-and-limit.html": {
-  "h": "v2:78cc3fb40c02",
-  "d": "2026-11-07"
+  "h": "v2:4930defa283c",
+  "d": "2026-11-08"
  },
  "blog/2026-10-26-resident-programs-data.html": {
-  "h": "v2:3395eef89c4f",
-  "d": "2026-11-07"
+  "h": "v2:84455c72871a",
+  "d": "2026-11-08"
  },
  "blog/2026-10-27-local-amount-and-stage.html": {
-  "h": "v2:9df6ce566842",
-  "d": "2026-11-07"
+  "h": "v2:076bd580118a",
+  "d": "2026-11-08"
  },
  "blog/2026-10-28-jgrants-target-scope.html": {
-  "h": "v2:47b24369abd9",
-  "d": "2026-11-07"
+  "h": "v2:5a09a73f36e6",
+  "d": "2026-11-08"
  },
  "blog/2026-10-29-jgrants-turnover-changes.html": {
-  "h": "v2:9d625fe299f1",
-  "d": "2026-11-07"
+  "h": "v2:4f0178979865",
+  "d": "2026-11-08"
  },
  "blog/2026-10-30-prefecture-business-programs.html": {
-  "h": "v2:5ad8905ea70c",
-  "d": "2026-11-07"
+  "h": "v2:90814abd5b86",
+  "d": "2026-11-08"
  },
  "blog/2026-10-31-industry-specific-local-programs.html": {
-  "h": "v2:4bf4d30f6f76",
-  "d": "2026-11-07"
+  "h": "v2:8a5c3db1c9fb",
+  "d": "2026-11-08"
  },
  "blog/2026-11-01-program-guide-cautions.html": {
-  "h": "v2:c12cb6f5faf6",
-  "d": "2026-11-07"
+  "h": "v2:e3d887f52a5d",
+  "d": "2026-11-08"
  },
  "blog/2026-11-02-jgrants-deadline-extensions.html": {
-  "h": "v2:1d36a2859459",
-  "d": "2026-11-07"
+  "h": "v2:5e4f276a5216",
+  "d": "2026-11-08"
  },
  "blog/2026-11-03-resident-prefecture-share.html": {
-  "h": "v2:6ff9e62a0172",
-  "d": "2026-11-07"
+  "h": "v2:f78593aa3d46",
+  "d": "2026-11-08"
  },
  "blog/2026-11-04-local-type-names.html": {
-  "h": "v2:2a120edfb0a5",
-  "d": "2026-11-07"
+  "h": "v2:f55448fad187",
+  "d": "2026-11-08"
  },
  "blog/2026-11-05-program-guide-skipped-reasons.html": {
-  "h": "v2:8c346d4242c1",
-  "d": "2026-11-07"
+  "h": "v2:6d2348364120",
+  "d": "2026-11-08"
  },
  "blog/2026-11-06-program-guide-documents.html": {
-  "h": "v2:a2ced1b1ab56",
-  "d": "2026-11-07"
+  "h": "v2:bfe932230809",
+  "d": "2026-11-08"
  },
  "blog/2026-11-07-program-guide-excluded-expenses.html": {
-  "h": "v2:ebc71fd30649",
-  "d": "2026-11-07"
+  "h": "v2:81f5a20c4423",
+  "d": "2026-11-08"
+ },
+ "blog/2026-11-08-local-deadline-month-end.html": {
+  "h": "v2:44fa76c5d9ec",
+  "d": "2026-11-08"
  },
  "blog/index.html": {
-  "h": "v2:89076bddb99d",
-  "d": "2026-11-07"
+  "h": "v2:ad81f838fb62",
+  "d": "2026-11-08"
  },
  "policy/about.html": {
   "h": "v2:21963a2ccc50",
@@ -632,12 +636,12 @@
   "d": "2026-11-01"
  },
  "area/kawagoe.html": {
-  "h": "v2:81bb9c54a450",
-  "d": "2026-11-01"
+  "h": "v2:be84b7d589f2",
+  "d": "2026-11-08"
  },
  "area/kawaguchi.html": {
-  "h": "v2:5cde9c9b039d",
-  "d": "2026-11-01"
+  "h": "v2:8bad149d58fa",
+  "d": "2026-11-08"
  },
  "area/koga.html": {
   "h": "v2:1772a1acb90a",
@@ -764,8 +768,8 @@
   "d": "2026-11-02"
  },
  "area/pref-ibaraki.html": {
-  "h": "v2:dcbe23fd1d77",
-  "d": "2026-10-19"
+  "h": "v2:c641f0654844",
+  "d": "2026-11-08"
  },
  "area/pref-iwate.html": {
   "h": "v2:3d37e2ca7640",
@@ -812,8 +816,8 @@
   "d": "2026-10-18"
  },
  "area/pref-saitama.html": {
-  "h": "v2:835a5048d513",
-  "d": "2026-11-01"
+  "h": "v2:5dd4a11505ed",
+  "d": "2026-11-08"
  },
  "area/pref-shiga.html": {
   "h": "v2:705e0a33d0c0",
@@ -904,8 +908,8 @@
   "d": "2026-10-21"
  },
  "area/tokorozawa.html": {
-  "h": "v2:df77bc2dac6a",
-  "d": "2026-11-01"
+  "h": "v2:a291c9a8f4d1",
+  "d": "2026-11-08"
  },
  "area/toride.html": {
   "h": "v2:41b6b4e4607b",
