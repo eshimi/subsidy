@@ -1,7 +1,7 @@
 {
  "": {
-  "h": "v2:d85d128ca22b",
-  "d": "2026-11-11"
+  "h": "v2:3ce381f64df0",
+  "d": "2026-11-12"
  },
  "beginner-guide.html": {
   "h": "v2:e59ff0b557b8",
@@ -72,8 +72,8 @@
   "d": "2026-10-18"
  },
  "sitemap.html": {
-  "h": "v2:2c7edd5f3d73",
-  "d": "2026-11-11"
+  "h": "v2:40105598c5e2",
+  "d": "2026-11-12"
  },
  "basics/after-adoption.html": {
   "h": "v2:a7c34a684327",
@@ -404,8 +404,8 @@
   "d": "2026-10-24"
  },
  "blog/2026-10-11-personal-popular-subsidies.html": {
-  "h": "v2:3b95b3f71fef",
-  "d": "2026-11-11"
+  "h": "v2:4774647ce4fc",
+  "d": "2026-11-12"
  },
  "blog/2026-10-12-find-subsidy-in-your-city.html": {
   "h": "v2:027cf2ce4401",
@@ -456,88 +456,92 @@
   "d": "2026-10-23"
  },
  "blog/2026-10-23-jgrants-deadline-patterns.html": {
-  "h": "v2:548386ed907b",
-  "d": "2026-11-11"
+  "h": "v2:afe228e54653",
+  "d": "2026-11-12"
  },
  "blog/2026-10-24-gaps-by-purpose.html": {
-  "h": "v2:651a8f8f2ef8",
-  "d": "2026-11-11"
+  "h": "v2:38de2ba26e19",
+  "d": "2026-11-12"
  },
  "blog/2026-10-25-jgrants-rate-and-limit.html": {
-  "h": "v2:32437685bb2c",
-  "d": "2026-11-11"
+  "h": "v2:ea60bb8873b1",
+  "d": "2026-11-12"
  },
  "blog/2026-10-26-resident-programs-data.html": {
-  "h": "v2:65584cf69ed1",
-  "d": "2026-11-11"
+  "h": "v2:48574a87eea6",
+  "d": "2026-11-12"
  },
  "blog/2026-10-27-local-amount-and-stage.html": {
-  "h": "v2:8dc5e714ea25",
-  "d": "2026-11-11"
+  "h": "v2:83499274db17",
+  "d": "2026-11-12"
  },
  "blog/2026-10-28-jgrants-target-scope.html": {
-  "h": "v2:e975e59a88be",
-  "d": "2026-11-11"
+  "h": "v2:d7e4d2c108b7",
+  "d": "2026-11-12"
  },
  "blog/2026-10-29-jgrants-turnover-changes.html": {
-  "h": "v2:feb13091654d",
-  "d": "2026-11-11"
+  "h": "v2:151e8380096f",
+  "d": "2026-11-12"
  },
  "blog/2026-10-30-prefecture-business-programs.html": {
-  "h": "v2:d23f659c7a36",
-  "d": "2026-11-11"
+  "h": "v2:adec12f80414",
+  "d": "2026-11-12"
  },
  "blog/2026-10-31-industry-specific-local-programs.html": {
-  "h": "v2:0aed28e334f8",
-  "d": "2026-11-11"
+  "h": "v2:6a6de30bc4b9",
+  "d": "2026-11-12"
  },
  "blog/2026-11-01-program-guide-cautions.html": {
-  "h": "v2:81bdcc5184ca",
-  "d": "2026-11-11"
+  "h": "v2:d3d0d4ef630e",
+  "d": "2026-11-12"
  },
  "blog/2026-11-02-jgrants-deadline-extensions.html": {
-  "h": "v2:cf8220c8a916",
-  "d": "2026-11-11"
+  "h": "v2:9484b707e0fb",
+  "d": "2026-11-12"
  },
  "blog/2026-11-03-resident-prefecture-share.html": {
-  "h": "v2:a4bfa8758dc3",
-  "d": "2026-11-11"
+  "h": "v2:4fd6ebdbc4e7",
+  "d": "2026-11-12"
  },
  "blog/2026-11-04-local-type-names.html": {
-  "h": "v2:0b4ec3c0f4f9",
-  "d": "2026-11-11"
+  "h": "v2:188f98370cbd",
+  "d": "2026-11-12"
  },
  "blog/2026-11-05-program-guide-skipped-reasons.html": {
-  "h": "v2:48b4616d5eba",
-  "d": "2026-11-11"
+  "h": "v2:a3224d332006",
+  "d": "2026-11-12"
  },
  "blog/2026-11-06-program-guide-documents.html": {
-  "h": "v2:6fee2c051347",
-  "d": "2026-11-11"
+  "h": "v2:c6c3edc2aff9",
+  "d": "2026-11-12"
  },
  "blog/2026-11-07-program-guide-excluded-expenses.html": {
-  "h": "v2:aff2ccc82c2c",
-  "d": "2026-11-11"
+  "h": "v2:4fa294887811",
+  "d": "2026-11-12"
  },
  "blog/2026-11-08-local-deadline-month-end.html": {
-  "h": "v2:c346f9a5120b",
-  "d": "2026-11-11"
+  "h": "v2:fcf1eecb51bf",
+  "d": "2026-11-12"
  },
  "blog/2026-11-09-resident-conditions-keywords.html": {
-  "h": "v2:5c285998eb48",
-  "d": "2026-11-11"
+  "h": "v2:722a9106bebc",
+  "d": "2026-11-12"
  },
  "blog/2026-11-10-local-subsidy-rate.html": {
-  "h": "v2:f79db7e3b003",
-  "d": "2026-11-11"
+  "h": "v2:d46b1298f955",
+  "d": "2026-11-12"
  },
  "blog/2026-11-11-gaps-by-prefecture.html": {
-  "h": "v2:c27d31cf37d0",
-  "d": "2026-11-11"
+  "h": "v2:9ec4669bd120",
+  "d": "2026-11-12"
+ },
+ "blog/2026-11-12-gyomu-kaizen-deadline-by-prefecture.html": {
+  "h": "v2:f3b5d6b40d26",
+  "d": "2026-11-12"
  },
  "blog/index.html": {
-  "h": "v2:509f34c6ed42",
-  "d": "2026-11-11"
+  "h": "v2:a0ade4c651f4",
+  "d": "2026-11-12"
  },
  "policy/about.html": {
   "h": "v2:21963a2ccc50",
