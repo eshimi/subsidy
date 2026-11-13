@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>個人向け自治体制度2,246件を「名前の種類」で集計：補助金は1,476件、医療・福祉は助成金が84%、移住は給付が41%で金額の中央値も違う</title>
+  <meta name="description" content="当サイトの個人向け自治体制度2,246件を、補助金・助成金・給付の種類と分野で集計。耐震は補助金が84%、医療・福祉は助成金が84%など、名前でわかることと、金額の中央値が30万円・10万円・20万円と違う点を解説します。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://hojyokin.net/blog/2026-11-14-resident-type-names.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="補助金ネット">
+  <meta property="og:title" content="個人向け自治体制度2,246件を「名前の種類」で集計：補助金は1,476件、医療・福祉は助成金が84%、移住は給付が41%で金額の中央値も違う">
+  <meta property="og:description" content="当サイトの個人向け自治体制度2,246件を、補助金・助成金・給付の種類と分野で集計。耐震は補助金が84%、医療・福祉は助成金が84%など、名前でわかることと、金額の中央値が30万円・10万円・20万円と違う点を解説します。">
+  <meta property="og:url" content="https://hojyokin.net/blog/2026-11-14-resident-type-names.html">
+  <meta property="og:image" content="https://hojyokin.net/images/og-image.png">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="個人向け自治体制度2,246件を「名前の種類」で集計：補助金は1,476件、医療・福祉は助成金が84%、移住は給付が41%で金額の中央値も違う">
+  <meta name="twitter:description" content="当サイトの個人向け自治体制度2,246件を、補助金・助成金・給付の種類と分野で集計。耐震は補助金が84%、医療・福祉は助成金が84%など、名前でわかることと、金額の中央値が30万円・10万円・20万円と違う点を解説します。">
+  <meta name="twitter:image" content="https://hojyokin.net/images/og-image.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/favicon-96x96.png" type="image/png" sizes="96x96">
+  <link rel="icon" href="/favicon-192x192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <style>
+    .art-box { background: #fff; border: 1px solid #e6e8ec; border-radius: 12px; padding: 30px 36px 26px; box-shadow: 0 2px 12px rgba(10, 35, 82, 0.06); margin: 0 0 24px; }
+    .art-sec { margin: 0 0 1.8rem; scroll-margin-top: 72px; }
+    .art-sec + .art-sec { padding-top: 0; }
+    .art-sec h2 { display: flex; align-items: center; gap: 10px; font-size: 1.25rem; line-height: 1.5; letter-spacing: -0.02em; margin: 0 0 0.8rem; color: #0a2352; }
+    .art-sec h2::before { content: ""; width: 5px; height: 1.2em; border-radius: 3px; background: #073461; flex-shrink: 0; }
+    @media (max-width: 760px) { .art-box { padding: 20px 16px; } .art-sec h2 { font-size: 1.12rem; } }
+    .area-section { background: white; border: 1px solid #e6e8ec; border-radius: 8px; padding: 32px; margin-bottom: 24px; scroll-margin-top: 72px; }
+    .area-num { display: block; font-family: var(--font-mono); font-size: 0.75rem; color: var(--mute); text-transform: uppercase; margin-bottom: 8px; }
+    .area-section h2 { font-size: 1.4rem; line-height: 1.5; letter-spacing: -0.02em; margin: 0 0 16px; color: #0a2352; }
+    .area-body { max-width: 48em; line-height: 1.85; color: var(--ink); }
+    .area-body p, .area-body li { margin-bottom: 0.7rem; }
+    .area-body ul { margin: 0 0 1rem 1.5rem; padding: 0; }
+    .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
+    .area-program:first-child { border-top: 0; padding-top: 0; }
+    .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
+    .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
+    .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
+    .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
+    .area-links a:hover { text-decoration: underline; }
+    .area-title-img { display: inline-block; height: 72px; width: auto; margin-left: 12px; vertical-align: middle; }
+    .area-crumb { font-size: 0.85rem; color: var(--mute); margin-bottom: 1.5rem; }
+    .area-crumb a { color: var(--mute); }
+    .area-note { font-size: 0.9rem; color: var(--mute); line-height: 1.8; border-left: 3px solid #e6e8ec; padding-left: 16px; margin: 2rem 0 0; max-width: 48em; }
+    .area-groups { display: grid; gap: 28px; }
+    .area-groups h2 { font-size: 1.2rem; margin: 0; }
+    .area-pref-head { display: flex; align-items: center; gap: 16px; margin-bottom: 12px; }
+    .area-pref-head img { width: 96px; height: auto; flex-shrink: 0; }
+    h1.display { font-size: clamp(1.4rem, 4.7vw, 3rem); overflow-wrap: anywhere; }
+    .article-hero { margin: 0 0 24px; }
+    .article-hero img { display: block; width: 100%; height: auto; border-radius: 8px; border: 1px solid #e6e8ec; }
+    .article-body h3 { font-size: 1.2rem; margin: 1.6em 0 0.7em; }
+    .article-body ol { margin: 0 0 1rem 1.5rem; padding: 0; }
+    .article-body a { color: #2b65b1; text-decoration: underline; }
+    .article-highlight { background: #f0f5ff; border-left: 3px solid #2b65b1; padding: 14px 18px; margin: 1.2rem 0; border-radius: 4px; }
+    .area-pref-link { margin: 0 0 12px; font-size: 0.9rem; }
+    .area-pref-link a { color: #2b65b1; text-decoration: none; }
+    .area-pref-link a:hover { text-decoration: underline; }
+    .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
+    .area-groups a { color: #2b65b1; text-decoration: none; }
+    .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
+    @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
+  
+    .feature-table { width: 100%; border-collapse: collapse; margin: 8px 0 16px; font-size: 0.92rem; }
+    .feature-table th, .feature-table td { border: 1px solid #e6e8ec; padding: 10px 12px; text-align: left; vertical-align: top; }
+    .feature-table thead th { background: #f4f6f8; }
+    .table-wrap { overflow-x: auto; }
+    .glossary dt { font-weight: 700; margin-top: 12px; }
+    .glossary dd { margin: 4px 0 0; }
+    .feature-card { display: block; padding: 20px 0; border-top: 1px solid #e6e8ec; text-decoration: none; }
+    .feature-card:first-child { border-top: 0; }
+    .feature-card h2 { font-size: 1.2rem; margin: 0 0 6px; }
+    .feature-card p { margin: 0; color: var(--mute); }
+
+  </style>
+  <meta name="google-adsense-account" content="ca-pub-7811993263471350">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7811993263471350"
+     crossorigin="anonymous"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-J5DWZQLCB0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-J5DWZQLCB0');
+  </script>
+  <!-- seo:start -->
+  <meta name="keywords" content="個人向け,補助金,助成金,給付,補助金データ,補助金ブログ,移住,申請,耐震,空き家">
+  <meta property="article:published_time" content="2026-11-14">
+  <meta property="article:modified_time" content="2026-11-14">
+  <meta property="article:tag" content="個人向け">
+  <meta property="article:tag" content="補助金">
+  <meta property="article:tag" content="助成金">
+  <meta property="article:tag" content="給付">
+  <meta property="article:tag" content="補助金データ">
+  <meta property="article:tag" content="補助金ブログ">
+  <meta property="article:tag" content="移住">
+  <meta property="article:tag" content="申請">
+  <meta property="article:tag" content="耐震">
+  <meta property="article:tag" content="空き家">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"個人向け自治体制度2,246件を「名前の種類」で集計：補助金は1,476件、医療・福祉は助成金が84%、移住は給付が41%で金額の中央値も違う","description":"当サイトの個人向け自治体制度2,246件を、補助金・助成金・給付の種類と分野で集計。耐震は補助金が84%、医療・福祉は助成金が84%など、名前でわかることと、金額の中央値が30万円・10万円・20万円と違う点を解説します。","url":"https://hojyokin.net/blog/2026-11-14-resident-type-names.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://hojyokin.net/blog/2026-11-14-resident-type-names.html"},"inLanguage":"ja","image":["https://hojyokin.net/images/banner/b11.webp"],"keywords":"個人向け, 補助金, 助成金, 給付, 補助金データ, 補助金ブログ, 移住, 申請, 耐震, 空き家","articleSection":"ブログ","author":{"@type":"Organization","name":"補助金ネット","url":"https://hojyokin.net/"},"publisher":{"@type":"Organization","name":"補助金ネット","url":"https://hojyokin.net/","logo":{"@type":"ImageObject","url":"https://hojyokin.net/images/og-image.png"}},"datePublished":"2026-11-14","dateModified":"2026-11-14"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://hojyokin.net/blog/index.html"},{"@type":"ListItem","position":3,"name":"個人向け自治体制度2,246件を「名前の種類」で集計：補助金は1,476件、医療・福祉は助成金が84%、移住は給付が41%で金額の中央値も違う","item":"https://hojyokin.net/blog/2026-11-14-resident-type-names.html"}]}</script>
+  <!-- seo:end -->
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="wordmark" href="../" aria-label="補助金ネット トップ"><img src="../images/logo-header-v5.webp" alt="補助金ネット"></a>
+      <nav class="topnav" id="topnav" aria-label="サイト内">
+        <details class="navdrop">
+          <summary>探す</summary>
+          <div class="navdrop-panel">
+            <a href="../who/sole-proprietor.html">個人事業主</a>
+            <a href="../who/sme.html">中小企業</a>
+            <a href="../who/startup.html">創業・副業</a>
+            <a href="../personal/summary.html">個人の方</a>
+            <a href="../grants/prefectures.html">都道府県別</a>
+            <a href="../area/index.html">市区町村別</a>
+            <a href="../search.html">キーワード</a>
+            <a href="../grants/purposes.html">目的別</a>
+            <a href="../grants/industries.html">業種別</a>
+            <a href="../search.html?within=90&sort=end">締切が近い順</a>
+            <a href="../programs/index.html">くわしい解説つきの制度（制度ガイド）</a>
+            <a href="../hitsuyo.html">やりたいこと・ほしいものから探す</a>
+          </div>
+        </details>
+        <details class="navdrop">
+          <summary>管理する</summary>
+          <div class="navdrop-panel">
+            <a href="../mypage.html">マイページ</a>
+            <a href="../hantei.html">AI補助金判定</a>
+            <a href="../plan.html">事業計画書AI</a>
+            <a href="../research/index.html">補助金データ</a>
+            <a href="../consult.html">無料相談</a>
+            <a href="../research/business.html">事業向けリサーチデータ</a>
+            <a href="../research/personal.html">個人向けリサーチデータ</a>
+            <a href="../research/quality.html">データの品質レポート</a>
+            <a href="../research/changes.html">制度の変更履歴</a>
+          </div>
+        </details>
+        <details class="navdrop">
+          <summary>学ぶ</summary>
+          <div class="navdrop-panel">
+            <a href="../basics/index.html">基礎知識</a>
+            <a href="../basics/flow.html">申請の流れ</a>
+            <a href="../cases/index.html">活用事例</a>
+            <a href="../news/index.html">補助金ニュース</a>
+            <a href="../blog/index.html">ブログ</a>
+            <a href="../columns.html">コラム</a>
+            <a href="../basics/glossary.html">用語集</a>
+            <a href="../basics/business-plan.html">事業計画書の書き方</a>
+            <a href="../real-life.html">補助金のリアル</a>
+            <a href="../feature/popular.html">特に人気の5つの補助金</a>
+            <a href="../feature/index.html">主な補助金の特集</a>
+            <a href="../background/index.html">補助金はなぜできたのか（制度の背景）</a>
+            <a href="../compare/index.html">比較記事</a>
+            <a href="../roadmap.html">創業・副業のガイド</a>
+          </div>
+        </details>
+        <details class="navdrop">
+          <summary>サイトについて</summary>
+          <div class="navdrop-panel">
+            <a href="../guide.html">使い方</a>
+            <a href="../policy/about.html">運営者情報</a>
+            <a href="../policy/sources.html">出典・更新方針</a>
+            <a href="../policy/contact.html">お問い合わせ</a>
+            <a href="../sitemap.html">サイトマップ</a>
+          </div>
+        </details>
+        <a href="../plan.html" class="nav-ai">AI計画書</a>
+        <a href="../consult.html" class="nav-cta">無料相談</a>
+      </nav>
+      <button type="button" class="nav-toggle" aria-controls="topnav" aria-expanded="false">メニュー</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">ブログ</a> ＞ 個人向け自治体制度2,246件を「名前の種類」で集計：補助金は1,476件、医療・福祉は助成金が84%、移住は給付が41%で金額の中央値も違う</nav>
+
+    <div class="pb-banner" style="background-image: url('../images/banner/b11.webp')"><h1 class="pb-title">個人向け自治体制度2,246件を「名前の種類」で集計：補助金は1,476件、医療・福祉は助成金が84%、移住は給付が41%で金額の中央値も違う</h1></div>
+    <div style="margin-bottom: 2rem;">
+      <p class="label" style="margin-bottom: 0.5rem;">ブログ</p>
+      <p class="lead" style="margin-bottom: 0;">当サイトの個人向け自治体制度2,246件を、補助金・助成金・給付の種類と分野で集計。耐震は補助金が84%、医療・福祉は助成金が84%など、名前でわかることと、金額の中央値が30万円・10万円・20万円と違う点を解説します。</p>
+      <p class="bl-meta"><span class="bl-cat bl-cat-data">データ・考察</span><span>公開 <time datetime="2026-11-14">2026年11月14日</time></span><span>読了 約7分</span><a href="index.html#cat=%E3%83%87%E3%83%BC%E3%82%BF%E3%83%BB%E8%80%83%E5%AF%9F">同じカテゴリの記事を見る <span aria-hidden="true">→</span></a></p>
+      <div role="region" class="bl-points bl-points--m" aria-labelledby="bl-pt-m">
+        <h2 id="bl-pt-m">この記事のポイント</h2>
+        <ol>
+          <li>個人向け2246件のうち補助金は1476件で助成金は443件で給付は313件、融資は14件</li>
+          <li>医療・福祉は148件中125件が助成金で教育・学びは148件中119件が給付と分野で名前が偏る</li>
+          <li>金額の中央値は補助金30万円と給付20万円と助成金10万円で、名前だけで有利不利は決められない</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="page-split"><div class="page-main">
+<div class="art-box">
+<section class="art-sec" aria-labelledby="s0"><h2 id="s0">はじめに</h2>
+      <div class="area-body">
+        <p>結論から言うと、個人向けの自治体制度では、<strong>「補助金」「助成金」「給付」という名前は、分野によってほぼ決まっています</strong>。当サイトの掲載データ2,246件を数えると、耐震や空き家・太陽光は8割以上が「補助金」で、医療・福祉は84%が「助成金」、教育・学びは80%が「給付」でした。名前から、その制度が工事費の一部を出すものか、手当や見舞金のように決まった額を渡すものかを、おおよそ読み取れます。ただし、名前だけで金額の大きさや申請のしやすさは決まりません。</p>
+        <p>この記事は、当サイトの個人向け自治体制度2,246件（都道府県253件・市区町村1,993件）を、2026年11月14日に集計したものです。件数は、2026年11月3日の分析（個人向けの2,246件）と同じです。名前の種類は、当サイトが制度ごとに付けた区分（補助金・助成金・給付・融資）で、自治体の呼び方に基づきます。</p>
+      </div>
+    </section>
+
+    <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
+
+    <section class="art-sec" aria-labelledby="s1"><h2 id="s1"><img class="sec-icon" src="../images/icons/icon-35.png" alt="" width="30" height="30" loading="lazy">種類別の件数：補助金が66%、助成金が20%、給付が14%</h2>
+      <div class="area-body">
+        <p>まず、種類別の件数です。</p>
+        <div class="table-wrap"><table class="feature-table">
+          <thead><tr><th scope="col">種類</th><th scope="col">件数</th><th scope="col">全体に占める割合</th><th scope="col">うち県の制度</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">補助金</th><td>1,476件</td><td>66%</td><td>136件</td></tr>
+            <tr><th scope="row">助成金</th><td>443件</td><td>20%</td><td>28件</td></tr>
+            <tr><th scope="row">給付</th><td>313件</td><td>14%</td><td>85件</td></tr>
+            <tr><th scope="row">融資</th><td>14件</td><td>1%未満</td><td>4件</td></tr>
+          </tbody>
+        </table></div>
+        <p>目立つのは、県の制度での給付の多さです。給付は313件のうち85件（27%）が県の制度で、補助金の136件（9%）や助成金の28件（6%）と比べて、県の割合が高くなっています。当サイトの掲載では、移住支援金のように、国・県・市町村が共同で出す給付が県の制度として載っているためです（たとえば、北海道の移住支援金は「世帯100万円、単身60万円」と載せています）。県の制度の全体像は、<a href="2026-11-03-resident-prefecture-share.html">個人向け制度は県の窓口だけでは足りない</a>にまとめています。</p>
+      </div>
+    </section>
+
+    <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
+
+    <section class="art-sec" aria-labelledby="s2"><h2 id="s2"><img class="sec-icon" src="../images/icons/icon-42.png" alt="" width="30" height="30" loading="lazy">分野との組み合わせ：耐震・空き家・太陽光は補助金、医療・福祉は助成金</h2>
+      <div class="area-body">
+        <p>次の表は、分野ごとの種類の内訳です（件数）。</p>
+        <div class="table-wrap"><table class="feature-table">
+          <thead><tr><th scope="col">分野</th><th scope="col">合計</th><th scope="col">補助金</th><th scope="col">助成金</th><th scope="col">給付</th><th scope="col">融資</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">空き家・ブロック塀</th><td>414</td><td>361</td><td>52</td><td>1</td><td>0</td></tr>
+            <tr><th scope="row">耐震</th><td>392</td><td>328</td><td>63</td><td>0</td><td>1</td></tr>
+            <tr><th scope="row">太陽光・蓄電池</th><td>279</td><td>254</td><td>21</td><td>1</td><td>3</td></tr>
+            <tr><th scope="row">移住</th><td>259</td><td>138</td><td>14</td><td>105</td><td>2</td></tr>
+            <tr><th scope="row">子育て</th><td>213</td><td>107</td><td>66</td><td>38</td><td>2</td></tr>
+            <tr><th scope="row">バリアフリー・介護</th><td>158</td><td>53</td><td>67</td><td>35</td><td>3</td></tr>
+            <tr><th scope="row">省エネ住宅</th><td>156</td><td>132</td><td>22</td><td>2</td><td>0</td></tr>
+            <tr><th scope="row">医療・福祉</th><td>148</td><td>11</td><td>125</td><td>12</td><td>0</td></tr>
+            <tr><th scope="row">教育・学び</th><td>148</td><td>19</td><td>7</td><td>119</td><td>3</td></tr>
+            <tr><th scope="row">EV・充電</th><td>79</td><td>73</td><td>6</td><td>0</td><td>0</td></tr>
+          </tbody>
+        </table></div>
+        <p>読み方は3つあります。</p>
+        <ul>
+          <li><strong>工事・設備の分野は補助金が中心</strong>：耐震は392件中328件（84%）、空き家は414件中361件（87%）、太陽光・蓄電池は279件中254件（91%）、EV・充電は79件中73件（92%）が補助金です。工事や購入の費用の一部を出す形が多く、<a href="2026-11-09-resident-conditions-keywords.html">着工前の申請</a>が条件になりやすい分野です。</li>
+          <li><strong>医療・福祉は助成金、教育・学びは給付が中心</strong>：医療・福祉は148件中125件（84%）が助成金、教育・学びは148件中119件（80%）が給付です。当サイトの掲載では、医療費の自己負担を助ける助成（不妊治療費助成など）や、高校生等の奨学給付金のような制度が、それぞれ該当します。</li>
+          <li><strong>移住・子育て・バリアフリーは混在</strong>：移住は補助金138件と給付105件、子育ては補助金107件・助成金66件・給付38件、バリアフリー・介護は助成金67件・補助金53件・給付35件に分かれます。同じ分野でも、名前によって中身が違うので、検索で絞るときは種類も見ます。</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-03.webp" alt="" loading="lazy"></div>
+
+    <section class="art-sec" aria-labelledby="s3"><h2 id="s3">金額の中央値：補助金30万円、給付20万円、助成金10万円</h2>
+      <div class="area-body">
+        <p>金額は、制度の説明文にある「○円」の表記から、文中の最大値を機械的に取り出して集計しています。1件あたりの上限額と、定額の給付額が混ざる点に注意してください。</p>
+        <div class="table-wrap"><table class="feature-table">
+          <thead><tr><th scope="col">種類</th><th scope="col">制度数</th><th scope="col">金額の中央値</th><th scope="col">10万円未満</th><th scope="col">100万円以上</th><th scope="col">金額の記載なし／率のみ</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">補助金</th><td>1,476</td><td>30万円</td><td>198件</td><td>264件</td><td>273件</td></tr>
+            <tr><th scope="row">助成金</th><td>443</td><td>10万円</td><td>143件</td><td>56件</td><td>108件</td></tr>
+            <tr><th scope="row">給付</th><td>313</td><td>20万円</td><td>80件</td><td>89件</td><td>70件</td></tr>
+          </tbody>
+        </table></div>
+        <p>金額が読み取れた制度の中では、助成金の43%（335件中143件）が10万円未満で、補助金の16.5%（1,203件中198件）と比べて小口の制度が多くなっています。一方、100万円以上の割合は給付が37%（243件中89件）で最も高く、補助金は22%、助成金は17%です。給付が高いのは、移住支援金のような、まとまった額を渡す制度が含まれるためです。</p>
+        <p>同じ分野でも、種類で中央値は変わります。</p>
+        <ul>
+          <li>移住：補助金50万円（138件）、給付100万円（105件）、助成金20万円（14件）</li>
+          <li>子育て：補助金20万円（107件）、給付3万円（38件）、助成金1万円（66件）</li>
+          <li>バリアフリー・介護：助成金30万円（67件）、補助金25万円（53件）、給付20万円（35件）</li>
+        </ul>
+        <p>子育ての助成金は66件で中央値が1万円と、小口の制度が中心です。子育てで金額の大きい制度を探すなら、種類を補助金に絞って見る手があります。個別の制度の内容は、公式の案内で確かめてください。</p>
+      </div>
+    </section>
+
+    <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-04.webp" alt="" loading="lazy"></div>
+
+    <section class="art-sec" aria-labelledby="s4"><h2 id="s4">どう読むか：名前は「探す入口」に使い、中身は公式で確かめる</h2>
+      <div class="area-body">
+        <p>この集計から言えることは、次の3つです。</p>
+        <ol>
+          <li><strong>名前は、制度の型を知る手がかりになる</strong>：補助金は費用の一部を出す形、助成金は自己負担を軽くする形、給付は決まった額を渡す形が多く、探すときの見当をつけられます。</li>
+          <li><strong>名前が同じでも、中身は違う</strong>：「給付」の中央値が、教育・学びで8万1,000円、移住で100万円と12倍違うように、種類だけでは大きさを比べられません。</li>
+          <li><strong>名前が違っても、探している目的は同じことがある</strong>：同じ地域で、補助金と助成金の両方が出ている場合があります。分野のページで、両方を見比べます。</li>
+        </ol>
+        <p>注意点は2つです。第一に、種類は自治体の呼び方に基づくため、呼び方が違う自治体の制度は、同じ型でも別の種類に入ります。第二に、金額は説明文の最大値で、実際に受け取れる額は、工事費・所得・世帯の条件で下がることがあります。</p>
+      </div>
+    </section>
+
+    <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-05.webp" alt="" loading="lazy"></div>
+
+    <section class="art-sec" aria-labelledby="s5"><h2 id="s5">申請前に確かめること</h2>
+      <div class="area-body">
+        <ol>
+          <li>分野のページで、制度の種類（補助金・助成金・給付）を見る。たとえば、<a href="../personal/seismic.html">耐震</a>、<a href="../personal/relocation.html">移住</a>、<a href="../personal/kids.html">子育て</a>のページです。</li>
+          <li>公式ページで、対象者・申請の時期（着工前か、年度内か）・予算の上限を確かめる。</li>
+          <li>受付が終わっていないか、問い合わせ先に確かめる。</li>
+        </ol>
+        <p>当サイトの数字は、掲載データの集計で、制度の内容や受付状況は変わります。申請の前に、必ず、自治体の公式ページで最新の情報を確認してください。</p>
+      </div>
+    </section>
+
+    <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-06.webp" alt="" loading="lazy"></div>
+
+    <section class="art-sec" aria-labelledby="s6"><h2 id="s6">次に読むとよいページ</h2>
+      <div class="area-body">
+        <ul>
+          <li><a href="../research/personal.html">個人向けのリサーチ（分野別の集計）</a>：分野ごとの件数・金額・締切の最新の集計を、表で確かめられます。種類別の集計の次に、分野ごとの数字を見るときに。</li>
+          <li><a href="../area/index.html">お住まいの市区町村の制度を探す</a>：市区町村ごとに、個人向けの制度を、分野別に並べて見られます。自分の地域で、補助金と助成金のどちらが出ているかを確かめるときに。</li>
+          <li><a href="2026-10-26-resident-programs-data.html">個人向け自治体制度2,246件の集計（分野・金額・締切）</a>：分野ごとの金額の中央値と、締切の記載が少ない実態を整理しています。この記事の金額の読み方の土台になります。</li>
+        </ul>
+        <p>この記事は、当サイトの掲載データの集計に基づく参考情報で、補助金や給付の受給を保証するものではありません。制度の内容・金額・受付期間は変わるため、申請の前に、自治体などの公式の情報で確認してください。</p>
+      </div>
+    </section>
+</div>
+
+    <p class="area-note">最終更新日：2026年11月14日</p>
+
+    <nav class="bl-pn" aria-label="前後の記事">
+      <a class="bl-pn-card" href="2026-11-13-jgrants-area-scope.html"><small>← 前の記事</small><b>jGrantsの公募285件を「対象地域」で分けた：全国106件・東京都88件、上限額の中央値は全国が約1億1,525万円、東京都以外の1県は87.5万円</b></a>
+      <a class="bl-pn-card bl-pn-list" href="index.html"><small>ブログの一覧へ</small><b>記事の一覧に戻る <span aria-hidden="true">→</span></b></a>
+    </nav>
+    <section class="bl-rel" aria-labelledby="bl-rel">
+      <h2 id="bl-rel">同じカテゴリ「データ・考察」の記事</h2>
+      <div class="bl-rel-grid">
+        <a class="bl-rel-card" href="2026-11-13-jgrants-area-scope.html"><span class="bl-cat bl-cat-data">データ・考察</span><b>jGrantsの公募285件を「対象地域」で分けた：全国106件・東京都88件、上限額の中央値は全国が約1億1,525万円、東京都以外の1県は87.5万円</b><span class="bl-rel-m">2026年11月13日　約5分</span></a>
+        <a class="bl-rel-card" href="2026-11-12-gyomu-kaizen-deadline-by-prefecture.html"><span class="bl-cat bl-cat-data">データ・考察</span><b>業務改善助成金の締切は都道府県で最大38日ずれる：jGrants掲載15件の締切を並べると、10月23日から11月30日まで9通り</b><span class="bl-rel-m">2026年11月12日　約6分</span></a>
+        <a class="bl-rel-card" href="2026-11-11-gaps-by-prefecture.html"><span class="bl-cat bl-cat-data">データ・考察</span><b>市区町村の独自制度が載る「目的の数」を都道府県別に集計：1市区町村あたり平均2.9目的、千葉は創業が13市すべて、兵庫は人材・雇用が10市でゼロ</b><span class="bl-rel-m">2026年11月11日　約5分</span></a>
+      </div>
+    </section>
+<!-- tags:start -->
+<nav class="art-tags" aria-label="タグ"><span class="art-tags-label">タグ</span><ul><li><a href="../search.html?q=%E5%80%8B%E4%BA%BA%E5%90%91%E3%81%91" rel="tag">#個人向け</a></li><li><a href="../search.html?q=%E8%A3%9C%E5%8A%A9%E9%87%91" rel="tag">#補助金</a></li><li><a href="../search.html?q=%E5%8A%A9%E6%88%90%E9%87%91" rel="tag">#助成金</a></li><li><a href="../search.html?q=%E7%B5%A6%E4%BB%98" rel="tag">#給付</a></li><li><a href="../search.html?q=%E8%A3%9C%E5%8A%A9%E9%87%91%E3%83%87%E3%83%BC%E3%82%BF" rel="tag">#補助金データ</a></li><li><a href="index.html" rel="tag">#補助金ブログ</a></li><li><a href="../search.html?q=%E7%A7%BB%E4%BD%8F" rel="tag">#移住</a></li><li><a href="../search.html?q=%E7%94%B3%E8%AB%8B" rel="tag">#申請</a></li><li><a href="../search.html?q=%E8%80%90%E9%9C%87" rel="tag">#耐震</a></li><li><a href="../search.html?q=%E7%A9%BA%E3%81%8D%E5%AE%B6" rel="tag">#空き家</a></li></ul></nav>
+<!-- tags:end -->
+</div><aside class="page-side" aria-label="関連ページ">
+    <!-- side-top:start -->
+    <nav class="related-links" aria-label="このページの内容">
+      <h2>このページの内容</h2>
+      <ul>
+        <li><a href="#s0">はじめに</a></li>
+        <li><a href="#s1">種類別の件数：補助金が66%、助成金が20%、給付が14%</a></li>
+        <li><a href="#s2">分野との組み合わせ：耐震・空き家・太陽光は補助金、医療・福祉は助成金</a></li>
+        <li><a href="#s3">金額の中央値：補助金30万円、給付20万円、助成金10万円</a></li>
+        <li><a href="#s4">どう読むか：名前は「探す入口」に使い、中身は公式で確かめる</a></li>
+        <li><a href="#s5">申請前に確かめること</a></li>
+        <li><a href="#s6">次に読むとよいページ</a></li>
+      </ul>
+    </nav>
+      <div class="bl-side-cta">
+        <h2>自分に使える補助金は？</h2>
+        <p>質問に答えるだけで、AIが使えそうな補助金を判定します。</p>
+        <a class="bl-btn" href="../hantei.html">AI補助金判定を試す <span aria-hidden="true">→</span></a>
+      </div>
+    <!-- side-top:end -->
+
+    <nav class="related-links" aria-label="関連ページ">
+      <h2>関連ページ</h2>
+      <h3 class="rl-group">基礎知識・コラム・ニュース</h3>
+      <ul>
+        <li><a href="index.html">ブログの一覧</a></li>
+      </ul>
+      <h3 class="rl-group">補助金を探す・調べる</h3>
+      <ul>
+        <li><a href="../hantei.html">AI補助金判定（質問に答えて探す）</a></li>
+        <li><a href="../hitsuyo.html">やりたいこと・ほしいものから探す</a></li>
+      </ul>
+      <h3 class="rl-group">その他</h3>
+      <ul>
+        <li><a href="../consult.html">無料相談のお申し込み</a></li>
+      </ul>
+    </nav>
+</aside></div>
+  
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-top">
+      <div class="footer-info">
+        <a class="footer-brand" href="../" aria-label="補助金ネット トップ"><img src="../images/logo-header-v5.webp" alt="補助金ネット" width="200" height="60"></a>
+        <p>事業者・個人のための補助金サイト</p>
+        <p class="footer-source">募集中の補助金データ：<a href="https://www.jgrants-portal.go.jp/" target="_blank" rel="noopener">jGrants（デジタル庁）</a><br>住所検索：<a href="https://zipcloud.ibsnet.co.jp/" target="_blank" rel="noopener">zipcloud</a></p>
+        <p class="footer-contact">運営者：<a href="../policy/about.html">運営者情報</a><br>お問い合わせ：<a href="../policy/contact.html">フォーム</a></p>
+        <figure class="footer-qr">
+          <img src="../images/qr-hojyokin.png" alt="補助金ネット（hojyokin.net）へのQRコード" width="120" height="120" loading="lazy">
+          <figcaption>スマホで開く</figcaption>
+        </figure>
+      </div>
+      <nav class="footer-nav" aria-label="フッター">
+          <details class="footer-group">
+            <summary>探す</summary>
+            <ul>
+            <li><a href="../who/sole-proprietor.html">個人事業主</a></li>
+            <li><a href="../who/sme.html">中小企業</a></li>
+            <li><a href="../who/startup.html">創業・副業</a></li>
+            <li><a href="../personal/summary.html">個人の方</a></li>
+            <li><a href="../grants/prefectures.html">都道府県別</a></li>
+            <li><a href="../area/index.html">市区町村別</a></li>
+            <li><a href="../search.html">キーワード</a></li>
+            <li><a href="../grants/purposes.html">目的別</a></li>
+            <li><a href="../grants/industries.html">業種別</a></li>
+            <li><a href="../search.html?within=90&sort=end">締切が近い順</a></li>
+            </ul>
+          </details>
+          <details class="footer-group">
+            <summary>管理する</summary>
+            <ul>
+            <li><a href="../mypage.html">マイページ</a></li>
+            <li><a href="../hantei.html">AI補助金判定</a></li>
+            <li><a href="../plan.html">事業計画書AI</a></li>
+            <li><a href="../research/index.html">補助金データ</a></li>
+            <li><a href="../consult.html">無料相談</a></li>
+            </ul>
+          </details>
+          <details class="footer-group">
+            <summary>学ぶ</summary>
+            <ul>
+            <li><a href="../basics/index.html">基礎知識</a></li>
+            <li><a href="../basics/flow.html">申請の流れ</a></li>
+            <li><a href="../cases/index.html">活用事例</a></li>
+            <li><a href="../news/index.html">補助金ニュース</a></li>
+            <li><a href="../blog/index.html">ブログ</a></li>
+            <li><a href="../columns.html">コラム</a></li>
+            <li><a href="../basics/glossary.html">用語集</a></li>
+            </ul>
+          </details>
+          <details class="footer-group">
+            <summary>サイトについて</summary>
+            <ul>
+            <li><a href="../guide.html">使い方</a></li>
+            <li><a href="../policy/about.html">運営者情報</a></li>
+            <li><a href="../policy/sources.html">出典・更新方針</a></li>
+            <li><a href="../policy/contact.html">お問い合わせ</a></li>
+            <li><a href="../sitemap.html">サイトマップ</a></li>
+            </ul>
+          </details>
+        </nav>
+    </div>
+    <div class="footer-bottom">
+            <nav aria-label="補助リンク">
+        <ul>
+          <li><a href="../policy/privacy.html">プライバシーポリシー</a></li>
+          <li><a href="../policy/terms.html">利用規約</a></li>
+          <li><a href="../policy/sources.html">出典・更新方針</a></li>
+          <li><a href="../policy/contact.html">フィードバック・バグ報告</a></li>
+          <li><a href="../sitemap.html">サイトマップ</a></li>
+        </ul>
+      </nav>
+      <p class="footer-copy">Copyright © 2026 補助金ネット. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="../site.js"></script>
+</body>
+</html>
