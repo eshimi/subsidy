@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>国の公募285件の「問合せ先」を窓口の種類で分けた：自治体が108件、省庁は24件。市区町村の57件は電話が全件にあり、添付ファイルは14%だけ</title>
+  <meta name="description" content="当サイトが保存したjGrants掲載の公募285件の問合せ先を、窓口の種類（省庁・都道府県・市区町村・財団・事務局など）で分類。添付ファイルの有無、電話・メールの載せ方、締切までの近さを表で比べ、最初に連絡する先の選び方を整理します。">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://hojyokin.net/blog/2026-11-21-jgrants-contact-type.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="補助金ネット">
+  <meta property="og:title" content="国の公募285件の「問合せ先」を窓口の種類で分けた：自治体が108件、省庁は24件。市区町村の57件は電話が全件にあり、添付ファイルは14%だけ">
+  <meta property="og:description" content="当サイトが保存したjGrants掲載の公募285件の問合せ先を、窓口の種類（省庁・都道府県・市区町村・財団・事務局など）で分類。添付ファイルの有無、電話・メールの載せ方、締切までの近さを表で比べ、最初に連絡する先の選び方を整理します。">
+  <meta property="og:url" content="https://hojyokin.net/blog/2026-11-21-jgrants-contact-type.html">
+  <meta property="og:image" content="https://hojyokin.net/images/og-image.png">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="国の公募285件の「問合せ先」を窓口の種類で分けた：自治体が108件、省庁は24件。市区町村の57件は電話が全件にあり、添付ファイルは14%だけ">
+  <meta name="twitter:description" content="当サイトが保存したjGrants掲載の公募285件の問合せ先を、窓口の種類（省庁・都道府県・市区町村・財団・事務局など）で分類。添付ファイルの有無、電話・メールの載せ方、締切までの近さを表で比べ、最初に連絡する先の選び方を整理します。">
+  <meta name="twitter:image" content="https://hojyokin.net/images/og-image.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/favicon-96x96.png" type="image/png" sizes="96x96">
+  <link rel="icon" href="/favicon-192x192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <style>
+    .art-box { background: #fff; border: 1px solid #e6e8ec; border-radius: 12px; padding: 30px 36px 26px; box-shadow: 0 2px 12px rgba(10, 35, 82, 0.06); margin: 0 0 24px; }
+    .art-sec { margin: 0 0 1.8rem; scroll-margin-top: 72px; }
+    .art-sec + .art-sec { padding-top: 0; }
+    .art-sec h2 { display: flex; align-items: center; gap: 10px; font-size: 1.25rem; line-height: 1.5; letter-spacing: -0.02em; margin: 0 0 0.8rem; color: #0a2352; }
+    .art-sec h2::before { content: ""; width: 5px; height: 1.2em; border-radius: 3px; background: #073461; flex-shrink: 0; }
+    @media (max-width: 760px) { .art-box { padding: 20px 16px; } .art-sec h2 { font-size: 1.12rem; } }
+    .area-section { background: white; border: 1px solid #e6e8ec; border-radius: 8px; padding: 32px; margin-bottom: 24px; scroll-margin-top: 72px; }
+    .area-num { display: block; font-family: var(--font-mono); font-size: 0.75rem; color: var(--mute); text-transform: uppercase; margin-bottom: 8px; }
+    .area-section h2 { font-size: 1.4rem; line-height: 1.5; letter-spacing: -0.02em; margin: 0 0 16px; color: #0a2352; }
+    .area-body { max-width: 48em; line-height: 1.85; color: var(--ink); }
+    .area-body p, .area-body li { margin-bottom: 0.7rem; }
+    .area-body ul { margin: 0 0 1rem 1.5rem; padding: 0; }
+    .area-program { border-top: 1px solid #e6e8ec; padding: 18px 0; }
+    .area-program:first-child { border-top: 0; padding-top: 0; }
+    .area-program h3 { font-size: 1.05rem; margin: 0 0 6px; color: #0a2352; }
+    .area-toc { background: #fff; border: 1px solid #e6e8ec; border-radius: 8px; padding: 16px 22px; margin: 0 0 24px; }
+    .area-toc-title { margin: 0 0 8px; font-weight: 700; color: #0a2352; }
+    .area-toc ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+    .area-toc li > a { font-weight: 500; }
+    .area-toc li b { margin-left: 8px; font-size: 0.88rem; color: #073461; }
+    .area-toc-cats { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 4px 0 0 0; }
+    .area-toc-cats a { font-size: 0.8rem; padding: 1px 10px; border-radius: 999px; background: #eaf3fd; color: #073461; text-decoration: none; }
+    .area-meta { font-size: 0.88rem; color: var(--mute); margin: 0 0 8px; }
+    .area-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e6e8ec; }
+    .area-links a { color: #2b65b1; font-weight: 500; text-decoration: none; }
+    .area-links a:hover { text-decoration: underline; }
+    .area-title-img { display: inline-block; height: 72px; width: auto; margin-left: 12px; vertical-align: middle; }
+    .area-crumb { font-size: 0.85rem; color: var(--mute); margin-bottom: 1.5rem; }
+    .area-crumb a { color: var(--mute); }
+    .area-note { font-size: 0.9rem; color: var(--mute); line-height: 1.8; border-left: 3px solid #e6e8ec; padding-left: 16px; margin: 2rem 0 0; max-width: 48em; }
+    .area-groups { display: grid; gap: 28px; }
+    .area-groups h2 { font-size: 1.2rem; margin: 0; }
+    .area-pref-head { display: flex; align-items: center; gap: 16px; margin-bottom: 12px; }
+    .area-pref-head img { width: 96px; height: auto; flex-shrink: 0; }
+    h1.display { font-size: clamp(1.4rem, 4.7vw, 3rem); overflow-wrap: anywhere; }
+    .article-hero { margin: 0 0 24px; }
+    .article-hero img { display: block; width: 100%; height: auto; border-radius: 8px; border: 1px solid #e6e8ec; }
+    .article-body h3 { font-size: 1.2rem; margin: 1.6em 0 0.7em; }
+    .article-body ol { margin: 0 0 1rem 1.5rem; padding: 0; }
+    .article-body a { color: #2b65b1; text-decoration: underline; }
+    .article-highlight { background: #f0f5ff; border-left: 3px solid #2b65b1; padding: 14px 18px; margin: 1.2rem 0; border-radius: 4px; }
+    .area-pref-link { margin: 0 0 12px; font-size: 0.9rem; }
+    .area-pref-link a { color: #2b65b1; text-decoration: none; }
+    .area-pref-link a:hover { text-decoration: underline; }
+    .area-groups ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px 16px; }
+    .area-groups a { color: #2b65b1; text-decoration: none; }
+    .area-groups a:hover { text-decoration: underline; }
+    .ar-hero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center; background: #faf3e6; border-radius: 16px; padding: 24px 30px; margin: 4px 0 18px; }
+    .ar-kicker { margin: 0; color: #c9411a; font-weight: 700; font-size: 14px; }
+    .ar-hero h1 { margin: 4px 0 8px; font-family: var(--font-display); font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.4; color: #0a2352; }
+    .ar-hero h1 em { font-style: normal; font-size: 0.6em; color: var(--mute); margin-left: 6px; white-space: nowrap; }
+    .ar-lead { margin: 0 0 14px; line-height: 1.8; color: var(--ink); }
+    .ar-btns { margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+    .ar-btn { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 20px; font-weight: 700; font-size: 14px; text-decoration: none; }
+    .ar-btn.p { background: #f8602f; color: #fff; }
+    .ar-btn.s { background: #fff; border: 2px solid #073461; color: #073461; padding: 7px 18px; }
+    .ar-hero-img { height: 150px; width: auto; max-width: 240px; object-fit: contain; }
+    .ar-goals { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px; }
+    .ar-goals a, .ar-goals .is-none { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 6px; border-radius: 12px; background: #fff; box-shadow: 0 2px 10px rgba(10, 35, 82, 0.1); border-bottom: 3px solid #2b65b1; text-decoration: none; text-align: center; transition: transform 0.15s, box-shadow 0.15s; }
+    .ar-goals a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(10, 35, 82, 0.18); }
+    .ar-goals .is-none { opacity: 0.55; border-bottom-color: #cdd3dd; box-shadow: none; border: 1px dashed #cdd3dd; }
+    .ar-goals i { font-style: normal; font-size: 26px; line-height: 1.2; }
+    .ar-goals b { color: #0a2352; font-size: 14px; }
+    .ar-goals small { color: var(--mute); font-size: 12px; }
+    .area-cat span { margin-left: 10px; font-size: 0.8rem; font-weight: 500; color: var(--mute); }
+    .ar-table { border: 1px solid #e6e8ec; border-radius: 10px; overflow: hidden; margin: 0 0 22px; }
+    .ar-head, .ar-row { display: grid; grid-template-columns: minmax(0, 1fr) 200px 56px; gap: 12px; align-items: center; padding: 12px 16px; }
+    .ar-head { background: #f2f5fa; color: var(--mute); font-size: 12px; font-weight: 700; padding-top: 9px; padding-bottom: 9px; }
+    .ar-row { border-top: 1px solid #e6e8ec; scroll-margin-top: 72px; }
+    .ar-row:target { background: #fff8e6; }
+    .ar-row.is-ended { opacity: 0.6; }
+    .ar-tag { display: inline-block; margin-right: 8px; font-size: 11px; font-weight: 700; padding: 1px 9px; border-radius: 999px; background: #e8f2ec; color: #1f5d39; line-height: 1.6; vertical-align: 1px; }
+    .ar-name b { display: block; color: #0a2352; font-size: 15px; line-height: 1.5; }
+    .ar-name small { display: block; margin-top: 3px; color: var(--mute); font-size: 12.5px; line-height: 1.7; }
+    .ar-prov { display: block; margin-top: 3px; color: #8a96a8; font-size: 12px; }
+    .ar-amt { font-weight: 700; color: #c9411a; font-size: 14px; line-height: 1.6; }
+    .ar-amt-na { font-weight: 500; color: var(--mute); }
+    .ar-go { color: #2b65b1; font-weight: 700; font-size: 13px; text-align: right; text-decoration: none; white-space: nowrap; }
+    .ar-go:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .ar-hero { grid-template-columns: minmax(0, 1fr); padding: 20px 18px; }
+      .ar-hero-img { display: none; }
+      .ar-goals { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .ar-head { display: none; }
+      .ar-row { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+      .ar-name { grid-column: 1 / 3; }
+      .ar-amt { grid-column: 1; }
+      .ar-go { grid-column: 2; }
+    }
+    @media (max-width: 760px) { .area-section { padding: 22px; } .area-section h2 { font-size: 1.2rem; } .area-title-img { height: 48px; } }
+  
+    .feature-table { width: 100%; border-collapse: collapse; margin: 8px 0 16px; font-size: 0.92rem; }
+    .feature-table th, .feature-table td { border: 1px solid #e6e8ec; padding: 10px 12px; text-align: left; vertical-align: top; }
+    .feature-table thead th { background: #f4f6f8; }
+    .table-wrap { overflow-x: auto; }
+    .glossary dt { font-weight: 700; margin-top: 12px; }
+    .glossary dd { margin: 4px 0 0; }
+    .feature-card { display: block; padding: 20px 0; border-top: 1px solid #e6e8ec; text-decoration: none; }
+    .feature-card:first-child { border-top: 0; }
+    .feature-card h2 { font-size: 1.2rem; margin: 0 0 6px; }
+    .feature-card p { margin: 0; color: var(--mute); }
+
+  </style>
+  <meta name="google-adsense-account" content="ca-pub-7811993263471350">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7811993263471350"
+     crossorigin="anonymous"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-J5DWZQLCB0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-J5DWZQLCB0');
+  </script>
+  <!-- seo:start -->
+  <meta name="keywords" content="jGrants,問合せ先,公募要領,窓口,補助金データ,補助金ブログ,市区町村,締切,申請,都道府県">
+  <meta property="article:published_time" content="2026-11-21">
+  <meta property="article:modified_time" content="2026-11-21">
+  <meta property="article:tag" content="jGrants">
+  <meta property="article:tag" content="問合せ先">
+  <meta property="article:tag" content="公募要領">
+  <meta property="article:tag" content="窓口">
+  <meta property="article:tag" content="補助金データ">
+  <meta property="article:tag" content="補助金ブログ">
+  <meta property="article:tag" content="市区町村">
+  <meta property="article:tag" content="締切">
+  <meta property="article:tag" content="申請">
+  <meta property="article:tag" content="都道府県">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"国の公募285件の「問合せ先」を窓口の種類で分けた：自治体が108件、省庁は24件。市区町村の57件は電話が全件にあり、添付ファイルは14%だけ","description":"当サイトが保存したjGrants掲載の公募285件の問合せ先を、窓口の種類（省庁・都道府県・市区町村・財団・事務局など）で分類。添付ファイルの有無、電話・メールの載せ方、締切までの近さを表で比べ、最初に連絡する先の選び方を整理します。","url":"https://hojyokin.net/blog/2026-11-21-jgrants-contact-type.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://hojyokin.net/blog/2026-11-21-jgrants-contact-type.html"},"inLanguage":"ja","image":["https://hojyokin.net/images/banner/b14.webp"],"keywords":"jGrants, 問合せ先, 公募要領, 窓口, 補助金データ, 補助金ブログ, 市区町村, 締切, 申請, 都道府県","articleSection":"ブログ","author":{"@type":"Organization","name":"補助金ネット","url":"https://hojyokin.net/"},"publisher":{"@type":"Organization","name":"補助金ネット","url":"https://hojyokin.net/","logo":{"@type":"ImageObject","url":"https://hojyokin.net/images/og-image.png"}},"datePublished":"2026-11-21","dateModified":"2026-11-21"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"補助金ネット","item":"https://hojyokin.net/"},{"@type":"ListItem","position":2,"name":"ブログ","item":"https://hojyokin.net/blog/index.html"},{"@type":"ListItem","position":3,"name":"国の公募285件の「問合せ先」を窓口の種類で分けた：自治体が108件、省庁は24件。市区町村の57件は電話が全件にあり、添付ファイルは14%だけ","item":"https://hojyokin.net/blog/2026-11-21-jgrants-contact-type.html"}]}</script>
+  <!-- seo:end -->
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="wordmark" href="../" aria-label="補助金ネット トップ"><img src="../images/logo-header-v5.webp" alt="補助金ネット"></a>
+      <nav class="topnav" id="topnav" aria-label="サイト内">
+        <details class="navdrop">
+          <summary>探す</summary>
+          <div class="navdrop-panel">
+            <a href="../who/sole-proprietor.html">個人事業主</a>
+            <a href="../who/sme.html">中小企業</a>
+            <a href="../who/startup.html">創業・副業</a>
+            <a href="../personal/summary.html">個人の方</a>
+            <a href="../grants/prefectures.html">都道府県別</a>
+            <a href="../area/index.html">市区町村別</a>
+            <a href="../search.html">キーワード</a>
+            <a href="../grants/purposes.html">目的別</a>
+            <a href="../grants/industries.html">業種別</a>
+            <a href="../search.html?within=90&sort=end">締切が近い順</a>
+            <a href="../programs/index.html">くわしい解説つきの制度（制度ガイド）</a>
+            <a href="../hitsuyo.html">やりたいこと・ほしいものから探す</a>
+          </div>
+        </details>
+        <details class="navdrop">
+          <summary>管理する</summary>
+          <div class="navdrop-panel">
+            <a href="../mypage.html">マイページ</a>
+            <a href="../hantei.html">AI補助金判定</a>
+            <a href="../plan.html">事業計画書AI</a>
+            <a href="../research/index.html">補助金データ</a>
+            <a href="../consult.html">無料相談</a>
+            <a href="../research/business.html">事業向けリサーチデータ</a>
+            <a href="../research/personal.html">個人向けリサーチデータ</a>
+            <a href="../research/quality.html">データの品質レポート</a>
+            <a href="../research/changes.html">制度の変更履歴</a>
+          </div>
+        </details>
+        <details class="navdrop">
+          <summary>学ぶ</summary>
+          <div class="navdrop-panel">
+            <a href="../basics/index.html">基礎知識</a>
+            <a href="../basics/flow.html">申請の流れ</a>
+            <a href="../cases/index.html">活用事例</a>
+            <a href="../news/index.html">補助金ニュース</a>
+            <a href="../blog/index.html">ブログ</a>
+            <a href="../columns.html">コラム</a>
+            <a href="../basics/glossary.html">用語集</a>
+            <a href="../basics/business-plan.html">事業計画書の書き方</a>
+            <a href="../real-life.html">補助金のリアル</a>
+            <a href="../feature/popular.html">特に人気の5つの補助金</a>
+            <a href="../feature/index.html">主な補助金の特集</a>
+            <a href="../background/index.html">補助金はなぜできたのか（制度の背景）</a>
+            <a href="../compare/index.html">比較記事</a>
+            <a href="../roadmap.html">創業・副業のガイド</a>
+          </div>
+        </details>
+        <details class="navdrop">
+          <summary>サイトについて</summary>
+          <div class="navdrop-panel">
+            <a href="../guide.html">使い方</a>
+            <a href="../policy/about.html">運営者情報</a>
+            <a href="../policy/sources.html">出典・更新方針</a>
+            <a href="../policy/contact.html">お問い合わせ</a>
+            <a href="../sitemap.html">サイトマップ</a>
+          </div>
+        </details>
+        <a href="../plan.html" class="nav-ai">AI計画書</a>
+        <a href="../consult.html" class="nav-cta">無料相談</a>
+      </nav>
+      <button type="button" class="nav-toggle" aria-controls="topnav" aria-expanded="false">メニュー</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav class="area-crumb" aria-label="パンくず"><a href="../">補助金ネット</a> ＞ <a href="index.html">ブログ</a> ＞ 国の公募285件の「問合せ先」を窓口の種類で分けた：自治体が108件、省庁は24件。市区町村の57件は電話が全件にあり、添付ファイルは14%だけ</nav>
+
+    <div class="pb-banner" style="background-image: url('../images/banner/b14.webp')"><h1 class="pb-title">国の公募285件の「問合せ先」を窓口の種類で分けた：自治体が108件、省庁は24件。市区町村の57件は電話が全件にあり、添付ファイルは14%だけ</h1></div>
+    <div style="margin-bottom: 2rem;">
+      <p class="label" style="margin-bottom: 0.5rem;">ブログ</p>
+      <p class="lead" style="margin-bottom: 0;">当サイトが保存したjGrants掲載の公募285件の問合せ先を、窓口の種類（省庁・都道府県・市区町村・財団・事務局など）で分類。添付ファイルの有無、電話・メールの載せ方、締切までの近さを表で比べ、最初に連絡する先の選び方を整理します。</p>
+      <p class="bl-meta"><span class="bl-cat bl-cat-data">データ・考察</span><span>公開 <time datetime="2026-11-21">2026年11月21日</time></span><span>読了 約6分</span><a href="index.html#cat=%E3%83%87%E3%83%BC%E3%82%BF%E3%83%BB%E8%80%83%E5%AF%9F">同じカテゴリの記事を見る <span aria-hidden="true">→</span></a></p>
+      <div role="region" class="bl-points bl-points--m" aria-labelledby="bl-pt-m">
+        <h2 id="bl-pt-m">この記事のポイント</h2>
+        <ol>
+          <li>問合せ先の項目がある251件のうち省庁は24件で、都道府県51件と市区町村57件を合わせた自治体の窓口が108件と最多</li>
+          <li>添付ファイルがあるのは省庁の83%に対し市区町村は14%で、市区町村の公募は要領を窓口のページで探す前提になる</li>
+          <li>問合せ先の項目がない34件の53%は締切が30日以内で、窓口を探す時間の余裕が最も少ない</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="page-split"><div class="page-main">
+<div class="art-box">
+<section class="art-sec" aria-labelledby="s0"><h2 id="s0">はじめに</h2>
+      <div class="area-body">
+        <p>結論から言うと、jGrantsに載っている公募でも、<strong>窓口の種類によって「申請に必要な情報の置き場所」がかなり違います</strong>。当サイトが保存している公募285件のうち、問合せ先の項目があるのは251件です。その窓口を種類で分けると、省庁は24件にとどまり、都道府県（51件）と市区町村（57件）を合わせた自治体が108件で最多でした。</p>
+        <p>この記事は、当サイトが取得して保存しているjGrantsの詳細情報（data/jgrants-details.json、取得は主に2026年10月14日）と、公募の締切日（data/program-history.json、基準日2026年11月3日）を、2026年11月21日に数えたものです。公募の全数ではなく、当サイトが追跡できた285件です。次の点を前提に読んでください。</p>
+        <ul>
+          <li>窓口の種類は、問合せ先の本文に出てくる名前（「事務局」「財団」「○○省」「○○県」「○○市」など）で分けた、当サイトの区分です。人が1件ずつ確かめたものではなく、境目の事例は別の区分に入っている可能性があります。</li>
+          <li>東京都の制度が多く含まれます。都道府県の51件のうち38件は東京都の部署です。市区町村の57件は27の自治体で、茅野市が10件、岡崎市が7件、今治市が5件と、特定の自治体に偏っています。</li>
+          <li>「電話あり」は、電話番号らしい数字か「電話・TEL」の語があるものです。FAX番号だけの場合も混ざる可能性があります。</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-01.webp" alt="" loading="lazy"></div>
+
+    <section class="art-sec" aria-labelledby="s1"><h2 id="s1"><img class="sec-icon" src="../images/icons/icon-31.png" alt="" width="30" height="30" loading="lazy">窓口の種類の内訳：事務局が51件、市区町村が57件</h2>
+      <div class="area-body">
+        <div class="table-wrap"><table class="feature-table">
+          <thead><tr><th scope="col">窓口の種類</th><th scope="col">件数</th><th scope="col">割合</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">市区町村</th><td>57件</td><td>20%</td></tr>
+            <tr><th scope="row">都道府県</th><td>51件</td><td>18%</td></tr>
+            <tr><th scope="row">事務局・コールセンター</th><td>51件</td><td>18%</td></tr>
+            <tr><th scope="row">財団・協会・協議会など</th><td>35件</td><td>12%</td></tr>
+            <tr><th scope="row">国の省庁・出先機関</th><td>24件</td><td>8%</td></tr>
+            <tr><th scope="row">その他（メールのみ・未記入など）</th><td>33件</td><td>12%</td></tr>
+            <tr><th scope="row">問合せ先の項目なし</th><td>34件</td><td>12%</td></tr>
+            <tr><th scope="row">合計</th><td>285件</td><td>100%</td></tr>
+          </tbody>
+        </table></div>
+        <p>「国の公募」と呼ばれがちですが、窓口が省庁や産業保安監督部などの出先機関にあるのは24件（8%）です。多くは、<strong>自治体、または国や自治体から運営を任された事務局・財団</strong>が窓口になっています。事務局型51件には、事業再構築補助金事務局のコールセンターのように、問合せの受付時間を明記するものが含まれます。</p>
+      </div>
+    </section>
+
+    <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-02.webp" alt="" loading="lazy"></div>
+
+    <section class="art-sec" aria-labelledby="s2"><h2 id="s2"><img class="sec-icon" src="../images/icons/icon-31.png" alt="" width="30" height="30" loading="lazy">添付ファイルがあるかどうかは、窓口の種類で大きく違う</h2>
+      <div class="area-body">
+        <div class="table-wrap"><table class="feature-table">
+          <thead><tr><th scope="col">窓口の種類</th><th scope="col">件数</th><th scope="col">添付ファイルあり</th><th scope="col">電話あり</th><th scope="col">メールあり</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">国の省庁・出先機関</th><td>24件</td><td>20件（83%）</td><td>21件（88%）</td><td>17件（71%）</td></tr>
+            <tr><th scope="row">財団・協会・協議会など</th><td>35件</td><td>24件（69%）</td><td>25件（71%）</td><td>14件（40%）</td></tr>
+            <tr><th scope="row">都道府県</th><td>51件</td><td>29件（57%）</td><td>42件（82%）</td><td>17件（33%）</td></tr>
+            <tr><th scope="row">事務局・コールセンター</th><td>51件</td><td>16件（31%）</td><td>40件（78%）</td><td>17件（33%）</td></tr>
+            <tr><th scope="row">市区町村</th><td>57件</td><td>8件（14%）</td><td>57件（100%）</td><td>30件（53%）</td></tr>
+          </tbody>
+        </table></div>
+        <p>読み取れることは3つあります。</p>
+        <ol>
+          <li><strong>省庁の公募は、添付ファイルで要領や様式まで確かめやすい</strong>（83%）。逆に市区町村は、添付が8件（14%）しかありません。市区町村の公募は、jGrantsの画面だけでは申請の条件が読み切れず、自治体のページに載った要領を見る前提です。</li>
+          <li><strong>市区町村は、電話番号が57件すべてに書かれています</strong>。添付が少ない代わりに、担当課の電話で聞く使い方が想定されているとも読めます。メールがあるのは30件（53%）で、都道府県や事務局より高い割合です。</li>
+          <li><strong>事務局型は、添付が31%と少ない</strong>。事務局のポータルサイトに要領が載っていて、jGrantsには概要だけを置く運用の公募が多いと考えられます。この点は、公募ごとに確かめてください。</li>
+        </ol>
+        <p>電話番号がある公募は285件のうち201件（71%）、メールアドレスがあるのは114件（40%）で、両方あるのは89件でした。メールだけで電話の記載がない公募も25件あります。窓口が電話を受けつけない形のこともあるため、問合せはメールの形式（件名・必要事項）が指定されていないかを先に読んでください。</p>
+      </div>
+    </section>
+
+    <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-03.webp" alt="" loading="lazy"></div>
+
+    <section class="art-sec" aria-labelledby="s3"><h2 id="s3"><img class="sec-icon" src="../images/icons/icon-56.png" alt="" width="30" height="30" loading="lazy">締切が近い公募ほど、問合せ先が見つかりにくい</h2>
+      <div class="area-body">
+        <p>基準日（2026年11月3日）から30日以内に締切が来る公募は65件です。窓口の種類ごとに、その割合を見ます。</p>
+        <div class="table-wrap"><table class="feature-table">
+          <thead><tr><th scope="col">窓口の種類</th><th scope="col">件数</th><th scope="col">締切が30日以内</th><th scope="col">割合</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">問合せ先の項目なし</th><td>34件</td><td>18件</td><td>53%</td></tr>
+            <tr><th scope="row">その他（メールのみ・未記入など）</th><td>33件</td><td>14件</td><td>42%</td></tr>
+            <tr><th scope="row">財団・協会・協議会など</th><td>35件</td><td>13件</td><td>37%</td></tr>
+            <tr><th scope="row">事務局・コールセンター</th><td>51件</td><td>12件</td><td>24%</td></tr>
+            <tr><th scope="row">都道府県</th><td>51件</td><td>6件</td><td>12%</td></tr>
+            <tr><th scope="row">国の省庁・出先機関</th><td>24件</td><td>1件</td><td>4%</td></tr>
+            <tr><th scope="row">市区町村</th><td>57件</td><td>1件</td><td>2%</td></tr>
+          </tbody>
+        </table></div>
+        <p><strong>問合せ先の項目がない34件は、53%が締切まで30日以内</strong>でした。全体では65件が30日以内なので、このうち18件（28%）が、問合せ先の項目がない公募です。締切が近いのに、本文だけでは連絡先が分からない公募が一定数あるということです。この34件のうち添付ファイルがあるのは16件、ないのは18件でした。18件は、添付も問合せ先もないため、公式の公募ページ（事務局・省庁・自治体のサイト）に当たるところから始めることになります。</p>
+        <p>一方で、市区町村と省庁は、締切が30日以内の割合が2〜4%と低く、締切までの期間が長めです。ただし、市区町村の57件は27自治体に偏っているため、市区町村全般の傾向とは言えません。</p>
+      </div>
+    </section>
+
+    <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-04.webp" alt="" loading="lazy"></div>
+
+    <section class="art-sec" aria-labelledby="s4"><h2 id="s4"><img class="sec-icon" src="../images/icons/icon-33.png" alt="" width="30" height="30" loading="lazy">どう読むか、どこに注意するか</h2>
+      <div class="area-body">
+        <ul>
+          <li>この集計から言えるのは、<strong>窓口の種類によって、jGrantsの画面に載る情報量が違う</strong>ことまでです。窓口の種類が、申請しやすさや採択されやすさを決めるわけではありません。</li>
+          <li>窓口の区分は、名前の語での機械的な分類です。「その他」33件には、メールアドレスだけのものや、「都道府県労働局に問い合わせ」のような案内が含まれます。</li>
+          <li>本文の保存は1公募あたり最大2,500字まででした。問合せ先が末尾にある長い本文では、取りこぼしがある可能性があります。</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-05.webp" alt="" loading="lazy"></div>
+
+    <section class="art-sec" aria-labelledby="s5"><h2 id="s5">問合せの前に、確かめる順番</h2>
+      <div class="area-body">
+        <ol>
+          <li>添付ファイルがあれば、公募要領と様式の名前を先に確かめる。問合せは、読んでも分からないことに絞る。</li>
+          <li>添付がなければ、本文の参照URLを開く。市区町村の公募は、自治体のページに要領があることが多いと、この集計からは読める。</li>
+          <li>問合せ先の項目がなければ、実施機関の名前で公式サイトを探す。締切が近いときは、探す前に日程を確認する。</li>
+          <li>電話は受付時間が決まっている窓口があるため、時間を確かめてからかける。</li>
+        </ol>
+      </div>
+    </section>
+
+    <div class="sec-divider" aria-hidden="true"><img src="../images/dividers/div-06.webp" alt="" loading="lazy"></div>
+
+    <section class="art-sec" aria-labelledby="s6"><h2 id="s6">次に読むとよいページ</h2>
+      <div class="area-body">
+        <ul>
+          <li><a href="2026-11-20-jgrants-attachments.html">国の公募285件の「添付ファイル」を数えた</a>：添付の有無と形式を数えた前回の記事です。この記事の窓口の種類と、あわせて読むと、要領の探し方が分かります。</li>
+          <li><a href="../basics/documents.html">基本の知識：必要書類の整え方</a>：窓口に聞く前に、申請書類の全体像を確かめるときに使います。</li>
+          <li><a href="../search.html">補助金を探す</a>：国と自治体の制度を、締切や地域で絞り込めます。窓口の情報も、制度ごとに確認できます。</li>
+        </ul>
+        <p>※この記事は、当サイトが保存したデータの集計に基づく参考情報です。受給や採択を保証するものではありません。公募の内容・締切・窓口は変わるため、申請の前に、必ず公式の公募ページと窓口で確認してください。</p>
+      </div>
+    </section>
+</div>
+
+    <p class="area-note">最終更新日：2026年11月21日</p>
+
+    <nav class="bl-pn" aria-label="前後の記事">
+      <a class="bl-pn-card" href="2026-11-20-jgrants-attachments.html"><small>← 前の記事</small><b>国の公募285件の「添付ファイル」を数えた：135件（47%）は添付つき、Word・Excelの様式があるのは75件で、残る150件は公募ページに要領のファイルがない</b></a>
+      <a class="bl-pn-card bl-pn-list" href="index.html"><small>ブログの一覧へ</small><b>記事の一覧に戻る <span aria-hidden="true">→</span></b></a>
+    </nav>
+    <section class="bl-rel" aria-labelledby="bl-rel">
+      <h2 id="bl-rel">同じカテゴリ「データ・考察」の記事</h2>
+      <div class="bl-rel-grid">
+        <a class="bl-rel-card" href="2026-11-20-jgrants-attachments.html"><span class="bl-cat bl-cat-data">データ・考察</span><b>国の公募285件の「添付ファイル」を数えた：135件（47%）は添付つき、Word・Excelの様式があるのは75件で、残る150件は公募ページに要領のファイルがない</b><span class="bl-rel-m">2026年11月20日　約6分</span></a>
+        <a class="bl-rel-card" href="2026-11-19-jgrants-days-since-start.html"><span class="bl-cat bl-cat-data">データ・考察</span><b>国の公募285件を「公募開始からの経過日数」で見た：31〜90日前に始まった36件は25件が残り30日以内、1年超の34件は受付中でも申請の窓口とは限らない</b><span class="bl-rel-m">2026年11月19日　約6分</span></a>
+        <a class="bl-rel-card" href="2026-11-18-jgrants-deadline-weekday.html"><span class="bl-cat bl-cat-data">データ・考察</span><b>国の公募285件の締切を「曜日」で数えた：3月31日を除くと金曜が39%、土日の締切も33件ある</b><span class="bl-rel-m">2026年11月18日　約6分</span></a>
+      </div>
+    </section>
+<!-- tags:start -->
+<nav class="art-tags" aria-label="タグ"><span class="art-tags-label">タグ</span><ul><li><a href="../search.html?q=jGrants" rel="tag">#jGrants</a></li><li><a href="../search.html?q=%E5%95%8F%E5%90%88%E3%81%9B%E5%85%88" rel="tag">#問合せ先</a></li><li><a href="../search.html?q=%E5%85%AC%E5%8B%9F%E8%A6%81%E9%A0%98" rel="tag">#公募要領</a></li><li><a href="../search.html?q=%E7%AA%93%E5%8F%A3" rel="tag">#窓口</a></li><li><a href="../search.html?q=%E8%A3%9C%E5%8A%A9%E9%87%91%E3%83%87%E3%83%BC%E3%82%BF" rel="tag">#補助金データ</a></li><li><a href="index.html" rel="tag">#補助金ブログ</a></li><li><a href="../search.html?q=%E5%B8%82%E5%8C%BA%E7%94%BA%E6%9D%91" rel="tag">#市区町村</a></li><li><a href="../search.html?q=%E7%B7%A0%E5%88%87" rel="tag">#締切</a></li><li><a href="../search.html?q=%E7%94%B3%E8%AB%8B" rel="tag">#申請</a></li><li><a href="../search.html?q=%E9%83%BD%E9%81%93%E5%BA%9C%E7%9C%8C" rel="tag">#都道府県</a></li></ul></nav>
+<!-- tags:end -->
+</div><aside class="page-side" aria-label="関連ページ">
+    <!-- side-top:start -->
+    <nav class="related-links" aria-label="このページの内容">
+      <h2>このページの内容</h2>
+      <ul>
+        <li><a href="#s0">はじめに</a></li>
+        <li><a href="#s1">窓口の種類の内訳：事務局が51件、市区町村が57件</a></li>
+        <li><a href="#s2">添付ファイルがあるかどうかは、窓口の種類で大きく違う</a></li>
+        <li><a href="#s3">締切が近い公募ほど、問合せ先が見つかりにくい</a></li>
+        <li><a href="#s4">どう読むか、どこに注意するか</a></li>
+        <li><a href="#s5">問合せの前に、確かめる順番</a></li>
+        <li><a href="#s6">次に読むとよいページ</a></li>
+      </ul>
+    </nav>
+      <div class="bl-side-cta">
+        <h2>自分に使える補助金は？</h2>
+        <p>質問に答えるだけで、AIが使えそうな補助金を判定します。</p>
+        <a class="bl-btn" href="../hantei.html">AI補助金判定を試す <span aria-hidden="true">→</span></a>
+      </div>
+    <!-- side-top:end -->
+
+    <nav class="related-links" aria-label="関連ページ">
+      <h2>関連ページ</h2>
+      <h3 class="rl-group">基礎知識・コラム・ニュース</h3>
+      <ul>
+        <li><a href="index.html">ブログの一覧</a></li>
+      </ul>
+      <h3 class="rl-group">補助金を探す・調べる</h3>
+      <ul>
+        <li><a href="../hantei.html">AI補助金判定（質問に答えて探す）</a></li>
+        <li><a href="../hitsuyo.html">やりたいこと・ほしいものから探す</a></li>
+      </ul>
+      <h3 class="rl-group">その他</h3>
+      <ul>
+        <li><a href="../consult.html">無料相談のお申し込み</a></li>
+      </ul>
+    </nav>
+</aside></div>
+  
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-top">
+      <div class="footer-info">
+        <a class="footer-brand" href="../" aria-label="補助金ネット トップ"><img src="../images/logo-header-v5.webp" alt="補助金ネット" width="200" height="60"></a>
+        <p>事業者・個人のための補助金サイト</p>
+        <p class="footer-source">募集中の補助金データ：<a href="https://www.jgrants-portal.go.jp/" target="_blank" rel="noopener">jGrants（デジタル庁）</a><br>住所検索：<a href="https://zipcloud.ibsnet.co.jp/" target="_blank" rel="noopener">zipcloud</a></p>
+        <p class="footer-contact">運営者：<a href="../policy/about.html">運営者情報</a><br>お問い合わせ：<a href="../policy/contact.html">フォーム</a></p>
+        <figure class="footer-qr">
+          <img src="../images/qr-hojyokin.png" alt="補助金ネット（hojyokin.net）へのQRコード" width="120" height="120" loading="lazy">
+          <figcaption>スマホで開く</figcaption>
+        </figure>
+      </div>
+      <nav class="footer-nav" aria-label="フッター">
+          <details class="footer-group">
+            <summary>探す</summary>
+            <ul>
+            <li><a href="../who/sole-proprietor.html">個人事業主</a></li>
+            <li><a href="../who/sme.html">中小企業</a></li>
+            <li><a href="../who/startup.html">創業・副業</a></li>
+            <li><a href="../personal/summary.html">個人の方</a></li>
+            <li><a href="../grants/prefectures.html">都道府県別</a></li>
+            <li><a href="../area/index.html">市区町村別</a></li>
+            <li><a href="../search.html">キーワード</a></li>
+            <li><a href="../grants/purposes.html">目的別</a></li>
+            <li><a href="../grants/industries.html">業種別</a></li>
+            <li><a href="../search.html?within=90&sort=end">締切が近い順</a></li>
+            </ul>
+          </details>
+          <details class="footer-group">
+            <summary>管理する</summary>
+            <ul>
+            <li><a href="../mypage.html">マイページ</a></li>
+            <li><a href="../hantei.html">AI補助金判定</a></li>
+            <li><a href="../plan.html">事業計画書AI</a></li>
+            <li><a href="../research/index.html">補助金データ</a></li>
+            <li><a href="../consult.html">無料相談</a></li>
+            </ul>
+          </details>
+          <details class="footer-group">
+            <summary>学ぶ</summary>
+            <ul>
+            <li><a href="../basics/index.html">基礎知識</a></li>
+            <li><a href="../basics/flow.html">申請の流れ</a></li>
+            <li><a href="../cases/index.html">活用事例</a></li>
+            <li><a href="../news/index.html">補助金ニュース</a></li>
+            <li><a href="../blog/index.html">ブログ</a></li>
+            <li><a href="../columns.html">コラム</a></li>
+            <li><a href="../basics/glossary.html">用語集</a></li>
+            </ul>
+          </details>
+          <details class="footer-group">
+            <summary>サイトについて</summary>
+            <ul>
+            <li><a href="../guide.html">使い方</a></li>
+            <li><a href="../policy/about.html">運営者情報</a></li>
+            <li><a href="../policy/sources.html">出典・更新方針</a></li>
+            <li><a href="../policy/contact.html">お問い合わせ</a></li>
+            <li><a href="../sitemap.html">サイトマップ</a></li>
+            </ul>
+          </details>
+        </nav>
+    </div>
+    <div class="footer-bottom">
+            <nav aria-label="補助リンク">
+        <ul>
+          <li><a href="../policy/privacy.html">プライバシーポリシー</a></li>
+          <li><a href="../policy/terms.html">利用規約</a></li>
+          <li><a href="../policy/sources.html">出典・更新方針</a></li>
+          <li><a href="../policy/contact.html">フィードバック・バグ報告</a></li>
+          <li><a href="../sitemap.html">サイトマップ</a></li>
+        </ul>
+      </nav>
+      <p class="footer-copy">Copyright © 2026 補助金ネット. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="../site.js"></script>
+</body>
+</html>
