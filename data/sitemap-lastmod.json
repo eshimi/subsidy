@@ -1,7 +1,7 @@
 {
  "": {
-  "h": "v2:3d1991f8bb05",
-  "d": "2026-11-27"
+  "h": "v2:fb35db4f3bff",
+  "d": "2026-11-28"
  },
  "beginner-guide.html": {
   "h": "v2:e59ff0b557b8",
@@ -72,8 +72,8 @@
   "d": "2026-10-18"
  },
  "sitemap.html": {
-  "h": "v2:a50305923699",
-  "d": "2026-11-27"
+  "h": "v2:1c2e11826d5e",
+  "d": "2026-11-28"
  },
  "basics/after-adoption.html": {
   "h": "v2:a7c34a684327",
@@ -140,8 +140,8 @@
   "d": "2026-10-15"
  },
  "personal/housing.html": {
-  "h": "v2:e091fa133342",
-  "d": "2026-11-27"
+  "h": "v2:b2c5ec06a141",
+  "d": "2026-11-28"
  },
  "personal/kids.html": {
   "h": "v2:7e634a75bdbc",
@@ -400,40 +400,40 @@
   "d": "2026-10-15"
  },
  "blog/2026-10-11-blog-start.html": {
-  "h": "v2:73b268191cde",
-  "d": "2026-11-27"
+  "h": "v2:c2f056c01d5d",
+  "d": "2026-11-28"
  },
  "blog/2026-10-11-personal-popular-subsidies.html": {
-  "h": "v2:676c82400fa8",
-  "d": "2026-11-27"
+  "h": "v2:cc0cd9acdb0a",
+  "d": "2026-11-28"
  },
  "blog/2026-10-12-find-subsidy-in-your-city.html": {
-  "h": "v2:03a614d84ce1",
-  "d": "2026-11-27"
+  "h": "v2:027cf2ce4401",
+  "d": "2026-11-28"
  },
  "blog/2026-10-13-choose-subsidy-support.html": {
-  "h": "v2:5c9d1c752347",
-  "d": "2026-11-27"
+  "h": "v2:bfbd4581aacd",
+  "d": "2026-11-28"
  },
  "blog/2026-10-13-popular-subsidies-application-steps-2.html": {
-  "h": "v2:5ad3493490aa",
-  "d": "2026-11-27"
+  "h": "v2:cd73310928e1",
+  "d": "2026-11-28"
  },
  "blog/2026-10-13-popular-subsidies-application-steps.html": {
-  "h": "v2:c9fcb5fd8d92",
-  "d": "2026-11-27"
+  "h": "v2:ec0f75acd5b7",
+  "d": "2026-11-28"
  },
  "blog/2026-10-13-subsidy-for-website.html": {
-  "h": "v2:734d8b00cfb8",
-  "d": "2026-11-27"
+  "h": "v2:8136af8d0af8",
+  "d": "2026-11-28"
  },
  "blog/2026-10-15-aimitsumori-estimate-tips.html": {
-  "h": "v2:2a813b4bb9c7",
-  "d": "2026-11-27"
+  "h": "v2:3706ef212308",
+  "d": "2026-11-28"
  },
  "blog/2026-10-15-application-mistakes-checklist.html": {
-  "h": "v2:2f34b56e1007",
-  "d": "2026-11-27"
+  "h": "v2:5ff4f59b336c",
+  "d": "2026-11-28"
  },
  "blog/2026-10-16-numerical-plan-tips.html": {
   "h": "v2:7884456de30f",
@@ -456,152 +456,156 @@
   "d": "2026-10-23"
  },
  "blog/2026-10-23-jgrants-deadline-patterns.html": {
-  "h": "v2:6bcb3c1cf3db",
-  "d": "2026-11-27"
+  "h": "v2:4308da76f8a1",
+  "d": "2026-11-28"
  },
  "blog/2026-10-24-gaps-by-purpose.html": {
-  "h": "v2:f90023695c4c",
-  "d": "2026-11-27"
+  "h": "v2:e7ad9d9e8434",
+  "d": "2026-11-28"
  },
  "blog/2026-10-25-jgrants-rate-and-limit.html": {
-  "h": "v2:8b4f9ca439c8",
-  "d": "2026-11-27"
+  "h": "v2:b0bf14c44caa",
+  "d": "2026-11-28"
  },
  "blog/2026-10-26-resident-programs-data.html": {
-  "h": "v2:2f12ee45aed4",
-  "d": "2026-11-27"
+  "h": "v2:a008baf194bb",
+  "d": "2026-11-28"
  },
  "blog/2026-10-27-local-amount-and-stage.html": {
-  "h": "v2:305f99246e59",
-  "d": "2026-11-27"
+  "h": "v2:98711c1dfda4",
+  "d": "2026-11-28"
  },
  "blog/2026-10-28-jgrants-target-scope.html": {
-  "h": "v2:26047e39abaf",
-  "d": "2026-11-27"
+  "h": "v2:c0d15d9310e4",
+  "d": "2026-11-28"
  },
  "blog/2026-10-29-jgrants-turnover-changes.html": {
-  "h": "v2:8e8cf6e3c06e",
-  "d": "2026-11-27"
+  "h": "v2:82727edcf22b",
+  "d": "2026-11-28"
  },
  "blog/2026-10-30-prefecture-business-programs.html": {
-  "h": "v2:09248fe8db6c",
-  "d": "2026-11-27"
+  "h": "v2:f209e86fa127",
+  "d": "2026-11-28"
  },
  "blog/2026-10-31-industry-specific-local-programs.html": {
-  "h": "v2:93be642c872f",
-  "d": "2026-11-27"
+  "h": "v2:526c92c40a7f",
+  "d": "2026-11-28"
  },
  "blog/2026-11-01-program-guide-cautions.html": {
-  "h": "v2:d74ce658f110",
-  "d": "2026-11-27"
+  "h": "v2:abece8eb7dbe",
+  "d": "2026-11-28"
  },
  "blog/2026-11-02-jgrants-deadline-extensions.html": {
-  "h": "v2:6dd92d6e6e47",
-  "d": "2026-11-27"
+  "h": "v2:2854c6e24d23",
+  "d": "2026-11-28"
  },
  "blog/2026-11-03-resident-prefecture-share.html": {
-  "h": "v2:596fefa739fb",
-  "d": "2026-11-27"
+  "h": "v2:5f2c1f590509",
+  "d": "2026-11-28"
  },
  "blog/2026-11-04-local-type-names.html": {
-  "h": "v2:4205395d1c5f",
-  "d": "2026-11-27"
+  "h": "v2:4a95aad48712",
+  "d": "2026-11-28"
  },
  "blog/2026-11-05-program-guide-skipped-reasons.html": {
-  "h": "v2:0e29d73290bc",
-  "d": "2026-11-27"
+  "h": "v2:1c33ceb69cd3",
+  "d": "2026-11-28"
  },
  "blog/2026-11-06-program-guide-documents.html": {
-  "h": "v2:9d5db2fd4253",
-  "d": "2026-11-27"
+  "h": "v2:1a00c3cdc408",
+  "d": "2026-11-28"
  },
  "blog/2026-11-07-program-guide-excluded-expenses.html": {
-  "h": "v2:db2894f33814",
-  "d": "2026-11-27"
+  "h": "v2:3f947482e0b8",
+  "d": "2026-11-28"
  },
  "blog/2026-11-08-local-deadline-month-end.html": {
-  "h": "v2:0dd70e054cf2",
-  "d": "2026-11-27"
+  "h": "v2:f20498915b6b",
+  "d": "2026-11-28"
  },
  "blog/2026-11-09-resident-conditions-keywords.html": {
-  "h": "v2:ab1e0eab03dc",
-  "d": "2026-11-27"
+  "h": "v2:2939824fbbdc",
+  "d": "2026-11-28"
  },
  "blog/2026-11-10-local-subsidy-rate.html": {
-  "h": "v2:d6e548966700",
-  "d": "2026-11-27"
+  "h": "v2:9ad4c205a5a4",
+  "d": "2026-11-28"
  },
  "blog/2026-11-11-gaps-by-prefecture.html": {
-  "h": "v2:73ed892d56fe",
-  "d": "2026-11-27"
+  "h": "v2:d0208e0a0b52",
+  "d": "2026-11-28"
  },
  "blog/2026-11-12-gyomu-kaizen-deadline-by-prefecture.html": {
-  "h": "v2:a817f4a0cbe6",
-  "d": "2026-11-27"
+  "h": "v2:af4578bdc2ed",
+  "d": "2026-11-28"
  },
  "blog/2026-11-13-jgrants-area-scope.html": {
-  "h": "v2:37b5ea889a34",
-  "d": "2026-11-27"
+  "h": "v2:f318867a9458",
+  "d": "2026-11-28"
  },
  "blog/2026-11-14-resident-type-names.html": {
-  "h": "v2:c2db9e90dbe2",
-  "d": "2026-11-27"
+  "h": "v2:1fb3ed459cfa",
+  "d": "2026-11-28"
  },
  "blog/2026-11-15-resident-unconfirmed-fields.html": {
-  "h": "v2:875e41798eb7",
-  "d": "2026-11-27"
+  "h": "v2:bd7bf44b8a68",
+  "d": "2026-11-28"
  },
  "blog/2026-11-16-jgrants-round-numbers.html": {
-  "h": "v2:551c9f1b4c62",
-  "d": "2026-11-27"
+  "h": "v2:015209cd004e",
+  "d": "2026-11-28"
  },
  "blog/2026-11-17-jgrants-purpose-deadline.html": {
-  "h": "v2:20cd34394355",
-  "d": "2026-11-27"
+  "h": "v2:c15a53171e3c",
+  "d": "2026-11-28"
  },
  "blog/2026-11-18-jgrants-deadline-weekday.html": {
-  "h": "v2:65ba8df45c38",
-  "d": "2026-11-27"
+  "h": "v2:14df77b96be4",
+  "d": "2026-11-28"
  },
  "blog/2026-11-19-jgrants-days-since-start.html": {
-  "h": "v2:2bc4453f7e71",
-  "d": "2026-11-27"
+  "h": "v2:0d3f178b061a",
+  "d": "2026-11-28"
  },
  "blog/2026-11-20-jgrants-attachments.html": {
-  "h": "v2:941c29c858ec",
-  "d": "2026-11-27"
+  "h": "v2:67cabfacf7ee",
+  "d": "2026-11-28"
  },
  "blog/2026-11-21-jgrants-contact-type.html": {
-  "h": "v2:b0c793445ee4",
-  "d": "2026-11-27"
+  "h": "v2:1332127ef219",
+  "d": "2026-11-28"
  },
  "blog/2026-11-22-jgrants-project-end-gap.html": {
-  "h": "v2:5029239958a5",
-  "d": "2026-11-27"
+  "h": "v2:63ba67fc4c01",
+  "d": "2026-11-28"
  },
  "blog/2026-11-23-program-guide-eligibility.html": {
-  "h": "v2:1c3d5245631f",
-  "d": "2026-11-27"
+  "h": "v2:411dd530e502",
+  "d": "2026-11-28"
  },
  "blog/2026-11-24-program-guide-flow.html": {
-  "h": "v2:f179dc32793c",
-  "d": "2026-11-27"
+  "h": "v2:27c1cc7fea90",
+  "d": "2026-11-28"
  },
  "blog/2026-11-25-program-guide-eligible-expenses.html": {
-  "h": "v2:7b8d661b7348",
-  "d": "2026-11-27"
+  "h": "v2:27eea0141be5",
+  "d": "2026-11-28"
  },
  "blog/2026-11-26-program-guide-selection.html": {
-  "h": "v2:eedcf05292fc",
-  "d": "2026-11-27"
+  "h": "v2:49106122c5f9",
+  "d": "2026-11-28"
  },
  "blog/2026-11-27-program-guide-contact.html": {
-  "h": "v2:5349ba3c212d",
-  "d": "2026-11-27"
+  "h": "v2:ecab46512ccb",
+  "d": "2026-11-28"
+ },
+ "blog/2026-11-28-jgrants-december-deadlines.html": {
+  "h": "v2:e872c9553d14",
+  "d": "2026-11-28"
  },
  "blog/index.html": {
-  "h": "v2:42d67e134f87",
-  "d": "2026-11-27"
+  "h": "v2:b5a56757d464",
+  "d": "2026-11-28"
  },
  "policy/about.html": {
   "h": "v2:21963a2ccc50",
@@ -1056,20 +1060,20 @@
   "d": "2026-10-17"
  },
  "background/decarbon.html": {
-  "h": "v2:e0f842b67fe8",
-  "d": "2026-11-27"
+  "h": "v2:3ae349f19fcb",
+  "d": "2026-11-28"
  },
  "background/index.html": {
   "h": "v2:3429f58c88ac",
   "d": "2026-10-27"
  },
  "background/labor.html": {
-  "h": "v2:10932ed13cd8",
-  "d": "2026-11-27"
+  "h": "v2:744b50a97649",
+  "d": "2026-11-28"
  },
  "background/population.html": {
-  "h": "v2:cf2b843f64cc",
-  "d": "2026-11-27"
+  "h": "v2:f6f747ea06bb",
+  "d": "2026-11-28"
  },
  "hitsuyo/home-ev.html": {
   "h": "v2:7aff2618ccb3",
